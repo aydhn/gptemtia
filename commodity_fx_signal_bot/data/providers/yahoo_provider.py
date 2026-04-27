@@ -8,6 +8,7 @@ from typing import Optional
 from core.logger import get_logger
 from core.exceptions import DataProviderError
 from data.providers.base_provider import BaseDataProvider
+from data.data_quality import validate_ohlcv_dataframe
 
 logger = get_logger(__name__)
 
@@ -19,8 +20,11 @@ class YahooProvider(BaseDataProvider):
         symbol: str,
         interval: str,
         start: Optional[str] = None,
-        end: Optional[str] = None
+        end: Optional[str] = None,
+        period: Optional[str] = None,
     ) -> pd.DataFrame:
+
+        self.validate_symbol(symbol)
 
         logger.info(f"Fetching data from Yahoo for {symbol} ({interval})")
 
@@ -29,40 +33,26 @@ class YahooProvider(BaseDataProvider):
             # Fetch data
             if start and end:
                 df = ticker.history(interval=interval, start=start, end=end, auto_adjust=False)
+            elif period:
+                df = ticker.history(interval=interval, period=period, auto_adjust=False)
             else:
-                # If no start/end provided, fetch max available history based on interval
-                period = "730d" if interval in ["1h", "60m"] else "max"
+                # If no start/end/period provided, default to a sensible value like 2y
+                period = "2y"
                 df = ticker.history(interval=interval, period=period, auto_adjust=False)
 
             if df is None or df.empty:
                 raise DataProviderError(f"No data returned for {symbol} from Yahoo Finance.")
 
-            # Normalize column names to lowercase
-            df.columns = [c.lower() for c in df.columns]
+            # MultiIndex columns handler
+            if isinstance(df.columns, pd.MultiIndex):
+                # Flatten MultiIndex, keeping only the first level (Price type)
+                df.columns = [col[0] for col in df.columns]
 
-            # Ensure required columns exist
-            # yfinance returns 'adj close' with space if auto_adjust=False
-            if "adj close" in df.columns:
-                df.rename(columns={"adj close": "adj_close"}, inplace=True)
-            elif "close" in df.columns and "adj_close" not in df.columns:
-                df["adj_close"] = df["close"]
+            # Use base class to normalize columns and index
+            df = self.normalize_ohlcv(df)
 
-            required_cols = ["open", "high", "low", "close", "adj_close", "volume"]
-            for col in required_cols:
-                if col not in df.columns:
-                    if col == "volume":
-                         df["volume"] = 0 # Default volume if missing
-                    else:
-                         raise DataProviderError(f"Missing required column {col} in data for {symbol}")
-
-            # Keep only required columns
-            df = df[required_cols]
-
-            # Ensure index is timezone-aware datetime
-            if df.index.tz is None:
-                df.index = df.index.tz_localize('UTC')
-            else:
-                df.index = df.index.tz_convert('UTC')
+            # Validate the normalized data using data quality module
+            validate_ohlcv_dataframe(df)
 
             return df
 

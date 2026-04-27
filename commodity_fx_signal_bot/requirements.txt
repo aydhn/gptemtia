@@ -1,0 +1,10 @@
+pandas
+numpy
+yfinance
+python-dotenv
+requests
+pyarrow
+pytest
+scikit-learn
+scipy
+ta

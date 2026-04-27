@@ -150,3 +150,14 @@ def validate_symbol_universe() -> Tuple[bool, List[str]]:
             seen_symbols.add(alias)
 
     return len(errors) == 0, errors
+
+def get_symbol_spec(symbol: str) -> SymbolSpec | None:
+    """Get the SymbolSpec for a given symbol or alias."""
+    mapping = get_symbol_map()
+    return mapping.get(symbol)
+
+def get_all_candidate_symbols(spec: SymbolSpec) -> list[str]:
+    """Get all candidate symbols to try fetching, primary first, then aliases."""
+    candidates = [spec.symbol]
+    candidates.extend(spec.aliases)
+    return candidates
