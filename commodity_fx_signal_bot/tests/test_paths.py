@@ -1,8 +1,17 @@
 """
 Tests for path definitions and directory creation.
 """
+
 from pathlib import Path
-from config.paths import ensure_project_directories, LOGS_DIR, REPORTS_DIR, RAW_DATA_DIR, PROCESSED_DATA_DIR, CACHE_DIR
+from config.paths import (
+    ensure_project_directories,
+    LOGS_DIR,
+    REPORTS_DIR,
+    RAW_DATA_DIR,
+    PROCESSED_DATA_DIR,
+    CACHE_DIR,
+)
+
 
 def test_ensure_project_directories():
     """Ensure that the function creates directories without errors."""

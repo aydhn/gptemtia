@@ -1,11 +1,13 @@
 """
 FRED Data Provider Skeleton.
 """
+
 from typing import Optional
 import pandas as pd
 from data.providers.base_provider import BaseDataProvider
 from config.settings import settings
 from core.exceptions import DataProviderError
+
 
 class FREDProvider(BaseDataProvider):
     """
@@ -29,13 +31,15 @@ class FREDProvider(BaseDataProvider):
         Skeleton method to align with BaseDataProvider.
         FRED provides series data, not OHLCV.
         """
-        raise NotImplementedError("FREDProvider does not support fetching OHLCV data directly yet.")
+        raise NotImplementedError(
+            "FREDProvider does not support fetching OHLCV data directly yet."
+        )
 
     def fetch_series(
         self,
         series_id: str,
         start_date: Optional[str] = None,
-        end_date: Optional[str] = None
+        end_date: Optional[str] = None,
     ) -> pd.DataFrame:
         """
         Fetch a specific series from FRED.

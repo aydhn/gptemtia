@@ -1,6 +1,7 @@
 """
 Data Pipeline to handle symbol fetching, alias fallback, caching, and data quality.
 """
+
 from typing import Optional, Dict, List
 import pandas as pd
 
@@ -11,8 +12,49 @@ from config.symbols import SymbolSpec, get_all_candidate_symbols
 from data.storage.cache_manager import CacheManager
 from data.provider_registry import get_provider
 from data.data_quality import validate_ohlcv_dataframe, is_dataframe_usable
+from config.timeframes import is_derived_timeframe, get_provider_interval_for_timeframe
 
 logger = get_logger(__name__)
+
+
+def resample_ohlcv(df: pd.DataFrame, target_timeframe: str) -> pd.DataFrame:
+    """
+    Resample an OHLCV DataFrame to a target timeframe.
+    """
+    if df is None or df.empty:
+        return df
+
+    # Pandas offset aliases: '4h' -> '4H'
+    pandas_tf = target_timeframe.upper()
+    if pandas_tf == "1D":
+        pandas_tf = "D"
+    elif pandas_tf == "1WK":
+        pandas_tf = "W"
+    elif pandas_tf == "1MO":
+        pandas_tf = "M"
+
+    agg_dict = {}
+    if "open" in df.columns:
+        agg_dict["open"] = "first"
+    if "high" in df.columns:
+        agg_dict["high"] = "max"
+    if "low" in df.columns:
+        agg_dict["low"] = "min"
+    if "close" in df.columns:
+        agg_dict["close"] = "last"
+    if "adj_close" in df.columns:
+        agg_dict["adj_close"] = "last"
+    if "volume" in df.columns:
+        agg_dict["volume"] = "sum"
+
+    resampled_df = df.resample(pandas_tf).agg(agg_dict)
+    resampled_df = resampled_df.dropna(how="all")
+
+    # Restore attrs if possible
+    resampled_df.attrs = df.attrs.copy()
+
+    return resampled_df
+
 
 class DataPipeline:
     """Orchestrates data fetching, caching, and validation."""
@@ -34,6 +76,18 @@ class DataPipeline:
         """
         Fetch data for a symbol, trying aliases if primary fails.
         """
+        # Timeframe awareness
+        is_derived = False
+        try:
+            if is_derived_timeframe(interval):
+                is_derived = True
+                provider_interval = get_provider_interval_for_timeframe(interval)
+            else:
+                provider_interval = interval
+        except Exception:
+            # Fallback if timeframe not found in registry
+            provider_interval = interval
+
         candidate_symbols = get_all_candidate_symbols(spec)
         provider = get_provider(spec.data_source)
 
@@ -44,7 +98,7 @@ class DataPipeline:
 
             # 1. Try Cache
             if use_cache and not refresh and self.cache_manager.exists(cache_path):
-                logger.debug(f"Cache hit for {attempt_symbol}")
+                logger.debug(f"Cache hit for {attempt_symbol} at {interval}")
                 try:
                     df = self.cache_manager.load_dataframe(cache_path)
                     if is_dataframe_usable(df, self.settings.min_ohlcv_rows):
@@ -55,15 +109,29 @@ class DataPipeline:
                         df.attrs["data_source"] = spec.data_source
                         return df
                 except Exception as e:
-                    logger.warning(f"Failed to load/validate cache for {attempt_symbol}: {e}")
+                    logger.warning(
+                        f"Failed to load/validate cache for {attempt_symbol}: {e}"
+                    )
 
             # 2. Try Provider
             if self.settings.allow_network_calls:
                 try:
-                    df = provider.fetch_ohlcv(attempt_symbol, interval, start, end, period)
+                    # Fetch using provider interval
+                    df = provider.fetch_ohlcv(
+                        attempt_symbol, provider_interval, start, end, period
+                    )
+
+                    # Resample if derived
+                    if is_derived and not df.empty:
+                        logger.debug(
+                            f"Resampling {attempt_symbol} from {provider_interval} to {interval}"
+                        )
+                        df = resample_ohlcv(df, interval)
 
                     if is_dataframe_usable(df, self.settings.min_ohlcv_rows):
-                        logger.info(f"Fetched {attempt_symbol} via provider successfully.")
+                        logger.info(
+                            f"Fetched {attempt_symbol} via provider successfully."
+                        )
                         if use_cache:
                             self.cache_manager.save_dataframe(df, cache_path)
                         df.attrs["requested_symbol"] = spec.symbol
@@ -72,7 +140,9 @@ class DataPipeline:
                         df.attrs["data_source"] = spec.data_source
                         return df
                     else:
-                        logger.warning(f"Data for {attempt_symbol} fetched but not usable.")
+                        logger.warning(
+                            f"Data for {attempt_symbol} fetched but not usable."
+                        )
                 except Exception as e:
                     logger.debug(f"Failed to fetch {attempt_symbol} via provider: {e}")
 
@@ -107,6 +177,8 @@ class DataPipeline:
                     raise
 
         if failed_symbols:
-            logger.warning(f"Failed to fetch {len(failed_symbols)} symbols: {failed_symbols}")
+            logger.warning(
+                f"Failed to fetch {len(failed_symbols)} symbols: {failed_symbols}"
+            )
 
         return results

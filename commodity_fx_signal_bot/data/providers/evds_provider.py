@@ -1,11 +1,13 @@
 """
 EVDS Data Provider Skeleton.
 """
+
 from typing import Optional
 import pandas as pd
 from data.providers.base_provider import BaseDataProvider
 from config.settings import settings
 from core.exceptions import DataProviderError
+
 
 class EVDSProvider(BaseDataProvider):
     """
@@ -29,13 +31,12 @@ class EVDSProvider(BaseDataProvider):
         Skeleton method to align with BaseDataProvider.
         EVDS primarily provides series data, so OHLCV might not make sense directly.
         """
-        raise NotImplementedError("EVDSProvider does not support fetching OHLCV data directly yet.")
+        raise NotImplementedError(
+            "EVDSProvider does not support fetching OHLCV data directly yet."
+        )
 
     def fetch_series(
-        self,
-        series_code: str,
-        start_date: str,
-        end_date: str
+        self, series_code: str, start_date: str, end_date: str
     ) -> pd.DataFrame:
         """
         Fetch a specific series from EVDS.

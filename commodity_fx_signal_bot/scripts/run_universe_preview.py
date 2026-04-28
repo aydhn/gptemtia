@@ -1,6 +1,7 @@
 """
 Script to preview the symbol universe and detect issues.
 """
+
 import sys
 from pathlib import Path
 
@@ -8,10 +9,15 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent))
 
 from core.logger import get_logger
-from config.symbols import get_enabled_symbols, validate_symbol_universe, summarize_universe
+from config.symbols import (
+    get_enabled_symbols,
+    validate_symbol_universe,
+    summarize_universe,
+)
 from reports.report_builder import build_universe_report
 
 logger = get_logger("run_universe_preview")
+
 
 def main():
     logger.info("Starting Universe Preview...")
@@ -31,6 +37,7 @@ def main():
     print("\n" + report + "\n")
     print(f"Summary: {summary}\n")
     logger.info("Universe Preview completed.")
+
 
 if __name__ == "__main__":
     main()

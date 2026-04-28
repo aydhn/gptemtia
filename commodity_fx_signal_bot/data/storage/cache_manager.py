@@ -1,6 +1,7 @@
 """
 Cache management for OHLCV data.
 """
+
 import os
 import re
 import pandas as pd
@@ -9,6 +10,7 @@ from typing import Optional
 from core.logger import get_logger
 
 logger = get_logger(__name__)
+
 
 class CacheManager:
     """Manager for caching downloaded data."""
@@ -19,8 +21,8 @@ class CacheManager:
 
     def _sanitize_symbol(self, symbol: str) -> str:
         """Sanitize symbol to be safe for filenames."""
-        safe_symbol = symbol.replace('/', '_').replace('=', '')
-        safe_symbol = re.sub(r'[^a-zA-Z0-9_-]', '', safe_symbol)
+        safe_symbol = symbol.replace("/", "_").replace("=", "")
+        safe_symbol = re.sub(r"[^a-zA-Z0-9_-]", "", safe_symbol)
         return safe_symbol
 
     def build_cache_path(
@@ -30,7 +32,7 @@ class CacheManager:
         period: Optional[str] = None,
         start: Optional[str] = None,
         end: Optional[str] = None,
-        format_ext: str = "parquet"
+        format_ext: str = "parquet",
     ) -> Path:
         """Build a safe file path for caching."""
         safe_symbol = self._sanitize_symbol(symbol)
@@ -75,7 +77,7 @@ class CacheManager:
 
             # Ensure index is timezone-aware DatetimeIndex
             if isinstance(df.index, pd.DatetimeIndex) and df.index.tz is None:
-                df.index = df.index.tz_localize('UTC')
+                df.index = df.index.tz_localize("UTC")
 
             logger.debug(f"Loaded dataframe from cache: {path}")
             return df

@@ -3,6 +3,7 @@ Main entry point for Commodity & FX Signal Bot.
 Phase 1 focuses on loading settings, verifying directories,
 and validating the symbol universe.
 """
+
 import sys
 from pathlib import Path
 
@@ -18,10 +19,11 @@ from config.symbols import validate_symbol_universe, get_enabled_symbols
 # Initialize logger (after settings are loaded)
 logger = get_logger("main", log_file="system.log")
 
+
 def main():
-    logger.info("="*50)
+    logger.info("=" * 50)
     logger.info(f"Starting {settings.app_name} [Env: {settings.environment}]")
-    logger.info("="*50)
+    logger.info("=" * 50)
 
     try:
         # Step 1: Ensure required directories exist
@@ -42,12 +44,15 @@ def main():
 
         # Output basic stats
         enabled_symbols = get_enabled_symbols()
-        logger.info(f"System initialized successfully. Loaded {len(enabled_symbols)} enabled symbols.")
+        logger.info(
+            f"System initialized successfully. Loaded {len(enabled_symbols)} enabled symbols."
+        )
         logger.info("Phase 1 initialization complete. Ready for Phase 2.")
 
     except Exception as e:
         logger.critical(f"System failed to start: {str(e)}")
         sys.exit(1)
+
 
 if __name__ == "__main__":
     main()

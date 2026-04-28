@@ -1,6 +1,7 @@
 """
 Smoke test script to verify data fetching for a few symbols using DataPipeline.
 """
+
 import sys
 from pathlib import Path
 
@@ -13,6 +14,7 @@ from config.paths import CACHE_DIR, ensure_project_directories
 from config.symbols import get_enabled_symbols
 from data.storage.cache_manager import CacheManager
 from data.data_pipeline import DataPipeline
+
 
 def main():
     logger = get_logger("run_data_check")
@@ -38,10 +40,7 @@ def main():
 
     try:
         results = pipeline.fetch_many(
-            specs=test_symbols,
-            interval="1d",
-            period="1mo",
-            max_symbols=3
+            specs=test_symbols, interval="1d", period="1mo", max_symbols=3
         )
 
         success_count = len(results)
@@ -49,12 +48,15 @@ def main():
         for symbol, df in results.items():
             logger.info(f"Success! {symbol} returned {len(df)} rows.")
 
-        logger.info(f"Data Check completed. {success_count}/{len(test_symbols)} successful.")
+        logger.info(
+            f"Data Check completed. {success_count}/{len(test_symbols)} successful."
+        )
 
     except Exception as e:
         logger.error(f"Smoke test failed: {e}")
     finally:
         settings.min_ohlcv_rows = original_min_rows
+
 
 if __name__ == "__main__":
     main()

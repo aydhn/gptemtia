@@ -1,10 +1,12 @@
 """
 Base Data Provider definition.
 """
+
 from abc import ABC, abstractmethod
 from typing import Optional
 import pandas as pd
 from core.exceptions import DataProviderError
+
 
 class BaseDataProvider(ABC):
     """
@@ -90,7 +92,9 @@ class BaseDataProvider(ABC):
         required_cols = ["open", "high", "low", "close", "adj_close", "volume"]
         missing_cols = [col for col in required_cols if col not in df.columns]
         if missing_cols:
-            raise DataProviderError(f"Missing required columns after normalization: {missing_cols}")
+            raise DataProviderError(
+                f"Missing required columns after normalization: {missing_cols}"
+            )
 
         # 6. Reorder columns
         df = df[required_cols]
@@ -100,12 +104,14 @@ class BaseDataProvider(ABC):
             try:
                 df.index = pd.to_datetime(df.index)
             except Exception as e:
-                raise DataProviderError(f"Failed to convert index to DatetimeIndex: {e}")
+                raise DataProviderError(
+                    f"Failed to convert index to DatetimeIndex: {e}"
+                )
 
         # 8. Timezone handling
         if df.index.tz is None:
-            df.index = df.index.tz_localize('UTC')
+            df.index = df.index.tz_localize("UTC")
         else:
-            df.index = df.index.tz_convert('UTC')
+            df.index = df.index.tz_convert("UTC")
 
         return df

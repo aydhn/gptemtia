@@ -18,3 +18,12 @@ This document describes the high-level architecture of the Commodity & FX Signal
 - `ProviderRegistry`: Manages data providers.
 - `CacheManager`: Handles parquet file caching.
 - `UniverseAnalyzer`: Evaluates the reliability of symbols based on data quality metrics.
+
+### Phase 4 Updates
+- **Timeframe Registry:** `config/timeframes.py` centralized logic for allowed intervals.
+- **Market Session Model:** `config/market_sessions.py` provides approximate asset class trading behavior.
+- **Scan Profile & Scheduler:** `config/scan_config.py` and `core/scan_scheduler.py` construct realistic scanning cycles ensuring symbols aren't scanned continuously when the market is closed or when not in profile.
+- **Data Resampling:** `data_pipeline.py` introduces handling of `derived` timeframes like 4h using pandas resampling.
+
+New Pipeline Hierarchy:
+Symbol Universe → Timeframe Registry → Market Session Model → Scan Profile → Scan Scheduler → Data Pipeline → (Future Strategy Engine)

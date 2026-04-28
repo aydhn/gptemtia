@@ -1,6 +1,7 @@
 """
 Path definitions and directory management for the project.
 """
+
 import os
 from pathlib import Path
 
@@ -17,18 +18,13 @@ RAW_DATA_DIR = DATA_DIR / "raw"
 PROCESSED_DATA_DIR = DATA_DIR / "processed"
 CACHE_DIR = DATA_DIR / "cache"
 
+
 def ensure_project_directories() -> None:
     """
     Ensure that all required project directories exist.
     Creates them if they do not exist.
     """
-    directories = [
-        LOGS_DIR,
-        REPORTS_DIR,
-        RAW_DATA_DIR,
-        PROCESSED_DATA_DIR,
-        CACHE_DIR
-    ]
+    directories = [LOGS_DIR, REPORTS_DIR, RAW_DATA_DIR, PROCESSED_DATA_DIR, CACHE_DIR]
 
     for directory in directories:
         directory.mkdir(parents=True, exist_ok=True)
