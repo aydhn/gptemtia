@@ -48,25 +48,49 @@ def validate_ohlcv_dataframe(df: pd.DataFrame) -> None:
             raise DataQualityError(f"Column '{col}' contains entirely NaN values.")
 
 
-def build_data_quality_report(df: pd.DataFrame) -> Dict[str, Any]:
+def build_data_quality_report(df: pd.DataFrame, raise_on_empty: bool = False) -> Dict[str, Any]:
     """
     Build a data quality report for an OHLCV DataFrame.
 
     Args:
         df: The DataFrame to analyze.
+        raise_on_empty: Whether to raise DataQualityError on empty df.
 
     Returns:
         dict: A dictionary containing quality metrics.
     """
     if df is None or df.empty:
-        return {"rows": 0, "error": "DataFrame is empty or None"}
+        if raise_on_empty:
+            raise DataQualityError("DataFrame is empty or None.")
+        return {
+            "rows": 0,
+            "start": None,
+            "end": None,
+            "missing_ratio_by_column": {},
+            "duplicate_index_count": 0,
+            "negative_price_count": 0,
+            "high_low_error_count": 0,
+            "last_close": None,
+            "volume_missing_ratio": None,
+            "close_missing_ratio": None,
+            "min_close": None,
+            "max_close": None,
+            "error": "DataFrame is empty or None"
+        }
 
     report = {
         "rows": len(df),
         "start": str(df.index.min()),
         "end": str(df.index.max()),
         "missing_ratio_by_column": {},
-        "duplicate_index_count": df.index.duplicated().sum(),
+        "duplicate_index_count": int(df.index.duplicated().sum()),
+        "negative_price_count": 0,
+        "high_low_error_count": 0,
+        "last_close": None,
+        "volume_missing_ratio": None,
+        "close_missing_ratio": None,
+        "min_close": None,
+        "max_close": None,
     }
 
     # Calculate missing ratios
@@ -74,14 +98,20 @@ def build_data_quality_report(df: pd.DataFrame) -> Dict[str, Any]:
         missing_count = df[col].isna().sum()
         report["missing_ratio_by_column"][col] = float(missing_count / len(df))
 
+    if 'close' in df.columns:
+        report["close_missing_ratio"] = report["missing_ratio_by_column"]["close"]
+
     # Price specific checks
     if all(col in df.columns for col in ['open', 'high', 'low', 'close']):
         report["negative_price_count"] = int((df[['open', 'high', 'low', 'close']] < 0).any(axis=1).sum())
         report["high_low_error_count"] = int((df['high'] < df['low']).sum())
-        report["last_close"] = float(df['close'].iloc[-1]) if not pd.isna(df['close'].iloc[-1]) else None
+        if len(df['close'].dropna()) > 0:
+            report["last_close"] = float(df['close'].dropna().iloc[-1])
+            report["min_close"] = float(df['close'].min())
+            report["max_close"] = float(df['close'].max())
 
     if 'volume' in df.columns:
-        report["volume_missing_ratio"] = float(df['volume'].isna().sum() / len(df))
+        report["volume_missing_ratio"] = report["missing_ratio_by_column"]["volume"]
 
     return report
 

@@ -1,17 +1,24 @@
 # Phase Log
 
-## Phase 1: Project Initialization
-- Base folder structure created.
-- Constants, configs, and base classes defined.
-- `SymbolSpec` universe implemented.
-- Logging and simple testing implemented.
+This file tracks the completion of the project phases.
 
-## Phase 2: Data Sources & Robust Data Pipeline
-- Created `ProviderRegistry` to dynamically manage data providers based on symbol configuration.
-- Enhanced `YahooProvider` with robust error handling, dataframe normalization, and improved interval/period handling.
-- Implemented `CacheManager` utilizing PyArrow/Parquet to prevent redundant API calls.
-- Upgraded `data_quality.py` with comprehensive OHLCV validation (handling missing values, duplicate indices, negative prices) and a quality reporting mechanism.
-- Built `DataPipeline` orchestrator to seamlessly integrate fetching, cache reading/writing, validation, and symbol alias fallback logic.
-- Implemented skeleton providers for EVDS and FRED macros.
-- Added `scripts/run_bulk_data_check.py` to test the stability of the entire universe safely without crashing.
-- Expanded the test suite with `pytest` for `test_data_quality`, `test_cache_manager`, `test_provider_registry`, and `test_yahoo_provider`.
+## Phase 1
+- Initial repository setup.
+- Core utilities (logger, exceptions, constants).
+- Settings loaded from `.env`.
+- Base provider and Yahoo Finance integration.
+- Storage/caching mechanism (Parquet).
+
+## Phase 2
+- Data Pipeline implementation.
+- Basic Data Quality checks.
+- Default Symbol Universe configuration.
+- EVDS and FRED provider stubs.
+
+## Phase 3
+- Extended `SymbolSpec` to include advanced metadata.
+- Implemented `UniverseAnalyzer` to measure symbol data reliability and produce scores/grades.
+- Added `run_universe_audit` script to validate and output a universe manifest.
+- Added `run_symbol_reliability_scan` script to test data sources and produce reports (CSV, TXT).
+- Expanded report builder.
+- Expanded tests for symbols, analyzer, and report builder.
