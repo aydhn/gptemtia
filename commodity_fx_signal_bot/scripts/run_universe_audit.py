@@ -6,10 +6,15 @@ import json
 sys.path.append(str(Path(__file__).parent.parent))
 
 from core.logger import get_logger
-from config.symbols import get_enabled_symbols, validate_symbol_universe, summarize_universe
+from config.symbols import (
+    get_enabled_symbols,
+    validate_symbol_universe,
+    summarize_universe,
+)
 from reports.report_builder import build_universe_report, save_text_report
 
 logger = get_logger("run_universe_audit")
+
 
 def main():
     logger.info("Starting Universe Audit...")
@@ -35,6 +40,7 @@ def main():
         json.dump(summary, f, indent=4)
 
     logger.info("Universe Audit completed. Reports saved to reports/output/")
+
 
 if __name__ == "__main__":
     main()

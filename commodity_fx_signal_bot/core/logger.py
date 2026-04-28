@@ -1,11 +1,13 @@
 """
 Centralized logging configuration.
 """
+
 import logging
 import sys
 from typing import Optional
 from config.settings import settings
 from config.paths import LOGS_DIR
+
 
 def get_logger(name: str, log_file: Optional[str] = None) -> logging.Logger:
     """
@@ -26,7 +28,7 @@ def get_logger(name: str, log_file: Optional[str] = None) -> logging.Logger:
         logger.setLevel(log_level)
 
         formatter = logging.Formatter(
-            '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+            "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
         )
 
         # Console handler

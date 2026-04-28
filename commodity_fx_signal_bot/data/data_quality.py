@@ -1,10 +1,12 @@
 """
 Data quality validation functions.
 """
+
 import pandas as pd
 from typing import Dict, Any
 from core.exceptions import DataQualityError
 from core.constants import REQUIRED_COLUMNS
+
 
 def validate_ohlcv_dataframe(df: pd.DataFrame) -> None:
     """
@@ -33,14 +35,16 @@ def validate_ohlcv_dataframe(df: pd.DataFrame) -> None:
         raise DataQualityError("DataFrame index contains duplicates.")
 
     # Check for negative prices (except some rare negative prices like oil in 2020, but mostly invalid)
-    price_cols = ['open', 'high', 'low', 'close']
+    price_cols = ["open", "high", "low", "close"]
     for col in price_cols:
         if (df[col] < 0).any():
             raise DataQualityError(f"Negative prices found in column '{col}'.")
 
     # Check if high < low
-    if (df['high'] < df['low']).any():
-        raise DataQualityError("Invalid data found: high price is lower than low price.")
+    if (df["high"] < df["low"]).any():
+        raise DataQualityError(
+            "Invalid data found: high price is lower than low price."
+        )
 
     # Check for all-NaN price columns
     for col in price_cols:
@@ -48,7 +52,9 @@ def validate_ohlcv_dataframe(df: pd.DataFrame) -> None:
             raise DataQualityError(f"Column '{col}' contains entirely NaN values.")
 
 
-def build_data_quality_report(df: pd.DataFrame, raise_on_empty: bool = False) -> Dict[str, Any]:
+def build_data_quality_report(
+    df: pd.DataFrame, raise_on_empty: bool = False
+) -> Dict[str, Any]:
     """
     Build a data quality report for an OHLCV DataFrame.
 
@@ -75,7 +81,7 @@ def build_data_quality_report(df: pd.DataFrame, raise_on_empty: bool = False) ->
             "close_missing_ratio": None,
             "min_close": None,
             "max_close": None,
-            "error": "DataFrame is empty or None"
+            "error": "DataFrame is empty or None",
         }
 
     report = {
@@ -98,22 +104,25 @@ def build_data_quality_report(df: pd.DataFrame, raise_on_empty: bool = False) ->
         missing_count = df[col].isna().sum()
         report["missing_ratio_by_column"][col] = float(missing_count / len(df))
 
-    if 'close' in df.columns:
+    if "close" in df.columns:
         report["close_missing_ratio"] = report["missing_ratio_by_column"]["close"]
 
     # Price specific checks
-    if all(col in df.columns for col in ['open', 'high', 'low', 'close']):
-        report["negative_price_count"] = int((df[['open', 'high', 'low', 'close']] < 0).any(axis=1).sum())
-        report["high_low_error_count"] = int((df['high'] < df['low']).sum())
-        if len(df['close'].dropna()) > 0:
-            report["last_close"] = float(df['close'].dropna().iloc[-1])
-            report["min_close"] = float(df['close'].min())
-            report["max_close"] = float(df['close'].max())
+    if all(col in df.columns for col in ["open", "high", "low", "close"]):
+        report["negative_price_count"] = int(
+            (df[["open", "high", "low", "close"]] < 0).any(axis=1).sum()
+        )
+        report["high_low_error_count"] = int((df["high"] < df["low"]).sum())
+        if len(df["close"].dropna()) > 0:
+            report["last_close"] = float(df["close"].dropna().iloc[-1])
+            report["min_close"] = float(df["close"].min())
+            report["max_close"] = float(df["close"].max())
 
-    if 'volume' in df.columns:
+    if "volume" in df.columns:
         report["volume_missing_ratio"] = report["missing_ratio_by_column"]["volume"]
 
     return report
+
 
 def is_dataframe_usable(df: pd.DataFrame, min_rows: int = 50) -> bool:
     """
@@ -132,7 +141,7 @@ def is_dataframe_usable(df: pd.DataFrame, min_rows: int = 50) -> bool:
             return False
 
         # Check close column NaN ratio (allow up to 5% missing)
-        close_nan_ratio = df['close'].isna().sum() / len(df)
+        close_nan_ratio = df["close"].isna().sum() / len(df)
         if close_nan_ratio > 0.05:
             return False
 

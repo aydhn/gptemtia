@@ -1,6 +1,7 @@
 """
 Script to test data download for the enabled universe symbols.
 """
+
 import argparse
 import sys
 from pathlib import Path
@@ -15,12 +16,23 @@ from config.symbols import get_enabled_symbols
 from data.storage.cache_manager import CacheManager
 from data.data_pipeline import DataPipeline
 
+
 def main():
-    parser = argparse.ArgumentParser(description="Bulk download data to check universe stability.")
+    parser = argparse.ArgumentParser(
+        description="Bulk download data to check universe stability."
+    )
     parser.add_argument("--limit", type=int, help="Limit number of symbols to check")
-    parser.add_argument("--interval", default=settings.default_interval, help="Data interval (e.g. 1d, 1h)")
-    parser.add_argument("--period", default=settings.default_period, help="Data period (e.g. 6mo, 1y)")
-    parser.add_argument("--refresh", action="store_true", help="Force refresh, ignoring cache")
+    parser.add_argument(
+        "--interval",
+        default=settings.default_interval,
+        help="Data interval (e.g. 1d, 1h)",
+    )
+    parser.add_argument(
+        "--period", default=settings.default_period, help="Data period (e.g. 6mo, 1y)"
+    )
+    parser.add_argument(
+        "--refresh", action="store_true", help="Force refresh, ignoring cache"
+    )
     args = parser.parse_args()
 
     logger = get_logger("run_bulk_data_check")
@@ -28,9 +40,11 @@ def main():
 
     specs = get_enabled_symbols()
     if args.limit:
-        specs = specs[:args.limit]
+        specs = specs[: args.limit]
 
-    logger.info(f"Starting bulk data check for {len(specs)} symbols (interval: {args.interval}, period: {args.period})")
+    logger.info(
+        f"Starting bulk data check for {len(specs)} symbols (interval: {args.interval}, period: {args.period})"
+    )
 
     cache_manager = CacheManager(CACHE_DIR)
 
@@ -42,9 +56,7 @@ def main():
 
     try:
         results = pipeline.fetch_many(
-            specs=specs,
-            interval=args.interval,
-            period=args.period
+            specs=specs, interval=args.interval, period=args.period
         )
 
         # Build Summary Report
@@ -72,7 +84,9 @@ def main():
 
         logger.info("\nAsset Class Success Rates:")
         for ac, stats in asset_class_stats.items():
-            rate = (stats["success"] / stats["total"]) * 100 if stats["total"] > 0 else 0
+            rate = (
+                (stats["success"] / stats["total"]) * 100 if stats["total"] > 0 else 0
+            )
             logger.info(f"  {ac}: {stats['success']}/{stats['total']} ({rate:.1f}%)")
 
         if failed > 0:
@@ -82,6 +96,7 @@ def main():
     finally:
         # Restore setting
         settings.fail_fast_data_downloads = original_fail_fast
+
 
 if __name__ == "__main__":
     main()

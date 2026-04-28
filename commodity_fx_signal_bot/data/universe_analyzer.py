@@ -2,6 +2,7 @@
 Universe Analyzer module.
 Measures data reliability and quality for a given universe of symbols.
 """
+
 from dataclasses import dataclass
 from typing import List, Dict, Optional, Any
 import pandas as pd
@@ -14,9 +15,11 @@ from data.data_quality import build_data_quality_report
 
 logger = get_logger(__name__)
 
+
 @dataclass
 class SymbolReliabilityResult:
     """Result of analyzing a single symbol."""
+
     symbol: str
     requested_symbol: str
     resolved_symbol: Optional[str]
@@ -37,6 +40,8 @@ class SymbolReliabilityResult:
     error: str
     reliability_score: float
     reliability_grade: str
+    timeframe: str = ""
+    provider_interval: str = ""
 
 
 class UniverseAnalyzer:
@@ -53,6 +58,21 @@ class UniverseAnalyzer:
         period: str,
         refresh: bool = False,
     ) -> SymbolReliabilityResult:
+        # Resolve timeframe/provider_interval based on interval string (assuming interval = timeframe string)
+        from config.timeframes import (
+            is_derived_timeframe,
+            get_provider_interval_for_timeframe,
+        )
+
+        try:
+            is_derived = is_derived_timeframe(interval)
+            provider_interval = (
+                get_provider_interval_for_timeframe(interval)
+                if is_derived
+                else interval
+            )
+        except:
+            provider_interval = interval
         """
         Analyze a single symbol.
         """
@@ -71,6 +91,8 @@ class UniverseAnalyzer:
                 asset_class=spec.asset_class,
                 sub_class=spec.sub_class,
                 data_source=spec.data_source,
+                timeframe=interval,
+                provider_interval=provider_interval,
                 success=True,
                 rows=self.settings.min_ohlcv_rows + 1,
                 start=None,
@@ -83,15 +105,12 @@ class UniverseAnalyzer:
                 used_alias=False,
                 error="",
                 reliability_score=100.0,
-                reliability_grade="SYNTHETIC"
+                reliability_grade="SYNTHETIC",
             )
 
         try:
             df = self.pipeline.fetch_symbol_data(
-                spec=spec,
-                interval=interval,
-                period=period,
-                refresh=refresh
+                spec=spec, interval=interval, period=period, refresh=refresh
             )
             success = True
         except Exception as e:
@@ -105,7 +124,9 @@ class UniverseAnalyzer:
             resolved_symbol = df.attrs.get("resolved_symbol")
             used_alias = df.attrs.get("used_alias", False)
 
-        report = build_data_quality_report(df if success else pd.DataFrame(), raise_on_empty=False)
+        report = build_data_quality_report(
+            df if success else pd.DataFrame(), raise_on_empty=False
+        )
 
         score = 100.0
 
@@ -114,7 +135,10 @@ class UniverseAnalyzer:
         else:
             if report["rows"] < self.settings.min_ohlcv_rows:
                 score -= 30
-            if report.get("close_missing_ratio", 0) is not None and report.get("close_missing_ratio", 0) > 0.05:
+            if (
+                report.get("close_missing_ratio", 0) is not None
+                and report.get("close_missing_ratio", 0) > 0.05
+            ):
                 score -= 20
             if report.get("duplicate_index_count", 0) > 0:
                 score -= 15
@@ -147,6 +171,8 @@ class UniverseAnalyzer:
             asset_class=spec.asset_class,
             sub_class=spec.sub_class,
             data_source=spec.data_source,
+            timeframe=interval,
+            provider_interval=provider_interval,
             success=success and report["rows"] > 0,
             rows=report["rows"],
             start=report.get("start"),
@@ -159,7 +185,7 @@ class UniverseAnalyzer:
             used_alias=used_alias,
             error=error_msg,
             reliability_score=score,
-            reliability_grade=grade
+            reliability_grade=grade,
         )
 
     def analyze_many(
@@ -178,7 +204,9 @@ class UniverseAnalyzer:
 
         for spec in specs_to_run:
             logger.info(f"Analyzing symbol: {spec.symbol}...")
-            res = self.analyze_symbol(spec, interval=interval, period=period, refresh=refresh)
+            res = self.analyze_symbol(
+                spec, interval=interval, period=period, refresh=refresh
+            )
             results.append(res)
 
         return results
@@ -197,6 +225,8 @@ class UniverseAnalyzer:
                 "asset_class": r.asset_class,
                 "sub_class": r.sub_class,
                 "data_source": r.data_source,
+                "timeframe": r.timeframe,
+                "provider_interval": r.provider_interval,
                 "success": r.success,
                 "rows": r.rows,
                 "start": r.start,
@@ -209,7 +239,7 @@ class UniverseAnalyzer:
                 "used_alias": r.used_alias,
                 "error": r.error,
                 "reliability_score": r.reliability_score,
-                "reliability_grade": r.reliability_grade
+                "reliability_grade": r.reliability_grade,
             }
             for r in results
         ]
@@ -235,11 +265,19 @@ class UniverseAnalyzer:
 
         ac_success = df.groupby("asset_class")["success"].mean().to_dict()
 
-        best = df.sort_values(by="reliability_score", ascending=False).head(10)[["symbol", "reliability_score", "reliability_grade"]].to_dict('records')
-        worst = df.sort_values(by="reliability_score", ascending=True).head(10)[["symbol", "reliability_score", "reliability_grade", "error"]].to_dict('records')
+        best = (
+            df.sort_values(by="reliability_score", ascending=False)
+            .head(10)[["symbol", "reliability_score", "reliability_grade"]]
+            .to_dict("records")
+        )
+        worst = (
+            df.sort_values(by="reliability_score", ascending=True)
+            .head(10)[["symbol", "reliability_score", "reliability_grade", "error"]]
+            .to_dict("records")
+        )
 
         used_alias_symbols = df[df["used_alias"] == True]["symbol"].tolist()
-        error_symbols = df[df["error"] != ""][["symbol", "error"]].to_dict('records')
+        error_symbols = df[df["error"] != ""][["symbol", "error"]].to_dict("records")
 
         return {
             "total_analyzed": total,
@@ -251,5 +289,5 @@ class UniverseAnalyzer:
             "best_10": best,
             "worst_10": worst,
             "used_alias_symbols": used_alias_symbols,
-            "error_symbols": error_symbols
+            "error_symbols": error_symbols,
         }

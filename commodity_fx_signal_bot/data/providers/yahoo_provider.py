@@ -1,6 +1,7 @@
 """
 Yahoo Finance data provider.
 """
+
 import yfinance as yf
 import pandas as pd
 from typing import Optional
@@ -11,6 +12,7 @@ from data.providers.base_provider import BaseDataProvider
 from data.data_quality import validate_ohlcv_dataframe
 
 logger = get_logger(__name__)
+
 
 class YahooProvider(BaseDataProvider):
     """Data provider using the yfinance library."""
@@ -32,7 +34,9 @@ class YahooProvider(BaseDataProvider):
             ticker = yf.Ticker(symbol)
             # Fetch data
             if start and end:
-                df = ticker.history(interval=interval, start=start, end=end, auto_adjust=False)
+                df = ticker.history(
+                    interval=interval, start=start, end=end, auto_adjust=False
+                )
             elif period:
                 df = ticker.history(interval=interval, period=period, auto_adjust=False)
             else:
@@ -41,7 +45,9 @@ class YahooProvider(BaseDataProvider):
                 df = ticker.history(interval=interval, period=period, auto_adjust=False)
 
             if df is None or df.empty:
-                raise DataProviderError(f"No data returned for {symbol} from Yahoo Finance.")
+                raise DataProviderError(
+                    f"No data returned for {symbol} from Yahoo Finance."
+                )
 
             # MultiIndex columns handler
             if isinstance(df.columns, pd.MultiIndex):
@@ -57,6 +63,8 @@ class YahooProvider(BaseDataProvider):
             return df
 
         except Exception as e:
-            error_msg = f"Failed to fetch data from Yahoo Finance for {symbol}: {str(e)}"
+            error_msg = (
+                f"Failed to fetch data from Yahoo Finance for {symbol}: {str(e)}"
+            )
             logger.error(error_msg)
             raise DataProviderError(error_msg) from e
