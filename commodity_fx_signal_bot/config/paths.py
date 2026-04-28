@@ -18,13 +18,37 @@ RAW_DATA_DIR = DATA_DIR / "raw"
 PROCESSED_DATA_DIR = DATA_DIR / "processed"
 CACHE_DIR = DATA_DIR / "cache"
 
+# Data Lake directories
+LAKE_DIR = DATA_DIR / "lake"
+LAKE_OHLCV_DIR = LAKE_DIR / "ohlcv"
+LAKE_MACRO_DIR = LAKE_DIR / "macro"
+LAKE_SYNTHETIC_DIR = LAKE_DIR / "synthetic"
+LAKE_MANIFESTS_DIR = LAKE_DIR / "manifests"
+LAKE_JOURNALS_DIR = LAKE_DIR / "journals"
+LAKE_QUALITY_REPORTS_DIR = LAKE_DIR / "quality_reports"
+LAKE_TMP_DIR = LAKE_DIR / "tmp"
+
 
 def ensure_project_directories() -> None:
     """
     Ensure that all required project directories exist.
     Creates them if they do not exist.
     """
-    directories = [LOGS_DIR, REPORTS_DIR, RAW_DATA_DIR, PROCESSED_DATA_DIR, CACHE_DIR]
+    directories = [
+        LOGS_DIR,
+        REPORTS_DIR,
+        RAW_DATA_DIR,
+        PROCESSED_DATA_DIR,
+        CACHE_DIR,
+        LAKE_DIR,
+        LAKE_OHLCV_DIR,
+        LAKE_MACRO_DIR,
+        LAKE_SYNTHETIC_DIR,
+        LAKE_MANIFESTS_DIR,
+        LAKE_JOURNALS_DIR,
+        LAKE_QUALITY_REPORTS_DIR,
+        LAKE_TMP_DIR,
+    ]
 
     for directory in directories:
         directory.mkdir(parents=True, exist_ok=True)

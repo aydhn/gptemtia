@@ -37,3 +37,19 @@ A zero-budget, paper-trading Python bot for Commodity and FX signals using free 
 
 ### Phase 4 Commands
 - `python -m scripts.run_timeframe_compatibility_audit`: Audits timeframe config, market calendars, and generates a realistic scan plan in `reports/output`.
+
+## Lokal Veri Gölü (Phase 5)
+
+Açıkla:
+- **Neden data lake var?** Çevrimiçi veri kaynaklarından (Yahoo vs.) sürekli veri çekmek yerine veriyi kendi ortamımızda saklayarak bant genişliğinden ve süreden tasarruf ederiz. Tekrarlanan ve hatalı denemeleri önleriz.
+- **Veriler nereye kaydedilir?** `data/lake/ohlcv/{data_source}/{sub_class}/{symbol}/` altında saklanır.
+- **Parquet neden kullanılır?** CSV'ye göre çok daha hızlıdır ve diskte daha az yer kaplar. Pandas ile uyumludur.
+- **Manifest nedir?** Veri gölünün o anki fotoğrafını (hangi dosyalar var, boyutları, kaliteleri) özetleyen bir CSV ve JSON listesidir.
+- **Download journal nedir?** Her veri indirme denemesinin (başarılı ya da başarısız) kaydedildiği günlüktür. Hata tespitini kolaylaştırır.
+- **Repair script ne işe yarar?** Eksik veya "D/F" notuna sahip zayıf kalitedeki veri dosyalarını otomatik tespit edip onarmak için kullanılır.
+
+Komutlar:
+- `python -m scripts.run_data_lake_update --limit 10 --period 1y`
+- `python -m scripts.run_data_lake_update --asset-class metals --period 2y`
+- `python -m scripts.run_data_lake_status`
+- `python -m scripts.run_data_lake_repair --dry-run`

@@ -148,3 +148,88 @@ def is_dataframe_usable(df: pd.DataFrame, min_rows: int = 50) -> bool:
         return True
     except DataQualityError:
         return False
+
+
+def infer_quality_grade(report: Dict[str, Any]) -> str:
+    """Infer a letter grade for data quality based on the report."""
+    if report.get("rows", 0) == 0 or report.get("error"):
+        return "F"
+
+    rows = report.get("rows", 0)
+    missing_close = report.get("close_missing_ratio", 0.0) or 0.0
+    duplicates = report.get("duplicate_index_count", 0)
+    negatives = report.get("negative_price_count", 0)
+    high_low_errors = report.get("high_low_error_count", 0)
+
+    if (
+        rows < 50
+        or missing_close > 0.05
+        or duplicates > 5
+        or negatives > 0
+        or high_low_errors > 0
+    ):
+        return "D"
+
+    if missing_close > 0.01 or duplicates > 0:
+        return "C"
+
+    if missing_close > 0.0:
+        return "B"
+
+    return "A"
+
+
+def compare_dataframes_basic(
+    old_df: pd.DataFrame, new_df: pd.DataFrame
+) -> Dict[str, Any]:
+    """Basic comparison between an existing DataFrame and a newly downloaded one."""
+    old_rows = len(old_df) if old_df is not None and not old_df.empty else 0
+    new_rows = len(new_df) if new_df is not None and not new_df.empty else 0
+
+    old_start = str(old_df.index.min()) if old_rows > 0 else None
+    old_end = str(old_df.index.max()) if old_rows > 0 else None
+    new_start = str(new_df.index.min()) if new_rows > 0 else None
+    new_end = str(new_df.index.max()) if new_rows > 0 else None
+
+    added_rows = max(0, new_rows - old_rows)
+
+    overlap_rows_estimate = 0
+    if old_rows > 0 and new_rows > 0:
+        # Simple estimate: how many indices match
+        overlap_rows_estimate = len(old_df.index.intersection(new_df.index))
+
+    changed_last_close = False
+    if (
+        old_rows > 0
+        and new_rows > 0
+        and "close" in old_df.columns
+        and "close" in new_df.columns
+    ):
+        old_last_close = (
+            old_df["close"].dropna().iloc[-1]
+            if not old_df["close"].dropna().empty
+            else None
+        )
+        new_last_close = (
+            new_df["close"].dropna().iloc[-1]
+            if not new_df["close"].dropna().empty
+            else None
+        )
+
+        if old_last_close is not None and new_last_close is not None:
+            # Check if last close values differ significantly
+            changed_last_close = (
+                abs(old_last_close - new_last_close) / old_last_close > 0.001
+            )
+
+    return {
+        "old_rows": old_rows,
+        "new_rows": new_rows,
+        "added_rows": added_rows,
+        "old_start": old_start,
+        "old_end": old_end,
+        "new_start": new_start,
+        "new_end": new_end,
+        "overlap_rows_estimate": overlap_rows_estimate,
+        "changed_last_close": changed_last_close,
+    }

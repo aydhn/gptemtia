@@ -84,3 +84,58 @@ def test_build_data_quality_report(valid_df):
     assert report["negative_price_count"] == 0
     assert report["high_low_error_count"] == 0
     assert report["missing_ratio_by_column"]["close"] == 0.0
+
+
+from data.data_quality import infer_quality_grade, compare_dataframes_basic
+
+
+def test_infer_quality_grade():
+    assert infer_quality_grade({"rows": 0}) == "F"
+    assert infer_quality_grade({"rows": 100, "error": "API failed"}) == "F"
+    assert infer_quality_grade({"rows": 40}) == "D"
+    assert infer_quality_grade({"rows": 100, "close_missing_ratio": 0.06}) == "D"
+    assert infer_quality_grade({"rows": 100, "close_missing_ratio": 0.02}) == "C"
+    assert infer_quality_grade({"rows": 100, "duplicate_index_count": 1}) == "C"
+    assert infer_quality_grade({"rows": 100, "close_missing_ratio": 0.005}) == "B"
+    assert (
+        infer_quality_grade(
+            {
+                "rows": 100,
+                "close_missing_ratio": 0.0,
+                "duplicate_index_count": 0,
+                "negative_price_count": 0,
+                "high_low_error_count": 0,
+            }
+        )
+        == "A"
+    )
+
+
+def test_compare_dataframes_basic(valid_df):
+    # Same df
+    res = compare_dataframes_basic(valid_df, valid_df)
+    assert res["old_rows"] == 5
+    assert res["new_rows"] == 5
+    assert res["added_rows"] == 0
+    assert res["overlap_rows_estimate"] == 5
+    assert res["changed_last_close"] == False
+
+    # New df has 1 more row
+    dates = pd.date_range("2023-01-01", periods=6, tz="UTC")
+    new_df = pd.DataFrame(
+        {
+            "open": [10.0, 11.0, 12.0, 11.5, 12.5, 13.0],
+            "high": [10.5, 11.5, 12.5, 12.0, 13.0, 13.5],
+            "low": [9.5, 10.5, 11.5, 11.0, 12.0, 12.5],
+            "close": [10.2, 11.2, 12.2, 11.8, 12.8, 13.2],
+            "adj_close": [10.2, 11.2, 12.2, 11.8, 12.8, 13.2],
+            "volume": [100, 200, 150, 300, 250, 300],
+        },
+        index=dates,
+    )
+    res2 = compare_dataframes_basic(valid_df, new_df)
+    assert res2["old_rows"] == 5
+    assert res2["new_rows"] == 6
+    assert res2["added_rows"] == 1
+    assert res2["overlap_rows_estimate"] == 5
+    assert res2["changed_last_close"] == True

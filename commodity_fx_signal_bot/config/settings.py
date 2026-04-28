@@ -67,6 +67,36 @@ class Settings:
         == "true"
     )
 
+    # Data Lake Settings
+    data_lake_enabled: bool = field(
+        default_factory=lambda: os.getenv("DATA_LAKE_ENABLED", "true").lower() == "true"
+    )
+    data_lake_format: str = field(
+        default_factory=lambda: os.getenv("DATA_LAKE_FORMAT", "parquet")
+    )
+    journal_enabled: bool = field(
+        default_factory=lambda: os.getenv("JOURNAL_ENABLED", "true").lower() == "true"
+    )
+    manifest_enabled: bool = field(
+        default_factory=lambda: os.getenv("MANIFEST_ENABLED", "true").lower() == "true"
+    )
+    default_download_period: str = field(
+        default_factory=lambda: os.getenv("DEFAULT_DOWNLOAD_PERIOD", "2y")
+    )
+    max_download_failures_per_run: int = field(
+        default_factory=lambda: int(os.getenv("MAX_DOWNLOAD_FAILURES_PER_RUN", "20"))
+    )
+    skip_synthetic_downloads: bool = field(
+        default_factory=lambda: os.getenv("SKIP_SYNTHETIC_DOWNLOADS", "true").lower()
+        == "true"
+    )
+    skip_macro_downloads_in_ohlcv_pipeline: bool = field(
+        default_factory=lambda: os.getenv(
+            "SKIP_MACRO_DOWNLOADS_IN_OHLCV_PIPELINE", "true"
+        ).lower()
+        == "true"
+    )
+
     paper_trading_enabled: bool = field(
         default_factory=lambda: os.getenv("PAPER_TRADING_ENABLED", "true").lower()
         == "true"
