@@ -26,4 +26,4 @@ This document describes the high-level architecture of the Commodity & FX Signal
 - **Data Resampling:** `data_pipeline.py` introduces handling of `derived` timeframes like 4h using pandas resampling.
 
 New Pipeline Hierarchy:
-Symbol Universe → Timeframe Registry → Market Session Model → Scan Profile → Scan Scheduler → Data Pipeline → (Future Strategy Engine)
+Symbol Universe → Timeframe Registry → Market Session Model → Scan Profile → Scan Scheduler → Data Pipeline → DownloadManager → DataLake → Manifest → Journal → (Future Strategy Engine)

@@ -24,8 +24,8 @@ def resample_ohlcv(df: pd.DataFrame, target_timeframe: str) -> pd.DataFrame:
     if df is None or df.empty:
         return df
 
-    # Pandas offset aliases: '4h' -> '4H'
-    pandas_tf = target_timeframe.upper()
+    # Pandas offset aliases
+    pandas_tf = target_timeframe.lower()
     if pandas_tf == "1D":
         pandas_tf = "D"
     elif pandas_tf == "1WK":
@@ -107,6 +107,14 @@ class DataPipeline:
                         df.attrs["resolved_symbol"] = attempt_symbol
                         df.attrs["used_alias"] = attempt_symbol != spec.symbol
                         df.attrs["data_source"] = spec.data_source
+                        df.attrs["timeframe"] = interval
+                        df.attrs["provider_interval"] = provider_interval
+                        from datetime import datetime, timezone
+
+                        df.attrs["downloaded_at_utc"] = datetime.now(
+                            timezone.utc
+                        ).isoformat()
+                        df.attrs["source_provider"] = "Cache"
                         return df
                 except Exception as e:
                     logger.warning(
@@ -138,6 +146,14 @@ class DataPipeline:
                         df.attrs["resolved_symbol"] = attempt_symbol
                         df.attrs["used_alias"] = attempt_symbol != spec.symbol
                         df.attrs["data_source"] = spec.data_source
+                        df.attrs["timeframe"] = interval
+                        df.attrs["provider_interval"] = provider_interval
+                        from datetime import datetime, timezone
+
+                        df.attrs["downloaded_at_utc"] = datetime.now(
+                            timezone.utc
+                        ).isoformat()
+                        df.attrs["source_provider"] = provider.__class__.__name__
                         return df
                     else:
                         logger.warning(

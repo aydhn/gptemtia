@@ -33,3 +33,13 @@ The `UniverseAnalyzer` fetches data for a symbol and grades it from `A` to `F` (
 - **Intraday Limitations:** Yahoo/yfinance often limits how far back 1m, 2m, or 5m data can go. Thus, the minimum reliable timeframe starts around 15m or 1h.
 - **Derived Timeframes:** The 4h timeframe is generated as a `derived` timeframe by fetching 1h data from the provider and up-sampling it within the `DataPipeline` using pandas.
 - **Backtest vs Signal:** Timeframes are categorized to show if they are `recommended_for_signal` (like 1h, 4h, 1d) avoiding micro timeframes that break logic in low-frequency bots.
+
+## Lokal Veri Gölü (Data Lake)
+
+Phase 5 ile birlikte sisteme eklenen yerel veri gölü özellikleri şunları içerir:
+
+- **Lokal Cache ile Data Lake Farkı:** Geçici `cache` yalnızca istekleri hızlandırmak içinken, `data lake` kalıcı bir depo ve gelecekteki test/strateji algoritmaları için ana kaynaktır. Veri kalitesi (quality grade) lake içerisine işlenir.
+- **Veri Tekrar İndirmeyi Azaltma:** İndirme geçmişi (DownloadJournal) tutularak, aynı gün veya periyot içinde gereksiz Yahoo/EVDS hit'lerinin önüne geçilir.
+- **Yahoo Veri Sınırlamaları:** Sık istek atmanın sınırlarını bildiğimiz için limitlenmiş (örn. `max_download_failures_per_run=20`) bir indirme süreci (`DownloadManager`) kullanılır.
+- **Macro/Synthetic Semboller:** Bu varlık sınıfları OHLCV modeline her zaman tam uymadığından (`synthetic` hiç inmez, `macro` ise sadece farklı bir pipeline'da iner), normal OHLCV indirme turundan dışlanmıştır (`skip_synthetic_downloads`).
+- **Data Quality Grade:** İndirilen veriler A ile F arasında derecelendirilir. Eksik veriler, negatif fiyatlar veya düşük satır sayıları notu düşürür ve sonrasında `run_data_lake_repair` aracı bu bozuk notlu dosyaları hedef alır.

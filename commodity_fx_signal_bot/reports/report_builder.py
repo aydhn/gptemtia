@@ -179,3 +179,97 @@ def build_scan_plan_report(scan_plan: dict) -> str:
         "=================",
     ]
     return "\n".join(lines)
+
+
+def build_data_lake_update_report(summary: dict) -> str:
+    """Build a text report for Data Lake update results."""
+    lines = [
+        "=== Veri Gölü Güncelleme Raporu ===",
+        f"Toplam Deneme: {summary.get('total_attempts', 0)}",
+        f"Başarılı İndirme: {summary.get('success_count', 0)}",
+        f"Başarısız İndirme: {summary.get('failure_count', 0)}",
+        f"Atlanan Sembol: {summary.get('skipped_count', 0)}",
+        "",
+        "Varlık Sınıfına Göre Başarılar:",
+    ]
+
+    for ac, count in sorted(summary.get("by_asset_class", {}).items()):
+        lines.append(f"  - {ac}: {count}")
+
+    lines.append("")
+    lines.append("Zaman Dilimine Göre Başarılar:")
+    for tf, count in sorted(summary.get("by_timeframe", {}).items()):
+        lines.append(f"  - {tf}: {count}")
+
+    errors = summary.get("errors", [])
+    if errors:
+        lines.append("")
+        lines.append(f"Alınan Hatalar ({len(errors)}):")
+        for err in errors[:10]:
+            lines.append(f"  - {err}")
+        if len(errors) > 10:
+            lines.append(f"  ... ve {len(errors) - 10} hata daha.")
+
+    lines.append("===================================")
+    return "\n".join(lines)
+
+
+def build_data_lake_status_report(
+    manifest_summary: dict, manifest_df: pd.DataFrame
+) -> str:
+    """Build a text report for Data Lake status."""
+    lines = [
+        "=== Veri Gölü Durum Raporu ===",
+        f"Beklenen Dosya Sayısı: {manifest_summary.get('total_expected', 0)}",
+        f"Mevcut Dosya Sayısı: {manifest_summary.get('total_existing', 0)}",
+        f"Eksik Dosya Sayısı: {manifest_summary.get('missing', 0)}",
+        f"Tamamlanma Oranı: %{manifest_summary.get('completion_rate', 0) * 100:.1f}",
+        "",
+        "Kalite Notu Dağılımı (Mevcut Dosyalar):",
+    ]
+
+    for grade, count in sorted(manifest_summary.get("grades", {}).items()):
+        lines.append(f"  - {grade}: {count}")
+
+    lines.append("")
+    lines.append("Zaman Dilimi Durumu (Mevcut / Beklenen):")
+    for tf, stats in sorted(manifest_summary.get("by_timeframe", {}).items()):
+        lines.append(f"  - {tf}: {stats['existing']} / {stats['expected']}")
+
+    # Find weakest links (Grade D or F)
+    weak_df = manifest_df[manifest_df["quality_grade"].isin(["D", "F"])]
+    if not weak_df.empty:
+        lines.append("")
+        lines.append(f"Zayıf Kaliteli Dosyalar ({len(weak_df)}):")
+        for _, row in weak_df.head(10).iterrows():
+            lines.append(
+                f"  - {row['symbol']} ({row['timeframe']}): {row['quality_grade']}"
+            )
+        if len(weak_df) > 10:
+            lines.append(f"  ... ve {len(weak_df) - 10} dosya daha.")
+
+    lines.append("==============================")
+    return "\n".join(lines)
+
+
+def build_download_journal_report(journal_summary: dict) -> str:
+    """Build a text report from the download journal summary."""
+    lines = [
+        "=== Veri İndirme Günlüğü Özeti ===",
+        f"Toplam Kayıt: {journal_summary.get('total_entries', 0)}",
+        f"Başarılı İndirme: {journal_summary.get('success_count', 0)}",
+        f"Başarısız İndirme: {journal_summary.get('failure_count', 0)}",
+        f"Başarı Oranı: %{journal_summary.get('success_rate', 0) * 100:.1f}",
+        f"Önbellek (Cache) Kullanımı: {journal_summary.get('cache_hits', 0)}",
+        f"Alias Kullanımı: {journal_summary.get('alias_used', 0)}",
+    ]
+
+    recent_errors = journal_summary.get("recent_errors", [])
+    if recent_errors:
+        lines.append("")
+        lines.append("Son Hatalar:")
+        for err in recent_errors:
+            lines.append(f"  - {err}")
+
+    lines.append("==================================")
+    return "\n".join(lines)

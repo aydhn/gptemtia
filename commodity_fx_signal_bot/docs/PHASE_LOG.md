@@ -32,3 +32,12 @@ This file tracks the completion of the project phases.
 - Derived timeframe/resample altyapısı eklendi (`data/data_pipeline.py`).
 - Timeframe compatibility audit scripti eklendi (`scripts/run_timeframe_compatibility_audit.py`).
 - Testler genişletildi (`tests/test_timeframes.py`, vb.).
+
+## Phase 5
+- DataLake eklendi.
+- Manifest sistemi eklendi.
+- DownloadJournal eklendi.
+- DownloadManager eklendi.
+- Data lake update/status/repair scriptleri eklendi.
+- Derived timeframe metadata güçlendirildi.
+- Testler genişletildi.
