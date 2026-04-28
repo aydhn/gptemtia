@@ -1,27 +1,29 @@
 # Commodity & FX Signal Bot
 
-A zero-budget, paper-trading Python bot designed to generate signals for Commodities and FX using free data sources.
+A zero-budget, paper-trading Python bot for Commodity and FX signals using free data sources (Yahoo Finance, EVDS, FRED) and Telegram for notifications.
 
-## Important Constraints
-- **NO LIVE TRADING:** This bot is strictly meant for backtesting, paper trading, and signal generation via Telegram.
-- **NO PAID APIs:** Operates purely on free public endpoints (Yahoo Finance, EVDS, FRED).
-- **NO WEB SCRAPING:** Relies on robust API clients, no HTML parsing.
+**Note:** This bot does NOT execute live trades, nor does it connect to broker APIs for live execution.
 
 ## Setup
+1. `python -m venv .venv`
+2. `source .venv/bin/activate`
+3. `pip install -r requirements.txt`
 
-Set up a virtual environment and then:
-pip install -r requirements.txt
+## Execution and Scripts
 
-## Running Scripts and Tools
+- `python main.py`: Run the main application (work in progress).
 
-### Download Single Symbol Data
-Test the fetch pipeline and cache logic for a single symbol:
-python -m scripts.run_single_symbol_download --symbol GC=F --interval 1d --period 1y
+### Phase 3 Commands
+- `python -m scripts.run_universe_preview`: Preview the current symbol universe configuration.
+- `python -m scripts.run_universe_audit`: Validates the universe and generates a universe manifest in `reports/output`.
+- `python -m scripts.run_symbol_reliability_scan --limit 20 --interval 1d --period 1y`: Runs a reliability scan on the universe to check data fetching capability and quality.
+- `python -m scripts.run_symbol_reliability_scan --asset-class metals --interval 1d --period 2y`: Runs a reliability scan filtered by asset class.
 
-### Run Bulk Data Check
-Validate the health of the entire symbol universe, providing success rates and error summaries:
-python -m scripts.run_bulk_data_check --limit 10 --interval 1d --period 6mo
+## Concepts (Phase 3)
 
-### Run Tests
-Execute the pytest suite:
-pytest
+- **Reliability Score:** A score from 0 to 100 representing the quality of the downloaded data. Deductions occur for missing prices, errors, duplicate indices, short datasets, etc.
+- **Grade System:** Translates the score to a letter grade (A, B, C, D, F) or "SYNTHETIC" for benchmarks that don't need network fetching.
+- **Alias Use:** If a primary symbol fails, the pipeline will try its aliases. Doing so costs 5 points on the reliability score.
+- **Synthetic Benchmarks:** These symbols represent logical constructs (like an equal-weight portfolio) and do not fetch data from Yahoo.
+
+**Important:** Phase 3 still does not generate trading strategies. It focuses on preparing a clean, graded, and tradeable symbol universe for the following phases.

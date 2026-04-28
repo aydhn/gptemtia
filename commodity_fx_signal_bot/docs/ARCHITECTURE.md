@@ -1,26 +1,20 @@
-# Project Architecture
+# Architecture
 
-## Core Principles
-1.  **Zero-Budget**: Free data sources, paper trading only, and free deployment logic.
-2.  **No Live Trading**: Hardcoded safety constraints prevent live trade execution.
-3.  **Modular Pipeline**: The system is designed with a unidirectional data flow.
+This document describes the high-level architecture of the Commodity & FX Signal Bot.
 
-## Data Flow (Phase 2)
+## Data Flow
 
-The data retrieval and standardization process follows a strict, pipeline-driven flow:
+1. **Symbol Universe:** The list of configured symbols (Metals, Energy, Forex, Benchmarks, etc.).
+2. **Universe Audit:** Validates symbol configurations and produces summaries.
+3. **Data Pipeline:** Orchestrates fetching data, checking cache, and using providers.
+4. **Provider:** Handles the actual data fetching from external sources (Yahoo, EVDS, FRED).
+5. **Quality Report:** Computes data quality metrics like missing rows, errors.
+6. **Reliability Score:** Generates a reliability score and grade based on the quality report.
+7. **Universe Manifest:** Outputs the validated, scored, and graded universe to text/CSV/JSON.
+8. **Strategy-ready universe:** The clean, analyzed subset of symbols passed to strategies for signal generation.
 
-1.  **`SymbolSpec`**: Represents the requested asset and contains metadata (name, asset class, primary symbol, and aliases).
-2.  **`ProviderRegistry`**: Examines the `SymbolSpec.data_source` and injects the corresponding data provider instance (e.g., Yahoo, EVDS, FRED).
-3.  **`DataPipeline`**: Orchestrates the fetching process. It manages cache checks, executes network calls, and tries alias symbols if the primary symbol fails.
-4.  **Provider (`YahooProvider` / `EVDS` / `FRED`)**: Executes the actual data fetch from the external service.
-5.  **`normalize_ohlcv`**: The raw data is passed through a normalizer on the base provider to ensure column names and datatypes are consistent (e.g., standardizing index timezones, filling missing FX volume).
-6.  **`data_quality.py`**: The normalized data undergoes strict quality assurance (e.g., checking for negative prices, duplicate indices, or high < low anomalies).
-7.  **`CacheManager`**: Once validated, the data is saved locally (Parquet format) to prevent redundant network requests in future runs.
-8.  **Output**: A clean, validated `pd.DataFrame` is returned to higher-level components (Indicators, Strategies, Backtesting).
-
-## Future Modules
--   **Indicators**: Takes OHLCV data to compute technical analysis features.
--   **Regimes**: Classifies market conditions (trend, range, volatility).
--   **Strategies**: Applies rules to generate long/short signals.
--   **Paper Trading / Backtesting**: Simulates trades.
--   **Telegram**: Sends output signals.
+## Components
+- `DataPipeline`: Coordinates data fetching and caching.
+- `ProviderRegistry`: Manages data providers.
+- `CacheManager`: Handles parquet file caching.
+- `UniverseAnalyzer`: Evaluates the reliability of symbols based on data quality metrics.

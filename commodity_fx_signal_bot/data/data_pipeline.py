@@ -49,6 +49,10 @@ class DataPipeline:
                     df = self.cache_manager.load_dataframe(cache_path)
                     if is_dataframe_usable(df, self.settings.min_ohlcv_rows):
                         logger.info(f"Loaded {attempt_symbol} from cache successfully.")
+                        df.attrs["requested_symbol"] = spec.symbol
+                        df.attrs["resolved_symbol"] = attempt_symbol
+                        df.attrs["used_alias"] = attempt_symbol != spec.symbol
+                        df.attrs["data_source"] = spec.data_source
                         return df
                 except Exception as e:
                     logger.warning(f"Failed to load/validate cache for {attempt_symbol}: {e}")
@@ -62,6 +66,10 @@ class DataPipeline:
                         logger.info(f"Fetched {attempt_symbol} via provider successfully.")
                         if use_cache:
                             self.cache_manager.save_dataframe(df, cache_path)
+                        df.attrs["requested_symbol"] = spec.symbol
+                        df.attrs["resolved_symbol"] = attempt_symbol
+                        df.attrs["used_alias"] = attempt_symbol != spec.symbol
+                        df.attrs["data_source"] = spec.data_source
                         return df
                     else:
                         logger.warning(f"Data for {attempt_symbol} fetched but not usable.")
