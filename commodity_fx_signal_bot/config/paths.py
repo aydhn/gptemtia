@@ -2,7 +2,6 @@
 Path definitions and directory management for the project.
 """
 
-import os
 from pathlib import Path
 
 # Project root directory
@@ -32,6 +31,15 @@ LAKE_PROCESSED_OHLCV_DIR = LAKE_PROCESSED_DIR / "ohlcv"
 LAKE_QUALITY_REPORTS_DIR = LAKE_PROCESSED_DIR / "quality_reports"
 LAKE_CLEANING_REPORTS_DIR = LAKE_PROCESSED_DIR / "cleaning_reports"
 
+# Feature Lake Directories
+LAKE_FEATURES_DIR = LAKE_DIR / "features"
+LAKE_FEATURES_TECHNICAL_DIR = LAKE_FEATURES_DIR / "technical"
+LAKE_FEATURES_MANIFESTS_DIR = LAKE_FEATURES_DIR / "manifests"
+LAKE_FEATURES_REPORTS_DIR = LAKE_FEATURES_DIR / "reports"
+
+INDICATOR_REPORTS_DIR = REPORTS_DIR / "indicator_reports"
+
+
 LAKE_TMP_DIR = LAKE_DIR / "tmp"
 
 
@@ -56,6 +64,11 @@ def ensure_project_directories() -> None:
         LAKE_PROCESSED_OHLCV_DIR,
         LAKE_QUALITY_REPORTS_DIR,
         LAKE_CLEANING_REPORTS_DIR,
+        LAKE_FEATURES_DIR,
+        LAKE_FEATURES_TECHNICAL_DIR,
+        LAKE_FEATURES_MANIFESTS_DIR,
+        LAKE_FEATURES_REPORTS_DIR,
+        INDICATOR_REPORTS_DIR,
         LAKE_TMP_DIR,
     ]
 

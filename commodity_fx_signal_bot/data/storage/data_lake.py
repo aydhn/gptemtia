@@ -1,12 +1,12 @@
 import json
 import re
 from pathlib import Path
-from typing import Optional, List, Dict
+
 import pandas as pd
 
-from core.logger import get_logger
 from config.symbols import SymbolSpec
-from data.data_quality import validate_ohlcv_dataframe, DataQualityError
+from core.logger import get_logger
+from data.data_quality import DataQualityError, validate_ohlcv_dataframe
 
 logger = get_logger(__name__)
 
@@ -278,3 +278,85 @@ class DataLake:
         except Exception as e:
             logger.error(f"Failed to load cleaning report for {spec.symbol}: {e}")
             return {}
+
+    # Feature Data Methods
+    def get_feature_path(
+        self, spec: SymbolSpec, timeframe: str, feature_set_name: str = "technical"
+    ) -> Path:
+        """Get the file path for feature data."""
+        source = spec.data_source
+        sub_class = spec.sub_class.lower().replace(" ", "_")
+        safe_sym = self.safe_symbol_name(spec.symbol)
+
+        from config.paths import LAKE_FEATURES_DIR
+
+        symbol_dir = (
+            LAKE_FEATURES_DIR / feature_set_name / source / sub_class / safe_sym
+        )
+        return symbol_dir / f"{timeframe}.parquet"
+
+    def save_features(
+        self,
+        spec: SymbolSpec,
+        timeframe: str,
+        df: pd.DataFrame,
+        feature_set_name: str = "technical",
+    ) -> Path:
+        """Save a feature DataFrame to the Data Lake."""
+        if df is None or df.empty:
+            logger.warning(
+                f"Attempted to save empty feature DataFrame for {spec.symbol} ({timeframe})"
+            )
+            return self.get_feature_path(spec, timeframe, feature_set_name)
+
+        path = self.get_feature_path(spec, timeframe, feature_set_name)
+        path.parent.mkdir(parents=True, exist_ok=True)
+
+        try:
+            df.to_parquet(path, engine="pyarrow")
+            logger.debug(f"Saved {feature_set_name} features to Data Lake: {path}")
+        except Exception as e:
+            logger.error(
+                f"Failed to save {feature_set_name} features for {spec.symbol} ({timeframe}): {e}"
+            )
+            raise
+
+        return path
+
+    def load_features(
+        self, spec: SymbolSpec, timeframe: str, feature_set_name: str = "technical"
+    ) -> pd.DataFrame:
+        """Load a feature DataFrame from the Data Lake."""
+        path = self.get_feature_path(spec, timeframe, feature_set_name)
+        if not path.exists():
+            raise FileNotFoundError(f"Feature data not found at {path}")
+
+        try:
+            df = pd.read_parquet(path, engine="pyarrow")
+            if isinstance(df.index, pd.DatetimeIndex) and df.index.tz is None:
+                df.index = df.index.tz_localize("UTC")
+            return df
+        except Exception as e:
+            logger.error(
+                f"Failed to load {feature_set_name} features for {spec.symbol} ({timeframe}): {e}"
+            )
+            raise
+
+    def has_features(
+        self, spec: SymbolSpec, timeframe: str, feature_set_name: str = "technical"
+    ) -> bool:
+        """Check if feature data exists."""
+        path = self.get_feature_path(spec, timeframe, feature_set_name)
+        return path.exists() and path.is_file()
+
+    def list_feature_timeframes(
+        self, spec: SymbolSpec, feature_set_name: str = "technical"
+    ) -> list[str]:
+        """List all available feature timeframes for a symbol."""
+        path = self.get_feature_path(spec, "dummy", feature_set_name)
+        symbol_dir = path.parent
+
+        if not symbol_dir.exists():
+            return []
+
+        return sorted([f.stem for f in symbol_dir.glob("*.parquet")])

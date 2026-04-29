@@ -1,7 +1,10 @@
-from datetime import datetime, timedelta, timezone as dt_timezone
+from datetime import datetime, timedelta
+from datetime import timezone as dt_timezone
+from typing import Union
 from zoneinfo import ZoneInfo
-from typing import Optional, Union
+
 import pandas as pd
+
 from config.timeframes import timeframe_to_minutes
 
 

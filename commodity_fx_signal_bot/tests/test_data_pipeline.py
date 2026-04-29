@@ -1,8 +1,7 @@
-import pytest
 import pandas as pd
-from datetime import datetime, timezone
-from data.data_pipeline import resample_ohlcv, DataPipeline
-from config.settings import Settings
+import pytest
+
+from data.data_pipeline import resample_ohlcv
 
 
 @pytest.fixture

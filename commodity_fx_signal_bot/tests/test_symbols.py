@@ -2,17 +2,16 @@
 Tests for symbol universe management.
 """
 
-import pytest
 from config.symbols import (
     DEFAULT_SYMBOL_UNIVERSE,
-    get_enabled_symbols,
-    validate_symbol_universe,
-    summarize_universe,
-    get_analysis_symbols,
-    get_paper_trade_symbols,
-    get_benchmark_symbols,
-    get_symbols_by_data_source,
     get_all_candidate_symbols,
+    get_analysis_symbols,
+    get_benchmark_symbols,
+    get_enabled_symbols,
+    get_paper_trade_symbols,
+    get_symbols_by_data_source,
+    summarize_universe,
+    validate_symbol_universe,
 )
 
 

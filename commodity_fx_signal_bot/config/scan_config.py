@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from typing import List, Tuple
+
 from core.exceptions import ConfigError
 
 

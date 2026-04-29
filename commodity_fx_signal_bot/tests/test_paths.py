@@ -2,14 +2,13 @@
 Tests for path definitions and directory creation.
 """
 
-from pathlib import Path
 from config.paths import (
-    ensure_project_directories,
-    LOGS_DIR,
-    REPORTS_DIR,
-    RAW_DATA_DIR,
-    PROCESSED_DATA_DIR,
     CACHE_DIR,
+    LOGS_DIR,
+    PROCESSED_DATA_DIR,
+    RAW_DATA_DIR,
+    REPORTS_DIR,
+    ensure_project_directories,
 )
 
 

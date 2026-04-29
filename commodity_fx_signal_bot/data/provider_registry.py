@@ -3,11 +3,12 @@ Registry for data providers.
 """
 
 from typing import Dict, List
+
 from core.exceptions import DataProviderError
 from data.providers.base_provider import BaseDataProvider
-from data.providers.yahoo_provider import YahooProvider
 from data.providers.evds_provider import EVDSProvider
 from data.providers.fred_provider import FREDProvider
+from data.providers.yahoo_provider import YahooProvider
 
 _PROVIDERS: Dict[str, BaseDataProvider] = {
     "yahoo": YahooProvider(),

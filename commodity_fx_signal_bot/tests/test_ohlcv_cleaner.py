@@ -1,8 +1,6 @@
-import pytest
 import pandas as pd
-import numpy as np
 
-from data.cleaning.ohlcv_cleaner import OHLCVCleaner, CleaningOptions
+from data.cleaning.ohlcv_cleaner import OHLCVCleaner
 
 
 def test_drop_duplicate_index():

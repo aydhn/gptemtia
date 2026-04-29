@@ -2,9 +2,10 @@
 System-wide settings and configuration management.
 """
 
-import os
 import logging
+import os
 from dataclasses import dataclass, field
+
 from dotenv import load_dotenv
 
 logger = logging.getLogger(__name__)

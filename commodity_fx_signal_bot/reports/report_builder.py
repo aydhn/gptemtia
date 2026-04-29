@@ -2,9 +2,11 @@
 Report generation utilities.
 """
 
-from typing import List
 from pathlib import Path
+from typing import List
+
 import pandas as pd
+
 from config.symbols import SymbolSpec
 from data.universe_analyzer import SymbolReliabilityResult, UniverseAnalyzer
 
@@ -133,10 +135,7 @@ def save_dataframe_report(df: pd.DataFrame, path: Path) -> None:
 def build_timeframe_compatibility_report(
     symbols: List[SymbolSpec], scan_plan: dict
 ) -> str:
-    from config.symbols import (
-        get_default_timeframes_for_asset_class,
-        get_allowed_timeframes_for_symbol,
-    )
+    pass
 
     lines = [
         "=== Timeframe Compatibility Audit ===",

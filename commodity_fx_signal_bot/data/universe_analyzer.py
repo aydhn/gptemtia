@@ -4,12 +4,13 @@ Measures data reliability and quality for a given universe of symbols.
 """
 
 from dataclasses import dataclass
-from typing import List, Dict, Optional, Any
+from typing import Any, Dict, List, Optional
+
 import pandas as pd
 
-from core.logger import get_logger
 from config.settings import Settings
 from config.symbols import SymbolSpec
+from core.logger import get_logger
 from data.data_pipeline import DataPipeline
 from data.data_quality import build_data_quality_report
 
@@ -60,8 +61,8 @@ class UniverseAnalyzer:
     ) -> SymbolReliabilityResult:
         # Resolve timeframe/provider_interval based on interval string (assuming interval = timeframe string)
         from config.timeframes import (
-            is_derived_timeframe,
             get_provider_interval_for_timeframe,
+            is_derived_timeframe,
         )
 
         try:

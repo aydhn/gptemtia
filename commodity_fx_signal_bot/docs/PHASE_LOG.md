@@ -54,3 +54,14 @@ This file tracks the completion of the project phases.
 - Data cleaning scripti eklendi (`run_data_cleaning.py`).
 - Processed data status scripti eklendi (`run_processed_data_status.py`).
 - Veri kalitesi için genişletilmiş testler yazıldı.
+
+## Phase 7: Teknik İndikatör ve Feature Katmanı
+- IndicatorSpec eklendi.
+- IndicatorRegistry profesyonelleştirildi.
+- Momentum/trend/volatility/volume/mean reversion/price action indikatörleri eklendi.
+- FeatureBuilder eklendi.
+- IndicatorPipeline eklendi.
+- DataLake feature desteği eklendi.
+- FeatureStore skeleton geliştirildi.
+- Indicator preview/batch/status scriptleri eklendi.
+- Testler genişletildi.

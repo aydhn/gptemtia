@@ -1,12 +1,13 @@
-import pytest
-import pandas as pd
 import numpy as np
-from data.data_quality import (
-    validate_ohlcv_dataframe,
-    is_dataframe_usable,
-    build_data_quality_report,
-)
+import pandas as pd
+import pytest
+
 from core.exceptions import DataQualityError
+from data.data_quality import (
+    build_data_quality_report,
+    is_dataframe_usable,
+    validate_ohlcv_dataframe,
+)
 
 
 @pytest.fixture
@@ -86,7 +87,7 @@ def test_build_data_quality_report(valid_df):
     assert report["missing_ratio_by_column"]["close"] == 0.0
 
 
-from data.data_quality import infer_quality_grade, compare_dataframes_basic
+from data.data_quality import compare_dataframes_basic, infer_quality_grade
 
 
 def test_infer_quality_grade():

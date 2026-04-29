@@ -1,9 +1,8 @@
+from typing import Any, Dict, Tuple
+
 import pandas as pd
-import numpy as np
-from typing import Tuple, Dict, Any
 
 from core.logger import get_logger
-from core.constants import REQUIRED_COLUMNS
 
 logger = get_logger(__name__)
 

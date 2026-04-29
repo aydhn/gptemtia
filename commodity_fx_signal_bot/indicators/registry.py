@@ -1,0 +1,99 @@
+import logging
+from typing import Callable, Optional
+
+from indicators.indicator_config import list_indicator_specs
+
+logger = logging.getLogger(__name__)
+
+
+class IndicatorRegistry:
+    def __init__(self):
+        self._indicators = {}
+
+    def register(
+        self,
+        name: str,
+        func: Callable,
+        category: str,
+        default_params: Optional[dict] = None,
+    ) -> None:
+        if name in self._indicators:
+            logger.warning(f"Indicator '{name}' is already registered. Overwriting.")
+        self._indicators[name] = {
+            "func": func,
+            "category": category,
+            "default_params": default_params or {},
+        }
+
+    def get(self, name: str) -> Callable:
+        if name not in self._indicators:
+            raise ValueError(f"Indicator '{name}' not found in registry.")
+        return self._indicators[name]["func"]
+
+    def list_names(self, category: Optional[str] = None) -> list[str]:
+        if category:
+            return [
+                name
+                for name, data in self._indicators.items()
+                if data["category"] == category
+            ]
+        return list(self._indicators.keys())
+
+    def exists(self, name: str) -> bool:
+        return name in self._indicators
+
+    def clear(self) -> None:
+        self._indicators.clear()
+
+
+GLOBAL_INDICATOR_REGISTRY = IndicatorRegistry()
+
+
+def register_builtin_indicators():
+    # To avoid circular imports, import modules dynamically when registering
+    import indicators.mean_reversion as mean_reversion
+    import indicators.momentum as momentum
+    import indicators.price_action as price_action
+    import indicators.transforms as transforms
+    import indicators.trend as trend
+    import indicators.volatility as volatility
+    import indicators.volume as volume
+
+    # We will register them based on specs
+    specs = list_indicator_specs()
+
+    # Map module names to module objects
+    modules = {
+        "momentum": momentum,
+        "trend": trend,
+        "volatility": volatility,
+        "volume": volume,
+        "mean_reversion": mean_reversion,
+        "price_action": price_action,
+        "transform": transforms,
+    }
+
+    for spec in specs:
+        mod = modules.get(spec.category)
+        if mod:
+            func = getattr(mod, spec.function_name, None)
+            if func:
+                GLOBAL_INDICATOR_REGISTRY.register(
+                    spec.name, func, spec.category, spec.default_params
+                )
+            else:
+                logger.warning(
+                    f"Function {spec.function_name} not found in module {spec.category} for indicator {spec.name}"
+                )
+        else:
+            logger.warning(
+                f"Module {spec.category} not found for indicator {spec.name}"
+            )
+
+
+def get_indicator(name: str) -> Callable:
+    return GLOBAL_INDICATOR_REGISTRY.get(name)
+
+
+def list_registered_indicators(category: Optional[str] = None) -> list[str]:
+    return GLOBAL_INDICATOR_REGISTRY.list_names(category)

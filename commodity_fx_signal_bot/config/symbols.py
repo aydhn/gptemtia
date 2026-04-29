@@ -3,7 +3,7 @@ Symbol universe definition and management.
 """
 
 from dataclasses import dataclass
-from typing import List, Dict, Tuple
+from typing import Dict, List, Tuple
 
 
 @dataclass(frozen=True)

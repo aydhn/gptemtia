@@ -2,14 +2,15 @@
 Yahoo Finance data provider.
 """
 
-import yfinance as yf
-import pandas as pd
 from typing import Optional
 
-from core.logger import get_logger
+import pandas as pd
+import yfinance as yf
+
 from core.exceptions import DataProviderError
-from data.providers.base_provider import BaseDataProvider
+from core.logger import get_logger
 from data.data_quality import validate_ohlcv_dataframe
+from data.providers.base_provider import BaseDataProvider
 
 logger = get_logger(__name__)
 

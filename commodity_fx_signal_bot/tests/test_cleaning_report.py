@@ -1,6 +1,4 @@
-import pytest
 import pandas as pd
-from pathlib import Path
 
 from data.cleaning.cleaning_report import (
     build_cleaning_report,

@@ -5,8 +5,9 @@ Centralized logging configuration.
 import logging
 import sys
 from typing import Optional
-from config.settings import settings
+
 from config.paths import LOGS_DIR
+from config.settings import settings
 
 
 def get_logger(name: str, log_file: Optional[str] = None) -> logging.Logger:

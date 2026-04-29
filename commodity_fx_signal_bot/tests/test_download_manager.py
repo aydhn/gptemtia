@@ -1,14 +1,15 @@
-import pytest
 from pathlib import Path
+from unittest.mock import Mock
+
 import pandas as pd
-from unittest.mock import Mock, MagicMock
+import pytest
 
 from config.settings import Settings
 from config.symbols import SymbolSpec
-from data.storage.data_lake import DataLake
-from data.storage.download_journal import DownloadJournal
 from data.data_pipeline import DataPipeline
 from data.download_manager import DownloadManager
+from data.storage.data_lake import DataLake
+from data.storage.download_journal import DownloadJournal
 
 
 @pytest.fixture

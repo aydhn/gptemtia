@@ -1,11 +1,12 @@
 from datetime import datetime
 from typing import Optional
-from config.market_sessions import get_market_session, is_weekend_trading_allowed
+
+from config.market_sessions import get_market_session
 from core.time_utils import (
-    utc_now,
-    is_weekend,
     ensure_timezone_aware,
+    is_weekend,
     timeframe_to_timedelta,
+    utc_now,
 )
 
 

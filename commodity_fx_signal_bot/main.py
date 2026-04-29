@@ -10,11 +10,11 @@ from pathlib import Path
 # Setup path so we can import from within the project directory if run from root
 sys.path.append(str(Path(__file__).parent))
 
-from core.logger import get_logger
-from core.exceptions import ConfigError
-from config.settings import settings
 from config.paths import ensure_project_directories
-from config.symbols import validate_symbol_universe, get_enabled_symbols
+from config.settings import settings
+from config.symbols import get_enabled_symbols, validate_symbol_universe
+from core.exceptions import ConfigError
+from core.logger import get_logger
 
 # Initialize logger (after settings are loaded)
 logger = get_logger("main", log_file="system.log")

@@ -1,4 +1,3 @@
-import pytest
 import pandas as pd
 
 from data.cleaning.quality_scoring import calculate_quality_score, grade_from_score

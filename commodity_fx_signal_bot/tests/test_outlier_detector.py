@@ -1,12 +1,6 @@
-import pytest
 import pandas as pd
-import numpy as np
 
-from data.cleaning.outlier_detector import (
-    detect_return_outliers,
-    detect_zscore_outliers,
-    build_outlier_report,
-)
+from data.cleaning.outlier_detector import build_outlier_report, detect_return_outliers
 
 
 def test_detect_return_outliers():
