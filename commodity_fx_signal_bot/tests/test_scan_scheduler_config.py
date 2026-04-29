@@ -1,9 +1,9 @@
-import pytest
 from datetime import datetime, timezone
+
 from config.scan_config import get_default_scan_profile, validate_scan_profiles
-from core.scan_scheduler import ScanScheduler
-from core.market_calendar import MarketCalendar
 from config.symbols import SymbolSpec
+from core.market_calendar import MarketCalendar
+from core.scan_scheduler import ScanScheduler
 
 
 def test_scan_profiles_validation():

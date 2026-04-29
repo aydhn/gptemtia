@@ -2,29 +2,21 @@
 Script to audit timeframe compatibility across the universe and configurations.
 """
 
-import sys
 import json
+import sys
 from pathlib import Path
 
 # Add project root to path
 sys.path.append(str(Path(__file__).parent.parent))
 
+from config.market_sessions import validate_market_sessions
+from config.scan_config import get_default_scan_profile, validate_scan_profiles
+from config.symbols import get_enabled_symbols, validate_symbol_universe
+from config.timeframes import DEFAULT_TIMEFRAMES, validate_timeframe
 from core.logger import get_logger
-from config.symbols import (
-    get_enabled_symbols,
-    validate_symbol_universe,
-    get_allowed_timeframes_for_symbol,
-    get_default_timeframes_for_asset_class,
-)
-from config.timeframes import validate_timeframe, list_timeframes, DEFAULT_TIMEFRAMES
-from config.market_sessions import validate_market_sessions, list_market_sessions
-from config.scan_config import validate_scan_profiles, get_default_scan_profile
 from core.market_calendar import MarketCalendar
 from core.scan_scheduler import ScanScheduler
-from reports.report_builder import (
-    build_timeframe_compatibility_report,
-    build_scan_plan_report,
-)
+from reports.report_builder import build_timeframe_compatibility_report
 
 logger = get_logger("run_timeframe_compatibility_audit")
 

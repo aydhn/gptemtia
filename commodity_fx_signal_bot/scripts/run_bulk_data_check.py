@@ -9,12 +9,12 @@ from pathlib import Path
 # Add project root to path
 sys.path.append(str(Path(__file__).parent.parent))
 
-from core.logger import get_logger
-from config.settings import settings
 from config.paths import CACHE_DIR, ensure_project_directories
+from config.settings import settings
 from config.symbols import get_enabled_symbols
-from data.storage.cache_manager import CacheManager
+from core.logger import get_logger
 from data.data_pipeline import DataPipeline
+from data.storage.cache_manager import CacheManager
 
 
 def main():

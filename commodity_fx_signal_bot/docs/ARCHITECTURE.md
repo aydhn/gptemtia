@@ -36,3 +36,13 @@ Symbol Universe → Timeframe Registry → Market Session Model → Scan Profile
 
 New Extended Data Flow:
 Raw Data Lake → Data Quality Audit → OHLCV Cleaner → Missing Data Analysis → Outlier Detection → Integrity Checks → Quality Scoring → Processed Data Lake → Future Indicators/Strategies/Backtests/ML
+
+### Phase 7 Updates
+- **Indicator Registry:** A centralized repository mapping indicator names to calculation functions (`IndicatorRegistry`).
+- **Feature Builder:** Processes raw/cleaned OHLCV data to construct composite dataframes of multiple technical indicators.
+- **Indicator Pipeline:** Orchestrates applying the Feature Builder across the entire Universe and storing the results as parquet files.
+- **Feature Data Lake:** Persists generated features distinctly from raw or simply processed data (`data/lake/features/technical`).
+- **Feature Store Stub:** Prepares the retrieval layer for future ML Models (`ml/feature_store.py`).
+
+Extended Pipeline flow:
+Processed Data Lake → Indicator Registry → Built-in Indicator Modules → FeatureBuilder → IndicatorPipeline → Technical Feature Store DataLake → Future Strategy/Backtest/ML

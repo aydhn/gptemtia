@@ -1,8 +1,8 @@
-import pytest
 import pandas as pd
-import numpy as np
-from data.providers.yahoo_provider import YahooProvider
+import pytest
+
 from core.exceptions import DataProviderError
+from data.providers.yahoo_provider import YahooProvider
 
 
 @pytest.fixture

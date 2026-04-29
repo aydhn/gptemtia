@@ -1,12 +1,11 @@
-import pytest
-import pandas as pd
 import numpy as np
+import pandas as pd
 
 from data.cleaning.missing_data import (
     calculate_missing_ratios,
     detect_timestamp_gaps,
-    summarize_gaps,
     fill_small_price_gaps,
+    summarize_gaps,
 )
 
 

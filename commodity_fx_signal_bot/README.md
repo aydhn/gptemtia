@@ -84,3 +84,20 @@ python -m scripts.run_data_cleaning --symbol GC=F --timeframe 1d
 ```bash
 python -m scripts.run_processed_data_status
 ```
+
+
+## Phase 7: Teknik İndikatör ve Feature Katmanı
+Bu faz strateji üretmez, aksine gelecekteki stratejiler ve makine öğrenmesi katmanı için gerekli olan teknik özellikleri (features) temiz ve profesyonel bir yapıda hesaplar.
+- Processed veri (işlenmiş temiz veri) kullanılması tercih edilir.
+- Warmup (ısınma periyodu) ve hesaplanamayan değerlerden doğan NaN'lar normal kabul edilir ve raporlanır.
+- Özellik dosyaları (features) `data/lake/features/technical` altında ayrı olarak saklanır, orijinal veri bozulmaz.
+- İndikatör hesaplamaları için `ta` kütüphanesi ve built-in Pandas/NumPy yöntemleri birlikte kullanılır.
+- İleride eklenecek olan FX Volume indikatörlerinde volume sıfır/NaN çıktılarının sistemi çökertmemesi garanti altına alınmıştır.
+- Ichimoku gibi forward-shift içeren indikatörlerde ML veri kaçağı (leakage) riski bulunur, dikkat edilmelidir.
+
+**Kullanım Komutları:**
+```bash
+python -m scripts.run_indicator_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_indicator_batch_build --limit 10
+python -m scripts.run_indicator_status
+```

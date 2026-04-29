@@ -1,14 +1,16 @@
+from typing import Optional
+
+import pandas as pd
 import pytest
+
+from core.exceptions import DataProviderError
 from data.provider_registry import (
     get_provider,
     list_available_providers,
     register_provider,
 )
-from data.providers.yahoo_provider import YahooProvider
 from data.providers.base_provider import BaseDataProvider
-from core.exceptions import DataProviderError
-import pandas as pd
-from typing import Optional
+from data.providers.yahoo_provider import YahooProvider
 
 
 class MockProvider(BaseDataProvider):

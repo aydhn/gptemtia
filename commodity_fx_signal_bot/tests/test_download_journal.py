@@ -1,7 +1,7 @@
-import pytest
-from pathlib import Path
-import pandas as pd
 from datetime import datetime, timezone
+
+import pytest
+
 from data.storage.download_journal import DownloadJournal, DownloadJournalEntry
 
 

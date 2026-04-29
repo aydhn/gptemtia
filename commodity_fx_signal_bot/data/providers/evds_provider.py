@@ -3,10 +3,12 @@ EVDS Data Provider Skeleton.
 """
 
 from typing import Optional
+
 import pandas as pd
-from data.providers.base_provider import BaseDataProvider
+
 from config.settings import settings
 from core.exceptions import DataProviderError
+from data.providers.base_provider import BaseDataProvider
 
 
 class EVDSProvider(BaseDataProvider):

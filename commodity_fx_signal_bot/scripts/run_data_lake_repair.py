@@ -5,15 +5,15 @@ from pathlib import Path
 # Add project root to path
 sys.path.append(str(Path(__file__).parent.parent))
 
-from core.logger import get_logger
-from config.settings import settings
 from config.paths import LAKE_DIR, LAKE_JOURNALS_DIR, ensure_project_directories
-from config.symbols import get_enabled_symbols, get_allowed_timeframes_for_symbol
-from data.storage.cache_manager import CacheManager
+from config.settings import settings
+from config.symbols import get_allowed_timeframes_for_symbol, get_enabled_symbols
+from core.logger import get_logger
 from data.data_pipeline import DataPipeline
+from data.download_manager import DownloadManager
+from data.storage.cache_manager import CacheManager
 from data.storage.data_lake import DataLake
 from data.storage.download_journal import DownloadJournal
-from data.download_manager import DownloadManager
 
 
 def main():

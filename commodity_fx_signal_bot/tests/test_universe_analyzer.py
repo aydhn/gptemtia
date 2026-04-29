@@ -2,14 +2,15 @@
 Tests for Universe Analyzer
 """
 
-import pytest
+from unittest.mock import MagicMock
+
 import pandas as pd
-from datetime import datetime, timedelta
-from data.universe_analyzer import UniverseAnalyzer, SymbolReliabilityResult
+import pytest
+
 from config.settings import Settings
 from config.symbols import SymbolSpec
 from data.data_pipeline import DataPipeline
-from unittest.mock import MagicMock
+from data.universe_analyzer import SymbolReliabilityResult, UniverseAnalyzer
 
 
 @pytest.fixture

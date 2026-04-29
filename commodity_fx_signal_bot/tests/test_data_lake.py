@@ -1,8 +1,8 @@
-import pytest
-from pathlib import Path
 import pandas as pd
-from data.storage.data_lake import DataLake
+import pytest
+
 from config.symbols import SymbolSpec
+from data.storage.data_lake import DataLake
 
 
 @pytest.fixture

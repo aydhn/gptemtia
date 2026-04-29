@@ -4,7 +4,9 @@ Base Data Provider definition.
 
 from abc import ABC, abstractmethod
 from typing import Optional
+
 import pandas as pd
+
 from core.exceptions import DataProviderError
 
 
@@ -44,7 +46,6 @@ class BaseDataProvider(ABC):
         Raises:
             DataProviderError: If data cannot be fetched or processed.
         """
-        pass
 
     def is_available(self) -> bool:
         """

@@ -1,10 +1,11 @@
 import pytest
+
 from config.timeframes import (
     get_timeframe,
-    list_timeframes,
-    validate_timeframe,
-    timeframe_to_minutes,
     is_derived_timeframe,
+    list_timeframes,
+    timeframe_to_minutes,
+    validate_timeframe,
 )
 from core.exceptions import ConfigError
 

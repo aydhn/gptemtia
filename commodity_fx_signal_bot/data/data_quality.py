@@ -2,10 +2,12 @@
 Data quality validation functions.
 """
 
+from typing import Any, Dict
+
 import pandas as pd
-from typing import Dict, Any
-from core.exceptions import DataQualityError
+
 from core.constants import REQUIRED_COLUMNS
+from core.exceptions import DataQualityError
 
 
 def validate_ohlcv_dataframe(df: pd.DataFrame) -> None:

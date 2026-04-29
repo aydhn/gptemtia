@@ -1,11 +1,12 @@
+from dataclasses import dataclass
+from typing import List
+
 import pandas as pd
-from dataclasses import dataclass, field
-from typing import List, Dict, Any
 
 from core.logger import get_logger
 from data.cleaning.integrity_checks import run_integrity_checks
 from data.cleaning.missing_data import calculate_missing_ratios, detect_timestamp_gaps
-from data.cleaning.outlier_detector import build_outlier_report, OutlierDetectionConfig
+from data.cleaning.outlier_detector import build_outlier_report
 
 logger = get_logger(__name__)
 
