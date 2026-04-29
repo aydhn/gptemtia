@@ -136,6 +136,53 @@ class Settings:
         default_factory=lambda: os.getenv("PRESERVE_RAW_DATA", "true").lower() == "true"
     )
 
+    # Phase 8: Momentum Features & Events Settings
+    momentum_features_enabled: bool = field(
+        default_factory=lambda: os.getenv("MOMENTUM_FEATURES_ENABLED", "true").lower()
+        == "true"
+    )
+    momentum_events_enabled: bool = field(
+        default_factory=lambda: os.getenv("MOMENTUM_EVENTS_ENABLED", "true").lower()
+        == "true"
+    )
+    default_momentum_windows: tuple[int, ...] = field(
+        default_factory=lambda: tuple(
+            int(x)
+            for x in os.getenv("DEFAULT_MOMENTUM_WINDOWS", "7,14,21,28").split(",")
+        )
+    )
+    default_roc_windows: tuple[int, ...] = field(
+        default_factory=lambda: tuple(
+            int(x) for x in os.getenv("DEFAULT_ROC_WINDOWS", "5,10,20").split(",")
+        )
+    )
+    default_momentum_overbought_rsi: float = field(
+        default_factory=lambda: float(
+            os.getenv("DEFAULT_MOMENTUM_OVERBOUGHT_RSI", "70.0")
+        )
+    )
+    default_momentum_oversold_rsi: float = field(
+        default_factory=lambda: float(
+            os.getenv("DEFAULT_MOMENTUM_OVERSOLD_RSI", "30.0")
+        )
+    )
+    default_stochastic_overbought: float = field(
+        default_factory=lambda: float(
+            os.getenv("DEFAULT_STOCHASTIC_OVERBOUGHT", "80.0")
+        )
+    )
+    default_stochastic_oversold: float = field(
+        default_factory=lambda: float(os.getenv("DEFAULT_STOCHASTIC_OVERSOLD", "20.0"))
+    )
+    save_momentum_features: bool = field(
+        default_factory=lambda: os.getenv("SAVE_MOMENTUM_FEATURES", "true").lower()
+        == "true"
+    )
+    save_momentum_events: bool = field(
+        default_factory=lambda: os.getenv("SAVE_MOMENTUM_EVENTS", "true").lower()
+        == "true"
+    )
+
     paper_trading_enabled: bool = field(
         default_factory=lambda: os.getenv("PAPER_TRADING_ENABLED", "true").lower()
         == "true"
