@@ -144,3 +144,137 @@ class DataLake:
                 logger.error(
                     f"Failed to delete OHLCV for {spec.symbol} ({timeframe}): {e}"
                 )
+
+    # Processed Data Methods
+    def get_processed_symbol_dir(self, spec: SymbolSpec) -> Path:
+        """Get the directory path for a specific symbol in the processed area."""
+        source = spec.data_source
+        sub_class = spec.sub_class.lower().replace(" ", "_")
+        safe_sym = self.safe_symbol_name(spec.symbol)
+        return self.root_dir / "processed" / "ohlcv" / source / sub_class / safe_sym
+
+    def get_processed_ohlcv_path(self, spec: SymbolSpec, timeframe: str) -> Path:
+        """Get the file path for processed OHLCV data of a specific timeframe."""
+        symbol_dir = self.get_processed_symbol_dir(spec)
+        return symbol_dir / f"{timeframe}.parquet"
+
+    def save_processed_ohlcv(
+        self, spec: SymbolSpec, timeframe: str, df: pd.DataFrame
+    ) -> Path:
+        """Save a cleaned/processed OHLCV DataFrame to the Data Lake."""
+        if df is None or df.empty:
+            logger.warning(
+                f"Attempted to save empty processed DataFrame for {spec.symbol} ({timeframe})"
+            )
+            return self.get_processed_ohlcv_path(spec, timeframe)
+
+        try:
+            # We skip standard validation here or you could add a softer validation
+            # since processed data might have extra columns
+            pass
+        except Exception as e:
+            logger.warning(
+                f"Processed data validation failed for {spec.symbol} ({timeframe}): {e}"
+            )
+
+        path = self.get_processed_ohlcv_path(spec, timeframe)
+        path.parent.mkdir(parents=True, exist_ok=True)
+
+        try:
+            df.to_parquet(path, engine="pyarrow")
+            logger.debug(f"Saved processed OHLCV to Data Lake: {path}")
+        except ImportError:
+            logger.error("pyarrow is required to save parquet files.")
+            raise
+        except Exception as e:
+            logger.error(
+                f"Failed to save processed OHLCV for {spec.symbol} ({timeframe}): {e}"
+            )
+            raise
+
+        return path
+
+    def load_processed_ohlcv(self, spec: SymbolSpec, timeframe: str) -> pd.DataFrame:
+        """Load a processed OHLCV DataFrame from the Data Lake."""
+        path = self.get_processed_ohlcv_path(spec, timeframe)
+        if not path.exists():
+            raise FileNotFoundError(f"Processed OHLCV data not found at {path}")
+
+        try:
+            df = pd.read_parquet(path, engine="pyarrow")
+            if isinstance(df.index, pd.DatetimeIndex) and df.index.tz is None:
+                df.index = df.index.tz_localize("UTC")
+            return df
+        except ImportError:
+            logger.error("pyarrow is required to read parquet files.")
+            raise
+        except Exception as e:
+            logger.error(
+                f"Failed to load processed OHLCV for {spec.symbol} ({timeframe}): {e}"
+            )
+            raise
+
+    def has_processed_ohlcv(self, spec: SymbolSpec, timeframe: str) -> bool:
+        """Check if processed OHLCV data exists for a given timeframe."""
+        path = self.get_processed_ohlcv_path(spec, timeframe)
+        return path.exists() and path.is_file()
+
+    def save_quality_report(
+        self, spec: SymbolSpec, timeframe: str, report: dict
+    ) -> Path:
+        """Save a quality report."""
+        safe_sym = self.safe_symbol_name(spec.symbol)
+        filename = f"{safe_sym}_{timeframe}_quality.json"
+        path = self.root_dir / "processed" / "quality_reports" / filename
+        path.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump(report, f, indent=4)
+            return path
+        except Exception as e:
+            logger.error(f"Failed to save quality report for {spec.symbol}: {e}")
+            raise
+
+    def load_quality_report(self, spec: SymbolSpec, timeframe: str) -> dict:
+        """Load a quality report."""
+        safe_sym = self.safe_symbol_name(spec.symbol)
+        filename = f"{safe_sym}_{timeframe}_quality.json"
+        path = self.root_dir / "processed" / "quality_reports" / filename
+        if not path.exists():
+            return {}
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception as e:
+            logger.error(f"Failed to load quality report for {spec.symbol}: {e}")
+            return {}
+
+    def save_cleaning_report(
+        self, spec: SymbolSpec, timeframe: str, report: dict
+    ) -> Path:
+        """Save a cleaning report."""
+        safe_sym = self.safe_symbol_name(spec.symbol)
+        filename = f"{safe_sym}_{timeframe}_cleaning.json"
+        path = self.root_dir / "processed" / "cleaning_reports" / filename
+        path.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump(report, f, indent=4)
+            return path
+        except Exception as e:
+            logger.error(f"Failed to save cleaning report for {spec.symbol}: {e}")
+            raise
+
+    def load_cleaning_report(self, spec: SymbolSpec, timeframe: str) -> dict:
+        """Load a cleaning report."""
+        safe_sym = self.safe_symbol_name(spec.symbol)
+        filename = f"{safe_sym}_{timeframe}_cleaning.json"
+        path = self.root_dir / "processed" / "cleaning_reports" / filename
+        if not path.exists():
+            return {}
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception as e:
+            logger.error(f"Failed to load cleaning report for {spec.symbol}: {e}")
+            return {}

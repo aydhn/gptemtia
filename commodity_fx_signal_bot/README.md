@@ -53,3 +53,34 @@ Komutlar:
 - `python -m scripts.run_data_lake_update --asset-class metals --period 2y`
 - `python -m scripts.run_data_lake_status`
 - `python -m scripts.run_data_lake_repair --dry-run`
+
+## Veri Kalitesi ve Temiz Veri Katmanı (Phase 6)
+
+Veri sağlığı, stratejilerin ve backtestlerin doğruluğu için kritik öneme sahiptir. Bu katman, veri gölündeki ham verileri sistematik olarak denetler, temizler ve işlenmiş (processed) veri olarak ayrı bir alanda saklar.
+
+**Önemli Kavramlar:**
+- **Raw Veri:** Data sağlayıcılardan (Yahoo vb.) indirilen ve olduğu gibi saklanan ham veri. Data gölünde orijinali asla değiştirilmez (ezilmez).
+- **Processed Veri:** Temizlik işlemlerinden geçmiş, indeksleri düzeltilmiş, küçük gapleri doldurulmuş ve kalitesi artırılmış veridir. İndikatörler, stratejiler, ML ve backtest motorları tarafından kullanılır.
+- **Ham Veri Neden Ezilmez?** Ham veriyi değiştirmek, orijinal hata kaynağını kaybetmeye yol açar ve gelecekte farklı temizlik stratejileri uygulamayı zorlaştırır.
+- **Outlier Neden Otomatik Silinmez?** Aşırı fiyat hareketleri (outlier'lar) veri hatası olabileceği gibi gerçek bir piyasa dalgalanması (crash/rally) da olabilir. Bu nedenle outlier'lar otomatik silinmez, işaretlenir ve raporlanır.
+- **Gap Nedir?** Ardışık iki zaman damgası arasındaki beklenen süreden çok daha büyük olan boşluktur. Veri kaybını ifade eder.
+- **Quality Grade:** Verinin sağlık durumunu A'dan F'ye kadar derecelendirir. Düşük not alan veriler problemlidir ve kullanılmadan önce onarılmalıdır.
+
+**Çalıştırma Komutları:**
+
+Veri Gölü Kalite Denetimi:
+```bash
+python -m scripts.run_data_quality_audit
+python -m scripts.run_data_quality_audit --limit 10
+```
+
+Veri Temizleme ve İşlenmiş (Processed) Veri Üretimi:
+```bash
+python -m scripts.run_data_cleaning --limit 10
+python -m scripts.run_data_cleaning --symbol GC=F --timeframe 1d
+```
+
+İşlenmiş Veri Gölü Durum Raporu:
+```bash
+python -m scripts.run_processed_data_status
+```

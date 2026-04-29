@@ -273,3 +273,129 @@ def build_download_journal_report(journal_summary: dict) -> str:
 
     lines.append("==================================")
     return "\n".join(lines)
+
+
+def build_data_quality_audit_report(audit_df: pd.DataFrame, summary: dict) -> str:
+    """Build a human-readable text report for data quality audit."""
+    if audit_df.empty:
+        return "No data available for audit."
+
+    lines = []
+    lines.append("DATA QUALITY AUDIT REPORT")
+    lines.append("=" * 50)
+    lines.append("")
+
+    lines.append("1. GENEL ÖZET")
+    lines.append("-" * 30)
+    lines.append(f"Toplam Taranan Dosya: {summary.get('total_files', 0)}")
+    lines.append(f"Ortalama Kalite Skoru: {summary.get('avg_score', 0):.1f}/100")
+    lines.append(f"Toplam Kritik Hata: {summary.get('total_errors', 0)}")
+    lines.append("")
+
+    lines.append("2. KALİTE NOTU DAĞILIMI (Grade Distribution)")
+    lines.append("-" * 30)
+    grades = summary.get("grades", {})
+    for grade, count in sorted(grades.items()):
+        lines.append(f"Grade {grade}: {count} dosya")
+    lines.append("")
+
+    lines.append("3. EN PROBLEMLİ DOSYALAR (D & F Grades)")
+    lines.append("-" * 30)
+    problematic = audit_df[audit_df["Grade"].isin(["D", "F"])].sort_values(by="Score")
+    if problematic.empty:
+        lines.append("Harika! D veya F notu alan sorunlu dosya bulunamadı.")
+    else:
+        for idx, row in problematic.head(20).iterrows():
+            lines.append(
+                f"{row['Symbol']} ({row['Timeframe']}): Grade {row['Grade']} (Score: {row['Score']:.1f}) - Hatalar: {row['Errors']}, Boşluk: {row['Gaps']}, Duplicate: {row['Duplicates']}"
+            )
+    lines.append("")
+
+    lines.append("4. EN ÇOK BOŞLUK (GAP) İÇERENLER")
+    lines.append("-" * 30)
+    gappy = audit_df[audit_df["Gaps"] > 0].sort_values(by="Gaps", ascending=False)
+    if gappy.empty:
+        lines.append("Önemli bir boşluk (gap) bulunamadı.")
+    else:
+        for idx, row in gappy.head(10).iterrows():
+            lines.append(f"{row['Symbol']} ({row['Timeframe']}): {row['Gaps']} Gap")
+
+    return "\n".join(lines)
+
+
+def build_data_cleaning_report(summary_df: pd.DataFrame, summary: dict) -> str:
+    """Build a human-readable text report for data cleaning process."""
+    if summary_df.empty:
+        return "No data was cleaned."
+
+    lines = []
+    lines.append("VERİ TEMİZLİK (CLEANING) RAPORU")
+    lines.append("=" * 50)
+    lines.append("")
+
+    lines.append("1. TEMİZLİK ÖZETİ")
+    lines.append("-" * 30)
+    lines.append(f"Toplam Temizlenen: {summary.get('total_cleaned', 0)}")
+    lines.append(f"Kalitesi Artan: {summary.get('improved', 0)}")
+    lines.append(f"Kalitesi Düşen (veya Veri Kaybeden): {summary.get('degraded', 0)}")
+    lines.append(f"Ortalama Skor Artışı: +{summary.get('avg_improvement', 0):.2f}")
+    lines.append(f"Silinen Duplicate Satır: {summary.get('total_dupes_removed', 0)}")
+    lines.append("")
+
+    lines.append("2. EN ÇOK İYİLEŞENLER")
+    lines.append("-" * 30)
+    improved_df = summary_df[summary_df["Score Change"] > 0].sort_values(
+        by="Score Change", ascending=False
+    )
+    if improved_df.empty:
+        lines.append("Skorunda artış olan dosya yok.")
+    else:
+        for idx, row in improved_df.head(15).iterrows():
+            lines.append(
+                f"{row['Symbol']} ({row['Timeframe']}): {row['Grade Before']} -> {row['Grade After']} (+{row['Score Change']:.1f})"
+            )
+    lines.append("")
+
+    return "\n".join(lines)
+
+
+def build_processed_data_status_report(status_df: pd.DataFrame, summary: dict) -> str:
+    """Build a human-readable report for processed data lake status."""
+    if status_df.empty:
+        return "No data found."
+
+    lines = []
+    lines.append("PROCESSED DATA LAKE STATUS")
+    lines.append("=" * 50)
+    lines.append("")
+
+    lines.append("1. DURUM ÖZETİ")
+    lines.append("-" * 30)
+    lines.append(
+        f"Toplam Kombinasyon (Symbol+TF): {summary.get('total_combinations', 0)}"
+    )
+    lines.append(f"İşlenmiş (Processed) Hazır: {summary.get('fully_processed', 0)}")
+    lines.append(
+        f"İşlenmeyi Bekleyen (Ham var, Processed Yok): {summary.get('missing_processed', 0)}"
+    )
+    lines.append("")
+
+    lines.append("2. PROCESSED KALİTE DAĞILIMI")
+    lines.append("-" * 30)
+    grades = summary.get("processed_grades", {})
+    for grade, count in sorted(grades.items()):
+        lines.append(f"Grade {grade}: {count} dosya")
+    lines.append("")
+
+    missing_df = status_df[
+        (status_df["Has Raw"] == True) & (status_df["Has Processed"] == False)
+    ]
+    if not missing_df.empty:
+        lines.append("3. TEMİZLENMEYİ BEKLEYENLER")
+        lines.append("-" * 30)
+        for idx, row in missing_df.head(20).iterrows():
+            lines.append(
+                f"{row['Symbol']} ({row['Timeframe']}): Raw Rows: {row['Raw Rows']}"
+            )
+
+    return "\n".join(lines)
