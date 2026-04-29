@@ -97,6 +97,44 @@ class Settings:
         == "true"
     )
 
+    # Phase 6: Data Cleaning and Quality Settings
+    processed_data_enabled: bool = field(
+        default_factory=lambda: os.getenv("PROCESSED_DATA_ENABLED", "true").lower()
+        == "true"
+    )
+    cleaning_enabled: bool = field(
+        default_factory=lambda: os.getenv("CLEANING_ENABLED", "true").lower() == "true"
+    )
+    outlier_detection_enabled: bool = field(
+        default_factory=lambda: os.getenv("OUTLIER_DETECTION_ENABLED", "true").lower()
+        == "true"
+    )
+    default_quality_min_rows: int = field(
+        default_factory=lambda: int(os.getenv("DEFAULT_QUALITY_MIN_ROWS", "50"))
+    )
+    default_outlier_return_threshold: float = field(
+        default_factory=lambda: float(
+            os.getenv("DEFAULT_OUTLIER_RETURN_THRESHOLD", "0.20")
+        )
+    )
+    default_outlier_zscore_threshold: float = field(
+        default_factory=lambda: float(
+            os.getenv("DEFAULT_OUTLIER_ZSCORE_THRESHOLD", "6.0")
+        )
+    )
+    allow_forward_fill_small_gaps: bool = field(
+        default_factory=lambda: os.getenv(
+            "ALLOW_FORWARD_FILL_SMALL_GAPS", "false"
+        ).lower()
+        == "true"
+    )
+    max_forward_fill_gap: int = field(
+        default_factory=lambda: int(os.getenv("MAX_FORWARD_FILL_GAP", "2"))
+    )
+    preserve_raw_data: bool = field(
+        default_factory=lambda: os.getenv("PRESERVE_RAW_DATA", "true").lower() == "true"
+    )
+
     paper_trading_enabled: bool = field(
         default_factory=lambda: os.getenv("PAPER_TRADING_ENABLED", "true").lower()
         == "true"

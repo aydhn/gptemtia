@@ -27,3 +27,12 @@ This document describes the high-level architecture of the Commodity & FX Signal
 
 New Pipeline Hierarchy:
 Symbol Universe → Timeframe Registry → Market Session Model → Scan Profile → Scan Scheduler → Data Pipeline → DownloadManager → DataLake → Manifest → Journal → (Future Strategy Engine)
+
+### Phase 6 Updates
+- **Data Quality Audit:** Systematically evaluates the health of data residing in the data lake.
+- **OHLCV Cleaner:** Standardizes columns, handles duplicate timestamps, and applies basic structural fixes to DataFrames.
+- **Missing Data & Outlier Analysis:** Specialized modules detect gaps, calculate missing ratios, and flag abnormal returns (outliers) without deleting them.
+- **Processed Data Lake:** A dedicated storage area for cleaned and verified data, completely separate from the raw downloads, preserving the original unadulterated data.
+
+New Extended Data Flow:
+Raw Data Lake → Data Quality Audit → OHLCV Cleaner → Missing Data Analysis → Outlier Detection → Integrity Checks → Quality Scoring → Processed Data Lake → Future Indicators/Strategies/Backtests/ML

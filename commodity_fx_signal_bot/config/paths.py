@@ -25,7 +25,13 @@ LAKE_MACRO_DIR = LAKE_DIR / "macro"
 LAKE_SYNTHETIC_DIR = LAKE_DIR / "synthetic"
 LAKE_MANIFESTS_DIR = LAKE_DIR / "manifests"
 LAKE_JOURNALS_DIR = LAKE_DIR / "journals"
-LAKE_QUALITY_REPORTS_DIR = LAKE_DIR / "quality_reports"
+
+# Processed Lake Directories
+LAKE_PROCESSED_DIR = LAKE_DIR / "processed"
+LAKE_PROCESSED_OHLCV_DIR = LAKE_PROCESSED_DIR / "ohlcv"
+LAKE_QUALITY_REPORTS_DIR = LAKE_PROCESSED_DIR / "quality_reports"
+LAKE_CLEANING_REPORTS_DIR = LAKE_PROCESSED_DIR / "cleaning_reports"
+
 LAKE_TMP_DIR = LAKE_DIR / "tmp"
 
 
@@ -46,7 +52,10 @@ def ensure_project_directories() -> None:
         LAKE_SYNTHETIC_DIR,
         LAKE_MANIFESTS_DIR,
         LAKE_JOURNALS_DIR,
+        LAKE_PROCESSED_DIR,
+        LAKE_PROCESSED_OHLCV_DIR,
         LAKE_QUALITY_REPORTS_DIR,
+        LAKE_CLEANING_REPORTS_DIR,
         LAKE_TMP_DIR,
     ]
 

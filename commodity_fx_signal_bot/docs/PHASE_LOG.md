@@ -41,3 +41,16 @@ This file tracks the completion of the project phases.
 - Data lake update/status/repair scriptleri eklendi.
 - Derived timeframe metadata güçlendirildi.
 - Testler genişletildi.
+
+## Phase 6: Veri Doğrulama, Temizlik ve Bütünlük Katmanı
+- OHLCV cleaner eklendi.
+- Missing data analizi eklendi.
+- Outlier detector eklendi.
+- Integrity checks eklendi.
+- Quality scoring eklendi.
+- Cleaning report sistemi eklendi.
+- Processed data lake eklendi.
+- Data quality audit scripti eklendi (`run_data_quality_audit.py`).
+- Data cleaning scripti eklendi (`run_data_cleaning.py`).
+- Processed data status scripti eklendi (`run_processed_data_status.py`).
+- Veri kalitesi için genişletilmiş testler yazıldı.
