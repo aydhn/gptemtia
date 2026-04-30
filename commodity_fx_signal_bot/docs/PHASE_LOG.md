@@ -65,3 +65,15 @@ This file tracks the completion of the project phases.
 - FeatureStore skeleton geliştirildi.
 - Indicator preview/batch/status scriptleri eklendi.
 - Testler genişletildi.
+
+## Phase 9
+- Trend advanced modülü eklendi.
+- Multi SMA/EMA/WMA/HMA/MACD/ADX/Aroon eklendi.
+- Ichimoku full hesaplama eklendi.
+- Price-MA distance, MA slope, MA stack ve trend persistence eklendi.
+- Trend event detection eklendi.
+- TrendFeatureSetBuilder eklendi.
+- IndicatorPipeline trend feature desteği aldı.
+- DataLake trend/trend_events feature set desteği aldı.
+- Trend preview/batch/status scriptleri eklendi.
+- Testler genişletildi.

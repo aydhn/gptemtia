@@ -117,6 +117,22 @@ class FeatureBuilder:
         available = [name for name in default_indicators if self.registry.exists(name)]
         return self.build_features(df, indicator_names=available)
 
+
+    def build_trend_feature_set(
+        self,
+        df: pd.DataFrame,
+        compact: bool = True,
+        include_events: bool = True,
+    ) -> Tuple[pd.DataFrame, dict]:
+
+        from indicators.trend_feature_set import TrendFeatureSetBuilder
+
+        builder = TrendFeatureSetBuilder()
+        if compact:
+            return builder.build_compact_trend_features(df, include_events)
+        else:
+            return builder.build_trend_features(df, include_events)
+
     def validate_feature_frame(self, features: pd.DataFrame) -> dict:
         if features.empty:
             return {"valid": False, "reason": "Empty features DataFrame"}

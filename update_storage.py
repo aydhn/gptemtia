@@ -1,4 +1,5 @@
-import logging
+with open("commodity_fx_signal_bot/ml/feature_store.py", "w") as f:
+    f.write("""import logging
 from typing import Optional
 
 import pandas as pd
@@ -29,3 +30,4 @@ class FeatureStore:
             "trend_features": features,
             "trend_events": events,
         }
+""")
