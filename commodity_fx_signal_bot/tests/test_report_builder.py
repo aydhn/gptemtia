@@ -94,3 +94,36 @@ def test_save_dataframe_report(tmp_path):
     assert path.exists()
     loaded_df = pd.read_csv(path)
     assert len(loaded_df) == 2
+
+def test_build_volatility_feature_preview_report():
+    import pandas as pd
+    from reports.report_builder import build_volatility_feature_preview_report
+    summary = {"type": "compact", "input_rows": 100, "feature_count": 5}
+    tail_df = pd.DataFrame({"atr_14": [1, 2]})
+    rep = build_volatility_feature_preview_report("GC=F", "1d", summary, tail_df)
+    assert "VOLATILITY FEATURE PREVIEW" in rep
+    assert "compact" in rep
+    assert "atr_14" in rep
+
+def test_build_volatility_event_preview_report():
+    import pandas as pd
+    from reports.report_builder import build_volatility_event_preview_report
+    summary = {"total_event_count": 5}
+    tail_df = pd.DataFrame({"event_test": [1, 1]})
+    rep = build_volatility_event_preview_report("GC=F", "1d", summary, tail_df)
+    assert "VOLATILITY EVENT PREVIEW" in rep
+    assert "event_test" in rep
+
+def test_build_volatility_batch_report():
+    from reports.report_builder import build_volatility_batch_report
+    summary = {"total_attempts": 10, "success_count": 10}
+    rep = build_volatility_batch_report(summary)
+    assert "VOLATILITY BATCH BUILD SUMMARY" in rep
+
+def test_build_volatility_status_report():
+    import pandas as pd
+    from reports.report_builder import build_volatility_status_report
+    summary = {"total_symbols": 5}
+    df = pd.DataFrame()
+    rep = build_volatility_status_report(df, summary)
+    assert "VOLATILITY STATUS REPORT" in rep

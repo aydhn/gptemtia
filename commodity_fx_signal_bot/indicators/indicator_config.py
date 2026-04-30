@@ -1,76 +1,23 @@
-from dataclasses import dataclass
+import os
+from dataclasses import dataclass, field
+from typing import Any, Callable, Dict, Tuple
+
+import pandas as pd
 
 
-@dataclass(frozen=True)
+@dataclass
 class IndicatorSpec:
     name: str
     category: str
     function_name: str
-    default_params: dict
-    required_columns: tuple[str, ...]
-    output_columns: tuple[str, ...]
-    warmup_period: int
-    enabled: bool = True
-    tags: tuple[str, ...] = ()
-    notes: str = ""
+    default_params: Dict[str, Any] = field(default_factory=dict)
+    required_columns: Tuple[str, ...] = field(default_factory=tuple)
+    output_columns: Tuple[str, ...] = field(default_factory=tuple)
+    warmup_period: int = 0
 
 
-_BUILTIN_INDICATORS = [
-    # Momentum
-    IndicatorSpec(
-        "rsi_14",
-        "momentum",
-        "calculate_rsi",
-        {"window": 14},
-        ("close",),
-        ("rsi_14",),
-        14,
-    ),
-    IndicatorSpec(
-        "stoch_14_3",
-        "momentum",
-        "calculate_stochastic",
-        {"window": 14, "smooth_window": 3},
-        ("high", "low", "close"),
-        ("stoch_k_14_3", "stoch_d_14_3"),
-        14,
-    ),
-    IndicatorSpec(
-        "stoch_rsi_14",
-        "momentum",
-        "calculate_stoch_rsi",
-        {"window": 14},
-        ("close",),
-        ("stoch_rsi_14",),
-        14,
-    ),
-    IndicatorSpec(
-        "roc_10",
-        "momentum",
-        "calculate_roc",
-        {"window": 10},
-        ("close",),
-        ("roc_10",),
-        10,
-    ),
-    IndicatorSpec(
-        "momentum_10",
-        "momentum",
-        "calculate_momentum",
-        {"window": 10},
-        ("close",),
-        ("momentum_10",),
-        10,
-    ),
-    IndicatorSpec(
-        "williams_r_14",
-        "momentum",
-        "calculate_williams_r",
-        {"window": 14},
-        ("high", "low", "close"),
-        ("williams_r_14",),
-        14,
-    ),
+# Registry of known indicators, their requirements and outputs
+_INDICATOR_SPECS = [
     # Trend
     IndicatorSpec(
         "sma_20", "trend", "calculate_sma", {"window": 20}, ("close",), ("sma_20",), 20
@@ -94,98 +41,13 @@ _BUILTIN_INDICATORS = [
         "ema_50", "trend", "calculate_ema", {"window": 50}, ("close",), ("ema_50",), 50
     ),
     IndicatorSpec(
-        "ema_200",
-        "trend",
-        "calculate_ema",
-        {"window": 200},
-        ("close",),
-        ("ema_200",),
-        200,
-    ),
-    IndicatorSpec(
         "macd_12_26_9",
         "trend",
         "calculate_macd",
         {"fast": 12, "slow": 26, "signal": 9},
         ("close",),
         ("macd_12_26_9", "macd_signal_12_26_9", "macd_hist_12_26_9"),
-        26,
-    ),
-    IndicatorSpec(
-        "adx_14",
-        "trend",
-        "calculate_adx",
-        {"window": 14},
-        ("high", "low", "close"),
-        ("adx_14", "plus_di_14", "minus_di_14"),
-        14,
-    ),
-    IndicatorSpec(
-        "aroon_25",
-        "trend",
-        "calculate_aroon",
-        {"window": 25},
-        ("high", "low"),
-        ("aroon_up_25", "aroon_down_25"),
-        25,
-    ),
-    IndicatorSpec(
-        "ichimoku_basic",
-        "trend",
-        "calculate_ichimoku_basic",
-        {},
-        ("high", "low", "close"),
-        ("ichimoku_tenkan", "ichimoku_kijun", "ichimoku_span_a", "ichimoku_span_b"),
-        52,
-    ),
-    # Phase 9 Advanced Trend Specs
-    IndicatorSpec(
-        "multi_sma", "trend", "calculate_multi_sma", {"windows": (10, 20, 50, 100, 200)}, ("close",), ("sma_10", "sma_20", "sma_50", "sma_100", "sma_200"), 200
-    ),
-    IndicatorSpec(
-        "multi_ema", "trend", "calculate_multi_ema", {"windows": (10, 20, 50, 100, 200)}, ("close",), ("ema_10", "ema_20", "ema_50", "ema_100", "ema_200"), 200
-    ),
-    IndicatorSpec(
-        "wma_20", "trend", "calculate_wma", {"window": 20}, ("close",), ("wma_20",), 20
-    ),
-    IndicatorSpec(
-        "multi_wma", "trend", "calculate_multi_wma", {"windows": (20, 50, 100)}, ("close",), ("wma_20", "wma_50", "wma_100"), 100
-    ),
-    IndicatorSpec(
-        "hma_20", "trend", "calculate_hma", {"window": 20}, ("close",), ("hma_20",), 20
-    ),
-    IndicatorSpec(
-        "multi_hma", "trend", "calculate_multi_hma", {"windows": (20, 50)}, ("close",), ("hma_20", "hma_50"), 50
-    ),
-    IndicatorSpec(
-        "multi_macd", "trend", "calculate_multi_macd", {"configs": ((12, 26, 9), (8, 21, 5), (20, 50, 9))}, ("close",), ("macd_12_26_9", "macd_signal_12_26_9", "macd_hist_12_26_9", "macd_8_21_5", "macd_signal_8_21_5", "macd_hist_8_21_5", "macd_20_50_9", "macd_signal_20_50_9", "macd_hist_20_50_9"), 50
-    ),
-    IndicatorSpec(
-        "dmi_adx_14", "trend", "calculate_dmi_adx", {"window": 14}, ("high", "low", "close"), ("adx_14", "plus_di_14", "minus_di_14"), 14
-    ),
-    IndicatorSpec(
-        "multi_adx", "trend", "calculate_multi_adx", {"windows": (14, 21)}, ("high", "low", "close"), ("adx_14", "plus_di_14", "minus_di_14", "adx_21", "plus_di_21", "minus_di_21"), 21
-    ),
-    IndicatorSpec(
-        "multi_aroon", "trend", "calculate_multi_aroon", {"windows": (14, 25)}, ("high", "low"), ("aroon_up_14", "aroon_down_14", "aroon_up_25", "aroon_down_25"), 25
-    ),
-    IndicatorSpec(
-        "ichimoku_full", "trend", "calculate_ichimoku_full", {}, ("high", "low", "close"), ("ichimoku_tenkan", "ichimoku_kijun", "ichimoku_span_a", "ichimoku_span_b", "ichimoku_chikou"), 52
-    ),
-    IndicatorSpec(
-        "price_ma_distances", "trend", "calculate_price_ma_distances", {"ma_columns": ["sma_20", "sma_50", "sma_200", "ema_20", "ema_50"]}, ("close",), ("dist_close_sma_20", "dist_close_sma_50", "dist_close_sma_200", "dist_close_ema_20", "dist_close_ema_50"), 0
-    ),
-    IndicatorSpec(
-        "ma_slopes", "trend", "calculate_ma_slopes", {"ma_columns": ["sma_20", "ema_20"], "slope_window": 5}, (), ("slope_sma_20_5", "slope_ema_20_5"), 5
-    ),
-    IndicatorSpec(
-        "ma_stack_state", "trend", "calculate_ma_stack_state", {"fast_col": "ema_20", "mid_col": "ema_50", "slow_col": "ema_200"}, (), ("ma_stack_bullish_20_50_200", "ma_stack_bearish_20_50_200"), 0
-    ),
-    IndicatorSpec(
-        "trend_persistence", "trend", "calculate_trend_persistence", {"window": 10}, ("close",), ("trend_persistence_close_10",), 10
-    ),
-    IndicatorSpec(
-        "trend_events", "trend", "build_trend_event_frame", {}, (), (), 0
+        35,  # 26 + 9
     ),
     IndicatorSpec(
         "compact_trend_features", "trend", "build_compact_trend_features", {}, ("open", "high", "low", "close", "volume"), (), 200
@@ -194,6 +56,57 @@ _BUILTIN_INDICATORS = [
         "full_trend_features", "trend", "build_trend_features", {}, ("open", "high", "low", "close", "volume"), (), 200
     ),
     # Volatility
+    IndicatorSpec(
+        "multi_true_range", "volatility", "calculate_multi_true_range", {}, ("open", "high", "low", "close"), (), 0
+    ),
+    IndicatorSpec(
+        "multi_atr", "volatility", "calculate_multi_atr", {"windows": (7, 14, 21, 28)}, ("high", "low", "close"), (), 28
+    ),
+    IndicatorSpec(
+        "atr_percent", "volatility", "calculate_atr_percent", {"windows": (7, 14, 21, 28)}, ("high", "low", "close"), (), 28
+    ),
+    IndicatorSpec(
+        "multi_bollinger_bands", "volatility", "calculate_multi_bollinger_bands", {"windows": (20, 50), "num_std": 2.0}, ("close",), (), 50
+    ),
+    IndicatorSpec(
+        "multi_keltner_channels", "volatility", "calculate_multi_keltner_channels", {"windows": (20, 50), "atr_window": 14, "multiplier": 2.0}, ("high", "low", "close"), (), 50
+    ),
+    IndicatorSpec(
+        "multi_donchian_channels", "volatility", "calculate_multi_donchian_channels", {"windows": (20, 55)}, ("high", "low"), (), 55
+    ),
+    IndicatorSpec(
+        "historical_volatility_multi", "volatility", "calculate_historical_volatility_multi", {"windows": (10, 20, 50, 100), "annualization": 252}, ("close",), (), 100
+    ),
+    IndicatorSpec(
+        "parkinson_volatility", "volatility", "calculate_parkinson_volatility", {"window": 20, "annualization": 252}, ("high", "low"), (), 20
+    ),
+    IndicatorSpec(
+        "garman_klass_volatility", "volatility", "calculate_garman_klass_volatility", {"window": 20, "annualization": 252}, ("open", "high", "low", "close"), (), 20
+    ),
+    IndicatorSpec(
+        "range_percent", "volatility", "calculate_range_percent", {}, ("high", "low", "close"), (), 0
+    ),
+    IndicatorSpec(
+        "gap_volatility", "volatility", "calculate_gap_volatility", {}, ("open", "close"), (), 1
+    ),
+    IndicatorSpec(
+        "volatility_percentile", "volatility", "calculate_volatility_percentile", {"source_col": "atr_pct_14", "window": 120}, (), (), 120
+    ),
+    IndicatorSpec(
+        "volatility_slope", "volatility", "calculate_volatility_slope", {"source_col": "atr_pct_14", "window": 5}, (), (), 5
+    ),
+    IndicatorSpec(
+        "channel_position", "volatility", "calculate_channel_position", {"upper_col": "bb_upper_20_2", "lower_col": "bb_lower_20_2", "prefix": "bb20"}, ("close",), (), 0
+    ),
+    IndicatorSpec(
+        "volatility_events", "volatility", "build_volatility_event_frame", {}, (), (), 120
+    ),
+    IndicatorSpec(
+        "compact_volatility_features", "volatility", "build_compact_volatility_features", {}, ("open", "high", "low", "close"), (), 120
+    ),
+    IndicatorSpec(
+        "full_volatility_features", "volatility", "build_volatility_features", {}, ("open", "high", "low", "close", "volume"), (), 120
+    ),
     IndicatorSpec(
         "atr_14",
         "volatility",
@@ -252,12 +165,61 @@ _BUILTIN_INDICATORS = [
         {},
         ("high", "low", "close"),
         ("true_range",),
-        1,
+        0,
+    ),
+    # Momentum
+    IndicatorSpec(
+        "rsi_14", "momentum", "calculate_rsi", {"window": 14}, ("close",), ("rsi_14",), 14
+    ),
+    IndicatorSpec(
+        "stochastic_14_3_3",
+        "momentum",
+        "calculate_stochastic",
+        {"k_window": 14, "d_window": 3, "smooth_k": 3},
+        ("high", "low", "close"),
+        ("stoch_k_14_3_3", "stoch_d_14_3_3"),
+        17,  # 14 + 3
+    ),
+    IndicatorSpec(
+        "williams_r_14",
+        "momentum",
+        "calculate_williams_r",
+        {"window": 14},
+        ("high", "low", "close"),
+        ("williams_r_14",),
+        14,
+    ),
+    IndicatorSpec(
+        "cci_20",
+        "momentum",
+        "calculate_cci",
+        {"window": 20},
+        ("high", "low", "close"),
+        ("cci_20",),
+        20,
+    ),
+    IndicatorSpec(
+        "roc_10", "momentum", "calculate_roc", {"window": 10}, ("close",), ("roc_10",), 10
+    ),
+    IndicatorSpec(
+        "momentum_10",
+        "momentum",
+        "calculate_momentum",
+        {"window": 10},
+        ("close",),
+        ("mom_10",),
+        10,
+    ),
+    IndicatorSpec(
+        "compact_momentum_features", "momentum", "build_compact_momentum_features", {}, ("open", "high", "low", "close", "volume"), (), 20
+    ),
+    IndicatorSpec(
+        "full_momentum_features", "momentum", "build_momentum_features", {}, ("open", "high", "low", "close", "volume"), (), 20
+    ),
+    IndicatorSpec(
+        "momentum_events", "momentum", "build_momentum_event_frame", {}, (), (), 20
     ),
     # Volume
-    IndicatorSpec(
-        "obv", "volume", "calculate_obv", {}, ("close", "volume"), ("obv",), 1
-    ),
     IndicatorSpec(
         "volume_sma_20",
         "volume",
@@ -268,25 +230,25 @@ _BUILTIN_INDICATORS = [
         20,
     ),
     IndicatorSpec(
-        "volume_zscore_20",
+        "vwap",
         "volume",
-        "calculate_volume_zscore",
-        {"window": 20},
-        ("volume",),
-        ("volume_zscore_20",),
-        20,
-    ),
-    IndicatorSpec(
-        "mfi_14",
-        "volume",
-        "calculate_mfi",
-        {"window": 14},
+        "calculate_vwap",
+        {},
         ("high", "low", "close", "volume"),
-        ("mfi_14",),
-        14,
+        ("vwap",),
+        0,
     ),
     IndicatorSpec(
-        "cmf_20",
+        "obv",
+        "volume",
+        "calculate_obv",
+        {},
+        ("close", "volume"),
+        ("obv",),
+        0,
+    ),
+    IndicatorSpec(
+        "cmf",
         "volume",
         "calculate_cmf",
         {"window": 20},
@@ -294,12 +256,21 @@ _BUILTIN_INDICATORS = [
         ("cmf_20",),
         20,
     ),
-    # Mean Reversion
+    IndicatorSpec(
+        "mfi",
+        "volume",
+        "calculate_mfi",
+        {"window": 14},
+        ("high", "low", "close", "volume"),
+        ("mfi_14",),
+        14,
+    ),
+    # Mean Reversion / Stat
     IndicatorSpec(
         "zscore_close_20",
         "mean_reversion",
-        "calculate_zscore_close",
-        {"window": 20},
+        "calculate_zscore",
+        {"window": 20, "column": "close"},
         ("close",),
         ("zscore_close_20",),
         20,
@@ -307,48 +278,21 @@ _BUILTIN_INDICATORS = [
     IndicatorSpec(
         "distance_from_sma_20",
         "mean_reversion",
-        "calculate_distance_from_sma",
-        {"window": 20},
-        ("close",),
-        ("dist_sma_20",),
-        20,
+        "calculate_distance_from_ma",
+        {"ma_column": "sma_20", "price_column": "close"},
+        ("close", "sma_20"),  # Requires sma_20 to be computed first
+        ("dist_close_sma_20",),
+        0,
     ),
-    IndicatorSpec(
-        "distance_from_ema_20",
-        "mean_reversion",
-        "calculate_distance_from_ema",
-        {"window": 20},
-        ("close",),
-        ("dist_ema_20",),
-        20,
-    ),
-    IndicatorSpec(
-        "bollinger_percent_b",
-        "mean_reversion",
-        "calculate_bollinger_percent_b",
-        {"window": 20, "num_std": 2.0},
-        ("close",),
-        ("bb_percent_b_20_2",),
-        20,
-    ),
-    IndicatorSpec(
-        "bollinger_bandwidth",
-        "mean_reversion",
-        "calculate_bollinger_bandwidth",
-        {"window": 20, "num_std": 2.0},
-        ("close",),
-        ("bb_bandwidth_20_2",),
-        20,
-    ),
-    # Price Action
+    # Price Action / Candles
     IndicatorSpec(
         "candle_body",
         "price_action",
         "calculate_candle_body",
         {},
         ("open", "close"),
-        ("candle_body", "candle_body_pct"),
-        1,
+        ("candle_body",),
+        0,
     ),
     IndicatorSpec(
         "candle_range",
@@ -357,95 +301,78 @@ _BUILTIN_INDICATORS = [
         {},
         ("high", "low"),
         ("candle_range",),
-        1,
-    ),
-    IndicatorSpec(
-        "upper_wick",
-        "price_action",
-        "calculate_wicks",
-        {},
-        ("open", "high", "low", "close"),
-        ("upper_wick", "lower_wick"),
-        1,
-    ),
-    IndicatorSpec(
-        "lower_wick",
-        "price_action",
-        "calculate_wicks",
-        {},
-        ("open", "high", "low", "close"),
-        ("upper_wick", "lower_wick"),
-        1,
+        0,
     ),
     IndicatorSpec(
         "close_position_in_range",
         "price_action",
-        "calculate_close_position_in_range",
+        "calculate_close_position",
         {},
         ("high", "low", "close"),
-        ("close_pos_range",),
-        1,
+        ("close_position_in_range",),
+        0,
     ),
-    IndicatorSpec(
-        "gap_percent",
-        "price_action",
-        "calculate_gap_percent",
-        {},
-        ("open", "close"),
-        ("gap_percent",),
-        1,
-    ),
+    # Transforms / Basic Returns
     IndicatorSpec(
         "return_1",
-        "price_action",
-        "calculate_returns",
-        {"periods": (1,)},
+        "transform",
+        "calculate_return",
+        {"window": 1},
         ("close",),
         ("return_1",),
         1,
     ),
     IndicatorSpec(
         "return_5",
-        "price_action",
-        "calculate_returns",
-        {"periods": (5,)},
+        "transform",
+        "calculate_return",
+        {"window": 5},
         ("close",),
         ("return_5",),
         5,
     ),
     IndicatorSpec(
         "log_return_1",
-        "price_action",
-        "calculate_log_returns",
-        {"periods": (1,)},
+        "transform",
+        "calculate_log_return",
+        {"window": 1},
         ("close",),
         ("log_return_1",),
         1,
     ),
+    IndicatorSpec(
+        "volume_zscore_20",
+        "transform",
+        "calculate_zscore",
+        {"window": 20, "column": "volume"},
+        ("volume",),
+        ("volume_zscore_20",),
+        20,
+    ),
 ]
 
-_INDICATOR_REGISTRY_MAP = {spec.name: spec for spec in _BUILTIN_INDICATORS}
+
+def list_indicator_specs() -> list[IndicatorSpec]:
+    """Returns a list of all known indicator specifications."""
+    return list(_INDICATOR_SPECS)
 
 
 def get_indicator_spec(name: str) -> IndicatorSpec:
-    spec = _INDICATOR_REGISTRY_MAP.get(name)
-    if not spec:
-        raise ValueError(f"Indicator specification for '{name}' not found.")
-    return spec
+    """Gets the specification for a specific indicator by name."""
+    for spec in _INDICATOR_SPECS:
+        if spec.name == name:
+            return spec
+    raise ValueError(f"Indicator spec '{name}' not found.")
 
 
-def list_indicator_specs(enabled_only: bool = True) -> list[IndicatorSpec]:
-    if enabled_only:
-        return [spec for spec in _BUILTIN_INDICATORS if spec.enabled]
-    return _BUILTIN_INDICATORS
+def validate_indicator_specs() -> list[str]:
+    """
+    Validates all indicator specs for common errors.
+    Returns a list of error messages. Empty list means all specs are valid.
+    """
+    errors = []
+    names = set()
 
-
-def list_indicator_specs_by_category(category: str) -> list[IndicatorSpec]:
-    return [spec for spec in _BUILTIN_INDICATORS if spec.category == category]
-
-
-def validate_indicator_specs() -> None:
-    seen_names = set()
     valid_categories = {
         "momentum",
         "trend",
@@ -456,36 +383,20 @@ def validate_indicator_specs() -> None:
         "transform",
     }
 
-    for spec in _BUILTIN_INDICATORS:
-        if spec.name in seen_names:
-            raise ValueError(f"Duplicate indicator name found: {spec.name}")
-        seen_names.add(spec.name)
-
-        if not spec.category:
-            raise ValueError(f"Indicator {spec.name} is missing a category.")
+    for spec in _INDICATOR_SPECS:
+        if spec.name in names:
+            errors.append(f"Duplicate indicator name: {spec.name}")
+        names.add(spec.name)
 
         if spec.category not in valid_categories:
-            raise ValueError(
-                f"Indicator {spec.name} has an invalid category: {spec.category}. Must be one of {valid_categories}"
+            errors.append(
+                f"Invalid category '{spec.category}' for indicator '{spec.name}'"
             )
 
-        if not isinstance(spec.required_columns, tuple):
-            raise ValueError(f"Indicator {spec.name} required_columns must be a tuple.")
-
-        if not isinstance(spec.output_columns, tuple):
-            raise ValueError(f"Indicator {spec.name} output_columns must be a tuple.")
+        if not spec.function_name:
+            errors.append(f"Missing function_name for indicator '{spec.name}'")
 
         if spec.warmup_period < 0:
-            raise ValueError(f"Indicator {spec.name} warmup_period cannot be negative.")
+            errors.append(f"Negative warmup period for indicator '{spec.name}'")
 
-
-def summarize_indicator_specs() -> dict:
-    categories = {}
-    for spec in _BUILTIN_INDICATORS:
-        categories[spec.category] = categories.get(spec.category, 0) + 1
-
-    return {
-        "total_indicators": len(_BUILTIN_INDICATORS),
-        "enabled_indicators": sum(1 for spec in _BUILTIN_INDICATORS if spec.enabled),
-        "categories": categories,
-    }
+    return errors

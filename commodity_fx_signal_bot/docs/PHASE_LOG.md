@@ -77,3 +77,17 @@ This file tracks the completion of the project phases.
 - DataLake trend/trend_events feature set desteği aldı.
 - Trend preview/batch/status scriptleri eklendi.
 - Testler genişletildi.
+
+## Phase 10: Volatility Indicators, Feature Set, and Events
+
+- **Added**: Volatility advanced module.
+- **Added**: Multi ATR, ATR%, Bollinger, Keltner, Donchian.
+- **Added**: Historical volatility, Parkinson, Garman-Klass volatility metrics.
+- **Added**: Range/gap volatility metrics.
+- **Added**: Volatility percentile and slope.
+- **Added**: Volatility event detection.
+- **Added**: VolatilityFeatureSetBuilder.
+- **Updated**: IndicatorPipeline received volatility feature support.
+- **Updated**: DataLake received volatility/volatility_events feature set support.
+- **Added**: Volatility preview/batch/status scripts.
+- **Added**: Extended tests for all new modules.

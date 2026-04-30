@@ -123,3 +123,21 @@ python -m scripts.run_trend_event_preview --symbol GC=F --timeframe 1d
 python -m scripts.run_trend_batch_build --limit 10
 python -m scripts.run_trend_status
 ```
+
+## Phase 10: Volatilite Feature ve Volatilite Event Katmanı
+
+- Bu faz nihai al/sat stratejisi değildir.
+- Volatilite eventleri sadece aday olaylardır.
+- ATR, Bollinger, Keltner, Donchian, Historical Volatility, Parkinson, Garman-Klass, gap/range gibi ölçümler kullanılır.
+- Compact ve full volatility feature set farkı mevcuttur.
+- Event kolonları ileride strateji, risk yönetimi ve backtest motoru tarafından kullanılacaktır.
+- Volatilite eventleri tek başına işlem kararı değildir.
+- Volatilite sıkışması yön söylemez; sadece potansiyel hareket hazırlığına işaret eder.
+
+**Kullanım Komutları:**
+```bash
+python -m scripts.run_volatility_feature_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_volatility_event_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_volatility_batch_build --limit 10
+python -m scripts.run_volatility_status
+```
