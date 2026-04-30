@@ -96,3 +96,34 @@ def test_pipeline_no_data(mock_data_lake, sample_spec):
     assert summary["skipped"] is True
     assert summary["skipped"] == True
     assert features is None
+
+
+def test_pipeline_mean_reversion_build_success(mock_data_lake, sample_spec):
+    settings = MagicMock()
+    settings.skip_macro_downloads_in_ohlcv_pipeline = False
+    settings.default_indicator_min_rows = 50
+    settings.save_mean_reversion_features = True
+    settings.save_mean_reversion_events = True
+    # Mean reversion uses real rolling windows so we need a larger dummy dataframe
+    df = pd.DataFrame(
+        {
+            "open": [100] * 150,
+            "high": [105] * 150,
+            "low": [95] * 150,
+            "close": [102] * 150,
+            "volume": [1000] * 150,
+        }
+    )
+    mock_data_lake.load_processed_ohlcv.return_value = df
+    mock_data_lake.load_ohlcv.return_value = df
+
+    builder = FeatureBuilder()
+    pipeline = IndicatorPipeline(mock_data_lake, builder, settings)
+
+    features, summary = pipeline.build_mean_reversion_for_symbol_timeframe(
+        sample_spec, "1d", save=True
+    )
+
+    assert summary["success"] == True
+    assert features is not None
+    assert mock_data_lake.save_features.called

@@ -72,3 +72,13 @@ Processed Data Lake
 → Volume Event Detection
 → Volume Feature Store
 → Future Strategy/Risk Engine
+
+
+### Phase 12 Updates
+- **Mean Reversion Advanced:** Extends mean reversion indicators with multi-window Z-Score, Distance to SMA/EMA, Percentile Rank, Min/Max Pos, Bollinger reversion features, and Channel Deviations.
+- **Mean Reversion Events:** Introduces `MeanReversionEventConfig` and generates candidate events like extreme z-scores, band extensions, and snapback candidates.
+- **Mean Reversion Feature Set:** Aggregates everything via `MeanReversionFeatureSetBuilder` and provides access through `FeatureStore`.
+- **Pipeline integration:** Connects the building logic into `IndicatorPipeline`.
+
+Extended Pipeline Flow:
+Processed Data Lake → Mean Reversion Indicators → Mean Reversion Feature Set → Mean Reversion Event Detection → Mean Reversion Feature Store → Future Strategy/Regime/Risk Engine

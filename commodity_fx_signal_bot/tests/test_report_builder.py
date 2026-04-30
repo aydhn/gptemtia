@@ -135,3 +135,44 @@ def test_build_volatility_status_report():
     df = pd.DataFrame()
     rep = build_volatility_status_report(df, summary)
     assert "VOLATILITY STATUS REPORT" in rep
+
+
+def test_build_mean_reversion_feature_preview_report():
+    import pandas as pd
+    from reports.report_builder import build_mean_reversion_feature_preview_report
+
+    summary = {"type": "compact", "input_rows": 100, "feature_count": 5}
+    tail_df = pd.DataFrame({"zscore_close_20": [1, 2]})
+    rep = build_mean_reversion_feature_preview_report("GC=F", "1d", summary, tail_df)
+    assert "MEAN REVERSION FEATURE PREVIEW" in rep
+    assert "compact" in rep
+    assert "zscore_close_20" in rep
+
+
+def test_build_mean_reversion_event_preview_report():
+    import pandas as pd
+    from reports.report_builder import build_mean_reversion_event_preview_report
+
+    summary = {"total_event_count": 5}
+    tail_df = pd.DataFrame({"event_zscore_20_low_extreme": [1, 1]})
+    rep = build_mean_reversion_event_preview_report("GC=F", "1d", summary, tail_df)
+    assert "MEAN REVERSION EVENT PREVIEW" in rep
+    assert "event_zscore_20_low_extreme" in rep
+
+
+def test_build_mean_reversion_batch_report():
+    from reports.report_builder import build_mean_reversion_batch_report
+
+    summary = {"total_attempts": 10, "success_count": 10}
+    rep = build_mean_reversion_batch_report(summary)
+    assert "MEAN REVERSION BATCH BUILD SUMMARY" in rep
+
+
+def test_build_mean_reversion_status_report():
+    import pandas as pd
+    from reports.report_builder import build_mean_reversion_status_report
+
+    summary = {"total_symbols": 5}
+    df = pd.DataFrame()
+    rep = build_mean_reversion_status_report(df, summary)
+    assert "MEAN REVERSION STATUS REPORT" in rep

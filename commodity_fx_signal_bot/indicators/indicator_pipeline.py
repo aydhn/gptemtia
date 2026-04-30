@@ -421,3 +421,156 @@ class IndicatorPipeline:
                 )
 
         return summary
+
+    def build_mean_reversion_for_symbol_timeframe(
+        self,
+        spec: SymbolSpec,
+        timeframe: str,
+        use_processed: bool = True,
+        save: bool = True,
+        compact: bool = True,
+        include_events: bool = True,
+    ) -> tuple[pd.DataFrame | None, dict]:
+
+        summary = {
+            "symbol": spec.symbol,
+            "timeframe": timeframe,
+            "success": False,
+            "skipped": False,
+            "error": "",
+            "source": "processed" if use_processed else "raw",
+        }
+
+        if spec.asset_class in ("synthetic", "macro") and getattr(
+            self.settings, "skip_macro_downloads_in_ohlcv_pipeline", True
+        ):
+            summary["skipped"] = True
+            summary["notes"] = (
+                f"Skipping {spec.data_source} symbol for mean reversion indicators."
+            )
+            return None, summary
+
+        df = None
+        try:
+            if use_processed and self.data_lake.has_processed_ohlcv(spec, timeframe):
+                df = self.data_lake.load_processed_ohlcv(spec, timeframe)
+            elif self.data_lake.has_ohlcv(spec, timeframe):
+                df = self.data_lake.load_ohlcv(spec, timeframe)
+                summary["source"] = "raw"
+                import logging
+
+                logging.getLogger(__name__).warning(
+                    f"Using RAW data for {spec.symbol} {timeframe}. Processed not found."
+                )
+            else:
+                summary["skipped"] = True
+                summary["notes"] = "No data found in Data Lake."
+                return None, summary
+
+        except Exception as e:
+            import logging
+
+            logging.getLogger(__name__).error(
+                f"Error loading data for {spec.symbol} {timeframe}: {e}"
+            )
+            summary["error"] = str(e)
+            return None, summary
+
+        if df is None or len(df) < getattr(
+            self.settings, "default_indicator_min_rows", 100
+        ):
+            summary["skipped"] = True
+            summary["notes"] = (
+                f"Not enough rows (min: {getattr(self.settings, 'default_indicator_min_rows', 100)})"
+            )
+            return None, summary
+
+        try:
+            features, build_summary = (
+                self.feature_builder.build_mean_reversion_feature_set(
+                    df, compact=compact, include_events=include_events
+                )
+            )
+            summary.update(build_summary)
+
+            val_res = self.feature_builder.validate_feature_frame(features)
+            if not val_res["valid"]:
+                summary["error"] = f"Validation failed: {val_res}"
+                return None, summary
+
+            if save and getattr(self.settings, "save_mean_reversion_features", True):
+                event_cols = summary.get("event_columns", [])
+
+                # We can save it all in "mean_reversion" feature_set
+                self.data_lake.save_features(
+                    spec, timeframe, features, "mean_reversion"
+                )
+
+                # Also save events separately if save_mean_reversion_events is true
+                if (
+                    include_events
+                    and getattr(self.settings, "save_mean_reversion_events", True)
+                    and len(event_cols) > 0
+                ):
+                    events_df = features[event_cols]
+                    self.data_lake.save_features(
+                        spec, timeframe, events_df, "mean_reversion_events"
+                    )
+
+            summary["success"] = True
+            return features, summary
+
+        except Exception as e:
+            import logging
+
+            logging.getLogger(__name__).error(
+                f"Failed building mean reversion features for {spec.symbol} {timeframe}: {e}"
+            )
+            summary["error"] = str(e)
+            return None, summary
+
+    def build_mean_reversion_for_universe(
+        self,
+        specs: list[SymbolSpec],
+        timeframes_by_symbol: dict[str, tuple[str, ...]],
+        limit: int | None = None,
+        use_processed: bool = True,
+        save: bool = True,
+        compact: bool = True,
+        include_events: bool = True,
+    ) -> dict:
+
+        results = {
+            "total_attempts": 0,
+            "success_count": 0,
+            "failure_count": 0,
+            "skipped_count": 0,
+            "details": [],
+        }
+
+        count = 0
+        for spec in specs:
+            timeframes = timeframes_by_symbol.get(spec.symbol, [])
+            for tf in timeframes:
+                if limit and count >= limit:
+                    break
+
+                _, summary = self.build_mean_reversion_for_symbol_timeframe(
+                    spec, tf, use_processed, save, compact, include_events
+                )
+
+                results["total_attempts"] += 1
+                if summary["success"]:
+                    results["success_count"] += 1
+                elif summary.get("skipped"):
+                    results["skipped_count"] += 1
+                else:
+                    results["failure_count"] += 1
+
+                results["details"].append(summary)
+                count += 1
+
+            if limit and count >= limit:
+                break
+
+        return results

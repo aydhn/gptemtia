@@ -105,3 +105,17 @@ This file tracks the completion of the project phases.
 - DataLake volume/volume_events feature set desteği aldı.
 - Volume preview/batch/status scriptleri eklendi.
 - Testler genişletildi.
+
+
+## Phase 12: Mean Reversion Feature Set & Candidate Events
+- Mean reversion advanced modülü eklendi.
+- Multi z-score, rolling mean distance, SMA/EMA distance eklendi.
+- Percentile rank ve rolling minmax position eklendi.
+- Bollinger reversion, channel deviation, overextension score eklendi.
+- Snapback pressure ve half-life proxy eklendi.
+- Mean reversion event detection eklendi.
+- MeanReversionFeatureSetBuilder eklendi.
+- IndicatorPipeline mean reversion feature desteği aldı.
+- DataLake mean_reversion/mean_reversion_events feature set desteği aldı.
+- Mean reversion preview/batch/status scriptleri eklendi.
+- Testler genişletildi.

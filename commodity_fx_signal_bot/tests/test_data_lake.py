@@ -108,3 +108,20 @@ def test_data_lake_save_load_volatility_features(temp_data_lake, mock_spec, vali
 
     assert len(loaded) == len(valid_df)
     # pd.testing.assert_frame_equal(loaded, valid_df) # ignore check freq
+
+
+def test_data_lake_save_load_mean_reversion_features(
+    temp_data_lake, mock_spec, valid_df
+):
+    temp_data_lake.save_features(
+        mock_spec, "1d", valid_df, feature_set_name="mean_reversion"
+    )
+
+    assert temp_data_lake.has_features(
+        mock_spec, "1d", feature_set_name="mean_reversion"
+    )
+    loaded = temp_data_lake.load_features(
+        mock_spec, "1d", feature_set_name="mean_reversion"
+    )
+
+    assert len(loaded) == len(valid_df)
