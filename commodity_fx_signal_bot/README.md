@@ -158,3 +158,22 @@ python -m scripts.run_volume_feature_preview --symbol GC=F --timeframe 1d
 python -m scripts.run_volume_event_preview --symbol GC=F --timeframe 1d
 python -m scripts.run_volume_batch_build --limit 10
 python -m scripts.run_volume_status
+
+
+## Mean Reversion Feature ve Ortalamaya Dönüş Event Katmanı
+
+- Bu faz nihai al/sat stratejisi değildir.
+- Mean reversion eventleri sadece aday olaylardır.
+- Z-score, SMA/EMA distance, percentile rank, Bollinger reentry, overextension ve snapback pressure kullanılır.
+- Compact ve full mean reversion feature set farkı mevcuttur.
+- Güçlü trendlerde mean reversion adayları risklidir.
+- Event kolonları ileride strateji, rejim filtresi, risk yönetimi ve backtest motoru tarafından kullanılacaktır.
+- Mean reversion eventleri tek başına işlem kararı değildir.
+
+Komutlar:
+```bash
+python -m scripts.run_mean_reversion_feature_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_mean_reversion_event_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_mean_reversion_batch_build --limit 10
+python -m scripts.run_mean_reversion_status
+```

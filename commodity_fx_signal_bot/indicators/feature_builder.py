@@ -161,3 +161,21 @@ class FeatureBuilder:
             "rows": len(features),
             "columns": len(features.columns),
         }
+
+    def build_mean_reversion_feature_set(
+        self,
+        df: pd.DataFrame,
+        compact: bool = True,
+        include_events: bool = True,
+    ) -> Tuple[pd.DataFrame, dict]:
+        from indicators.mean_reversion_feature_set import MeanReversionFeatureSetBuilder
+
+        builder = MeanReversionFeatureSetBuilder()
+        if compact:
+            return builder.build_compact_mean_reversion_features(
+                df, include_events=include_events
+            )
+        else:
+            return builder.build_mean_reversion_features(
+                df, include_events=include_events
+            )

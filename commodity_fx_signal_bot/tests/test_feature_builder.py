@@ -56,3 +56,16 @@ def test_feature_builder_volatility(sample_df):
     assert summary["feature_count"] > 0
     assert summary["input_rows"] == 100
     assert "total_nan_ratio" in summary
+
+
+def test_feature_builder_mean_reversion(sample_df):
+    from indicators.mean_reversion_feature_set import MeanReversionFeatureSetBuilder
+
+    builder = FeatureBuilder()
+    features, summary = builder.build_mean_reversion_feature_set(
+        sample_df, compact=True, include_events=False
+    )
+
+    assert summary["feature_count"] > 0
+    assert summary["input_rows"] == 100
+    assert "total_nan_ratio" in summary
