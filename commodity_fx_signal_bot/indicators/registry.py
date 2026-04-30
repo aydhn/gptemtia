@@ -56,6 +56,9 @@ def register_builtin_indicators():
     import indicators.price_action as price_action
     import indicators.transforms as transforms
     import indicators.trend as trend
+    import indicators.trend_advanced as trend_advanced
+    import indicators.trend_events as trend_events
+    import indicators.trend_feature_set as trend_feature_set
     import indicators.volatility as volatility
     import indicators.volume as volume
 
@@ -64,30 +67,31 @@ def register_builtin_indicators():
 
     # Map module names to module objects
     modules = {
-        "momentum": momentum,
-        "trend": trend,
-        "volatility": volatility,
-        "volume": volume,
-        "mean_reversion": mean_reversion,
-        "price_action": price_action,
-        "transform": transforms,
+        "momentum": [momentum],
+        "trend": [trend, trend_advanced, trend_events, trend_feature_set],
+        "volatility": [volatility],
+        "volume": [volume],
+        "mean_reversion": [mean_reversion],
+        "price_action": [price_action],
+        "transform": [transforms],
     }
 
     for spec in specs:
-        mod = modules.get(spec.category)
-        if mod:
-            func = getattr(mod, spec.function_name, None)
-            if func:
-                GLOBAL_INDICATOR_REGISTRY.register(
-                    spec.name, func, spec.category, spec.default_params
-                )
-            else:
-                logger.warning(
-                    f"Function {spec.function_name} not found in module {spec.category} for indicator {spec.name}"
-                )
+        mods = modules.get(spec.category)
+        func = None
+        if mods:
+            for mod in mods:
+                func = getattr(mod, spec.function_name, None)
+                if func:
+                    break
+
+        if func:
+            GLOBAL_INDICATOR_REGISTRY.register(
+                spec.name, func, spec.category, spec.default_params
+            )
         else:
             logger.warning(
-                f"Module {spec.category} not found for indicator {spec.name}"
+                f"Function {spec.function_name} not found in module {spec.category} for indicator {spec.name}"
             )
 
 
