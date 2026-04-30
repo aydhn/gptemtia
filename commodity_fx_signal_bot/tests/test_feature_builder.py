@@ -46,9 +46,12 @@ def test_feature_builder_empty():
     features, summary = builder.build_default_feature_set(empty_df)
     assert "error" in summary
 
+
 def test_feature_builder_volatility(sample_df):
     builder = FeatureBuilder()
-    features, summary = builder.build_volatility_feature_set(sample_df, compact=True, include_events=False)
+    features, summary = builder.build_volatility_feature_set(
+        sample_df, compact=True, include_events=False
+    )
 
     assert summary["feature_count"] > 0
     assert summary["input_rows"] == 100

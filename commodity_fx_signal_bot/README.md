@@ -141,3 +141,20 @@ python -m scripts.run_volatility_event_preview --symbol GC=F --timeframe 1d
 python -m scripts.run_volatility_batch_build --limit 10
 python -m scripts.run_volatility_status
 ```
+
+
+## Hacim/Likidite Feature ve Volume Event Katmanı
+Bu faz nihai al/sat stratejisi değildir.
+Volume eventleri sadece aday olaylardır.
+OBV, MFI, CMF, Volume Z-score, Relative Volume, Accumulation/Distribution, PVT, liquidity proxy gibi ölçümler kullanılır.
+Compact ve full volume feature set farkı.
+Forex tarafında volume verisi çoğu zaman güvenilir olmayabilir.
+Volume unusable ise eventler bastırılabilir.
+Event kolonları ileride strateji, risk yönetimi ve backtest motoru tarafından kullanılacaktır.
+Volume eventleri tek başına işlem kararı değildir.
+
+Komutları ekle:
+python -m scripts.run_volume_feature_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_volume_event_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_volume_batch_build --limit 10
+python -m scripts.run_volume_status

@@ -240,7 +240,11 @@ def build_trend_event_frame(
         "input_rows": len(features),
         "event_columns": event_columns,
         "total_event_count": int(event_df.sum().sum()) if not event_df.empty else 0,
-        "event_count_by_column": {col: int(event_df[col].sum()) for col in event_columns} if not event_df.empty else {},
+        "event_count_by_column": (
+            {col: int(event_df[col].sum()) for col in event_columns}
+            if not event_df.empty
+            else {}
+        ),
         "active_last_row_events": [],
         "warnings": [],
         "notes": "Events are candidate signals, not final buy/sell decisions.",

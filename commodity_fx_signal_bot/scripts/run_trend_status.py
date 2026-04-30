@@ -17,9 +17,14 @@ logger = logging.getLogger(__name__)
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Check Trend Features Status in Data Lake")
+    parser = argparse.ArgumentParser(
+        description="Check Trend Features Status in Data Lake"
+    )
     parser.add_argument(
-        "--profile", type=str, default=settings.default_scan_profile, help="Scan profile"
+        "--profile",
+        type=str,
+        default=settings.default_scan_profile,
+        help="Scan profile",
     )
     return parser.parse_args()
 
@@ -47,22 +52,28 @@ def main():
             has_trend = lake.has_features(spec, tf, "trend")
             has_trend_events = lake.has_features(spec, tf, "trend_events")
 
-            records.append({
-                "Symbol": spec.symbol,
-                "Timeframe": tf,
-                "Has Raw": has_raw,
-                "Has Processed": has_processed,
-                "Has Technical": has_tech,
-                "Has Trend": has_trend,
-                "Has Events": has_trend_events,
-            })
+            records.append(
+                {
+                    "Symbol": spec.symbol,
+                    "Timeframe": tf,
+                    "Has Raw": has_raw,
+                    "Has Processed": has_processed,
+                    "Has Technical": has_tech,
+                    "Has Trend": has_trend,
+                    "Has Events": has_trend_events,
+                }
+            )
 
     df = pd.DataFrame(records)
 
     summary = {
         "total_combinations": len(df),
-        "missing_trend": int(len(df[(df["Has Technical"] == True) & (df["Has Trend"] == False)])),
-        "processed_without_trend": int(len(df[(df["Has Processed"] == True) & (df["Has Trend"] == False)])),
+        "missing_trend": int(
+            len(df[(df["Has Technical"] == True) & (df["Has Trend"] == False)])
+        ),
+        "processed_without_trend": int(
+            len(df[(df["Has Processed"] == True) & (df["Has Trend"] == False)])
+        ),
     }
 
     report_str = build_trend_status_report(df, summary)

@@ -63,3 +63,12 @@ Processed Data Lake
 → Event Detection
 → Feature Store
 → Future Strategy/Risk Engine
+
+
+### Volume/Liquidity Indicators
+Processed Data Lake
+→ Volume/Liquidity Indicators
+→ Volume Feature Set
+→ Volume Event Detection
+→ Volume Feature Store
+→ Future Strategy/Risk Engine

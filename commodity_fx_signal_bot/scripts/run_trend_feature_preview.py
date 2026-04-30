@@ -78,8 +78,7 @@ def main():
     )
 
     out_file = (
-        TREND_REPORTS_DIR
-        / f"trend_feature_preview_{args.symbol}_{args.timeframe}.txt"
+        TREND_REPORTS_DIR / f"trend_feature_preview_{args.symbol}_{args.timeframe}.txt"
     )
     out_file.parent.mkdir(parents=True, exist_ok=True)
     with open(out_file, "w") as f:

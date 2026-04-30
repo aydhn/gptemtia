@@ -1,7 +1,6 @@
 import argparse
 import logging
 
-from config.paths import LAKE_DIR
 from config.symbols import get_symbol_spec
 from data.storage.data_lake import DataLake
 from indicators.momentum_feature_set import MomentumFeatureSetBuilder
@@ -33,7 +32,7 @@ def main():
     if not spec:
         logger.error(f"Symbol {args.symbol} not found.")
         return
-    lake = DataLake(LAKE_DIR)
+    lake = DataLake()
     features = None
     summary = {}
     if args.use_saved_features and lake.has_features(spec, args.timeframe, "momentum"):

@@ -15,23 +15,32 @@ from reports.report_builder import build_volatility_batch_report
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
+
 def parse_args():
     parser = argparse.ArgumentParser(description="Batch build volatility features.")
     parser.add_argument("--limit", type=int, help="Limit number of symbols")
     parser.add_argument("--asset-class", type=str, help="Filter by asset class")
     parser.add_argument("--symbol", type=str, help="Run for specific symbol")
     parser.add_argument("--timeframe", type=str, help="Run for specific timeframe")
-    parser.add_argument("--profile", type=str, default=settings.default_scan_profile, help="Scan profile to use")
-    parser.add_argument("--full", action="store_true", help="Build full volatility feature set")
+    parser.add_argument(
+        "--profile",
+        type=str,
+        default=settings.default_scan_profile,
+        help="Scan profile to use",
+    )
+    parser.add_argument(
+        "--full", action="store_true", help="Build full volatility feature set"
+    )
     parser.add_argument("--no-events", action="store_true", help="Skip event columns")
     parser.add_argument("--no-save", action="store_true", help="Do not save to disk")
-    parser.add_argument("--no-use-processed", action="store_true", help="Do not use processed data")
+    parser.add_argument(
+        "--no-use-processed", action="store_true", help="Do not use processed data"
+    )
     return parser.parse_args()
+
 
 def main():
     args = parse_args()
-
-
 
     if args.symbol:
         spec = get_symbol_spec(args.symbol)
@@ -54,6 +63,7 @@ def main():
         timeframes_by_symbol[s.symbol] = tuple(default_tfs)
 
     from config.paths import DATA_DIR
+
     pipeline = IndicatorPipeline(DataLake(DATA_DIR), FeatureBuilder())
 
     compact = not args.full
@@ -61,7 +71,9 @@ def main():
     save = not args.no_save
     use_processed = not args.no_use_processed
 
-    logger.info(f"Starting batch build for {len(specs)} symbols (compact={compact}, events={include_events})")
+    logger.info(
+        f"Starting batch build for {len(specs)} symbols (compact={compact}, events={include_events})"
+    )
 
     results = pipeline.build_volatility_for_universe(
         specs=specs,
@@ -70,7 +82,7 @@ def main():
         use_processed=use_processed,
         save=save,
         compact=compact,
-        include_events=include_events
+        include_events=include_events,
     )
 
     report = build_volatility_batch_report(results)
@@ -88,6 +100,7 @@ def main():
 
     print(report)
     print(f"\nReports saved to {VOLATILITY_REPORTS_DIR}")
+
 
 if __name__ == "__main__":
     main()

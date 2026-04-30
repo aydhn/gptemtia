@@ -1,15 +1,15 @@
+import pytest
 import numpy as np
 import pandas as pd
-import pytest
 
 from indicators.momentum_events import (
-    build_momentum_event_frame,
+    detect_rsi_zone_events,
+    detect_rsi_crossback_events,
+    detect_stochastic_cross_events,
+    detect_roc_shift_events,
     detect_cci_zone_events,
     detect_momentum_slope_events,
-    detect_roc_shift_events,
-    detect_rsi_crossback_events,
-    detect_rsi_zone_events,
-    detect_stochastic_cross_events,
+    build_momentum_event_frame,
 )
 
 

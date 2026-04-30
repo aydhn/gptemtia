@@ -492,6 +492,7 @@ def build_momentum_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     lines.append("=================================")
     return "\n".join(lines)
 
+
 def build_trend_feature_preview_report(
     symbol: str, timeframe: str, summary: dict, tail_df: pd.DataFrame
 ) -> str:
@@ -589,7 +590,10 @@ def build_trend_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     lines.append("=================================")
     return "\n".join(lines)
 
-def build_volatility_feature_preview_report(symbol: str, timeframe: str, summary: dict, tail_df: pd.DataFrame) -> str:
+
+def build_volatility_feature_preview_report(
+    symbol: str, timeframe: str, summary: dict, tail_df: pd.DataFrame
+) -> str:
     lines = []
     lines.append(f"=== VOLATILITY FEATURE PREVIEW: {symbol} ({timeframe}) ===")
     lines.append(f"Feature Type: {summary.get('type', 'compact')}")
@@ -613,7 +617,9 @@ def build_volatility_feature_preview_report(symbol: str, timeframe: str, summary
     return "\n".join(lines)
 
 
-def build_volatility_event_preview_report(symbol: str, timeframe: str, summary: dict, event_tail_df: pd.DataFrame) -> str:
+def build_volatility_event_preview_report(
+    symbol: str, timeframe: str, summary: dict, event_tail_df: pd.DataFrame
+) -> str:
     lines = []
     lines.append(f"=== VOLATILITY EVENT PREVIEW: {symbol} ({timeframe}) ===")
     lines.append(f"Input Rows: {summary.get('input_rows', 0)}")
@@ -621,7 +627,7 @@ def build_volatility_event_preview_report(symbol: str, timeframe: str, summary: 
     lines.append(f"Total Events Triggered: {summary.get('total_event_count', 0)}")
 
     lines.append("\n=== TOP EVENTS (By Frequency) ===")
-    counts = summary.get('event_count_by_column', {})
+    counts = summary.get("event_count_by_column", {})
     sorted_events = sorted(counts.items(), key=lambda x: x[1], reverse=True)
     for k, v in sorted_events[:10]:
         lines.append(f"{k}: {v}")
@@ -642,7 +648,11 @@ def build_volatility_event_preview_report(symbol: str, timeframe: str, summary: 
         lines.append("No event data.")
 
     lines.append("\n=== NOTES ===")
-    lines.append(summary.get("notes", "These events are candidates, not direct buy/sell signals."))
+    lines.append(
+        summary.get(
+            "notes", "These events are candidates, not direct buy/sell signals."
+        )
+    )
 
     return "\n".join(lines)
 
@@ -659,7 +669,9 @@ def build_volatility_batch_report(summary: dict) -> str:
         lines.append("\n=== FAILURES ===")
         for d in summary.get("details", []):
             if not d.get("success") and not d.get("skipped"):
-                lines.append(f"{d.get('symbol')} ({d.get('timeframe')}): {d.get('error')}")
+                lines.append(
+                    f"{d.get('symbol')} ({d.get('timeframe')}): {d.get('error')}"
+                )
 
     return "\n".join(lines)
 
@@ -668,15 +680,138 @@ def build_volatility_status_report(status_df: pd.DataFrame, summary: dict) -> st
     lines = []
     lines.append("=== VOLATILITY STATUS REPORT ===")
     lines.append(f"Total Symbols: {summary.get('total_symbols', 0)}")
-    lines.append(f"With Volatility Features: {summary.get('with_volatility_features', 0)}")
+    lines.append(
+        f"With Volatility Features: {summary.get('with_volatility_features', 0)}"
+    )
     lines.append(f"With Volatility Events: {summary.get('with_volatility_events', 0)}")
-    lines.append(f"Missing (have processed): {summary.get('missing_but_have_processed', 0)}")
-    lines.append(f"Missing (have technical): {summary.get('missing_but_have_technical', 0)}")
+    lines.append(
+        f"Missing (have processed): {summary.get('missing_but_have_processed', 0)}"
+    )
+    lines.append(
+        f"Missing (have technical): {summary.get('missing_but_have_technical', 0)}"
+    )
 
     if not status_df.empty:
-        missing = status_df[(~status_df["has_volatility_features"]) & (status_df["has_processed"] | status_df["has_technical"])]
+        missing = status_df[
+            (~status_df["has_volatility_features"])
+            & (status_df["has_processed"] | status_df["has_technical"])
+        ]
         if not missing.empty:
             lines.append("\n=== MISSING VOLATILITY FEATURES (Sample) ===")
-            lines.append(missing[["symbol", "timeframe", "has_processed", "has_technical"]].head(20).to_string())
+            lines.append(
+                missing[["symbol", "timeframe", "has_processed", "has_technical"]]
+                .head(20)
+                .to_string()
+            )
+
+    return "\n".join(lines)
+
+
+def build_volume_feature_preview_report(
+    symbol: str, timeframe: str, summary: dict, tail_df: pd.DataFrame
+) -> str:
+    lines = []
+    lines.append(f"=== VOLUME FEATURE PREVIEW: {symbol} ({timeframe}) ===")
+    lines.append(f"Input Rows: {summary.get('input_rows', 0)}")
+    lines.append(f"Output Rows: {summary.get('output_rows', 0)}")
+    lines.append(f"Volume Usable: {summary.get('volume_usable', False)}")
+    lines.append(f"Volume Valid Ratio: {summary.get('volume_valid_ratio', 0.0):.2f}")
+
+    if summary.get("warnings"):
+        lines.append("\nWARNINGS:")
+        for w in summary.get("warnings"):
+            lines.append(f"- {w}")
+
+    lines.append("\nFEATURE COLUMNS:")
+    for col in summary.get("feature_columns", []):
+        lines.append(f"- {col}")
+
+    lines.append("\nEVENT COLUMNS:")
+    for col in summary.get("event_columns", []):
+        lines.append(f"- {col}")
+
+    lines.append("\nLATEST DATA:")
+    lines.append(tail_df.to_string())
+    return "\n".join(lines)
+
+
+def build_volume_event_preview_report(
+    symbol: str, timeframe: str, summary: dict, event_tail_df: pd.DataFrame
+) -> str:
+    lines = []
+    lines.append(f"=== VOLUME EVENT PREVIEW: {symbol} ({timeframe}) ===")
+    lines.append("NOTE: These events are candidates, not final trade signals.")
+    lines.append(f"Volume Usable: {summary.get('volume_usable', False)}")
+    lines.append(f"Volume Valid Ratio: {summary.get('volume_valid_ratio', 0.0):.2f}")
+
+    if summary.get("warnings"):
+        lines.append("\nWARNINGS:")
+        for w in summary.get("warnings"):
+            lines.append(f"- {w}")
+
+    lines.append(f"\nTotal Events Found: {summary.get('total_event_count', 0)}")
+
+    lines.append("\nEVENT FREQUENCIES:")
+    for col, count in summary.get("event_count_by_column", {}).items():
+        if count > 0:
+            lines.append(f"- {col}: {count}")
+
+    lines.append("\nACTIVE EVENTS ON LAST ROW:")
+    active = summary.get("active_last_row_events", [])
+    if active:
+        for a in active:
+            lines.append(f"- {a}")
+    else:
+        lines.append("- None")
+
+    lines.append("\nLATEST EVENT DATA:")
+    lines.append(event_tail_df.to_string())
+    return "\n".join(lines)
+
+
+def build_volume_batch_report(summary: dict) -> str:
+    lines = []
+    lines.append("=== VOLUME BATCH BUILD REPORT ===")
+    lines.append(f"Total Targets: {summary.get('total_targets', 0)}")
+    lines.append(f"Success: {summary.get('success_count', 0)}")
+    lines.append(f"Skipped: {summary.get('skipped_count', 0)}")
+    lines.append(f"Failed: {summary.get('failed_count', 0)}")
+
+    if summary.get("failed_count", 0) > 0:
+        lines.append("\nFAILURES:")
+        for d in summary.get("details", []):
+            if not d.get("success") and not d.get("skipped"):
+                lines.append(
+                    f"{d.get('symbol')} ({d.get('timeframe')}): {d.get('error')}"
+                )
+
+    return "\n".join(lines)
+
+
+def build_volume_status_report(status_df: pd.DataFrame, summary: dict) -> str:
+    lines = []
+    lines.append("=== VOLUME STATUS REPORT ===")
+    lines.append(f"Total Symbols: {summary.get('total_symbols', 0)}")
+    lines.append(f"With Volume Features: {summary.get('with_volume', 0)}")
+    lines.append(f"With Volume Events: {summary.get('with_volume_events', 0)}")
+    lines.append(
+        f"Missing (have processed): {summary.get('missing_but_have_processed', 0)}"
+    )
+    lines.append(
+        f"Missing (have technical): {summary.get('missing_but_have_technical', 0)}"
+    )
+
+    if not status_df.empty:
+        missing = status_df[
+            (~status_df["has_volume"])
+            & (status_df["has_processed"] | status_df["has_technical"])
+        ]
+        if not missing.empty:
+            lines.append("\n=== MISSING VOLUME FEATURES (Sample) ===")
+            lines.append(
+                missing[["symbol", "timeframe", "has_processed", "has_technical"]]
+                .head(20)
+                .to_string()
+            )
 
     return "\n".join(lines)

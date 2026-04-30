@@ -183,7 +183,6 @@ class Settings:
         == "true"
     )
 
-
     # Phase 9: Trend Features & Events Settings
     trend_features_enabled: bool = field(
         default_factory=lambda: os.getenv("TREND_FEATURES_ENABLED", "true").lower()
@@ -196,13 +195,14 @@ class Settings:
     default_trend_ma_windows: tuple[int, ...] = field(
         default_factory=lambda: tuple(
             int(x)
-            for x in os.getenv("DEFAULT_TREND_MA_WINDOWS", "10,20,50,100,200").split(",")
+            for x in os.getenv("DEFAULT_TREND_MA_WINDOWS", "10,20,50,100,200").split(
+                ","
+            )
         )
     )
     default_trend_fast_windows: tuple[int, ...] = field(
         default_factory=lambda: tuple(
-            int(x)
-            for x in os.getenv("DEFAULT_TREND_FAST_WINDOWS", "10,20").split(",")
+            int(x) for x in os.getenv("DEFAULT_TREND_FAST_WINDOWS", "10,20").split(",")
         )
     )
     default_trend_slow_windows: tuple[int, ...] = field(
@@ -212,37 +212,26 @@ class Settings:
         )
     )
     default_adx_threshold: float = field(
-        default_factory=lambda: float(
-            os.getenv("DEFAULT_ADX_THRESHOLD", "25.0")
-        )
+        default_factory=lambda: float(os.getenv("DEFAULT_ADX_THRESHOLD", "25.0"))
     )
     default_strong_adx_threshold: float = field(
-        default_factory=lambda: float(
-            os.getenv("DEFAULT_STRONG_ADX_THRESHOLD", "35.0")
-        )
+        default_factory=lambda: float(os.getenv("DEFAULT_STRONG_ADX_THRESHOLD", "35.0"))
     )
     default_macd_fast: int = field(
-        default_factory=lambda: int(
-            os.getenv("DEFAULT_MACD_FAST", "12")
-        )
+        default_factory=lambda: int(os.getenv("DEFAULT_MACD_FAST", "12"))
     )
     default_macd_slow: int = field(
-        default_factory=lambda: int(
-            os.getenv("DEFAULT_MACD_SLOW", "26")
-        )
+        default_factory=lambda: int(os.getenv("DEFAULT_MACD_SLOW", "26"))
     )
     default_macd_signal: int = field(
-        default_factory=lambda: int(
-            os.getenv("DEFAULT_MACD_SIGNAL", "9")
-        )
+        default_factory=lambda: int(os.getenv("DEFAULT_MACD_SIGNAL", "9"))
     )
     save_trend_features: bool = field(
         default_factory=lambda: os.getenv("SAVE_TREND_FEATURES", "true").lower()
         == "true"
     )
     save_trend_events: bool = field(
-        default_factory=lambda: os.getenv("SAVE_TREND_EVENTS", "true").lower()
-        == "true"
+        default_factory=lambda: os.getenv("SAVE_TREND_EVENTS", "true").lower() == "true"
     )
 
     paper_trading_enabled: bool = field(

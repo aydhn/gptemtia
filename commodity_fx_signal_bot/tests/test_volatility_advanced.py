@@ -43,7 +43,7 @@ def test_calculate_multi_true_range(sample_ohlcv):
     res = calculate_multi_true_range(df)
     assert "true_range" in res.columns
     assert len(res) == len(df)
-    assert df.equals(sample_ohlcv) # Does not mutate
+    assert df.equals(sample_ohlcv)  # Does not mutate
 
 
 def test_calculate_multi_atr(sample_ohlcv):
