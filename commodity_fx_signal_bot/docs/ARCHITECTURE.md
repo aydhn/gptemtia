@@ -54,3 +54,12 @@ Processed Data Lake → Indicator Registry → Built-in Indicator Modules → Fe
 
 Extended Pipeline flow:
 Processed Data Lake → Trend Indicators → Trend Feature Set → Trend Event Detection → Trend Feature Store → Future Strategy Engine
+
+### Feature and Event Generation Data Flow
+
+Processed Data Lake
+→ Trend / Momentum / Volatility Indicators
+→ Feature Sets (Compact/Full)
+→ Event Detection
+→ Feature Store
+→ Future Strategy/Risk Engine

@@ -29,3 +29,21 @@ class FeatureStore:
             "trend_features": features,
             "trend_events": events,
         }
+
+    def load_volatility_features(self, spec: SymbolSpec, timeframe: str) -> pd.DataFrame:
+        if self.data_lake.has_features(spec, timeframe, feature_set_name="volatility"):
+            return self.data_lake.load_features(spec, timeframe, feature_set_name="volatility")
+        return pd.DataFrame()
+
+    def load_volatility_events(self, spec: SymbolSpec, timeframe: str) -> pd.DataFrame:
+        if self.data_lake.has_features(spec, timeframe, feature_set_name="volatility_events"):
+            return self.data_lake.load_features(spec, timeframe, feature_set_name="volatility_events")
+        return pd.DataFrame()
+
+    def list_available_volatility_features(self, spec: SymbolSpec) -> dict:
+        features = self.data_lake.list_feature_timeframes(spec, feature_set_name="volatility")
+        events = self.data_lake.list_feature_timeframes(spec, feature_set_name="volatility_events")
+        return {
+            "volatility_features": features,
+            "volatility_events": events,
+        }
