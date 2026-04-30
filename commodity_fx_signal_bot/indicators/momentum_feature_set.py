@@ -1,21 +1,21 @@
 import logging
-from typing import Optional, Tuple
+from typing import Tuple, Optional
 
 import numpy as np
 import pandas as pd
 
 from config.settings import settings
 from indicators.momentum_advanced import (
-    calculate_cci,
-    calculate_momentum_acceleration,
-    calculate_momentum_slope,
-    calculate_multi_momentum,
-    calculate_multi_roc,
     calculate_multi_rsi,
+    calculate_multi_roc,
+    calculate_multi_momentum,
     calculate_multi_stochastic,
     calculate_multi_williams_r,
+    calculate_cci,
+    calculate_momentum_slope,
+    calculate_momentum_acceleration,
 )
-from indicators.momentum_events import MomentumEventConfig, build_momentum_event_frame
+from indicators.momentum_events import build_momentum_event_frame, MomentumEventConfig
 
 logger = logging.getLogger(__name__)
 

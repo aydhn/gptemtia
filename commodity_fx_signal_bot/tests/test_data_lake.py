@@ -95,11 +95,16 @@ def test_delete_ohlcv(temp_data_lake, mock_spec, valid_df):
     temp_data_lake.delete_ohlcv(mock_spec, timeframe)
     assert temp_data_lake.has_ohlcv(mock_spec, timeframe) is False
 
+
 def test_data_lake_save_load_volatility_features(temp_data_lake, mock_spec, valid_df):
-    temp_data_lake.save_features(mock_spec, "1d", valid_df, feature_set_name="volatility")
+    temp_data_lake.save_features(
+        mock_spec, "1d", valid_df, feature_set_name="volatility"
+    )
 
     assert temp_data_lake.has_features(mock_spec, "1d", feature_set_name="volatility")
-    loaded = temp_data_lake.load_features(mock_spec, "1d", feature_set_name="volatility")
+    loaded = temp_data_lake.load_features(
+        mock_spec, "1d", feature_set_name="volatility"
+    )
 
     assert len(loaded) == len(valid_df)
     # pd.testing.assert_frame_equal(loaded, valid_df) # ignore check freq

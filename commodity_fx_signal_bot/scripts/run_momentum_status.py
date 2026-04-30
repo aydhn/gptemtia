@@ -2,9 +2,9 @@ import logging
 
 import pandas as pd
 
-from config.paths import LAKE_DIR
-from config.symbols import get_allowed_timeframes_for_symbol, get_enabled_symbols
+from config.symbols import get_enabled_symbols
 from data.storage.data_lake import DataLake
+from config.symbols import get_allowed_timeframes_for_symbol
 from reports.report_builder import build_momentum_status_report
 
 logging.basicConfig(level=logging.INFO)
@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 
 def main():
-    lake = DataLake(LAKE_DIR)
+    lake = DataLake()
     specs = get_enabled_symbols()
     rows = []
     for spec in specs:
@@ -35,9 +35,11 @@ def main():
     df = pd.DataFrame(rows)
     summary = {
         "total_combinations": len(df),
-        "missing_momentum": len(df[(df["Has Technical"]) & (~df["Has Momentum"])]),
+        "missing_momentum": len(
+            df[(df["Has Technical"] is True) & (df["Has Momentum"] is False)]
+        ),
         "processed_without_momentum": len(
-            df[(df["Has Processed"]) & (~df["Has Momentum"])]
+            df[(df["Has Processed"] is True) & (df["Has Momentum"] is False)]
         ),
     }
     report_str = build_momentum_status_report(df, summary)

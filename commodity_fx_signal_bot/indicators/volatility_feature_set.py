@@ -15,6 +15,7 @@ class VolatilityFeatureSetBuilder:
     def __init__(self, registry: IndicatorRegistry | None = None):
         self.registry = registry or GLOBAL_INDICATOR_REGISTRY
         from indicators.registry import register_builtin_indicators
+
         register_builtin_indicators()
 
     def build_volatility_features(
@@ -38,7 +39,7 @@ class VolatilityFeatureSetBuilder:
             "gap_volatility",
             "volatility_percentile",
             "volatility_slope",
-            "channel_position"
+            "channel_position",
         ]
 
         return self._build_feature_set(df, indicators_to_build, include_events, "full")
@@ -66,12 +67,20 @@ class VolatilityFeatureSetBuilder:
             "range_percent",
             "gap_volatility",
             "volatility_percentile",
-            "volatility_slope"
+            "volatility_slope",
         ]
 
-        return self._build_feature_set(df, indicators_to_build, include_events, "compact")
+        return self._build_feature_set(
+            df, indicators_to_build, include_events, "compact"
+        )
 
-    def _build_feature_set(self, df: pd.DataFrame, indicator_names: list[str], include_events: bool, set_type: str) -> Tuple[pd.DataFrame, dict]:
+    def _build_feature_set(
+        self,
+        df: pd.DataFrame,
+        indicator_names: list[str],
+        include_events: bool,
+        set_type: str,
+    ) -> Tuple[pd.DataFrame, dict]:
 
         if df.empty:
             return df, {"error": "Empty dataframe"}
@@ -87,7 +96,7 @@ class VolatilityFeatureSetBuilder:
             "failed_components": [],
             "total_nan_ratio": 0.0,
             "warnings": [],
-            "type": set_type
+            "type": set_type,
         }
 
         max_warmup = 0
@@ -153,7 +162,7 @@ class VolatilityFeatureSetBuilder:
         # Select only numeric types just in case
         numeric_df = df.select_dtypes(include=[np.number])
         if numeric_df.empty:
-             return {"valid": False, "reason": "No numeric columns in DataFrame"}
+            return {"valid": False, "reason": "No numeric columns in DataFrame"}
 
         has_inf = np.isinf(numeric_df).values.any()
         nan_ratio = float(df.isna().sum().sum() / df.size)

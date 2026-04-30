@@ -91,3 +91,17 @@ This file tracks the completion of the project phases.
 - **Updated**: DataLake received volatility/volatility_events feature set support.
 - **Added**: Volatility preview/batch/status scripts.
 - **Added**: Extended tests for all new modules.
+
+
+## Phase 11
+- Volume advanced modülü eklendi.
+- Volume usability kontrolü eklendi.
+- Multi volume SMA/Z-score/relative volume eklendi.
+- OBV advanced, MFI, CMF, Accumulation/Distribution, Chaikin Oscillator, PVT eklendi.
+- Dollar volume ve liquidity proxy eklendi.
+- Volume event detection eklendi.
+- VolumeFeatureSetBuilder eklendi.
+- IndicatorPipeline volume feature desteği aldı.
+- DataLake volume/volume_events feature set desteği aldı.
+- Volume preview/batch/status scriptleri eklendi.
+- Testler genişletildi.

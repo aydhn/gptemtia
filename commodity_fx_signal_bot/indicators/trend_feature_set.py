@@ -50,7 +50,7 @@ class TrendFeatureSetBuilder:
             features_list.append(calculate_multi_aroon(df))
             features_list.append(calculate_ichimoku_full(df))
         except Exception as e:
-             return df.copy(), {"error": f"Failed to calculate core indicators: {e}"}
+            return df.copy(), {"error": f"Failed to calculate core indicators: {e}"}
 
         # Combine so far to calculate derivations
         combined_core = pd.concat(features_list, axis=1)
@@ -59,25 +59,25 @@ class TrendFeatureSetBuilder:
 
         deriv_list = []
         try:
-            deriv_list.append(calculate_price_ma_distances(
-                combined_core,
-                ["sma_20", "sma_50", "sma_200", "ema_20", "ema_50"]
-            ))
-            deriv_list.append(calculate_ma_slopes(
-                combined_core,
-                ["sma_20", "ema_20"],
-                slope_window=5
-            ))
-            deriv_list.append(calculate_ma_stack_state(
-                combined_core,
-                "ema_20", "ema_50", "ema_200"
-            ))
+            deriv_list.append(
+                calculate_price_ma_distances(
+                    combined_core, ["sma_20", "sma_50", "sma_200", "ema_20", "ema_50"]
+                )
+            )
+            deriv_list.append(
+                calculate_ma_slopes(combined_core, ["sma_20", "ema_20"], slope_window=5)
+            )
+            deriv_list.append(
+                calculate_ma_stack_state(combined_core, "ema_20", "ema_50", "ema_200")
+            )
             if "close" in combined_core.columns:
-                deriv_list.append(calculate_trend_persistence(
-                    combined_core["close"], window=10
-                ))
+                deriv_list.append(
+                    calculate_trend_persistence(combined_core["close"], window=10)
+                )
         except Exception as e:
-             return combined_core, {"error": f"Failed to calculate derived indicators: {e}"}
+            return combined_core, {
+                "error": f"Failed to calculate derived indicators: {e}"
+            }
 
         features_list.extend(deriv_list)
 
@@ -96,7 +96,11 @@ class TrendFeatureSetBuilder:
                 features = pd.concat([features, events_df], axis=1)
                 features = features.loc[:, ~features.columns.duplicated()]
 
-        feature_cols = [c for c in features.columns if c not in df.columns and c not in event_columns]
+        feature_cols = [
+            c
+            for c in features.columns
+            if c not in df.columns and c not in event_columns
+        ]
 
         total_nans = features.isna().sum().sum()
         total_cells = features.size
@@ -110,8 +114,10 @@ class TrendFeatureSetBuilder:
             "feature_count": len(feature_cols),
             "event_count": event_count,
             "total_nan_ratio": nan_ratio,
-            "warnings": ["WARNING: Ichimoku chikou span introduces forward-looking data (leakage). Use with caution."],
-            "failed_components": []
+            "warnings": [
+                "WARNING: Ichimoku chikou span introduces forward-looking data (leakage). Use with caution."
+            ],
+            "failed_components": [],
         }
 
         return features, summary
@@ -135,28 +141,28 @@ class TrendFeatureSetBuilder:
             features_list.append(calculate_multi_adx(df, windows=(14,)))
             features_list.append(calculate_multi_aroon(df, windows=(25,)))
         except Exception as e:
-             return df.copy(), {"error": f"Failed to calculate core indicators: {e}"}
+            return df.copy(), {"error": f"Failed to calculate core indicators: {e}"}
 
         combined_core = pd.concat(features_list, axis=1)
         combined_core = combined_core.loc[:, ~combined_core.columns.duplicated()]
 
         deriv_list = []
         try:
-            deriv_list.append(calculate_price_ma_distances(
-                combined_core,
-                ["ema_20", "ema_50", "sma_200"]
-            ))
-            deriv_list.append(calculate_ma_slopes(
-                combined_core,
-                ["ema_20", "sma_50"],
-                slope_window=5
-            ))
-            deriv_list.append(calculate_ma_stack_state(
-                combined_core,
-                "ema_20", "ema_50", "ema_200"
-            ))
+            deriv_list.append(
+                calculate_price_ma_distances(
+                    combined_core, ["ema_20", "ema_50", "sma_200"]
+                )
+            )
+            deriv_list.append(
+                calculate_ma_slopes(combined_core, ["ema_20", "sma_50"], slope_window=5)
+            )
+            deriv_list.append(
+                calculate_ma_stack_state(combined_core, "ema_20", "ema_50", "ema_200")
+            )
         except Exception as e:
-             return combined_core, {"error": f"Failed to calculate derived indicators: {e}"}
+            return combined_core, {
+                "error": f"Failed to calculate derived indicators: {e}"
+            }
 
         features_list.extend(deriv_list)
 
@@ -175,7 +181,11 @@ class TrendFeatureSetBuilder:
                 features = pd.concat([features, events_df], axis=1)
                 features = features.loc[:, ~features.columns.duplicated()]
 
-        feature_cols = [c for c in features.columns if c not in df.columns and c not in event_columns]
+        feature_cols = [
+            c
+            for c in features.columns
+            if c not in df.columns and c not in event_columns
+        ]
 
         total_nans = features.isna().sum().sum()
         total_cells = features.size
@@ -190,7 +200,7 @@ class TrendFeatureSetBuilder:
             "event_count": event_count,
             "total_nan_ratio": nan_ratio,
             "warnings": [],
-            "failed_components": []
+            "failed_components": [],
         }
 
         return features, summary

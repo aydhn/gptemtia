@@ -10,12 +10,16 @@ from .volatility import (
     calculate_historical_volatility,
 )
 
+
 def calculate_multi_true_range(df: pd.DataFrame) -> pd.DataFrame:
     """Calculate true range and preserve the original OHLCV input."""
     tr = calculate_true_range(df)
     return tr
 
-def calculate_multi_atr(df: pd.DataFrame, windows: tuple[int, ...] = (7, 14, 21, 28)) -> pd.DataFrame:
+
+def calculate_multi_atr(
+    df: pd.DataFrame, windows: tuple[int, ...] = (7, 14, 21, 28)
+) -> pd.DataFrame:
     """Calculate ATR for multiple windows."""
     results = []
     for w in windows:
@@ -25,7 +29,10 @@ def calculate_multi_atr(df: pd.DataFrame, windows: tuple[int, ...] = (7, 14, 21,
         return pd.concat(results, axis=1)
     return pd.DataFrame(index=df.index)
 
-def calculate_atr_percent(df: pd.DataFrame, windows: tuple[int, ...] = (7, 14, 21, 28)) -> pd.DataFrame:
+
+def calculate_atr_percent(
+    df: pd.DataFrame, windows: tuple[int, ...] = (7, 14, 21, 28)
+) -> pd.DataFrame:
     """Calculate ATR as a percentage of close price."""
     atr_df = calculate_multi_atr(df, windows=windows)
     close = df["close"]
@@ -40,7 +47,10 @@ def calculate_atr_percent(df: pd.DataFrame, windows: tuple[int, ...] = (7, 14, 2
 
     return pct_df
 
-def calculate_multi_bollinger_bands(df: pd.DataFrame, windows: tuple[int, ...] = (20, 50), num_std: float = 2.0) -> pd.DataFrame:
+
+def calculate_multi_bollinger_bands(
+    df: pd.DataFrame, windows: tuple[int, ...] = (20, 50), num_std: float = 2.0
+) -> pd.DataFrame:
     """Calculate Bollinger Bands for multiple windows."""
     results = []
     for w in windows:
@@ -50,11 +60,19 @@ def calculate_multi_bollinger_bands(df: pd.DataFrame, windows: tuple[int, ...] =
         return pd.concat(results, axis=1)
     return pd.DataFrame(index=df.index)
 
-def calculate_multi_keltner_channels(df: pd.DataFrame, windows: tuple[int, ...] = (20, 50), atr_window: int = 14, multiplier: float = 2.0) -> pd.DataFrame:
+
+def calculate_multi_keltner_channels(
+    df: pd.DataFrame,
+    windows: tuple[int, ...] = (20, 50),
+    atr_window: int = 14,
+    multiplier: float = 2.0,
+) -> pd.DataFrame:
     """Calculate Keltner Channels for multiple windows."""
     results = []
     for w in windows:
-        res = calculate_keltner_channels(df, window=w, atr_window=atr_window, multiplier=multiplier)
+        res = calculate_keltner_channels(
+            df, window=w, atr_window=atr_window, multiplier=multiplier
+        )
 
         # Manually add the keltner_width calculation that isn't in the base implementation
         ema = res[f"keltner_mid_{w}"]
@@ -68,7 +86,10 @@ def calculate_multi_keltner_channels(df: pd.DataFrame, windows: tuple[int, ...] 
         return pd.concat(results, axis=1)
     return pd.DataFrame(index=df.index)
 
-def calculate_multi_donchian_channels(df: pd.DataFrame, windows: tuple[int, ...] = (20, 55)) -> pd.DataFrame:
+
+def calculate_multi_donchian_channels(
+    df: pd.DataFrame, windows: tuple[int, ...] = (20, 55)
+) -> pd.DataFrame:
     """Calculate Donchian Channels for multiple windows."""
     results = []
     for w in windows:
@@ -86,7 +107,12 @@ def calculate_multi_donchian_channels(df: pd.DataFrame, windows: tuple[int, ...]
         return pd.concat(results, axis=1)
     return pd.DataFrame(index=df.index)
 
-def calculate_historical_volatility_multi(df: pd.DataFrame, windows: tuple[int, ...] = (10, 20, 50, 100), annualization: int = 252) -> pd.DataFrame:
+
+def calculate_historical_volatility_multi(
+    df: pd.DataFrame,
+    windows: tuple[int, ...] = (10, 20, 50, 100),
+    annualization: int = 252,
+) -> pd.DataFrame:
     """Calculate Historical Volatility for multiple windows."""
     results = []
     for w in windows:
@@ -96,7 +122,10 @@ def calculate_historical_volatility_multi(df: pd.DataFrame, windows: tuple[int, 
         return pd.concat(results, axis=1)
     return pd.DataFrame(index=df.index)
 
-def calculate_parkinson_volatility(df: pd.DataFrame, window: int = 20, annualization: int = 252) -> pd.DataFrame:
+
+def calculate_parkinson_volatility(
+    df: pd.DataFrame, window: int = 20, annualization: int = 252
+) -> pd.DataFrame:
     """
     Calculate Parkinson Volatility using High/Low prices.
     Formula: sqrt( (1 / (4 * window * ln(2))) * sum(ln(High/Low)^2) ) * sqrt(annualization)
@@ -111,7 +140,10 @@ def calculate_parkinson_volatility(df: pd.DataFrame, window: int = 20, annualiza
 
     return pd.DataFrame({f"parkinson_vol_{window}": parkinson})
 
-def calculate_garman_klass_volatility(df: pd.DataFrame, window: int = 20, annualization: int = 252) -> pd.DataFrame:
+
+def calculate_garman_klass_volatility(
+    df: pd.DataFrame, window: int = 20, annualization: int = 252
+) -> pd.DataFrame:
     """
     Calculate Garman-Klass Volatility using Open, High, Low, Close prices.
     Formula includes overnight jumps and intraday volatility.
@@ -136,6 +168,7 @@ def calculate_garman_klass_volatility(df: pd.DataFrame, window: int = 20, annual
 
     return pd.DataFrame({f"garman_klass_vol_{window}": garman_klass})
 
+
 def calculate_range_percent(df: pd.DataFrame) -> pd.DataFrame:
     """Calculate today's range as a percentage of close price."""
     high = df["high"]
@@ -147,6 +180,7 @@ def calculate_range_percent(df: pd.DataFrame) -> pd.DataFrame:
 
     return pd.DataFrame({"range_pct": range_pct})
 
+
 def calculate_gap_volatility(df: pd.DataFrame) -> pd.DataFrame:
     """Calculate gap between previous close and current open."""
     open_p = df["open"]
@@ -156,12 +190,12 @@ def calculate_gap_volatility(df: pd.DataFrame) -> pd.DataFrame:
     gap_pct = gap_pct.replace([np.inf, -np.inf], np.nan)
     abs_gap_pct = gap_pct.abs()
 
-    return pd.DataFrame({
-        "gap_pct": gap_pct,
-        "abs_gap_pct": abs_gap_pct
-    })
+    return pd.DataFrame({"gap_pct": gap_pct, "abs_gap_pct": abs_gap_pct})
 
-def calculate_volatility_percentile(feature_df: pd.DataFrame, source_col: str, window: int = 120) -> pd.DataFrame:
+
+def calculate_volatility_percentile(
+    feature_df: pd.DataFrame, source_col: str, window: int = 120
+) -> pd.DataFrame:
     """Calculate the rolling percentile rank of a volatility metric."""
     if source_col not in feature_df.columns:
         return pd.DataFrame(index=feature_df.index)
@@ -170,13 +204,16 @@ def calculate_volatility_percentile(feature_df: pd.DataFrame, source_col: str, w
 
     # Calculate rolling rank
     # rank() gives 1 to N. To get percentile, we divide by valid count
-    percentile = series.rolling(window=window, min_periods=max(2, window//4)).apply(
+    percentile = series.rolling(window=window, min_periods=max(2, window // 4)).apply(
         lambda x: pd.Series(x).rank(pct=True).iloc[-1], raw=False
     )
 
     return pd.DataFrame({f"percentile_{source_col}_{window}": percentile})
 
-def calculate_volatility_slope(feature_df: pd.DataFrame, source_col: str, window: int = 5) -> pd.DataFrame:
+
+def calculate_volatility_slope(
+    feature_df: pd.DataFrame, source_col: str, window: int = 5
+) -> pd.DataFrame:
     """Calculate the normalized slope of a volatility metric to detect rising/falling regimes."""
     if source_col not in feature_df.columns:
         return pd.DataFrame(index=feature_df.index)
@@ -194,7 +231,10 @@ def calculate_volatility_slope(feature_df: pd.DataFrame, source_col: str, window
 
     return pd.DataFrame({f"slope_{source_col}_{window}": slope})
 
-def calculate_channel_position(df: pd.DataFrame, upper_col: str, lower_col: str, prefix: str) -> pd.DataFrame:
+
+def calculate_channel_position(
+    df: pd.DataFrame, upper_col: str, lower_col: str, prefix: str
+) -> pd.DataFrame:
     """
     Calculate the position of current price within a channel (0 to 1).
     0 = at or below lower channel

@@ -1,7 +1,6 @@
 import argparse
 import logging
 
-from config.paths import LAKE_DIR
 from config.settings import settings
 from config.symbols import get_symbol_spec
 from data.storage.data_lake import DataLake
@@ -40,7 +39,7 @@ def main():
     if not spec:
         logger.error(f"Symbol {args.symbol} not found in config.")
         return
-    lake = DataLake(LAKE_DIR)
+    lake = DataLake()
     df = None
     if args.use_processed and lake.has_processed_ohlcv(spec, args.timeframe):
         df = lake.load_processed_ohlcv(spec, args.timeframe)

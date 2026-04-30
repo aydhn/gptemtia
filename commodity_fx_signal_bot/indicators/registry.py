@@ -63,6 +63,9 @@ def register_builtin_indicators():
     import indicators.volatility_advanced as volatility_advanced
     import indicators.volatility_events as volatility_events
     import indicators.volatility_feature_set as volatility_feature_set
+    import indicators.volume_advanced as volume_advanced
+    import indicators.volume_events as volume_events
+    import indicators.volume_feature_set as volume_feature_set
     import indicators.volume as volume
 
     # We will register them based on specs
@@ -72,8 +75,13 @@ def register_builtin_indicators():
     modules = {
         "momentum": [momentum],
         "trend": [trend, trend_advanced, trend_events, trend_feature_set],
-        "volatility": [volatility, volatility_advanced, volatility_events, volatility_feature_set],
-        "volume": [volume],
+        "volatility": [
+            volatility,
+            volatility_advanced,
+            volatility_events,
+            volatility_feature_set,
+        ],
+        "volume": [volume, volume_advanced, volume_events, volume_feature_set],
         "mean_reversion": [mean_reversion],
         "price_action": [price_action],
         "transform": [transforms],

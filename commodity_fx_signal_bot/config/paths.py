@@ -54,8 +54,6 @@ LAKE_FEATURES_VOLATILITY_EVENTS_DIR = LAKE_FEATURES_DIR / "volatility_events"
 VOLATILITY_REPORTS_DIR = REPORTS_DIR / "volatility_reports"
 
 
-
-
 LAKE_TMP_DIR = LAKE_DIR / "tmp"
 
 
@@ -95,8 +93,6 @@ def ensure_project_directories() -> None:
         LAKE_FEATURES_VOLATILITY_DIR,
         LAKE_FEATURES_VOLATILITY_EVENTS_DIR,
         VOLATILITY_REPORTS_DIR,
-
-
         LAKE_TMP_DIR,
     ]
 

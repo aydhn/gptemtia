@@ -1,14 +1,13 @@
 import argparse
 import logging
 
-from config.paths import LAKE_DIR
 from config.settings import settings
 from config.symbols import (
-    get_allowed_timeframes_for_symbol,
-    get_enabled_symbols,
     get_symbol_spec,
+    get_enabled_symbols,
     get_symbols_by_asset_class,
 )
+from config.symbols import get_allowed_timeframes_for_symbol
 from data.storage.data_lake import DataLake
 from indicators.feature_builder import FeatureBuilder
 from indicators.indicator_pipeline import IndicatorPipeline
@@ -45,7 +44,7 @@ def parse_args():
 
 def main():
     args = parse_args()
-    lake = DataLake(LAKE_DIR)
+    lake = DataLake()
     fb = FeatureBuilder()
     pipeline = IndicatorPipeline(lake, fb, settings)
     specs = []

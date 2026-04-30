@@ -1,16 +1,16 @@
+import pytest
 import numpy as np
 import pandas as pd
-import pytest
 
 from indicators.momentum_advanced import (
-    calculate_momentum_acceleration,
-    calculate_momentum_slope,
-    calculate_multi_cci,
-    calculate_multi_momentum,
-    calculate_multi_roc,
     calculate_multi_rsi,
+    calculate_multi_roc,
+    calculate_multi_momentum,
     calculate_multi_stochastic,
     calculate_multi_williams_r,
+    calculate_multi_cci,
+    calculate_momentum_slope,
+    calculate_momentum_acceleration,
     calculate_relative_momentum_rank,
 )
 

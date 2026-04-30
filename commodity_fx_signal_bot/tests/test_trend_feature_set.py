@@ -53,9 +53,7 @@ def test_build_compact_trend_features(sample_ohlcv):
 def test_build_trend_features_full(sample_ohlcv):
     builder = TrendFeatureSetBuilder()
 
-    features, summary = builder.build_trend_features(
-        sample_ohlcv, include_events=True
-    )
+    features, summary = builder.build_trend_features(sample_ohlcv, include_events=True)
 
     assert isinstance(features, pd.DataFrame)
     assert len(features) == len(sample_ohlcv)

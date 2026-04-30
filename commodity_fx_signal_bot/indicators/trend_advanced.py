@@ -16,9 +16,7 @@ def calculate_multi_ema(
 ) -> pd.DataFrame:
     result = {}
     for w in windows:
-        result[f"ema_{w}"] = (
-            df["close"].ewm(span=w, adjust=False, min_periods=w).mean()
-        )
+        result[f"ema_{w}"] = df["close"].ewm(span=w, adjust=False, min_periods=w).mean()
     return pd.DataFrame(result, index=df.index)
 
 
@@ -28,7 +26,11 @@ def calculate_wma(df: pd.DataFrame, window: int = 20) -> pd.DataFrame:
     def wma_apply(x):
         return np.dot(x, weights) / weights.sum()
 
-    wma = df["close"].rolling(window=window, min_periods=window).apply(wma_apply, raw=True)
+    wma = (
+        df["close"]
+        .rolling(window=window, min_periods=window)
+        .apply(wma_apply, raw=True)
+    )
     return pd.DataFrame({f"wma_{window}": wma}, index=df.index)
 
 
@@ -38,9 +40,13 @@ def calculate_multi_wma(
     result = {}
     for w in windows:
         weights = np.arange(1, w + 1)
+
         def wma_apply(x, wt=weights):
             return np.dot(x, wt) / wt.sum()
-        result[f"wma_{w}"] = df["close"].rolling(window=w, min_periods=w).apply(wma_apply, raw=True)
+
+        result[f"wma_{w}"] = (
+            df["close"].rolling(window=w, min_periods=w).apply(wma_apply, raw=True)
+        )
     return pd.DataFrame(result, index=df.index)
 
 
@@ -49,23 +55,34 @@ def calculate_hma(df: pd.DataFrame, window: int = 20) -> pd.DataFrame:
     sqrt_window = int(np.sqrt(window))
 
     weights_half = np.arange(1, half_window + 1)
+
     def wma_half(x):
         return np.dot(x, weights_half) / weights_half.sum()
 
     weights_full = np.arange(1, window + 1)
+
     def wma_full(x):
         return np.dot(x, weights_full) / weights_full.sum()
 
-    wma1 = df["close"].rolling(window=half_window, min_periods=half_window).apply(wma_half, raw=True)
-    wma2 = df["close"].rolling(window=window, min_periods=window).apply(wma_full, raw=True)
+    wma1 = (
+        df["close"]
+        .rolling(window=half_window, min_periods=half_window)
+        .apply(wma_half, raw=True)
+    )
+    wma2 = (
+        df["close"].rolling(window=window, min_periods=window).apply(wma_full, raw=True)
+    )
 
     diff = 2 * wma1 - wma2
 
     weights_sqrt = np.arange(1, sqrt_window + 1)
+
     def wma_sqrt(x):
         return np.dot(x, weights_sqrt) / weights_sqrt.sum()
 
-    hma = diff.rolling(window=sqrt_window, min_periods=sqrt_window).apply(wma_sqrt, raw=True)
+    hma = diff.rolling(window=sqrt_window, min_periods=sqrt_window).apply(
+        wma_sqrt, raw=True
+    )
     return pd.DataFrame({f"hma_{window}": hma}, index=df.index)
 
 
@@ -89,7 +106,9 @@ def calculate_multi_macd(
         ema_slow = df["close"].ewm(span=slow, adjust=False, min_periods=slow).mean()
 
         macd_line = ema_fast - ema_slow
-        signal_line = macd_line.ewm(span=signal, adjust=False, min_periods=signal).mean()
+        signal_line = macd_line.ewm(
+            span=signal, adjust=False, min_periods=signal
+        ).mean()
         macd_hist = macd_line - signal_line
 
         result[f"macd_{fast}_{slow}_{signal}"] = macd_line
@@ -120,7 +139,7 @@ def calculate_dmi_adx(df: pd.DataFrame, window: int = 14) -> pd.DataFrame:
     tr = pd.concat([tr1, tr2, tr3], axis=1).max(axis=1)
 
     atr = tr.rolling(window=window, min_periods=window).mean()
-    atr = atr.replace(0, np.nan) # Prevent division by zero
+    atr = atr.replace(0, np.nan)  # Prevent division by zero
 
     plus_di = 100 * (plus_dm.rolling(window=window, min_periods=window).mean() / atr)
     minus_di = 100 * (minus_dm.rolling(window=window, min_periods=window).mean() / atr)
@@ -134,7 +153,7 @@ def calculate_dmi_adx(df: pd.DataFrame, window: int = 14) -> pd.DataFrame:
             f"plus_di_{window}": plus_di,
             f"minus_di_{window}": minus_di,
         },
-        index=df.index
+        index=df.index,
     )
 
 
@@ -208,7 +227,7 @@ def calculate_ichimoku_full(df: pd.DataFrame) -> pd.DataFrame:
             "ichimoku_span_b": senkou_span_b,
             "ichimoku_chikou": chikou_span,
         },
-        index=df.index
+        index=df.index,
     )
 
 
@@ -223,7 +242,7 @@ def calculate_price_ma_distances(
     for col in ma_columns:
         if col in df.columns:
             ma = df[col]
-            ma = ma.replace(0, np.nan) # prevent div by zero
+            ma = ma.replace(0, np.nan)  # prevent div by zero
             # percentage distance
             result[f"dist_close_{col}"] = (close - ma) / ma
 
@@ -277,7 +296,9 @@ def calculate_trend_persistence(series: pd.Series, window: int = 10) -> pd.Serie
     """
     diffs = series.diff()
     up_moves = (diffs > 0).astype(int).rolling(window=window, min_periods=window).sum()
-    down_moves = (diffs < 0).astype(int).rolling(window=window, min_periods=window).sum()
+    down_moves = (
+        (diffs < 0).astype(int).rolling(window=window, min_periods=window).sum()
+    )
 
     total_moves = up_moves + down_moves
     total_moves = total_moves.replace(0, np.nan)
@@ -286,6 +307,6 @@ def calculate_trend_persistence(series: pd.Series, window: int = 10) -> pd.Serie
 
     col_name = "trend_persistence"
     if hasattr(series, "name") and series.name:
-         col_name = f"trend_persistence_{series.name}_{window}"
+        col_name = f"trend_persistence_{series.name}_{window}"
 
     return pd.Series(persistence, name=col_name, index=series.index)

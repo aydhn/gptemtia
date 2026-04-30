@@ -45,7 +45,7 @@ def test_calculate_multi_sma(sample_ohlcv):
     assert "sma_10" in res.columns
     assert "sma_20" in res.columns
     assert len(res) == len(df)
-    assert df.equals(sample_ohlcv) # Does not mutate
+    assert df.equals(sample_ohlcv)  # Does not mutate
 
 
 def test_calculate_multi_ema(sample_ohlcv):

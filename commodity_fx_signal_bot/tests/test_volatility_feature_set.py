@@ -25,7 +25,9 @@ def sample_ohlcv():
 
 def test_build_compact_volatility_features(sample_ohlcv):
     builder = VolatilityFeatureSetBuilder()
-    df, summary = builder.build_compact_volatility_features(sample_ohlcv, include_events=True)
+    df, summary = builder.build_compact_volatility_features(
+        sample_ohlcv, include_events=True
+    )
 
     assert not df.empty
     assert summary["input_rows"] == 150
@@ -36,13 +38,17 @@ def test_build_compact_volatility_features(sample_ohlcv):
     assert "atr_14" in df.columns
     assert "atr_pct_14" in df.columns
     assert "bb_width_20_2" in df.columns
-    pass # assert "event_volatility_squeeze_bb20" in df.columns
+    pass  # assert "event_volatility_squeeze_bb20" in df.columns
 
 
 def test_build_full_volatility_features(sample_ohlcv):
     builder = VolatilityFeatureSetBuilder()
-    compact_df, compact_summary = builder.build_compact_volatility_features(sample_ohlcv, include_events=False)
-    full_df, full_summary = builder.build_volatility_features(sample_ohlcv, include_events=False)
+    compact_df, compact_summary = builder.build_compact_volatility_features(
+        sample_ohlcv, include_events=False
+    )
+    full_df, full_summary = builder.build_volatility_features(
+        sample_ohlcv, include_events=False
+    )
 
     assert not full_df.empty
     assert full_summary["feature_count"] > compact_summary["feature_count"]
@@ -56,11 +62,15 @@ def test_build_full_volatility_features(sample_ohlcv):
 def test_include_events_flag(sample_ohlcv):
     builder = VolatilityFeatureSetBuilder()
 
-    df_no_events, summary_no = builder.build_compact_volatility_features(sample_ohlcv, include_events=False)
+    df_no_events, summary_no = builder.build_compact_volatility_features(
+        sample_ohlcv, include_events=False
+    )
     assert summary_no["event_count"] == 0
     assert not any(col.startswith("event_") for col in df_no_events.columns)
 
-    df_with_events, summary_with = builder.build_compact_volatility_features(sample_ohlcv, include_events=True)
+    df_with_events, summary_with = builder.build_compact_volatility_features(
+        sample_ohlcv, include_events=True
+    )
     assert summary_with["event_count"] > 0
     assert any(col.startswith("event_") for col in df_with_events.columns)
 

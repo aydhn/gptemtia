@@ -24,7 +24,9 @@ def parse_args():
         "--last", type=int, default=20, help="Number of recent rows to show"
     )
     parser.add_argument(
-        "--use-saved-features", action="store_true", help="Use saved features if available"
+        "--use-saved-features",
+        action="store_true",
+        help="Use saved features if available",
     )
     return parser.parse_args()
 
@@ -46,7 +48,9 @@ def main():
         try:
             features = fs.load_trend_features(spec, args.timeframe)
             if not features.empty:
-                logger.info(f"Loaded saved trend features for {args.symbol} {args.timeframe}")
+                logger.info(
+                    f"Loaded saved trend features for {args.symbol} {args.timeframe}"
+                )
                 events_df, summary = build_trend_event_frame(features)
         except Exception as e:
             logger.warning(f"Failed to load saved features: {e}")
@@ -77,8 +81,7 @@ def main():
     )
 
     out_file = (
-        TREND_REPORTS_DIR
-        / f"trend_event_preview_{args.symbol}_{args.timeframe}.txt"
+        TREND_REPORTS_DIR / f"trend_event_preview_{args.symbol}_{args.timeframe}.txt"
     )
     out_file.parent.mkdir(parents=True, exist_ok=True)
     with open(out_file, "w") as f:

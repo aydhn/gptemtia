@@ -13,17 +13,21 @@ from reports.report_builder import build_volatility_status_report
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
+
 def parse_args():
-    parser = argparse.ArgumentParser(description="Check status of volatility features in Data Lake.")
+    parser = argparse.ArgumentParser(
+        description="Check status of volatility features in Data Lake."
+    )
     return parser.parse_args()
+
 
 def main():
     args = parse_args()
 
-
     specs = get_enabled_symbols()
 
     from config.paths import DATA_DIR
+
     lake = DataLake(DATA_DIR)
     feature_store = FeatureStore(lake)
 
@@ -47,7 +51,7 @@ def main():
         # We'll check the default timeframes or the ones that exist
         tfs_to_check = set(processed_tfs + tech_tfs)
         if not tfs_to_check:
-            tfs_to_check = {"1d"} # Default fallback
+            tfs_to_check = {"1d"}  # Default fallback
 
         for tf in tfs_to_check:
             has_volatility = lake.has_features(spec, tf, "volatility")
@@ -66,7 +70,7 @@ def main():
                 "rows": 0,
                 "cols": 0,
                 "event_cols": 0,
-                "nan_ratio": 0.0
+                "nan_ratio": 0.0,
             }
 
             if has_volatility:
@@ -77,7 +81,9 @@ def main():
                     row["cols"] = len(df.columns)
                     row["nan_ratio"] = df.isna().mean().mean() if not df.empty else 0.0
                 except Exception as e:
-                    logger.error(f"Error loading {spec.symbol} volatility features: {e}")
+                    logger.error(
+                        f"Error loading {spec.symbol} volatility features: {e}"
+                    )
 
             if has_events:
                 summary["with_volatility_events"] += 1
@@ -110,6 +116,7 @@ def main():
 
     print(report)
     print(f"\nReports saved to {VOLATILITY_REPORTS_DIR}")
+
 
 if __name__ == "__main__":
     main()

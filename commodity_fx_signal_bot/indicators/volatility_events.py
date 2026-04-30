@@ -18,7 +18,9 @@ class VolatilityEventConfig:
     min_event_strength: float = 0.0
 
 
-def detect_volatility_squeeze_events(features: pd.DataFrame, config: Optional[VolatilityEventConfig] = None) -> pd.DataFrame:
+def detect_volatility_squeeze_events(
+    features: pd.DataFrame, config: Optional[VolatilityEventConfig] = None
+) -> pd.DataFrame:
     if config is None:
         config = VolatilityEventConfig()
 
@@ -27,11 +29,16 @@ def detect_volatility_squeeze_events(features: pd.DataFrame, config: Optional[Vo
 
     if col_name in features.columns:
         # A squeeze is when volatility is in the lowest percentile
-        df["event_volatility_squeeze_bb20"] = (features[col_name] < config.squeeze_percentile_threshold).astype(int)
+        df["event_volatility_squeeze_bb20"] = (
+            features[col_name] < config.squeeze_percentile_threshold
+        ).astype(int)
 
     return df
 
-def detect_volatility_expansion_events(features: pd.DataFrame, config: Optional[VolatilityEventConfig] = None) -> pd.DataFrame:
+
+def detect_volatility_expansion_events(
+    features: pd.DataFrame, config: Optional[VolatilityEventConfig] = None
+) -> pd.DataFrame:
     if config is None:
         config = VolatilityEventConfig()
 
@@ -40,11 +47,16 @@ def detect_volatility_expansion_events(features: pd.DataFrame, config: Optional[
 
     if col_name in features.columns:
         # An expansion is when volatility breaks into the highest percentile
-        df["event_volatility_expansion_bb20"] = (features[col_name] > config.expansion_percentile_threshold).astype(int)
+        df["event_volatility_expansion_bb20"] = (
+            features[col_name] > config.expansion_percentile_threshold
+        ).astype(int)
 
     return df
 
-def detect_atr_regime_events(features: pd.DataFrame, config: Optional[VolatilityEventConfig] = None) -> pd.DataFrame:
+
+def detect_atr_regime_events(
+    features: pd.DataFrame, config: Optional[VolatilityEventConfig] = None
+) -> pd.DataFrame:
     if config is None:
         config = VolatilityEventConfig()
 
@@ -52,7 +64,9 @@ def detect_atr_regime_events(features: pd.DataFrame, config: Optional[Volatility
 
     atr_col = config.atr_pct_col
     if atr_col in features.columns:
-        df["event_atr_pct_high"] = (features[atr_col] > config.atr_pct_high_threshold).astype(int)
+        df["event_atr_pct_high"] = (
+            features[atr_col] > config.atr_pct_high_threshold
+        ).astype(int)
         # Low is arbitrarily < 1% for this basic setup
         df["event_atr_pct_low"] = (features[atr_col] < 0.01).astype(int)
 
@@ -65,45 +79,68 @@ def detect_atr_regime_events(features: pd.DataFrame, config: Optional[Volatility
     hist_col = config.hist_vol_col
     hist_pct_col = f"percentile_{hist_col}_120"
     if hist_pct_col in features.columns:
-        df["event_hist_vol_high_percentile"] = (features[hist_pct_col] > config.expansion_percentile_threshold).astype(int)
-        df["event_hist_vol_low_percentile"] = (features[hist_pct_col] < config.squeeze_percentile_threshold).astype(int)
+        df["event_hist_vol_high_percentile"] = (
+            features[hist_pct_col] > config.expansion_percentile_threshold
+        ).astype(int)
+        df["event_hist_vol_low_percentile"] = (
+            features[hist_pct_col] < config.squeeze_percentile_threshold
+        ).astype(int)
 
     return df
 
-def detect_range_shock_events(features: pd.DataFrame, config: Optional[VolatilityEventConfig] = None) -> pd.DataFrame:
+
+def detect_range_shock_events(
+    features: pd.DataFrame, config: Optional[VolatilityEventConfig] = None
+) -> pd.DataFrame:
     if config is None:
         config = VolatilityEventConfig()
 
     df = pd.DataFrame(index=features.index)
 
     if "range_pct" in features.columns:
-        df["event_range_shock_high"] = (features["range_pct"] > config.range_pct_high_threshold).astype(int)
+        df["event_range_shock_high"] = (
+            features["range_pct"] > config.range_pct_high_threshold
+        ).astype(int)
 
     return df
 
-def detect_gap_volatility_events(features: pd.DataFrame, config: Optional[VolatilityEventConfig] = None) -> pd.DataFrame:
+
+def detect_gap_volatility_events(
+    features: pd.DataFrame, config: Optional[VolatilityEventConfig] = None
+) -> pd.DataFrame:
     if config is None:
         config = VolatilityEventConfig()
 
     df = pd.DataFrame(index=features.index)
 
     if "abs_gap_pct" in features.columns:
-        df["event_gap_volatility_high"] = (features["abs_gap_pct"] > config.gap_pct_high_threshold).astype(int)
+        df["event_gap_volatility_high"] = (
+            features["abs_gap_pct"] > config.gap_pct_high_threshold
+        ).astype(int)
 
     return df
 
-def detect_channel_compression_events(features: pd.DataFrame, config: Optional[VolatilityEventConfig] = None) -> pd.DataFrame:
+
+def detect_channel_compression_events(
+    features: pd.DataFrame, config: Optional[VolatilityEventConfig] = None
+) -> pd.DataFrame:
     if config is None:
         config = VolatilityEventConfig()
 
     df = pd.DataFrame(index=features.index)
 
     if "percentile_donchian_width_20_120" in features.columns:
-        df["event_channel_compression_donchian20"] = (features["percentile_donchian_width_20_120"] < config.squeeze_percentile_threshold).astype(int)
+        df["event_channel_compression_donchian20"] = (
+            features["percentile_donchian_width_20_120"]
+            < config.squeeze_percentile_threshold
+        ).astype(int)
 
     return df
 
-def detect_channel_breakout_setup_events(features: pd.DataFrame, config: Optional[VolatilityEventConfig] = None) -> pd.DataFrame:
+
+def detect_channel_breakout_setup_events(
+    features: pd.DataFrame, config: Optional[VolatilityEventConfig] = None
+) -> pd.DataFrame:
     if config is None:
         config = VolatilityEventConfig()
 
@@ -111,12 +148,19 @@ def detect_channel_breakout_setup_events(features: pd.DataFrame, config: Optiona
 
     if "channel_pos_donchian20" in features.columns:
         # Candidate for breakout when price is near the channel edges (>0.95 or <0.05)
-        df["event_channel_breakout_setup_upper"] = (features["channel_pos_donchian20"] > 0.95).astype(int)
-        df["event_channel_breakout_setup_lower"] = (features["channel_pos_donchian20"] < 0.05).astype(int)
+        df["event_channel_breakout_setup_upper"] = (
+            features["channel_pos_donchian20"] > 0.95
+        ).astype(int)
+        df["event_channel_breakout_setup_lower"] = (
+            features["channel_pos_donchian20"] < 0.05
+        ).astype(int)
 
     return df
 
-def build_volatility_event_frame(features: pd.DataFrame, config: Optional[VolatilityEventConfig] = None) -> Tuple[pd.DataFrame, dict]:
+
+def build_volatility_event_frame(
+    features: pd.DataFrame, config: Optional[VolatilityEventConfig] = None
+) -> Tuple[pd.DataFrame, dict]:
     """Build the complete event frame by running all detection logic."""
     if config is None:
         config = VolatilityEventConfig()
@@ -142,7 +186,7 @@ def build_volatility_event_frame(features: pd.DataFrame, config: Optional[Volati
             "event_count_by_column": {},
             "active_last_row_events": [],
             "warnings": ["No volatility events could be calculated."],
-            "notes": "Volatility events are candidates, not direct buy/sell signals."
+            "notes": "Volatility events are candidates, not direct buy/sell signals.",
         }
 
     event_frame = pd.concat(valid_dfs, axis=1)
@@ -167,7 +211,7 @@ def build_volatility_event_frame(features: pd.DataFrame, config: Optional[Volati
         "event_count_by_column": counts,
         "active_last_row_events": active_last,
         "warnings": [],
-        "notes": "Volatility events are candidates, not direct buy/sell signals."
+        "notes": "Volatility events are candidates, not direct buy/sell signals.",
     }
 
     return event_frame, summary
