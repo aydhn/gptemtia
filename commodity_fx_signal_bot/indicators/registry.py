@@ -63,10 +63,10 @@ def register_builtin_indicators():
     import indicators.volatility_advanced as volatility_advanced
     import indicators.volatility_events as volatility_events
     import indicators.volatility_feature_set as volatility_feature_set
+    import indicators.volume as volume
     import indicators.volume_advanced as volume_advanced
     import indicators.volume_events as volume_events
     import indicators.volume_feature_set as volume_feature_set
-    import indicators.volume as volume
 
     # We will register them based on specs
     specs = list_indicator_specs()

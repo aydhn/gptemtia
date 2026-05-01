@@ -574,3 +574,126 @@ class IndicatorPipeline:
                 break
 
         return results
+
+    def build_price_action_for_symbol_timeframe(
+        self,
+        spec: SymbolSpec,
+        timeframe: str,
+        use_processed: bool = True,
+        save: bool = True,
+        compact: bool = True,
+        include_events: bool = True,
+    ) -> tuple[pd.DataFrame, dict]:
+        """
+        Build and optionally save price action features for a single symbol and timeframe.
+        """
+        if not getattr(self.settings, "price_action_features_enabled", True):
+            return pd.DataFrame(), {
+                "warnings": ["Price action features disabled in settings"]
+            }
+
+        df = self._load_data(spec, timeframe, use_processed)
+        if df.empty:
+            return pd.DataFrame(), {"warnings": ["No data found"]}
+
+        min_rows = getattr(self.settings, "default_indicator_min_rows", 100)
+        if len(df) < min_rows:
+            return pd.DataFrame(), {"warnings": [f"Not enough rows (min: {min_rows})"]}
+
+        features, build_summary = self.feature_builder.build_price_action_feature_set(
+            df, compact=compact, include_events=include_events
+        )
+
+        if not use_processed:
+            build_summary["warnings"] = build_summary.get("warnings", []) + [
+                "Using raw data. Processed data is recommended."
+            ]
+
+        if (
+            save
+            and not features.empty
+            and getattr(self.settings, "save_price_action_features", True)
+        ):
+            # Save base price action features
+            pa_cols = build_summary.get("feature_columns", [])
+            if pa_cols:
+                pa_df = features[pa_cols]
+                self.data_lake.save_features(
+                    spec, timeframe, pa_df, feature_set_name="price_action"
+                )
+
+            # Save events separately if requested and enabled
+            event_cols = build_summary.get("event_columns", [])
+            if (
+                include_events
+                and event_cols
+                and getattr(self.settings, "save_price_action_events", True)
+            ):
+                event_df = features[event_cols]
+                self.data_lake.save_features(
+                    spec, timeframe, event_df, feature_set_name="price_action_events"
+                )
+
+        return features, build_summary
+
+    def build_price_action_for_universe(
+        self,
+        specs: list[SymbolSpec],
+        timeframes_by_symbol: dict[str, tuple[str, ...]],
+        limit: int | None = None,
+        use_processed: bool = True,
+        save: bool = True,
+        compact: bool = True,
+        include_events: bool = True,
+    ) -> dict:
+        """
+        Build price action features for a list of symbols across their allowed timeframes.
+        """
+        if not getattr(self.settings, "price_action_features_enabled", True):
+            logger.warning("Price action features are disabled in settings")
+            return {"status": "disabled"}
+
+        results = {}
+        processed_count = 0
+
+        for spec in specs:
+            if limit and processed_count >= limit:
+                break
+
+            if spec.symbol_type in ["macro", "synthetic"]:
+                logger.info(
+                    f"Skipping price action build for non-tradeable symbol {spec.name}"
+                )
+                continue
+
+            results[spec.name] = {}
+            timeframes = timeframes_by_symbol.get(spec.name, [])
+
+            for tf in timeframes:
+                logger.info(f"Building price action for {spec.name} - {tf}")
+                try:
+                    df, summary = self.build_price_action_for_symbol_timeframe(
+                        spec,
+                        tf,
+                        use_processed=use_processed,
+                        save=save,
+                        compact=compact,
+                        include_events=include_events,
+                    )
+
+                    results[spec.name][tf] = {
+                        "status": "success" if not df.empty else "empty",
+                        "rows": len(df),
+                        "features": summary.get("feature_count", 0),
+                        "events": summary.get("event_count", 0),
+                        "warnings": summary.get("warnings", []),
+                    }
+                except Exception as e:
+                    logger.error(
+                        f"Error building price action for {spec.name} {tf}: {e}"
+                    )
+                    results[spec.name][tf] = {"status": "error", "error": str(e)}
+
+            processed_count += 1
+
+        return results

@@ -1,6 +1,7 @@
-import pytest
 import importlib
 import sys
+
+import pytest
 
 
 def test_run_mean_reversion_event_preview_contract():

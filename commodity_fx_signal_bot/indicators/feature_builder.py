@@ -179,3 +179,57 @@ class FeatureBuilder:
             return builder.build_mean_reversion_features(
                 df, include_events=include_events
             )
+
+    def build_price_action_feature_set(
+        self,
+        df: pd.DataFrame,
+        compact: bool = True,
+        include_events: bool = True,
+    ) -> tuple[pd.DataFrame, dict]:
+        builder = PriceActionFeatureSetBuilder()
+        if compact:
+            return builder.build_compact_price_action_features(
+                df, include_events=include_events
+            )
+        return builder.build_price_action_features(df, include_events=include_events)
+
+    def build_price_action_feature_set(
+        self,
+        df: pd.DataFrame,
+        compact: bool = True,
+        include_events: bool = True,
+    ) -> tuple[pd.DataFrame, dict]:
+        builder = PriceActionFeatureSetBuilder()
+        if compact:
+            return builder.build_compact_price_action_features(
+                df, include_events=include_events
+            )
+        return builder.build_price_action_features(df, include_events=include_events)
+
+    def build_price_action_feature_set(
+        self,
+        df: pd.DataFrame,
+        compact: bool = True,
+        include_events: bool = True,
+    ) -> tuple[pd.DataFrame, dict]:
+        builder = PriceActionFeatureSetBuilder()
+        if compact:
+            return builder.build_compact_price_action_features(
+                df, include_events=include_events
+            )
+        return builder.build_price_action_features(df, include_events=include_events)
+
+    def build_price_action_feature_set(
+        self,
+        df: pd.DataFrame,
+        compact: bool = True,
+        include_events: bool = True,
+    ) -> tuple[pd.DataFrame, dict]:
+        from indicators.price_action_feature_set import PriceActionFeatureSetBuilder
+
+        builder = PriceActionFeatureSetBuilder()
+        if compact:
+            return builder.build_compact_price_action_features(
+                df, include_events=include_events
+            )
+        return builder.build_price_action_features(df, include_events=include_events)

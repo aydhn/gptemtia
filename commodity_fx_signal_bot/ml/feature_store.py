@@ -68,3 +68,37 @@ class FeatureStore:
             "trend_features": features,
             "trend_events": events,
         }
+
+    def load_price_action_features(
+        self, spec: SymbolSpec, timeframe: str
+    ) -> pd.DataFrame:
+        if self.data_lake.has_features(
+            spec, timeframe, feature_set_name="price_action"
+        ):
+            return self.data_lake.load_features(
+                spec, timeframe, feature_set_name="price_action"
+            )
+        return pd.DataFrame()
+
+    def load_price_action_events(
+        self, spec: SymbolSpec, timeframe: str
+    ) -> pd.DataFrame:
+        if self.data_lake.has_features(
+            spec, timeframe, feature_set_name="price_action_events"
+        ):
+            return self.data_lake.load_features(
+                spec, timeframe, feature_set_name="price_action_events"
+            )
+        return pd.DataFrame()
+
+    def list_available_price_action_features(self, spec: SymbolSpec) -> dict:
+        features = self.data_lake.list_feature_timeframes(
+            spec, feature_set_name="price_action"
+        )
+        events = self.data_lake.list_feature_timeframes(
+            spec, feature_set_name="price_action_events"
+        )
+        return {
+            "price_action_features": features,
+            "price_action_events": events,
+        }

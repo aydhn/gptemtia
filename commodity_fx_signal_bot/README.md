@@ -177,3 +177,21 @@ python -m scripts.run_mean_reversion_event_preview --symbol GC=F --timeframe 1d
 python -m scripts.run_mean_reversion_batch_build --limit 10
 python -m scripts.run_mean_reversion_status
 ```
+
+## Price Action Feature ve Fiyat Davranışı Event Katmanı (Phase 13)
+
+- Bu faz nihai al/sat stratejisi değildir.
+- Price action eventleri sadece aday olaylardır.
+- Mum gövdesi, fitil, range, close location, gap, inside/outside bar, breakout ve false breakout ölçülür.
+- Compact ve full price action feature set farkı bulunmaktadır.
+- Gap ve breakout eventleri tek başına işlem kararı değildir.
+- Event kolonları ileride strateji, rejim filtresi, risk yönetimi ve backtest motoru tarafından kullanılacaktır.
+- Emtia ve FX tarafında gap davranışı farklı yorumlanmalıdır.
+
+Komutlar:
+```bash
+python -m scripts.run_price_action_feature_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_price_action_event_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_price_action_batch_build --limit 10
+python -m scripts.run_price_action_status
+```

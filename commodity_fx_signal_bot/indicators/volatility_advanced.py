@@ -2,12 +2,12 @@ import numpy as np
 import pandas as pd
 
 from .volatility import (
-    calculate_true_range,
     calculate_atr,
     calculate_bollinger_bands,
-    calculate_keltner_channels,
     calculate_donchian_channels,
     calculate_historical_volatility,
+    calculate_keltner_channels,
+    calculate_true_range,
 )
 
 

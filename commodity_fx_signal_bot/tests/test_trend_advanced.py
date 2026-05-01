@@ -3,21 +3,21 @@ import pandas as pd
 import pytest
 
 from indicators.trend_advanced import (
-    calculate_multi_sma,
-    calculate_multi_ema,
-    calculate_wma,
-    calculate_multi_wma,
-    calculate_hma,
-    calculate_multi_hma,
-    calculate_multi_macd,
     calculate_dmi_adx,
-    calculate_multi_adx,
-    calculate_multi_aroon,
+    calculate_hma,
     calculate_ichimoku_full,
-    calculate_price_ma_distances,
     calculate_ma_slopes,
     calculate_ma_stack_state,
+    calculate_multi_adx,
+    calculate_multi_aroon,
+    calculate_multi_ema,
+    calculate_multi_hma,
+    calculate_multi_macd,
+    calculate_multi_sma,
+    calculate_multi_wma,
+    calculate_price_ma_distances,
     calculate_trend_persistence,
+    calculate_wma,
 )
 
 

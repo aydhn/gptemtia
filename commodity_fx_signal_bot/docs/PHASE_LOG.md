@@ -119,3 +119,16 @@ This file tracks the completion of the project phases.
 - DataLake mean_reversion/mean_reversion_events feature set desteği aldı.
 - Mean reversion preview/batch/status scriptleri eklendi.
 - Testler genişletildi.
+
+## Phase 13
+- Price action advanced modülü eklendi.
+- Candle anatomy, body/wick/range/close location featureları eklendi.
+- Gap, inside/outside bar, breakout levels ve false breakout featureları eklendi.
+- Range compression/expansion ve candle percentile eklendi.
+- Consecutive candle features eklendi.
+- Price action event detection eklendi.
+- PriceActionFeatureSetBuilder eklendi.
+- IndicatorPipeline price action feature desteği aldı.
+- DataLake price_action/price_action_events feature set desteği aldı.
+- Price action preview/batch/status scriptleri eklendi.
+- Testler genişletildi.

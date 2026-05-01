@@ -7,8 +7,8 @@ from config.symbols import get_symbol_spec
 from data.storage.data_lake import DataLake
 from indicators.trend_events import build_trend_event_frame
 from indicators.trend_feature_set import TrendFeatureSetBuilder
-from reports.report_builder import build_trend_event_preview_report
 from ml.feature_store import FeatureStore
+from reports.report_builder import build_trend_event_preview_report
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

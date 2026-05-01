@@ -1,7 +1,8 @@
 import pytest
+
 from indicators.indicator_config import (
-    list_indicator_specs,
     get_indicator_spec,
+    list_indicator_specs,
     validate_indicator_specs,
 )
 
