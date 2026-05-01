@@ -1,134 +1,28 @@
-import logging
-from typing import Optional
-
 import pandas as pd
-
 from config.symbols import SymbolSpec
 from data.storage.data_lake import DataLake
 
-logger = logging.getLogger(__name__)
-
 
 class FeatureStore:
-    def load_volume_features(self, spec: SymbolSpec, timeframe: str) -> pd.DataFrame:
-        if self.data_lake.has_features(spec, timeframe, feature_set_name="volume"):
-            return self.data_lake.load_features(
-                spec, timeframe, feature_set_name="volume"
-            )
-        return pd.DataFrame()
-
-    def load_volume_events(self, spec: SymbolSpec, timeframe: str) -> pd.DataFrame:
-        if self.data_lake.has_features(
-            spec, timeframe, feature_set_name="volume_events"
-        ):
-            return self.data_lake.load_features(
-                spec, timeframe, feature_set_name="volume_events"
-            )
-        return pd.DataFrame()
-
-    def list_available_volume_features(self, spec: SymbolSpec) -> dict:
-        features = self.data_lake.list_feature_timeframes(
-            spec, feature_set_name="volume"
-        )
-        events = self.data_lake.list_feature_timeframes(
-            spec, feature_set_name="volume_events"
-        )
-        return {
-            "volume_features": features,
-            "volume_events": events,
-        }
-
     def __init__(self, data_lake: DataLake):
         self.data_lake = data_lake
 
-    def load_trend_features(self, spec: SymbolSpec, timeframe: str) -> pd.DataFrame:
-        if self.data_lake.has_features(spec, timeframe, feature_set_name="trend"):
-            return self.data_lake.load_features(
-                spec, timeframe, feature_set_name="trend"
-            )
-        return pd.DataFrame()
-
-    def load_trend_events(self, spec: SymbolSpec, timeframe: str) -> pd.DataFrame:
-        if self.data_lake.has_features(
-            spec, timeframe, feature_set_name="trend_events"
-        ):
-            return self.data_lake.load_features(
-                spec, timeframe, feature_set_name="trend_events"
-            )
-        return pd.DataFrame()
-
-    def list_available_trend_features(self, spec: SymbolSpec) -> dict:
-        features = self.data_lake.list_feature_timeframes(
-            spec, feature_set_name="trend"
-        )
-        events = self.data_lake.list_feature_timeframes(
-            spec, feature_set_name="trend_events"
-        )
-        return {
-            "trend_features": features,
-            "trend_events": events,
-        }
-
-    def load_price_action_features(
-        self, spec: SymbolSpec, timeframe: str
+    def load_mtf_features(
+        self, spec: SymbolSpec, timeframe: str, profile_name: str | None = None
     ) -> pd.DataFrame:
-        if self.data_lake.has_features(
-            spec, timeframe, feature_set_name="price_action"
-        ):
-            return self.data_lake.load_features(
-                spec, timeframe, feature_set_name="price_action"
-            )
+        if self.data_lake.has_features(spec, timeframe, "mtf"):
+            return self.data_lake.load_features(spec, timeframe, "mtf")
         return pd.DataFrame()
 
-    def load_price_action_events(
-        self, spec: SymbolSpec, timeframe: str
+    def load_mtf_events(
+        self, spec: SymbolSpec, timeframe: str, profile_name: str | None = None
     ) -> pd.DataFrame:
-        if self.data_lake.has_features(
-            spec, timeframe, feature_set_name="price_action_events"
-        ):
-            return self.data_lake.load_features(
-                spec, timeframe, feature_set_name="price_action_events"
-            )
+        if self.data_lake.has_features(spec, timeframe, "mtf_events"):
+            return self.data_lake.load_features(spec, timeframe, "mtf_events")
         return pd.DataFrame()
 
-    def list_available_price_action_features(self, spec: SymbolSpec) -> dict:
-        features = self.data_lake.list_feature_timeframes(
-            spec, feature_set_name="price_action"
-        )
-        events = self.data_lake.list_feature_timeframes(
-            spec, feature_set_name="price_action_events"
-        )
+    def list_available_mtf_features(self, spec: SymbolSpec) -> dict:
         return {
-            "price_action_features": features,
-            "price_action_events": events,
-        }
-
-    def load_divergence_features(
-        self, spec: SymbolSpec, timeframe: str
-    ) -> pd.DataFrame:
-        if self.data_lake.has_features(spec, timeframe, feature_set_name="divergence"):
-            return self.data_lake.load_features(
-                spec, timeframe, feature_set_name="divergence"
-            )
-        return pd.DataFrame()
-
-    def load_divergence_events(self, spec: SymbolSpec, timeframe: str) -> pd.DataFrame:
-        if self.data_lake.has_features(
-            spec, timeframe, feature_set_name="divergence_events"
-        ):
-            return self.data_lake.load_features(
-                spec, timeframe, feature_set_name="divergence_events"
-            )
-        return pd.DataFrame()
-
-    def list_available_divergence_features(self, spec: SymbolSpec) -> dict:
-        features = self.data_lake.list_feature_timeframes(
-            spec, feature_set_name="divergence"
-        )
-        events = self.data_lake.list_feature_timeframes(
-            spec, feature_set_name="divergence_events"
-        )
-        return {
-            "divergence_features": features,
-            "divergence_events": events,
+            "mtf": self.data_lake.list_feature_timeframes(spec, "mtf"),
+            "mtf_events": self.data_lake.list_feature_timeframes(spec, "mtf_events"),
         }

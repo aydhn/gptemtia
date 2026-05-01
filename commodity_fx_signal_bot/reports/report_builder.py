@@ -1209,3 +1209,70 @@ def build_divergence_status_report(status_df: pd.DataFrame, summary: dict) -> st
     lines.append("")
 
     return "\n".join(lines)
+
+
+def build_mtf_alignment_preview_report(
+    symbol: str, profile_name: str, summary: dict, tail_df: pd.DataFrame
+) -> str:
+    lines = []
+    lines.append(f"=== MTF Alignment Preview: {symbol} ===")
+    lines.append(f"Profil: {profile_name}")
+    lines.append(f"Temel Zaman Dilimi: {summary.get('base_timeframe')}")
+    lines.append(f"Bağlam Zaman Dilimleri: {summary.get('context_timeframes')}")
+    lines.append(f"Satır Sayısı: {summary.get('rows')}")
+    lines.append(f"Kolon Sayısı: {summary.get('columns')}")
+    lines.append("")
+
+    qr = summary.get("quality_report", {})
+    lines.append("--- Kalite Raporu ---")
+    lines.append(f"Testleri Geçti mi: {qr.get('passed', False)}")
+    lines.append(f"NaN Oranı: {qr.get('total_nan_ratio', 0.0):.2%}")
+    lines.append(f"Eski (Stale) Veri Oranı: {qr.get('stale_context_ratio', 0.0):.2%}")
+
+    warnings = summary.get("warnings", [])
+    if warnings:
+        lines.append("\nUyarılar:")
+        for w in warnings:
+            lines.append(f"  - {w}")
+
+    lines.append("\nSon Satırlar:")
+    lines.append(tail_df.to_string())
+
+    return "\n".join(lines)
+
+
+def build_mtf_event_preview_report(
+    symbol: str, profile_name: str, summary: dict, event_tail_df: pd.DataFrame
+) -> str:
+    lines = []
+    lines.append(f"=== MTF Event Preview: {symbol} ===")
+    lines.append(f"Profil: {profile_name}")
+    lines.append(f"Toplam Olay Sayısı: {summary.get('total_event_count', 0)}")
+    lines.append(
+        f"Aktif Son Satır Olayları: {summary.get('active_last_row_events', [])}"
+    )
+    lines.append(f"Not: {summary.get('notes', '')}")
+    lines.append("\nUyarılar:")
+    for w in summary.get("warnings", []):
+        lines.append(f"  - {w}")
+
+    lines.append("\nSon Satırlar (Olaylar):")
+    lines.append(event_tail_df.to_string())
+
+    return "\n".join(lines)
+
+
+def build_mtf_batch_report(summary: dict) -> str:
+    lines = []
+    lines.append("=== MTF Toplu İşlem Raporu ===")
+    lines.append(f"Toplam İşlenen: {summary.get('total_processed', 0)}")
+    return "\n".join(lines)
+
+
+def build_mtf_status_report(status_df: pd.DataFrame, summary: dict) -> str:
+    lines = []
+    lines.append("=== MTF Durum Raporu ===")
+    lines.append(f"Toplam Sembol: {len(status_df)}")
+    lines.append(f"MTF Feature Olanlar: {status_df['has_mtf'].sum()}")
+    lines.append(f"MTF Event Olanlar: {status_df['has_events'].sum()}")
+    return "\n".join(lines)

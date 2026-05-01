@@ -211,3 +211,19 @@ python -m scripts.run_divergence_event_preview --symbol GC=F --timeframe 1d
 python -m scripts.run_divergence_batch_build --limit 10
 python -m scripts.run_divergence_status
 ```
+
+## Çoklu Zaman Dilimi / MTF Analiz Katmanı
+
+Bu faz nihai al/sat stratejisi değildir.
+MTF eventleri sadece bağlam/adayı olaylardır.
+Üst zaman dilimi trend/volatilite/momentum bağlamı alt zaman dilimi analizine taşınır.
+MTF alignment sırasında future leakage riski vardır; sistem strict no-lookahead yaklaşımı kullanır.
+Context stale olabilir; stale context ayrıca raporlanır.
+Eksik feature setleri sistemi çökertmez ama raporlanır.
+MTF feature üretmeden önce ilgili timeframe’lerde momentum/trend/volatility/price_action/divergence feature dosyalarının üretilmesi önerilir.
+
+Komutlar:
+python -m scripts.run_mtf_alignment_preview --symbol GC=F --profile daily_swing
+python -m scripts.run_mtf_event_preview --symbol GC=F --profile daily_swing
+python -m scripts.run_mtf_batch_build --limit 10 --profile daily_swing
+python -m scripts.run_mtf_status
