@@ -54,6 +54,10 @@ def register_builtin_indicators():
     import indicators.mean_reversion as mean_reversion
     import indicators.momentum as momentum
     import indicators.price_action as price_action
+    import indicators.divergence as divergence
+    import indicators.divergence_pivots as divergence_pivots
+    import indicators.divergence_events as divergence_events
+    import indicators.divergence_feature_set as divergence_feature_set
     import indicators.transforms as transforms
     import indicators.trend as trend
     import indicators.trend_advanced as trend_advanced
@@ -84,6 +88,12 @@ def register_builtin_indicators():
         "volume": [volume, volume_advanced, volume_events, volume_feature_set],
         "mean_reversion": [mean_reversion],
         "price_action": [price_action],
+        "divergence": [
+            divergence,
+            divergence_pivots,
+            divergence_events,
+            divergence_feature_set,
+        ],
         "transform": [transforms],
     }
 

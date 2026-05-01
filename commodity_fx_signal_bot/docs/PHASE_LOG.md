@@ -132,3 +132,15 @@ This file tracks the completion of the project phases.
 - DataLake price_action/price_action_events feature set desteği aldı.
 - Price action preview/batch/status scriptleri eklendi.
 - Testler genişletildi.
+
+### Phase 14: Divergence / Uyumsuzluk Motoru
+- Pivot detection modülü eklendi.
+- Regular ve hidden divergence hesaplama eklendi.
+- Divergence strength eklendi.
+- Multi-indicator divergence cluster eklendi.
+- Divergence event detection eklendi.
+- DivergenceFeatureSetBuilder eklendi.
+- IndicatorPipeline divergence feature desteği aldı.
+- DataLake divergence/divergence_events feature set desteği aldı.
+- Divergence preview/batch/status scriptleri eklendi.
+- Testler genişletildi.

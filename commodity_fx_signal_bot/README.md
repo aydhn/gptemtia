@@ -195,3 +195,19 @@ python -m scripts.run_price_action_event_preview --symbol GC=F --timeframe 1d
 python -m scripts.run_price_action_batch_build --limit 10
 python -m scripts.run_price_action_status
 ```
+
+### Divergence / Uyumsuzluk Feature ve Event Katmanı
+Bu faz nihai al/sat stratejisi değildir. Divergence eventleri sadece aday olaylardır.
+Regular bullish/bearish ve hidden bullish/bearish divergence desteklenir.
+RSI, MACD histogram, ROC, OBV, MFI, CMF gibi kolonlar kullanılabilir.
+Divergence için önce momentum/trend/volume feature dosyalarının üretilmesi önerilir.
+Pivot confirmation lag vardır. Pivot hesaplama yanlış kullanılırsa lookahead/leakage riski oluşturabilir.
+Divergence tek başına işlem kararı değildir.
+
+Komutlar:
+```bash
+python -m scripts.run_divergence_feature_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_divergence_event_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_divergence_batch_build --limit 10
+python -m scripts.run_divergence_status
+```

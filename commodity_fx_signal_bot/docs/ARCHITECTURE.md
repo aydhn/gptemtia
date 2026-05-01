@@ -90,3 +90,11 @@ Processed Data Lake
 → Price Action Event Detection
 → Price Action Feature Store
 → Future Strategy/Regime/Risk Engine
+
+Processed Data Lake
+→ Technical/Momentum/Trend/Volume Features
+→ Pivot Detection
+→ Divergence Feature Set
+→ Divergence Event Detection
+→ Divergence Feature Store
+→ Future Strategy/Quality Filter/Risk Engine

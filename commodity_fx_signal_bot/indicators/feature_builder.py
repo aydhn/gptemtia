@@ -147,6 +147,31 @@ class FeatureBuilder:
         else:
             return builder.build_volatility_features(df, include_events)
 
+    def build_divergence_feature_set(
+        self,
+        df: pd.DataFrame,
+        compact: bool = True,
+        include_events: bool = True,
+    ) -> tuple[pd.DataFrame, dict]:
+        """
+        Builds divergence feature set (regular/hidden divergences, pivots, events).
+        """
+        from indicators.divergence_feature_set import DivergenceFeatureSetBuilder
+
+        builder = DivergenceFeatureSetBuilder()
+        if compact:
+            features, summary = builder.build_compact_divergence_features(
+                df, include_events=include_events
+            )
+            summary["type"] = "compact_divergence"
+        else:
+            features, summary = builder.build_divergence_features(
+                df, include_events=include_events
+            )
+            summary["type"] = "full_divergence"
+
+        return features, summary
+
     def validate_feature_frame(self, features: pd.DataFrame) -> dict:
         if features.empty:
             return {"valid": False, "reason": "Empty features DataFrame"}
