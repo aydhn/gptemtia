@@ -26,3 +26,23 @@ class FeatureStore:
             "mtf": self.data_lake.list_feature_timeframes(spec, "mtf"),
             "mtf_events": self.data_lake.list_feature_timeframes(spec, "mtf_events"),
         }
+
+    def load_regime_features(
+        self, spec: SymbolSpec, timeframe: str
+    ) -> pd.DataFrame:
+        if self.data_lake.has_features(spec, timeframe, "regime"):
+            return self.data_lake.load_features(spec, timeframe, "regime")
+        return pd.DataFrame()
+
+    def load_regime_events(
+        self, spec: SymbolSpec, timeframe: str
+    ) -> pd.DataFrame:
+        if self.data_lake.has_features(spec, timeframe, "regime_events"):
+            return self.data_lake.load_features(spec, timeframe, "regime_events")
+        return pd.DataFrame()
+
+    def list_available_regime_features(self, spec: SymbolSpec) -> dict:
+        return {
+            "regime": self.data_lake.list_feature_timeframes(spec, "regime"),
+            "regime_events": self.data_lake.list_feature_timeframes(spec, "regime_events"),
+        }
