@@ -5,9 +5,9 @@ from typing import Optional
 from config.scan_config import get_scan_profile
 from config.settings import settings
 from config.symbols import (
-    get_symbols_by_asset_class,
-    get_symbol_spec,
     DEFAULT_SYMBOL_UNIVERSE,
+    get_symbol_spec,
+    get_symbols_by_asset_class,
 )
 from data.storage.data_lake import DataLake
 from indicators.feature_builder import FeatureBuilder

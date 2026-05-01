@@ -1,18 +1,18 @@
-import pytest
 import numpy as np
 import pandas as pd
+import pytest
 
 from indicators.mean_reversion_events import (
-    detect_zscore_extreme_events,
-    detect_zscore_snapback_events,
-    detect_percentile_extreme_events,
-    detect_minmax_position_events,
+    MeanReversionEventConfig,
+    build_mean_reversion_event_frame,
     detect_band_extension_events,
     detect_band_reentry_events,
     detect_distance_overextension_events,
+    detect_minmax_position_events,
+    detect_percentile_extreme_events,
     detect_snapback_pressure_events,
-    build_mean_reversion_event_frame,
-    MeanReversionEventConfig,
+    detect_zscore_extreme_events,
+    detect_zscore_snapback_events,
 )
 
 

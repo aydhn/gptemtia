@@ -82,3 +82,11 @@ Processed Data Lake
 
 Extended Pipeline Flow:
 Processed Data Lake → Mean Reversion Indicators → Mean Reversion Feature Set → Mean Reversion Event Detection → Mean Reversion Feature Store → Future Strategy/Regime/Risk Engine
+
+### Data Flow Pipeline Update
+Processed Data Lake
+→ Price Action Indicators
+→ Price Action Feature Set
+→ Price Action Event Detection
+→ Price Action Feature Store
+→ Future Strategy/Regime/Risk Engine

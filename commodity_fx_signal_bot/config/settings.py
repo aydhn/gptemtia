@@ -234,6 +234,70 @@ class Settings:
         default_factory=lambda: os.getenv("SAVE_TREND_EVENTS", "true").lower() == "true"
     )
 
+    # Phase 13: Price Action Features & Events Settings
+    price_action_features_enabled: bool = field(
+        default_factory=lambda: os.getenv(
+            "PRICE_ACTION_FEATURES_ENABLED", "true"
+        ).lower()
+        == "true"
+    )
+    price_action_events_enabled: bool = field(
+        default_factory=lambda: os.getenv("PRICE_ACTION_EVENTS_ENABLED", "true").lower()
+        == "true"
+    )
+    default_price_action_windows: tuple[int, ...] = field(
+        default_factory=lambda: tuple(
+            int(x)
+            for x in os.getenv("DEFAULT_PRICE_ACTION_WINDOWS", "5,10,20,50").split(",")
+        )
+    )
+    default_breakout_windows: tuple[int, ...] = field(
+        default_factory=lambda: tuple(
+            int(x) for x in os.getenv("DEFAULT_BREAKOUT_WINDOWS", "10,20,55").split(",")
+        )
+    )
+    default_large_body_percentile_window: int = field(
+        default_factory=lambda: int(
+            os.getenv("DEFAULT_LARGE_BODY_PERCENTILE_WINDOW", "120")
+        )
+    )
+    default_large_body_percentile_threshold: float = field(
+        default_factory=lambda: float(
+            os.getenv("DEFAULT_LARGE_BODY_PERCENTILE_THRESHOLD", "0.90")
+        )
+    )
+    default_large_range_percentile_threshold: float = field(
+        default_factory=lambda: float(
+            os.getenv("DEFAULT_LARGE_RANGE_PERCENTILE_THRESHOLD", "0.90")
+        )
+    )
+    default_small_range_percentile_threshold: float = field(
+        default_factory=lambda: float(
+            os.getenv("DEFAULT_SMALL_RANGE_PERCENTILE_THRESHOLD", "0.10")
+        )
+    )
+    default_wick_rejection_ratio: float = field(
+        default_factory=lambda: float(os.getenv("DEFAULT_WICK_REJECTION_RATIO", "0.60"))
+    )
+    default_strong_close_upper_threshold: float = field(
+        default_factory=lambda: float(
+            os.getenv("DEFAULT_STRONG_CLOSE_UPPER_THRESHOLD", "0.80")
+        )
+    )
+    default_strong_close_lower_threshold: float = field(
+        default_factory=lambda: float(
+            os.getenv("DEFAULT_STRONG_CLOSE_LOWER_THRESHOLD", "0.20")
+        )
+    )
+    save_price_action_features: bool = field(
+        default_factory=lambda: os.getenv("SAVE_PRICE_ACTION_FEATURES", "true").lower()
+        == "true"
+    )
+    save_price_action_events: bool = field(
+        default_factory=lambda: os.getenv("SAVE_PRICE_ACTION_EVENTS", "true").lower()
+        == "true"
+    )
+
     paper_trading_enabled: bool = field(
         default_factory=lambda: os.getenv("PAPER_TRADING_ENABLED", "true").lower()
         == "true"

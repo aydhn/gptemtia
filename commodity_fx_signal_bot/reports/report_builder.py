@@ -932,3 +932,136 @@ def build_mean_reversion_status_report(status_df: pd.DataFrame, summary: dict) -
             )
 
     return "\n".join(lines)
+
+
+def build_price_action_feature_preview_report(
+    symbol: str, timeframe: str, summary: dict, tail_df: pd.DataFrame
+) -> str:
+    lines = [
+        f"=== PRICE ACTION FEATURE PREVIEW ===",
+        f"Symbol: {symbol}",
+        f"Timeframe: {timeframe}",
+        f"Input Rows: {summary.get('input_rows', 0)}",
+        f"Output Rows: {summary.get('output_rows', 0)}",
+        f"Feature Count: {summary.get('feature_count', 0)}",
+        f"Event Count: {summary.get('event_count', 0)}",
+        f"Total NaN Ratio: {summary.get('total_nan_ratio', 0.0):.4f}",
+        "",
+    ]
+
+    if summary.get("warnings"):
+        lines.append("Warnings:")
+        for w in summary["warnings"]:
+            lines.append(f" - {w}")
+        lines.append("")
+
+    if summary.get("failed_components"):
+        lines.append("Failed Components:")
+        for f in summary["failed_components"]:
+            lines.append(f" - {f}")
+        lines.append("")
+
+    lines.append("Feature Columns:")
+    for c in summary.get("feature_columns", []):
+        lines.append(f" - {c}")
+    lines.append("")
+
+    lines.append(f"--- Last {len(tail_df)} Rows ---")
+    lines.append(tail_df.to_string())
+
+    return "\n".join(lines)
+
+
+def build_price_action_event_preview_report(
+    symbol: str, timeframe: str, summary: dict, event_tail_df: pd.DataFrame
+) -> str:
+    lines = [
+        f"=== PRICE ACTION EVENT PREVIEW ===",
+        f"Symbol: {symbol}",
+        f"Timeframe: {timeframe}",
+        f"Total Events Generated: {summary.get('total_event_count', 0)}",
+        "",
+    ]
+
+    lines.append("WARNING: These events are candidates and NOT final buy/sell signals.")
+    lines.append("")
+
+    lines.append("Event Counts by Column:")
+    counts = summary.get("event_count_by_column", {})
+    # sort by count desc
+    for k, v in sorted(counts.items(), key=lambda item: item[1], reverse=True):
+        lines.append(f" - {k}: {v}")
+    lines.append("")
+
+    lines.append("Active Events in Last Row:")
+    for e in summary.get("active_last_row_events", []):
+        lines.append(f" - {e}")
+    lines.append("")
+
+    # Show last rows where an event occurred
+    active_rows = event_tail_df[(event_tail_df > 0).any(axis=1)]
+    lines.append(f"--- Active Events in Last {len(event_tail_df)} Rows ---")
+    if active_rows.empty:
+        lines.append("No active events found.")
+    else:
+        for idx, row in active_rows.iterrows():
+            active = row[row > 0].index.tolist()
+            lines.append(f"{idx}: {active}")
+
+    return "\n".join(lines)
+
+
+def build_price_action_batch_report(summary: dict) -> str:
+    lines = ["=== PRICE ACTION BATCH SUMMARY ===", ""]
+
+    success_count = 0
+    error_count = 0
+    empty_count = 0
+
+    for sym, tfs in summary.items():
+        if isinstance(tfs, dict):
+            for tf, res in tfs.items():
+                status = res.get("status")
+                if status == "success":
+                    success_count += 1
+                elif status == "error":
+                    error_count += 1
+                elif status == "empty":
+                    empty_count += 1
+
+    lines.append(f"Total Success: {success_count}")
+    lines.append(f"Total Errors: {error_count}")
+    lines.append(f"Total Empty: {empty_count}")
+    lines.append("")
+
+    lines.append("Details:")
+    for sym, tfs in summary.items():
+        if isinstance(tfs, dict):
+            for tf, res in tfs.items():
+                lines.append(
+                    f"{sym} {tf}: {res.get('status')} - Rows: {res.get('rows', 0)} Features: {res.get('features', 0)} Events: {res.get('events', 0)}"
+                )
+                if res.get("warnings"):
+                    lines.append(f"  Warnings: {', '.join(res['warnings'])}")
+                if res.get("error"):
+                    lines.append(f"  Error: {res['error']}")
+
+    return "\n".join(lines)
+
+
+def build_price_action_status_report(status_df: pd.DataFrame, summary: dict) -> str:
+    lines = [
+        "=== PRICE ACTION STATUS REPORT ===",
+        f"Total Tradeable Symbols: {summary.get('total_symbols', 0)}",
+        f"Symbols with Price Action: {summary.get('with_price_action', 0)}",
+        f"Timeframes missing PA (but have technical): {summary.get('missing_but_has_technical', 0)}",
+        "",
+    ]
+
+    lines.append("Timeframes Missing PA (but have Technical):")
+    missing = status_df[status_df["has_technical"] & ~status_df["has_price_action"]]
+    for _, row in missing.iterrows():
+        lines.append(f" - {row['symbol']} {row['timeframe']}")
+    lines.append("")
+
+    return "\n".join(lines)

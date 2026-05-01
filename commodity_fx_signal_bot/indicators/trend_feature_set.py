@@ -4,19 +4,19 @@ import numpy as np
 import pandas as pd
 
 from indicators.trend_advanced import (
-    calculate_multi_sma,
-    calculate_multi_ema,
-    calculate_wma,
-    calculate_multi_wma,
-    calculate_multi_hma,
-    calculate_multi_macd,
-    calculate_multi_adx,
-    calculate_multi_aroon,
     calculate_ichimoku_full,
-    calculate_price_ma_distances,
     calculate_ma_slopes,
     calculate_ma_stack_state,
+    calculate_multi_adx,
+    calculate_multi_aroon,
+    calculate_multi_ema,
+    calculate_multi_hma,
+    calculate_multi_macd,
+    calculate_multi_sma,
+    calculate_multi_wma,
+    calculate_price_ma_distances,
     calculate_trend_persistence,
+    calculate_wma,
 )
 from indicators.trend_events import build_trend_event_frame
 

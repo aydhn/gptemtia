@@ -1,6 +1,7 @@
 import logging
-import pandas as pd
 from dataclasses import dataclass
+
+import pandas as pd
 
 logger = logging.getLogger(__name__)
 

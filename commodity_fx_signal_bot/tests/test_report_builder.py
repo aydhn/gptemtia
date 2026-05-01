@@ -98,6 +98,7 @@ def test_save_dataframe_report(tmp_path):
 
 def test_build_volatility_feature_preview_report():
     import pandas as pd
+
     from reports.report_builder import build_volatility_feature_preview_report
 
     summary = {"type": "compact", "input_rows": 100, "feature_count": 5}
@@ -110,6 +111,7 @@ def test_build_volatility_feature_preview_report():
 
 def test_build_volatility_event_preview_report():
     import pandas as pd
+
     from reports.report_builder import build_volatility_event_preview_report
 
     summary = {"total_event_count": 5}
@@ -129,6 +131,7 @@ def test_build_volatility_batch_report():
 
 def test_build_volatility_status_report():
     import pandas as pd
+
     from reports.report_builder import build_volatility_status_report
 
     summary = {"total_symbols": 5}
@@ -139,6 +142,7 @@ def test_build_volatility_status_report():
 
 def test_build_mean_reversion_feature_preview_report():
     import pandas as pd
+
     from reports.report_builder import build_mean_reversion_feature_preview_report
 
     summary = {"type": "compact", "input_rows": 100, "feature_count": 5}
@@ -151,6 +155,7 @@ def test_build_mean_reversion_feature_preview_report():
 
 def test_build_mean_reversion_event_preview_report():
     import pandas as pd
+
     from reports.report_builder import build_mean_reversion_event_preview_report
 
     summary = {"total_event_count": 5}
@@ -170,6 +175,7 @@ def test_build_mean_reversion_batch_report():
 
 def test_build_mean_reversion_status_report():
     import pandas as pd
+
     from reports.report_builder import build_mean_reversion_status_report
 
     summary = {"total_symbols": 5}

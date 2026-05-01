@@ -3,20 +3,20 @@ import pandas as pd
 import pytest
 
 from indicators.volatility_advanced import (
-    calculate_multi_true_range,
-    calculate_multi_atr,
     calculate_atr_percent,
-    calculate_multi_bollinger_bands,
-    calculate_multi_keltner_channels,
-    calculate_multi_donchian_channels,
-    calculate_historical_volatility_multi,
-    calculate_parkinson_volatility,
-    calculate_garman_klass_volatility,
-    calculate_range_percent,
+    calculate_channel_position,
     calculate_gap_volatility,
+    calculate_garman_klass_volatility,
+    calculate_historical_volatility_multi,
+    calculate_multi_atr,
+    calculate_multi_bollinger_bands,
+    calculate_multi_donchian_channels,
+    calculate_multi_keltner_channels,
+    calculate_multi_true_range,
+    calculate_parkinson_volatility,
+    calculate_range_percent,
     calculate_volatility_percentile,
     calculate_volatility_slope,
-    calculate_channel_position,
 )
 
 

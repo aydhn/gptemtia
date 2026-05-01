@@ -2,9 +2,8 @@ import logging
 
 import pandas as pd
 
-from config.symbols import get_enabled_symbols
+from config.symbols import get_allowed_timeframes_for_symbol, get_enabled_symbols
 from data.storage.data_lake import DataLake
-from config.symbols import get_allowed_timeframes_for_symbol
 from reports.report_builder import build_momentum_status_report
 
 logging.basicConfig(level=logging.INFO)

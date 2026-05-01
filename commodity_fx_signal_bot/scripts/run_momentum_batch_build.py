@@ -3,11 +3,11 @@ import logging
 
 from config.settings import settings
 from config.symbols import (
-    get_symbol_spec,
+    get_allowed_timeframes_for_symbol,
     get_enabled_symbols,
+    get_symbol_spec,
     get_symbols_by_asset_class,
 )
-from config.symbols import get_allowed_timeframes_for_symbol
 from data.storage.data_lake import DataLake
 from indicators.feature_builder import FeatureBuilder
 from indicators.indicator_pipeline import IndicatorPipeline
