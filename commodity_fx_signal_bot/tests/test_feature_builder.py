@@ -69,3 +69,12 @@ def test_feature_builder_mean_reversion(sample_df):
     assert summary["feature_count"] > 0
     assert summary["input_rows"] == 100
     assert "total_nan_ratio" in summary
+
+
+def test_build_divergence_feature_set(sample_df):
+    builder = FeatureBuilder()
+    features, summary = builder.build_divergence_feature_set(sample_df)
+
+    assert isinstance(features, pd.DataFrame)
+    assert isinstance(summary, dict)
+    assert "type" in summary

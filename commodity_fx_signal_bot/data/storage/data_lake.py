@@ -288,7 +288,11 @@ class DataLake:
         sub_class = spec.sub_class.lower().replace(" ", "_")
         safe_sym = self.safe_symbol_name(spec.symbol)
 
-        from config.paths import LAKE_FEATURES_DIR
+        from config.paths import (
+            LAKE_FEATURES_DIR,
+            LAKE_FEATURES_DIVERGENCE_DIR,
+            LAKE_FEATURES_DIVERGENCE_EVENTS_DIR,
+        )
 
         symbol_dir = (
             LAKE_FEATURES_DIR / feature_set_name / source / sub_class / safe_sym

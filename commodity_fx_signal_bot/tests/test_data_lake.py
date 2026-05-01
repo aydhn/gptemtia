@@ -125,3 +125,11 @@ def test_data_lake_save_load_mean_reversion_features(
     )
 
     assert len(loaded) == len(valid_df)
+
+
+def test_divergence_feature_paths(temp_data_lake, mock_spec):
+    path1 = temp_data_lake.get_feature_path(mock_spec, "1d", "divergence")
+    assert "divergence" in str(path1)
+
+    path2 = temp_data_lake.get_feature_path(mock_spec, "1d", "divergence_events")
+    assert "divergence_events" in str(path2)

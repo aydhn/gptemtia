@@ -298,6 +298,56 @@ class Settings:
         == "true"
     )
 
+    # Phase 14: Divergence Features & Events Settings
+    divergence_features_enabled: bool = field(
+        default_factory=lambda: os.getenv("DIVERGENCE_FEATURES_ENABLED", "true").lower()
+        == "true"
+    )
+    divergence_events_enabled: bool = field(
+        default_factory=lambda: os.getenv("DIVERGENCE_EVENTS_ENABLED", "true").lower()
+        == "true"
+    )
+    default_divergence_pivot_left: int = field(
+        default_factory=lambda: int(os.getenv("DEFAULT_DIVERGENCE_PIVOT_LEFT", "3"))
+    )
+    default_divergence_pivot_right: int = field(
+        default_factory=lambda: int(os.getenv("DEFAULT_DIVERGENCE_PIVOT_RIGHT", "3"))
+    )
+    default_divergence_lookback: int = field(
+        default_factory=lambda: int(os.getenv("DEFAULT_DIVERGENCE_LOOKBACK", "80"))
+    )
+    default_divergence_min_price_move_pct: float = field(
+        default_factory=lambda: float(
+            os.getenv("DEFAULT_DIVERGENCE_MIN_PRICE_MOVE_PCT", "0.005")
+        )
+    )
+    default_divergence_min_indicator_move: float = field(
+        default_factory=lambda: float(
+            os.getenv("DEFAULT_DIVERGENCE_MIN_INDICATOR_MOVE", "0.0")
+        )
+    )
+    default_divergence_confirmation_window: int = field(
+        default_factory=lambda: int(
+            os.getenv("DEFAULT_DIVERGENCE_CONFIRMATION_WINDOW", "5")
+        )
+    )
+    default_divergence_indicator_columns: tuple[str, ...] = field(
+        default_factory=lambda: tuple(
+            os.getenv(
+                "DEFAULT_DIVERGENCE_INDICATOR_COLUMNS",
+                "rsi_14,macd_hist_12_26_9,roc_10,obv,mfi_14,cmf_20",
+            ).split(",")
+        )
+    )
+    save_divergence_features: bool = field(
+        default_factory=lambda: os.getenv("SAVE_DIVERGENCE_FEATURES", "true").lower()
+        == "true"
+    )
+    save_divergence_events: bool = field(
+        default_factory=lambda: os.getenv("SAVE_DIVERGENCE_EVENTS", "true").lower()
+        == "true"
+    )
+
     paper_trading_enabled: bool = field(
         default_factory=lambda: os.getenv("PAPER_TRADING_ENABLED", "true").lower()
         == "true"
