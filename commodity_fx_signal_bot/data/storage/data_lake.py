@@ -289,6 +289,8 @@ class DataLake:
         safe_sym = self.safe_symbol_name(spec.symbol)
 
         from config.paths import (
+            LAKE_FEATURES_MTF_DIR,
+            LAKE_FEATURES_MTF_EVENTS_DIR,
             LAKE_FEATURES_DIR,
             LAKE_FEATURES_DIVERGENCE_DIR,
             LAKE_FEATURES_DIVERGENCE_EVENTS_DIR,

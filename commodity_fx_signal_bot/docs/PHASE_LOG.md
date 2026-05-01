@@ -144,3 +144,17 @@ This file tracks the completion of the project phases.
 - DataLake divergence/divergence_events feature set desteği aldı.
 - Divergence preview/batch/status scriptleri eklendi.
 - Testler genişletildi.
+
+## Phase 15 - Çoklu Zaman Dilimi Feature Birleştirme (MTF)
+- MTF profile sistemi eklendi.
+- Timeframe alignment modülü eklendi.
+- No-lookahead MTF join mantığı eklendi.
+- MTF loader eklendi.
+- MTF feature joiner eklendi.
+- MTF context skorları eklendi.
+- MTF event detection eklendi.
+- MTF quality report eklendi.
+- MTFPipeline eklendi.
+- DataLake mtf/mtf_events feature set desteği aldı.
+- MTF preview/batch/status scriptleri eklendi.
+- Testler genişletildi.
