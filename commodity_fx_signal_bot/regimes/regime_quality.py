@@ -5,6 +5,7 @@ Quality reporting for regimes.
 import pandas as pd
 import numpy as np
 
+
 def check_regime_missing_columns(df: pd.DataFrame, required_candidates: dict) -> dict:
     """Check which required features are missing."""
     missing = []
@@ -18,10 +19,8 @@ def check_regime_missing_columns(df: pd.DataFrame, required_candidates: dict) ->
         if not found:
             missing.append(feature_type)
 
-    return {
-        "missing_key_columns": missing,
-        "is_missing": len(missing) > 0
-    }
+    return {"missing_key_columns": missing, "is_missing": len(missing) > 0}
+
 
 def check_regime_label_distribution(regime_df: pd.DataFrame) -> dict:
     """Analyze the distribution of regime labels."""
@@ -38,6 +37,7 @@ def check_regime_label_distribution(regime_df: pd.DataFrame) -> dict:
 
     return distribution
 
+
 def check_regime_confidence(regime_df: pd.DataFrame) -> dict:
     """Analyze the confidence levels."""
     if "regime_confidence" not in regime_df.columns:
@@ -53,10 +53,8 @@ def check_regime_confidence(regime_df: pd.DataFrame) -> dict:
     avg = float(valid_conf.mean())
     low_ratio = float((valid_conf < 0.5).sum() / len(valid_conf))
 
-    return {
-        "average_confidence": avg,
-        "low_confidence_ratio": low_ratio
-    }
+    return {"average_confidence": avg, "low_confidence_ratio": low_ratio}
+
 
 def check_regime_stability(regime_df: pd.DataFrame, window: int = 20) -> dict:
     """Analyze how stable the regimes are over time."""
@@ -70,7 +68,9 @@ def check_regime_stability(regime_df: pd.DataFrame, window: int = 20) -> dict:
         return {"transition_count": 0, "stability_score": 1.0}
 
     # Count transitions
-    transitions = (valid_labels != valid_labels.shift(1)).sum() - 1 # Subtract 1 for the first element
+    transitions = (
+        valid_labels != valid_labels.shift(1)
+    ).sum() - 1  # Subtract 1 for the first element
     if transitions < 0:
         transitions = 0
 
@@ -82,10 +82,8 @@ def check_regime_stability(regime_df: pd.DataFrame, window: int = 20) -> dict:
     else:
         stability = 1.0
 
-    return {
-        "transition_count": int(transitions),
-        "stability_score": float(stability)
-    }
+    return {"transition_count": int(transitions), "stability_score": float(stability)}
+
 
 def build_regime_quality_report(regime_df: pd.DataFrame, summary: dict) -> dict:
     """Build the comprehensive quality report."""
@@ -99,7 +97,7 @@ def build_regime_quality_report(regime_df: pd.DataFrame, summary: dict) -> dict:
         "trend": ["regime_trend_score"],
         "volatility": ["regime_volatility_score"],
         "range": ["regime_range_score"],
-        "momentum": ["regime_momentum_score"]
+        "momentum": ["regime_momentum_score"],
     }
     missing = check_regime_missing_columns(regime_df, critical_scores)
 
@@ -126,5 +124,5 @@ def build_regime_quality_report(regime_df: pd.DataFrame, summary: dict) -> dict:
         "stability_score": stab["stability_score"],
         "missing_key_columns": missing["missing_key_columns"],
         "warnings": warnings,
-        "passed": passed
+        "passed": passed,
     }

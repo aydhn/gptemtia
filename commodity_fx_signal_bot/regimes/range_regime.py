@@ -6,12 +6,17 @@ import pandas as pd
 import numpy as np
 
 from regimes.regime_config import RegimeProfile, get_default_regime_profile
-from regimes.regime_labels import (
-    RANGE_BOUND, COMPRESSED_RANGE, VOLATILE_RANGE, UNKNOWN
+from regimes.regime_labels import RANGE_BOUND, COMPRESSED_RANGE, VOLATILE_RANGE, UNKNOWN
+from regimes.regime_features import (
+    safe_get_column,
+    normalize_to_unit_interval,
+    combine_scores,
 )
-from regimes.regime_features import safe_get_column, normalize_to_unit_interval, combine_scores
 
-def calculate_range_bound_score(df: pd.DataFrame, profile: RegimeProfile | None = None) -> pd.Series:
+
+def calculate_range_bound_score(
+    df: pd.DataFrame, profile: RegimeProfile | None = None
+) -> pd.Series:
     """
     Calculate how range-bound the market is (0 to 1).
     High score = strong range.
@@ -29,7 +34,7 @@ def calculate_range_bound_score(df: pd.DataFrame, profile: RegimeProfile | None 
         adx_score = np.where(
             adx < thresh,
             1.0 - (adx / thresh) * 0.5,
-            0.5 - ((adx - thresh) / (50 - thresh)) * 0.5
+            0.5 - ((adx - thresh) / (50 - thresh)) * 0.5,
         )
         scores.append(pd.Series(np.clip(adx_score, 0, 1), index=df.index))
 
@@ -52,6 +57,7 @@ def calculate_range_bound_score(df: pd.DataFrame, profile: RegimeProfile | None 
         return combined.clip(0, 1)
     return pd.Series(np.nan, index=df.index)
 
+
 def calculate_compression_score(df: pd.DataFrame) -> pd.Series:
     """Calculate price compression (0 to 1)."""
     scores = []
@@ -70,23 +76,23 @@ def calculate_compression_score(df: pd.DataFrame) -> pd.Series:
         return combined.clip(0, 1)
     return pd.Series(np.nan, index=df.index)
 
-def detect_range_regime(df: pd.DataFrame, profile: RegimeProfile | None = None) -> tuple[pd.DataFrame, dict]:
+
+def detect_range_regime(
+    df: pd.DataFrame, profile: RegimeProfile | None = None
+) -> tuple[pd.DataFrame, dict]:
     """Detect range regimes."""
     if profile is None:
         profile = get_default_regime_profile()
 
     out_df = pd.DataFrame(index=df.index)
-    summary = {
-        "input_rows": len(df),
-        "warnings": [],
-        "used_columns": []
-    }
+    summary = {"input_rows": len(df), "warnings": [], "used_columns": []}
 
     range_score = calculate_range_bound_score(df, profile)
     compression = calculate_compression_score(df)
 
     # Need volatility context
     from regimes.volatility_regime import calculate_volatility_level_score
+
     vol_score = calculate_volatility_level_score(df, profile)
 
     out_df["regime_range_score"] = range_score

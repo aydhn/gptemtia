@@ -391,13 +391,14 @@ class Settings:
         default_factory=lambda: os.getenv("SAVE_MTF_EVENTS", "true").lower() == "true"
     )
 
-
     # Phase 16: Regime Classification Layer Settings
     regime_features_enabled: bool = field(
-        default_factory=lambda: os.getenv("REGIME_FEATURES_ENABLED", "true").lower() == "true"
+        default_factory=lambda: os.getenv("REGIME_FEATURES_ENABLED", "true").lower()
+        == "true"
     )
     regime_events_enabled: bool = field(
-        default_factory=lambda: os.getenv("REGIME_EVENTS_ENABLED", "true").lower() == "true"
+        default_factory=lambda: os.getenv("REGIME_EVENTS_ENABLED", "true").lower()
+        == "true"
     )
     default_regime_profile: str = field(
         default_factory=lambda: os.getenv("DEFAULT_REGIME_PROFILE", "balanced_regime")
@@ -407,36 +408,101 @@ class Settings:
     )
     default_regime_feature_sets: tuple[str, ...] = field(
         default_factory=lambda: tuple(
-            os.getenv("DEFAULT_REGIME_FEATURE_SETS", "trend,momentum,volatility,mean_reversion,price_action,mtf").split(",")
+            os.getenv(
+                "DEFAULT_REGIME_FEATURE_SETS",
+                "trend,momentum,volatility,mean_reversion,price_action,mtf",
+            ).split(",")
         )
     )
     default_adx_trend_threshold: float = field(
         default_factory=lambda: float(os.getenv("DEFAULT_ADX_TREND_THRESHOLD", "25.0"))
     )
     default_strong_trend_threshold: float = field(
-        default_factory=lambda: float(os.getenv("DEFAULT_STRONG_TREND_THRESHOLD", "35.0"))
+        default_factory=lambda: float(
+            os.getenv("DEFAULT_STRONG_TREND_THRESHOLD", "35.0")
+        )
     )
     default_low_volatility_percentile: float = field(
-        default_factory=lambda: float(os.getenv("DEFAULT_LOW_VOLATILITY_PERCENTILE", "0.20"))
+        default_factory=lambda: float(
+            os.getenv("DEFAULT_LOW_VOLATILITY_PERCENTILE", "0.20")
+        )
     )
     default_high_volatility_percentile: float = field(
-        default_factory=lambda: float(os.getenv("DEFAULT_HIGH_VOLATILITY_PERCENTILE", "0.80"))
+        default_factory=lambda: float(
+            os.getenv("DEFAULT_HIGH_VOLATILITY_PERCENTILE", "0.80")
+        )
     )
     default_range_adx_threshold: float = field(
         default_factory=lambda: float(os.getenv("DEFAULT_RANGE_ADX_THRESHOLD", "20.0"))
     )
     default_regime_transition_lookback: int = field(
-        default_factory=lambda: int(os.getenv("DEFAULT_REGIME_TRANSITION_LOOKBACK", "5"))
+        default_factory=lambda: int(
+            os.getenv("DEFAULT_REGIME_TRANSITION_LOOKBACK", "5")
+        )
     )
     save_regime_features: bool = field(
-        default_factory=lambda: os.getenv("SAVE_REGIME_FEATURES", "true").lower() == "true"
+        default_factory=lambda: os.getenv("SAVE_REGIME_FEATURES", "true").lower()
+        == "true"
     )
     save_regime_events: bool = field(
-        default_factory=lambda: os.getenv("SAVE_REGIME_EVENTS", "true").lower() == "true"
+        default_factory=lambda: os.getenv("SAVE_REGIME_EVENTS", "true").lower()
+        == "true"
+    )
+
+    # Phase 17: Macro Regime Layer Settings
+    macro_features_enabled: bool = field(
+        default_factory=lambda: os.getenv("MACRO_FEATURES_ENABLED", "true").lower()
+        == "true"
+    )
+    macro_events_enabled: bool = field(
+        default_factory=lambda: os.getenv("MACRO_EVENTS_ENABLED", "true").lower()
+        == "true"
+    )
+    macro_data_enabled: bool = field(
+        default_factory=lambda: os.getenv("MACRO_DATA_ENABLED", "true").lower()
+        == "true"
+    )
+    default_macro_frequency: str = field(
+        default_factory=lambda: os.getenv("DEFAULT_MACRO_FREQUENCY", "monthly")
+    )
+    default_macro_start_date: str = field(
+        default_factory=lambda: os.getenv("DEFAULT_MACRO_START_DATE", "2010-01-01")
+    )
+    default_macro_base_currency: str = field(
+        default_factory=lambda: os.getenv("DEFAULT_MACRO_BASE_CURRENCY", "TRY")
+    )
+    use_evds_for_turkey_macro: bool = field(
+        default_factory=lambda: os.getenv("USE_EVDS_FOR_TURKEY_MACRO", "true").lower()
+        == "true"
+    )
+    use_fred_for_us_macro: bool = field(
+        default_factory=lambda: os.getenv("USE_FRED_FOR_US_MACRO", "true").lower()
+        == "true"
+    )
+    macro_forward_fill_to_daily: bool = field(
+        default_factory=lambda: os.getenv("MACRO_FORWARD_FILL_TO_DAILY", "true").lower()
+        == "true"
+    )
+    macro_max_staleness_days: int = field(
+        default_factory=lambda: int(os.getenv("MACRO_MAX_STALENESS_DAYS", "45"))
+    )
+    benchmark_features_enabled: bool = field(
+        default_factory=lambda: os.getenv("BENCHMARK_FEATURES_ENABLED", "true").lower()
+        == "true"
+    )
+    save_macro_features: bool = field(
+        default_factory=lambda: os.getenv("SAVE_MACRO_FEATURES", "true").lower()
+        == "true"
+    )
+    save_macro_events: bool = field(
+        default_factory=lambda: os.getenv("SAVE_MACRO_EVENTS", "true").lower() == "true"
+    )
+    save_benchmark_features: bool = field(
+        default_factory=lambda: os.getenv("SAVE_BENCHMARK_FEATURES", "true").lower()
+        == "true"
     )
 
     paper_trading_enabled: bool = field(
-
         default_factory=lambda: os.getenv("PAPER_TRADING_ENABLED", "true").lower()
         == "true"
     )

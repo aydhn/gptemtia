@@ -1274,6 +1274,8 @@ def build_mtf_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     lines.append("=== MTF Durum Raporu ===")
     lines.append(f"Toplam Sembol: {len(status_df)}")
     lines.append(f"MTF Feature Olanlar: {status_df['has_mtf'].sum()}")
+
+
 def build_regime_feature_preview_report(
     symbol: str, timeframe: str, profile_name: str, summary: dict, tail_df: pd.DataFrame
 ) -> str:
@@ -1285,7 +1287,9 @@ def build_regime_feature_preview_report(
     lines.append(f"Eksik Feature Setleri: {summary.get('missing_feature_sets')}")
     lines.append(f"Satır Sayısı: {summary.get('rows')}")
     lines.append(f"Kolon Sayısı: {summary.get('columns')}")
-    lines.append(f"Son Rejim: {summary.get('latest_regime')} (Güven: {summary.get('latest_confidence', 0.0):.2f})")
+    lines.append(
+        f"Son Rejim: {summary.get('latest_regime')} (Güven: {summary.get('latest_confidence', 0.0):.2f})"
+    )
     lines.append("")
 
     qr = summary.get("quality_report", {})
@@ -1301,7 +1305,9 @@ def build_regime_feature_preview_report(
         for w in warnings:
             lines.append(f"  - {w}")
 
-    lines.append("\\nUyarı: Rejimler piyasa bağlamını ifade eder, nihai AL/SAT işlemi (trade signal) değildir.")
+    lines.append(
+        "\\nUyarı: Rejimler piyasa bağlamını ifade eder, nihai AL/SAT işlemi (trade signal) değildir."
+    )
 
     lines.append("\\nSon Satırlar:")
     lines.append(tail_df.to_string())
@@ -1310,7 +1316,11 @@ def build_regime_feature_preview_report(
 
 
 def build_regime_event_preview_report(
-    symbol: str, timeframe: str, profile_name: str, summary: dict, event_tail_df: pd.DataFrame
+    symbol: str,
+    timeframe: str,
+    profile_name: str,
+    summary: dict,
+    event_tail_df: pd.DataFrame,
 ) -> str:
     lines = []
     lines.append(f"=== Rejim Event Önizleme: {symbol} ===")
@@ -1325,7 +1335,9 @@ def build_regime_event_preview_report(
         lines.append(f"  - {k}: {v}")
 
     lines.append("")
-    lines.append(f"Aktif Son Satır Olayları: {summary.get('active_last_row_events', [])}")
+    lines.append(
+        f"Aktif Son Satır Olayları: {summary.get('active_last_row_events', [])}"
+    )
 
     lines.append("\\nUyarılar:")
     for w in summary.get("warnings", []):
@@ -1370,9 +1382,13 @@ def build_regime_batch_report(summary: dict) -> str:
             for tf, res in tfs.items():
                 status = res.get("status")
                 if status == "success":
-                    lines.append(f"{sym} {tf}: Başarılı - Son Rejim: {res.get('latest_regime')} ({res.get('latest_confidence', 0):.2f})")
+                    lines.append(
+                        f"{sym} {tf}: Başarılı - Son Rejim: {res.get('latest_regime')} ({res.get('latest_confidence', 0):.2f})"
+                    )
                 else:
-                    lines.append(f"{sym} {tf}: {status} - Hata: {res.get('error')} Uyarı: {res.get('warnings')}")
+                    lines.append(
+                        f"{sym} {tf}: {status} - Hata: {res.get('error')} Uyarı: {res.get('warnings')}"
+                    )
 
     return "\n".join(lines)
 
@@ -1387,8 +1403,97 @@ def build_regime_status_report(status_df: pd.DataFrame, summary: dict) -> str:
 
         if "has_technical" in status_df.columns and "has_regime" in status_df.columns:
             missing = status_df[status_df["has_technical"] & ~status_df["has_regime"]]
-            lines.append(f"\\nRejimi Eksik Olanlar (Teknik feature var ama rejim yok): {len(missing)}")
+            lines.append(
+                f"\\nRejimi Eksik Olanlar (Teknik feature var ama rejim yok): {len(missing)}"
+            )
             for _, row in missing.iterrows():
                 lines.append(f" - {row['symbol']} {row['timeframe']}")
 
     return "\n".join(lines)
+
+    def build_macro_data_update_report(self, summary: dict) -> str:
+        """Build report for macro data update."""
+        lines = [
+            "===========================================================",
+            "MAKRO VERİ GÜNCELLEME RAPORU",
+            "===========================================================",
+        ]
+
+        for k, v in summary.items():
+            lines.append(f"{k}: {v}")
+
+        return "\n".join(lines)
+
+    def build_macro_feature_preview_report(
+        self, summary: dict, tail_df: pd.DataFrame
+    ) -> str:
+        """Build report for macro feature preview."""
+        lines = [
+            "===========================================================",
+            "MAKRO ÖZELLİK ÖNİZLEME RAPORU",
+            "===========================================================",
+        ]
+
+        for k, v in summary.items():
+            lines.append(f"{k}: {v}")
+
+        lines.append("\n--- Son Veriler ---")
+        if not tail_df.empty:
+            lines.append(tail_df.to_string())
+        else:
+            lines.append("Veri bulunamadı.")
+
+        return "\n".join(lines)
+
+    def build_macro_benchmark_report(
+        self, summary: dict, benchmark_tail_df: pd.DataFrame
+    ) -> str:
+        """Build report for macro benchmark."""
+        lines = [
+            "===========================================================",
+            "MAKRO BENCHMARK RAPORU",
+            "===========================================================",
+        ]
+
+        for k, v in summary.items():
+            lines.append(f"{k}: {v}")
+
+        lines.append("\n--- Benchmark Son Veriler ---")
+        if not benchmark_tail_df.empty:
+            lines.append(benchmark_tail_df.to_string())
+        else:
+            lines.append("Veri bulunamadı.")
+
+        return "\n".join(lines)
+
+    def build_macro_batch_report(self, summary: dict) -> str:
+        """Build report for macro batch execution."""
+        lines = [
+            "===========================================================",
+            "MAKRO TOPLU İŞLEM RAPORU",
+            "===========================================================",
+        ]
+
+        for k, v in summary.items():
+            lines.append(f"{k}: {v}")
+
+        return "\n".join(lines)
+
+    def build_macro_status_report(self, status_df: pd.DataFrame, summary: dict) -> str:
+        """Build report for macro status."""
+        lines = [
+            "===========================================================",
+            "MAKRO DURUM RAPORU",
+            "===========================================================",
+        ]
+
+        for k, v in summary.items():
+            lines.append(f"{k}: {v}")
+
+        lines.append("\n--- Durum Tablosu ---")
+        if not status_df.empty:
+            lines.append(status_df.to_string())
+        else:
+            lines.append("Durum bilgisi bulunamadı.")
+
+        return "\n".join(lines)

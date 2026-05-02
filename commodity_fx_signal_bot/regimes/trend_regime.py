@@ -7,10 +7,18 @@ import numpy as np
 
 from regimes.regime_config import RegimeProfile, get_default_regime_profile
 from regimes.regime_labels import (
-    BULLISH_TREND, BEARISH_TREND, STRONG_BULLISH_TREND,
-    STRONG_BEARISH_TREND, WEAK_TREND, UNKNOWN
+    BULLISH_TREND,
+    BEARISH_TREND,
+    STRONG_BULLISH_TREND,
+    STRONG_BEARISH_TREND,
+    WEAK_TREND,
+    UNKNOWN,
 )
-from regimes.regime_features import safe_get_column, normalize_to_unit_interval, combine_scores
+from regimes.regime_features import (
+    safe_get_column,
+    normalize_to_unit_interval,
+    combine_scores,
+)
 
 
 def calculate_trend_direction_score(df: pd.DataFrame) -> pd.Series:
@@ -32,8 +40,12 @@ def calculate_trend_direction_score(df: pd.DataFrame) -> pd.Series:
         scores.append(di_score)
 
     # 2. Moving Average Stack
-    stack_bullish = safe_get_column(df, ["ma_stack_bullish_20_50_200", "ma_stack_bullish_10_20_50"])
-    stack_bearish = safe_get_column(df, ["ma_stack_bearish_20_50_200", "ma_stack_bearish_10_20_50"])
+    stack_bullish = safe_get_column(
+        df, ["ma_stack_bullish_20_50_200", "ma_stack_bullish_10_20_50"]
+    )
+    stack_bearish = safe_get_column(
+        df, ["ma_stack_bearish_20_50_200", "ma_stack_bearish_10_20_50"]
+    )
 
     if stack_bullish is not None and stack_bearish is not None:
         ma_score = stack_bullish.astype(float) - stack_bearish.astype(float)
@@ -49,7 +61,9 @@ def calculate_trend_direction_score(df: pd.DataFrame) -> pd.Series:
     return combine_scores(scores)
 
 
-def calculate_trend_strength_score(df: pd.DataFrame, profile: RegimeProfile | None = None) -> pd.Series:
+def calculate_trend_strength_score(
+    df: pd.DataFrame, profile: RegimeProfile | None = None
+) -> pd.Series:
     """
     Calculate a trend strength score between 0 and 1.
     """
@@ -67,7 +81,7 @@ def calculate_trend_strength_score(df: pd.DataFrame, profile: RegimeProfile | No
         adx_score = np.where(
             adx < thresh,
             (adx / thresh) * 0.5,
-            0.5 + ((adx - thresh) / (50 - thresh)) * 0.5
+            0.5 + ((adx - thresh) / (50 - thresh)) * 0.5,
         )
         adx_score = np.clip(adx_score, 0, 1)
         scores.append(pd.Series(adx_score, index=df.index))
@@ -93,7 +107,9 @@ def calculate_trend_strength_score(df: pd.DataFrame, profile: RegimeProfile | No
     return pd.Series(np.nan, index=df.index)
 
 
-def calculate_trend_regime_score(df: pd.DataFrame, profile: RegimeProfile | None = None) -> pd.Series:
+def calculate_trend_regime_score(
+    df: pd.DataFrame, profile: RegimeProfile | None = None
+) -> pd.Series:
     """
     Combined trend score. > 0 bullish, < 0 bearish, magnitude = strength.
     """
@@ -103,7 +119,9 @@ def calculate_trend_regime_score(df: pd.DataFrame, profile: RegimeProfile | None
     return direction * strength
 
 
-def detect_trend_regime(df: pd.DataFrame, profile: RegimeProfile | None = None) -> tuple[pd.DataFrame, dict]:
+def detect_trend_regime(
+    df: pd.DataFrame, profile: RegimeProfile | None = None
+) -> tuple[pd.DataFrame, dict]:
     """
     Detect trend regimes.
     """
@@ -111,11 +129,7 @@ def detect_trend_regime(df: pd.DataFrame, profile: RegimeProfile | None = None) 
         profile = get_default_regime_profile()
 
     out_df = pd.DataFrame(index=df.index)
-    summary = {
-        "input_rows": len(df),
-        "warnings": [],
-        "used_columns": []
-    }
+    summary = {"input_rows": len(df), "warnings": [], "used_columns": []}
 
     # Calculate scores
     direction = calculate_trend_direction_score(df)
@@ -136,7 +150,7 @@ def detect_trend_regime(df: pd.DataFrame, profile: RegimeProfile | None = None) 
     is_bullish = direction > 0.1
     is_bearish = direction < -0.1
 
-    is_strong = strength >= (profile.strong_trend_threshold / 50.0) # approx scaling
+    is_strong = strength >= (profile.strong_trend_threshold / 50.0)  # approx scaling
     is_weak = strength < (profile.adx_trend_threshold / 50.0)
 
     out_df["regime_is_bullish_trend"] = is_bullish & ~is_weak

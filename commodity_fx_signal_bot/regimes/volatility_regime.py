@@ -7,13 +7,22 @@ import numpy as np
 
 from regimes.regime_config import RegimeProfile, get_default_regime_profile
 from regimes.regime_labels import (
-    HIGH_VOLATILITY, LOW_VOLATILITY, VOLATILITY_EXPANSION,
-    VOLATILITY_COMPRESSION, UNKNOWN
+    HIGH_VOLATILITY,
+    LOW_VOLATILITY,
+    VOLATILITY_EXPANSION,
+    VOLATILITY_COMPRESSION,
+    UNKNOWN,
 )
-from regimes.regime_features import safe_get_column, normalize_to_unit_interval, combine_scores
+from regimes.regime_features import (
+    safe_get_column,
+    normalize_to_unit_interval,
+    combine_scores,
+)
 
 
-def calculate_volatility_level_score(df: pd.DataFrame, profile: RegimeProfile | None = None) -> pd.Series:
+def calculate_volatility_level_score(
+    df: pd.DataFrame, profile: RegimeProfile | None = None
+) -> pd.Series:
     """
     Calculate volatility level score between 0 and 1.
     """
@@ -76,7 +85,9 @@ def calculate_volatility_change_score(df: pd.DataFrame) -> pd.Series:
     return combine_scores(scores)
 
 
-def detect_volatility_regime(df: pd.DataFrame, profile: RegimeProfile | None = None) -> tuple[pd.DataFrame, dict]:
+def detect_volatility_regime(
+    df: pd.DataFrame, profile: RegimeProfile | None = None
+) -> tuple[pd.DataFrame, dict]:
     """
     Detect volatility regimes.
     """
@@ -84,18 +95,14 @@ def detect_volatility_regime(df: pd.DataFrame, profile: RegimeProfile | None = N
         profile = get_default_regime_profile()
 
     out_df = pd.DataFrame(index=df.index)
-    summary = {
-        "input_rows": len(df),
-        "warnings": [],
-        "used_columns": []
-    }
+    summary = {"input_rows": len(df), "warnings": [], "used_columns": []}
 
     level = calculate_volatility_level_score(df, profile)
     change = calculate_volatility_change_score(df)
 
     out_df["regime_volatility_level"] = level
     out_df["regime_volatility_change"] = change
-    out_df["regime_volatility_score"] = level # Primary score is the level
+    out_df["regime_volatility_score"] = level  # Primary score is the level
 
     if level.isna().all():
         summary["warnings"].append("Insufficient data to calculate volatility regimes.")

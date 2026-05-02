@@ -27,16 +27,12 @@ class FeatureStore:
             "mtf_events": self.data_lake.list_feature_timeframes(spec, "mtf_events"),
         }
 
-    def load_regime_features(
-        self, spec: SymbolSpec, timeframe: str
-    ) -> pd.DataFrame:
+    def load_regime_features(self, spec: SymbolSpec, timeframe: str) -> pd.DataFrame:
         if self.data_lake.has_features(spec, timeframe, "regime"):
             return self.data_lake.load_features(spec, timeframe, "regime")
         return pd.DataFrame()
 
-    def load_regime_events(
-        self, spec: SymbolSpec, timeframe: str
-    ) -> pd.DataFrame:
+    def load_regime_events(self, spec: SymbolSpec, timeframe: str) -> pd.DataFrame:
         if self.data_lake.has_features(spec, timeframe, "regime_events"):
             return self.data_lake.load_features(spec, timeframe, "regime_events")
         return pd.DataFrame()
@@ -44,5 +40,46 @@ class FeatureStore:
     def list_available_regime_features(self, spec: SymbolSpec) -> dict:
         return {
             "regime": self.data_lake.list_feature_timeframes(spec, "regime"),
-            "regime_events": self.data_lake.list_feature_timeframes(spec, "regime_events"),
+            "regime_events": self.data_lake.list_feature_timeframes(
+                spec, "regime_events"
+            ),
         }
+
+    def load_macro_features(self) -> pd.DataFrame:
+        """Load macro features from the data lake."""
+        try:
+            return self.data_lake.load_feature_set("macro", "macro_features")
+        except Exception:
+            return pd.DataFrame()
+
+    def load_macro_events(self) -> pd.DataFrame:
+        """Load macro events from the data lake."""
+        try:
+            return self.data_lake.load_feature_set("macro_events", "macro_events")
+        except Exception:
+            return pd.DataFrame()
+
+    def load_benchmark_features(self) -> pd.DataFrame:
+        """Load benchmark features from the data lake."""
+        try:
+            return self.data_lake.load_feature_set("benchmarks", "benchmark_features")
+        except Exception:
+            return pd.DataFrame()
+
+    def list_available_macro_features(self) -> dict:
+        """List available macro and benchmark features."""
+        features = {}
+
+        macro_df = self.load_macro_features()
+        if not macro_df.empty:
+            features["macro_features"] = list(macro_df.columns)
+
+        events_df = self.load_macro_events()
+        if not events_df.empty:
+            features["macro_events"] = list(events_df.columns)
+
+        benchmarks_df = self.load_benchmark_features()
+        if not benchmarks_df.empty:
+            features["benchmarks"] = list(benchmarks_df.columns)
+
+        return features

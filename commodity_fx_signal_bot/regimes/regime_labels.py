@@ -42,35 +42,69 @@ MTF_ALIGNED_TREND = "mtf_aligned_trend"
 MTF_CONFLICT = "mtf_conflict"
 
 _ALL_LABELS = {
-    UNKNOWN, INSUFFICIENT_DATA,
-    BULLISH_TREND, BEARISH_TREND, STRONG_BULLISH_TREND, STRONG_BEARISH_TREND, WEAK_TREND, FRAGILE_TREND,
-    RANGE_BOUND, COMPRESSED_RANGE, VOLATILE_RANGE,
-    HIGH_VOLATILITY, LOW_VOLATILITY, VOLATILITY_EXPANSION, VOLATILITY_COMPRESSION,
-    MOMENTUM_BULLISH, MOMENTUM_BEARISH, MOMENTUM_NEUTRAL,
-    MEAN_REVERSION_FRIENDLY, BREAKOUT_CANDIDATE_REGIME, CONFLICTING_REGIME,
-    MTF_ALIGNED_TREND, MTF_CONFLICT
+    UNKNOWN,
+    INSUFFICIENT_DATA,
+    BULLISH_TREND,
+    BEARISH_TREND,
+    STRONG_BULLISH_TREND,
+    STRONG_BEARISH_TREND,
+    WEAK_TREND,
+    FRAGILE_TREND,
+    RANGE_BOUND,
+    COMPRESSED_RANGE,
+    VOLATILE_RANGE,
+    HIGH_VOLATILITY,
+    LOW_VOLATILITY,
+    VOLATILITY_EXPANSION,
+    VOLATILITY_COMPRESSION,
+    MOMENTUM_BULLISH,
+    MOMENTUM_BEARISH,
+    MOMENTUM_NEUTRAL,
+    MEAN_REVERSION_FRIENDLY,
+    BREAKOUT_CANDIDATE_REGIME,
+    CONFLICTING_REGIME,
+    MTF_ALIGNED_TREND,
+    MTF_CONFLICT,
 }
+
 
 def list_regime_labels() -> list[str]:
     """Get list of all supported regime labels."""
     return sorted(list(_ALL_LABELS))
+
 
 def validate_regime_label(label: str) -> None:
     """Validate a regime label."""
     if label not in _ALL_LABELS:
         raise ConfigError(f"Unknown regime label: {label}")
 
+
 def is_trend_regime(label: str) -> bool:
     """Check if label is a trend regime."""
-    return label in {BULLISH_TREND, BEARISH_TREND, STRONG_BULLISH_TREND, STRONG_BEARISH_TREND, WEAK_TREND, FRAGILE_TREND}
+    return label in {
+        BULLISH_TREND,
+        BEARISH_TREND,
+        STRONG_BULLISH_TREND,
+        STRONG_BEARISH_TREND,
+        WEAK_TREND,
+        FRAGILE_TREND,
+    }
+
 
 def is_range_regime(label: str) -> bool:
     """Check if label is a range regime."""
     return label in {RANGE_BOUND, COMPRESSED_RANGE, VOLATILE_RANGE}
 
+
 def is_volatility_regime(label: str) -> bool:
     """Check if label is a volatility regime."""
-    return label in {HIGH_VOLATILITY, LOW_VOLATILITY, VOLATILITY_EXPANSION, VOLATILITY_COMPRESSION}
+    return label in {
+        HIGH_VOLATILITY,
+        LOW_VOLATILITY,
+        VOLATILITY_EXPANSION,
+        VOLATILITY_COMPRESSION,
+    }
+
 
 def is_mtf_regime(label: str) -> bool:
     """Check if label is an MTF regime."""

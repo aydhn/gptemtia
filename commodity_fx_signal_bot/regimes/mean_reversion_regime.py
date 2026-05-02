@@ -6,13 +6,18 @@ import pandas as pd
 import numpy as np
 
 from regimes.regime_config import RegimeProfile, get_default_regime_profile
-from regimes.regime_labels import (
-    MEAN_REVERSION_FRIENDLY, UNKNOWN
+from regimes.regime_labels import MEAN_REVERSION_FRIENDLY, UNKNOWN
+from regimes.regime_features import (
+    safe_get_column,
+    normalize_to_unit_interval,
+    combine_scores,
 )
-from regimes.regime_features import safe_get_column, normalize_to_unit_interval, combine_scores
 from regimes.trend_regime import calculate_trend_strength_score
 
-def calculate_mean_reversion_friendliness_score(df: pd.DataFrame, profile: RegimeProfile | None = None) -> pd.Series:
+
+def calculate_mean_reversion_friendliness_score(
+    df: pd.DataFrame, profile: RegimeProfile | None = None
+) -> pd.Series:
     """Calculate how friendly the environment is for mean reversion (0 to 1)."""
     if profile is None:
         profile = get_default_regime_profile()
@@ -29,7 +34,11 @@ def calculate_mean_reversion_friendliness_score(df: pd.DataFrame, profile: Regim
     if zscore is not None:
         # We want absolute z-score normalized. High z-score = high extension
         abs_z = zscore.abs()
-        z_norm = np.where(abs_z > profile.mean_reversion_zscore_threshold, 1.0, abs_z / profile.mean_reversion_zscore_threshold)
+        z_norm = np.where(
+            abs_z > profile.mean_reversion_zscore_threshold,
+            1.0,
+            abs_z / profile.mean_reversion_zscore_threshold,
+        )
         scores.append(pd.Series(z_norm, index=df.index))
 
     bb_pct = safe_get_column(df, ["bb_percent_b_20_2"])
@@ -43,17 +52,16 @@ def calculate_mean_reversion_friendliness_score(df: pd.DataFrame, profile: Regim
         return combined.clip(0, 1)
     return pd.Series(np.nan, index=df.index)
 
-def detect_mean_reversion_regime(df: pd.DataFrame, profile: RegimeProfile | None = None) -> tuple[pd.DataFrame, dict]:
+
+def detect_mean_reversion_regime(
+    df: pd.DataFrame, profile: RegimeProfile | None = None
+) -> tuple[pd.DataFrame, dict]:
     """Detect mean reversion regimes."""
     if profile is None:
         profile = get_default_regime_profile()
 
     out_df = pd.DataFrame(index=df.index)
-    summary = {
-        "input_rows": len(df),
-        "warnings": [],
-        "used_columns": []
-    }
+    summary = {"input_rows": len(df), "warnings": [], "used_columns": []}
 
     mr_score = calculate_mean_reversion_friendliness_score(df, profile)
     trend_str = calculate_trend_strength_score(df, profile)
@@ -61,7 +69,9 @@ def detect_mean_reversion_regime(df: pd.DataFrame, profile: RegimeProfile | None
     out_df["regime_mean_reversion_score"] = mr_score
 
     if mr_score.isna().all():
-        summary["warnings"].append("Insufficient data to calculate mean reversion regimes.")
+        summary["warnings"].append(
+            "Insufficient data to calculate mean reversion regimes."
+        )
         out_df["regime_mean_reversion_label"] = UNKNOWN
         return out_df, summary
 
