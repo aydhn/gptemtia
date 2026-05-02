@@ -5,6 +5,7 @@ Base classes for regime detection modules.
 from abc import ABC, abstractmethod
 import pandas as pd
 
+
 class BaseRegimeDetector(ABC):
     """Abstract base class for all regime detectors."""
 
@@ -21,7 +22,9 @@ class BaseRegimeDetector(ABC):
         return {
             "valid": len(missing) == 0,
             "missing_columns": missing,
-            "warnings": [f"Missing required column: {m}" for m in missing] if missing else []
+            "warnings": (
+                [f"Missing required column: {m}" for m in missing] if missing else []
+            ),
         }
 
     @abstractmethod

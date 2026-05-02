@@ -57,3 +57,10 @@ Phase 5 ile birlikte sisteme eklenen yerel veri gölü özellikleri şunları i�
 - **Column Standardization:** Ensure OHLCV fields are standardized to lowercase format, otherwise the `FeatureBuilder` validation will fail.
 - **Volume Limitations:** In Forex (e.g. via Yahoo Finance), volume is typically zero or missing. The volume indicators correctly handle these events and produce NaN to avoid pipeline crashing.
 - **Data Leakage Risks:** Some advanced indicators (e.g., Ichimoku components) involve forward-shifting. These are included for completeness but must be handled carefully when modeling to avoid future data leakage.
+
+## Makro Veri Kaynakları (Phase 17)
+- **EVDS:** Türkiye makro verileri (ör. enflasyon) için kullanılır.
+- **FRED:** ABD makro verileri (ör. ABD CPI) için kullanılır.
+- **Yahoo Proxy:** Altın, petrol ve USDTRY proxy hesaplamaları için OHLCV üzerinden daily/weekly veriler.
+- **Güvenlik & Sınırlar:** Scraping yasağı sıkı uygulanır. Veri güncelliği/staleness riski kontrol altındadır.
+- **Veri Hizalaması:** Aylık enflasyon verileri günlük fiyat verisiyle `forward-fill` yöntemiyle hizalanır (ancak lookahead'e izin verilmez).

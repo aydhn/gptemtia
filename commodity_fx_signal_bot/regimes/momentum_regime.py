@@ -7,9 +7,17 @@ import numpy as np
 
 from regimes.regime_config import RegimeProfile, get_default_regime_profile
 from regimes.regime_labels import (
-    MOMENTUM_BULLISH, MOMENTUM_BEARISH, MOMENTUM_NEUTRAL, UNKNOWN
+    MOMENTUM_BULLISH,
+    MOMENTUM_BEARISH,
+    MOMENTUM_NEUTRAL,
+    UNKNOWN,
 )
-from regimes.regime_features import safe_get_column, normalize_to_unit_interval, combine_scores
+from regimes.regime_features import (
+    safe_get_column,
+    normalize_to_unit_interval,
+    combine_scores,
+)
+
 
 def calculate_momentum_direction_score(df: pd.DataFrame) -> pd.Series:
     """Calculate momentum direction (-1 to 1)."""
@@ -37,22 +45,22 @@ def calculate_momentum_direction_score(df: pd.DataFrame) -> pd.Series:
         return combined.clip(-1, 1)
     return pd.Series(np.nan, index=df.index)
 
+
 def calculate_momentum_quality_score(df: pd.DataFrame) -> pd.Series:
     """Calculate strength/quality of momentum (0 to 1)."""
     direction = calculate_momentum_direction_score(df)
     return direction.abs()
 
-def detect_momentum_regime(df: pd.DataFrame, profile: RegimeProfile | None = None) -> tuple[pd.DataFrame, dict]:
+
+def detect_momentum_regime(
+    df: pd.DataFrame, profile: RegimeProfile | None = None
+) -> tuple[pd.DataFrame, dict]:
     """Detect momentum regimes."""
     if profile is None:
         profile = get_default_regime_profile()
 
     out_df = pd.DataFrame(index=df.index)
-    summary = {
-        "input_rows": len(df),
-        "warnings": [],
-        "used_columns": []
-    }
+    summary = {"input_rows": len(df), "warnings": [], "used_columns": []}
 
     direction = calculate_momentum_direction_score(df)
     quality = calculate_momentum_quality_score(df)

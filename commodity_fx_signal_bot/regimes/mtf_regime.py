@@ -6,10 +6,9 @@ import pandas as pd
 import numpy as np
 
 from regimes.regime_config import RegimeProfile, get_default_regime_profile
-from regimes.regime_labels import (
-    MTF_ALIGNED_TREND, MTF_CONFLICT, UNKNOWN
-)
+from regimes.regime_labels import MTF_ALIGNED_TREND, MTF_CONFLICT, UNKNOWN
 from regimes.regime_features import safe_get_column, combine_scores
+
 
 def calculate_mtf_regime_score(df: pd.DataFrame) -> pd.Series:
     """Calculate MTF alignment score (-1 to 1)."""
@@ -28,17 +27,16 @@ def calculate_mtf_regime_score(df: pd.DataFrame) -> pd.Series:
         return combined.clip(-1, 1)
     return pd.Series(np.nan, index=df.index)
 
-def detect_mtf_regime(df: pd.DataFrame, profile: RegimeProfile | None = None) -> tuple[pd.DataFrame, dict]:
+
+def detect_mtf_regime(
+    df: pd.DataFrame, profile: RegimeProfile | None = None
+) -> tuple[pd.DataFrame, dict]:
     """Detect MTF regimes."""
     if profile is None:
         profile = get_default_regime_profile()
 
     out_df = pd.DataFrame(index=df.index)
-    summary = {
-        "input_rows": len(df),
-        "warnings": [],
-        "used_columns": []
-    }
+    summary = {"input_rows": len(df), "warnings": [], "used_columns": []}
 
     score = calculate_mtf_regime_score(df)
 

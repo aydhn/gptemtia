@@ -22,6 +22,7 @@ from regimes.regime_quality import build_regime_quality_report
 
 logger = logging.getLogger(__name__)
 
+
 class RegimePipeline:
     def __init__(
         self,
@@ -97,19 +98,21 @@ class RegimePipeline:
             return pd.DataFrame(), {
                 "status": "skipped",
                 "reason": "Synthetic or macro symbol",
-                "warnings": ["Synthetic or macro symbol"]
+                "warnings": ["Synthetic or macro symbol"],
             }
 
         prof = profile or self.profile
 
         # Build input frame
-        input_df, load_summary = self.build_input_frame(spec, timeframe, prof.feature_sets)
+        input_df, load_summary = self.build_input_frame(
+            spec, timeframe, prof.feature_sets
+        )
 
         if input_df.empty:
             return pd.DataFrame(), {
                 "status": "error",
                 "error": "Could not load base data",
-                "warnings": ["Could not load base data"]
+                "warnings": ["Could not load base data"],
             }
 
         # Run sub-detectors
@@ -143,19 +146,19 @@ class RegimePipeline:
             "missing_feature_sets": load_summary["missing_feature_sets"],
             "status": "success",
             "warnings": [],
-            "error": None
+            "error": None,
         }
 
         # Collect warnings
         all_warnings = (
-            load_summary.get("warnings", []) +
-            trend_sum.get("warnings", []) +
-            vol_sum.get("warnings", []) +
-            range_sum.get("warnings", []) +
-            mom_sum.get("warnings", []) +
-            mr_sum.get("warnings", []) +
-            mtf_sum.get("warnings", []) +
-            class_res.summary.get("warnings", [])
+            load_summary.get("warnings", [])
+            + trend_sum.get("warnings", [])
+            + vol_sum.get("warnings", [])
+            + range_sum.get("warnings", [])
+            + mom_sum.get("warnings", [])
+            + mr_sum.get("warnings", [])
+            + mtf_sum.get("warnings", [])
+            + class_res.summary.get("warnings", [])
         )
         summary["warnings"] = list(set(all_warnings))
 
@@ -223,9 +226,6 @@ class RegimePipeline:
                 logger.error(f"Error building regimes for {spec.symbol}: {e}")
                 if spec.symbol not in summary:
                     summary[spec.symbol] = {}
-                summary[spec.symbol][timeframe] = {
-                    "status": "error",
-                    "error": str(e)
-                }
+                summary[spec.symbol][timeframe] = {"status": "error", "error": str(e)}
 
         return summary

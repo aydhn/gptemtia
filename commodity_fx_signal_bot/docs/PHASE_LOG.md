@@ -158,3 +158,15 @@ This file tracks the completion of the project phases.
 - DataLake mtf/mtf_events feature set desteği aldı.
 - MTF preview/batch/status scriptleri eklendi.
 - Testler genişletildi.
+
+### Phase 17: Makro Rejim Katmanı, Enflasyon Verileri, USDTRY Benchmark
+- Macro profile sistemi eklendi.
+- Macro series registry eklendi.
+- EVDS/FRED provider güçlendirildi.
+- MacroProvider eklendi.
+- Inflation featureları eklendi.
+- FX macro featureları eklendi.
+- Benchmark builder eklendi.
+- Macro regime ve macro events eklendi.
+- MacroPipeline eklendi.
+- Macro scripts ve testler eklendi.

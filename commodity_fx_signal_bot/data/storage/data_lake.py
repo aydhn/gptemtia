@@ -289,8 +289,10 @@ class DataLake:
         safe_sym = self.safe_symbol_name(spec.symbol)
 
         from config.paths import (
-    LAKE_FEATURES_REGIME_DIR,
-    LAKE_FEATURES_REGIME_EVENTS_DIR,
+            LAKE_MACRO_RAW_DIR,
+            LAKE_MACRO_PROCESSED_DIR,
+            LAKE_FEATURES_REGIME_DIR,
+            LAKE_FEATURES_REGIME_EVENTS_DIR,
             LAKE_FEATURES_MTF_DIR,
             LAKE_FEATURES_MTF_EVENTS_DIR,
             LAKE_FEATURES_DIR,
@@ -368,3 +370,50 @@ class DataLake:
             return []
 
         return sorted([f.stem for f in symbol_dir.glob("*.parquet")])
+
+    def save_macro_series(
+        self, code: str, df: pd.DataFrame, processed: bool = False
+    ) -> Path:
+        """Save macro series data to lake."""
+        if df.empty:
+            logger.warning("Attempted to save empty macro series for %s", code)
+            return (
+                LAKE_MACRO_PROCESSED_DIR if processed else LAKE_MACRO_RAW_DIR
+            ) / f"{code}.parquet"
+
+        target_dir = LAKE_MACRO_PROCESSED_DIR if processed else LAKE_MACRO_RAW_DIR
+        filepath = target_dir / f"{code}.parquet"
+
+        try:
+            df.to_parquet(filepath, index=True)
+            logger.debug("Saved macro series %s to %s", code, filepath)
+            return filepath
+        except Exception as e:
+            logger.error("Error saving macro series %s: %s", code, str(e))
+            from core.exceptions import DataStorageError
+
+            raise DataStorageError(f"Failed to save macro series {code}: {str(e)}")
+
+    def load_macro_series(self, code: str, processed: bool = False) -> pd.DataFrame:
+        """Load macro series data from lake."""
+        target_dir = LAKE_MACRO_PROCESSED_DIR if processed else LAKE_MACRO_RAW_DIR
+        filepath = target_dir / f"{code}.parquet"
+
+        if not filepath.exists():
+            logger.debug("Macro series not found: %s", filepath)
+            return pd.DataFrame()
+
+        try:
+            df = pd.read_parquet(filepath)
+            return df
+        except Exception as e:
+            logger.error("Error loading macro series %s: %s", code, str(e))
+            from core.exceptions import DataStorageError
+
+            raise DataStorageError(f"Failed to load macro series {code}: {str(e)}")
+
+    def has_macro_series(self, code: str, processed: bool = False) -> bool:
+        """Check if macro series exists in lake."""
+        target_dir = LAKE_MACRO_PROCESSED_DIR if processed else LAKE_MACRO_RAW_DIR
+        filepath = target_dir / f"{code}.parquet"
+        return filepath.exists()

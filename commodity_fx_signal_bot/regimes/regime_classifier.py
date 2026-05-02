@@ -9,10 +9,12 @@ from dataclasses import dataclass
 from regimes.regime_config import RegimeProfile, get_default_regime_profile
 from regimes.regime_labels import UNKNOWN, INSUFFICIENT_DATA, CONFLICTING_REGIME
 
+
 @dataclass
 class RegimeClassificationResult:
     dataframe: pd.DataFrame
     summary: dict
+
 
 class RegimeClassifier:
     def __init__(self, profile: RegimeProfile | None = None):
@@ -20,10 +22,7 @@ class RegimeClassifier:
 
     def classify(self, df: pd.DataFrame) -> RegimeClassificationResult:
         out_df = pd.DataFrame(index=df.index)
-        summary = {
-            "input_rows": len(df),
-            "warnings": []
-        }
+        summary = {"input_rows": len(df), "warnings": []}
 
         # We assume the input df already contains the feature columns
         # from the sub-detectors (regime_trend_label, regime_volatility_label, etc.)
@@ -57,7 +56,9 @@ class RegimeClassifier:
             out_df["regime_momentum_component"] = np.nan
 
         if "regime_mean_reversion_score" in df.columns:
-            out_df["regime_mean_reversion_component"] = df["regime_mean_reversion_score"]
+            out_df["regime_mean_reversion_component"] = df[
+                "regime_mean_reversion_score"
+            ]
         else:
             out_df["regime_mean_reversion_component"] = np.nan
 
@@ -67,7 +68,9 @@ class RegimeClassifier:
             out_df["regime_mtf_component"] = np.nan
 
         if "regime_is_mtf_conflict" in df.columns:
-            out_df["regime_conflict_component"] = df["regime_is_mtf_conflict"].astype(float)
+            out_df["regime_conflict_component"] = df["regime_is_mtf_conflict"].astype(
+                float
+            )
         else:
             out_df["regime_conflict_component"] = np.nan
 
@@ -89,21 +92,27 @@ class RegimeClassifier:
 
         # 2. Strong Trend
         if "regime_trend_label" in df.columns:
-            mask = df["regime_trend_label"].isin(["strong_bullish_trend", "strong_bearish_trend"]) & (primary_label == UNKNOWN)
+            mask = df["regime_trend_label"].isin(
+                ["strong_bullish_trend", "strong_bearish_trend"]
+            ) & (primary_label == UNKNOWN)
             primary_label[mask] = df.loc[mask, "regime_trend_label"]
             if "regime_trend_strength" in df.columns:
                 confidence[mask] = df.loc[mask, "regime_trend_strength"].clip(0.5, 1.0)
 
         # 3. Range
         if "regime_range_label" in df.columns:
-            mask = df["regime_range_label"].isin(["compressed_range", "range_bound"]) & (primary_label == UNKNOWN)
+            mask = df["regime_range_label"].isin(
+                ["compressed_range", "range_bound"]
+            ) & (primary_label == UNKNOWN)
             primary_label[mask] = df.loc[mask, "regime_range_label"]
             if "regime_range_score" in df.columns:
                 confidence[mask] = df.loc[mask, "regime_range_score"].clip(0.5, 1.0)
 
         # 4. Normal Trend
         if "regime_trend_label" in df.columns:
-            mask = df["regime_trend_label"].isin(["bullish_trend", "bearish_trend", "weak_trend"]) & (primary_label == UNKNOWN)
+            mask = df["regime_trend_label"].isin(
+                ["bullish_trend", "bearish_trend", "weak_trend"]
+            ) & (primary_label == UNKNOWN)
             primary_label[mask] = df.loc[mask, "regime_trend_label"]
             if "regime_trend_strength" in df.columns:
                 confidence[mask] = df.loc[mask, "regime_trend_strength"].clip(0.3, 0.8)
@@ -115,7 +124,9 @@ class RegimeClassifier:
 
         # 6. Mean Reversion as secondary if no volatility
         if "regime_mean_reversion_label" in df.columns:
-            mask = (df["regime_mean_reversion_label"] != UNKNOWN) & (secondary_label == UNKNOWN)
+            mask = (df["regime_mean_reversion_label"] != UNKNOWN) & (
+                secondary_label == UNKNOWN
+            )
             secondary_label[mask] = df.loc[mask, "regime_mean_reversion_label"]
 
         out_df["regime_primary_label"] = primary_label
@@ -141,7 +152,7 @@ class RegimeClassifier:
         return {
             "primary_label": last_row.get("regime_primary_label", UNKNOWN),
             "secondary_label": last_row.get("regime_secondary_label", UNKNOWN),
-            "confidence": last_row.get("regime_confidence", 0.0)
+            "confidence": last_row.get("regime_confidence", 0.0),
         }
 
     def validate_regime_frame(self, df: pd.DataFrame) -> dict:
@@ -152,5 +163,5 @@ class RegimeClassifier:
         return {
             "valid": has_primary and has_confidence,
             "has_primary": has_primary,
-            "has_confidence": has_confidence
+            "has_confidence": has_confidence,
         }

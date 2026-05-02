@@ -227,3 +227,21 @@ python -m scripts.run_mtf_alignment_preview --symbol GC=F --profile daily_swing
 python -m scripts.run_mtf_event_preview --symbol GC=F --profile daily_swing
 python -m scripts.run_mtf_batch_build --limit 10 --profile daily_swing
 python -m scripts.run_mtf_status
+
+## Makro Rejim, Enflasyon ve Benchmark Katmanı (Phase 17)
+
+Bu faz nihai al/sat stratejisi üretmez. Makro veriler işlem sinyali değil, bağlam ve kıyaslama katmanıdır.
+- Türkiye enflasyonu için EVDS, ABD CPI için FRED entegre edilmiştir.
+- API key yoksa sistem çökmez, düzgün bir şekilde uyarı üretir.
+- USDTRY, altın, emtia sepeti ve CPI benchmarkları performans kıyaslaması içindir.
+- Reel getiri hesapları ileride strateji performans analizinde kullanılacaktır.
+- Web scraping kesinlikle yoktur.
+
+**Örnek Komutlar:**
+```bash
+python -m scripts.run_macro_data_update
+python -m scripts.run_macro_feature_preview
+python -m scripts.run_macro_benchmark_preview
+python -m scripts.run_macro_batch_build
+python -m scripts.run_macro_status
+```

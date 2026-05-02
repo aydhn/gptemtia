@@ -5,6 +5,7 @@ Helper functions for calculating regime features across different modules.
 import pandas as pd
 import numpy as np
 
+
 def safe_get_column(df: pd.DataFrame, candidates: list[str]) -> pd.Series | None:
     """
     Safely get the first available column from a list of candidates.
@@ -14,6 +15,7 @@ def safe_get_column(df: pd.DataFrame, candidates: list[str]) -> pd.Series | None
         if col in df.columns and not df[col].isna().all():
             return df[col]
     return None
+
 
 def normalize_to_unit_interval(series: pd.Series) -> pd.Series:
     """
@@ -38,15 +40,20 @@ def normalize_to_unit_interval(series: pd.Series) -> pd.Series:
     range_val = range_val.replace(0, np.nan)
 
     normalized = (series - roll_min) / range_val
-    return normalized.fillna(0.5) # Default to middle if we can't calculate
+    return normalized.fillna(0.5)  # Default to middle if we can't calculate
 
-def combine_scores(scores: list[pd.Series], weights: list[float] | None = None) -> pd.Series:
+
+def combine_scores(
+    scores: list[pd.Series], weights: list[float] | None = None
+) -> pd.Series:
     """
     Combine multiple score series into a single score.
     Averages them by default, ignoring NaNs.
     """
     # Filter out None and empty series
-    valid_scores = [s for s in scores if s is not None and not s.empty and not s.isna().all()]
+    valid_scores = [
+        s for s in scores if s is not None and not s.empty and not s.isna().all()
+    ]
 
     if not valid_scores:
         if scores and scores[0] is not None:
@@ -79,17 +86,14 @@ def combine_scores(scores: list[pd.Series], weights: list[float] | None = None) 
 
     return df.mean(axis=1)
 
+
 def add_regime_base_features(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
     """
     Add base features that are common across regime detections.
     This mostly initializes columns with NaNs if they don't exist.
     """
     out_df = pd.DataFrame(index=df.index)
-    summary = {
-        "input_rows": len(df),
-        "warnings": [],
-        "columns_added": []
-    }
+    summary = {"input_rows": len(df), "warnings": [], "columns_added": []}
 
     base_cols = [
         "regime_trend_strength_raw",
@@ -99,7 +103,7 @@ def add_regime_base_features(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
         "regime_range_pressure_raw",
         "regime_mean_reversion_pressure_raw",
         "regime_mtf_alignment_raw",
-        "regime_conflict_raw"
+        "regime_conflict_raw",
     ]
 
     for col in base_cols:
