@@ -607,6 +607,67 @@ class Settings:
         == "true"
     )
 
+    # Phase 19: Signal Candidates and Scoring
+    signal_candidates_enabled: bool = field(
+        default_factory=lambda: os.getenv("SIGNAL_CANDIDATES_ENABLED", "true").lower()
+        == "true"
+    )
+    signal_scoring_enabled: bool = field(
+        default_factory=lambda: os.getenv("SIGNAL_SCORING_ENABLED", "true").lower()
+        == "true"
+    )
+    default_signal_profile: str = field(
+        default_factory=lambda: os.getenv(
+            "DEFAULT_SIGNAL_PROFILE", "balanced_candidate_scoring"
+        )
+    )
+    default_signal_timeframe: str = field(
+        default_factory=lambda: os.getenv("DEFAULT_SIGNAL_TIMEFRAME", "1d")
+    )
+    signal_min_candidate_score: float = field(
+        default_factory=lambda: float(os.getenv("SIGNAL_MIN_CANDIDATE_SCORE", "0.40"))
+    )
+    signal_min_quality_score: float = field(
+        default_factory=lambda: float(os.getenv("SIGNAL_MIN_QUALITY_SCORE", "0.50"))
+    )
+    signal_min_context_score: float = field(
+        default_factory=lambda: float(os.getenv("SIGNAL_MIN_CONTEXT_SCORE", "0.40"))
+    )
+    signal_max_conflict_score: float = field(
+        default_factory=lambda: float(os.getenv("SIGNAL_MAX_CONFLICT_SCORE", "0.70"))
+    )
+    signal_event_lookback_bars: int = field(
+        default_factory=lambda: int(os.getenv("SIGNAL_EVENT_LOOKBACK_BARS", "5"))
+    )
+    signal_decay_half_life_bars: int = field(
+        default_factory=lambda: int(os.getenv("SIGNAL_DECAY_HALF_LIFE_BARS", "3"))
+    )
+    signal_use_regime_filter: bool = field(
+        default_factory=lambda: os.getenv("SIGNAL_USE_REGIME_FILTER", "true").lower()
+        == "true"
+    )
+    signal_use_mtf_filter: bool = field(
+        default_factory=lambda: os.getenv("SIGNAL_USE_MTF_FILTER", "true").lower()
+        == "true"
+    )
+    signal_use_macro_filter: bool = field(
+        default_factory=lambda: os.getenv("SIGNAL_USE_MACRO_FILTER", "true").lower()
+        == "true"
+    )
+    signal_use_asset_profile_filter: bool = field(
+        default_factory=lambda: os.getenv(
+            "SIGNAL_USE_ASSET_PROFILE_FILTER", "true"
+        ).lower()
+        == "true"
+    )
+    save_signal_candidates: bool = field(
+        default_factory=lambda: os.getenv("SAVE_SIGNAL_CANDIDATES", "true").lower()
+        == "true"
+    )
+    save_signal_pool: bool = field(
+        default_factory=lambda: os.getenv("SAVE_SIGNAL_POOL", "true").lower() == "true"
+    )
+
     def __post_init__(self):
         """Validate settings after initialization."""
         # Enforce live trading is False regardless of env variable

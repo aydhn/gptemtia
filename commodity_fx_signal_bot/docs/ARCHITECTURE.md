@@ -37,3 +37,13 @@ Symbol Universe
 → Asset Class Events
 → Asset Profile Feature Store
 → Future Strategy Selection / Risk Engine
+
+
+Event Feature Stores
+→ EventLoader
+→ EventNormalizer
+→ Signal Components
+→ SignalScorer
+→ SignalCandidatePool
+→ Signal Quality
+→ Future Strategy / Backtest / Paper Trade / Telegram

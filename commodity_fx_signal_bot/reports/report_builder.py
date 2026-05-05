@@ -1626,3 +1626,120 @@ def build_asset_profile_status_report(status_df: pd.DataFrame, summary: dict) ->
         lines.append(status_df.to_string())
 
     return "\n".join(lines)
+
+
+def build_signal_candidate_preview_report(
+    symbol: str, timeframe: str, profile_name: str, summary: dict, tail_df: pd.DataFrame
+) -> str:
+    lines = [
+        f"=== SİNYAL ADAYI ÖNİZLEME RAPORU ===",
+        f"Sembol: {symbol}",
+        f"Zaman Dilimi: {timeframe}",
+        f"Profil: {profile_name}",
+        f"",
+        f"--- DURUM ---",
+        f"Yüklenen Event Grupları: {', '.join(summary.get('loaded_event_groups', [])) or 'Yok'}",
+        f"Eksik Event Grupları: {', '.join(summary.get('missing_event_groups', [])) or 'Yok'}",
+        f"Toplam Aday Sayısı: {summary.get('candidate_count', 0)}",
+        f"Filtreyi Geçen Aday Sayısı: {summary.get('passed_candidate_count', 0)}",
+        f"",
+        f"--- UYARILAR ---",
+        f"Bu çıktılar nihai işlem sinyali değildir. Aday setup ve bağlam skorlarıdır. Canlı emir üretilmez.",
+        f"",
+    ]
+    if summary.get("warnings"):
+        for w in summary["warnings"]:
+            lines.append(f"- {w}")
+        lines.append("")
+
+    if not tail_df.empty:
+        lines.append("--- SON ADAYLAR ---")
+        cols = [
+            "timestamp",
+            "candidate_type",
+            "directional_bias",
+            "candidate_score",
+            "confidence_score",
+            "passed_pre_filters",
+        ]
+        avail_cols = [c for c in cols if c in tail_df.columns]
+        lines.append(tail_df[avail_cols].to_string())
+
+    return "\n".join(lines)
+
+
+def build_signal_batch_report(summary: dict) -> str:
+    lines = [
+        f"=== SİNYAL TOPLU İŞLEM RAPORU ===",
+        f"İşlenen: {summary.get('processed', 0)}",
+        f"Atlanan: {summary.get('skipped', 0)}",
+        f"Hatalı: {summary.get('errors', 0)}",
+        f"Toplam Aday: {summary.get('total_candidates', 0)}",
+        f"Adayı Olan Sembol Sayısı: {summary.get('symbols_with_candidates', 0)}",
+        f"",
+        f"Bu çıktılar nihai işlem sinyali değildir. Aday setup ve bağlam skorlarıdır. Canlı emir üretilmez.",
+    ]
+    return "\n".join(lines)
+
+
+def build_signal_pool_preview_report(
+    timeframe: str, profile_name: str, summary: dict, top_df: pd.DataFrame
+) -> str:
+    lines = [
+        f"=== SİNYAL ADAY HAVUZU ÖNİZLEME ===",
+        f"Zaman Dilimi: {timeframe}",
+        f"Profil: {profile_name}",
+        f"",
+        f"--- ÖZET ---",
+        f"Toplam Aday: {summary.get('total_candidates', 0)}",
+        f"Filtreyi Geçen: {summary.get('passed_candidates', 0)}",
+        f"Ortalama Aday Skoru: {summary.get('average_candidate_score', 0):.2f}",
+        f"Ortalama Güven Skoru: {summary.get('average_confidence_score', 0):.2f}",
+        f"",
+        f"--- DAĞILIM ---",
+        f"Sembollere Göre: {summary.get('by_symbol', {})}",
+        f"Aday Tiplerine Göre: {summary.get('by_candidate_type', {})}",
+        f"Yönsel Biase Göre: {summary.get('by_directional_bias', {})}",
+        f"",
+        f"--- EN İYİ ADAYLAR ---",
+    ]
+
+    if not top_df.empty:
+        cols = [
+            "symbol",
+            "timestamp",
+            "candidate_type",
+            "directional_bias",
+            "candidate_score",
+            "passed_pre_filters",
+        ]
+        avail_cols = [c for c in cols if c in top_df.columns]
+        lines.append(top_df[avail_cols].to_string())
+
+    lines.append("")
+    lines.append(
+        "Bu çıktılar nihai işlem sinyali değildir. Aday setup ve bağlam skorlarıdır. Canlı emir üretilmez."
+    )
+
+    return "\n".join(lines)
+
+
+def build_signal_status_report(status_df: pd.DataFrame, summary: dict) -> str:
+    lines = [
+        f"=== SİNYAL SİSTEMİ DURUM RAPORU ===",
+        f"Sinyal Aday Dosyası Olanlar: {summary.get('total_with_candidates', 0)}",
+        f"Toplam Aday Sayısı (Havuz): {summary.get('total_pool_candidates', 0)}",
+        f"Ortalama Skor: {summary.get('average_pool_score', 0):.2f}",
+        f"",
+    ]
+
+    if not status_df.empty:
+        lines.append("--- DETAYLAR ---")
+        lines.append(status_df.to_string())
+
+    lines.append("")
+    lines.append(
+        "Bu çıktılar nihai işlem sinyali değildir. Aday setup ve bağlam skorlarıdır. Canlı emir üretilmez."
+    )
+
+    return "\n".join(lines)
