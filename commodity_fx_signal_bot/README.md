@@ -245,3 +245,31 @@ python -m scripts.run_macro_benchmark_preview
 python -m scripts.run_macro_batch_build
 python -m scripts.run_macro_status
 ```
+
+
+## Varlık Sınıfı Davranış Profilleri ve Grup Analizi (Phase 18)
+
+Bu proje, her varlık sınıfının farklı davranış karakterlerini analiz ederek sistem için önemli bir "bağlam" oluşturur. **Önemli: Bu analizler nihai AL/SAT veya LONG/SHORT sinyali üretmez.** Asset profile ve group analizi sadece sonraki aşamalardaki strateji ve risk filtreleri için hazırlıktır.
+
+### Davranış Profili Prensipleri
+- **Metaller, Enerji, Tarım, Softs, Livestock, TL Forex, Majör Forex ve Çapraz Forex** için ayrı profiller tanımlanmıştır.
+- **Forex Hacim Güvenilirliği:** Birçok forex kaynağında hacim verisi yoktur veya yanıltıcıdır. Forex profillerinde `volume_reliability` düşük kabul edilir.
+- Grup indeksleri, üyeler arası korelasyon (nedensellik değil, ilişki gösterir), ve grup ayrışması (dispersion) özellik setlerine dahil edilmiştir.
+- Her sembolün kendi grubuna karşı (Relative Strength) ve makro verilere (USDTRY, Altın vb.) karşı göreceli durumu hesaplanır.
+- Üretilen event'ler ("leader_candidate", "high_dispersion_context" vb.) sadece uyarı veya bağlam amacı taşır.
+
+### Asset Profile Scriptleri
+
+```bash
+# Tek bir sembolün davranış profilini ve güncel eventlerini göster
+python -m scripts.run_asset_profile_preview --symbol GC=F --timeframe 1d
+
+# Tüm grup için event önizlemesi (ör. metaller)
+python -m scripts.run_asset_group_event_preview --asset-class metals --timeframe 1d
+
+# Toplu şekilde feature pipeline'ı çalıştır
+python -m scripts.run_asset_profile_batch_build --limit 10 --timeframe 1d
+
+# Data lake içindeki asset profile ve group feature dosyalarının durumunu kontrol et
+python -m scripts.run_asset_profile_status
+```

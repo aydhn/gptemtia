@@ -1,7 +1,6 @@
 import importlib
 
 
-
 def test_script_imports():
     scripts = [
         "scripts.run_macro_data_update",

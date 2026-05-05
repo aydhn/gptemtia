@@ -83,6 +83,12 @@ MACRO_REPORTS_DIR = REPORTS_DIR / "macro_reports"
 LAKE_TMP_DIR = LAKE_DIR / "tmp"
 
 
+LAKE_FEATURES_ASSET_PROFILES_DIR = LAKE_FEATURES_DIR / "asset_profiles"
+LAKE_FEATURES_ASSET_PROFILE_EVENTS_DIR = LAKE_FEATURES_DIR / "asset_profile_events"
+LAKE_FEATURES_GROUP_FEATURES_DIR = LAKE_FEATURES_DIR / "group_features"
+ASSET_PROFILE_REPORTS_DIR = REPORTS_DIR / "asset_profile_reports"
+
+
 def ensure_project_directories() -> None:
     """
     Ensure that all required project directories exist.
@@ -139,6 +145,10 @@ def ensure_project_directories() -> None:
         LAKE_FEATURES_BENCHMARKS_DIR,
         MACRO_REPORTS_DIR,
         LAKE_TMP_DIR,
+        LAKE_FEATURES_ASSET_PROFILES_DIR,
+        LAKE_FEATURES_ASSET_PROFILE_EVENTS_DIR,
+        LAKE_FEATURES_GROUP_FEATURES_DIR,
+        ASSET_PROFILE_REPORTS_DIR,
     ]
 
     for directory in directories:

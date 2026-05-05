@@ -3,6 +3,7 @@ import re
 from pathlib import Path
 
 import pandas as pd
+from config.paths import LAKE_FEATURES_GROUP_FEATURES_DIR
 
 from config.symbols import SymbolSpec
 from core.logger import get_logger
@@ -289,6 +290,12 @@ class DataLake:
         safe_sym = self.safe_symbol_name(spec.symbol)
 
         from config.paths import (
+            LAKE_FEATURES_ASSET_PROFILES_DIR,
+            LAKE_FEATURES_ASSET_PROFILE_EVENTS_DIR,
+            LAKE_FEATURES_GROUP_FEATURES_DIR,
+            LAKE_FEATURES_ASSET_PROFILES_DIR,
+            LAKE_FEATURES_ASSET_PROFILE_EVENTS_DIR,
+            LAKE_FEATURES_GROUP_FEATURES_DIR,
             LAKE_MACRO_RAW_DIR,
             LAKE_MACRO_PROCESSED_DIR,
             LAKE_FEATURES_REGIME_DIR,
@@ -417,3 +424,69 @@ class DataLake:
         target_dir = LAKE_MACRO_PROCESSED_DIR if processed else LAKE_MACRO_RAW_DIR
         filepath = target_dir / f"{code}.parquet"
         return filepath.exists()
+
+    def get_group_feature_path(self, asset_class: str, timeframe: str) -> Path:
+        """Get path for group features."""
+        filename = f"group_features_{asset_class}_{timeframe}.{'parquet'}"
+        return LAKE_FEATURES_GROUP_FEATURES_DIR / filename
+
+    def save_group_features(
+        self, asset_class: str, timeframe: str, df: pd.DataFrame
+    ) -> Path:
+        """Save a group feature DataFrame to the Data Lake."""
+        if df is None or df.empty:
+            return self.get_group_feature_path(asset_class, timeframe)
+
+        path = self.get_group_feature_path(asset_class, timeframe)
+        path.parent.mkdir(parents=True, exist_ok=True)
+
+        try:
+            df.to_parquet(path, engine="pyarrow")
+            logger.debug(f"Saved group features to Data Lake: {path}")
+        except Exception as e:
+            logger.error(
+                f"Failed to save group features for {asset_class} ({timeframe}): {e}"
+            )
+            raise
+
+        return path
+
+    def load_group_features(self, asset_class: str, timeframe: str) -> pd.DataFrame:
+        """Load a group feature DataFrame from the Data Lake."""
+        path = self.get_group_feature_path(asset_class, timeframe)
+        if not path.exists():
+            raise FileNotFoundError(f"Group feature data not found at {path}")
+
+        try:
+            df = pd.read_parquet(path, engine="pyarrow")
+            if isinstance(df.index, pd.DatetimeIndex) and df.index.tz is None:
+                df.index = df.index.tz_localize("UTC")
+            return df
+        except Exception as e:
+            logger.error(
+                f"Failed to load group features for {asset_class} ({timeframe}): {e}"
+            )
+            raise
+
+    def has_group_features(self, asset_class: str, timeframe: str) -> bool:
+        """Check if group features exist."""
+        return self.get_group_feature_path(asset_class, timeframe).exists()
+
+    def list_group_feature_timeframes(self, asset_class: str) -> list[str]:
+        """List all timeframes with group features for a specific asset class."""
+        dir_path = LAKE_FEATURES_GROUP_FEATURES_DIR
+        if not dir_path.exists():
+            return []
+
+        prefix = f"group_features_{asset_class}_"
+        suffix = f".{'parquet'}"
+
+        timeframes = []
+        for file_path in dir_path.glob(f"{prefix}*{suffix}"):
+            try:
+                tf_part = file_path.name[len(prefix) : -len(suffix)]
+                timeframes.append(tf_part)
+            except Exception:
+                continue
+
+        return sorted(timeframes)

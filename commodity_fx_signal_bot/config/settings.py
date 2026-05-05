@@ -558,6 +558,55 @@ class Settings:
         default_factory=lambda: os.getenv("FRED_API_KEY", "replace_me")
     )
 
+    # Phase 18: Asset Profiles and Group Features
+    asset_profiles_enabled: bool = field(
+        default_factory=lambda: os.getenv("ASSET_PROFILES_ENABLED", "true").lower()
+        == "true"
+    )
+    asset_profile_events_enabled: bool = field(
+        default_factory=lambda: os.getenv(
+            "ASSET_PROFILE_EVENTS_ENABLED", "true"
+        ).lower()
+        == "true"
+    )
+    default_asset_profile_timeframe: str = field(
+        default_factory=lambda: os.getenv("DEFAULT_ASSET_PROFILE_TIMEFRAME", "1d")
+    )
+    default_asset_profile_lookback: int = field(
+        default_factory=lambda: int(os.getenv("DEFAULT_ASSET_PROFILE_LOOKBACK", "252"))
+    )
+    default_group_correlation_window: int = field(
+        default_factory=lambda: int(os.getenv("DEFAULT_GROUP_CORRELATION_WINDOW", "90"))
+    )
+    # Using string for parsing tuple because tuple env parsing is tricky
+    default_relative_strength_windows: tuple[int, ...] = (21, 63, 126, 252)
+    default_dispersion_window: int = field(
+        default_factory=lambda: int(os.getenv("DEFAULT_DISPERSION_WINDOW", "63"))
+    )
+    default_group_momentum_window: int = field(
+        default_factory=lambda: int(os.getenv("DEFAULT_GROUP_MOMENTUM_WINDOW", "63"))
+    )
+    default_group_volatility_window: int = field(
+        default_factory=lambda: int(os.getenv("DEFAULT_GROUP_VOLATILITY_WINDOW", "63"))
+    )
+    min_group_members_for_group_features: int = field(
+        default_factory=lambda: int(
+            os.getenv("MIN_GROUP_MEMBERS_FOR_GROUP_FEATURES", "3")
+        )
+    )
+    save_asset_profile_features: bool = field(
+        default_factory=lambda: os.getenv("SAVE_ASSET_PROFILE_FEATURES", "true").lower()
+        == "true"
+    )
+    save_asset_profile_events: bool = field(
+        default_factory=lambda: os.getenv("SAVE_ASSET_PROFILE_EVENTS", "true").lower()
+        == "true"
+    )
+    save_group_features: bool = field(
+        default_factory=lambda: os.getenv("SAVE_GROUP_FEATURES", "true").lower()
+        == "true"
+    )
+
     def __post_init__(self):
         """Validate settings after initialization."""
         # Enforce live trading is False regardless of env variable

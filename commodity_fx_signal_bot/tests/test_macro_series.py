@@ -1,4 +1,3 @@
-
 from macro.macro_series import (
     get_macro_series_by_source,
     get_macro_series_spec,

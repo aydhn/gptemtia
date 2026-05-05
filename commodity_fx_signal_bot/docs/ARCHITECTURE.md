@@ -23,3 +23,17 @@ Macro Providers
 → Macro Feature Store
 → Future Benchmark / Risk / Strategy Context
 ```
+
+
+## Phase 18 Asset Profile Data Flow
+
+Symbol Universe
+→ AssetProfile Registry
+→ Single Symbol Feature Stores
+→ Group Feature Builder
+→ Relative Strength
+→ Correlation / Dispersion
+→ Asset Class Regime
+→ Asset Class Events
+→ Asset Profile Feature Store
+→ Future Strategy Selection / Risk Engine
