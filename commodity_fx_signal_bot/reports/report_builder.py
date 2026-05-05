@@ -1869,3 +1869,73 @@ def build_decision_status_report(status_df: pd.DataFrame, summary: dict) -> str:
         lines.append(status_df.to_string(index=False))
 
     return "\n".join(lines)
+
+
+def build_strategy_candidate_preview_report(
+    symbol: str, timeframe: str, profile_name: str, summary: dict, tail_df
+) -> str:
+    lines = [
+        f"=== STRATEGY CANDIDATE PREVIEW ===",
+        f"Symbol: {symbol} | Timeframe: {timeframe} | Profile: {profile_name}",
+        f"Generated Candidates: {summary.get('strategy_candidate_count', 0)}",
+        f"Passed Candidates: {summary.get('passed_strategy_candidate_count', 0)}",
+        "WARNING: Bu çıktılar strateji ailesi adaylarıdır. Nihai işlem sinyali, emir, pozisyon talimatı veya canlı işlem kararı değildir.",
+        "--------------------------------------------------",
+        "Last Candidates:",
+    ]
+
+    if not tail_df.empty:
+        for _, row in tail_df.iterrows():
+            lines.append(
+                f"Date: {row.name} | Family: {row.get('strategy_family', 'N/A')} | Status: {row.get('strategy_status', 'N/A')} | Score: {row.get('strategy_selection_score', 0.0):.2f}"
+            )
+    else:
+        lines.append("No candidates found.")
+
+    return "\n".join(lines)
+
+
+def build_strategy_batch_report(summary: dict) -> str:
+    lines = [
+        "=== STRATEGY BATCH SUMMARY ===",
+        f"Profile: {summary.get('profile', 'N/A')} | Timeframe: {summary.get('timeframe', 'N/A')}",
+        f"Processed Symbols: {summary.get('processed_symbols', 0)}",
+        f"Success: {summary.get('success_symbols', 0)} | Failed: {summary.get('failed_symbols', 0)}",
+        f"Total Candidates: {summary.get('total_strategy_candidates', 0)}",
+        "WARNING: Bu çıktılar strateji ailesi adaylarıdır. Nihai işlem sinyali, emir, pozisyon talimatı veya canlı işlem kararı değildir.",
+    ]
+    return "\n".join(lines)
+
+
+def build_strategy_pool_preview_report(
+    timeframe: str, profile_name: str, summary: dict, top_df
+) -> str:
+    lines = [
+        "=== STRATEGY POOL PREVIEW ===",
+        f"Timeframe: {timeframe} | Profile: {profile_name}",
+        f"Total Candidates: {summary.get('total_strategy_candidates', 0)}",
+        f"Passed Candidates: {summary.get('passed_strategy_candidates', 0)}",
+        f"Average Selection Score: {summary.get('average_selection_score', 0.0):.2f}",
+        "WARNING: Bu çıktılar strateji ailesi adaylarıdır. Nihai işlem sinyali, emir, pozisyon talimatı veya canlı işlem kararı değildir.",
+        "--------------------------------------------------",
+        "Top Candidates:",
+    ]
+
+    if not top_df.empty:
+        for idx, row in top_df.iterrows():
+            lines.append(
+                f"Symbol: {row.get('symbol', 'N/A')} | Family: {row.get('strategy_family', 'N/A')} | Status: {row.get('strategy_status', 'N/A')} | Score: {row.get('strategy_selection_score', 0.0):.2f}"
+            )
+    else:
+        lines.append("No candidates found in pool.")
+
+    return "\n".join(lines)
+
+
+def build_strategy_status_report(status_df, summary: dict) -> str:
+    lines = [
+        "=== STRATEGY STATUS REPORT ===",
+        f"Total Items: {len(status_df)}",
+        "WARNING: Bu çıktılar strateji ailesi adaylarıdır. Nihai işlem sinyali, emir, pozisyon talimatı veya canlı işlem kararı değildir.",
+    ]
+    return "\n".join(lines)
