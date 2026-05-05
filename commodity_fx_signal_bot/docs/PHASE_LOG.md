@@ -201,3 +201,21 @@ Phase 19:
 - DataLake signal_candidates/signal_pool desteği aldı.
 - Signal preview/batch/status scriptleri eklendi.
 - Testler genişletildi.
+
+
+### Phase 20: LONG/SHORT/NÖTR ÖN KARAR MANTIĞI VE STRATEJİ MOTORUNA HAZIRLIK
+- Decision profile sistemi eklendi.
+- Decision label registry eklendi.
+- Directional bias modülü eklendi.
+- Decision input loader eklendi.
+- Decision component skorları eklendi.
+- Conflict resolver eklendi.
+- Neutral/no-trade filter eklendi.
+- DecisionCandidate dataclass eklendi.
+- DecisionEngine eklendi.
+- DecisionCandidatePool eklendi.
+- Decision quality report eklendi.
+- DecisionPipeline eklendi.
+- DataLake decision_candidates/decision_pool desteği aldı.
+- Decision preview/batch/status scriptleri eklendi.
+- Testler genişletildi.
