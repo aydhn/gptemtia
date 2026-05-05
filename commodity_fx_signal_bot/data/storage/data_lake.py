@@ -437,10 +437,12 @@ class DataLake:
         """Save macro series data to lake."""
         if df.empty:
             logger.warning("Attempted to save empty macro series for %s", code)
+            from config.paths import LAKE_MACRO_PROCESSED_DIR, LAKE_MACRO_RAW_DIR
             return (
                 LAKE_MACRO_PROCESSED_DIR if processed else LAKE_MACRO_RAW_DIR
             ) / f"{code}.parquet"
 
+        from config.paths import LAKE_MACRO_PROCESSED_DIR, LAKE_MACRO_RAW_DIR
         target_dir = LAKE_MACRO_PROCESSED_DIR if processed else LAKE_MACRO_RAW_DIR
         filepath = target_dir / f"{code}.parquet"
 
@@ -456,6 +458,7 @@ class DataLake:
 
     def load_macro_series(self, code: str, processed: bool = False) -> pd.DataFrame:
         """Load macro series data from lake."""
+        from config.paths import LAKE_MACRO_PROCESSED_DIR, LAKE_MACRO_RAW_DIR
         target_dir = LAKE_MACRO_PROCESSED_DIR if processed else LAKE_MACRO_RAW_DIR
         filepath = target_dir / f"{code}.parquet"
 
@@ -474,6 +477,7 @@ class DataLake:
 
     def has_macro_series(self, code: str, processed: bool = False) -> bool:
         """Check if macro series exists in lake."""
+        from config.paths import LAKE_MACRO_PROCESSED_DIR, LAKE_MACRO_RAW_DIR
         target_dir = LAKE_MACRO_PROCESSED_DIR if processed else LAKE_MACRO_RAW_DIR
         filepath = target_dir / f"{code}.parquet"
         return filepath.exists()
@@ -596,3 +600,58 @@ class DataLake:
     def has_signal_pool(self, timeframe: str, profile_name: str) -> bool:
         """Check if signal pool exists."""
         return self.get_signal_pool_path(timeframe, profile_name).exists()
+
+    def get_decision_pool_path(self, timeframe: str, profile_name: str) -> Path:
+        """Get path for decision pool features."""
+        from config.paths import LAKE_FEATURES_DECISION_POOL_DIR
+
+        filename = f"decision_pool_{timeframe}_{profile_name}.parquet"
+        return LAKE_FEATURES_DECISION_POOL_DIR / filename
+
+    def save_decision_pool(
+        self, timeframe: str, df: pd.DataFrame, profile_name: str
+    ) -> Path:
+        """Save a decision pool DataFrame to the Data Lake."""
+        if df is None or df.empty:
+            return self.get_decision_pool_path(timeframe, profile_name)
+
+        path = self.get_decision_pool_path(timeframe, profile_name)
+        path.parent.mkdir(parents=True, exist_ok=True)
+
+        try:
+            df.to_parquet(path, engine="pyarrow")
+            import logging
+
+            logging.getLogger(__name__).debug(
+                f"Saved decision pool to Data Lake: {path}"
+            )
+        except Exception as e:
+            import logging
+
+            logging.getLogger(__name__).error(
+                f"Failed to save decision pool ({timeframe}, {profile_name}): {e}"
+            )
+            raise
+
+        return path
+
+    def load_decision_pool(self, timeframe: str, profile_name: str) -> pd.DataFrame:
+        """Load a decision pool DataFrame from the Data Lake."""
+        path = self.get_decision_pool_path(timeframe, profile_name)
+        if not path.exists():
+            return pd.DataFrame()
+
+        try:
+            df = pd.read_parquet(path, engine="pyarrow")
+            return df
+        except Exception as e:
+            import logging
+
+            logging.getLogger(__name__).error(
+                f"Failed to load decision pool ({timeframe}, {profile_name}): {e}"
+            )
+            raise
+
+    def has_decision_pool(self, timeframe: str, profile_name: str) -> bool:
+        """Check if decision pool exists."""
+        return self.get_decision_pool_path(timeframe, profile_name).exists()

@@ -91,6 +91,9 @@ ASSET_PROFILE_REPORTS_DIR = REPORTS_DIR / "asset_profile_reports"
 LAKE_FEATURES_SIGNAL_CANDIDATES_DIR = LAKE_FEATURES_DIR / "signal_candidates"
 LAKE_FEATURES_SIGNAL_POOL_DIR = LAKE_FEATURES_DIR / "signal_pool"
 SIGNAL_REPORTS_DIR = REPORTS_DIR / "signal_reports"
+LAKE_FEATURES_DECISION_CANDIDATES_DIR = LAKE_FEATURES_DIR / "decision_candidates"
+LAKE_FEATURES_DECISION_POOL_DIR = LAKE_FEATURES_DIR / "decision_pool"
+DECISION_REPORTS_DIR = REPORTS_DIR / "decision_reports"
 
 
 def ensure_project_directories() -> None:
@@ -156,6 +159,9 @@ def ensure_project_directories() -> None:
         LAKE_FEATURES_SIGNAL_CANDIDATES_DIR,
         LAKE_FEATURES_SIGNAL_POOL_DIR,
         SIGNAL_REPORTS_DIR,
+        LAKE_FEATURES_DECISION_CANDIDATES_DIR,
+        LAKE_FEATURES_DECISION_POOL_DIR,
+        DECISION_REPORTS_DIR,
     ]
 
     for directory in directories:

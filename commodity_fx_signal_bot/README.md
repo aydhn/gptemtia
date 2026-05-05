@@ -292,3 +292,24 @@ python -m scripts.run_signal_batch_build --limit 10 --timeframe 1d
 python -m scripts.run_signal_pool_preview --timeframe 1d --top 20
 python -m scripts.run_signal_status
 ```
+
+
+## Yönsel Ön Karar / Decision Candidate Katmanı
+Bu katman signal candidate havuzundan yönsel bias, conflict, neutral/no-trade ve strategy readiness ayrıştırması yapar.
+
+- Bu faz nihai al/sat stratejisi değildir.
+- `long_bias_candidate` gerçek long emri değildir.
+- `short_bias_candidate` gerçek short emri değildir.
+- `no_trade_candidate` sadece kalite/çelişki nedeniyle adayın strateji motoruna aktarılmamasını gösterir.
+- Decision score emir değildir.
+- `passed_decision_filters` canlı işlem izni değildir.
+- Bu katman ileride strateji motoru, backtest, paper trade ve Telegram raporlama için kullanılacaktır.
+- Conflict ve neutral filtreleri düşük kaliteli adayları ayrıştırır.
+
+### Komutlar
+```bash
+python -m scripts.run_decision_candidate_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_decision_batch_build --limit 10 --timeframe 1d
+python -m scripts.run_decision_pool_preview --timeframe 1d --top 20
+python -m scripts.run_decision_status
+```
