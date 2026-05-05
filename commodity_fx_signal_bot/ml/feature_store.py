@@ -83,3 +83,37 @@ class FeatureStore:
             features["benchmarks"] = list(benchmarks_df.columns)
 
         return features
+
+    def load_asset_profile_features(
+        self, spec: SymbolSpec, timeframe: str
+    ) -> pd.DataFrame:
+        if self.data_lake.has_features(spec, timeframe, "asset_profiles"):
+            return self.data_lake.load_features(spec, timeframe, "asset_profiles")
+        return pd.DataFrame()
+
+    def load_asset_profile_events(
+        self, spec: SymbolSpec, timeframe: str
+    ) -> pd.DataFrame:
+        if self.data_lake.has_features(spec, timeframe, "asset_profile_events"):
+            return self.data_lake.load_features(spec, timeframe, "asset_profile_events")
+        return pd.DataFrame()
+
+    def load_group_features(self, asset_class: str, timeframe: str) -> pd.DataFrame:
+        if self.data_lake.has_group_features(asset_class, timeframe):
+            return self.data_lake.load_group_features(asset_class, timeframe)
+        return pd.DataFrame()
+
+    def list_available_asset_profile_features(self, spec: SymbolSpec) -> dict:
+        return {
+            "asset_profiles": self.data_lake.list_feature_timeframes(
+                spec, "asset_profiles"
+            ),
+            "asset_profile_events": self.data_lake.list_feature_timeframes(
+                spec, "asset_profile_events"
+            ),
+        }
+
+    def list_available_group_features(self, asset_class: str) -> dict:
+        return {
+            "group_features": self.data_lake.list_group_feature_timeframes(asset_class)
+        }

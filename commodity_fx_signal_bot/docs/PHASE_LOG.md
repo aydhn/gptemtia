@@ -170,3 +170,18 @@ This file tracks the completion of the project phases.
 - Macro regime ve macro events eklendi.
 - MacroPipeline eklendi.
 - Macro scripts ve testler eklendi.
+
+
+### Phase 18: Asset Class Behavioral Profiles & Group Regimes
+- AssetProfile config sistemi eklendi (`asset_profile_config.py`).
+- Asset class registry eklendi (`asset_class_registry.py`).
+- Asset behavior featureları eklendi (`asset_behavior_features.py`).
+- Group feature builder eklendi (`group_features.py`).
+- Relative strength featureları eklendi (`relative_strength.py`).
+- Correlation ve dispersion featureları eklendi (`correlation_features.py`, `dispersion_features.py`).
+- Asset class regime eklendi (`asset_class_regime.py`).
+- Asset class event detection eklendi (`asset_class_events.py`).
+- AssetProfilePipeline eklendi (`asset_profile_pipeline.py`).
+- DataLake `asset_profiles` / `asset_profile_events` / `group_features` desteği aldı.
+- Asset profile preview/batch/status scriptleri eklendi.
+- Testler genişletildi.

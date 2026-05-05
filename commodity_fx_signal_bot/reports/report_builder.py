@@ -1497,3 +1497,132 @@ def build_regime_status_report(status_df: pd.DataFrame, summary: dict) -> str:
             lines.append("Durum bilgisi bulunamadı.")
 
         return "\n".join(lines)
+
+
+def build_asset_profile_preview_report(
+    symbol: str, timeframe: str, summary: dict, tail_df: pd.DataFrame
+) -> str:
+    lines = [
+        f"=== ASSET PROFILE PREVIEW ===",
+        f"Symbol: {symbol}",
+        f"Timeframe: {timeframe}",
+        f"Asset Class: {summary.get('asset_class', 'Unknown')}",
+        f"Asset Profile: {summary.get('asset_profile', 'Unknown')}",
+        f"",
+        f"--- DATA STATUS ---",
+        f"Rows: {summary.get('rows', 0)}",
+        f"Columns: {len(summary.get('columns', []))}",
+        f"Missing Feature Sets: {', '.join(summary.get('missing_feature_sets', [])) or 'None'}",
+        f"",
+        f"--- GROUP CONTEXT ---",
+        f"Group Members Expected: {summary.get('group_member_count', 0)}",
+        f"Group Members Available: {summary.get('available_group_members', 0)}",
+        f"",
+        f"--- CURRENT REGIMES ---",
+        f"Asset Behavior Regime: {summary.get('latest_asset_regime', 'Unknown')}",
+        f"Group Regime: {summary.get('latest_group_regime', 'Unknown')}",
+        f"Relative Strength Regime: {summary.get('latest_relative_strength_label', 'Unknown')}",
+        f"",
+        f"--- QUALITY REPORT ---",
+    ]
+
+    qr = summary.get("quality_report", {})
+    lines.append(f"Passed: {qr.get('passed', False)}")
+    lines.append(f"NaN Ratio: {qr.get('total_nan_ratio', 0.0):.2%}")
+
+    if summary.get("warnings"):
+        lines.append("")
+        lines.append("--- WARNINGS ---")
+        for w in summary["warnings"]:
+            lines.append(f"- {w}")
+
+    if not tail_df.empty:
+        lines.append("")
+        lines.append("--- LATEST FEATURES ---")
+        # Select some key features
+        cols = [
+            c for c in tail_df.columns if "score" in c or "label" in c or "regime" in c
+        ]
+        lines.append(tail_df[cols].to_string())
+
+    return "\n".join(lines)
+
+
+def build_asset_group_event_preview_report(
+    asset_class: str, timeframe: str, summary: dict, tail_df: pd.DataFrame
+) -> str:
+    lines = [
+        f"=== ASSET GROUP EVENT PREVIEW ===",
+        f"Asset Class: {asset_class}",
+        f"Timeframe: {timeframe}",
+        f"",
+        f"--- DATA STATUS ---",
+        f"Rows: {summary.get('rows', 0)}",
+        f"Available Members: {len(summary.get('members', []))}",
+        f"",
+    ]
+
+    if summary.get("warnings"):
+        lines.append("--- WARNINGS ---")
+        for w in summary["warnings"]:
+            lines.append(f"- {w}")
+        lines.append("")
+
+    if not tail_df.empty:
+        lines.append("--- LATEST GROUP FEATURES ---")
+        cols = [
+            c
+            for c in tail_df.columns
+            if "regime" in c or "dispersion" in c or "volatility" in c or "return" in c
+        ]
+        if cols:
+            lines.append(tail_df[cols].to_string())
+        else:
+            lines.append(tail_df.to_string())
+
+    return "\n".join(lines)
+
+
+def build_asset_profile_batch_report(summary: dict) -> str:
+    lines = [
+        "=== ASSET PROFILE BATCH BUILD REPORT ===",
+        f"Successfully Processed: {summary.get('processed', 0)}",
+        f"Errors: {summary.get('errors', 0)}",
+        "",
+    ]
+
+    for ac, ac_sum in summary.get("asset_classes", {}).items():
+        lines.append(f"--- {ac.upper()} ---")
+        success = sum(
+            1 for s in ac_sum.get("symbols", {}).values() if not s.get("warnings")
+        )
+        lines.append(f"Success: {success} / {len(ac_sum.get('symbols', {}))}")
+        if ac_sum.get("warnings"):
+            lines.append("Warnings:")
+            for w in ac_sum["warnings"]:
+                lines.append(f"  - {w}")
+        lines.append("")
+
+    return "\n".join(lines)
+
+
+def build_asset_profile_status_report(status_df: pd.DataFrame, summary: dict) -> str:
+    lines = [
+        "=== ASSET PROFILE STATUS REPORT ===",
+        f"Total Symbols: {summary.get('total_symbols', 0)}",
+        f"Asset Classes: {summary.get('total_asset_classes', 0)}",
+        "",
+        "--- ASSET CLASS SUMMARY ---",
+    ]
+
+    for ac, ac_info in summary.get("asset_classes", {}).items():
+        lines.append(
+            f"{ac}: {ac_info.get('profiles_count', 0)} profiles, {ac_info.get('group_features_count', 0)} group features"
+        )
+
+    if not status_df.empty:
+        lines.append("")
+        lines.append("--- DETAILS ---")
+        lines.append(status_df.to_string())
+
+    return "\n".join(lines)
