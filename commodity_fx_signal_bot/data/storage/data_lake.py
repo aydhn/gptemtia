@@ -438,11 +438,13 @@ class DataLake:
         if df.empty:
             logger.warning("Attempted to save empty macro series for %s", code)
             from config.paths import LAKE_MACRO_PROCESSED_DIR, LAKE_MACRO_RAW_DIR
+
             return (
                 LAKE_MACRO_PROCESSED_DIR if processed else LAKE_MACRO_RAW_DIR
             ) / f"{code}.parquet"
 
         from config.paths import LAKE_MACRO_PROCESSED_DIR, LAKE_MACRO_RAW_DIR
+
         target_dir = LAKE_MACRO_PROCESSED_DIR if processed else LAKE_MACRO_RAW_DIR
         filepath = target_dir / f"{code}.parquet"
 
@@ -459,6 +461,7 @@ class DataLake:
     def load_macro_series(self, code: str, processed: bool = False) -> pd.DataFrame:
         """Load macro series data from lake."""
         from config.paths import LAKE_MACRO_PROCESSED_DIR, LAKE_MACRO_RAW_DIR
+
         target_dir = LAKE_MACRO_PROCESSED_DIR if processed else LAKE_MACRO_RAW_DIR
         filepath = target_dir / f"{code}.parquet"
 
@@ -478,6 +481,7 @@ class DataLake:
     def has_macro_series(self, code: str, processed: bool = False) -> bool:
         """Check if macro series exists in lake."""
         from config.paths import LAKE_MACRO_PROCESSED_DIR, LAKE_MACRO_RAW_DIR
+
         target_dir = LAKE_MACRO_PROCESSED_DIR if processed else LAKE_MACRO_RAW_DIR
         filepath = target_dir / f"{code}.parquet"
         return filepath.exists()
