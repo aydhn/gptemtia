@@ -355,14 +355,26 @@ class DataLake:
             LAKE_FEATURES_REGIME_EVENTS_DIR,
             LAKE_FEATURES_MTF_DIR,
             LAKE_FEATURES_MTF_EVENTS_DIR,
+            LAKE_FEATURES_STRATEGY_CANDIDATES_DIR,
+            LAKE_FEATURES_STRATEGY_POOL_DIR,
+
             LAKE_FEATURES_DIR,
             LAKE_FEATURES_DIVERGENCE_DIR,
             LAKE_FEATURES_DIVERGENCE_EVENTS_DIR,
         )
 
+
+        if feature_set_name == "strategy_candidates":
+            base_dir = LAKE_FEATURES_STRATEGY_CANDIDATES_DIR
+        elif feature_set_name == "strategy_pool":
+            base_dir = LAKE_FEATURES_STRATEGY_POOL_DIR
+        else:
+            base_dir = LAKE_FEATURES_DIR / feature_set_name
+
         symbol_dir = (
-            LAKE_FEATURES_DIR / feature_set_name / source / sub_class / safe_sym
+            base_dir / source / sub_class / safe_sym
         )
+
         return symbol_dir / f"{timeframe}.parquet"
 
     def save_features(
@@ -655,3 +667,58 @@ class DataLake:
     def has_decision_pool(self, timeframe: str, profile_name: str) -> bool:
         """Check if decision pool exists."""
         return self.get_decision_pool_path(timeframe, profile_name).exists()
+
+    def get_strategy_pool_path(self, timeframe: str, profile_name: str) -> Path:
+        """Get path for strategy pool features."""
+        from config.paths import LAKE_FEATURES_STRATEGY_POOL_DIR
+
+        filename = f"strategy_pool_{timeframe}_{profile_name}.parquet"
+        return LAKE_FEATURES_STRATEGY_POOL_DIR / filename
+
+    def save_strategy_pool(
+        self, timeframe: str, df: pd.DataFrame, profile_name: str
+    ) -> Path:
+        """Save a strategy pool DataFrame to the Data Lake."""
+        if df is None or df.empty:
+            return self.get_strategy_pool_path(timeframe, profile_name)
+
+        path = self.get_strategy_pool_path(timeframe, profile_name)
+        path.parent.mkdir(parents=True, exist_ok=True)
+
+        try:
+            df.to_parquet(path, engine="pyarrow")
+            import logging
+
+            logging.getLogger(__name__).debug(
+                f"Saved strategy pool to Data Lake: {path}"
+            )
+        except Exception as e:
+            import logging
+
+            logging.getLogger(__name__).error(
+                f"Failed to save strategy pool ({timeframe}, {profile_name}): {e}"
+            )
+            raise
+
+        return path
+
+    def load_strategy_pool(self, timeframe: str, profile_name: str) -> pd.DataFrame:
+        """Load a strategy pool DataFrame from the Data Lake."""
+        path = self.get_strategy_pool_path(timeframe, profile_name)
+        if not path.exists():
+            return pd.DataFrame()
+
+        try:
+            df = pd.read_parquet(path, engine="pyarrow")
+            return df
+        except Exception as e:
+            import logging
+
+            logging.getLogger(__name__).error(
+                f"Failed to load strategy pool ({timeframe}, {profile_name}): {e}"
+            )
+            raise
+
+    def has_strategy_pool(self, timeframe: str, profile_name: str) -> bool:
+        """Check if strategy pool exists."""
+        return self.get_strategy_pool_path(timeframe, profile_name).exists()
