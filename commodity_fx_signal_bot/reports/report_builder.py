@@ -1743,3 +1743,129 @@ def build_signal_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     )
 
     return "\n".join(lines)
+
+
+def build_decision_candidate_preview_report(
+    symbol: str, timeframe: str, profile_name: str, summary: dict, tail_df: pd.DataFrame
+) -> str:
+    lines = [
+        "===========================================================",
+        "           DECISION CANDIDATE PREVIEW",
+        "===========================================================",
+        f"Symbol:   {symbol}",
+        f"Timeframe: {timeframe}",
+        f"Profile:   {profile_name}",
+        "",
+        "** UYARI: Bu çıktılar nihai işlem sinyali değildir. **",
+        "** Long/short bias adayları emir değildir. Canlı emir üretilmez. **",
+        "",
+        f"Loaded Signal Candidates: {summary.get('loaded_signal_candidates', 0)}",
+        f"Total Decisions Generated: {summary.get('decision_count', 0)}",
+        f"Passed Decisions: {summary.get('passed_decision_count', 0)}",
+        "",
+    ]
+
+    if summary.get("missing_context_frames"):
+        lines.append(
+            f"Missing Context Frames: {', '.join(summary['missing_context_frames'])}"
+        )
+        lines.append("")
+
+    if summary.get("warnings"):
+        lines.append("Warnings:")
+        for w in summary["warnings"]:
+            lines.append(f"  - {w}")
+        lines.append("")
+
+    if not tail_df.empty:
+        lines.append("--- Son Adaylar ---")
+        cols_to_show = [
+            "decision_label",
+            "directional_bias",
+            "decision_score",
+            "decision_confidence",
+            "conflict_score",
+        ]
+        exist_cols = [c for c in cols_to_show if c in tail_df.columns]
+        lines.append(tail_df[exist_cols].to_string())
+
+    return "\n".join(lines)
+
+
+def build_decision_batch_report(summary: dict) -> str:
+    lines = [
+        "===========================================================",
+        "           DECISION BATCH BUILD SUMMARY",
+        "===========================================================",
+        f"Timeframe: {summary.get('timeframe', 'N/A')}",
+        f"Profile:   {summary.get('profile', 'N/A')}",
+        "",
+        "** UYARI: Bu çıktılar nihai işlem sinyali değildir. **",
+        "** Long/short bias adayları emir değildir. Canlı emir üretilmez. **",
+        "",
+        f"Processed Symbols: {summary.get('processed_symbols', 0)}",
+        f"Successful Symbols: {summary.get('successful_symbols', 0)}",
+        f"Failed Symbols: {summary.get('failed_symbols', 0)}",
+        f"Total Decisions Generated: {summary.get('total_decisions', 0)}",
+        f"Passed Decisions: {summary.get('passed_decisions', 0)}",
+    ]
+    return "\n".join(lines)
+
+
+def build_decision_pool_preview_report(
+    timeframe: str, profile_name: str, summary: dict, top_df: pd.DataFrame
+) -> str:
+    lines = [
+        "===========================================================",
+        "           DECISION POOL PREVIEW",
+        "===========================================================",
+        f"Timeframe: {timeframe}",
+        f"Profile:   {profile_name}",
+        "",
+        "** UYARI: Bu çıktılar nihai işlem sinyali değildir. **",
+        "** Long/short bias adayları emir değildir. Canlı emir üretilmez. **",
+        "",
+        f"Total Decisions: {summary.get('total_decisions', 0)}",
+        f"Passed Decisions: {summary.get('passed_decisions', 0)}",
+        f"Average Score: {summary.get('average_decision_score', 0):.2f}",
+        f"Average Confidence: {summary.get('average_confidence', 0):.2f}",
+        "",
+    ]
+
+    if summary.get("by_decision_label"):
+        lines.append("--- By Decision Label ---")
+        for label, count in summary["by_decision_label"].items():
+            lines.append(f"  {label}: {count}")
+        lines.append("")
+
+    if not top_df.empty:
+        lines.append("--- Top Decisions ---")
+        cols_to_show = [
+            "symbol",
+            "decision_label",
+            "directional_bias",
+            "decision_score",
+        ]
+        exist_cols = [c for c in cols_to_show if c in top_df.columns]
+        lines.append(top_df[exist_cols].to_string())
+
+    return "\n".join(lines)
+
+
+def build_decision_status_report(status_df: pd.DataFrame, summary: dict) -> str:
+    lines = [
+        "===========================================================",
+        "           DECISION PIPELINE STATUS",
+        "===========================================================",
+        "",
+        f"Total Candidate Files: {summary.get('total_candidate_files', 0)}",
+        f"Total Pool Files: {summary.get('total_pool_files', 0)}",
+        f"Symbols with Decisions: {summary.get('symbols_with_decisions', 0)}",
+        "",
+    ]
+
+    if not status_df.empty:
+        lines.append("--- Status Details ---")
+        lines.append(status_df.to_string(index=False))
+
+    return "\n".join(lines)

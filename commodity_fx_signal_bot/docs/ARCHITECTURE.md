@@ -47,3 +47,14 @@ Event Feature Stores
 → SignalCandidatePool
 → Signal Quality
 → Future Strategy / Backtest / Paper Trade / Telegram
+
+
+Signal Candidate Pool
+→ DecisionInputLoader
+→ Directional Bias Analysis
+→ Decision Components
+→ Conflict Resolver
+→ Neutral / No-Trade Filter
+→ DecisionEngine
+→ DecisionCandidatePool
+→ Future Strategy Engine / Backtest / Paper Trade

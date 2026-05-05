@@ -211,6 +211,7 @@ class FeatureBuilder:
         compact: bool = True,
         include_events: bool = True,
     ) -> tuple[pd.DataFrame, dict]:
+        from indicators.price_action_feature_set import PriceActionFeatureSetBuilder
         builder = PriceActionFeatureSetBuilder()
         if compact:
             return builder.build_compact_price_action_features(
@@ -224,6 +225,7 @@ class FeatureBuilder:
         compact: bool = True,
         include_events: bool = True,
     ) -> tuple[pd.DataFrame, dict]:
+        from indicators.price_action_feature_set import PriceActionFeatureSetBuilder
         builder = PriceActionFeatureSetBuilder()
         if compact:
             return builder.build_compact_price_action_features(
@@ -237,6 +239,7 @@ class FeatureBuilder:
         compact: bool = True,
         include_events: bool = True,
     ) -> tuple[pd.DataFrame, dict]:
+        from indicators.price_action_feature_set import PriceActionFeatureSetBuilder
         builder = PriceActionFeatureSetBuilder()
         if compact:
             return builder.build_compact_price_action_features(
@@ -252,6 +255,7 @@ class FeatureBuilder:
     ) -> tuple[pd.DataFrame, dict]:
         from indicators.price_action_feature_set import PriceActionFeatureSetBuilder
 
+        from indicators.price_action_feature_set import PriceActionFeatureSetBuilder
         builder = PriceActionFeatureSetBuilder()
         if compact:
             return builder.build_compact_price_action_features(
