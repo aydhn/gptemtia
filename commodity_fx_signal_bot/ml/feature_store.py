@@ -117,3 +117,26 @@ class FeatureStore:
         return {
             "group_features": self.data_lake.list_group_feature_timeframes(asset_class)
         }
+
+    def load_signal_candidates(self, spec: SymbolSpec, timeframe: str) -> pd.DataFrame:
+        if self.data_lake.has_features(spec, timeframe, "signal_candidates"):
+            return self.data_lake.load_features(spec, timeframe, "signal_candidates")
+        return pd.DataFrame()
+
+    def load_signal_pool(
+        self, timeframe: str, profile_name: str = "balanced_candidate_scoring"
+    ) -> pd.DataFrame:
+        if self.data_lake.has_signal_pool(timeframe, profile_name):
+            return self.data_lake.load_signal_pool(timeframe, profile_name)
+        return pd.DataFrame()
+
+    def list_available_signal_candidates(self, spec: SymbolSpec) -> dict:
+        return {
+            "signal_candidates": self.data_lake.list_feature_timeframes(
+                spec, "signal_candidates"
+            )
+        }
+
+    def list_available_signal_pools(self) -> dict:
+        # Simplistic implementation just to satisfy API
+        return {"signal_pool": ["1d"]}

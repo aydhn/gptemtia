@@ -273,3 +273,22 @@ python -m scripts.run_asset_profile_batch_build --limit 10 --timeframe 1d
 # Data lake içindeki asset profile ve group feature dosyalarının durumunu kontrol et
 python -m scripts.run_asset_profile_status
 ```
+
+## Sinyal Aday Skorlama ve Candidate Pool Katmanı
+
+- Bu faz nihai al/sat stratejisi değildir.
+- Sistem eventleri normalize eder, skorlar ve aday havuzuna alır.
+- Candidate score emir değildir.
+- Directional bias emir değildir.
+- Passed pre-filter canlı işlem izni değildir.
+- Bu katman ileride strateji, backtest, paper trade ve Telegram rapor sistemine veri sağlayacaktır.
+- Missing event/context grupları kalite skorunu etkiler.
+- Conflict score yüksekse aday zayıflatılır.
+
+### Komutlar
+```bash
+python -m scripts.run_signal_candidate_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_signal_batch_build --limit 10 --timeframe 1d
+python -m scripts.run_signal_pool_preview --timeframe 1d --top 20
+python -m scripts.run_signal_status
+```

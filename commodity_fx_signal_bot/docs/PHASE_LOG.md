@@ -185,3 +185,19 @@ This file tracks the completion of the project phases.
 - DataLake `asset_profiles` / `asset_profile_events` / `group_features` desteği aldı.
 - Asset profile preview/batch/status scriptleri eklendi.
 - Testler genişletildi.
+
+
+Phase 19:
+- Signal scoring profile sistemi eklendi.
+- Signal taxonomy eklendi.
+- Event normalizer eklendi.
+- Event loader eklendi.
+- Signal component skorları eklendi.
+- SignalScorer eklendi.
+- SignalCandidate dataclass eklendi.
+- SignalCandidatePool eklendi.
+- Signal filters ve quality report eklendi.
+- SignalPipeline eklendi.
+- DataLake signal_candidates/signal_pool desteği aldı.
+- Signal preview/batch/status scriptleri eklendi.
+- Testler genişletildi.
