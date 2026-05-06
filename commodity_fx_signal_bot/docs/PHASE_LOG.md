@@ -219,3 +219,18 @@ Phase 19:
 - DataLake decision_candidates/decision_pool desteği aldı.
 - Decision preview/batch/status scriptleri eklendi.
 - Testler genişletildi.
+
+### Phase 23: Risk Precheck Layer
+- Risk precheck profile sistemi eklendi.
+- Risk label registry eklendi.
+- Risk component score modelleri eklendi.
+- Volatility/gap/liquidity/data quality/regime/macro/asset risk modülleri eklendi.
+- PreTradeRiskEvaluator eklendi.
+- Risk filters eklendi.
+- RiskPrecheckCandidate dataclass eklendi.
+- RiskCandidatePool eklendi.
+- Risk quality report eklendi.
+- RiskPipeline eklendi.
+- DataLake risk_candidates/risk_pool desteği aldı.
+- Risk preview/batch/status scriptleri eklendi.
+- Testler genişletildi.

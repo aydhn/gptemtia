@@ -58,3 +58,11 @@ Signal Candidate Pool
 → DecisionEngine
 → DecisionCandidatePool
 → Future Strategy Engine / Backtest / Paper Trade
+
+### Phase 23 Risk Precheck Flow
+Strategy Rule Candidates
+→ Risk Context Loader
+→ Volatility / Gap / Liquidity / Data Quality / Regime / MTF / Macro / Asset Risk
+→ PreTradeRiskEvaluator
+→ RiskCandidatePool
+→ Future Position Sizing / Backtest / Paper Trade

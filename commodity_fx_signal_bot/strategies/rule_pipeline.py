@@ -10,6 +10,7 @@ from .rule_quality import build_rule_quality_report
 
 logger = logging.getLogger(__name__)
 
+
 class StrategyRulePipeline:
     def __init__(
         self,
@@ -31,6 +32,7 @@ class StrategyRulePipeline:
         warnings = []
         try:
             from ml.feature_store import FeatureStore
+
             store = FeatureStore(self.data_lake)
             df = store.load_strategy_candidates(spec, timeframe)
             if df.empty:
@@ -49,6 +51,7 @@ class StrategyRulePipeline:
         missing = []
 
         from ml.feature_store import FeatureStore
+
         store = FeatureStore(self.data_lake)
 
         loaders = {
@@ -87,7 +90,9 @@ class StrategyRulePipeline:
         prof = profile or self.profile
 
         if spec.asset_class in ["benchmark", "synthetic", "macro"]:
-            return pd.DataFrame(), {"warnings": [f"Skipped {spec.symbol} (asset_class: {spec.asset_class})"]}
+            return pd.DataFrame(), {
+                "warnings": [f"Skipped {spec.symbol} (asset_class: {spec.asset_class})"]
+            }
 
         strat_df, strat_meta = self.load_strategy_candidates(spec, timeframe)
         if strat_df.empty:
@@ -109,9 +114,13 @@ class StrategyRulePipeline:
 
         if save and not df.empty and self.settings.save_strategy_rule_candidates:
             try:
-                self.data_lake.save_features(spec, "strategy_rule_candidates", timeframe, df)
+                self.data_lake.save_features(
+                    spec, "strategy_rule_candidates", timeframe, df
+                )
                 if self.settings.save_entry_exit_candidates:
-                    self.data_lake.save_features(spec, "entry_exit_candidates", timeframe, df)
+                    self.data_lake.save_features(
+                        spec, "entry_exit_candidates", timeframe, df
+                    )
             except Exception as e:
                 logger.error(f"Failed to save rule candidates for {spec.symbol}: {e}")
 
@@ -125,7 +134,7 @@ class StrategyRulePipeline:
             "passed_rule_candidate_count": pool_summary["passed_rule_candidates"],
             "quality_report": quality_report,
             "warnings": strat_meta["warnings"] + eval_summary["warnings"],
-            "latest_rule_candidates": pool_summary["top_rule_candidates"]
+            "latest_rule_candidates": pool_summary["top_rule_candidates"],
         }
 
         return df, summary
@@ -166,8 +175,10 @@ class StrategyRulePipeline:
             try:
                 df_pool = universe_pool.to_dataframe()
                 if not df_pool.empty:
-                    if hasattr(self.data_lake, 'save_strategy_rule_pool'):
-                        self.data_lake.save_strategy_rule_pool(timeframe, df_pool, prof.name)
+                    if hasattr(self.data_lake, "save_strategy_rule_pool"):
+                        self.data_lake.save_strategy_rule_pool(
+                            timeframe, df_pool, prof.name
+                        )
             except Exception as e:
                 logger.error(f"Failed to save strategy rule pool: {e}")
 

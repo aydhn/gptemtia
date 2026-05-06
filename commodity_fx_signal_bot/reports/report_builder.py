@@ -1939,3 +1939,115 @@ def build_strategy_status_report(status_df, summary: dict) -> str:
         "WARNING: Bu çıktılar strateji ailesi adaylarıdır. Nihai işlem sinyali, emir, pozisyon talimatı veya canlı işlem kararı değildir.",
     ]
     return "\n".join(lines)
+
+
+def build_risk_precheck_preview_report(
+    symbol: str, timeframe: str, profile_name: str, summary: dict, tail_df: pd.DataFrame
+) -> str:
+    lines = [
+        f"=== RISK PRECHECK PREVIEW ({symbol} - {timeframe}) ===",
+        f"Profile: {profile_name}",
+        "---",
+        "UYARI: Bu çıktılar risk ön kontrol adaylarıdır. Risk approval/rejection/watchlist ifadeleri "
+        "gerçek işlem onayı, emir iptali, pozisyon talimatı veya broker işlemi değildir. Canlı emir üretilmez.",
+        "---",
+    ]
+    if "error" in summary:
+        lines.append(f"Hata: {summary['error']}")
+        return "\n".join(lines)
+    lines.append(f"Toplam Aday: {summary.get('risk_candidate_count', 0)}")
+    lines.append(f"Onaylanan: {summary.get('passed_risk_candidate_count', 0)}")
+    lines.append(f"Reddedilen: {summary.get('rejected_risk_candidate_count', 0)}")
+    lines.append(f"İzleme Listesi: {summary.get('watchlist_risk_candidate_count', 0)}")
+    lines.append("")
+    if summary.get("missing_context_frames"):
+        lines.append("Eksik Context Frame'leri:")
+        for frame in summary["missing_context_frames"]:
+            lines.append(f"- {frame}")
+        lines.append("")
+    if not tail_df.empty:
+        lines.append(f"--- Son {len(tail_df)} Risk Adayı ---")
+        for _, row in tail_df.iterrows():
+            lines.append(
+                f"Tarih: {row['timestamp']} | Yön: {row['directional_bias']} | Label: {row['risk_label']}"
+            )
+            lines.append(f"  Toplam Risk Skoru: {row['total_pretrade_risk_score']:.2f}")
+            lines.append(f"  Risk Readiness: {row['risk_readiness_score']:.2f}")
+            bl_reasons = row.get("blocking_reasons", [])
+            if isinstance(bl_reasons, str):
+                bl_reasons = eval(bl_reasons) if bl_reasons.startswith("[") else []
+            if bl_reasons:
+                lines.append("  Engelleme Nedenleri:")
+                for r in bl_reasons:
+                    lines.append(f"    - {r}")
+            lines.append("")
+    return "\n".join(lines)
+
+
+def build_risk_batch_report(summary: dict) -> str:
+    lines = [
+        "=== RISK BATCH SUMMARY ===",
+        "---",
+        "UYARI: Bu çıktılar risk ön kontrol adaylarıdır. Risk approval/rejection/watchlist ifadeleri "
+        "gerçek işlem onayı, emir iptali, pozisyon talimatı veya broker işlemi değildir. Canlı emir üretilmez.",
+        "---",
+        f"İşlenen Sembol Sayısı: {summary.get('processed', 0)}",
+        f"Toplam Havuz Adayı: {summary.get('total_candidates', 0)}",
+        "--- Sembol Özeti ---",
+    ]
+    for sym, s_summary in summary.get("symbol_summaries", {}).items():
+        if "error" in s_summary:
+            lines.append(f"{sym}: Hata - {s_summary['error']}")
+        elif "skipped" in s_summary:
+            lines.append(f"{sym}: Atlandı - {s_summary.get('reason', '')}")
+        else:
+            lines.append(
+                f"{sym}: {s_summary.get('risk_candidate_count', 0)} aday ({s_summary.get('passed_risk_candidate_count', 0)} geçti)"
+            )
+    return "\n".join(lines)
+
+
+def build_risk_pool_preview_report(
+    timeframe: str, profile_name: str, summary: dict, top_df: pd.DataFrame
+) -> str:
+    lines = [
+        f"=== RISK POOL PREVIEW ({timeframe}) ===",
+        f"Profile: {profile_name}",
+        "---",
+        "UYARI: Bu çıktılar risk ön kontrol adaylarıdır. Risk approval/rejection/watchlist ifadeleri "
+        "gerçek işlem onayı, emir iptali, pozisyon talimatı veya broker işlemi değildir. Canlı emir üretilmez.",
+        "---",
+        f"Havuz Toplam Aday: {summary.get('total_risk_candidates', 0)}",
+        f"Geçen: {summary.get('passed_risk_candidates', 0)}",
+        f"Ortalama Total Risk: {summary.get('average_total_pretrade_risk', 0.0):.2f}",
+        "",
+    ]
+    if not top_df.empty:
+        lines.append(f"--- Top {len(top_df)} Readiness Scoruna Göre Adaylar ---")
+        for _, row in top_df.iterrows():
+            lines.append(
+                f"Sembol: {row['symbol']} | Tarih: {row['timestamp']} | Yön: {row['directional_bias']}"
+            )
+            lines.append(
+                f"  Strateji: {row['strategy_family']} | Label: {row['risk_label']}"
+            )
+            lines.append(
+                f"  Readiness: {row['risk_readiness_score']:.2f} | Risk: {row['total_pretrade_risk_score']:.2f}"
+            )
+            lines.append("")
+    return "\n".join(lines)
+
+
+def build_risk_status_report(status_df: pd.DataFrame, summary: dict) -> str:
+    lines = [
+        "=== RISK STATUS REPORT ===",
+        "---",
+        "UYARI: Bu çıktılar risk ön kontrol adaylarıdır. Gerçek emir üretilmez.",
+        "---",
+        f"İşlenmiş Sembol Sayısı: {summary.get('processed_symbols', 0)}",
+        f"Toplam Havuz Dosyası: {summary.get('pool_files', 0)}",
+        "",
+    ]
+    if not status_df.empty:
+        lines.append("Detaylar CSV dosyasına kaydedildi.")
+    return "\n".join(lines)

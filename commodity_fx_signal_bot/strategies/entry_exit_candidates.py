@@ -4,6 +4,7 @@ import hashlib
 import json
 from .rule_config import StrategyRuleProfile
 
+
 @dataclass
 class EntryExitConditionCandidate:
     symbol: str
@@ -32,14 +33,28 @@ class EntryExitConditionCandidate:
     warnings: list[str]
     notes: str = ""
 
-def build_condition_id(symbol: str, timeframe: str, timestamp: str, rule_id: str, source_strategy_id: str) -> str:
+
+def build_condition_id(
+    symbol: str, timeframe: str, timestamp: str, rule_id: str, source_strategy_id: str
+) -> str:
     raw = f"{symbol}_{timeframe}_{timestamp}_{rule_id}_{source_strategy_id}"
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()[:16]
 
-def entry_exit_candidate_to_dict(candidate: EntryExitConditionCandidate) -> dict[str, Any]:
+
+def entry_exit_candidate_to_dict(
+    candidate: EntryExitConditionCandidate,
+) -> dict[str, Any]:
     return asdict(candidate)
 
-def infer_rule_status_from_result(result: dict, profile: StrategyRuleProfile, base_confidence: float = 0.5, base_quality: float = 0.5, base_readiness: float = 0.5, conflict: float = 0.0) -> str:
+
+def infer_rule_status_from_result(
+    result: dict,
+    profile: StrategyRuleProfile,
+    base_confidence: float = 0.5,
+    base_quality: float = 0.5,
+    base_readiness: float = 0.5,
+    conflict: float = 0.0,
+) -> str:
 
     if result.get("required_conditions_failed", 0) > 0:
         return "blocked_candidate"
