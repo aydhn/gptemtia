@@ -99,11 +99,12 @@ LAKE_FEATURES_STRATEGY_CANDIDATES_DIR = LAKE_FEATURES_DIR / "strategy_candidates
 LAKE_FEATURES_STRATEGY_POOL_DIR = LAKE_FEATURES_DIR / "strategy_pool"
 STRATEGY_REPORTS_DIR = REPORTS_DIR / "strategy_reports"
 
-LAKE_FEATURES_STRATEGY_RULE_CANDIDATES_DIR = LAKE_FEATURES_DIR / "strategy_rule_candidates"
+LAKE_FEATURES_STRATEGY_RULE_CANDIDATES_DIR = (
+    LAKE_FEATURES_DIR / "strategy_rule_candidates"
+)
 LAKE_FEATURES_ENTRY_EXIT_CANDIDATES_DIR = LAKE_FEATURES_DIR / "entry_exit_candidates"
 LAKE_FEATURES_STRATEGY_RULE_POOL_DIR = LAKE_FEATURES_DIR / "strategy_rule_pool"
 STRATEGY_RULE_REPORTS_DIR = REPORTS_DIR / "strategy_rule_reports"
-
 
 
 def ensure_project_directories() -> None:
@@ -175,12 +176,23 @@ def ensure_project_directories() -> None:
         LAKE_FEATURES_STRATEGY_CANDIDATES_DIR,
         LAKE_FEATURES_STRATEGY_POOL_DIR,
         STRATEGY_REPORTS_DIR,
-
         LAKE_FEATURES_STRATEGY_RULE_CANDIDATES_DIR,
         LAKE_FEATURES_ENTRY_EXIT_CANDIDATES_DIR,
         LAKE_FEATURES_STRATEGY_RULE_POOL_DIR,
+        REPORTS_RISK_REPORTS_DIR,
+        LAKE_FEATURES_RISK_CANDIDATES_DIR,
+        LAKE_FEATURES_RISK_POOL_DIR,
         STRATEGY_RULE_REPORTS_DIR,
     ]
 
     for directory in directories:
         directory.mkdir(parents=True, exist_ok=True)
+
+
+# Risk Reports directories
+REPORTS_RISK_REPORTS_DIR = REPORTS_DIR / "risk_reports"
+
+
+# Risk Data Lake directories
+LAKE_FEATURES_RISK_CANDIDATES_DIR = LAKE_FEATURES_DIR / "risk_candidates"
+LAKE_FEATURES_RISK_POOL_DIR = LAKE_FEATURES_DIR / "risk_pool"

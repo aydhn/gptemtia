@@ -793,13 +793,19 @@ class Settings:
     )
     # Phase 22: Strategy Rule Settings
     strategy_rules_enabled: bool = field(
-        default_factory=lambda: os.getenv("STRATEGY_RULES_ENABLED", "true").lower() == "true"
+        default_factory=lambda: os.getenv("STRATEGY_RULES_ENABLED", "true").lower()
+        == "true"
     )
     strategy_rule_engine_enabled: bool = field(
-        default_factory=lambda: os.getenv("STRATEGY_RULE_ENGINE_ENABLED", "true").lower() == "true"
+        default_factory=lambda: os.getenv(
+            "STRATEGY_RULE_ENGINE_ENABLED", "true"
+        ).lower()
+        == "true"
     )
     default_strategy_rule_profile: str = field(
-        default_factory=lambda: os.getenv("DEFAULT_STRATEGY_RULE_PROFILE", "balanced_rule_evaluation")
+        default_factory=lambda: os.getenv(
+            "DEFAULT_STRATEGY_RULE_PROFILE", "balanced_rule_evaluation"
+        )
     )
     default_strategy_rule_timeframe: str = field(
         default_factory=lambda: os.getenv("DEFAULT_STRATEGY_RULE_TIMEFRAME", "1d")
@@ -820,27 +826,41 @@ class Settings:
         default_factory=lambda: float(os.getenv("RULE_MIN_READINESS_SCORE", "0.45"))
     )
     rule_require_strategy_candidate_passed: bool = field(
-        default_factory=lambda: os.getenv("RULE_REQUIRE_STRATEGY_CANDIDATE_PASSED", "true").lower() == "true"
+        default_factory=lambda: os.getenv(
+            "RULE_REQUIRE_STRATEGY_CANDIDATE_PASSED", "true"
+        ).lower()
+        == "true"
     )
     rule_require_decision_candidate_passed: bool = field(
-        default_factory=lambda: os.getenv("RULE_REQUIRE_DECISION_CANDIDATE_PASSED", "false").lower() == "true"
+        default_factory=lambda: os.getenv(
+            "RULE_REQUIRE_DECISION_CANDIDATE_PASSED", "false"
+        ).lower()
+        == "true"
     )
     rule_allow_wait_candidates: bool = field(
-        default_factory=lambda: os.getenv("RULE_ALLOW_WAIT_CANDIDATES", "true").lower() == "true"
+        default_factory=lambda: os.getenv("RULE_ALLOW_WAIT_CANDIDATES", "true").lower()
+        == "true"
     )
     rule_allow_invalidation_candidates: bool = field(
-        default_factory=lambda: os.getenv("RULE_ALLOW_INVALIDATION_CANDIDATES", "true").lower() == "true"
+        default_factory=lambda: os.getenv(
+            "RULE_ALLOW_INVALIDATION_CANDIDATES", "true"
+        ).lower()
+        == "true"
     )
     save_strategy_rule_candidates: bool = field(
-        default_factory=lambda: os.getenv("SAVE_STRATEGY_RULE_CANDIDATES", "true").lower() == "true"
+        default_factory=lambda: os.getenv(
+            "SAVE_STRATEGY_RULE_CANDIDATES", "true"
+        ).lower()
+        == "true"
     )
     save_entry_exit_candidates: bool = field(
-        default_factory=lambda: os.getenv("SAVE_ENTRY_EXIT_CANDIDATES", "true").lower() == "true"
+        default_factory=lambda: os.getenv("SAVE_ENTRY_EXIT_CANDIDATES", "true").lower()
+        == "true"
     )
     save_strategy_rule_pool: bool = field(
-        default_factory=lambda: os.getenv("SAVE_STRATEGY_RULE_POOL", "true").lower() == "true"
+        default_factory=lambda: os.getenv("SAVE_STRATEGY_RULE_POOL", "true").lower()
+        == "true"
     )
-
 
     def __post_init__(self):
         """Validate settings after initialization."""
@@ -851,6 +871,88 @@ class Settings:
                 "LIVE_TRADING_ENABLED is set to true in environment, but this project "
                 "does not support live trading. Forcing live_trading_enabled to False."
             )
+        # Risk Precheck Layer parameters
+
+    risk_precheck_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("RISK_PRECHECK_ENABLED", "true")).lower()
+        == "true"
+    )
+    risk_candidates_enabled: bool = field(
+        default_factory=lambda: str(
+            os.getenv("RISK_CANDIDATES_ENABLED", "true")
+        ).lower()
+        == "true"
+    )
+    default_risk_profile: str = field(
+        default_factory=lambda: os.getenv(
+            "DEFAULT_RISK_PROFILE", "balanced_pretrade_risk"
+        )
+    )
+    default_risk_timeframe: str = field(
+        default_factory=lambda: os.getenv("DEFAULT_RISK_TIMEFRAME", "1d")
+    )
+    risk_max_total_pretrade_risk: float = field(
+        default_factory=lambda: float(os.getenv("RISK_MAX_TOTAL_PRETRADE_RISK", "0.70"))
+    )
+    risk_min_readiness_score: float = field(
+        default_factory=lambda: float(os.getenv("RISK_MIN_READINESS_SCORE", "0.45"))
+    )
+    risk_max_volatility_risk: float = field(
+        default_factory=lambda: float(os.getenv("RISK_MAX_VOLATILITY_RISK", "0.75"))
+    )
+    risk_max_gap_risk: float = field(
+        default_factory=lambda: float(os.getenv("RISK_MAX_GAP_RISK", "0.75"))
+    )
+    risk_max_liquidity_risk: float = field(
+        default_factory=lambda: float(os.getenv("RISK_MAX_LIQUIDITY_RISK", "0.75"))
+    )
+    risk_max_data_quality_risk: float = field(
+        default_factory=lambda: float(os.getenv("RISK_MAX_DATA_QUALITY_RISK", "0.60"))
+    )
+    risk_max_regime_risk: float = field(
+        default_factory=lambda: float(os.getenv("RISK_MAX_REGIME_RISK", "0.70"))
+    )
+    risk_max_mtf_risk: float = field(
+        default_factory=lambda: float(os.getenv("RISK_MAX_MTF_RISK", "0.70"))
+    )
+    risk_max_macro_risk: float = field(
+        default_factory=lambda: float(os.getenv("RISK_MAX_MACRO_RISK", "0.80"))
+    )
+    risk_block_on_invalid_data_quality: bool = field(
+        default_factory=lambda: str(
+            os.getenv("RISK_BLOCK_ON_INVALID_DATA_QUALITY", "true")
+        ).lower()
+        == "true"
+    )
+    risk_block_on_extreme_volatility: bool = field(
+        default_factory=lambda: str(
+            os.getenv("RISK_BLOCK_ON_EXTREME_VOLATILITY", "true")
+        ).lower()
+        == "true"
+    )
+    risk_block_on_high_conflict: bool = field(
+        default_factory=lambda: str(
+            os.getenv("RISK_BLOCK_ON_HIGH_CONFLICT", "true")
+        ).lower()
+        == "true"
+    )
+    risk_allow_watchlist_when_borderline: bool = field(
+        default_factory=lambda: str(
+            os.getenv("RISK_ALLOW_WATCHLIST_WHEN_BORDERLINE", "true")
+        ).lower()
+        == "true"
+    )
+    save_risk_candidates: bool = field(
+        default_factory=lambda: str(os.getenv("SAVE_RISK_CANDIDATES", "true")).lower()
+        == "true"
+    )
+    save_risk_pool: bool = field(
+        default_factory=lambda: str(os.getenv("SAVE_RISK_POOL", "true")).lower()
+        == "true"
+    )
+
+    # Force live trading off
+    def __post_init__(self):
         self.live_trading_enabled = False
 
 

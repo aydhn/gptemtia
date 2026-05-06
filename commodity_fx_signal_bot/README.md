@@ -313,3 +313,21 @@ python -m scripts.run_decision_batch_build --limit 10 --timeframe 1d
 python -m scripts.run_decision_pool_preview --timeframe 1d --top 20
 python -m scripts.run_decision_status
 ```
+
+## Risk Ön Kontrol / Pre-Trade Risk Candidate Katmanı
+
+- Bu faz nihai risk motoru değildir.
+- Risk approval candidate gerçek işlem onayı değildir.
+- Risk rejection candidate gerçek emir iptali değildir.
+- Risk watchlist candidate sadece izleme/raporlama bağlamıdır.
+- Stop-loss, take-profit, position sizing ve leverage bu fazda yoktur.
+- Risk skorları 0 düşük risk, 1 yüksek risk olarak yorumlanır.
+- Risk readiness score 1 iyi, 0 zayıf olarak yorumlanır.
+- Bu katman ileride backtest, position sizing, paper trade ve Telegram rapor sistemine veri sağlayacaktır.
+
+```bash
+python -m scripts.run_risk_precheck_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_risk_batch_build --limit 10 --timeframe 1d
+python -m scripts.run_risk_pool_preview --timeframe 1d --top 20
+python -m scripts.run_risk_status
+```

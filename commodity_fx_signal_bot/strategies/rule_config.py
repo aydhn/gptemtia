@@ -1,8 +1,10 @@
 from dataclasses import dataclass, field
 from config.settings import settings
 
+
 class ConfigError(Exception):
     pass
+
 
 @dataclass(frozen=True)
 class StrategyRuleProfile:
@@ -22,6 +24,7 @@ class StrategyRuleProfile:
     allow_invalidation_candidates: bool = True
     enabled: bool = True
     notes: str = ""
+
 
 _BUILTIN_PROFILES: dict[str, StrategyRuleProfile] = {
     "balanced_rule_evaluation": StrategyRuleProfile(
@@ -190,21 +193,25 @@ _BUILTIN_PROFILES: dict[str, StrategyRuleProfile] = {
     ),
 }
 
+
 def normalize_rule_component_weights(weights: dict[str, float]) -> dict[str, float]:
     total = sum(weights.values())
     if total <= 0:
         return {k: 0.0 for k in weights}
     return {k: v / total for k, v in weights.items()}
 
+
 def get_strategy_rule_profile(name: str) -> StrategyRuleProfile:
     if name not in _BUILTIN_PROFILES:
         raise ConfigError(f"StrategyRuleProfile '{name}' not found.")
     return _BUILTIN_PROFILES[name]
 
+
 def list_strategy_rule_profiles(enabled_only: bool = True) -> list[StrategyRuleProfile]:
     if enabled_only:
         return [p for p in _BUILTIN_PROFILES.values() if p.enabled]
     return list(_BUILTIN_PROFILES.values())
+
 
 def validate_strategy_rule_profiles() -> None:
     for name, profile in _BUILTIN_PROFILES.items():
@@ -212,10 +219,19 @@ def validate_strategy_rule_profiles() -> None:
             raise ConfigError(f"Profile {name} has no enabled strategy families.")
         if not profile.enabled_rule_groups:
             raise ConfigError(f"Profile {name} has no enabled rule groups.")
-        for field_name in ["min_match_score", "min_confidence", "min_quality_score", "max_conflict_score", "min_readiness_score"]:
+        for field_name in [
+            "min_match_score",
+            "min_confidence",
+            "min_quality_score",
+            "max_conflict_score",
+            "min_readiness_score",
+        ]:
             val = getattr(profile, field_name)
             if not 0.0 <= val <= 1.0:
-                raise ConfigError(f"Profile {name} field {field_name} must be between 0.0 and 1.0.")
+                raise ConfigError(
+                    f"Profile {name} field {field_name} must be between 0.0 and 1.0."
+                )
+
 
 def get_default_strategy_rule_profile() -> StrategyRuleProfile:
     return get_strategy_rule_profile(settings.default_strategy_rule_profile)

@@ -2,6 +2,7 @@ import pandas as pd
 from typing import Any
 from .condition_models import RuleCondition, RuleTemplate
 
+
 class RuleEngine:
     def __init__(self, templates: list[RuleTemplate] | None = None):
         self.templates = templates or []
@@ -30,19 +31,32 @@ class RuleEngine:
                 op = condition.operator
                 right = condition.right
 
-                if op == "gt": passed = float(val) > float(right)
-                elif op == "gte": passed = float(val) >= float(right)
-                elif op == "lt": passed = float(val) < float(right)
-                elif op == "lte": passed = float(val) <= float(right)
-                elif op == "eq": passed = val == right
-                elif op == "neq": passed = val != right
-                elif op == "between": passed = float(right[0]) <= float(val) <= float(right[1])
-                elif op == "abs_gt": passed = abs(float(val)) > float(right)
-                elif op == "abs_lt": passed = abs(float(val)) < float(right)
-                elif op == "is_true": passed = bool(val) is True
-                elif op == "is_false": passed = bool(val) is False
-                elif op == "contains": passed = str(right) in str(val)
-                elif op == "not_contains": passed = str(right) not in str(val)
+                if op == "gt":
+                    passed = float(val) > float(right)
+                elif op == "gte":
+                    passed = float(val) >= float(right)
+                elif op == "lt":
+                    passed = float(val) < float(right)
+                elif op == "lte":
+                    passed = float(val) <= float(right)
+                elif op == "eq":
+                    passed = val == right
+                elif op == "neq":
+                    passed = val != right
+                elif op == "between":
+                    passed = float(right[0]) <= float(val) <= float(right[1])
+                elif op == "abs_gt":
+                    passed = abs(float(val)) > float(right)
+                elif op == "abs_lt":
+                    passed = abs(float(val)) < float(right)
+                elif op == "is_true":
+                    passed = bool(val) is True
+                elif op == "is_false":
+                    passed = bool(val) is False
+                elif op == "contains":
+                    passed = str(right) in str(val)
+                elif op == "not_contains":
+                    passed = str(right) not in str(val)
             except (ValueError, TypeError) as e:
                 warning = f"Evaluation error: {e}"
                 passed = False
@@ -56,7 +70,7 @@ class RuleEngine:
             "operator": condition.operator,
             "right": condition.right,
             "observed_value": val,
-            "warning": warning
+            "warning": warning,
         }
 
     def evaluate_template(
@@ -92,7 +106,10 @@ class RuleEngine:
 
         match_score = (passed_weight / total_weight) if total_weight > 0 else 0.0
 
-        matched = required_failed == 0 and len(passed_conds) >= template.min_required_conditions
+        matched = (
+            required_failed == 0
+            and len(passed_conds) >= template.min_required_conditions
+        )
         partial_match = required_failed == 0 and len(passed_conds) > 0 and not matched
 
         return {
@@ -107,7 +124,7 @@ class RuleEngine:
             "required_conditions_failed": required_failed,
             "passed_conditions": passed_conds,
             "failed_conditions": failed_conds,
-            "warnings": warnings
+            "warnings": warnings,
         }
 
     def evaluate_templates(
