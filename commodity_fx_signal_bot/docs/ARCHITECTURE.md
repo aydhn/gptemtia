@@ -66,3 +66,15 @@ Strategy Rule Candidates
 → PreTradeRiskEvaluator
 → RiskCandidatePool
 → Future Position Sizing / Backtest / Paper Trade
+
+
+## Position Sizing Candidate Layer (Simülasyon Katmanı)
+
+Risk Candidates
+→ Sizing Context Loader
+→ Risk Unit Calculator
+→ ATR / Volatility Adjusted Sizing
+→ Budget Model
+→ Exposure Limits
+→ SizingCandidatePool
+→ Future Backtest / Paper Trade / Portfolio Simulation

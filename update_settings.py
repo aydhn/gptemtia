@@ -3,56 +3,99 @@ import re
 with open("commodity_fx_signal_bot/config/settings.py", "r") as f:
     content = f.read()
 
-insert_str = """
-    # Decision Candidate Settings
-    decision_candidates_enabled: bool = field(
-        default_factory=lambda: os.getenv("DECISION_CANDIDATES_ENABLED", "true").lower() == "true"
+settings_fields = """
+    # Phase 24: Theoretical Sizing Candidate Layer
+    sizing_candidates_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("SIZING_CANDIDATES_ENABLED", "true")).lower() == "true"
     )
-    directional_decision_enabled: bool = field(
-        default_factory=lambda: os.getenv("DIRECTIONAL_DECISION_ENABLED", "true").lower() == "true"
+    theoretical_position_sizing_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("THEORETICAL_POSITION_SIZING_ENABLED", "true")).lower() == "true"
     )
-    default_decision_profile: str = field(
-        default_factory=lambda: os.getenv("DEFAULT_DECISION_PROFILE", "balanced_directional_decision")
+    default_sizing_profile: str = field(
+        default_factory=lambda: os.getenv("DEFAULT_SIZING_PROFILE", "balanced_theoretical_sizing")
     )
-    default_decision_timeframe: str = field(
-        default_factory=lambda: os.getenv("DEFAULT_DECISION_TIMEFRAME", "1d")
+    default_sizing_timeframe: str = field(
+        default_factory=lambda: os.getenv("DEFAULT_SIZING_TIMEFRAME", "1d")
     )
-    decision_min_signal_score: float = field(
-        default_factory=lambda: float(os.getenv("DECISION_MIN_SIGNAL_SCORE", "0.45"))
+    theoretical_account_equity: float = field(
+        default_factory=lambda: float(os.getenv("THEORETICAL_ACCOUNT_EQUITY", "100000.0"))
     )
-    decision_min_confidence: float = field(
-        default_factory=lambda: float(os.getenv("DECISION_MIN_CONFIDENCE", "0.50"))
+    theoretical_base_currency: str = field(
+        default_factory=lambda: os.getenv("THEORETICAL_BASE_CURRENCY", "TRY")
     )
-    decision_min_quality: float = field(
-        default_factory=lambda: float(os.getenv("DECISION_MIN_QUALITY", "0.50"))
+    theoretical_risk_per_candidate: float = field(
+        default_factory=lambda: float(os.getenv("THEORETICAL_RISK_PER_CANDIDATE", "0.005"))
     )
-    decision_max_conflict: float = field(
-        default_factory=lambda: float(os.getenv("DECISION_MAX_CONFLICT", "0.65"))
+    theoretical_max_risk_per_symbol: float = field(
+        default_factory=lambda: float(os.getenv("THEORETICAL_MAX_RISK_PER_SYMBOL", "0.02"))
     )
-    decision_min_strategy_readiness: float = field(
-        default_factory=lambda: float(os.getenv("DECISION_MIN_STRATEGY_READINESS", "0.45"))
+    theoretical_max_risk_per_asset_class: float = field(
+        default_factory=lambda: float(os.getenv("THEORETICAL_MAX_RISK_PER_ASSET_CLASS", "0.05"))
     )
-    decision_neutral_zone_threshold: float = field(
-        default_factory=lambda: float(os.getenv("DECISION_NEUTRAL_ZONE_THRESHOLD", "0.15"))
+    theoretical_max_total_portfolio_risk: float = field(
+        default_factory=lambda: float(os.getenv("THEORETICAL_MAX_TOTAL_PORTFOLIO_RISK", "0.15"))
     )
-    decision_require_regime_confirmation: bool = field(
-        default_factory=lambda: os.getenv("DECISION_REQUIRE_REGIME_CONFIRMATION", "true").lower() == "true"
+    sizing_min_risk_readiness_score: float = field(
+        default_factory=lambda: float(os.getenv("SIZING_MIN_RISK_READINESS_SCORE", "0.50"))
     )
-    decision_require_mtf_confirmation: bool = field(
-        default_factory=lambda: os.getenv("DECISION_REQUIRE_MTF_CONFIRMATION", "true").lower() == "true"
+    sizing_max_total_pretrade_risk: float = field(
+        default_factory=lambda: float(os.getenv("SIZING_MAX_TOTAL_PRETRADE_RISK", "0.70"))
     )
-    decision_allow_macro_override: bool = field(
-        default_factory=lambda: os.getenv("DECISION_ALLOW_MACRO_OVERRIDE", "false").lower() == "true"
+    sizing_min_data_quality_score: float = field(
+        default_factory=lambda: float(os.getenv("SIZING_MIN_DATA_QUALITY_SCORE", "0.50"))
     )
-    save_decision_candidates: bool = field(
-        default_factory=lambda: os.getenv("SAVE_DECISION_CANDIDATES", "true").lower() == "true"
+    sizing_use_atr_based_unit: bool = field(
+        default_factory=lambda: str(os.getenv("SIZING_USE_ATR_BASED_UNIT", "true")).lower() == "true"
     )
-    save_decision_pool: bool = field(
-        default_factory=lambda: os.getenv("SAVE_DECISION_POOL", "true").lower() == "true"
+    sizing_use_volatility_adjustment: bool = field(
+        default_factory=lambda: str(os.getenv("SIZING_USE_VOLATILITY_ADJUSTMENT", "true")).lower() == "true"
     )
+    sizing_block_on_risk_rejection: bool = field(
+        default_factory=lambda: str(os.getenv("SIZING_BLOCK_ON_RISK_REJECTION", "true")).lower() == "true"
+    )
+    sizing_allow_watchlist_for_borderline: bool = field(
+        default_factory=lambda: str(os.getenv("SIZING_ALLOW_WATCHLIST_FOR_BORDERLINE", "true")).lower() == "true"
+    )
+    save_sizing_candidates: bool = field(
+        default_factory=lambda: str(os.getenv("SAVE_SIZING_CANDIDATES", "true")).lower() == "true"
+    )
+    save_sizing_pool: bool = field(
+        default_factory=lambda: str(os.getenv("SAVE_SIZING_POOL", "true")).lower() == "true"
+    )
+
+    # Force live trading off
 """
 
-content = content.replace('save_signal_pool: bool = field(\n        default_factory=lambda: os.getenv("SAVE_SIGNAL_POOL", "true").lower() == "true"\n    )', 'save_signal_pool: bool = field(\n        default_factory=lambda: os.getenv("SAVE_SIGNAL_POOL", "true").lower() == "true"\n    )' + insert_str)
+content = re.sub(r'    # Force live trading off', settings_fields, content)
 
 with open("commodity_fx_signal_bot/config/settings.py", "w") as f:
     f.write(content)
+
+with open("commodity_fx_signal_bot/.env.example", "r") as f:
+    env_content = f.read()
+
+env_fields = """
+# Phase 24: Theoretical Sizing Candidate Layer
+SIZING_CANDIDATES_ENABLED=true
+THEORETICAL_POSITION_SIZING_ENABLED=true
+DEFAULT_SIZING_PROFILE=balanced_theoretical_sizing
+DEFAULT_SIZING_TIMEFRAME=1d
+THEORETICAL_ACCOUNT_EQUITY=100000
+THEORETICAL_BASE_CURRENCY=TRY
+THEORETICAL_RISK_PER_CANDIDATE=0.005
+THEORETICAL_MAX_RISK_PER_SYMBOL=0.02
+THEORETICAL_MAX_RISK_PER_ASSET_CLASS=0.05
+THEORETICAL_MAX_TOTAL_PORTFOLIO_RISK=0.15
+SIZING_MIN_RISK_READINESS_SCORE=0.50
+SIZING_MAX_TOTAL_PRETRADE_RISK=0.70
+SIZING_MIN_DATA_QUALITY_SCORE=0.50
+SIZING_USE_ATR_BASED_UNIT=true
+SIZING_USE_VOLATILITY_ADJUSTMENT=true
+SIZING_BLOCK_ON_RISK_REJECTION=true
+SIZING_ALLOW_WATCHLIST_FOR_BORDERLINE=true
+SAVE_SIZING_CANDIDATES=true
+SAVE_SIZING_POOL=true
+"""
+
+with open("commodity_fx_signal_bot/.env.example", "w") as f:
+    f.write(env_content + "\n" + env_fields)

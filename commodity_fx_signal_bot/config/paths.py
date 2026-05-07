@@ -183,6 +183,10 @@ def ensure_project_directories() -> None:
         LAKE_FEATURES_RISK_CANDIDATES_DIR,
         LAKE_FEATURES_RISK_POOL_DIR,
         STRATEGY_RULE_REPORTS_DIR,
+        REPORTS_SIZING_REPORTS_DIR,
+        LAKE_FEATURES_SIZING_CANDIDATES_DIR,
+        LAKE_FEATURES_SIZING_POOL_DIR,
+
     ]
 
     for directory in directories:
@@ -196,3 +200,10 @@ REPORTS_RISK_REPORTS_DIR = REPORTS_DIR / "risk_reports"
 # Risk Data Lake directories
 LAKE_FEATURES_RISK_CANDIDATES_DIR = LAKE_FEATURES_DIR / "risk_candidates"
 LAKE_FEATURES_RISK_POOL_DIR = LAKE_FEATURES_DIR / "risk_pool"
+
+# Sizing Reports
+REPORTS_SIZING_REPORTS_DIR = REPORTS_DIR / "sizing_reports"
+
+# Sizing Data Lake directories
+LAKE_FEATURES_SIZING_CANDIDATES_DIR = LAKE_FEATURES_DIR / "sizing_candidates"
+LAKE_FEATURES_SIZING_POOL_DIR = LAKE_FEATURES_DIR / "sizing_pool"
