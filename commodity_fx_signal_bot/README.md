@@ -392,3 +392,23 @@ python -m scripts.run_backtest_batch --limit 10 --timeframe 1d
 python -m scripts.run_backtest_trade_ledger_preview --symbol GC=F --timeframe 1d
 python -m scripts.run_backtest_status
 ```
+
+
+## Gelişmiş Backtest Performans Analizi ve Benchmark Kıyaslama
+
+- Bu faz canlı işlem değildir.
+- Performans metrikleri tarihsel simülasyon çıktısıdır.
+- Sharpe, Sortino, Calmar, profit factor, max drawdown, expectancy gibi metrikler üretilir.
+- Strateji simülasyonu USDTRY, altın, emtia sepeti, TR CPI ve US CPI ile kıyaslanabilir.
+- Enflasyon karşısında reel getiri analizi yapılır.
+- Benchmark kıyasları yatırım tavsiyesi değildir.
+- Az trade sayısı, eksik benchmark, yetersiz veri gibi durumlarda quality warning üretilir.
+
+**Çalıştırma Komutları:**
+```bash
+python -m scripts.run_performance_report_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_benchmark_comparison_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_inflation_adjusted_performance --symbol GC=F --timeframe 1d
+python -m scripts.run_performance_batch --limit 10 --timeframe 1d
+python -m scripts.run_performance_status
+```

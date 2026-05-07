@@ -291,3 +291,18 @@ Phase 19:
 - DataLake backtest trades/equity/runs/audits desteği aldı.
 - Backtest preview/batch/status scriptleri eklendi.
 - Testler genişletildi.
+
+## Phase 27: Gelişmiş Backtest Performans Analizi ve Benchmark Kıyaslama
+- Advanced metrics modülü eklendi.
+- Drawdown metrics modülü eklendi.
+- Rolling metrics modülü eklendi.
+- Trade distribution analizi eklendi.
+- Benchmark comparison eklendi.
+- Inflation adjusted performance eklendi.
+- Relative performance eklendi.
+- Performance breakdown eklendi.
+- Performance quality report eklendi.
+- PerformanceAnalysisPipeline eklendi.
+- DataLake performance/benchmark/rolling/drawdown kayıt desteği aldı.
+- Performance preview/batch/status scriptleri eklendi.
+- Testler genişletildi.
