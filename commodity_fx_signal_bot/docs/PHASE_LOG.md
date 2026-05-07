@@ -234,3 +234,22 @@ Phase 19:
 - DataLake risk_candidates/risk_pool desteği aldı.
 - Risk preview/batch/status scriptleri eklendi.
 - Testler genişletildi.
+
+
+## Phase 24: Pozisyon Boyutu Simülasyon Adayları, Volatiliteye Göre Teorik Risk Birimi ve Portföy Risk Bütçesi
+- Sizing profile sistemi eklendi.
+- Sizing label registry eklendi.
+- Sizing models eklendi.
+- Risk unit hesaplama eklendi.
+- ATR tabanlı teorik sizing eklendi.
+- Volatilite adjustment eklendi.
+- Teorik budget model eklendi.
+- Exposure limit proxy eklendi.
+- Sizing filters eklendi.
+- SizingCandidate dataclass eklendi.
+- SizingCandidatePool eklendi.
+- Sizing quality report eklendi.
+- SizingPipeline eklendi.
+- DataLake sizing_candidates/sizing_pool desteği aldı.
+- Sizing preview/batch/status scriptleri eklendi.
+- Testler genişletildi.
