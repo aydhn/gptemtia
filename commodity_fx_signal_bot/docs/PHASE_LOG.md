@@ -272,3 +272,22 @@ Phase 19:
 - DataLake level_candidates/level_pool desteği aldı.
 - Level preview/batch/status scriptleri eklendi.
 - Testler genişletildi.
+
+
+## Phase 26: Backtest Engine and Trade Lifecycle Simulation
+- Backtest profile sistemi eklendi.
+- Backtest label registry eklendi.
+- SimulatedTrade ve BacktestRunSummary modelleri eklendi.
+- BacktestDataAdapter eklendi.
+- EventClock eklendi.
+- LookaheadGuard eklendi.
+- CandidateAdapter eklendi.
+- ExecutionSimulator eklendi.
+- TradeLifecycleEngine eklendi.
+- TradeLedger eklendi.
+- Equity curve ve performance summary eklendi.
+- Backtest quality report eklendi.
+- BacktestEngine ve BacktestPipeline eklendi.
+- DataLake backtest trades/equity/runs/audits desteği aldı.
+- Backtest preview/batch/status scriptleri eklendi.
+- Testler genişletildi.

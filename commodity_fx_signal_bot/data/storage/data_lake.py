@@ -15,8 +15,16 @@ logger = get_logger(__name__)
 class DataLake:
     """Manager for the local Data Lake."""
 
-    def __init__(self, root_dir: Path):
-        self.root_dir = root_dir
+    def __init__(self, root_dir):
+        if hasattr(root_dir, "lake_dir"):
+            self.paths = root_dir
+            self.root_dir = root_dir.lake_dir
+        else:
+            self.root_dir = Path(root_dir)
+            from config.paths import ProjectPaths
+
+            self.paths = ProjectPaths()
+
         self.ohlcv_dir = self.root_dir / "ohlcv"
 
     @staticmethod
@@ -697,3 +705,99 @@ class DataLake:
             / f"sizing_pool_{timeframe}_{profile_name}.parquet"
         )
         return file_path.exists()
+
+    def save_backtest_trades(
+        self, symbol: str, timeframe: str, profile_name: str, df: pd.DataFrame
+    ) -> Path:
+        path = (
+            self.paths.backtest_trades
+            / f"backtest_trades_{symbol}_{timeframe}_{profile_name}.parquet"
+        )
+        df.to_parquet(path)
+        return path
+
+    def load_backtest_trades(
+        self, symbol: str, timeframe: str, profile_name: str
+    ) -> pd.DataFrame:
+        path = (
+            self.paths.backtest_trades
+            / f"backtest_trades_{symbol}_{timeframe}_{profile_name}.parquet"
+        )
+        if path.exists():
+            return pd.read_parquet(path)
+        return pd.DataFrame()
+
+    def save_backtest_equity_curve(
+        self, symbol: str, timeframe: str, profile_name: str, df: pd.DataFrame
+    ) -> Path:
+        path = (
+            self.paths.backtest_equity_curves
+            / f"backtest_equity_{symbol}_{timeframe}_{profile_name}.parquet"
+        )
+        df.to_parquet(path)
+        return path
+
+    def load_backtest_equity_curve(
+        self, symbol: str, timeframe: str, profile_name: str
+    ) -> pd.DataFrame:
+        path = (
+            self.paths.backtest_equity_curves
+            / f"backtest_equity_{symbol}_{timeframe}_{profile_name}.parquet"
+        )
+        if path.exists():
+            return pd.read_parquet(path)
+        return pd.DataFrame()
+
+    def save_backtest_summary(
+        self, symbol: str, timeframe: str, profile_name: str, summary: dict
+    ) -> Path:
+        path = (
+            self.paths.backtest_runs
+            / f"backtest_summary_{symbol}_{timeframe}_{profile_name}.json"
+        )
+        import json
+
+        with open(path, "w") as f:
+            json.dump(summary, f, indent=2, default=str)
+        return path
+
+    def load_backtest_summary(
+        self, symbol: str, timeframe: str, profile_name: str
+    ) -> dict:
+        path = (
+            self.paths.backtest_runs
+            / f"backtest_summary_{symbol}_{timeframe}_{profile_name}.json"
+        )
+        if path.exists():
+            import json
+
+            with open(path, "r") as f:
+                return json.load(f)
+        return {}
+
+    def list_backtest_runs(self) -> pd.DataFrame:
+        runs = []
+        import json
+
+        for file in self.paths.backtest_runs.glob("*.json"):
+            try:
+                with open(file, "r") as f:
+                    data = json.load(f)
+                runs.append(
+                    {
+                        "symbol": data.get("symbol", ""),
+                        "timeframe": data.get("timeframe", ""),
+                        "profile": data.get("profile", ""),
+                        "trade_count": data.get("performance", {}).get(
+                            "trade_count", 0
+                        ),
+                        "win_rate": data.get("performance", {}).get("win_rate", 0),
+                        "total_return_pct": data.get("performance", {}).get(
+                            "total_return_pct", 0
+                        ),
+                        "file_path": str(file),
+                    }
+                )
+            except Exception as e:
+                pass
+        return pd.DataFrame(runs)

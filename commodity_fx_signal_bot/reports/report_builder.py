@@ -2242,3 +2242,132 @@ def build_level_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     else:
         report.append(status_df.to_string())
     return "\n".join(report)
+
+
+def build_backtest_preview_report(
+    symbol: str,
+    timeframe: str,
+    profile_name: str,
+    summary: dict,
+    trades_tail_df: pd.DataFrame,
+) -> str:
+    lines = []
+    lines.append("=" * 60)
+    lines.append(f"BACKTEST PREVIEW: {symbol} | {timeframe} | {profile_name}")
+    lines.append("=" * 60)
+    lines.append("UYARI: Bu çıktılar tarihsel simülasyon/backtest sonuçlarıdır.")
+    lines.append(
+        "Gerçek emir, canlı işlem, broker talimatı, kesin performans iddiası veya yatırım tavsiyesi değildir."
+    )
+    lines.append("-" * 60)
+
+    perf = summary.get("performance", {})
+    run_sum = summary.get("run_summary", {})
+
+    lines.append(f"Input Candidates  : {run_sum.get('input_candidate_count', 0)}")
+    lines.append(f"Simulated Trades  : {run_sum.get('simulated_trade_count', 0)}")
+    lines.append(f"Win Rate          : {perf.get('win_rate', 0):.2%}")
+    lines.append(f"Profit Factor     : {perf.get('profit_factor', 0):.2f}")
+    lines.append(f"Total Return      : {perf.get('total_return_pct', 0):.2%}")
+
+    lines.append("-" * 60)
+    if not trades_tail_df.empty:
+        lines.append("Son Islemler:")
+        lines.append(
+            trades_tail_df[
+                [
+                    "entry_timestamp",
+                    "directional_bias",
+                    "lifecycle_status",
+                    "result_label",
+                    "return_pct",
+                ]
+            ].to_string()
+        )
+
+    return "\n".join(lines)
+
+
+def build_backtest_batch_report(summary: dict) -> str:
+    lines = []
+    lines.append("=" * 60)
+    lines.append("BACKTEST BATCH SUMMARY")
+    lines.append("=" * 60)
+    lines.append("UYARI: Bu çıktılar tarihsel simülasyon/backtest sonuçlarıdır.")
+    lines.append(
+        "Gerçek emir, canlı işlem, broker talimatı, kesin performans iddiası veya yatırım tavsiyesi değildir."
+    )
+    lines.append("-" * 60)
+
+    lines.append(f"Profile: {summary.get('profile', '')}")
+    lines.append(f"Timeframe: {summary.get('timeframe', '')}")
+    lines.append(f"Symbols Processed: {summary.get('symbols_processed', 0)}")
+    lines.append(f"Total Trades: {summary.get('total_trades', 0)}")
+
+    perf = summary.get("performance", {})
+    lines.append(f"Avg Win Rate: {perf.get('win_rate', 0):.2%}")
+    lines.append(f"Avg Profit Factor: {perf.get('profit_factor', 0):.2f}")
+
+    return "\n".join(lines)
+
+
+def build_backtest_trade_ledger_report(
+    symbol: str,
+    timeframe: str,
+    profile_name: str,
+    summary: dict,
+    trades_df: pd.DataFrame,
+) -> str:
+    lines = []
+    lines.append("=" * 60)
+    lines.append(f"BACKTEST TRADE LEDGER: {symbol} | {timeframe} | {profile_name}")
+    lines.append("=" * 60)
+    lines.append("UYARI: Bu çıktılar tarihsel simülasyon/backtest sonuçlarıdır.")
+    lines.append(
+        "Gerçek emir, canlı işlem, broker talimatı, kesin performans iddiası veya yatırım tavsiyesi değildir."
+    )
+    lines.append("-" * 60)
+
+    lines.append(f"Total Trades: {summary.get('trade_count', 0)}")
+    lines.append(
+        f"Win/Loss/Breakeven: {summary.get('win_count', 0)} / {summary.get('loss_count', 0)} / {summary.get('breakeven_count', 0)}"
+    )
+
+    if not trades_df.empty:
+        lines.append("\nSon 5 Islem Detayi:")
+        tail = trades_df.tail(5)
+        cols = [
+            "entry_timestamp",
+            "exit_timestamp",
+            "directional_bias",
+            "exit_reason",
+            "net_pnl",
+        ]
+        cols = [c for c in cols if c in tail.columns]
+        lines.append(tail[cols].to_string())
+
+    return "\n".join(lines)
+
+
+def build_backtest_status_report(status_df: pd.DataFrame, summary: dict) -> str:
+    lines = []
+    lines.append("=" * 60)
+    lines.append("BACKTEST STATUS REPORT")
+    lines.append("=" * 60)
+    lines.append("UYARI: Bu çıktılar tarihsel simülasyon/backtest sonuçlarıdır.")
+    lines.append(
+        "Gerçek emir, canlı işlem, broker talimatı, kesin performans iddiası veya yatırım tavsiyesi değildir."
+    )
+    lines.append("-" * 60)
+
+    if status_df.empty:
+        lines.append("No backtest runs found.")
+    else:
+        lines.append(f"Total Runs Found: {len(status_df)}")
+        lines.append(
+            status_df[
+                ["symbol", "timeframe", "profile", "trade_count", "win_rate"]
+            ].to_string()
+        )
+
+    return "\n".join(lines)
