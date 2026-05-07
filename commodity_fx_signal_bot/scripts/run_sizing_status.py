@@ -12,6 +12,7 @@ from reports.report_builder import build_sizing_status_report
 
 logger = logging.getLogger(__name__)
 
+
 def main():
     parser = argparse.ArgumentParser(description="Check Sizing Status")
     args = parser.parse_args()
@@ -29,37 +30,48 @@ def main():
         if spec.is_synthetic or spec.is_macro or spec.is_benchmark:
             continue
 
-        timeframes = ["1d"] # Simplify for status checking
+        timeframes = ["1d"]  # Simplify for status checking
         for tf in timeframes:
             try:
                 if data_lake.has_features(spec, tf, "sizing_candidates"):
                     df = data_lake.load_features(spec, tf, "sizing_candidates")
                     if not df.empty:
                         total_candidates += len(df)
-                        passed = len(df[df["sizing_label"] == "sizing_approved_candidate"]) if "sizing_label" in df.columns else 0
-                        status_records.append({
-                            "symbol": spec.symbol,
-                            "timeframe": tf,
-                            "candidates": len(df),
-                            "passed": passed
-                        })
+                        passed = (
+                            len(df[df["sizing_label"] == "sizing_approved_candidate"])
+                            if "sizing_label" in df.columns
+                            else 0
+                        )
+                        status_records.append(
+                            {
+                                "symbol": spec.symbol,
+                                "timeframe": tf,
+                                "candidates": len(df),
+                                "passed": passed,
+                            }
+                        )
             except Exception as e:
                 logger.debug(f"Error checking status for {spec.symbol}: {e}")
 
     # Check pools
-    profile_names = ["balanced_theoretical_sizing", "volatility_scaled_sizing", "conservative_theoretical_sizing", "forex_try_sizing", "metals_sizing"]
+    profile_names = [
+        "balanced_theoretical_sizing",
+        "volatility_scaled_sizing",
+        "conservative_theoretical_sizing",
+        "forex_try_sizing",
+        "metals_sizing",
+    ]
     for p in profile_names:
         for tf in ["1d"]:
             try:
-                if hasattr(data_lake, "has_sizing_pool") and data_lake.has_sizing_pool(tf, p):
+                if hasattr(data_lake, "has_sizing_pool") and data_lake.has_sizing_pool(
+                    tf, p
+                ):
                     total_pools += 1
             except Exception:
                 pass
 
-    summary = {
-        "total_pools": total_pools,
-        "total_candidates": total_candidates
-    }
+    summary = {"total_pools": total_pools, "total_candidates": total_candidates}
 
     status_df = pd.DataFrame(status_records)
 
@@ -76,6 +88,7 @@ def main():
         status_df.to_csv(csv_path, index=False)
 
     logger.info(f"Saved status report to {report_path} and {csv_path}")
+
 
 if __name__ == "__main__":
     main()

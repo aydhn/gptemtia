@@ -2,7 +2,10 @@ import math
 from typing import Optional, Dict, Any
 from sizing.sizing_models import safe_positive_float
 
-def calculate_volatility_adjustment_factor(atr_pct: Optional[float], volatility_percentile: Optional[float]) -> float:
+
+def calculate_volatility_adjustment_factor(
+    atr_pct: Optional[float], volatility_percentile: Optional[float]
+) -> float:
     """Calculates an adjustment factor to scale sizing based on volatility."""
     atr_pct_safe = safe_positive_float(atr_pct)
     vol_pct_safe = safe_positive_float(volatility_percentile)
@@ -15,16 +18,17 @@ def calculate_volatility_adjustment_factor(atr_pct: Optional[float], volatility_
         elif vol_pct_safe > 0.80:
             factor *= 0.75
         elif vol_pct_safe < 0.20:
-            factor *= 1.25 # Slightly increased sizing for low volatility
+            factor *= 1.25  # Slightly increased sizing for low volatility
 
     if atr_pct_safe is not None:
         # Penalize extremely high ATR percentage moves
-        if atr_pct_safe > 0.05: # >5% ATR is quite high for many pairs
+        if atr_pct_safe > 0.05:  # >5% ATR is quite high for many pairs
             factor *= 0.6
         elif atr_pct_safe > 0.03:
             factor *= 0.8
 
     return max(0.1, min(1.5, factor))
+
 
 def calculate_risk_readiness_adjustment(risk_readiness_score: Optional[float]) -> float:
     """Calculates an adjustment factor based on the overall risk readiness score."""
@@ -41,7 +45,10 @@ def calculate_risk_readiness_adjustment(risk_readiness_score: Optional[float]) -
 
     return 1.0
 
-def calculate_pretrade_risk_adjustment(total_pretrade_risk_score: Optional[float]) -> float:
+
+def calculate_pretrade_risk_adjustment(
+    total_pretrade_risk_score: Optional[float],
+) -> float:
     """Calculates an adjustment factor based on total pretrade risk."""
     risk_safe = safe_positive_float(total_pretrade_risk_score)
     if risk_safe is None:
@@ -55,6 +62,7 @@ def calculate_pretrade_risk_adjustment(total_pretrade_risk_score: Optional[float
         return 1.20
 
     return 1.0
+
 
 def calculate_combined_sizing_adjustment(context: Dict[str, Any]) -> float:
     """Calculates the final combined sizing adjustment factor."""
@@ -70,6 +78,7 @@ def calculate_combined_sizing_adjustment(context: Dict[str, Any]) -> float:
 
     combined = vol_factor * readiness_factor * risk_factor
     return max(0.0, min(1.0, combined))
+
 
 def apply_sizing_adjustment(base_units: float, adjustment_factor: float) -> float:
     """Applies the adjustment factor to the base units."""

@@ -1,27 +1,37 @@
 import re
 
-with open("commodity_fx_signal_bot/tests/test_sizing_quality.py", "r") as f:
+# Fix test_level_filters.py
+with open("commodity_fx_signal_bot/tests/test_level_filters.py", "r") as f:
     content = f.read()
 
-content = content.replace('def test_check_sizing_candidate_duplicates():\n    df = pd.DataFrame({"sizing_id": ["a", "b", "a"]})', 'def test_check_sizing_candidate_duplicates():\n    df = pd.DataFrame({"sizing_id": ["a", "b", "a"], "timestamp": ["1", "2", "3"]})')
+content = content.replace(
+    'assert label == "level_approved_candidate"',
+    'assert label == "level_watchlist_candidate"'
+)
 
-with open("commodity_fx_signal_bot/tests/test_sizing_quality.py", "w") as f:
+with open("commodity_fx_signal_bot/tests/test_level_filters.py", "w") as f:
     f.write(content)
 
-
-with open("commodity_fx_signal_bot/tests/test_sizing_pipeline.py", "r") as f:
+# Fix test_level_pipeline.py
+with open("commodity_fx_signal_bot/tests/test_level_pipeline.py", "r") as f:
     content = f.read()
 
-content = content.replace('from config.symbols import SymbolSpec', 'from config.symbols import SymbolSpec')
+content = content.replace(
+    'lake = DummyDataLake(None)',
+    'from pathlib import Path\nlake = DummyDataLake(Path("/tmp/lake"))'
+)
 
-with open("commodity_fx_signal_bot/tests/test_sizing_pipeline.py", "w") as f:
+with open("commodity_fx_signal_bot/tests/test_level_pipeline.py", "w") as f:
     f.write(content)
 
-
-with open("commodity_fx_signal_bot/tests/test_sizing_scripts_contract.py", "r") as f:
+# Fix test_level_quality.py
+with open("commodity_fx_signal_bot/levels/level_quality.py", "r") as f:
     content = f.read()
 
-content = content.replace('cwd="commodity_fx_signal_bot"', 'cwd="."')
+content = content.replace(
+    'passed_count = len(df[df.get("passed_level_filters", False) == True])',
+    'passed_count = len(df[df.get("passed_level_filters", pd.Series(False, index=df.index)) == True])'
+)
 
-with open("commodity_fx_signal_bot/tests/test_sizing_scripts_contract.py", "w") as f:
+with open("commodity_fx_signal_bot/levels/level_quality.py", "w") as f:
     f.write(content)

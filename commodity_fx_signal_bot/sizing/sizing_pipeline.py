@@ -6,17 +6,24 @@ from config.settings import Settings
 from config.symbols import SymbolSpec
 
 from sizing.sizing_config import SizingProfile, get_default_sizing_profile
-from sizing.sizing_candidate import SizingCandidate, build_sizing_candidate_from_evaluation
+from sizing.sizing_candidate import (
+    SizingCandidate,
+    build_sizing_candidate_from_evaluation,
+)
 from sizing.sizing_pool import SizingCandidatePool
 from sizing.risk_unit import calculate_theoretical_risk_amount
 from sizing.atr_sizing import build_atr_sizing_candidate
-from sizing.volatility_sizing import calculate_combined_sizing_adjustment, apply_sizing_adjustment
+from sizing.volatility_sizing import (
+    calculate_combined_sizing_adjustment,
+    apply_sizing_adjustment,
+)
 from sizing.budget_model import build_risk_budget_allocation, cap_risk_amount_by_budgets
 from sizing.exposure_limits import check_exposure_limits
 from sizing.sizing_filters import infer_sizing_candidate_label
 from sizing.sizing_quality import build_sizing_quality_report
 
 logger = logging.getLogger(__name__)
+
 
 class SizingPipeline:
     def __init__(
@@ -37,7 +44,11 @@ class SizingPipeline:
         warnings = []
         try:
             if not self.data_lake.has_features(spec, timeframe, "risk_candidates"):
-                return pd.DataFrame(), {"warnings": [f"No risk candidates found for {spec.symbol} {timeframe}"]}
+                return pd.DataFrame(), {
+                    "warnings": [
+                        f"No risk candidates found for {spec.symbol} {timeframe}"
+                    ]
+                }
             df = self.data_lake.load_features(spec, timeframe, "risk_candidates")
             return df, {"warnings": warnings}
         except Exception as e:
@@ -53,11 +64,16 @@ class SizingPipeline:
         missing = []
 
         feature_sets = [
-            "volatility", "volatility_events",
-            "price_action", "price_action_events",
-            "regime", "regime_events",
-            "mtf", "mtf_events",
-            "asset_profiles", "group_features"
+            "volatility",
+            "volatility_events",
+            "price_action",
+            "price_action_events",
+            "regime",
+            "regime_events",
+            "mtf",
+            "mtf_events",
+            "asset_profiles",
+            "group_features",
         ]
 
         for fs in feature_sets:
@@ -87,13 +103,13 @@ class SizingPipeline:
         existing_sizing_df: Optional[pd.DataFrame] = None,
     ) -> Tuple[SizingCandidate, Dict[str, Any]]:
 
-        evaluation = {
-            "warnings": [],
-            "block_reasons": [],
-            "watchlist_reasons": []
-        }
+        evaluation = {"warnings": [], "block_reasons": [], "watchlist_reasons": []}
 
-        timestamp = risk_row.name if isinstance(risk_row.name, (pd.Timestamp, str)) else risk_row.get("timestamp")
+        timestamp = (
+            risk_row.name
+            if isinstance(risk_row.name, (pd.Timestamp, str))
+            else risk_row.get("timestamp")
+        )
 
         # Extract basic info
         ohlcv = context_frames.get("ohlcv", pd.DataFrame())
@@ -114,8 +130,14 @@ class SizingPipeline:
             if isinstance(v_row, pd.DataFrame):
                 v_row = v_row.iloc[-1]
             atr_value = float(v_row.get("atr_14", 0.0)) if "atr_14" in v_row else None
-            atr_pct = float(v_row.get("atr_14_pct", 0.0)) if "atr_14_pct" in v_row else None
-            vol_pctile = float(v_row.get("volatility_percentile", 0.0)) if "volatility_percentile" in v_row else None
+            atr_pct = (
+                float(v_row.get("atr_14_pct", 0.0)) if "atr_14_pct" in v_row else None
+            )
+            vol_pctile = (
+                float(v_row.get("volatility_percentile", 0.0))
+                if "volatility_percentile" in v_row
+                else None
+            )
 
         evaluation["latest_close"] = latest_close
         evaluation["atr_value"] = atr_value
@@ -123,7 +145,9 @@ class SizingPipeline:
 
         # 1. Base Theoretical Risk
         equity = self.profile.theoretical_account_equity
-        theoretical_risk = calculate_theoretical_risk_amount(equity, self.profile.risk_per_candidate)
+        theoretical_risk = calculate_theoretical_risk_amount(
+            equity, self.profile.risk_per_candidate
+        )
         evaluation["theoretical_account_equity"] = equity
         evaluation["theoretical_risk_amount"] = theoretical_risk
 
@@ -135,9 +159,13 @@ class SizingPipeline:
 
         # Check exposures
         exp_eval = check_exposure_limits(
-            {"symbol": spec.symbol, "asset_class": asset_class, "directional_bias": dir_bias},
+            {
+                "symbol": spec.symbol,
+                "asset_class": asset_class,
+                "directional_bias": dir_bias,
+            },
             existing_sizing_df,
-            self.profile
+            self.profile,
         )
         evaluation["exposure_eval"] = exp_eval
         if exp_eval.get("exposure_warnings"):
@@ -149,9 +177,13 @@ class SizingPipeline:
 
         sym_rem = max(0.0, budget_alloc.max_symbol_risk_amount - sym_exp)
         ac_rem = max(0.0, budget_alloc.max_asset_class_risk_amount - ac_exp)
-        tot_rem = budget_alloc.max_total_portfolio_risk_amount # Ignoring total for simplistic proxy
+        tot_rem = (
+            budget_alloc.max_total_portfolio_risk_amount
+        )  # Ignoring total for simplistic proxy
 
-        capped_risk, cap_details = cap_risk_amount_by_budgets(theoretical_risk, sym_rem, ac_rem, tot_rem)
+        capped_risk, cap_details = cap_risk_amount_by_budgets(
+            theoretical_risk, sym_rem, ac_rem, tot_rem
+        )
         evaluation["capped_theoretical_risk_amount"] = capped_risk
 
         # 3. Adjustments
@@ -159,10 +191,14 @@ class SizingPipeline:
             "atr_pct": atr_pct,
             "volatility_percentile": vol_pctile,
             "risk_readiness_score": risk_row.get("risk_readiness_score", 0.0),
-            "total_pretrade_risk_score": risk_row.get("total_pretrade_risk_score", 0.0)
+            "total_pretrade_risk_score": risk_row.get("total_pretrade_risk_score", 0.0),
         }
 
-        combined_adj = calculate_combined_sizing_adjustment(adj_context) if self.profile.use_volatility_adjustment else 1.0
+        combined_adj = (
+            calculate_combined_sizing_adjustment(adj_context)
+            if self.profile.use_volatility_adjustment
+            else 1.0
+        )
         evaluation["combined_adjustment_factor"] = combined_adj
 
         # 4. ATR Sizing
@@ -171,7 +207,9 @@ class SizingPipeline:
         base_notional = 0.0
 
         if self.profile.use_atr_based_unit and atr_value and latest_close:
-            atr_res = build_atr_sizing_candidate(capped_risk, latest_close, atr_value, 1.0)
+            atr_res = build_atr_sizing_candidate(
+                capped_risk, latest_close, atr_value, 1.0
+            )
             if atr_res["valid"]:
                 sizing_method = "atr_based_theoretical"
                 base_units = atr_res["theoretical_units"]
@@ -182,7 +220,7 @@ class SizingPipeline:
             # Fallback to fractional
             if latest_close and latest_close > 0:
                 sizing_method = "fixed_fractional_theoretical"
-                base_notional = capped_risk * 10 # Arbitrary fallback
+                base_notional = capped_risk * 10  # Arbitrary fallback
                 base_units = base_notional / latest_close
 
         evaluation["sizing_method"] = sizing_method
@@ -200,7 +238,9 @@ class SizingPipeline:
         label = infer_sizing_candidate_label(risk_row, evaluation, self.profile)
         evaluation["sizing_label"] = label
 
-        candidate = build_sizing_candidate_from_evaluation(risk_row, evaluation, spec.symbol, timeframe)
+        candidate = build_sizing_candidate_from_evaluation(
+            risk_row, evaluation, spec.symbol, timeframe
+        )
         return candidate, evaluation
 
     def build_for_symbol_timeframe(
@@ -224,14 +264,20 @@ class SizingPipeline:
             "passed_sizing_candidate_count": 0,
             "rejected_sizing_candidate_count": 0,
             "watchlist_sizing_candidate_count": 0,
-            "warnings": []
+            "warnings": [],
         }
 
-        if spec.data_source == 'synthetic' or spec.asset_class in ['macro', 'benchmark']:
+        if spec.data_source == "synthetic" or spec.asset_class in [
+            "macro",
+            "benchmark",
+        ]:
             summary["warnings"].append("Skipping synthetic/macro/benchmark symbol.")
             return pd.DataFrame(), summary
 
-        if not self.settings.sizing_candidates_enabled or not self.settings.theoretical_position_sizing_enabled:
+        if (
+            not self.settings.sizing_candidates_enabled
+            or not self.settings.theoretical_position_sizing_enabled
+        ):
             summary["warnings"].append("Sizing candidates are disabled in settings.")
             return pd.DataFrame(), summary
 
@@ -259,9 +305,15 @@ class SizingPipeline:
         summary["sizing_candidate_count"] = len(df)
 
         if not df.empty:
-            summary["passed_sizing_candidate_count"] = len(df[df["sizing_label"] == "sizing_approved_candidate"])
-            summary["rejected_sizing_candidate_count"] = len(df[df["sizing_label"] == "sizing_rejected_candidate"])
-            summary["watchlist_sizing_candidate_count"] = len(df[df["sizing_label"] == "sizing_watchlist_candidate"])
+            summary["passed_sizing_candidate_count"] = len(
+                df[df["sizing_label"] == "sizing_approved_candidate"]
+            )
+            summary["rejected_sizing_candidate_count"] = len(
+                df[df["sizing_label"] == "sizing_rejected_candidate"]
+            )
+            summary["watchlist_sizing_candidate_count"] = len(
+                df[df["sizing_label"] == "sizing_watchlist_candidate"]
+            )
 
             summary["quality_report"] = build_sizing_quality_report(df, summary)
 
@@ -291,7 +343,9 @@ class SizingPipeline:
                 break
 
             try:
-                df, _ = self.build_for_symbol_timeframe(spec, timeframe, profile, save=save)
+                df, _ = self.build_for_symbol_timeframe(
+                    spec, timeframe, profile, save=save
+                )
                 if not df.empty:
                     pool = SizingCandidatePool.from_dataframe(df)
                     universe_pool.extend(pool.candidates)
@@ -308,11 +362,13 @@ class SizingPipeline:
             if hasattr(self.data_lake, "save_sizing_pool"):
                 self.data_lake.save_sizing_pool(timeframe, u_df, self.profile.name)
             else:
-                logger.warning("save_sizing_pool not found on DataLake. Bypassing global pool save.")
+                logger.warning(
+                    "save_sizing_pool not found on DataLake. Bypassing global pool save."
+                )
 
         return {
             "processed_symbols": processed,
             "failed_symbols": failed,
             "total_candidates": len(u_df),
-            "summary": universe_pool.summarize() if not u_df.empty else {}
+            "summary": universe_pool.summarize() if not u_df.empty else {},
         }

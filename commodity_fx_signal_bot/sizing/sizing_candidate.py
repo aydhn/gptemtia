@@ -4,6 +4,7 @@ import hashlib
 import pandas as pd
 from sizing.sizing_models import safe_positive_float
 
+
 @dataclass
 class SizingCandidate:
     symbol: str
@@ -42,28 +43,36 @@ class SizingCandidate:
     warnings: List[str]
     notes: str = ""
 
-def build_sizing_id(symbol: str, timeframe: str, timestamp: str, source_risk_id: str) -> str:
+
+def build_sizing_id(
+    symbol: str, timeframe: str, timestamp: str, source_risk_id: str
+) -> str:
     """Generates a deterministic sizing candidate ID."""
     raw = f"{symbol}_{timeframe}_{timestamp}_{source_risk_id}"
-    return hashlib.sha256(raw.encode('utf-8')).hexdigest()[:16]
+    return hashlib.sha256(raw.encode("utf-8")).hexdigest()[:16]
+
 
 def sizing_candidate_to_dict(candidate: SizingCandidate) -> Dict[str, Any]:
     return asdict(candidate)
 
+
 def build_sizing_candidate_from_evaluation(
-    risk_row: pd.Series,
-    evaluation: Dict[str, Any],
-    symbol: str,
-    timeframe: str
+    risk_row: pd.Series, evaluation: Dict[str, Any], symbol: str, timeframe: str
 ) -> SizingCandidate:
     """Builds a SizingCandidate dataclass from evaluation context."""
 
-    timestamp = str(risk_row.name) if isinstance(risk_row.name, (pd.Timestamp, str)) else str(risk_row.get("timestamp", ""))
+    timestamp = (
+        str(risk_row.name)
+        if isinstance(risk_row.name, (pd.Timestamp, str))
+        else str(risk_row.get("timestamp", ""))
+    )
     source_risk_id = risk_row.get("risk_id", "")
     sizing_id = build_sizing_id(symbol, timeframe, timestamp, source_risk_id)
 
     # Calculate a proxy for sizing readiness
-    risk_readiness = safe_positive_float(risk_row.get("risk_readiness_score", 0.0)) or 0.0
+    risk_readiness = (
+        safe_positive_float(risk_row.get("risk_readiness_score", 0.0)) or 0.0
+    )
     combined_adj = evaluation.get("combined_adjustment_factor", 1.0)
     sizing_readiness_score = risk_readiness * combined_adj
 
@@ -90,18 +99,25 @@ def build_sizing_candidate_from_evaluation(
         sizing_severity=evaluation.get("sizing_severity", "unknown"),
         theoretical_account_equity=evaluation.get("theoretical_account_equity", 0.0),
         theoretical_risk_amount=evaluation.get("theoretical_risk_amount", 0.0),
-        capped_theoretical_risk_amount=evaluation.get("capped_theoretical_risk_amount", 0.0),
+        capped_theoretical_risk_amount=evaluation.get(
+            "capped_theoretical_risk_amount", 0.0
+        ),
         latest_close=evaluation.get("latest_close"),
         atr_value=evaluation.get("atr_value"),
         atr_pct=evaluation.get("atr_pct"),
-        volatility_adjustment_factor=evaluation.get("volatility_adjustment_factor", 1.0),
+        volatility_adjustment_factor=evaluation.get(
+            "volatility_adjustment_factor", 1.0
+        ),
         risk_adjustment_factor=evaluation.get("risk_adjustment_factor", 1.0),
         combined_adjustment_factor=combined_adj,
         theoretical_units=evaluation.get("theoretical_units", 0.0),
         adjusted_theoretical_units=evaluation.get("adjusted_theoretical_units", 0.0),
         theoretical_notional=evaluation.get("theoretical_notional"),
         adjusted_theoretical_notional=evaluation.get("adjusted_theoretical_notional"),
-        total_pretrade_risk_score=safe_positive_float(risk_row.get("total_pretrade_risk_score", 0.0)) or 0.0,
+        total_pretrade_risk_score=safe_positive_float(
+            risk_row.get("total_pretrade_risk_score", 0.0)
+        )
+        or 0.0,
         risk_readiness_score=risk_readiness,
         sizing_readiness_score=sizing_readiness_score,
         sizing_quality_score=sizing_quality_score,
@@ -109,5 +125,5 @@ def build_sizing_candidate_from_evaluation(
         block_reasons=evaluation.get("block_reasons", []),
         watchlist_reasons=evaluation.get("watchlist_reasons", []),
         warnings=evaluation.get("warnings", []),
-        notes=evaluation.get("notes", "")
+        notes=evaluation.get("notes", ""),
     )

@@ -1,9 +1,10 @@
 from sizing.budget_model import (
     build_risk_budget_allocation,
     calculate_symbol_budget_remaining,
-    cap_risk_amount_by_budgets
+    cap_risk_amount_by_budgets,
 )
 from sizing.sizing_config import get_default_sizing_profile
+
 
 def test_build_risk_budget_allocation():
     profile = get_default_sizing_profile()
@@ -11,9 +12,11 @@ def test_build_risk_budget_allocation():
     assert alloc.theoretical_account_equity > 0
     assert alloc.max_symbol_risk_amount > 0
 
+
 def test_calculate_symbol_budget_remaining():
     assert calculate_symbol_budget_remaining(500.0, 1000.0) == 500.0
     assert calculate_symbol_budget_remaining(1500.0, 1000.0) == 0.0
+
 
 def test_cap_risk_amount_by_budgets():
     # Uncapped
