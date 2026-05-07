@@ -1050,6 +1050,111 @@ class Settings:
 
     # Force live trading off
 
+    # Phase 26: Backtest Engine and Trade Lifecycle
+    backtest_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("BACKTEST_ENABLED", "true")).lower()
+        == "true"
+    )
+    backtest_engine_enabled: bool = field(
+        default_factory=lambda: str(
+            os.getenv("BACKTEST_ENGINE_ENABLED", "true")
+        ).lower()
+        == "true"
+    )
+    default_backtest_profile: str = field(
+        default_factory=lambda: os.getenv(
+            "DEFAULT_BACKTEST_PROFILE", "balanced_candidate_backtest"
+        )
+    )
+    default_backtest_timeframe: str = field(
+        default_factory=lambda: os.getenv("DEFAULT_BACKTEST_TIMEFRAME", "1d")
+    )
+    default_backtest_initial_equity: float = field(
+        default_factory=lambda: float(
+            os.getenv("DEFAULT_BACKTEST_INITIAL_EQUITY", "100000.0")
+        )
+    )
+    default_backtest_base_currency: str = field(
+        default_factory=lambda: os.getenv("DEFAULT_BACKTEST_BASE_CURRENCY", "TRY")
+    )
+    backtest_allow_same_bar_exit: bool = field(
+        default_factory=lambda: str(
+            os.getenv("BACKTEST_ALLOW_SAME_BAR_EXIT", "false")
+        ).lower()
+        == "true"
+    )
+    backtest_entry_delay_bars: int = field(
+        default_factory=lambda: int(os.getenv("BACKTEST_ENTRY_DELAY_BARS", "1"))
+    )
+    backtest_exit_delay_bars: int = field(
+        default_factory=lambda: int(os.getenv("BACKTEST_EXIT_DELAY_BARS", "1"))
+    )
+    backtest_use_next_bar_open_for_entry: bool = field(
+        default_factory=lambda: str(
+            os.getenv("BACKTEST_USE_NEXT_BAR_OPEN_FOR_ENTRY", "true")
+        ).lower()
+        == "true"
+    )
+    backtest_use_next_bar_open_for_exit: bool = field(
+        default_factory=lambda: str(
+            os.getenv("BACKTEST_USE_NEXT_BAR_OPEN_FOR_EXIT", "true")
+        ).lower()
+        == "true"
+    )
+    backtest_include_transaction_costs: bool = field(
+        default_factory=lambda: str(
+            os.getenv("BACKTEST_INCLUDE_TRANSACTION_COSTS", "true")
+        ).lower()
+        == "true"
+    )
+    backtest_default_fee_bps: float = field(
+        default_factory=lambda: float(os.getenv("BACKTEST_DEFAULT_FEE_BPS", "5.0"))
+    )
+    backtest_default_slippage_bps: float = field(
+        default_factory=lambda: float(os.getenv("BACKTEST_DEFAULT_SLIPPAGE_BPS", "5.0"))
+    )
+    backtest_max_holding_bars: int = field(
+        default_factory=lambda: int(os.getenv("BACKTEST_MAX_HOLDING_BARS", "20"))
+    )
+    backtest_single_position_per_symbol: bool = field(
+        default_factory=lambda: str(
+            os.getenv("BACKTEST_SINGLE_POSITION_PER_SYMBOL", "true")
+        ).lower()
+        == "true"
+    )
+    backtest_block_overlapping_positions: bool = field(
+        default_factory=lambda: str(
+            os.getenv("BACKTEST_BLOCK_OVERLAPPING_POSITIONS", "true")
+        ).lower()
+        == "true"
+    )
+    backtest_require_level_candidate: bool = field(
+        default_factory=lambda: str(
+            os.getenv("BACKTEST_REQUIRE_LEVEL_CANDIDATE", "true")
+        ).lower()
+        == "true"
+    )
+    backtest_require_sizing_candidate: bool = field(
+        default_factory=lambda: str(
+            os.getenv("BACKTEST_REQUIRE_SIZING_CANDIDATE", "true")
+        ).lower()
+        == "true"
+    )
+    save_backtest_results: bool = field(
+        default_factory=lambda: str(os.getenv("SAVE_BACKTEST_RESULTS", "true")).lower()
+        == "true"
+    )
+    save_backtest_trades: bool = field(
+        default_factory=lambda: str(os.getenv("SAVE_BACKTEST_TRADES", "true")).lower()
+        == "true"
+    )
+    save_backtest_equity_curve: bool = field(
+        default_factory=lambda: str(
+            os.getenv("SAVE_BACKTEST_EQUITY_CURVE", "true")
+        ).lower()
+        == "true"
+    )
+
     def __post_init__(self):
         self.live_trading_enabled = False
 

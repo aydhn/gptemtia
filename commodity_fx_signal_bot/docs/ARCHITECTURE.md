@@ -89,3 +89,18 @@ Sizing Candidates
 → Reward/Risk Evaluation
 → StopTargetLevelCandidatePool
 → Future Backtest / Paper Trade / Exit Simulation
+
+
+### Simulation & Backtesting (Phase 26+)
+Level Candidates
+→ BacktestDataAdapter
+→ CandidateAdapter
+→ EventClock
+→ LookaheadGuard
+→ ExecutionSimulator
+→ TradeLifecycleEngine
+→ TradeLedger
+→ EquityCurve
+→ PerformanceSummary
+→ BacktestQuality
+→ Future Optimizer / Paper Trade / Research Reports

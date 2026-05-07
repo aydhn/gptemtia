@@ -227,3 +227,27 @@ class FeatureStore:
     def list_available_level_pools(self) -> dict:
         # Dummy implementation
         return {"level_pools": []}
+
+    def load_backtest_trades(
+        self, spec: SymbolSpec, timeframe: str, profile_name: str | None = None
+    ) -> pd.DataFrame:
+        prof = profile_name or "balanced_candidate_backtest"
+        if hasattr(self.lake, "load_backtest_trades"):
+            return self.lake.load_backtest_trades(spec.symbol, timeframe, prof)
+        return pd.DataFrame()
+
+    def load_backtest_equity_curve(
+        self, spec: SymbolSpec, timeframe: str, profile_name: str | None = None
+    ) -> pd.DataFrame:
+        prof = profile_name or "balanced_candidate_backtest"
+        if hasattr(self.lake, "load_backtest_equity_curve"):
+            return self.lake.load_backtest_equity_curve(spec.symbol, timeframe, prof)
+        return pd.DataFrame()
+
+    def list_available_backtests(self, spec: SymbolSpec | None = None) -> dict:
+        if hasattr(self.lake, "list_backtest_runs"):
+            runs = self.lake.list_backtest_runs()
+            if not runs.empty and spec:
+                runs = runs[runs["symbol"] == spec.symbol]
+            return runs.to_dict(orient="records") if not runs.empty else []
+        return []

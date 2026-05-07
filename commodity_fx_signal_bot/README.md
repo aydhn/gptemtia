@@ -371,3 +371,24 @@ python -m scripts.run_reward_risk_preview --symbol GC=F --timeframe 1d
 python -m scripts.run_level_batch_build --limit 10 --timeframe 1d
 python -m scripts.run_level_status
 ```
+
+
+## Backtest Motoru İskeleti ve Trade Lifecycle Simülasyonu
+
+- Bu faz canlı işlem değildir.
+- Backtest sonuçları gerçek performans iddiası değildir.
+- Entry/exit/stop/target ifadeleri tarihsel simülasyon objeleridir.
+- Lookahead guard kullanılır.
+- Entry varsayılan olarak sonraki bar open ile simüle edilir.
+- Same-bar exit default kapalıdır.
+- Intrabar stop/target ambiguity konservatif varsayımla çözülür.
+- Fee/slippage simülasyon varsayımlarıdır.
+- Bu katman ileride daha gelişmiş performans analizi, optimizer ve paper trade için temel sağlar.
+
+Komutlar:
+```bash
+python -m scripts.run_backtest_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_backtest_batch --limit 10 --timeframe 1d
+python -m scripts.run_backtest_trade_ledger_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_backtest_status
+```

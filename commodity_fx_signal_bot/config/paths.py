@@ -189,6 +189,12 @@ def ensure_project_directories() -> None:
         LAKE_FEATURES_LEVEL_CANDIDATES_DIR,
         LAKE_FEATURES_LEVEL_POOL_DIR,
         REPORTS_LEVEL_REPORTS_DIR,
+        LAKE_DIR / "backtests",
+        LAKE_DIR / "backtests" / "runs",
+        LAKE_DIR / "backtests" / "trades",
+        LAKE_DIR / "backtests" / "equity_curves",
+        LAKE_DIR / "backtests" / "audits",
+        REPORTS_DIR / "backtest_reports",
     ]
 
     for directory in directories:
@@ -213,3 +219,16 @@ LAKE_FEATURES_LEVEL_CANDIDATES_DIR = LAKE_FEATURES_DIR / "level_candidates"
 LAKE_FEATURES_LEVEL_POOL_DIR = LAKE_FEATURES_DIR / "level_pool"
 
 REPORTS_LEVEL_REPORTS_DIR = REPORTS_DIR / "level_reports"
+
+
+class ProjectPaths:
+    def __init__(self):
+        self.project_root = PROJECT_ROOT
+        self.data_dir = DATA_DIR
+        self.lake_dir = LAKE_DIR
+        self.backtests = LAKE_DIR / "backtests"
+        self.backtest_runs = self.backtests / "runs"
+        self.backtest_trades = self.backtests / "trades"
+        self.backtest_equity_curves = self.backtests / "equity_curves"
+        self.backtest_audits = self.backtests / "audits"
+        self.backtest_reports = REPORTS_DIR / "backtest_reports"
