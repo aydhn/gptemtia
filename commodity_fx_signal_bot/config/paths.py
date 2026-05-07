@@ -11,6 +11,7 @@ PROJECT_ROOT = Path(__file__).parent.parent.resolve()
 DATA_DIR = PROJECT_ROOT / "data"
 LOGS_DIR = PROJECT_ROOT / "logs"
 REPORTS_DIR = PROJECT_ROOT / "reports" / "output"
+REPORTS_VALIDATION_DIR = REPORTS_DIR / "validation_reports"
 
 # Specific data directories
 RAW_DATA_DIR = DATA_DIR / "raw"

@@ -2371,3 +2371,178 @@ def build_backtest_status_report(status_df: pd.DataFrame, summary: dict) -> str:
         )
 
     return "\n".join(lines)
+
+
+# --- Validation Reports ---
+
+def build_walk_forward_preview_report(symbol: str, timeframe: str, profile_name: str, summary: dict, split_df: pd.DataFrame | None = None) -> str:
+    """Builds a human-readable walk-forward validation report."""
+    lines = [
+        f"=== WALK-FORWARD VALIDATION PREVIEW ===",
+        f"Sembol: {symbol} | Timeframe: {timeframe}",
+        f"Profil: {profile_name}",
+        "",
+        "DİKKAT: Bu rapor tarihsel validasyon analizidir.",
+        "Canlı strateji seçimi, gerçek emir, kesin performans iddiası veya yatırım tavsiyesi değildir.",
+        "",
+        "--- Walk-Forward Özeti ---",
+        f"Toplam Split Sayısı: {summary.get('split_count', 0)}",
+        f"Geçerli Split Sayısı: {summary.get('valid_split_count', 0)}",
+        f"Ortalama Eğitim Getirisi: {summary.get('avg_train_return', 0.0):.2f}%",
+        f"Ortalama Test Getirisi: {summary.get('avg_test_return', 0.0):.2f}%",
+        f"Ortalama Eğitim Sharpe: {summary.get('avg_train_sharpe', 0.0):.2f}",
+        f"Ortalama Test Sharpe: {summary.get('avg_test_sharpe', 0.0):.2f}",
+        f"Pozitif Test Split Oranı: {summary.get('test_positive_ratio', 0.0):.2%}",
+        f"Eğitim->Test Bozulma Oranı: {summary.get('train_test_degradation', 0.0):.2%}",
+        ""
+    ]
+
+    robustness = summary.get('robustness', {})
+    if robustness:
+        lines.extend([
+            "--- Robustness (Dayanıklılık) Özeti ---",
+            f"Dayanıklılık Skoru: {robustness.get('robustness_score', 0.0):.2f}",
+            f"Metric Tutarlılığı: {robustness.get('split_consistency', 0.0):.2f}",
+            ""
+        ])
+
+    overfitting = summary.get('overfitting', {})
+    if overfitting:
+        lines.extend([
+            "--- Overfitting (Aşırı Uyum) Risk Özeti ---",
+            f"Risk Etiketi: {overfitting.get('overfitting_risk_label', 'unknown').upper()}",
+            f"Toplam Risk Skoru: {overfitting.get('aggregate_overfitting_risk_score', 0.0):.2f}",
+            ""
+        ])
+
+    if split_df is not None and not split_df.empty:
+        lines.append("--- Split Detayları ---")
+        for _, row in split_df.iterrows():
+            idx = row.get("split_index", "?")
+            lines.append(f"Split {idx}:")
+            lines.append(f"  Eğitim: {row.get('train_start', '?')[:10]} -> {row.get('train_end', '?')[:10]} | İşlem: {row.get('train_trade_count', 0)} | Sharpe: {row.get('train_sharpe_ratio', 0.0):.2f}")
+            lines.append(f"  Test:   {row.get('test_start', '?')[:10]} -> {row.get('test_end', '?')[:10]} | İşlem: {row.get('test_trade_count', 0)} | Sharpe: {row.get('test_sharpe_ratio', 0.0):.2f}")
+        lines.append("")
+
+    quality = summary.get('quality_report', {})
+    if quality:
+         lines.extend([
+            "--- Kalite Kontrolü ---",
+            f"Geçti mi: {'EVET' if quality.get('passed', False) else 'HAYIR'}",
+         ])
+         warnings = quality.get('warnings', [])
+         if warnings:
+              lines.append("Uyarılar:")
+              for w in warnings:
+                  lines.append(f"  - {w}")
+
+    return "\n".join(lines)
+
+
+def build_parameter_sensitivity_preview_report(symbol: str, timeframe: str, profile_name: str, summary: dict, sensitivity_df: pd.DataFrame | None = None) -> str:
+    """Builds a human-readable parameter sensitivity report."""
+    lines = [
+        f"=== PARAMETER SENSITIVITY PREVIEW ===",
+        f"Sembol: {symbol} | Timeframe: {timeframe}",
+        f"Profil: {profile_name}",
+        "",
+        "DİKKAT: Bu rapor tarihsel validasyon analizidir.",
+        "Canlı parametre seçimi, gerçek emir veya yatırım tavsiyesi değildir.",
+        "",
+        "--- Hassasiyet Özeti ---",
+        f"Test Edilen Kombinasyon: {summary.get('combinations_tested', 0)}",
+        f"Genel Stabilite Skoru: {summary.get('overall_stability_score', 0.0):.2f}",
+        f"Kırılgan Parametre Değeri Sayısı: {summary.get('fragile_parameter_count', 0)}",
+        ""
+    ]
+
+    if sensitivity_df is not None and not sensitivity_df.empty:
+        fragile_df = sensitivity_df[sensitivity_df.get('fragility_warning', '') != '']
+        if not fragile_df.empty:
+            lines.append("--- Kırılgan Parametre Uyarıları ---")
+            for _, row in fragile_df.iterrows():
+                lines.append(f"Parametre: {row.get('parameter_name')} = {row.get('parameter_value')} -> {row.get('fragility_warning')}")
+            lines.append("")
+
+        lines.append("--- Parametre Etki Tablosu (Özet) ---")
+        for _, row in sensitivity_df.head(15).iterrows():
+            lines.append(f"{row.get('parameter_name')} = {row.get('parameter_value')}: Ortalama Metrik={row.get('metric_mean', 0.0):.2f}, Skor={row.get('sensitivity_score', 0.0):.2f}")
+
+    return "\n".join(lines)
+
+
+def build_optimizer_candidate_preview_report(symbol: str, timeframe: str, profile_name: str, summary: dict, optimizer_df: pd.DataFrame | None = None) -> str:
+    """Builds a human-readable optimizer candidate report."""
+    lines = [
+        f"=== OPTIMIZER CANDIDATE PREVIEW ===",
+        f"Sembol: {symbol} | Timeframe: {timeframe}",
+        f"Profil: {profile_name}",
+        "",
+        "DİKKAT: Bu rapor tarihsel optimizer aday analizidir.",
+        "Canlı strateji seçimi, gerçek emir, kesin performans iddiası veya yatırım tavsiyesi değildir.",
+        "Adayların 'passed' olması canlı işlem onayı anlamına gelmez.",
+        "",
+        "--- Aday Özeti ---",
+        f"Toplam Aday: {summary.get('total_candidates', 0)}",
+        f"Geçen (Passed): {summary.get('passed_candidates', 0)}",
+        f"İzleme (Watchlist): {summary.get('watchlist_candidates', 0)}",
+        f"Aşırı Uyum Riski (Overfit): {summary.get('overfit_warning_candidates', 0)}",
+        f"Reddedilen (Rejected): {summary.get('rejected_candidates', 0)}",
+        ""
+    ]
+
+    if optimizer_df is not None and not optimizer_df.empty:
+        lines.append("--- En İyi 10 Aday ---")
+        for i, row in optimizer_df.head(10).iterrows():
+            params = {k.replace('param_', ''): v for k, v in row.items() if str(k).startswith('param_')}
+            lines.append(f"Aday #{i+1} [{row.get('candidate_label')}]")
+            lines.append(f"  Skor: {row.get('optimizer_candidate_score', 0.0):.2f} | Metrik: {row.get('primary_metric_value', 0.0):.2f}")
+            lines.append(f"  Robustness: {row.get('robustness_score', 0.0):.2f} | Overfit Risk: {row.get('overfitting_risk_score', 0.0):.2f}")
+            lines.append(f"  Parametreler: {params}")
+            lines.append("")
+
+    return "\n".join(lines)
+
+
+def build_validation_batch_report(summary: dict, ranking_df: pd.DataFrame | None = None) -> str:
+    """Builds a human-readable batch validation summary."""
+    lines = [
+        f"=== BATCH VALIDATION SUMMARY ===",
+        "",
+        "DİKKAT: Bu rapor tarihsel validasyon ve optimizer aday analizidir.",
+        "Canlı strateji seçimi, gerçek emir veya yatırım tavsiyesi değildir.",
+        "",
+        f"İşlenen Sembol: {summary.get('processed_count', 0)}",
+        f"Geçen (Passed) Sembol: {summary.get('passed_count', 0)}",
+        ""
+    ]
+
+    if ranking_df is not None and not ranking_df.empty:
+        lines.append("--- Sembol Sıralaması (Dayanıklılığa Göre) ---")
+        for _, row in ranking_df.iterrows():
+            lines.append(f"{row.get('symbol')} [{row.get('validation_status')}]:")
+            lines.append(f"  Robustness: {row.get('robustness_score', 0.0):.2f} | Overfit Risk: {row.get('overfitting_risk_score', 0.0):.2f} | Splits: {row.get('split_count', 0)}")
+
+    return "\n".join(lines)
+
+
+def build_validation_status_report(status_df: pd.DataFrame, summary: dict) -> str:
+    """Builds a human-readable validation status report."""
+    lines = [
+        f"=== VALIDATION STATUS REPORT ===",
+        "",
+        "DİKKAT: Bu rapor tarihsel validasyon analiz durumunu gösterir.",
+        "Canlı işlem onayı değildir.",
+        "",
+        f"Toplam Kayıtlı Rapor: {summary.get('total_reports', 0)}",
+        f"Benzersiz Sembol: {summary.get('unique_symbols', 0)}",
+        ""
+    ]
+
+    if status_df is not None and not status_df.empty:
+        lines.append("--- Rapor Dağılımı ---")
+        # Just list a few for preview
+        for _, row in status_df.head(20).iterrows():
+            lines.append(f"{row.get('symbol')} - {row.get('timeframe')} - {row.get('profile')}")
+
+    return "\n".join(lines)

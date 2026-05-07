@@ -412,3 +412,25 @@ python -m scripts.run_inflation_adjusted_performance --symbol GC=F --timeframe 1
 python -m scripts.run_performance_batch --limit 10 --timeframe 1d
 python -m scripts.run_performance_status
 ```
+
+
+## Walk-Forward Validation, Parameter Sensitivity ve Optimizer Candidate Katmanı
+
+DİKKAT:
+- Bu faz canlı optimizer değildir.
+- Walk-forward sonuçları tarihsel validasyon çıktısıdır.
+- In-sample/out-of-sample ayrımı yapılır.
+- Parameter sensitivity yüksekse overfitting riski artabilir.
+- `optimizer_candidate_passed` etiketi gerçek canlı strateji seçimi değildir.
+- Robustness score garanti değildir.
+- Overfitting risk score araştırma uyarısıdır.
+- Bu katman ileride daha güvenilir optimizer, model selection ve paper trade hazırlığı için temel sağlar.
+
+Komutlar:
+```bash
+python -m scripts.run_walk_forward_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_parameter_sensitivity_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_optimizer_candidate_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_validation_batch --limit 10 --timeframe 1d
+python -m scripts.run_validation_status
+```

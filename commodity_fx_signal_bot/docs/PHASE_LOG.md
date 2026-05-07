@@ -306,3 +306,20 @@ Phase 19:
 - DataLake performance/benchmark/rolling/drawdown kayıt desteği aldı.
 - Performance preview/batch/status scriptleri eklendi.
 - Testler genişletildi.
+
+
+### Phase 28: Walk-Forward Validation & Optimizer Skeleton
+- Validation profile sistemi eklendi (`validation_config.py`).
+- Validation label registry eklendi (`validation_labels.py`).
+- TimeSplit ve ParameterSet modelleri eklendi (`validation_models.py`).
+- Train/test ve walk-forward split üretimi eklendi (`time_splits.py`).
+- WalkForwardValidator eklendi (`walk_forward.py`).
+- Parameter grid ve sensitivity modülleri eklendi (`parameter_grid.py`, `parameter_sensitivity.py`).
+- OptimizerCandidateRunner eklendi (`optimizer_runner.py`).
+- Robustness analysis eklendi (`robustness_analysis.py`).
+- Overfitting checks eklendi (`overfitting_checks.py`).
+- Validation quality report eklendi (`validation_quality.py`).
+- ValidationPipeline eklendi (`validation_pipeline.py`).
+- DataLake validation kayıt desteği aldı.
+- Validation preview/batch/status scriptleri eklendi.
+- Testler genişletildi.

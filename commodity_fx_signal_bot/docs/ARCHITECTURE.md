@@ -116,3 +116,9 @@ Backtest Trades / Equity Curve
 -> Performance Breakdown
 -> Performance Quality
 -> Future Walk-Forward / Optimizer / Research Reports
+
+
+### Validation Katmanı (Phase 28)
+Backtest ve Performance pipeline çıktıları üzerinden ilerleyerek;
+`Backtest / Performance Outputs` -> `Time Splits` -> `Walk-Forward Validator` -> `Parameter Grid` -> `Sensitivity Analysis` -> `Robustness Analysis` -> `Overfitting Checks` -> `Optimizer Candidate Report` -> `Future Optimizer / Model Selection / Paper Trade Research`
+şeklinde model performans dayanıklılığını (in-sample / out-of-sample) denetler.
