@@ -862,6 +862,110 @@ class Settings:
         == "true"
     )
 
+    # Phase 27: Performance and Benchmark
+    performance_analysis_enabled: bool = field(
+        default_factory=lambda: str(
+            os.getenv("PERFORMANCE_ANALYSIS_ENABLED", "true")
+        ).lower()
+        == "true"
+    )
+    benchmark_comparison_enabled: bool = field(
+        default_factory=lambda: str(
+            os.getenv("BENCHMARK_COMPARISON_ENABLED", "true")
+        ).lower()
+        == "true"
+    )
+    inflation_adjusted_performance_enabled: bool = field(
+        default_factory=lambda: str(
+            os.getenv("INFLATION_ADJUSTED_PERFORMANCE_ENABLED", "true")
+        ).lower()
+        == "true"
+    )
+    default_performance_profile: str = field(
+        default_factory=lambda: os.getenv(
+            "DEFAULT_PERFORMANCE_PROFILE", "balanced_performance_analysis"
+        )
+    )
+    default_performance_timeframe: str = field(
+        default_factory=lambda: os.getenv("DEFAULT_PERFORMANCE_TIMEFRAME", "1d")
+    )
+    performance_risk_free_rate_annual: float = field(
+        default_factory=lambda: float(
+            os.getenv("PERFORMANCE_RISK_FREE_RATE_ANNUAL", "0.0")
+        )
+    )
+    performance_trading_days_per_year: int = field(
+        default_factory=lambda: int(
+            os.getenv("PERFORMANCE_TRADING_DAYS_PER_YEAR", "252")
+        )
+    )
+    performance_rolling_windows: tuple[int, ...] = field(
+        default_factory=lambda: tuple(
+            int(x)
+            for x in os.getenv("PERFORMANCE_ROLLING_WINDOWS", "20,60,120,252").split(
+                ","
+            )
+        )
+    )
+    performance_min_trades_for_summary: int = field(
+        default_factory=lambda: int(
+            os.getenv("PERFORMANCE_MIN_TRADES_FOR_SUMMARY", "5")
+        )
+    )
+    performance_min_observations_for_rolling: int = field(
+        default_factory=lambda: int(
+            os.getenv("PERFORMANCE_MIN_OBSERVATIONS_FOR_ROLLING", "30")
+        )
+    )
+    performance_compare_to_tr_inflation: bool = field(
+        default_factory=lambda: str(
+            os.getenv("PERFORMANCE_COMPARE_TO_TR_INFLATION", "true")
+        ).lower()
+        == "true"
+    )
+    performance_compare_to_us_cpi: bool = field(
+        default_factory=lambda: str(
+            os.getenv("PERFORMANCE_COMPARE_TO_US_CPI", "true")
+        ).lower()
+        == "true"
+    )
+    performance_compare_to_usdtry: bool = field(
+        default_factory=lambda: str(
+            os.getenv("PERFORMANCE_COMPARE_TO_USDTRY", "true")
+        ).lower()
+        == "true"
+    )
+    performance_compare_to_gold: bool = field(
+        default_factory=lambda: str(
+            os.getenv("PERFORMANCE_COMPARE_TO_GOLD", "true")
+        ).lower()
+        == "true"
+    )
+    performance_compare_to_commodity_basket: bool = field(
+        default_factory=lambda: str(
+            os.getenv("PERFORMANCE_COMPARE_TO_COMMODITY_BASKET", "true")
+        ).lower()
+        == "true"
+    )
+    save_performance_reports: bool = field(
+        default_factory=lambda: str(
+            os.getenv("SAVE_PERFORMANCE_REPORTS", "true")
+        ).lower()
+        == "true"
+    )
+    save_benchmark_comparisons: bool = field(
+        default_factory=lambda: str(
+            os.getenv("SAVE_BENCHMARK_COMPARISONS", "true")
+        ).lower()
+        == "true"
+    )
+    save_performance_tables: bool = field(
+        default_factory=lambda: str(
+            os.getenv("SAVE_PERFORMANCE_TABLES", "true")
+        ).lower()
+        == "true"
+    )
+
     def __post_init__(self):
         """Validate settings after initialization."""
         # Enforce live trading is False regardless of env variable

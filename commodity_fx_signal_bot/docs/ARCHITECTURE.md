@@ -104,3 +104,15 @@ Level Candidates
 → PerformanceSummary
 → BacktestQuality
 → Future Optimizer / Paper Trade / Research Reports
+
+### Phase 27: Performance Analysis Pipeline
+Backtest Trades / Equity Curve
+-> Advanced Metrics
+-> Drawdown Analysis
+-> Rolling Metrics
+-> Trade Distribution
+-> Benchmark Comparison
+-> Inflation Adjusted Performance
+-> Performance Breakdown
+-> Performance Quality
+-> Future Walk-Forward / Optimizer / Research Reports
