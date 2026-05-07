@@ -14,14 +14,29 @@ from reports.report_builder import build_sizing_batch_report
 
 logger = logging.getLogger(__name__)
 
+
 def main():
     parser = argparse.ArgumentParser(description="Batch Build Sizing Candidates")
     parser.add_argument("--limit", type=int, help="Limit number of symbols to process")
-    parser.add_argument("--asset-class", type=str, help="Filter by asset class (e.g. metals)")
+    parser.add_argument(
+        "--asset-class", type=str, help="Filter by asset class (e.g. metals)"
+    )
     parser.add_argument("--symbol", type=str, help="Process a single symbol")
-    parser.add_argument("--timeframe", type=str, default="1d", help="Timeframe (e.g. 1d)")
-    parser.add_argument("--profile", type=str, default="balanced_theoretical_sizing", help="Sizing profile name")
-    parser.add_argument("--save", action="store_true", default=True, help="Save the generated candidates")
+    parser.add_argument(
+        "--timeframe", type=str, default="1d", help="Timeframe (e.g. 1d)"
+    )
+    parser.add_argument(
+        "--profile",
+        type=str,
+        default="balanced_theoretical_sizing",
+        help="Sizing profile name",
+    )
+    parser.add_argument(
+        "--save",
+        action="store_true",
+        default=True,
+        help="Save the generated candidates",
+    )
 
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO)
@@ -48,9 +63,13 @@ def main():
     data_lake = DataLake()
     pipeline = SizingPipeline(data_lake, settings, profile)
 
-    logger.info(f"Running sizing batch build for {len(specs)} symbols ({args.timeframe}) with profile {args.profile}")
+    logger.info(
+        f"Running sizing batch build for {len(specs)} symbols ({args.timeframe}) with profile {args.profile}"
+    )
 
-    res = pipeline.build_for_universe(specs, args.timeframe, profile, args.limit, args.save)
+    res = pipeline.build_for_universe(
+        specs, args.timeframe, profile, args.limit, args.save
+    )
 
     report_text = build_sizing_batch_report(res)
     print(report_text)
@@ -68,6 +87,7 @@ def main():
         df.to_csv(csv_path, index=False)
 
     logger.info(f"Saved batch report to {report_path} and {csv_path}")
+
 
 if __name__ == "__main__":
     main()

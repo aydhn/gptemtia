@@ -1,2 +1,5 @@
-def submit(branch_name, commit_message, title, description):
+import sys
+import subprocess
+
+def submit():
     pass

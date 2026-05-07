@@ -253,3 +253,22 @@ Phase 19:
 - DataLake sizing_candidates/sizing_pool desteği aldı.
 - Sizing preview/batch/status scriptleri eklendi.
 - Testler genişletildi.
+
+### Phase 25
+- Level profile sistemi eklendi.
+- Level label registry eklendi.
+- Level models eklendi.
+- ATR tabanlı teorik stop/target adayları eklendi.
+- Structure/swing/breakout referans seviyeleri eklendi.
+- Volatiliteye göre level adjustment eklendi.
+- Target ladder eklendi.
+- Invalidation zone candidate eklendi.
+- Reward/risk hesaplama eklendi.
+- Level filters eklendi.
+- StopTargetLevelCandidate dataclass eklendi.
+- StopTargetLevelCandidatePool eklendi.
+- Level quality report eklendi.
+- LevelPipeline eklendi.
+- DataLake level_candidates/level_pool desteği aldı.
+- Level preview/batch/status scriptleri eklendi.
+- Testler genişletildi.

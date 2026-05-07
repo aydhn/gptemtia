@@ -9,7 +9,7 @@ _SIZING_CANDIDATE_LABELS = [
     "invalid_risk_candidate",
     "excessive_risk_candidate",
     "insufficient_data_quality_candidate",
-    "unknown_sizing_candidate"
+    "unknown_sizing_candidate",
 ]
 
 _SIZING_METHOD_LABELS = [
@@ -18,38 +18,38 @@ _SIZING_METHOD_LABELS = [
     "volatility_adjusted_theoretical",
     "budget_capped_theoretical",
     "zero_size_theoretical",
-    "unknown_sizing_method"
+    "unknown_sizing_method",
 ]
 
-_SIZING_SEVERITY_LABELS = [
-    "low",
-    "moderate",
-    "elevated",
-    "high",
-    "extreme",
-    "unknown"
-]
+_SIZING_SEVERITY_LABELS = ["low", "moderate", "elevated", "high", "extreme", "unknown"]
+
 
 def list_sizing_candidate_labels() -> List[str]:
     return _SIZING_CANDIDATE_LABELS.copy()
 
+
 def list_sizing_method_labels() -> List[str]:
     return _SIZING_METHOD_LABELS.copy()
 
+
 def list_sizing_severity_labels() -> List[str]:
     return _SIZING_SEVERITY_LABELS.copy()
+
 
 def validate_sizing_candidate_label(label: str) -> None:
     if label not in _SIZING_CANDIDATE_LABELS:
         raise ValueError(f"Invalid sizing candidate label: {label}")
 
+
 def validate_sizing_method_label(label: str) -> None:
     if label not in _SIZING_METHOD_LABELS:
         raise ValueError(f"Invalid sizing method label: {label}")
 
+
 def validate_sizing_severity_label(label: str) -> None:
     if label not in _SIZING_SEVERITY_LABELS:
         raise ValueError(f"Invalid sizing severity label: {label}")
+
 
 def sizing_severity_from_risk(score: float) -> str:
     """Derives a sizing severity label from a risk score (0-1)."""
@@ -64,6 +64,7 @@ def sizing_severity_from_risk(score: float) -> str:
     else:
         return "extreme"
 
+
 def is_blocking_sizing_label(label: str) -> bool:
     """Returns True if the label represents a blocked or invalid sizing candidate."""
     return label in [
@@ -73,5 +74,5 @@ def is_blocking_sizing_label(label: str) -> bool:
         "invalid_risk_candidate",
         "excessive_risk_candidate",
         "insufficient_data_quality_candidate",
-        "unknown_sizing_candidate"
+        "unknown_sizing_candidate",
     ]

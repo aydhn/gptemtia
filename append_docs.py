@@ -1,36 +1,37 @@
+import re
+
 with open("commodity_fx_signal_bot/docs/ARCHITECTURE.md", "a") as f:
     f.write("""
-
-## Position Sizing Candidate Layer (Simülasyon Katmanı)
-
-Risk Candidates
-→ Sizing Context Loader
-→ Risk Unit Calculator
-→ ATR / Volatility Adjusted Sizing
-→ Budget Model
-→ Exposure Limits
-→ SizingCandidatePool
-→ Future Backtest / Paper Trade / Portfolio Simulation
+## Sizing & Level Generation Flow
+Sizing Candidates
+→ Level Context Loader
+→ ATR Levels
+→ Structure Levels
+→ Volatility Adjusted Levels
+→ Target Ladder
+→ Reward/Risk Evaluation
+→ StopTargetLevelCandidatePool
+→ Future Backtest / Paper Trade / Exit Simulation
 """)
 
 with open("commodity_fx_signal_bot/docs/PHASE_LOG.md", "a") as f:
     f.write("""
-
-## Phase 24: Pozisyon Boyutu Simülasyon Adayları, Volatiliteye Göre Teorik Risk Birimi ve Portföy Risk Bütçesi
-- Sizing profile sistemi eklendi.
-- Sizing label registry eklendi.
-- Sizing models eklendi.
-- Risk unit hesaplama eklendi.
-- ATR tabanlı teorik sizing eklendi.
-- Volatilite adjustment eklendi.
-- Teorik budget model eklendi.
-- Exposure limit proxy eklendi.
-- Sizing filters eklendi.
-- SizingCandidate dataclass eklendi.
-- SizingCandidatePool eklendi.
-- Sizing quality report eklendi.
-- SizingPipeline eklendi.
-- DataLake sizing_candidates/sizing_pool desteği aldı.
-- Sizing preview/batch/status scriptleri eklendi.
+### Phase 25
+- Level profile sistemi eklendi.
+- Level label registry eklendi.
+- Level models eklendi.
+- ATR tabanlı teorik stop/target adayları eklendi.
+- Structure/swing/breakout referans seviyeleri eklendi.
+- Volatiliteye göre level adjustment eklendi.
+- Target ladder eklendi.
+- Invalidation zone candidate eklendi.
+- Reward/risk hesaplama eklendi.
+- Level filters eklendi.
+- StopTargetLevelCandidate dataclass eklendi.
+- StopTargetLevelCandidatePool eklendi.
+- Level quality report eklendi.
+- LevelPipeline eklendi.
+- DataLake level_candidates/level_pool desteği aldı.
+- Level preview/batch/status scriptleri eklendi.
 - Testler genişletildi.
 """)

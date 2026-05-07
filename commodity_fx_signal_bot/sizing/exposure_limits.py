@@ -2,7 +2,10 @@ import pandas as pd
 from typing import Dict, Any, Optional
 from sizing.sizing_config import SizingProfile
 
-def calculate_symbol_exposure_proxy(sizing_df: Optional[pd.DataFrame], symbol: str) -> float:
+
+def calculate_symbol_exposure_proxy(
+    sizing_df: Optional[pd.DataFrame], symbol: str
+) -> float:
     """Calculates the theoretical exposure proxy for a specific symbol."""
     if sizing_df is None or sizing_df.empty or "symbol" not in sizing_df.columns:
         return 0.0
@@ -17,7 +20,10 @@ def calculate_symbol_exposure_proxy(sizing_df: Optional[pd.DataFrame], symbol: s
 
     return float(sizing_df[mask]["capped_theoretical_risk_amount"].sum())
 
-def calculate_asset_class_exposure_proxy(sizing_df: Optional[pd.DataFrame], asset_class: str) -> float:
+
+def calculate_asset_class_exposure_proxy(
+    sizing_df: Optional[pd.DataFrame], asset_class: str
+) -> float:
     """Calculates the theoretical exposure proxy for a specific asset class."""
     if sizing_df is None or sizing_df.empty or "asset_class" not in sizing_df.columns:
         return 0.0
@@ -31,9 +37,16 @@ def calculate_asset_class_exposure_proxy(sizing_df: Optional[pd.DataFrame], asse
 
     return float(sizing_df[mask]["capped_theoretical_risk_amount"].sum())
 
-def calculate_directional_exposure_proxy(sizing_df: Optional[pd.DataFrame], directional_bias: str) -> float:
+
+def calculate_directional_exposure_proxy(
+    sizing_df: Optional[pd.DataFrame], directional_bias: str
+) -> float:
     """Calculates the theoretical exposure proxy for a specific direction (long/short)."""
-    if sizing_df is None or sizing_df.empty or "directional_bias" not in sizing_df.columns:
+    if (
+        sizing_df is None
+        or sizing_df.empty
+        or "directional_bias" not in sizing_df.columns
+    ):
         return 0.0
 
     if "capped_theoretical_risk_amount" not in sizing_df.columns:
@@ -44,6 +57,7 @@ def calculate_directional_exposure_proxy(sizing_df: Optional[pd.DataFrame], dire
         mask = mask & (sizing_df["sizing_label"] == "sizing_approved_candidate")
 
     return float(sizing_df[mask]["capped_theoretical_risk_amount"].sum())
+
 
 def check_exposure_limits(
     candidate_context: Dict[str, Any],
@@ -71,9 +85,13 @@ def check_exposure_limits(
 
     warnings = []
     if not symbol_passed:
-        warnings.append(f"Symbol exposure proxy ({symbol_exp}) exceeds limit ({max_symbol}).")
+        warnings.append(
+            f"Symbol exposure proxy ({symbol_exp}) exceeds limit ({max_symbol})."
+        )
     if not ac_passed:
-        warnings.append(f"Asset class exposure proxy ({ac_exp}) exceeds limit ({max_ac}).")
+        warnings.append(
+            f"Asset class exposure proxy ({ac_exp}) exceeds limit ({max_ac})."
+        )
 
     return {
         "symbol_exposure_proxy": symbol_exp,
@@ -81,6 +99,6 @@ def check_exposure_limits(
         "directional_exposure_proxy": dir_exp,
         "symbol_limit_passed": symbol_passed,
         "asset_class_limit_passed": ac_passed,
-        "directional_limit_passed": True, # Always pass for now as there's no limit defined
-        "exposure_warnings": warnings
+        "directional_limit_passed": True,  # Always pass for now as there's no limit defined
+        "exposure_warnings": warnings,
     }

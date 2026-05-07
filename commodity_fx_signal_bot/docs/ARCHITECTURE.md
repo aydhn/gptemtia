@@ -78,3 +78,14 @@ Risk Candidates
 → Exposure Limits
 → SizingCandidatePool
 → Future Backtest / Paper Trade / Portfolio Simulation
+
+## Sizing & Level Generation Flow
+Sizing Candidates
+→ Level Context Loader
+→ ATR Levels
+→ Structure Levels
+→ Volatility Adjusted Levels
+→ Target Ladder
+→ Reward/Risk Evaluation
+→ StopTargetLevelCandidatePool
+→ Future Backtest / Paper Trade / Exit Simulation

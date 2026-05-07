@@ -1,22 +1,30 @@
-with open("commodity_fx_signal_bot/README.md", "a") as f:
-    f.write("""
+import re
 
-## Teorik Position Sizing Candidate Katmanı
+with open("commodity_fx_signal_bot/README.md", "r") as f:
+    content = f.read()
 
-- Bu faz gerçek position sizing motoru değildir.
-- theoretical_units gerçek lot/adet/kontrat değildir.
-- theoretical_notional gerçek portföy emri değildir.
-- sizing_approved_candidate gerçek işlem onayı değildir.
-- sizing_rejected_candidate gerçek emir iptali değildir.
-- Bu katman ATR, volatilite, risk readiness ve teorik risk bütçesine göre simülasyon amaçlı sizing adayları üretir.
-- Gerçek stop-loss, take-profit, leverage, broker emri, paper trade ve canlı işlem yoktur.
-- Bu katman ileride backtest ve paper trade simülasyonlarının temel girdilerinden biri olacaktır.
+section = """
+## Teorik Stop/Target Level Candidate Katmanı
 
-**Komutlar:**
+Bu faz gerçek stop-loss/take-profit motoru değildir.
+theoretical_stop_level gerçek stop-loss emri değildir.
+theoretical_target_level gerçek take-profit emri değildir.
+invalidation_zone gerçek stop veya pozisyon kapatma talimatı değildir.
+reward_risk gerçek trade planı değil simülasyon metriğidir.
+Level candidate katmanı ATR, structure, volatility adjustment ve reward/risk hesapları üretir.
+Gerçek emir, broker, paper trade, pozisyon açma/kapama yoktur.
+Bu katman ileride backtest ve paper trade simülasyonlarının seviye girdilerinden biri olacaktır.
+
+Komutları ekle:
 ```bash
-python -m scripts.run_sizing_candidate_preview --symbol GC=F --timeframe 1d
-python -m scripts.run_sizing_batch_build --limit 10 --timeframe 1d
-python -m scripts.run_sizing_pool_preview --timeframe 1d --top 20
-python -m scripts.run_sizing_status
+python -m scripts.run_level_candidate_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_reward_risk_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_level_batch_build --limit 10 --timeframe 1d
+python -m scripts.run_level_status
 ```
-""")
+"""
+
+content += "\n" + section
+
+with open("commodity_fx_signal_bot/README.md", "w") as f:
+    f.write(content)

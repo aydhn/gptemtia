@@ -1,7 +1,12 @@
 from typing import Optional, Tuple, Dict, Any
 import math
-from sizing.risk_unit import calculate_risk_per_unit_from_atr, calculate_theoretical_unit_count, calculate_theoretical_notional
+from sizing.risk_unit import (
+    calculate_risk_per_unit_from_atr,
+    calculate_theoretical_unit_count,
+    calculate_theoretical_notional,
+)
 from sizing.sizing_models import safe_positive_float
+
 
 def build_atr_sizing_candidate(
     risk_amount: float,
@@ -23,7 +28,7 @@ def build_atr_sizing_candidate(
             "theoretical_units": 0.0,
             "theoretical_notional": None,
             "valid": False,
-            "warnings": warnings
+            "warnings": warnings,
         }
 
     if atr_safe is None:
@@ -34,7 +39,7 @@ def build_atr_sizing_candidate(
             "theoretical_units": 0.0,
             "theoretical_notional": None,
             "valid": False,
-            "warnings": warnings
+            "warnings": warnings,
         }
 
     risk_per_unit = calculate_risk_per_unit_from_atr(atr_safe, atr_multiplier)
@@ -47,8 +52,9 @@ def build_atr_sizing_candidate(
         "theoretical_units": theoretical_units,
         "theoretical_notional": theoretical_notional,
         "valid": True,
-        "warnings": warnings
+        "warnings": warnings,
     }
+
 
 def build_multi_atr_sizing_candidates(
     risk_amount: float,
@@ -63,6 +69,6 @@ def build_multi_atr_sizing_candidates(
             risk_amount=risk_amount,
             price=price,
             atr_value=atr_value,
-            atr_multiplier=mult
+            atr_multiplier=mult,
         )
     return results

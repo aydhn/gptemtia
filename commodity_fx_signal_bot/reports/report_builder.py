@@ -2052,6 +2052,7 @@ def build_risk_status_report(status_df: pd.DataFrame, summary: dict) -> str:
         lines.append("Detaylar CSV dosyasına kaydedildi.")
     return "\n".join(lines)
 
+
 def build_sizing_candidate_preview_report(
     symbol: str, timeframe: str, profile_name: str, summary: dict, tail_df: pd.DataFrame
 ) -> str:
@@ -2065,7 +2066,7 @@ def build_sizing_candidate_preview_report(
         f"Passed: {summary.get('passed_sizing_candidate_count', 0)}",
         f"Rejected: {summary.get('rejected_sizing_candidate_count', 0)}",
         f"Watchlist: {summary.get('watchlist_sizing_candidate_count', 0)}",
-        ""
+        "",
     ]
     if summary.get("warnings"):
         lines.append("Uyarılar:")
@@ -2073,7 +2074,9 @@ def build_sizing_candidate_preview_report(
             lines.append(f" - {w}")
         lines.append("")
 
-    lines.append("UYARI: Bu çıktılar teorik pozisyon boyutu simülasyon adaylarıdır. Gerçek lot/adet/kontrat, emir, pozisyon talimatı, kaldıraç veya canlı işlem kararı değildir. Canlı emir üretilmez.")
+    lines.append(
+        "UYARI: Bu çıktılar teorik pozisyon boyutu simülasyon adaylarıdır. Gerçek lot/adet/kontrat, emir, pozisyon talimatı, kaldıraç veya canlı işlem kararı değildir. Canlı emir üretilmez."
+    )
     lines.append("")
 
     if not tail_df.empty:
@@ -2083,12 +2086,13 @@ def build_sizing_candidate_preview_report(
                 f"[{idx}] Label: {row.get('sizing_label')} | Risk: {row.get('theoretical_risk_amount')} | "
                 f"Adj Units: {row.get('adjusted_theoretical_units')} | Adj Notional: {row.get('adjusted_theoretical_notional')}"
             )
-            if row.get('block_reasons'):
+            if row.get("block_reasons"):
                 lines.append(f"  Block Reasons: {row.get('block_reasons')}")
-            if row.get('watchlist_reasons'):
+            if row.get("watchlist_reasons"):
                 lines.append(f"  Watchlist Reasons: {row.get('watchlist_reasons')}")
 
     return "\n".join(lines)
+
 
 def build_sizing_batch_report(summary: dict) -> str:
     lines = [
@@ -2096,18 +2100,23 @@ def build_sizing_batch_report(summary: dict) -> str:
         f"Processed Symbols: {summary.get('processed_symbols', 0)}",
         f"Failed Symbols: {summary.get('failed_symbols', 0)}",
         f"Total Candidates in Pool: {summary.get('total_candidates', 0)}",
-        ""
+        "",
     ]
     pool_summary = summary.get("summary", {})
     if pool_summary:
         lines.append(f"Passed: {pool_summary.get('passed_sizing_candidates', 0)}")
         lines.append(f"Rejected: {pool_summary.get('rejected_sizing_candidates', 0)}")
         lines.append(f"Watchlist: {pool_summary.get('watchlist_sizing_candidates', 0)}")
-        lines.append(f"Avg Readiness: {pool_summary.get('average_sizing_readiness', 0.0):.2f}")
+        lines.append(
+            f"Avg Readiness: {pool_summary.get('average_sizing_readiness', 0.0):.2f}"
+        )
 
     lines.append("")
-    lines.append("UYARI: Bu çıktılar teorik pozisyon boyutu simülasyon adaylarıdır. Gerçek lot/adet/kontrat, emir, pozisyon talimatı, kaldıraç veya canlı işlem kararı değildir. Canlı emir üretilmez.")
+    lines.append(
+        "UYARI: Bu çıktılar teorik pozisyon boyutu simülasyon adaylarıdır. Gerçek lot/adet/kontrat, emir, pozisyon talimatı, kaldıraç veya canlı işlem kararı değildir. Canlı emir üretilmez."
+    )
     return "\n".join(lines)
+
 
 def build_sizing_pool_preview_report(
     timeframe: str, profile_name: str, summary: dict, top_df: pd.DataFrame
@@ -2121,9 +2130,11 @@ def build_sizing_pool_preview_report(
         f"Rejected: {summary.get('rejected_sizing_candidates', 0)}",
         f"Watchlist: {summary.get('watchlist_sizing_candidates', 0)}",
         f"Avg Readiness: {summary.get('average_sizing_readiness', 0.0):.2f}",
-        ""
+        "",
     ]
-    lines.append("UYARI: Bu çıktılar teorik pozisyon boyutu simülasyon adaylarıdır. Gerçek lot/adet/kontrat, emir, pozisyon talimatı, kaldıraç veya canlı işlem kararı değildir. Canlı emir üretilmez.")
+    lines.append(
+        "UYARI: Bu çıktılar teorik pozisyon boyutu simülasyon adaylarıdır. Gerçek lot/adet/kontrat, emir, pozisyon talimatı, kaldıraç veya canlı işlem kararı değildir. Canlı emir üretilmez."
+    )
     lines.append("")
 
     if not top_df.empty:
@@ -2138,12 +2149,96 @@ def build_sizing_pool_preview_report(
 
     return "\n".join(lines)
 
+
 def build_sizing_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     lines = [
         "--- TEORİK SIZING STATUS ---",
         f"Total Sizing Pools: {summary.get('total_pools', 0)}",
         f"Total Individual Candidates: {summary.get('total_candidates', 0)}",
-        ""
+        "",
     ]
-    lines.append("UYARI: Bu çıktılar teorik pozisyon boyutu simülasyon adaylarıdır. Gerçek lot/adet/kontrat, emir, pozisyon talimatı, kaldıraç veya canlı işlem kararı değildir. Canlı emir üretilmez.")
+    lines.append(
+        "UYARI: Bu çıktılar teorik pozisyon boyutu simülasyon adaylarıdır. Gerçek lot/adet/kontrat, emir, pozisyon talimatı, kaldıraç veya canlı işlem kararı değildir. Canlı emir üretilmez."
+    )
     return "\n".join(lines)
+
+
+def build_level_candidate_preview_report(
+    symbol: str, timeframe: str, profile_name: str, summary: dict, tail_df: pd.DataFrame
+) -> str:
+    report = []
+    report.append(
+        f"Level Candidate Preview: {symbol} - {timeframe} (Profile: {profile_name})"
+    )
+    report.append("=" * 80)
+    report.append(
+        "UYARI: Bu çıktılar teorik stop/target seviye simülasyon adaylarıdır. Stop/target/invalidation ifadeleri gerçek stop-loss, take-profit, emir, pozisyon kapatma/açma veya canlı işlem kararı değildir. Canlı emir üretilmez."
+    )
+    report.append("-" * 80)
+    report.append(f"Missing Context: {summary.get('missing_context_frames', [])}")
+    report.append(f"Total Candidates: {summary.get('total_level_candidates', 0)}")
+    report.append("-" * 80)
+    if tail_df.empty:
+        report.append("No candidates available.")
+    else:
+        cols_to_show = [
+            "level_label",
+            "theoretical_stop_level",
+            "theoretical_target_level",
+            "reward_risk",
+        ]
+        existing_cols = [c for c in cols_to_show if c in tail_df.columns]
+        report.append(tail_df[existing_cols].to_string())
+    return "\n".join(report)
+
+
+def build_reward_risk_preview_report(
+    symbol: str, timeframe: str, profile_name: str, summary: dict, tail_df: pd.DataFrame
+) -> str:
+    report = []
+    report.append(
+        f"Reward/Risk Preview: {symbol} - {timeframe} (Profile: {profile_name})"
+    )
+    report.append("=" * 80)
+    report.append(
+        "UYARI: Bu çıktılar teorik stop/target seviye simülasyon adaylarıdır. Stop/target/invalidation ifadeleri gerçek stop-loss, take-profit, emir, pozisyon kapatma/açma veya canlı işlem kararı değildir. Canlı emir üretilmez."
+    )
+    report.append("-" * 80)
+    report.append(f"Average Reward/Risk: {summary.get('average_reward_risk', 0.0):.2f}")
+    report.append("-" * 80)
+    if tail_df.empty:
+        report.append("No candidates available.")
+    else:
+        cols_to_show = ["level_label", "reward_risk", "block_reasons"]
+        existing_cols = [c for c in cols_to_show if c in tail_df.columns]
+        report.append(tail_df[existing_cols].to_string())
+    return "\n".join(report)
+
+
+def build_level_batch_report(summary: dict) -> str:
+    report = []
+    report.append("Level Batch Report")
+    report.append("=" * 80)
+    report.append(
+        "UYARI: Bu çıktılar teorik stop/target seviye simülasyon adaylarıdır. Stop/target/invalidation ifadeleri gerçek stop-loss, take-profit, emir, pozisyon kapatma/açma veya canlı işlem kararı değildir. Canlı emir üretilmez."
+    )
+    report.append("-" * 80)
+    report.append(f"Profile: {summary.get('profile')}")
+    report.append(f"Processed Symbols: {summary.get('processed_symbols')}")
+    report.append(f"Generated Rows: {summary.get('generated_rows')}")
+    return "\n".join(report)
+
+
+def build_level_status_report(status_df: pd.DataFrame, summary: dict) -> str:
+    report = []
+    report.append("Level Status Report")
+    report.append("=" * 80)
+    report.append(
+        "UYARI: Bu çıktılar teorik stop/target seviye simülasyon adaylarıdır. Stop/target/invalidation ifadeleri gerçek stop-loss, take-profit, emir, pozisyon kapatma/açma veya canlı işlem kararı değildir. Canlı emir üretilmez."
+    )
+    report.append("-" * 80)
+    if status_df.empty:
+        report.append("No level data found.")
+    else:
+        report.append(status_df.to_string())
+    return "\n".join(report)

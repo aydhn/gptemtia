@@ -1,2 +1,2 @@
-def test():
+def dummy():
     pass
