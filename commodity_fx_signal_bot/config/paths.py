@@ -117,6 +117,16 @@ LAKE_ML_DATASETS_DIR = LAKE_ML_DIR / "datasets"
 LAKE_ML_SPLITS_DIR = LAKE_ML_DIR / "splits"
 LAKE_ML_METADATA_DIR = LAKE_ML_DIR / "metadata"
 LAKE_ML_QUALITY_DIR = LAKE_ML_DIR / "quality"
+
+# ML Training Directories
+LAKE_ML_MODELS_DIR = LAKE_ML_DIR / "models"
+LAKE_ML_MODEL_ARTIFACTS_DIR = LAKE_ML_DIR / "model_artifacts"
+LAKE_ML_MODEL_REGISTRY_DIR = LAKE_ML_DIR / "model_registry"
+LAKE_ML_MODEL_EVALUATIONS_DIR = LAKE_ML_DIR / "model_evaluations"
+LAKE_ML_MODEL_CV_DIR = LAKE_ML_DIR / "model_cv"
+LAKE_ML_MODEL_QUALITY_DIR = LAKE_ML_DIR / "model_quality"
+
+REPORTS_ML_TRAINING_REPORTS_DIR = REPORTS_DIR / "ml_training_reports"
 REPORTS_ML_REPORTS_DIR = REPORTS_DIR / "ml_reports"
 
 def ensure_project_directories() -> None:
@@ -215,6 +225,13 @@ def ensure_project_directories() -> None:
         LAKE_ML_SPLITS_DIR,
         LAKE_ML_METADATA_DIR,
         LAKE_ML_QUALITY_DIR,
+        LAKE_ML_MODELS_DIR,
+        LAKE_ML_MODEL_ARTIFACTS_DIR,
+        LAKE_ML_MODEL_REGISTRY_DIR,
+        LAKE_ML_MODEL_EVALUATIONS_DIR,
+        LAKE_ML_MODEL_CV_DIR,
+        LAKE_ML_MODEL_QUALITY_DIR,
+        REPORTS_ML_TRAINING_REPORTS_DIR,
         REPORTS_ML_REPORTS_DIR,
     ]
 
@@ -260,4 +277,11 @@ class ProjectPaths:
         self.ml_splits = LAKE_ML_SPLITS_DIR
         self.ml_metadata = LAKE_ML_METADATA_DIR
         self.ml_quality = LAKE_ML_QUALITY_DIR
+        self.ml_models = LAKE_ML_MODELS_DIR
+        self.ml_model_artifacts = LAKE_ML_MODEL_ARTIFACTS_DIR
+        self.ml_model_registry = LAKE_ML_MODEL_REGISTRY_DIR
+        self.ml_model_evaluations = LAKE_ML_MODEL_EVALUATIONS_DIR
+        self.ml_model_cv = LAKE_ML_MODEL_CV_DIR
+        self.ml_model_quality = LAKE_ML_MODEL_QUALITY_DIR
+        self.ml_training_reports = REPORTS_ML_TRAINING_REPORTS_DIR
         self.ml_reports = REPORTS_ML_REPORTS_DIR
