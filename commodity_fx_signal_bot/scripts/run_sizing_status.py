@@ -37,7 +37,7 @@ def main():
                     df = data_lake.load_features(spec, tf, "sizing_candidates")
                     if not df.empty:
                         total_candidates += len(df)
-                        passed = (
+                        report_builder = ReportBuilder()ed = (
                             len(df[df["sizing_label"] == "sizing_approved_candidate"])
                             if "sizing_label" in df.columns
                             else 0
@@ -47,7 +47,7 @@ def main():
                                 "symbol": spec.symbol,
                                 "timeframe": tf,
                                 "candidates": len(df),
-                                "passed": passed,
+                                "report_builder = ReportBuilder()ed": report_builder = ReportBuilder()ed,
                             }
                         )
             except Exception as e:
@@ -69,7 +69,7 @@ def main():
                 ):
                     total_pools += 1
             except Exception:
-                pass
+                report_builder = ReportBuilder()
 
     summary = {"total_pools": total_pools, "total_candidates": total_candidates}
 

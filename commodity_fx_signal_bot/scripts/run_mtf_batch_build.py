@@ -72,7 +72,7 @@ def main():
             "symbol": r.get("symbol"),
             "rows": r.get("rows", 0),
             "columns": r.get("columns", 0),
-            "passed": r.get("quality_report", {}).get("passed", False),
+            "report_builder = ReportBuilder()ed": r.get("quality_report", {}).get("report_builder = ReportBuilder()ed", False),
             "warnings_count": len(r.get("warnings", [])),
         }
         records.append(rec)
@@ -89,7 +89,7 @@ def main():
         f.write(f"MTF Batch Build Summary | Profile: {args.profile}\n")
         f.write("=" * 60 + "\n")
         f.write(f"Total processed: {len(df)}\n")
-        f.write(f"Successful: {df['passed'].sum()}\n")
+        f.write(f"Successful: {df['report_builder = ReportBuilder()ed'].sum()}\n")
         f.write("\nDetails:\n")
         f.write(df.to_string())
 

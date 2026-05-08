@@ -27,20 +27,20 @@ def main():
     # Validation checks
     try:
         validate_market_sessions()
-        logger.info("Market session validation passed.")
+        logger.info("Market session validation report_builder = ReportBuilder()ed.")
     except Exception as e:
         logger.error(f"Market session validation failed: {e}")
 
     try:
         validate_scan_profiles()
-        logger.info("Scan profile validation passed.")
+        logger.info("Scan profile validation report_builder = ReportBuilder()ed.")
     except Exception as e:
         logger.error(f"Scan profile validation failed: {e}")
 
     try:
         for tf in DEFAULT_TIMEFRAMES:
             validate_timeframe(tf.name)
-        logger.info("Timeframe validation passed.")
+        logger.info("Timeframe validation report_builder = ReportBuilder()ed.")
     except Exception as e:
         logger.error(f"Timeframe validation failed: {e}")
 
@@ -50,7 +50,7 @@ def main():
         for error in errors:
             logger.error(f" - {error}")
     else:
-        logger.info("Universe validation passed.")
+        logger.info("Universe validation report_builder = ReportBuilder()ed.")
 
     # Build Scan Plan Preview
     symbols = get_enabled_symbols()

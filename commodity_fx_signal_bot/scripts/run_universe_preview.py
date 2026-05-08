@@ -28,7 +28,7 @@ def main():
         for error in errors:
             logger.error(f" - {error}")
     else:
-        logger.info("Universe validation passed.")
+        logger.info("Universe validation report_builder = ReportBuilder()ed.")
 
     symbols = get_enabled_symbols()
     summary = summarize_universe()

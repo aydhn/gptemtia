@@ -13,7 +13,7 @@ def test_list_risk_candidate_labels():
 
 
 def test_validate_risk_candidate_label():
-    validate_risk_candidate_label("risk_approval_candidate")  # Should pass
+    validate_risk_candidate_label("risk_approval_candidate")  # Should report_builder = ReportBuilder()
     with pytest.raises(ValueError):
         validate_risk_candidate_label("invalid")
 

@@ -24,4 +24,4 @@ def test_signal_quality_checks():
     assert len(check_missing_candidate_fields(df)["missing_required_fields"]) == 0
 
     q = build_signal_quality_report(df, {})
-    assert q["passed"] == False
+    assert q["report_builder = ReportBuilder()ed"] == False

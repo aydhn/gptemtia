@@ -34,7 +34,7 @@ def main():
                 df = lake.load_features(spec, timeframe, "signal_candidates")
                 cand_count = len(df)
             except:
-                pass
+                report_builder = ReportBuilder()
 
         status_rows.append(
             {
@@ -53,7 +53,7 @@ def main():
             if not pool_df.empty and "candidate_score" in pool_df.columns:
                 avg_pool_score = pool_df["candidate_score"].mean()
         except:
-            pass
+            report_builder = ReportBuilder()
 
     summary = {
         "total_with_candidates": (

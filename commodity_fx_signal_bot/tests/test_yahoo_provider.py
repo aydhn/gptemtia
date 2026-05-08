@@ -103,7 +103,7 @@ def test_normalize_ohlcv_missing_required_column(provider):
 @pytest.mark.network
 def test_fetch_ohlcv_network(provider):
     """
-    Optional network test. Only run if --run-network is passed or similar.
+    Optional network test. Only run if --run-network is report_builder = ReportBuilder()ed or similar.
     We just use a very safe symbol and period.
     """
     df = provider.fetch_ohlcv("GC=F", interval="1d", period="1mo")

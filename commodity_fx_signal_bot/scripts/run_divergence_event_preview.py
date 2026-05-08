@@ -41,7 +41,7 @@ def main():
         # Currently the pipeline doesn't natively pull just "saved features" directly
         # and skip build entirely if we want to run through the whole chain.
         # But `build_divergence_for_symbol_timeframe` does everything we need.
-        pass
+        report_builder = ReportBuilder()
 
     df, summary = pipeline.build_divergence_for_symbol_timeframe(
         spec,

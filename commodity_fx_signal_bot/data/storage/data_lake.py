@@ -801,3 +801,68 @@ class DataLake:
             except Exception as e:
                 pass
         return pd.DataFrame(runs)
+
+    # --- ML DATASET PHASE ---
+    def save_ml_feature_matrix(self, symbol: str, timeframe: str, profile_name: str, df: pd.DataFrame) -> Path:
+        path = self.paths.ml_features / f"{symbol}_{timeframe}_{profile_name}_features.parquet"
+        self._save_parquet(df, path)
+        return path
+
+    def load_ml_feature_matrix(self, symbol: str, timeframe: str, profile_name: str) -> pd.DataFrame:
+        path = self.paths.ml_features / f"{symbol}_{timeframe}_{profile_name}_features.parquet"
+        return self._load_parquet(path)
+
+    def save_ml_target_frame(self, symbol: str, timeframe: str, profile_name: str, df: pd.DataFrame) -> Path:
+        path = self.paths.ml_targets / f"{symbol}_{timeframe}_{profile_name}_targets.parquet"
+        self._save_parquet(df, path)
+        return path
+
+    def load_ml_target_frame(self, symbol: str, timeframe: str, profile_name: str) -> pd.DataFrame:
+        path = self.paths.ml_targets / f"{symbol}_{timeframe}_{profile_name}_targets.parquet"
+        return self._load_parquet(path)
+
+    def save_ml_supervised_dataset(self, symbol: str, timeframe: str, profile_name: str, df: pd.DataFrame) -> Path:
+        path = self.paths.ml_datasets / f"{symbol}_{timeframe}_{profile_name}_dataset.parquet"
+        self._save_parquet(df, path)
+        return path
+
+    def load_ml_supervised_dataset(self, symbol: str, timeframe: str, profile_name: str) -> pd.DataFrame:
+        path = self.paths.ml_datasets / f"{symbol}_{timeframe}_{profile_name}_dataset.parquet"
+        return self._load_parquet(path)
+
+    def save_ml_split_manifest(self, symbol: str, timeframe: str, profile_name: str, manifest: dict) -> Path:
+        path = self.paths.ml_splits / f"{symbol}_{timeframe}_{profile_name}_split.json"
+        self._save_json(manifest, path)
+        return path
+
+    def load_ml_split_manifest(self, symbol: str, timeframe: str, profile_name: str) -> dict:
+        path = self.paths.ml_splits / f"{symbol}_{timeframe}_{profile_name}_split.json"
+        return self._load_json(path) or {}
+
+    def save_ml_dataset_metadata(self, symbol: str, timeframe: str, profile_name: str, metadata: dict) -> Path:
+        path = self.paths.ml_metadata / f"{symbol}_{timeframe}_{profile_name}_metadata.json"
+        self._save_json(metadata, path)
+        return path
+
+    def load_ml_dataset_metadata(self, symbol: str, timeframe: str, profile_name: str) -> dict:
+        path = self.paths.ml_metadata / f"{symbol}_{timeframe}_{profile_name}_metadata.json"
+        return self._load_json(path) or {}
+
+    def save_ml_dataset_quality(self, symbol: str, timeframe: str, profile_name: str, quality: dict) -> Path:
+        path = self.paths.ml_quality / f"{symbol}_{timeframe}_{profile_name}_quality.json"
+        self._save_json(quality, path)
+        return path
+
+    def load_ml_dataset_quality(self, symbol: str, timeframe: str, profile_name: str) -> dict:
+        path = self.paths.ml_quality / f"{symbol}_{timeframe}_{profile_name}_quality.json"
+        return self._load_json(path) or {}
+
+    def list_ml_datasets(self) -> pd.DataFrame:
+        data = []
+        for file_path in self.paths.ml_metadata.glob("*.json"):
+            metadata = self._load_json(file_path)
+            if metadata:
+                data.append(metadata)
+        if not data:
+            return pd.DataFrame()
+        return pd.DataFrame(data)

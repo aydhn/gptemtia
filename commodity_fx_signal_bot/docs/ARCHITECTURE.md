@@ -122,3 +122,13 @@ Backtest Trades / Equity Curve
 Backtest ve Performance pipeline çıktıları üzerinden ilerleyerek;
 `Backtest / Performance Outputs` -> `Time Splits` -> `Walk-Forward Validator` -> `Parameter Grid` -> `Sensitivity Analysis` -> `Robustness Analysis` -> `Overfitting Checks` -> `Optimizer Candidate Report` -> `Future Optimizer / Model Selection / Paper Trade Research`
 şeklinde model performans dayanıklılığını (in-sample / out-of-sample) denetler.
+
+### Phase 29: ML Dataset Hazırlık Katmanı
+Feature Stores / Candidate Stores / Backtest Outputs
+→ FeatureMatrixBuilder
+→ TargetEngineering
+→ LeakageChecks
+→ Chronological / Purged / Embargo Split
+→ SupervisedDatasetBuilder
+→ DatasetRegistry
+→ Future ML Training / Model Registry / Prediction Engine

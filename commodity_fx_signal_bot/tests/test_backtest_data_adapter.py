@@ -15,7 +15,7 @@ class MockDataLake:
 
     def load_level_candidates(self, symbol, timeframe):
         return pd.DataFrame(
-            {"passed_level_filters": [True]}, index=pd.DatetimeIndex(["2020-01-01"])
+            {"report_builder = ReportBuilder()ed_level_filters": [True]}, index=pd.DatetimeIndex(["2020-01-01"])
         )
 
 

@@ -108,7 +108,19 @@ LAKE_FEATURES_STRATEGY_RULE_POOL_DIR = LAKE_FEATURES_DIR / "strategy_rule_pool"
 STRATEGY_RULE_REPORTS_DIR = REPORTS_DIR / "strategy_rule_reports"
 
 
+
+# Phase 29: ML Dataset Preparation
+LAKE_ML_DIR = LAKE_DIR / "ml"
+LAKE_ML_FEATURES_DIR = LAKE_ML_DIR / "features"
+LAKE_ML_TARGETS_DIR = LAKE_ML_DIR / "targets"
+LAKE_ML_DATASETS_DIR = LAKE_ML_DIR / "datasets"
+LAKE_ML_SPLITS_DIR = LAKE_ML_DIR / "splits"
+LAKE_ML_METADATA_DIR = LAKE_ML_DIR / "metadata"
+LAKE_ML_QUALITY_DIR = LAKE_ML_DIR / "quality"
+REPORTS_ML_REPORTS_DIR = REPORTS_DIR / "ml_reports"
+
 def ensure_project_directories() -> None:
+
     """
     Ensure that all required project directories exist.
     Creates them if they do not exist.
@@ -196,6 +208,14 @@ def ensure_project_directories() -> None:
         LAKE_DIR / "backtests" / "equity_curves",
         LAKE_DIR / "backtests" / "audits",
         REPORTS_DIR / "backtest_reports",
+        LAKE_ML_DIR,
+        LAKE_ML_FEATURES_DIR,
+        LAKE_ML_TARGETS_DIR,
+        LAKE_ML_DATASETS_DIR,
+        LAKE_ML_SPLITS_DIR,
+        LAKE_ML_METADATA_DIR,
+        LAKE_ML_QUALITY_DIR,
+        REPORTS_ML_REPORTS_DIR,
     ]
 
     for directory in directories:
@@ -233,3 +253,11 @@ class ProjectPaths:
         self.backtest_equity_curves = self.backtests / "equity_curves"
         self.backtest_audits = self.backtests / "audits"
         self.backtest_reports = REPORTS_DIR / "backtest_reports"
+        self.ml_dir = LAKE_ML_DIR
+        self.ml_features = LAKE_ML_FEATURES_DIR
+        self.ml_targets = LAKE_ML_TARGETS_DIR
+        self.ml_datasets = LAKE_ML_DATASETS_DIR
+        self.ml_splits = LAKE_ML_SPLITS_DIR
+        self.ml_metadata = LAKE_ML_METADATA_DIR
+        self.ml_quality = LAKE_ML_QUALITY_DIR
+        self.ml_reports = REPORTS_ML_REPORTS_DIR

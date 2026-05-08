@@ -30,7 +30,7 @@ def main():
             if data_lake.has_features(spec, tf, "level_candidates"):
                 df = data_lake.load_features(spec, tf, "level_candidates")
                 if not df.empty:
-                    passed = len(df[df.get("passed_level_filters", False) == True])
+                    report_builder = ReportBuilder()ed = len(df[df.get("report_builder = ReportBuilder()ed_level_filters", False) == True])
                     avg_rr = (
                         df["reward_risk"].mean() if "reward_risk" in df.columns else 0.0
                     )
@@ -39,7 +39,7 @@ def main():
                             "symbol": symbol,
                             "timeframe": tf,
                             "total_candidates": len(df),
-                            "passed": passed,
+                            "report_builder = ReportBuilder()ed": report_builder = ReportBuilder()ed,
                             "average_reward_risk": avg_rr,
                         }
                     )

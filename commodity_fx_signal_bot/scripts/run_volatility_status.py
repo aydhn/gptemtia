@@ -91,7 +91,7 @@ def main():
                     event_df = feature_store.load_volatility_events(spec, tf)
                     row["event_cols"] = len(event_df.columns)
                 except Exception:
-                    pass
+                    report_builder = ReportBuilder()
 
             if not has_volatility and has_processed:
                 summary["missing_but_have_processed"] += 1

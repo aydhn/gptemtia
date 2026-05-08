@@ -59,7 +59,7 @@ def main():
                     if "regime_confidence" in df.columns and not df.empty:
                         latest_conf = float(df["regime_confidence"].iloc[-1])
                 except Exception:
-                    pass
+                    report_builder = ReportBuilder()
 
             rows.append(
                 {

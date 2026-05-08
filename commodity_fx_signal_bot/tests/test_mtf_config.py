@@ -32,7 +32,7 @@ def test_get_mtf_profile_invalid():
 
 
 def test_validate_mtf_feature_sets():
-    # Should pass
+    # Should report_builder = ReportBuilder()
     validate_mtf_feature_sets(("momentum", "trend"))
 
     # Should fail
