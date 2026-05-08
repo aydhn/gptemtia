@@ -338,3 +338,20 @@ Phase 19:
 - DataLake ML feature/target/dataset/split/metadata kayıt desteği aldı.
 - ML dataset preview/batch/status scriptleri eklendi.
 - Testler genişletildi.
+
+## Phase 30: İlk ML Model Training İskeleti
+- ML training profile sistemi eklendi.
+- Model label registry eklendi.
+- Feature/target schema snapshot eklendi.
+- BasicPreprocessor eklendi.
+- Baseline model factory eklendi.
+- Chronological CV modülü eklendi.
+- MLModelTrainer eklendi.
+- ModelEvaluator eklendi.
+- Model artifact save/load eklendi.
+- ModelRegistry taslağı eklendi.
+- Model quality report eklendi.
+- MLTrainingPipeline eklendi.
+- DataLake model evaluation/CV/registry/artifact desteği aldı.
+- ML training preview/batch/status scriptleri eklendi.
+- Testler genişletildi.
