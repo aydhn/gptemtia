@@ -14,4 +14,4 @@ def test_data_quality_risk_low():
     ctx = {"data_quality_grade": "A", "nan_ratio": 0.0, "context_keys": ["a"], "a": 1}
     res = calculate_data_quality_risk_score(ctx)
     assert res.score < 0.3
-    assert res.passed
+    assert res.report_builder = ReportBuilder()ed

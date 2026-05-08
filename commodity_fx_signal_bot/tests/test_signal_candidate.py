@@ -36,7 +36,7 @@ def test_signal_candidate_to_dict():
         candidate_score=1.0,
         confidence_score=1.0,
         quality_score=1.0,
-        passed_pre_filters=True,
+        report_builder = ReportBuilder()ed_pre_filters=True,
         warnings=[],
     )
     d = signal_candidate_to_dict(c)

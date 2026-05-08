@@ -38,7 +38,7 @@ def test_build_compact_volatility_features(sample_ohlcv):
     assert "atr_14" in df.columns
     assert "atr_pct_14" in df.columns
     assert "bb_width_20_2" in df.columns
-    pass  # assert "event_volatility_squeeze_bb20" in df.columns
+    report_builder = ReportBuilder()  # assert "event_volatility_squeeze_bb20" in df.columns
 
 
 def test_build_full_volatility_features(sample_ohlcv):

@@ -27,7 +27,7 @@ def test_evaluate_split(validator, mock_trades):
     assert result["train_trade_count"] > 0
     assert result["test_trade_count"] > 0
     assert round(result["train_win_rate"], 1) == 0.5
-    assert result["train_passed_min_trades"] is True
+    assert result["train_report_builder = ReportBuilder()ed_min_trades"] is True
 
 def test_evaluate_walk_forward(validator, mock_trades):
     split1 = TimeSplit("id1", "2020-01-01", "2020-01-20", "2020-01-21", "2020-02-09", 20, 20, 0)

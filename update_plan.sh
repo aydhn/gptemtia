@@ -1,0 +1,13 @@
+#!/bin/bash
+echo "1. Update config files (settings.py, paths.py) and .env.example"
+echo "2. Create foundational ML configuration and labels (ml/dataset_config.py, ml/dataset_labels.py)"
+echo "3. Create target engineering and feature matrix builder modules (ml/target_engineering.py, ml/feature_matrix_builder.py)"
+echo "4. Create dataset builder and leakage check modules (ml/dataset_builder.py, ml/leakage_checks.py)"
+echo "5. Create splitters and quality check modules (ml/splitters.py, ml/dataset_quality.py)"
+echo "6. Create dataset registry and orchestration pipeline (ml/dataset_registry.py, ml/dataset_pipeline.py)"
+echo "7. Update DataLake and FeatureStore (data/storage/data_lake.py, ml/feature_store.py)"
+echo "8. Update ReportBuilder for ML datasets (reports/report_builder.py)"
+echo "9. Create executable scripts for preview, batch build, and status (scripts/run_ml_*)"
+echo "10. Create tests for all new ML dataset modules (tests/test_dataset_*.py)"
+echo "11. Update documentation (README.md, docs/ARCHITECTURE.md, docs/PHASE_LOG.md)"
+echo "12. Complete pre commit steps"

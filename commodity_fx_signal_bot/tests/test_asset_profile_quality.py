@@ -19,17 +19,17 @@ def test_check_asset_profile_missing_columns():
 def test_check_group_member_coverage():
     res = check_group_member_coverage("metals", 5, 3)
     assert res["coverage_ratio"] == 0.6
-    assert res["passed_minimum_coverage"] is True
+    assert res["report_builder = ReportBuilder()ed_minimum_coverage"] is True
 
     res2 = check_group_member_coverage("metals", 5, 1)
-    assert res2["passed_minimum_coverage"] is False
+    assert res2["report_builder = ReportBuilder()ed_minimum_coverage"] is False
 
 
 def test_check_group_feature_nan_ratio():
     df = pd.DataFrame({"A": [1, None, None], "B": [1, 2, None]})
     res = check_group_feature_nan_ratio(df, max_nan_ratio=0.4)
     assert res["total_nan_ratio"] == 0.5
-    assert not res["passed_nan_check"]
+    assert not res["report_builder = ReportBuilder()ed_nan_check"]
 
 
 def test_build_asset_profile_quality_report():
@@ -44,5 +44,5 @@ def test_build_asset_profile_quality_report():
     )
 
     report = build_asset_profile_quality_report(df, {"warnings": []})
-    assert report["passed"] is True
+    assert report["report_builder = ReportBuilder()ed"] is True
     assert report["relative_strength_available"] is True

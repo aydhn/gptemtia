@@ -23,7 +23,7 @@ def test_pipeline_build_for_symbol():
     df, summary = pipeline.build_for_symbol_timeframe(spec, "1d", save=False)
 
     assert not df.empty
-    assert summary["passed_decision_count"] >= 0
+    assert summary["report_builder = ReportBuilder()ed_decision_count"] >= 0
 
 
 def test_pipeline_skip_macro():

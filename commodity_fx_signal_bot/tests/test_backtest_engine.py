@@ -24,7 +24,7 @@ def test_backtest_engine():
 
     level_df = pd.DataFrame(
         {
-            "passed_level_filters": [True],
+            "report_builder = ReportBuilder()ed_level_filters": [True],
             "theoretical_stop_level": [9.0],
             "theoretical_target_level": [14.0],
             "directional_bias": ["long_bias_candidate"],

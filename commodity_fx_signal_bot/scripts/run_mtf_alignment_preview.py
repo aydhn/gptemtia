@@ -68,7 +68,7 @@ def main():
 
     qr = summary.get("quality_report", {})
     print("\n--- Quality Report ---")
-    print(f"Passed: {qr.get('passed')}")
+    print(f"Passed: {qr.get('report_builder = ReportBuilder()ed')}")
     print(f"NaN Ratio: {qr.get('total_nan_ratio', 0):.2%}")
     print(f"Stale Ratio: {qr.get('stale_context_ratio', 0):.2%}")
 
@@ -83,7 +83,7 @@ def main():
     with open(report_path, "w") as f:
         f.write(f"MTF Alignment Preview: {args.symbol} | Profile: {args.profile}\n")
         f.write("=" * 60 + "\n")
-        f.write(f"Quality Passed: {qr.get('passed')}\n")
+        f.write(f"Quality Passed: {qr.get('report_builder = ReportBuilder()ed')}\n")
         f.write(f"Warnings: {summary.get('warnings', [])}\n")
         f.write("\nTail:\n")
         f.write(df.tail(args.last).to_string())

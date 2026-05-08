@@ -12,13 +12,13 @@ def runner():
 def param_set():
     return ParameterSet("id1", {"p1": 1})
 
-def test_score_parameter_set_passed(runner, param_set):
+def test_score_parameter_set_report_builder = ReportBuilder()ed(runner, param_set):
     perf = {"sharpe_ratio": 1.5, "max_drawdown_pct": 10.0}
     rob = {"robustness_score": 0.8, "aggregate_overfitting_risk_score": 0.2}
 
     res = runner.score_parameter_set(param_set, perf, robustness_summary=rob)
 
-    assert res["candidate_label"] == "optimizer_candidate_passed"
+    assert res["candidate_label"] == "optimizer_candidate_report_builder = ReportBuilder()ed"
     assert res["optimizer_candidate_score"] > 0
 
 def test_score_parameter_set_rejected_negative_metric(runner, param_set):
@@ -50,8 +50,8 @@ def test_rank_parameter_sets(runner):
 
 def test_build_optimizer_candidate_report(runner):
     results = [
-        {"id": 1, "optimizer_candidate_score": 10.0, "candidate_label": "optimizer_candidate_passed"},
-        {"id": 2, "optimizer_candidate_score": 20.0, "candidate_label": "optimizer_candidate_passed"},
+        {"id": 1, "optimizer_candidate_score": 10.0, "candidate_label": "optimizer_candidate_report_builder = ReportBuilder()ed"},
+        {"id": 2, "optimizer_candidate_score": 20.0, "candidate_label": "optimizer_candidate_report_builder = ReportBuilder()ed"},
         {"id": 3, "optimizer_candidate_score": -5.0, "candidate_label": "optimizer_candidate_rejected"},
     ]
 
@@ -59,6 +59,6 @@ def test_build_optimizer_candidate_report(runner):
 
     assert not df.empty
     assert summary["total_candidates"] == 3
-    assert summary["passed_candidates"] == 2
+    assert summary["report_builder = ReportBuilder()ed_candidates"] == 2
     assert summary["rejected_candidates"] == 1
     assert "disclaimer" in summary

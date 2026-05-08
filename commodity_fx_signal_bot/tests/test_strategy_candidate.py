@@ -35,7 +35,7 @@ def test_strategy_candidate_to_dict():
         asset_profile_fit_score=1.0,
         conflict_penalty=0.0,
         strategy_readiness_score=1.0,
-        passed_strategy_filters=True,
+        report_builder = ReportBuilder()ed_strategy_filters=True,
         block_reasons=[],
         watchlist_reasons=[],
         warnings=[],

@@ -36,7 +36,7 @@ def test_sizing_candidate_pool():
         risk_readiness_score=0.9,
         sizing_readiness_score=0.9,
         sizing_quality_score=1.0,
-        passed_sizing_filters=True,
+        report_builder = ReportBuilder()ed_sizing_filters=True,
         block_reasons=[],
         watchlist_reasons=[],
         warnings=[],
@@ -54,4 +54,4 @@ def test_sizing_candidate_pool():
 
     summary = pool.summarize()
     assert summary["total_sizing_candidates"] == 1
-    assert summary["passed_sizing_candidates"] == 1
+    assert summary["report_builder = ReportBuilder()ed_sizing_candidates"] == 1

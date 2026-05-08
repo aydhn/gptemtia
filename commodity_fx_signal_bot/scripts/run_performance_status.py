@@ -67,7 +67,7 @@ def main():
                 "sharpe_ratio": adv.get("sharpe_ratio", 0.0),
                 "max_drawdown_pct": adv.get("max_drawdown_pct", 0.0),
                 "has_benchmark_comparison": has_bench_file,
-                "quality_passed": qual.get("passed", False),
+                "quality_report_builder = ReportBuilder()ed": qual.get("report_builder = ReportBuilder()ed", False),
             }
         )
 

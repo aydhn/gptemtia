@@ -21,7 +21,7 @@ def synthetic_df():
 def test_build_compact_divergence_features(synthetic_df):
     builder = DivergenceFeatureSetBuilder()
 
-    # We pass include_events=True by default
+    # We report_builder = ReportBuilder() include_events=True by default
     df_out, summary = builder.build_compact_divergence_features(
         synthetic_df, include_events=True
     )

@@ -28,9 +28,9 @@ def main():
             try:
                 df = data_lake.load_features(spec, tf, "strategy_candidates")
                 if not df.empty:
-                    passed = (
-                        df[df["passed_strategy_filters"] == True]
-                        if "passed_strategy_filters" in df.columns
+                    report_builder = ReportBuilder()ed = (
+                        df[df["report_builder = ReportBuilder()ed_strategy_filters"] == True]
+                        if "report_builder = ReportBuilder()ed_strategy_filters" in df.columns
                         else pd.DataFrame()
                     )
                     status_list.append(
@@ -38,7 +38,7 @@ def main():
                             "symbol": spec.symbol,
                             "timeframe": tf,
                             "candidate_count": len(df),
-                            "passed_count": len(passed),
+                            "report_builder = ReportBuilder()ed_count": len(report_builder = ReportBuilder()ed),
                             "latest_timestamp": (
                                 str(df.index.max()) if not df.index.empty else "N/A"
                             ),

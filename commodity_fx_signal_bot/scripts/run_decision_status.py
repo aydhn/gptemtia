@@ -42,7 +42,7 @@ def main():
                     }
                 )
             except Exception:
-                pass
+                report_builder = ReportBuilder()
 
     # Check pools
     # In a real implementation we would list all profiles and timeframes.
@@ -69,7 +69,7 @@ def main():
                         }
                     )
                 except Exception:
-                    pass
+                    report_builder = ReportBuilder()
 
     status_df = pd.DataFrame(status_records)
 

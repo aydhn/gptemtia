@@ -434,3 +434,24 @@ python -m scripts.run_optimizer_candidate_preview --symbol GC=F --timeframe 1d
 python -m scripts.run_validation_batch --limit 10 --timeframe 1d
 python -m scripts.run_validation_status
 ```
+
+## ML Dataset Hazırlığı ve Target Engineering (Phase 29)
+
+Bu proje aynı zamanda gelecekteki Machine Learning model eğitimleri için bir altyapı sunar. Bu faz model eğitimi değildir, sadece ML için leakage-safe (geleceğe sızmasız) feature matrix ve target frame üretir.
+
+Özellikler:
+- Forward return, direction class, future volatility, future drawdown ve candidate outcome targetları desteklenir.
+- Target kolonları feature olarak kullanılamaz.
+- Chronological split kullanılır; random split/shuffle yoktur.
+- Purging ve embargo desteklenir.
+- Leakage audit raporu üretilir.
+
+*Not: "Dataset ready candidate" durumu, model hazır veya canlı sinyal anlamına gelmez.*
+
+Komutlar:
+```bash
+python -m scripts.run_ml_dataset_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_ml_target_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_ml_dataset_batch_build --limit 10 --timeframe 1d
+python -m scripts.run_ml_dataset_status
+```

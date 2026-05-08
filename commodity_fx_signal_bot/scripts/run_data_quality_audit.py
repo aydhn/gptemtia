@@ -89,7 +89,7 @@ def main():
                         "rows": score.rows,
                         "score": score.score,
                         "grade": score.grade,
-                        "passed": score.passed,
+                        "report_builder = ReportBuilder()ed": score.report_builder = ReportBuilder()ed,
                         "errors": score.errors,
                         "warnings": score.warnings,
                         "missing_ratio": score.missing_ratio,

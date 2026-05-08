@@ -16,7 +16,7 @@ class MockDataLakePipeline:
         )
 
     def save_features(self, spec, timeframe, df, name):
-        pass
+        report_builder = ReportBuilder()
 
 
 def test_signal_pipeline_build_for_symbol():

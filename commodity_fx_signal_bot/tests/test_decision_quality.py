@@ -38,5 +38,5 @@ def test_quality_report():
             "strategy_readiness_score": [0.5],
         }
     )
-    rep = build_decision_quality_report(df, {"passed_decisions": 1})
-    assert rep["passed"] is True
+    rep = build_decision_quality_report(df, {"report_builder = ReportBuilder()ed_decisions": 1})
+    assert rep["report_builder = ReportBuilder()ed"] is True

@@ -28,7 +28,7 @@ def test_calculate_quality_score():
     score = calculate_quality_score("TEST", "1d", df)
     assert score.score == 100.0
     assert score.grade == "A"
-    assert score.passed
+    assert score.report_builder = ReportBuilder()ed
 
 
 def test_calculate_quality_score_bad_data():
@@ -48,4 +48,4 @@ def test_calculate_quality_score_bad_data():
     score = calculate_quality_score("TEST", "1d", df)
     assert score.score < 50.0
     assert score.grade in ["D", "F"]
-    assert not score.passed
+    assert not score.report_builder = ReportBuilder()ed

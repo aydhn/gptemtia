@@ -1,17 +1,19 @@
 __pycache__/
 *.py[cod]
 *$py.class
-.pytest_cache/
-.coverage
-htmlcov/
+
+# Data directories
+data/raw/
+data/processed/
 data/lake/
-data/cache/
+logs/
 reports/output/
 .env
+
+# Virtual environment
 .venv/
 venv/
 ENV/
 env/
-.DS_Store
-*.log
-.myvenv
+__pycache__/
+*.pyc

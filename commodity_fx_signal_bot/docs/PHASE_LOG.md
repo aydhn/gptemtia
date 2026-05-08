@@ -323,3 +323,18 @@ Phase 19:
 - DataLake validation kayıt desteği aldı.
 - Validation preview/batch/status scriptleri eklendi.
 - Testler genişletildi.
+
+### Phase 29: ML DATASET HAZIRLIĞI, SUPERVISED LEARNING TARGET ENGINEERING, FEATURE MATRIX BUILDER VE LEAKAGE-SAFE TRAIN/TEST SPLIT
+- ML dataset profile sistemi eklendi.
+- Dataset label registry eklendi.
+- Target engineering modülü eklendi.
+- FeatureMatrixBuilder eklendi.
+- SupervisedDatasetBuilder eklendi.
+- Leakage audit modülü eklendi.
+- Chronological/purged/embargo split modülü eklendi.
+- Dataset quality report eklendi.
+- Dataset registry metadata eklendi.
+- MLDatasetPipeline eklendi.
+- DataLake ML feature/target/dataset/split/metadata kayıt desteği aldı.
+- ML dataset preview/batch/status scriptleri eklendi.
+- Testler genişletildi.
