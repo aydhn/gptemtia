@@ -455,3 +455,24 @@ python -m scripts.run_ml_target_preview --symbol GC=F --timeframe 1d
 python -m scripts.run_ml_dataset_batch_build --limit 10 --timeframe 1d
 python -m scripts.run_ml_dataset_status
 ```
+
+
+## Offline ML Baseline Training ve Model Evaluation (Phase 30)
+
+Bu faz canlı prediction değildir. Model training sadece offline/research amaçlıdır.
+- Dummy, Logistic Regression, Random Forest ve HistGradientBoosting baseline modelleri desteklenir.
+- Chronological CV kullanılır; random shuffle yoktur.
+- Preprocessing train set üzerinde fit edilir, validation/test sadece transform edilir.
+- Model registry deploy sistemi değildir.
+- `registered_candidate` canlı model onayı değildir.
+- Evaluation metrikleri gelecek performans garantisi değildir.
+- Model çıktısı canlı sinyal veya yatırım tavsiyesi değildir.
+
+**Komutlar:**
+```bash
+python -m scripts.run_ml_training_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_ml_model_evaluation_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_ml_training_batch --limit 10 --timeframe 1d
+python -m scripts.run_ml_model_registry_status
+python -m scripts.run_ml_model_artifact_status
+```

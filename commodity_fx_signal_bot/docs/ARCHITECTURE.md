@@ -132,3 +132,16 @@ Feature Stores / Candidate Stores / Backtest Outputs
 → SupervisedDatasetBuilder
 → DatasetRegistry
 → Future ML Training / Model Registry / Prediction Engine
+
+
+### Phase 30: ML Training & Evaluation Layer
+ML Supervised Dataset
+→ Feature/Target Schema
+→ BasicPreprocessor
+→ BaselineModels
+→ Chronological CV
+→ MLModelTrainer
+→ ModelEvaluator
+→ ModelArtifacts
+→ ModelRegistry
+→ Future Prediction Engine / Model Monitoring / Paper Trade Research

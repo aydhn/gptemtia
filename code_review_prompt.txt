@@ -1,43 +1,16 @@
-I have added the "decision candidate" layer, which is responsible for directional bias separation and logic for predicting "long_bias_candidate", "short_bias_candidate", "neutral", and "no_trade" decision candidates. No ML models, no real trading actions or real buy/sell orders are taken here.
+Review the following changes related to Phase 30: ML Training Baseline Models and Evaluation Layer.
+The goal of this phase is to build an offline ML model training skeleton using chronological cross validation, basic baseline models (Dummy, Logistic Regression, Random Forest, HistGradientBoosting), and a model artifact/registry system without creating a live trading signal engine.
 
-Files modified/created:
-config/settings.py
-config/paths.py
-data/storage/data_lake.py
-ml/feature_store.py
-reports/report_builder.py
+The changes involve:
+- `config/settings.py` and `config/paths.py` updates
+- `ml/training_config.py` and `ml/model_labels.py`
+- `ml/preprocessing.py` and `ml/baseline_models.py`
+- `ml/model_schema.py`
+- `ml/cross_validation.py` and `ml/model_evaluator.py`
+- `ml/model_trainer.py`
+- `ml/model_artifacts.py` and `ml/model_registry.py`
+- `ml/model_quality.py` and `ml/training_pipeline.py`
+- Scripts for preview, batch, and status checking
+- `data/storage/data_lake.py` and `reports/report_builder.py` integration
 
-decisions/__init__.py
-decisions/decision_config.py
-decisions/decision_labels.py
-decisions/directional_bias.py
-decisions/decision_inputs.py
-decisions/decision_components.py
-decisions/conflict_resolver.py
-decisions/neutral_filter.py
-decisions/decision_candidate.py
-decisions/decision_engine.py
-decisions/decision_pool.py
-decisions/decision_quality.py
-decisions/decision_pipeline.py
-
-scripts/run_decision_candidate_preview.py
-scripts/run_decision_batch_build.py
-scripts/run_decision_pool_preview.py
-scripts/run_decision_status.py
-
-tests/test_decision_config.py
-tests/test_decision_labels.py
-tests/test_directional_bias.py
-tests/test_decision_inputs.py
-tests/test_decision_components.py
-tests/test_conflict_resolver.py
-tests/test_neutral_filter.py
-tests/test_decision_candidate.py
-tests/test_decision_engine.py
-tests/test_decision_pool.py
-tests/test_decision_quality.py
-tests/test_decision_pipeline.py
-tests/test_decision_scripts_contract.py
-
-I have verified all tests are passing.
+Please review for modularity, safety (no live trading language), and proper structure.

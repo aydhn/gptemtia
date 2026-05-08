@@ -1,73 +1,77 @@
+import re
+
+# Update README.md
 with open("commodity_fx_signal_bot/README.md", "r") as f:
-    readme = f.read()
+    content = f.read()
 
-readme_add = """
-## ML Dataset Hazırlığı ve Target Engineering (Phase 29)
+new_readme_section = """
+## Offline ML Baseline Training ve Model Evaluation (Phase 30)
 
-Bu proje aynı zamanda gelecekteki Machine Learning model eğitimleri için bir altyapı sunar. Bu faz model eğitimi değildir, sadece ML için leakage-safe (geleceğe sızmasız) feature matrix ve target frame üretir.
+Bu faz canlı prediction değildir. Model training sadece offline/research amaçlıdır.
+- Dummy, Logistic Regression, Random Forest ve HistGradientBoosting baseline modelleri desteklenir.
+- Chronological CV kullanılır; random shuffle yoktur.
+- Preprocessing train set üzerinde fit edilir, validation/test sadece transform edilir.
+- Model registry deploy sistemi değildir.
+- `registered_candidate` canlı model onayı değildir.
+- Evaluation metrikleri gelecek performans garantisi değildir.
+- Model çıktısı canlı sinyal veya yatırım tavsiyesi değildir.
 
-Özellikler:
-- Forward return, direction class, future volatility, future drawdown ve candidate outcome targetları desteklenir.
-- Target kolonları feature olarak kullanılamaz.
-- Chronological split kullanılır; random split/shuffle yoktur.
-- Purging ve embargo desteklenir.
-- Leakage audit raporu üretilir.
-
-*Not: "Dataset ready candidate" durumu, model hazır veya canlı sinyal anlamına gelmez.*
-
-Komutlar:
+**Komutlar:**
 ```bash
-python -m scripts.run_ml_dataset_preview --symbol GC=F --timeframe 1d
-python -m scripts.run_ml_target_preview --symbol GC=F --timeframe 1d
-python -m scripts.run_ml_dataset_batch_build --limit 10 --timeframe 1d
-python -m scripts.run_ml_dataset_status
+python -m scripts.run_ml_training_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_ml_model_evaluation_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_ml_training_batch --limit 10 --timeframe 1d
+python -m scripts.run_ml_model_registry_status
+python -m scripts.run_ml_model_artifact_status
 ```
 """
+content = content + "\n" + new_readme_section
+with open("commodity_fx_signal_bot/README.md", "w") as f:
+    f.write(content)
 
-if "ML Dataset Hazırlığı ve Target Engineering" not in readme:
-    readme += readme_add
-    with open("commodity_fx_signal_bot/README.md", "w") as f:
-        f.write(readme)
-
+# Update ARCHITECTURE.md
 with open("commodity_fx_signal_bot/docs/ARCHITECTURE.md", "r") as f:
-    arch = f.read()
+    content = f.read()
 
-arch_add = """
-### Phase 29: ML Dataset Hazırlık Katmanı
-Feature Stores / Candidate Stores / Backtest Outputs
-→ FeatureMatrixBuilder
-→ TargetEngineering
-→ LeakageChecks
-→ Chronological / Purged / Embargo Split
-→ SupervisedDatasetBuilder
-→ DatasetRegistry
-→ Future ML Training / Model Registry / Prediction Engine
+new_arch_section = """
+### Phase 30: ML Training & Evaluation Layer
+ML Supervised Dataset
+→ Feature/Target Schema
+→ BasicPreprocessor
+→ BaselineModels
+→ Chronological CV
+→ MLModelTrainer
+→ ModelEvaluator
+→ ModelArtifacts
+→ ModelRegistry
+→ Future Prediction Engine / Model Monitoring / Paper Trade Research
 """
-if "ML Dataset Hazırlık Katmanı" not in arch:
-    arch += arch_add
-    with open("commodity_fx_signal_bot/docs/ARCHITECTURE.md", "w") as f:
-        f.write(arch)
+content = content + "\n" + new_arch_section
+with open("commodity_fx_signal_bot/docs/ARCHITECTURE.md", "w") as f:
+    f.write(content)
 
+# Update PHASE_LOG.md
 with open("commodity_fx_signal_bot/docs/PHASE_LOG.md", "r") as f:
-    log = f.read()
+    content = f.read()
 
-log_add = """
-### Phase 29: ML DATASET HAZIRLIĞI, SUPERVISED LEARNING TARGET ENGINEERING, FEATURE MATRIX BUILDER VE LEAKAGE-SAFE TRAIN/TEST SPLIT
-- ML dataset profile sistemi eklendi.
-- Dataset label registry eklendi.
-- Target engineering modülü eklendi.
-- FeatureMatrixBuilder eklendi.
-- SupervisedDatasetBuilder eklendi.
-- Leakage audit modülü eklendi.
-- Chronological/purged/embargo split modülü eklendi.
-- Dataset quality report eklendi.
-- Dataset registry metadata eklendi.
-- MLDatasetPipeline eklendi.
-- DataLake ML feature/target/dataset/split/metadata kayıt desteği aldı.
-- ML dataset preview/batch/status scriptleri eklendi.
+new_log_section = """
+### Phase 30: İLK ML MODEL TRAINING İSKELETİ, BASELINE MODELLER, CROSS-VALIDATION, MODEL REGISTRY
+- ML training profile sistemi eklendi.
+- Model label registry eklendi.
+- Feature/target schema snapshot eklendi.
+- BasicPreprocessor eklendi.
+- Baseline model factory eklendi.
+- Chronological CV modülü eklendi.
+- MLModelTrainer eklendi.
+- ModelEvaluator eklendi.
+- Model artifact save/load eklendi.
+- ModelRegistry taslağı eklendi.
+- Model quality report eklendi.
+- MLTrainingPipeline eklendi.
+- DataLake model evaluation/CV/registry/artifact desteği aldı.
+- ML training preview/batch/status scriptleri eklendi.
 - Testler genişletildi.
 """
-if "Phase 29: ML DATASET HAZIRLIĞI" not in log:
-    log += log_add
-    with open("commodity_fx_signal_bot/docs/PHASE_LOG.md", "w") as f:
-        f.write(log)
+content = content + "\n" + new_log_section
+with open("commodity_fx_signal_bot/docs/PHASE_LOG.md", "w") as f:
+    f.write(content)
