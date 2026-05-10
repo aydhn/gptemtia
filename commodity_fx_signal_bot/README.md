@@ -476,3 +476,23 @@ python -m scripts.run_ml_training_batch --limit 10 --timeframe 1d
 python -m scripts.run_ml_model_registry_status
 python -m scripts.run_ml_model_artifact_status
 ```
+
+
+## ML Context Integration ve Model-Aware Candidate Scoring
+Bu faz canlı ML sinyal motoru değildir.
+ML prediction context signal/decision/strategy katmanlarına düşük ağırlıklı bağlam olarak entegre edilir.
+Model supportive alignment trade onayı değildir.
+Model conflict alignment gerçek emir yasağı değildir.
+Model-aware score canlı sinyal değildir.
+High uncertainty model etkisini düşürür.
+Leakage/model quality fail durumları ML context kalitesini düşürür.
+Research-only profile skorlamaya etki etmeden sadece rapor üretir.
+
+Komutlar:
+```bash
+python -m scripts.run_ml_context_integration_preview --symbol GC=F --timeframe 1d
+python -m scripts.run_model_alignment_preview --symbol GC=F --timeframe 1d --layer decision
+python -m scripts.run_ml_conflict_filter_preview --symbol GC=F --timeframe 1d --layer decision
+python -m scripts.run_ml_integration_batch --limit 10 --timeframe 1d
+python -m scripts.run_ml_integration_status
+```

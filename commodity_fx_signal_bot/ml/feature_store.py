@@ -334,3 +334,46 @@ class FeatureStore:
                 result[sym][tf] = []
             result[sym][tf].append(row.to_dict())
         return result
+
+
+    # --- PHASE 32: ML CONTEXT INTEGRATION ---
+    def load_ml_integration_features(self, spec: SymbolSpec, timeframe: str, profile_name: str | None = None, layer: str = "context") -> pd.DataFrame:
+        profile = profile_name or "balanced_ml_context_integration"
+        return self.data_lake.load_ml_integration_features(spec.symbol, timeframe, profile, layer)
+
+    def load_ml_alignment_report(self, spec: SymbolSpec, timeframe: str, profile_name: str | None = None, layer: str = "signal") -> pd.DataFrame:
+        profile = profile_name or "balanced_ml_context_integration"
+        return self.data_lake.load_ml_alignment_report(spec.symbol, timeframe, profile, layer)
+
+    def load_ml_conflict_report(self, spec: SymbolSpec, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+        profile = profile_name or "balanced_ml_context_integration"
+        return self.data_lake.load_ml_conflict_report(spec.symbol, timeframe, profile)
+
+    def load_ml_integration_quality(self, spec: SymbolSpec, timeframe: str, profile_name: str | None = None) -> dict:
+        profile = profile_name or "balanced_ml_context_integration"
+        return self.data_lake.load_ml_integration_quality(spec.symbol, timeframe, profile)
+
+    def list_available_ml_integration_reports(self, spec: SymbolSpec | None = None) -> dict:
+        df = self.data_lake.list_ml_integration_reports()
+        if df.empty:
+            return {}
+
+        if spec:
+            df = df[df["symbol"] == spec.symbol]
+
+        if df.empty:
+            return {}
+
+        # Group by symbol and timeframe
+        res = {}
+        for _, row in df.iterrows():
+            sym = row["symbol"]
+            tf = row["timeframe"]
+            key = f"{sym}_{tf}"
+            if key not in res:
+                res[key] = []
+            res[key].append({
+                "layer": row["layer"],
+                "profile": row["profile"]
+            })
+        return res

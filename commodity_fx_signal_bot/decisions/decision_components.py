@@ -147,3 +147,46 @@ def calculate_strategy_readiness_score(components: Dict[str, float]) -> float:
     if not components:
         return 0.0
     return sum(components.values()) / len(components)
+
+
+def calculate_ml_decision_context_component(
+    context_frames: Dict[str, pd.DataFrame],
+    timestamp: pd.Timestamp,
+    target_direction: str
+) -> float:
+    """
+    Optionally read ml context to provide a base decision component score.
+    Returns 0.5 (neutral) if no ML context.
+    """
+    ml_df = context_frames.get("ml_prediction_context")
+    if ml_df is None or ml_df.empty:
+        ml_df = context_frames.get("ml_integration_decision")
+        if ml_df is None or ml_df.empty:
+            return 0.5
+
+    if timestamp not in ml_df.index:
+        past_idx = ml_df.index[ml_df.index <= timestamp]
+        if len(past_idx) == 0:
+            return 0.5
+        timestamp = past_idx[-1]
+
+    ml_row = ml_df.loc[timestamp]
+    if isinstance(ml_row, pd.DataFrame):
+        ml_row = ml_row.iloc[0]
+
+    if "model_decision_alignment_score" in ml_row:
+        return float(ml_row["model_decision_alignment_score"])
+
+    prediction = str(ml_row.get("predicted_direction", "flat")).lower()
+    confidence = float(ml_row.get("confidence_score", 0.0))
+
+    if target_direction == "bullish" and prediction == "up":
+        return 0.5 + (confidence * 0.5)
+    elif target_direction == "bearish" and prediction == "down":
+        return 0.5 + (confidence * 0.5)
+    elif target_direction == "bullish" and prediction == "down":
+        return max(0.0, 0.5 - (confidence * 0.5))
+    elif target_direction == "bearish" and prediction == "up":
+        return max(0.0, 0.5 - (confidence * 0.5))
+
+    return 0.5

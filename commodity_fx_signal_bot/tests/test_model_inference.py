@@ -2,7 +2,7 @@ import pytest
 import pandas as pd
 import numpy as np
 from unittest.mock import MagicMock
-from commodity_fx_signal_bot.ml.model_inference import OfflineModelInference
+from ml.model_inference import OfflineModelInference
 
 def test_offline_model_inference_classification():
     model = MagicMock()

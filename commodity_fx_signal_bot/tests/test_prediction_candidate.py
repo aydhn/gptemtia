@@ -1,10 +1,10 @@
 import pytest
 import pandas as pd
-from commodity_fx_signal_bot.ml.prediction_candidate import (
+from ml.prediction_candidate import (
     build_prediction_id,
     build_prediction_candidate_from_row
 )
-from commodity_fx_signal_bot.ml.prediction_config import MLPredictionProfile
+from ml.prediction_config import MLPredictionProfile
 
 def test_build_prediction_id():
     pid1 = build_prediction_id("A", "1d", "2020-01-01", "m1", "t1")

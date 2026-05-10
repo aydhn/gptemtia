@@ -1,7 +1,7 @@
 import pytest
 import pandas as pd
 from unittest.mock import MagicMock
-from commodity_fx_signal_bot.ml.inference_preprocessor import InferencePreprocessor
+from ml.inference_preprocessor import InferencePreprocessor
 
 def test_inference_preprocessor_align_features():
     prep = MagicMock()

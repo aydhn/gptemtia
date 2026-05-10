@@ -1,7 +1,7 @@
 import pytest
 import math
-from commodity_fx_signal_bot.ml.prediction_candidate import MLPredictionCandidate
-from commodity_fx_signal_bot.ml.prediction_pool import MLPredictionCandidatePool
+from ml.prediction_candidate import MLPredictionCandidate
+from ml.prediction_pool import MLPredictionCandidatePool
 
 def test_prediction_pool():
     pool = MLPredictionCandidatePool()

@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import MagicMock
-from commodity_fx_signal_bot.ml.prediction_pipeline import MLPredictionPipeline
-from commodity_fx_signal_bot.config.symbols import SymbolSpec
+from ml.prediction_pipeline import MLPredictionPipeline
+from config.symbols import SymbolSpec
 
 def test_ml_prediction_pipeline_init():
     mock_lake = MagicMock()

@@ -31,7 +31,7 @@ def main():
         return
 
     # Filter specs
-    all_specs = universe_manager.get_universe()
+    all_specs = universe_manager.get_enabled_symbols()
     specs_to_process = []
 
     for s in all_specs:

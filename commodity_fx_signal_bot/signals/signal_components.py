@@ -148,3 +148,53 @@ def calculate_risk_precheck_score(
     context_frames: dict[str, pd.DataFrame], timestamp: pd.Timestamp
 ) -> float:
     return 0.8
+
+
+def calculate_ml_context_score(
+    context_frames: dict[str, pd.DataFrame],
+    timestamp: pd.Timestamp,
+    directional_bias: str
+) -> float:
+    """
+    Optionally read ml context to provide a base score adjustment.
+    If no ML context is present, return 0.5 (neutral).
+    """
+    ml_context_df = context_frames.get("ml_prediction_context")
+    if ml_context_df is None or ml_context_df.empty:
+        # Fallback to older name if prediction isn't generated yet
+        ml_context_df = context_frames.get("ml_integration_signal")
+        if ml_context_df is None or ml_context_df.empty:
+            return 0.5
+
+    # Check if timestamp exists
+    if timestamp not in ml_context_df.index:
+        # Get the closest past timestamp
+        past_idx = ml_context_df.index[ml_context_df.index <= timestamp]
+        if len(past_idx) == 0:
+            return 0.5
+        timestamp = past_idx[-1]
+
+    ml_row = ml_context_df.loc[timestamp]
+    if isinstance(ml_row, pd.DataFrame):
+        ml_row = ml_row.iloc[0]
+
+    # Assume we get either raw ML prediction or pre-calculated signal adjustment
+
+    # If it's a pre-calculated adjustment score
+    if "model_signal_alignment_score" in ml_row:
+        return float(ml_row["model_signal_alignment_score"])
+
+    # If it's the raw ML context, we calculate basic alignment
+    predicted_direction = str(ml_row.get("predicted_direction", "flat")).lower()
+    confidence = float(ml_row.get("confidence_score", 0.0))
+
+    if directional_bias == "bullish" and predicted_direction == "up":
+        return 0.5 + (confidence * 0.5)
+    elif directional_bias == "bearish" and predicted_direction == "down":
+        return 0.5 + (confidence * 0.5)
+    elif directional_bias == "bullish" and predicted_direction == "down":
+        return max(0.0, 0.5 - (confidence * 0.5))
+    elif directional_bias == "bearish" and predicted_direction == "up":
+        return max(0.0, 0.5 - (confidence * 0.5))
+
+    return 0.5

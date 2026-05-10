@@ -1,11 +1,11 @@
 import pytest
 import pandas as pd
-from commodity_fx_signal_bot.ml.prediction_quality import (
+from ml.prediction_quality import (
     check_prediction_score_ranges,
     check_for_forbidden_live_terms_in_predictions,
     build_prediction_quality_report
 )
-from commodity_fx_signal_bot.ml.prediction_config import MLPredictionProfile
+from ml.prediction_config import MLPredictionProfile
 
 def test_check_prediction_score_ranges():
     df = pd.DataFrame({"confidence_score": [0.5, 1.2, -0.1]})

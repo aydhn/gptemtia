@@ -24,6 +24,11 @@ class SignalScorer:
     ) -> SignalCandidate:
 
         # Calculate components
+
+        # Calculate optional ML context
+        ml_score = comp.calculate_ml_context_score(context_frames, timestamp, directional_bias)
+
+        # Calculate components
         event_strength = comp.calculate_event_strength_score(
             events_df,
             timestamp,

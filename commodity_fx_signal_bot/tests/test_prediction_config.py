@@ -1,5 +1,5 @@
 import pytest
-from commodity_fx_signal_bot.ml.prediction_config import (
+from ml.prediction_config import (
     MLPredictionProfile,
     get_ml_prediction_profile,
     list_ml_prediction_profiles,

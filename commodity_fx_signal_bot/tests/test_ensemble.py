@@ -1,7 +1,7 @@
 import pytest
 import pandas as pd
-from commodity_fx_signal_bot.ml.ensemble import ModelEnsembleBuilder
-from commodity_fx_signal_bot.ml.prediction_config import MLPredictionProfile
+from ml.ensemble import ModelEnsembleBuilder
+from ml.prediction_config import MLPredictionProfile
 
 def test_ensemble_classification():
     profile = MLPredictionProfile(

@@ -1,5 +1,5 @@
 import pytest
-from commodity_fx_signal_bot.ml.uncertainty import (
+from ml.uncertainty import (
     calculate_probability_entropy,
     calculate_margin_confidence,
     calculate_ensemble_disagreement

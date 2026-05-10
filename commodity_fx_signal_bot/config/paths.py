@@ -129,6 +129,15 @@ LAKE_ML_MODEL_QUALITY_DIR = LAKE_ML_DIR / "model_quality"
 REPORTS_ML_TRAINING_REPORTS_DIR = REPORTS_DIR / "ml_training_reports"
 REPORTS_ML_REPORTS_DIR = REPORTS_DIR / "ml_reports"
 
+# Phase 32: ML Context Integration
+LAKE_ML_INTEGRATION_DIR = LAKE_ML_DIR / "integration"
+LAKE_ML_INTEGRATION_FEATURES_DIR = LAKE_ML_INTEGRATION_DIR / "features"
+LAKE_ML_INTEGRATION_ALIGNMENT_DIR = LAKE_ML_INTEGRATION_DIR / "alignment"
+LAKE_ML_INTEGRATION_CONFLICTS_DIR = LAKE_ML_INTEGRATION_DIR / "conflicts"
+LAKE_ML_INTEGRATION_QUALITY_DIR = LAKE_ML_INTEGRATION_DIR / "quality"
+REPORTS_ML_INTEGRATION_REPORTS_DIR = REPORTS_DIR / "ml_integration_reports"
+
+
 def ensure_project_directories() -> None:
 
     """
@@ -233,6 +242,12 @@ def ensure_project_directories() -> None:
         LAKE_ML_MODEL_QUALITY_DIR,
         REPORTS_ML_TRAINING_REPORTS_DIR,
         REPORTS_ML_REPORTS_DIR,
+        LAKE_ML_INTEGRATION_DIR,
+        LAKE_ML_INTEGRATION_FEATURES_DIR,
+        LAKE_ML_INTEGRATION_ALIGNMENT_DIR,
+        LAKE_ML_INTEGRATION_CONFLICTS_DIR,
+        LAKE_ML_INTEGRATION_QUALITY_DIR,
+        REPORTS_ML_INTEGRATION_REPORTS_DIR,
     ]
 
     for directory in directories:
@@ -285,3 +300,11 @@ class ProjectPaths:
         self.ml_model_quality = LAKE_ML_MODEL_QUALITY_DIR
         self.ml_training_reports = REPORTS_ML_TRAINING_REPORTS_DIR
         self.ml_reports = REPORTS_ML_REPORTS_DIR
+
+        # Phase 32: ML Context Integration
+        self.ml_integration = LAKE_ML_INTEGRATION_DIR
+        self.ml_integration_features = LAKE_ML_INTEGRATION_FEATURES_DIR
+        self.ml_integration_alignment = LAKE_ML_INTEGRATION_ALIGNMENT_DIR
+        self.ml_integration_conflicts = LAKE_ML_INTEGRATION_CONFLICTS_DIR
+        self.ml_integration_quality = LAKE_ML_INTEGRATION_QUALITY_DIR
+        self.ml_integration_reports = REPORTS_ML_INTEGRATION_REPORTS_DIR

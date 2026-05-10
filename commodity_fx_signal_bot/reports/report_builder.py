@@ -2775,3 +2775,147 @@ def build_ml_model_artifact_status_report(status_df, summary: dict) -> str:
         lines.append(status_df.to_string())
 
     return "\n".join(lines)
+
+
+
+# --- PHASE 32: ML CONTEXT INTEGRATION REPORTS ---
+
+def build_ml_context_integration_preview_report(symbol: str, timeframe: str, profile_name: str, summary: dict) -> str:
+    lines = []
+    lines.append("=" * 60)
+    lines.append(f"ML CONTEXT INTEGRATION PREVIEW [{symbol} - {timeframe}]")
+    lines.append("=" * 60)
+    lines.append("DIKKAT: Bu cikti offline ML context entegrasyon raporudur.")
+    lines.append("Model alignment, support/conflict veya model-aware score canli sinyal, gercek emir, broker talimati veya yatirim tavsiyesi degildir.")
+    lines.append("-" * 60)
+
+    lines.append(f"Profile: {profile_name}")
+    lines.append(f"ML Context Available: {summary.get('ml_context_available', False)}")
+    lines.append(f"Signal Alignment Rows: {summary.get('signal_alignment_rows', 0)}")
+    lines.append(f"Decision Alignment Rows: {summary.get('decision_alignment_rows', 0)}")
+    lines.append(f"Strategy Alignment Rows: {summary.get('strategy_alignment_rows', 0)}")
+    lines.append(f"Conflict Rows: {summary.get('conflict_rows', 0)}")
+    lines.append(f"High Conflict Count: {summary.get('high_conflict_count', 0)}")
+    lines.append(f"High Uncertainty Count: {summary.get('high_uncertainty_count', 0)}")
+    lines.append(f"Adjusted Layers: {', '.join(summary.get('adjustment_applied_layers', []))}")
+
+    q = summary.get("quality_report", {})
+    lines.append("-" * 60)
+    lines.append("QUALITY REPORT")
+    lines.append(f"Passed: {q.get('passed', False)}")
+    lines.append(f"Coverage Ratio: {q.get('ml_context_coverage_ratio', 0.0):.2%}")
+    lines.append(f"Invalid Scores: {q.get('invalid_score_count', 0)}")
+
+    if q.get('warnings'):
+        lines.append("\nWARNINGS:")
+        for w in q['warnings']:
+            lines.append(f"- {w}")
+
+    if summary.get('warnings'):
+        lines.append("\nPIPELINE WARNINGS:")
+        for w in summary['warnings']:
+            lines.append(f"- {w}")
+
+    lines.append("=" * 60)
+    return "\n".join(lines)
+
+
+def build_model_alignment_preview_report(symbol: str, timeframe: str, profile_name: str, layer: str, summary: dict, tail_df=None) -> str:
+    lines = []
+    lines.append("=" * 60)
+    lines.append(f"MODEL ALIGNMENT PREVIEW [{symbol} - {timeframe} - {layer.upper()}]")
+    lines.append("=" * 60)
+    lines.append("DIKKAT: Bu cikti offline ML context entegrasyon raporudur.")
+    lines.append("Model alignment canli sinyal, gercek emir, broker talimati veya yatirim tavsiyesi degildir.")
+    lines.append("-" * 60)
+
+    lines.append(f"Profile: {profile_name}")
+    if tail_df is not None and not tail_df.empty:
+        lines.append(f"Total alignment rows evaluated: {summary.get(f'{layer}_alignment_rows', len(tail_df))}")
+
+        # Distributions
+        if "alignment_label" in tail_df.columns:
+            dist = tail_df["alignment_label"].value_counts().to_dict()
+            lines.append("\nLabel Distribution (Tail):")
+            for k, v in dist.items():
+                lines.append(f"  {k}: {v}")
+
+        lines.append("\nRecent Alignments:")
+        cols = ["alignment_label", f"model_{layer}_alignment_score", "ml_support_score", "ml_conflict_score", "ml_uncertainty_penalty"]
+        exist_cols = [c for c in cols if c in tail_df.columns]
+        lines.append(tail_df[exist_cols].to_string())
+    else:
+        lines.append("No alignment data available.")
+
+    lines.append("=" * 60)
+    return "\n".join(lines)
+
+
+def build_ml_conflict_filter_preview_report(symbol: str, timeframe: str, profile_name: str, layer: str, summary: dict, tail_df=None) -> str:
+    lines = []
+    lines.append("=" * 60)
+    lines.append(f"ML CONFLICT FILTER PREVIEW [{symbol} - {timeframe} - {layer.upper()}]")
+    lines.append("=" * 60)
+    lines.append("DIKKAT: Bu cikti offline ML context entegrasyon raporudur.")
+    lines.append("Model conflict filter canli sinyal veya gercek emir yasagi degildir. Sadece bir arastirma uyarisi uretir.")
+    lines.append("-" * 60)
+
+    lines.append(f"Profile: {profile_name}")
+    if tail_df is not None and not tail_df.empty:
+        conflicts = tail_df[tail_df["conflict_score"] > 0]
+        lines.append(f"High Conflict Count: {len(conflicts)}")
+
+        if not conflicts.empty:
+            lines.append("\nRecent Conflicts:")
+            cols = ["candidate_directional_bias", "ml_predicted_direction", "conflict_score", "conflict_label", "blocking_candidate"]
+            exist_cols = [c for c in cols if c in conflicts.columns]
+            lines.append(conflicts[exist_cols].to_string())
+        else:
+            lines.append("No active conflicts in tail.")
+    else:
+        lines.append("No conflict data available.")
+
+    lines.append("=" * 60)
+    return "\n".join(lines)
+
+
+def build_ml_integration_batch_report(summary: dict, ranking_df=None) -> str:
+    lines = []
+    lines.append("=" * 80)
+    lines.append(f"ML INTEGRATION BATCH REPORT")
+    lines.append("=" * 80)
+    lines.append("DIKKAT: Bu cikti offline ML context entegrasyon raporudur.")
+    lines.append("-" * 80)
+
+    lines.append(f"Processed: {summary.get('processed', 0)}")
+    lines.append(f"Timeframe: {summary.get('timeframe', '1d')}")
+    lines.append(f"Profile: {summary.get('integration_profile', '')}")
+
+    if ranking_df is not None and not ranking_df.empty:
+        lines.append("\nSummary Table:")
+        cols = ["symbol", "ml_context_available", "signal_alignment_rows", "high_conflict_count", "quality_passed"]
+        exist_cols = [c for c in cols if c in ranking_df.columns]
+        lines.append(ranking_df[exist_cols].to_string(index=False))
+
+    lines.append("=" * 80)
+    return "\n".join(lines)
+
+
+def build_ml_integration_status_report(status_df=None, summary: dict=None) -> str:
+    if summary is None:
+        summary = {}
+    lines = []
+    lines.append("=" * 80)
+    lines.append(f"ML INTEGRATION STATUS REPORT")
+    lines.append("=" * 80)
+    lines.append(f"Total files found: {summary.get('total_files', 0)}")
+
+    if status_df is not None and not status_df.empty:
+        agg = status_df.groupby(["symbol", "layer", "type"]).size().unstack(fill_value=0)
+        lines.append("\nAggregation by Symbol/Layer:")
+        lines.append(agg.to_string())
+    else:
+        lines.append("No ML Integration reports found in data lake.")
+
+    lines.append("=" * 80)
+    return "\n".join(lines)

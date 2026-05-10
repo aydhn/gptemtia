@@ -909,3 +909,61 @@ class DataLake:
         if not data:
             return pd.DataFrame()
         return pd.DataFrame(data)
+
+
+    # --- PHASE 32: ML CONTEXT INTEGRATION ---
+    def save_ml_integration_features(self, symbol: str, timeframe: str, profile_name: str, df: pd.DataFrame, layer: str) -> Path:
+        path = self.paths.ml_integration_features / f"{symbol}_{timeframe}_{layer}_{profile_name}_features.parquet"
+        self._save_parquet(df, path)
+        return path
+
+    def load_ml_integration_features(self, symbol: str, timeframe: str, profile_name: str, layer: str) -> pd.DataFrame:
+        path = self.paths.ml_integration_features / f"{symbol}_{timeframe}_{layer}_{profile_name}_features.parquet"
+        return self._load_parquet(path)
+
+    def save_ml_alignment_report(self, symbol: str, timeframe: str, profile_name: str, df: pd.DataFrame, layer: str) -> Path:
+        path = self.paths.ml_integration_alignment / f"{symbol}_{timeframe}_{layer}_{profile_name}_alignment.parquet"
+        self._save_parquet(df, path)
+        return path
+
+    def load_ml_alignment_report(self, symbol: str, timeframe: str, profile_name: str, layer: str) -> pd.DataFrame:
+        path = self.paths.ml_integration_alignment / f"{symbol}_{timeframe}_{layer}_{profile_name}_alignment.parquet"
+        return self._load_parquet(path)
+
+    def save_ml_conflict_report(self, symbol: str, timeframe: str, profile_name: str, df: pd.DataFrame) -> Path:
+        path = self.paths.ml_integration_conflicts / f"{symbol}_{timeframe}_{profile_name}_conflicts.parquet"
+        self._save_parquet(df, path)
+        return path
+
+    def load_ml_conflict_report(self, symbol: str, timeframe: str, profile_name: str) -> pd.DataFrame:
+        path = self.paths.ml_integration_conflicts / f"{symbol}_{timeframe}_{profile_name}_conflicts.parquet"
+        return self._load_parquet(path)
+
+    def save_ml_integration_quality(self, symbol: str, timeframe: str, profile_name: str, quality: dict) -> Path:
+        path = self.paths.ml_integration_quality / f"{symbol}_{timeframe}_{profile_name}_quality.json"
+        self._save_json(quality, path)
+        return path
+
+    def load_ml_integration_quality(self, symbol: str, timeframe: str, profile_name: str) -> dict:
+        path = self.paths.ml_integration_quality / f"{symbol}_{timeframe}_{profile_name}_quality.json"
+        return self._load_json(path) or {}
+
+    def list_ml_integration_reports(self) -> pd.DataFrame:
+        data = []
+        for path in self.paths.ml_integration_alignment.glob("*_alignment.parquet"):
+            parts = path.stem.split("_")
+            if len(parts) >= 4:
+                # symbol_timeframe_layer_profile_alignment
+                symbol = parts[0]
+                timeframe = parts[1]
+                layer = parts[2]
+                profile = "_".join(parts[3:-1])
+                data.append({
+                    "symbol": symbol,
+                    "timeframe": timeframe,
+                    "layer": layer,
+                    "profile": profile,
+                    "type": "alignment",
+                    "path": str(path)
+                })
+        return pd.DataFrame(data)
