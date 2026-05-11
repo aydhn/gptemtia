@@ -1,5 +1,5 @@
 import pytest
-from commodity_fx_signal_bot.ml.prediction_labels import (
+from ml.prediction_labels import (
     list_prediction_candidate_labels,
     list_prediction_direction_labels,
     list_prediction_task_labels,

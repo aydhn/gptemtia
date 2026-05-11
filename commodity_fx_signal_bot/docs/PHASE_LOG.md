@@ -355,3 +355,20 @@ Phase 19:
 - DataLake model evaluation/CV/registry/artifact desteği aldı.
 - ML training preview/batch/status scriptleri eklendi.
 - Testler genişletildi.
+
+## Phase 32: ML Context Integration
+- ML integration profile sistemi eklendi.
+- ML integration label registry eklendi.
+- ML context loader eklendi.
+- Model context component skorları eklendi.
+- Model-signal alignment eklendi.
+- Model-decision alignment eklendi.
+- Model-strategy alignment eklendi.
+- ML conflict filter eklendi.
+- ML uncertainty filter eklendi.
+- Model-aware scoring adjustment eklendi.
+- ML integration quality report eklendi.
+- MLContextIntegrationPipeline eklendi.
+- DataLake ML integration/alignment/conflict/quality desteği aldı.
+- ML integration preview/batch/status scriptleri eklendi.
+- Testler genişletildi.

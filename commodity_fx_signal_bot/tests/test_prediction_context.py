@@ -1,6 +1,6 @@
 import pytest
 import pandas as pd
-from commodity_fx_signal_bot.ml.prediction_context import (
+from ml.prediction_context import (
     build_model_context_features,
     build_ensemble_context_features
 )

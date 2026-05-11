@@ -7,6 +7,7 @@ from .directional_bias import (
     calculate_bullish_bearish_balance,
 )
 from .decision_components import (
+    calculate_ml_decision_context_component,
     calculate_signal_score_component,
     calculate_directional_consensus_component,
     calculate_regime_confirmation_component,
@@ -18,6 +19,7 @@ from .decision_components import (
     calculate_strategy_readiness_score,
 )
 from .conflict_resolver import (
+    detect_ml_decision_conflict,
     detect_signal_direction_conflict,
     detect_regime_decision_conflict,
     detect_mtf_decision_conflict,
@@ -109,7 +111,8 @@ class DecisionEngine:
             detect_mtf_decision_conflict(context_frames, timestamp, dominant_bias),
             detect_macro_decision_conflict(context_frames, timestamp, dominant_bias),
             detect_asset_profile_conflict(context_frames, timestamp, candidate_type),
-        ]
+            detect_ml_decision_conflict(context_frames, timestamp, target_direction),
+    ]
 
         conflict_summary = aggregate_decision_conflicts(conflicts)
         conflict_score = conflict_summary["conflict_score"]

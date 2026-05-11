@@ -17,6 +17,44 @@ from risk.asset_risk import calculate_asset_profile_risk_score
 
 
 class PreTradeRiskEvaluator:
+
+    def evaluate_ml_risk(self, context_frames: Dict[str, pd.DataFrame], timestamp: pd.Timestamp) -> Dict:
+        """Optionally evaluate ML risk (uncertainty / model quality failure)."""
+        from config.settings import Settings
+        s = Settings()
+        if not getattr(s, "ml_context_enable_risk_precheck", False):
+            return {"risk_score": 0.0, "warnings": []}
+
+        ml_df = context_frames.get("ml_prediction_context")
+        if ml_df is None or ml_df.empty:
+            ml_df = context_frames.get("ml_integration_quality")
+            if ml_df is None or ml_df.empty:
+                return {"risk_score": 0.0, "warnings": []}
+
+        if timestamp not in ml_df.index:
+            past_idx = ml_df.index[ml_df.index <= timestamp]
+            if len(past_idx) == 0:
+                return {"risk_score": 0.0, "warnings": []}
+            timestamp = past_idx[-1]
+
+        ml_row = ml_df.loc[timestamp]
+        if isinstance(ml_row, pd.DataFrame):
+            ml_row = ml_row.iloc[0]
+
+        warnings = []
+        score = 0.0
+
+        max_u = getattr(s, "ml_context_max_uncertainty_score", 0.7)
+        if float(ml_row.get("uncertainty_score", 0.0)) > max_u:
+            warnings.append("High ML uncertainty detected")
+            score += 0.5
+
+        min_q = getattr(s, "ml_context_min_model_quality_score", 0.5)
+        if float(ml_row.get("model_quality_score", 1.0)) < min_q:
+            warnings.append("ML model quality failure detected")
+            score += 0.5
+
+        return {"risk_score": min(1.0, score), "warnings": warnings}
     def __init__(self, profile: RiskPrecheckProfile):
         self.profile = profile
 

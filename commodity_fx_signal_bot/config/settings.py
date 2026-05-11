@@ -1118,6 +1118,69 @@ class Settings:
         default_factory=lambda: str(os.getenv("ML_SAVE_MODEL_EVALUATION_REPORTS", "true")).lower() == "true"
     )
 
+    # Phase 32: ML Context Integration
+    ml_context_integration_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("ML_CONTEXT_INTEGRATION_ENABLED", "true")).lower() == "true"
+    )
+    ml_model_aware_scoring_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("ML_MODEL_AWARE_SCORING_ENABLED", "true")).lower() == "true"
+    )
+    ml_conflict_filter_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("ML_CONFLICT_FILTER_ENABLED", "true")).lower() == "true"
+    )
+    ml_uncertainty_filter_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("ML_UNCERTAINTY_FILTER_ENABLED", "true")).lower() == "true"
+    )
+    default_ml_integration_profile: str = field(
+        default_factory=lambda: os.getenv("DEFAULT_ML_INTEGRATION_PROFILE", "balanced_ml_context_integration")
+    )
+    default_ml_integration_timeframe: str = field(
+        default_factory=lambda: os.getenv("DEFAULT_ML_INTEGRATION_TIMEFRAME", "1d")
+    )
+    ml_context_min_confidence_score: float = field(
+        default_factory=lambda: float(os.getenv("ML_CONTEXT_MIN_CONFIDENCE_SCORE", "0.45"))
+    )
+    ml_context_max_uncertainty_score: float = field(
+        default_factory=lambda: float(os.getenv("ML_CONTEXT_MAX_UNCERTAINTY_SCORE", "0.70"))
+    )
+    ml_context_max_leakage_risk_score: float = field(
+        default_factory=lambda: float(os.getenv("ML_CONTEXT_MAX_LEAKAGE_RISK_SCORE", "0.20"))
+    )
+    ml_context_min_model_quality_score: float = field(
+        default_factory=lambda: float(os.getenv("ML_CONTEXT_MIN_MODEL_QUALITY_SCORE", "0.50"))
+    )
+    ml_context_min_dataset_quality_score: float = field(
+        default_factory=lambda: float(os.getenv("ML_CONTEXT_MIN_DATASET_QUALITY_SCORE", "0.50"))
+    )
+    ml_context_support_weight: float = field(
+        default_factory=lambda: float(os.getenv("ML_CONTEXT_SUPPORT_WEIGHT", "0.10"))
+    )
+    ml_context_conflict_penalty_weight: float = field(
+        default_factory=lambda: float(os.getenv("ML_CONTEXT_CONFLICT_PENALTY_WEIGHT", "0.10"))
+    )
+    ml_context_uncertainty_penalty_weight: float = field(
+        default_factory=lambda: float(os.getenv("ML_CONTEXT_UNCERTAINTY_PENALTY_WEIGHT", "0.05"))
+    )
+    ml_context_enable_signal_scoring: bool = field(
+        default_factory=lambda: str(os.getenv("ML_CONTEXT_ENABLE_SIGNAL_SCORING", "true")).lower() == "true"
+    )
+    ml_context_enable_decision_scoring: bool = field(
+        default_factory=lambda: str(os.getenv("ML_CONTEXT_ENABLE_DECISION_SCORING", "true")).lower() == "true"
+    )
+    ml_context_enable_strategy_scoring: bool = field(
+        default_factory=lambda: str(os.getenv("ML_CONTEXT_ENABLE_STRATEGY_SCORING", "true")).lower() == "true"
+    )
+    ml_context_enable_risk_precheck: bool = field(
+        default_factory=lambda: str(os.getenv("ML_CONTEXT_ENABLE_RISK_PRECHECK", "false")).lower() == "true"
+    )
+    ml_context_save_integration_features: bool = field(
+        default_factory=lambda: str(os.getenv("ML_CONTEXT_SAVE_INTEGRATION_FEATURES", "true")).lower() == "true"
+    )
+    ml_context_save_alignment_reports: bool = field(
+        default_factory=lambda: str(os.getenv("ML_CONTEXT_SAVE_ALIGNMENT_REPORTS", "true")).lower() == "true"
+    )
+
+
     def __post_init__(self):
 
         """Validate settings after initialization."""
@@ -1563,6 +1626,69 @@ class Settings:
     ml_save_model_evaluation_reports: bool = field(
         default_factory=lambda: str(os.getenv("ML_SAVE_MODEL_EVALUATION_REPORTS", "true")).lower() == "true"
     )
+
+    # Phase 32: ML Context Integration
+    ml_context_integration_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("ML_CONTEXT_INTEGRATION_ENABLED", "true")).lower() == "true"
+    )
+    ml_model_aware_scoring_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("ML_MODEL_AWARE_SCORING_ENABLED", "true")).lower() == "true"
+    )
+    ml_conflict_filter_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("ML_CONFLICT_FILTER_ENABLED", "true")).lower() == "true"
+    )
+    ml_uncertainty_filter_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("ML_UNCERTAINTY_FILTER_ENABLED", "true")).lower() == "true"
+    )
+    default_ml_integration_profile: str = field(
+        default_factory=lambda: os.getenv("DEFAULT_ML_INTEGRATION_PROFILE", "balanced_ml_context_integration")
+    )
+    default_ml_integration_timeframe: str = field(
+        default_factory=lambda: os.getenv("DEFAULT_ML_INTEGRATION_TIMEFRAME", "1d")
+    )
+    ml_context_min_confidence_score: float = field(
+        default_factory=lambda: float(os.getenv("ML_CONTEXT_MIN_CONFIDENCE_SCORE", "0.45"))
+    )
+    ml_context_max_uncertainty_score: float = field(
+        default_factory=lambda: float(os.getenv("ML_CONTEXT_MAX_UNCERTAINTY_SCORE", "0.70"))
+    )
+    ml_context_max_leakage_risk_score: float = field(
+        default_factory=lambda: float(os.getenv("ML_CONTEXT_MAX_LEAKAGE_RISK_SCORE", "0.20"))
+    )
+    ml_context_min_model_quality_score: float = field(
+        default_factory=lambda: float(os.getenv("ML_CONTEXT_MIN_MODEL_QUALITY_SCORE", "0.50"))
+    )
+    ml_context_min_dataset_quality_score: float = field(
+        default_factory=lambda: float(os.getenv("ML_CONTEXT_MIN_DATASET_QUALITY_SCORE", "0.50"))
+    )
+    ml_context_support_weight: float = field(
+        default_factory=lambda: float(os.getenv("ML_CONTEXT_SUPPORT_WEIGHT", "0.10"))
+    )
+    ml_context_conflict_penalty_weight: float = field(
+        default_factory=lambda: float(os.getenv("ML_CONTEXT_CONFLICT_PENALTY_WEIGHT", "0.10"))
+    )
+    ml_context_uncertainty_penalty_weight: float = field(
+        default_factory=lambda: float(os.getenv("ML_CONTEXT_UNCERTAINTY_PENALTY_WEIGHT", "0.05"))
+    )
+    ml_context_enable_signal_scoring: bool = field(
+        default_factory=lambda: str(os.getenv("ML_CONTEXT_ENABLE_SIGNAL_SCORING", "true")).lower() == "true"
+    )
+    ml_context_enable_decision_scoring: bool = field(
+        default_factory=lambda: str(os.getenv("ML_CONTEXT_ENABLE_DECISION_SCORING", "true")).lower() == "true"
+    )
+    ml_context_enable_strategy_scoring: bool = field(
+        default_factory=lambda: str(os.getenv("ML_CONTEXT_ENABLE_STRATEGY_SCORING", "true")).lower() == "true"
+    )
+    ml_context_enable_risk_precheck: bool = field(
+        default_factory=lambda: str(os.getenv("ML_CONTEXT_ENABLE_RISK_PRECHECK", "false")).lower() == "true"
+    )
+    ml_context_save_integration_features: bool = field(
+        default_factory=lambda: str(os.getenv("ML_CONTEXT_SAVE_INTEGRATION_FEATURES", "true")).lower() == "true"
+    )
+    ml_context_save_alignment_reports: bool = field(
+        default_factory=lambda: str(os.getenv("ML_CONTEXT_SAVE_ALIGNMENT_REPORTS", "true")).lower() == "true"
+    )
+
 
     def __post_init__(self):
 

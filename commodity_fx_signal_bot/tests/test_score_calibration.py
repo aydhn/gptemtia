@@ -1,5 +1,5 @@
 import pytest
-from commodity_fx_signal_bot.ml.score_calibration import (
+from ml.score_calibration import (
     normalize_classification_confidence,
     normalize_regression_score,
     calculate_calibrated_prediction_score

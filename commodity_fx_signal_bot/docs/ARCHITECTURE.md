@@ -144,3 +144,13 @@ ML Supervised Dataset
 -> ModelArtifacts
 -> ModelRegistry
 -> Future Prediction Engine / Model Monitoring / Paper Trade Research
+
+## ML Context Integration Flow (Phase 32)
+ML Prediction Context
+→ MLContextIntegrationLoader
+→ Model-Signal Alignment
+→ Model-Decision Alignment
+→ Model-Strategy Alignment
+→ ML Conflict / Uncertainty Filters
+→ Model-Aware Score Adjustment
+→ Future Research Reports / Candidate Scoring / Paper Trade Research

@@ -195,3 +195,47 @@ def calculate_strategy_family_fit(
         "block_reasons": list(set(block_reasons)),
         "warnings": [],
     }
+
+
+def calculate_ml_strategy_fit(family: str, context_snapshot: dict) -> float:
+    """
+    Optionally evaluate strategy fit based on ML context.
+    Returns 0.5 (neutral) if unavailable.
+    """
+    ml_context = context_snapshot.get("ml_prediction_context")
+    if ml_context is None or ml_context.empty:
+        ml_context = context_snapshot.get("ml_integration_strategy")
+        if ml_context is None or ml_context.empty:
+            return 0.5
+
+    # Assuming snapshot is already for the current timestamp
+    if isinstance(ml_context, pd.DataFrame):
+        if not ml_context.empty:
+            ml_row = ml_context.iloc[-1]
+        else:
+            return 0.5
+    else:
+        ml_row = ml_context
+
+    if "model_strategy_alignment_score" in ml_row:
+        return float(ml_row["model_strategy_alignment_score"])
+
+    prediction = str(ml_row.get("predicted_direction", "flat")).lower()
+    confidence = float(ml_row.get("confidence_score", 0.0))
+    uncertainty = float(ml_row.get("uncertainty_score", 0.0))
+
+    if family == "trend_following":
+        if prediction in ["up", "down"]:
+            return min(1.0, 0.5 + (confidence * 0.5) - (uncertainty * 0.2))
+        else:
+            return 0.4
+    elif family == "mean_reversion":
+        if prediction == "flat":
+            return min(1.0, 0.5 + (confidence * 0.5))
+        elif uncertainty > 0.5:
+            # High uncertainty might mean ranging/mean reversion is okay
+            return 0.6
+        else:
+            return 0.3
+
+    return 0.5

@@ -1,8 +1,8 @@
 import pytest
 import pandas as pd
 from unittest.mock import MagicMock
-from commodity_fx_signal_bot.ml.artifact_loader import ModelArtifactLoader
-from commodity_fx_signal_bot.ml.prediction_config import MLPredictionProfile
+from ml.artifact_loader import ModelArtifactLoader
+from ml.prediction_config import MLPredictionProfile
 
 def test_select_candidate_models():
     mock_lake = MagicMock()

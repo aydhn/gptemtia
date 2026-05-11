@@ -1,5 +1,5 @@
 import pytest
-from commodity_fx_signal_bot.ml.prediction_models import (
+from ml.prediction_models import (
     ModelPredictionOutput,
     PredictionAudit,
     model_prediction_output_to_dict,
