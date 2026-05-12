@@ -138,6 +138,21 @@ LAKE_ML_INTEGRATION_QUALITY_DIR = LAKE_ML_INTEGRATION_DIR / "quality"
 REPORTS_ML_INTEGRATION_REPORTS_DIR = REPORTS_DIR / "ml_integration_reports"
 
 
+
+# Phase 33: Paper Trading Simulation
+LAKE_PAPER_DIR = LAKE_DIR / "paper"
+LAKE_PAPER_RUNS_DIR = LAKE_PAPER_DIR / "runs"
+LAKE_PAPER_ORDERS_DIR = LAKE_PAPER_DIR / "orders"
+LAKE_PAPER_ORDER_BOOKS_DIR = LAKE_PAPER_DIR / "order_books"
+LAKE_PAPER_POSITIONS_DIR = LAKE_PAPER_DIR / "positions"
+LAKE_PAPER_PORTFOLIOS_DIR = LAKE_PAPER_DIR / "portfolios"
+LAKE_PAPER_LEDGERS_DIR = LAKE_PAPER_DIR / "ledgers"
+LAKE_PAPER_EQUITY_CURVES_DIR = LAKE_PAPER_DIR / "equity_curves"
+LAKE_PAPER_AUDITS_DIR = LAKE_PAPER_DIR / "audits"
+LAKE_PAPER_QUALITY_DIR = LAKE_PAPER_DIR / "quality"
+PAPER_REPORTS_DIR = REPORTS_DIR / "paper_reports"
+
+
 def ensure_project_directories() -> None:
 
     """
@@ -248,6 +263,17 @@ def ensure_project_directories() -> None:
         LAKE_ML_INTEGRATION_CONFLICTS_DIR,
         LAKE_ML_INTEGRATION_QUALITY_DIR,
         REPORTS_ML_INTEGRATION_REPORTS_DIR,
+        LAKE_PAPER_DIR,
+        LAKE_PAPER_RUNS_DIR,
+        LAKE_PAPER_ORDERS_DIR,
+        LAKE_PAPER_ORDER_BOOKS_DIR,
+        LAKE_PAPER_POSITIONS_DIR,
+        LAKE_PAPER_PORTFOLIOS_DIR,
+        LAKE_PAPER_LEDGERS_DIR,
+        LAKE_PAPER_EQUITY_CURVES_DIR,
+        LAKE_PAPER_AUDITS_DIR,
+        LAKE_PAPER_QUALITY_DIR,
+        PAPER_REPORTS_DIR,
     ]
 
     for directory in directories:
@@ -308,3 +334,16 @@ class ProjectPaths:
         self.ml_integration_conflicts = LAKE_ML_INTEGRATION_CONFLICTS_DIR
         self.ml_integration_quality = LAKE_ML_INTEGRATION_QUALITY_DIR
         self.ml_integration_reports = REPORTS_ML_INTEGRATION_REPORTS_DIR
+
+        # Phase 33: Paper Trading
+        self.paper_dir = LAKE_PAPER_DIR
+        self.paper_runs = LAKE_PAPER_RUNS_DIR
+        self.paper_orders = LAKE_PAPER_ORDERS_DIR
+        self.paper_order_books = LAKE_PAPER_ORDER_BOOKS_DIR
+        self.paper_positions = LAKE_PAPER_POSITIONS_DIR
+        self.paper_portfolios = LAKE_PAPER_PORTFOLIOS_DIR
+        self.paper_ledgers = LAKE_PAPER_LEDGERS_DIR
+        self.paper_equity_curves = LAKE_PAPER_EQUITY_CURVES_DIR
+        self.paper_audits = LAKE_PAPER_AUDITS_DIR
+        self.paper_quality = LAKE_PAPER_QUALITY_DIR
+        self.paper_reports = PAPER_REPORTS_DIR
