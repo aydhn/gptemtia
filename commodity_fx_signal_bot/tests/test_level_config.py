@@ -8,7 +8,7 @@ from levels.level_config import (
 from core.exceptions import ConfigError
 
 
-def test_validate_level_profiles_report_builder = ReportBuilder()es():
+def test_validate_level_profiles_passes():
     # Should not raise any error
     validate_level_profiles()
 

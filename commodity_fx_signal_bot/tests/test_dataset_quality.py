@@ -6,12 +6,12 @@ from ml.dataset_config import get_default_ml_dataset_profile
 def test_check_dataset_min_rows():
     df = pd.DataFrame({"A": range(50)})
     res = check_dataset_min_rows(df, 100)
-    assert not res["report_builder = ReportBuilder()ed"]
+    assert not res["passed"]
 
 def test_check_feature_nan_ratio():
     X = pd.DataFrame({"A": [1, np.nan, np.nan, np.nan]})
     res = check_feature_nan_ratio(X, 0.5)
-    assert not res["report_builder = ReportBuilder()ed"]
+    assert not res["passed"]
     assert res["ratio"] == 0.75
 
 def test_check_target_class_balance():
@@ -34,4 +34,4 @@ def test_build_dataset_quality_report():
     prof = get_default_ml_dataset_profile()
     report = build_dataset_quality_report(X, y, dataset, prof)
 
-    assert report["report_builder = ReportBuilder()ed"]
+    assert report["passed"]

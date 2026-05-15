@@ -19,7 +19,7 @@ class MockDataLake:
     def load_level_candidates(self, symbol, timeframe):
         return pd.DataFrame(
             {
-                "report_builder = ReportBuilder()ed_level_filters": [True],
+                "passed_level_filters": [True],
                 "directional_bias": ["long"],
                 "theoretical_stop_level": [0.5],
                 "theoretical_target_level": [2.0],

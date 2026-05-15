@@ -39,4 +39,4 @@ def test_risk_pool_add_and_df():
 
     summary = pool.summarize()
     assert summary["total_risk_candidates"] == 1
-    assert summary["report_builder = ReportBuilder()ed_risk_candidates"] == 1
+    assert summary["passed_risk_candidates"] == 1

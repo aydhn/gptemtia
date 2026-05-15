@@ -1,6 +1,6 @@
 from typing import List, Dict, Any, Optional
 import pandas as pd
-from commodity_fx_signal_bot.ml.prediction_candidate import MLPredictionCandidate, prediction_candidate_to_dict
+from ml.prediction_candidate import MLPredictionCandidate, prediction_candidate_to_dict
 
 class MLPredictionCandidatePool:
     def __init__(self):

@@ -64,7 +64,7 @@ def test_run_walk_forward_validation(mock_data_lake, settings, spec):
     assert "robustness" in summary
     assert "overfitting" in summary
     assert "quality_report" in summary
-    assert summary["quality_report"]["report_builder = ReportBuilder()ed"] is True
+    assert summary["quality_report"]["passed"] is True
 
 def test_run_parameter_sensitivity(mock_data_lake, settings, spec):
     pipeline = ValidationPipeline(mock_data_lake, settings)
@@ -73,7 +73,7 @@ def test_run_parameter_sensitivity(mock_data_lake, settings, spec):
     assert not df.empty
     assert "symbol" in summary
     assert "quality_report" in summary
-    assert summary["quality_report"]["report_builder = ReportBuilder()ed"] is True
+    assert summary["quality_report"]["passed"] is True
 
 def test_run_optimizer_candidate_analysis(mock_data_lake, settings, spec):
     pipeline = ValidationPipeline(mock_data_lake, settings)
@@ -82,7 +82,7 @@ def test_run_optimizer_candidate_analysis(mock_data_lake, settings, spec):
     assert not df.empty
     assert "total_candidates" in summary
     assert "quality_report" in summary
-    assert summary["quality_report"]["report_builder = ReportBuilder()ed"] is True
+    assert summary["quality_report"]["passed"] is True
 
 def test_run_universe_validation(mock_data_lake, settings, spec):
     pipeline = ValidationPipeline(mock_data_lake, settings)

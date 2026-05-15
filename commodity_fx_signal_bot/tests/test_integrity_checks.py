@@ -44,5 +44,5 @@ def test_run_integrity_checks():
     )
 
     report = run_integrity_checks(df, min_rows=10)
-    assert not report["report_builder = ReportBuilder()ed"]  # fails because rows < 10
+    assert not report["passed"]  # fails because rows < 10
     assert "minimum required is 10" in report["errors"][0]

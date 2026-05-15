@@ -56,8 +56,8 @@ def test_infer_sizing_candidate_label():
         "capped_theoretical_risk_amount": 100.0,
         "adjusted_theoretical_notional": 1000.0,
         "exposure_eval": {
-            "symbol_limit_report_builder = ReportBuilder()ed": True,
-            "asset_class_limit_report_builder = ReportBuilder()ed": True,
+            "symbol_limit_passed": True,
+            "asset_class_limit_passed": True,
         },
     }
 

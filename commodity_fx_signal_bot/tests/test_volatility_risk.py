@@ -16,4 +16,4 @@ def test_volatility_risk_low():
     ctx = {"atr_pct_14": 0.005, "percentile_atr_pct_14_120": 20}
     res = calculate_volatility_risk_score(ctx)
     assert res.score < 0.4
-    assert res.report_builder = ReportBuilder()ed
+    assert res.passed

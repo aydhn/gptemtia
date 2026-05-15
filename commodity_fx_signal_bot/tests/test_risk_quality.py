@@ -39,5 +39,5 @@ def test_build_risk_quality_report():
             }
         ]
     )
-    res = build_risk_quality_report(df, {"report_builder = ReportBuilder()ed_risk_candidates": 1})
-    assert res["report_builder = ReportBuilder()ed"]
+    res = build_risk_quality_report(df, {"passed_risk_candidates": 1})
+    assert res["passed"]

@@ -2,7 +2,7 @@ from dataclasses import dataclass, asdict
 from typing import Optional, List, Dict, Any
 import hashlib
 import pandas as pd
-from commodity_fx_signal_bot.ml.prediction_config import MLPredictionProfile
+from ml.prediction_config import MLPredictionProfile
 
 @dataclass
 class MLPredictionCandidate:

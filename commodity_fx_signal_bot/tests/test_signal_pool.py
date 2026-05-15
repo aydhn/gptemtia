@@ -30,7 +30,7 @@ def test_signal_candidate_pool():
         candidate_score=0.8,
         confidence_score=1.0,
         quality_score=1.0,
-        report_builder = ReportBuilder()ed_pre_filters=True,
+        passed_pre_filters=True,
         warnings=[],
     )
 

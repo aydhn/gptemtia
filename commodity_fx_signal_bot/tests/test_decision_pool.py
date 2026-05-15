@@ -26,7 +26,7 @@ def _mock_cand(score=0.5):
         decision_confidence=1.0,
         decision_quality_score=1.0,
         strategy_readiness_score=1.0,
-        report_builder = ReportBuilder()ed_decision_filters=True,
+        passed_decision_filters=True,
         no_trade_reasons=[],
         conflict_reasons=[],
         warnings=[],

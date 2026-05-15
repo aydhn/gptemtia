@@ -26,5 +26,5 @@ def test_build_macro_quality_report():
         {"col": [1, 2, 3]}, index=pd.date_range("2020-01-01", periods=3, freq="D")
     )
     res = build_macro_quality_report(df, {"test": "ok"})
-    assert not res["report_builder = ReportBuilder()ed"]
+    assert not res["passed"]
     assert "warnings" in res

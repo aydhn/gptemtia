@@ -8,9 +8,9 @@ def test_lookahead_violation():
     res = guard.validate_candidate_timestamp(
         pd.Timestamp("2020-01-02"), pd.Timestamp("2020-01-01")
     )
-    assert not res["report_builder = ReportBuilder()ed"]
+    assert not res["passed"]
 
     res2 = guard.validate_candidate_timestamp(
         pd.Timestamp("2020-01-01"), pd.Timestamp("2020-01-01")
     )
-    assert res2["report_builder = ReportBuilder()ed"]
+    assert res2["passed"]

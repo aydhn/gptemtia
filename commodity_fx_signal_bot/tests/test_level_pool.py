@@ -37,7 +37,7 @@ def test_pool_operations():
         total_pretrade_risk_score=0.5,
         stop_target_readiness_score=0.9,
         stop_target_quality_score=0.9,
-        report_builder = ReportBuilder()ed_level_filters=True,
+        passed_level_filters=True,
         block_reasons=[],
         watchlist_reasons=[],
         warnings=[],

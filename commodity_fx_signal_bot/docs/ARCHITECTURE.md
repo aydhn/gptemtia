@@ -154,3 +154,18 @@ ML Prediction Context
 → ML Conflict / Uncertainty Filters
 → Model-Aware Score Adjustment
 → Future Research Reports / Candidate Scoring / Paper Trade Research
+
+
+## 9. Notification & Reporting Flow (Phase 34)
+Telegram tabanlı bir offline raporlama ve simülasyon özet katmanı bulunmaktadır:
+
+`DataLake Outputs / Paper / Backtest / ML / Quality`
+-> `ReportCollector`
+-> `MessageTemplates`
+-> `MessageFormatter`
+-> `TelegramSender`
+-> `DeliveryLog`
+-> `NotificationQuality`
+-> `User Communication Layer`
+
+Bu mimari kesinlikle gerçek emir veya broker entegrasyonuna bağlı DEĞİLDİR. Sadece mevcut sonuçların güvenli bir şekilde okunabilir raporlar olarak Telegram'a gönderilmesini sağlar.

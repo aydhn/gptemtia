@@ -1181,7 +1181,71 @@ class Settings:
     )
 
 
+
+    # Phase 34: Notification Settings
+    notifications_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("NOTIFICATIONS_ENABLED", "true")).lower() == "true"
+    )
+    telegram_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("TELEGRAM_ENABLED", "false")).lower() == "true"
+    )
+    telegram_dry_run: bool = field(
+        default_factory=lambda: str(os.getenv("TELEGRAM_DRY_RUN", "true")).lower() == "true"
+    )
+    default_notification_profile: str = field(
+        default_factory=lambda: os.getenv("DEFAULT_NOTIFICATION_PROFILE", "balanced_telegram_reporting")
+    )
+    telegram_bot_token: str | None = field(
+        default_factory=lambda: os.getenv("TELEGRAM_BOT_TOKEN")
+    )
+    telegram_chat_id: str | None = field(
+        default_factory=lambda: os.getenv("TELEGRAM_CHAT_ID")
+    )
+    telegram_parse_mode: str = field(
+        default_factory=lambda: os.getenv("TELEGRAM_PARSE_MODE", "HTML")
+    )
+    telegram_disable_web_page_preview: bool = field(
+        default_factory=lambda: str(os.getenv("TELEGRAM_DISABLE_WEB_PAGE_PREVIEW", "true")).lower() == "true"
+    )
+    telegram_message_max_chars: int = field(
+        default_factory=lambda: int(os.getenv("TELEGRAM_MESSAGE_MAX_CHARS", "3500"))
+    )
+    telegram_rate_limit_seconds: float = field(
+        default_factory=lambda: float(os.getenv("TELEGRAM_RATE_LIMIT_SECONDS", "1.0"))
+    )
+    telegram_send_test_on_startup: bool = field(
+        default_factory=lambda: str(os.getenv("TELEGRAM_SEND_TEST_ON_STARTUP", "false")).lower() == "true"
+    )
+    notification_save_message_logs: bool = field(
+        default_factory=lambda: str(os.getenv("NOTIFICATION_SAVE_MESSAGE_LOGS", "true")).lower() == "true"
+    )
+    notification_save_delivery_audit: bool = field(
+        default_factory=lambda: str(os.getenv("NOTIFICATION_SAVE_DELIVERY_AUDIT", "true")).lower() == "true"
+    )
+    notification_include_paper_summary: bool = field(
+        default_factory=lambda: str(os.getenv("NOTIFICATION_INCLUDE_PAPER_SUMMARY", "true")).lower() == "true"
+    )
+    notification_include_backtest_summary: bool = field(
+        default_factory=lambda: str(os.getenv("NOTIFICATION_INCLUDE_BACKTEST_SUMMARY", "true")).lower() == "true"
+    )
+    notification_include_ml_summary: bool = field(
+        default_factory=lambda: str(os.getenv("NOTIFICATION_INCLUDE_ML_SUMMARY", "true")).lower() == "true"
+    )
+    notification_include_quality_alerts: bool = field(
+        default_factory=lambda: str(os.getenv("NOTIFICATION_INCLUDE_QUALITY_ALERTS", "true")).lower() == "true"
+    )
+    notification_include_error_alerts: bool = field(
+        default_factory=lambda: str(os.getenv("NOTIFICATION_INCLUDE_ERROR_ALERTS", "true")).lower() == "true"
+    )
+    notification_max_symbols_in_digest: int = field(
+        default_factory=lambda: int(os.getenv("NOTIFICATION_MAX_SYMBOLS_IN_DIGEST", "20"))
+    )
+    notification_max_rows_per_section: int = field(
+        default_factory=lambda: int(os.getenv("NOTIFICATION_MAX_ROWS_PER_SECTION", "10"))
+    )
+
     def __post_init__(self):
+
 
         """Validate settings after initialization."""
         # Enforce live trading is False regardless of env variable
@@ -1690,7 +1754,71 @@ class Settings:
     )
 
 
+
+    # Phase 34: Notification Settings
+    notifications_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("NOTIFICATIONS_ENABLED", "true")).lower() == "true"
+    )
+    telegram_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("TELEGRAM_ENABLED", "false")).lower() == "true"
+    )
+    telegram_dry_run: bool = field(
+        default_factory=lambda: str(os.getenv("TELEGRAM_DRY_RUN", "true")).lower() == "true"
+    )
+    default_notification_profile: str = field(
+        default_factory=lambda: os.getenv("DEFAULT_NOTIFICATION_PROFILE", "balanced_telegram_reporting")
+    )
+    telegram_bot_token: str | None = field(
+        default_factory=lambda: os.getenv("TELEGRAM_BOT_TOKEN")
+    )
+    telegram_chat_id: str | None = field(
+        default_factory=lambda: os.getenv("TELEGRAM_CHAT_ID")
+    )
+    telegram_parse_mode: str = field(
+        default_factory=lambda: os.getenv("TELEGRAM_PARSE_MODE", "HTML")
+    )
+    telegram_disable_web_page_preview: bool = field(
+        default_factory=lambda: str(os.getenv("TELEGRAM_DISABLE_WEB_PAGE_PREVIEW", "true")).lower() == "true"
+    )
+    telegram_message_max_chars: int = field(
+        default_factory=lambda: int(os.getenv("TELEGRAM_MESSAGE_MAX_CHARS", "3500"))
+    )
+    telegram_rate_limit_seconds: float = field(
+        default_factory=lambda: float(os.getenv("TELEGRAM_RATE_LIMIT_SECONDS", "1.0"))
+    )
+    telegram_send_test_on_startup: bool = field(
+        default_factory=lambda: str(os.getenv("TELEGRAM_SEND_TEST_ON_STARTUP", "false")).lower() == "true"
+    )
+    notification_save_message_logs: bool = field(
+        default_factory=lambda: str(os.getenv("NOTIFICATION_SAVE_MESSAGE_LOGS", "true")).lower() == "true"
+    )
+    notification_save_delivery_audit: bool = field(
+        default_factory=lambda: str(os.getenv("NOTIFICATION_SAVE_DELIVERY_AUDIT", "true")).lower() == "true"
+    )
+    notification_include_paper_summary: bool = field(
+        default_factory=lambda: str(os.getenv("NOTIFICATION_INCLUDE_PAPER_SUMMARY", "true")).lower() == "true"
+    )
+    notification_include_backtest_summary: bool = field(
+        default_factory=lambda: str(os.getenv("NOTIFICATION_INCLUDE_BACKTEST_SUMMARY", "true")).lower() == "true"
+    )
+    notification_include_ml_summary: bool = field(
+        default_factory=lambda: str(os.getenv("NOTIFICATION_INCLUDE_ML_SUMMARY", "true")).lower() == "true"
+    )
+    notification_include_quality_alerts: bool = field(
+        default_factory=lambda: str(os.getenv("NOTIFICATION_INCLUDE_QUALITY_ALERTS", "true")).lower() == "true"
+    )
+    notification_include_error_alerts: bool = field(
+        default_factory=lambda: str(os.getenv("NOTIFICATION_INCLUDE_ERROR_ALERTS", "true")).lower() == "true"
+    )
+    notification_max_symbols_in_digest: int = field(
+        default_factory=lambda: int(os.getenv("NOTIFICATION_MAX_SYMBOLS_IN_DIGEST", "20"))
+    )
+    notification_max_rows_per_section: int = field(
+        default_factory=lambda: int(os.getenv("NOTIFICATION_MAX_ROWS_PER_SECTION", "10"))
+    )
+
     def __post_init__(self):
+
 
         self.live_trading_enabled = False
 

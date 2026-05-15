@@ -6,7 +6,7 @@ from backtesting.candidate_adapter import build_candidate_events
 def test_build_candidate_events():
     df = pd.DataFrame(
         {
-            "report_builder = ReportBuilder()ed_level_filters": [True, False, True],
+            "passed_level_filters": [True, False, True],
             "theoretical_stop_level": [10, 10, None],
             "theoretical_target_level": [20, 20, 20],
             "directional_bias": [
