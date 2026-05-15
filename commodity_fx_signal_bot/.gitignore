@@ -17,3 +17,6 @@ ENV/
 env/
 __pycache__/
 *.pyc
+
+update_*.py
+fix_*.py

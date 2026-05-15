@@ -4,8 +4,8 @@ import pandas as pd
 from typing import Tuple, Dict, Any, Optional
 from pathlib import Path
 
-from commodity_fx_signal_bot.data.storage.data_lake import DataLake
-from commodity_fx_signal_bot.ml.prediction_config import MLPredictionProfile
+from data.storage.data_lake import DataLake
+from ml.prediction_config import MLPredictionProfile
 
 class ModelArtifactLoader:
     def __init__(self, data_lake: DataLake):

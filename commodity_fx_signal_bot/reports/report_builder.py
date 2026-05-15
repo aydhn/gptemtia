@@ -2919,3 +2919,74 @@ def build_ml_integration_status_report(status_df=None, summary: dict=None) -> st
 
     lines.append("=" * 80)
     return "\n".join(lines)
+
+
+    # --- Notifications Specific ---
+def _add_notification_disclaimer(lines: list[str]):
+        lines.append("\n--- UYARI ---")
+        lines.append("Bu çıktı bildirim/raporlama sistemine aittir. Gerçek emir, canlı sinyal, broker talimatı veya yatırım tavsiyesi değildir.")
+        lines.append("="*80)
+
+def build_telegram_test_message_report(summary: dict) -> str:
+        report_lines = ["="*80, "TELEGRAM TEST MESSAGE REPORT", "="*80]
+        report_lines.append(f"Status: {summary.get('status', 'Unknown')}")
+        report_lines.append(f"Details: {summary}")
+        _add_notification_disclaimer(report_lines)
+        return "\n".join(report_lines)
+
+def build_telegram_paper_summary_report(summary: dict, message_text: str | None = None) -> str:
+        report_lines = ["="*80, "TELEGRAM PAPER SUMMARY REPORT", "="*80]
+        if message_text:
+            report_lines.append("\n--- Generated Message ---")
+            report_lines.append(message_text)
+        report_lines.append("\n--- Summary Data ---")
+        for k, v in summary.items():
+            report_lines.append(f"{k}: {v}")
+        _add_notification_disclaimer(report_lines)
+        return "\n".join(report_lines)
+
+def build_telegram_system_status_report(summary: dict, message_text: str | None = None) -> str:
+        report_lines = ["="*80, "TELEGRAM SYSTEM STATUS REPORT", "="*80]
+        if message_text:
+            report_lines.append("\n--- Generated Message ---")
+            report_lines.append(message_text)
+        report_lines.append("\n--- Summary Data ---")
+        for k, v in summary.items():
+            report_lines.append(f"{k}: {v}")
+        _add_notification_disclaimer(report_lines)
+        return "\n".join(report_lines)
+
+def build_telegram_daily_digest_report(summary: dict, message_text: str | None = None) -> str:
+        report_lines = ["="*80, "TELEGRAM DAILY DIGEST REPORT", "="*80]
+        if message_text:
+            report_lines.append("\n--- Generated Message ---")
+            report_lines.append(message_text)
+        report_lines.append("\n--- Summary Data ---")
+        for k, v in summary.items():
+            report_lines.append(f"{k}: {v}")
+        _add_notification_disclaimer(report_lines)
+        return "\n".join(report_lines)
+
+def build_telegram_quality_alerts_report(summary: dict, message_text: str | None = None) -> str:
+        report_lines = ["="*80, "TELEGRAM QUALITY ALERTS REPORT", "="*80]
+        if message_text:
+            report_lines.append("\n--- Generated Message ---")
+            report_lines.append(message_text)
+        report_lines.append("\n--- Summary Data ---")
+        for k, v in summary.items():
+            report_lines.append(f"{k}: {v}")
+        _add_notification_disclaimer(report_lines)
+        return "\n".join(report_lines)
+
+def build_notification_status_report(status_df, summary: dict) -> str:
+        report_lines = ["="*80, "NOTIFICATION SYSTEM STATUS REPORT", "="*80]
+        report_lines.append("\n--- System Summary ---")
+        for k, v in summary.items():
+            report_lines.append(f"{k}: {v}")
+
+        if status_df is not None and not status_df.empty:
+            report_lines.append("\n--- Recent Logs ---")
+            report_lines.append(status_df.to_string())
+
+        _add_notification_disclaimer(report_lines)
+        return "\n".join(report_lines)

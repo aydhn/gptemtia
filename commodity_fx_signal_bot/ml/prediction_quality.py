@@ -1,6 +1,6 @@
 import pandas as pd
 from typing import Dict, Any, Optional
-from commodity_fx_signal_bot.ml.prediction_config import MLPredictionProfile
+from ml.prediction_config import MLPredictionProfile
 
 _FORBIDDEN_LIVE_TERMS = [
     "LIVE_SIGNAL",

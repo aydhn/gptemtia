@@ -496,3 +496,30 @@ python -m scripts.run_ml_conflict_filter_preview --symbol GC=F --timeframe 1d --
 python -m scripts.run_ml_integration_batch --limit 10 --timeframe 1d
 python -m scripts.run_ml_integration_status
 ```
+
+
+## Telegram Raporlama ve Notification Katmanı (Phase 34)
+Sistemde sadece raporlama, özetleme ve hata uyarı amaçlı bir Telegram katmanı bulunmaktadır.
+- Telegram **yalnızca raporlama** kanalıdır.
+- Default olarak Telegram kapalı ve `dry-run` (simülasyon) açıktır.
+- Gerçek token/chat_id `.env` üzerinden verilir, repoya yazılmaz.
+- Telegram mesajları **canlı sinyal değildir**.
+- Paper summary sanal portföy raporudur. Quality alert trade alarmı değildir.
+- Günlük digest araştırma ve simülasyon özetidir.
+- Dashboard, broker entegrasyonu, gerçek emir, web scraping **kesinlikle yoktur**.
+
+**Komutlar:**
+```bash
+python -m scripts.run_telegram_test_message
+python -m scripts.run_telegram_paper_summary --symbol GC=F --timeframe 1d
+python -m scripts.run_telegram_system_status
+python -m scripts.run_telegram_daily_digest --timeframe 1d
+python -m scripts.run_telegram_quality_alerts --timeframe 1d
+python -m scripts.run_notification_status
+```
+
+**Güvenli Gönderim Örneği:**
+1. Önce dry-run çalıştırın.
+2. `.env` içine `TELEGRAM_ENABLED=true`, `TELEGRAM_DRY_RUN=false`, `TELEGRAM_BOT_TOKEN` ve `TELEGRAM_CHAT_ID` değerlerini ekleyin.
+3. Sonra ilgili komutu `--send` parametresiyle çalıştırın.
+Token bilgileri hiçbir log dosyasına kaydedilmez.

@@ -372,3 +372,19 @@ Phase 19:
 - DataLake ML integration/alignment/conflict/quality desteği aldı.
 - ML integration preview/batch/status scriptleri eklendi.
 - Testler genişletildi.
+
+
+### Phase 34: TELEGRAM RAPORLAMA, PAPER SUMMARY MESAJLARI, GÜNLÜK DURUM ÖZETİ, HATA UYARILARI VE KULLANICI İLETİŞİM KATMANI
+**Durum:** Tamamlandı
+- Notification profile sistemi eklendi (`balanced_telegram_reporting`, `paper_focused_reporting`, vb.).
+- Notification label registry eklendi (status, types, severity).
+- `NotificationMessage` ve `DeliveryResult` modelleri oluşturuldu. Masking yapıldı.
+- Güvenli `MessageTemplates` ve `MessageFormatter` eklendi.
+- `TelegramClient` ve `TelegramSender` entegre edildi. Sadece raporlama amaçlıdır.
+- DataLake üzerinden verileri okuyan `ReportCollector` eklendi.
+- Builder sınıfları eklendi: Paper Summary, Status, Alerts, Daily Digest.
+- Delivery audit log ve `NotificationQuality` testleri eklendi (gizli/trade kelime kısıtlamaları dâhil).
+- `NotificationPipeline` oluşturuldu.
+- DataLake, notification storage formatlarını (JSON, Parquet) destekleyecek şekilde güncellendi.
+- `scripts/` altına Telegram raporlarını tetiklemek için CLI scriptleri eklendi.
+- Tüm süreçlerin güvenli bir şekilde offline/dry-run testlerini sağlayan birim testler yazıldı.

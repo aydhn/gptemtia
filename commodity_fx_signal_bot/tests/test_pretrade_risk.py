@@ -17,4 +17,4 @@ def test_evaluate_rule_candidate():
     assert "total_pretrade_risk_score" in eval_dict
     assert 0 <= eval_dict["total_pretrade_risk_score"] <= 1.0
     assert 0 <= eval_dict["risk_readiness_score"] <= 1.0
-    assert isinstance(eval_dict["report_builder = ReportBuilder()ed_risk_precheck"], bool)
+    assert isinstance(eval_dict["passed_risk_precheck"], bool)

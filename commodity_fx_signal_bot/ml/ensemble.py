@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from typing import Dict, Any, Tuple, List
 
-from commodity_fx_signal_bot.ml.prediction_config import MLPredictionProfile
+from ml.prediction_config import MLPredictionProfile
 
 class ModelEnsembleBuilder:
     def __init__(self, profile: MLPredictionProfile):

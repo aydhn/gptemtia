@@ -33,7 +33,7 @@ def test_signal_filters():
         candidate_score=0.8,
         confidence_score=1.0,
         quality_score=0.9,
-        report_builder = ReportBuilder()ed_pre_filters=True,
+        passed_pre_filters=True,
         warnings=[],
     )
     c2 = SignalCandidate(
@@ -59,7 +59,7 @@ def test_signal_filters():
         candidate_score=0.4,
         confidence_score=1.0,
         quality_score=0.4,
-        report_builder = ReportBuilder()ed_pre_filters=False,
+        passed_pre_filters=False,
         warnings=[],
     )
 

@@ -16,8 +16,8 @@ def test_quality_checks():
         }
     )
 
-    assert check_trade_timestamp_order(df)["report_builder = ReportBuilder()ed"]
-    assert not check_overlapping_positions(df)["report_builder = ReportBuilder()ed"]  # 02 is before 03
+    assert check_trade_timestamp_order(df)["passed"]
+    assert not check_overlapping_positions(df)["passed"]  # 02 is before 03
 
     df2 = pd.DataFrame({"status": ["simulated", "LIVE_ORDER"]})
-    assert not check_for_forbidden_live_terms_in_backtest(df2)["report_builder = ReportBuilder()ed"]
+    assert not check_for_forbidden_live_terms_in_backtest(df2)["passed"]

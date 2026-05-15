@@ -967,3 +967,146 @@ class DataLake:
                     "path": str(path)
                 })
         return pd.DataFrame(data)
+
+
+    # --- Notifications Specific ---
+    def save_notification_message(self, message: dict):
+        import json
+        message_id = message.get("message_id", "unknown_id")
+        file_path = self.paths.LAKE_NOTIFICATIONS_MESSAGES_DIR / f"{message_id}.json"
+
+        try:
+            with open(file_path, "w", encoding="utf-8") as f:
+                json.dump(message, f, indent=4, ensure_ascii=False)
+            logger.info(f"Saved notification message to {file_path}")
+            return file_path
+        except Exception as e:
+            logger.error(f"Error saving notification message {message_id}: {e}")
+            return None
+
+    def load_notification_message(self, message_id: str) -> dict:
+        import json
+        file_path = self.paths.LAKE_NOTIFICATIONS_MESSAGES_DIR / f"{message_id}.json"
+
+        try:
+            if file_path.exists():
+                with open(file_path, "r", encoding="utf-8") as f:
+                    return json.load(f)
+            else:
+                logger.warning(f"Notification message file not found: {file_path}")
+                return {}
+        except Exception as e:
+            logger.error(f"Error loading notification message {message_id}: {e}")
+            return {}
+
+    def save_notification_delivery_log(self, profile_name: str, df: pd.DataFrame):
+        if df is None or df.empty:
+            logger.warning(f"Empty delivery log dataframe for {profile_name}. Not saving.")
+            return None
+
+        file_path = self.paths.LAKE_NOTIFICATIONS_DELIVERY_LOGS_DIR / f"{profile_name}_delivery_log.parquet"
+        df.astype(str).to_parquet(file_path, index=False)
+        logger.info(f"Saved notification delivery log to {file_path}")
+        return file_path
+
+    def load_notification_delivery_log(self, profile_name: str) -> pd.DataFrame | None:
+        file_path = self.paths.LAKE_NOTIFICATIONS_DELIVERY_LOGS_DIR / f"{profile_name}_delivery_log.parquet"
+        return pd.read_parquet(file_path) if file_path.exists() else None
+
+    def save_notification_delivery_audit(self, profile_name: str, audit: dict):
+        import json
+        from datetime import datetime; timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        file_path = self.paths.LAKE_NOTIFICATIONS_AUDITS_DIR / f"{profile_name}_{timestamp}_audit.json"
+
+        try:
+            with open(file_path, "w", encoding="utf-8") as f:
+                json.dump(audit, f, indent=4, ensure_ascii=False)
+            logger.info(f"Saved notification delivery audit to {file_path}")
+            return file_path
+        except Exception as e:
+            logger.error(f"Error saving notification delivery audit {profile_name}: {e}")
+            return None
+
+    def load_notification_delivery_audit(self, profile_name: str) -> dict:
+        import json
+        pattern = f"{profile_name}_*_audit.json"
+        files = list(self.paths.LAKE_NOTIFICATIONS_AUDITS_DIR.glob(pattern))
+
+        if not files:
+            logger.warning(f"No delivery audit found for profile: {profile_name}")
+            return {}
+
+        latest_file = sorted(files)[-1]
+        try:
+            with open(latest_file, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception as e:
+            logger.error(f"Error loading notification delivery audit from {latest_file}: {e}")
+            return {}
+
+    def save_notification_quality(self, message_id: str, quality: dict):
+        import json
+        file_path = self.paths.LAKE_NOTIFICATIONS_QUALITY_DIR / f"{message_id}_quality.json"
+
+        try:
+            with open(file_path, "w", encoding="utf-8") as f:
+                json.dump(quality, f, indent=4, ensure_ascii=False)
+            logger.info(f"Saved notification quality to {file_path}")
+            return file_path
+        except Exception as e:
+            logger.error(f"Error saving notification quality {message_id}: {e}")
+            return None
+
+    def load_notification_quality(self, message_id: str) -> dict:
+        import json
+        file_path = self.paths.LAKE_NOTIFICATIONS_QUALITY_DIR / f"{message_id}_quality.json"
+
+        try:
+            if file_path.exists():
+                with open(file_path, "r", encoding="utf-8") as f:
+                    return json.load(f)
+            else:
+                logger.warning(f"Notification quality file not found: {file_path}")
+                return {}
+        except Exception as e:
+            logger.error(f"Error loading notification quality {message_id}: {e}")
+            return {}
+
+    def list_notification_messages(self) -> pd.DataFrame:
+        files = list(self.paths.LAKE_NOTIFICATIONS_MESSAGES_DIR.glob("*.json"))
+        data = []
+        for f in files:
+            try:
+                import json
+                with open(f, "r", encoding="utf-8") as file:
+                    msg = json.load(file)
+                    data.append({
+                        "message_id": msg.get("message_id"),
+                        "notification_type": msg.get("notification_type"),
+                        "severity": msg.get("severity"),
+                        "created_at_utc": msg.get("created_at_utc"),
+                        "profile_name": msg.get("profile_name"),
+                        "file_path": str(f)
+                    })
+            except Exception:
+                pass
+
+        return pd.DataFrame(data)
+
+    def list_notification_delivery_logs(self) -> pd.DataFrame:
+        files = list(self.paths.LAKE_NOTIFICATIONS_DELIVERY_LOGS_DIR.glob("*.parquet"))
+        data = []
+        for f in files:
+            try:
+                parts = f.stem.split("_")
+                profile = parts[0] if len(parts) > 0 else "unknown"
+                date_str = parts[-2] if len(parts) >= 2 else "unknown"
+                data.append({
+                    "profile_name": profile,
+                    "date": date_str,
+                    "file_path": str(f)
+                })
+            except Exception:
+                pass
+
+        return pd.DataFrame(data)
