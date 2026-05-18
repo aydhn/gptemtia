@@ -2990,3 +2990,107 @@ def build_notification_status_report(status_df, summary: dict) -> str:
 
         _add_notification_disclaimer(report_lines)
         return "\n".join(report_lines)
+
+# -------------------------------------------------------------------------
+# Orchestration Reports
+# -------------------------------------------------------------------------
+
+def _get_orchestration_disclaimer() -> str:
+    return "WARNING: Bu çıktı offline pipeline orchestration raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir."
+
+def build_workflow_status_report(status_df: 'pd.DataFrame', summary: dict) -> str:
+    """Build workflow status report."""
+    lines = [
+        "==================================================",
+        " WORKFLOW STATUS REPORT",
+        "==================================================",
+        _get_orchestration_disclaimer(),
+        "",
+        f"Registered Jobs: {summary.get('registered_jobs_count', 0)}",
+        f"Job Registry Valid: {summary.get('job_registry_valid', False)}",
+        f"Workflow Templates: {summary.get('templates_count', 0)}",
+        f"Template Registry Valid: {summary.get('template_registry_valid', False)}",
+        f"Total Orchestration Runs: {summary.get('total_runs', 0)}",
+        ""
+    ]
+    if status_df is not None and not status_df.empty:
+        lines.append("Recent Runs:")
+        lines.append(status_df.head(10).to_string(index=False))
+    return "\n".join(lines)
+
+def build_dependency_check_report(summary: dict, dependency_df: 'pd.DataFrame' = None) -> str:
+    """Build dependency check report."""
+    lines = [
+        "==================================================",
+        " DEPENDENCY CHECK REPORT",
+        "==================================================",
+        _get_orchestration_disclaimer(),
+        "",
+        f"Total Checks: {summary.get('total_checks', 0)}",
+        f"Available: {summary.get('available_count', 0)}",
+        f"Missing Required: {summary.get('missing_count', 0)}",
+        f"Missing Optional: {summary.get('optional_missing_count', 0)}",
+        ""
+    ]
+    if dependency_df is not None and not dependency_df.empty:
+        lines.append("Dependency Details:")
+        lines.append(dependency_df.to_string(index=False))
+    return "\n".join(lines)
+
+def build_pipeline_workflow_report(summary: dict, job_df: 'pd.DataFrame' = None) -> str:
+    """Build pipeline workflow report."""
+    lines = [
+        "==================================================",
+        " PIPELINE WORKFLOW REPORT",
+        "==================================================",
+        _get_orchestration_disclaimer(),
+        "",
+        f"Run ID: {summary.get('run_id', 'unknown')}",
+        f"Status: {summary.get('status', 'unknown')}",
+        f"Dry Run: {summary.get('dry_run', True)}",
+        f"Total Jobs: {summary.get('total_jobs', 0)}",
+        f"Success: {summary.get('success', 0)}",
+        f"Failed: {summary.get('failed', 0)}",
+        f"Skipped: {summary.get('skipped', 0)}",
+        ""
+    ]
+    if job_df is not None and not job_df.empty:
+        lines.append("Job Execution Results:")
+        lines.append(job_df.to_string(index=False))
+    return "\n".join(lines)
+
+def build_full_research_workflow_report(summary: dict, job_df: 'pd.DataFrame' = None) -> str:
+    """Build full research workflow report."""
+    return build_pipeline_workflow_report(summary, job_df).replace("PIPELINE WORKFLOW", "FULL RESEARCH WORKFLOW")
+
+def build_daily_research_workflow_report(summary: dict, job_df: 'pd.DataFrame' = None) -> str:
+    """Build daily research workflow report."""
+    return build_pipeline_workflow_report(summary, job_df).replace("PIPELINE WORKFLOW", "DAILY RESEARCH WORKFLOW")
+
+def build_paper_reporting_workflow_report(summary: dict, job_df: 'pd.DataFrame' = None) -> str:
+    """Build paper reporting workflow report."""
+    return build_pipeline_workflow_report(summary, job_df).replace("PIPELINE WORKFLOW", "PAPER REPORTING WORKFLOW")
+
+def build_failed_jobs_report(summary: dict, failed_df: 'pd.DataFrame' = None) -> str:
+    """Build failed jobs report."""
+    lines = [
+        "==================================================",
+        " FAILED JOBS REPORT",
+        "==================================================",
+        _get_orchestration_disclaimer(),
+        "",
+        f"Failed Jobs Found: {summary.get('failed_count', 0)}",
+        f"Blocked Jobs Found: {summary.get('blocked_count', 0)}",
+        ""
+    ]
+
+    retry_plan = summary.get('retry_plan', {})
+    if retry_plan:
+        lines.append(f"Retry Policy Enabled: {retry_plan.get('policy_enabled', False)}")
+        lines.append(f"Retry Candidates: {retry_plan.get('candidate_count', 0)}")
+        lines.append("")
+
+    if failed_df is not None and not failed_df.empty:
+        lines.append("Failed Job Details:")
+        lines.append(failed_df.to_string(index=False))
+    return "\n".join(lines)

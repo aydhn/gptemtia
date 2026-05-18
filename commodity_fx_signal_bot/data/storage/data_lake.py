@@ -832,7 +832,15 @@ class DataLake:
 
     def save_ml_split_manifest(self, symbol: str, timeframe: str, profile_name: str, manifest: dict) -> Path:
         path = self.paths.ml_splits / f"{symbol}_{timeframe}_{profile_name}_split.json"
-        self._save_json(manifest, path)
+        import json
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, 'w') as f:
+            if hasattr(manifest, '__dataclass_fields__'):
+                from dataclasses import asdict
+                json.dump(asdict(manifest), f, indent=4)
+            else:
+                json.dump(manifest, f, indent=4)
+
         return path
 
     def load_ml_split_manifest(self, symbol: str, timeframe: str, profile_name: str) -> dict:
@@ -1092,6 +1100,124 @@ class DataLake:
                 pass
 
         return pd.DataFrame(data)
+
+
+    # -------------------------------------------------------------------------
+    # Orchestration Support
+    # -------------------------------------------------------------------------
+
+    def save_orchestration_run_manifest(self, run_id: str, manifest: dict) -> 'Path':
+        """Save orchestration run manifest."""
+        from config.paths import LAKE_ORCHESTRATION_MANIFESTS_DIR
+        path = LAKE_ORCHESTRATION_MANIFESTS_DIR / f"{run_id}_manifest.json"
+        import json
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, 'w') as f:
+            if hasattr(manifest, '__dataclass_fields__'):
+                from dataclasses import asdict
+                json.dump(asdict(manifest), f, indent=4)
+            else:
+                json.dump(manifest, f, indent=4)
+
+        return path
+
+    def load_orchestration_run_manifest(self, run_id: str) -> dict:
+        """Load orchestration run manifest."""
+        from config.paths import LAKE_ORCHESTRATION_MANIFESTS_DIR
+        path = LAKE_ORCHESTRATION_MANIFESTS_DIR / f"{run_id}_manifest.json"
+        return self._load_json(path)
+
+    def save_orchestration_execution_plan(self, run_id: str, df: 'pd.DataFrame', summary: dict | None = None) -> 'Path':
+        """Save orchestration execution plan."""
+        from config.paths import LAKE_ORCHESTRATION_EXECUTION_PLANS_DIR
+        path = LAKE_ORCHESTRATION_EXECUTION_PLANS_DIR / f"{run_id}_plan.parquet"
+        self._save_parquet(df, path)
+        if summary:
+            summary_path = LAKE_ORCHESTRATION_EXECUTION_PLANS_DIR / f"{run_id}_plan_summary.json"
+            self._save_json(summary, summary_path)
+        return path
+
+    def load_orchestration_execution_plan(self, run_id: str) -> 'pd.DataFrame':
+        """Load orchestration execution plan."""
+        from config.paths import LAKE_ORCHESTRATION_EXECUTION_PLANS_DIR
+        path = LAKE_ORCHESTRATION_EXECUTION_PLANS_DIR / f"{run_id}_plan.parquet"
+        return self._load_parquet(path)
+
+    def save_orchestration_dependency_graph(self, run_id: str, df: 'pd.DataFrame', summary: dict | None = None) -> 'Path':
+        """Save orchestration dependency graph."""
+        from config.paths import LAKE_ORCHESTRATION_DEPENDENCY_GRAPHS_DIR
+        path = LAKE_ORCHESTRATION_DEPENDENCY_GRAPHS_DIR / f"{run_id}_graph.parquet"
+        self._save_parquet(df, path)
+        if summary:
+            summary_path = LAKE_ORCHESTRATION_DEPENDENCY_GRAPHS_DIR / f"{run_id}_graph_summary.json"
+            self._save_json(summary, summary_path)
+        return path
+
+    def load_orchestration_dependency_graph(self, run_id: str) -> 'pd.DataFrame':
+        """Load orchestration dependency graph."""
+        from config.paths import LAKE_ORCHESTRATION_DEPENDENCY_GRAPHS_DIR
+        path = LAKE_ORCHESTRATION_DEPENDENCY_GRAPHS_DIR / f"{run_id}_graph.parquet"
+        return self._load_parquet(path)
+
+    def save_orchestration_job_log(self, run_id: str, df: 'pd.DataFrame') -> 'Path':
+        """Save orchestration job log."""
+        from config.paths import LAKE_ORCHESTRATION_JOB_LOGS_DIR
+        path = LAKE_ORCHESTRATION_JOB_LOGS_DIR / f"{run_id}_jobs.parquet"
+        self._save_parquet(df, path)
+        return path
+
+    def load_orchestration_job_log(self, run_id: str) -> 'pd.DataFrame':
+        """Load orchestration job log."""
+        from config.paths import LAKE_ORCHESTRATION_JOB_LOGS_DIR
+        path = LAKE_ORCHESTRATION_JOB_LOGS_DIR / f"{run_id}_jobs.parquet"
+        return self._load_parquet(path)
+
+    def save_orchestration_quality(self, run_id: str, quality: dict) -> 'Path':
+        """Save orchestration quality report."""
+        from config.paths import LAKE_ORCHESTRATION_QUALITY_DIR
+        path = LAKE_ORCHESTRATION_QUALITY_DIR / f"{run_id}_quality.json"
+        self._save_json(quality, path)
+        return path
+
+    def load_orchestration_quality(self, run_id: str) -> dict:
+        """Load orchestration quality report."""
+        from config.paths import LAKE_ORCHESTRATION_QUALITY_DIR
+        path = LAKE_ORCHESTRATION_QUALITY_DIR / f"{run_id}_quality.json"
+        return self._load_json(path)
+
+    def list_orchestration_runs(self) -> 'pd.DataFrame':
+        """List all available orchestration runs."""
+        from config.paths import LAKE_ORCHESTRATION_MANIFESTS_DIR
+
+        if not LAKE_ORCHESTRATION_MANIFESTS_DIR.exists():
+             return pd.DataFrame()
+
+        runs = []
+        for p in LAKE_ORCHESTRATION_MANIFESTS_DIR.glob("*_manifest.json"):
+             try:
+                 manifest = self._load_json(p)
+                 runs.append({
+                     "run_id": manifest.get("run_id", p.stem.replace("_manifest", "")),
+                     "workflow_name": manifest.get("workflow_name", "unknown"),
+                     "profile_name": manifest.get("profile_name", "unknown"),
+                     "timeframe": manifest.get("timeframe", "unknown"),
+                     "started_at": manifest.get("started_at_utc", ""),
+                     "status": manifest.get("workflow_status", "unknown"),
+                     "job_count": manifest.get("job_count", 0),
+                     "success_count": manifest.get("success_count", 0),
+                     "failed_count": manifest.get("failed_count", 0),
+                     "dry_run": manifest.get("dry_run", True)
+                 })
+             except Exception:
+                 continue
+
+        if not runs:
+            return pd.DataFrame()
+
+        df = pd.DataFrame(runs)
+        if "started_at" in df.columns:
+            df = df.sort_values("started_at", ascending=False).reset_index(drop=True)
+        return df
 
     def list_notification_delivery_logs(self) -> pd.DataFrame:
         files = list(self.paths.LAKE_NOTIFICATIONS_DELIVERY_LOGS_DIR.glob("*.parquet"))
