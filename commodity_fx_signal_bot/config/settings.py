@@ -1244,6 +1244,66 @@ class Settings:
         default_factory=lambda: int(os.getenv("NOTIFICATION_MAX_ROWS_PER_SECTION", "10"))
     )
 
+
+    # Orchestration Settings
+    orchestration_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("ORCHESTRATION_ENABLED", "true")).lower() == "true"
+    )
+    pipeline_orchestrator_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("PIPELINE_ORCHESTRATOR_ENABLED", "true")).lower() == "true"
+    )
+    default_orchestration_profile: str = field(
+        default_factory=lambda: os.getenv("DEFAULT_ORCHESTRATION_PROFILE", "balanced_research_orchestration")
+    )
+    default_workflow_name: str = field(
+        default_factory=lambda: os.getenv("DEFAULT_WORKFLOW_NAME", "daily_research_workflow")
+    )
+    orchestration_default_timeframe: str = field(
+        default_factory=lambda: os.getenv("ORCHESTRATION_DEFAULT_TIMEFRAME", "1d")
+    )
+    orchestration_max_symbols_per_run: int = field(
+        default_factory=lambda: int(os.getenv("ORCHESTRATION_MAX_SYMBOLS_PER_RUN", "50"))
+    )
+    orchestration_continue_on_symbol_error: bool = field(
+        default_factory=lambda: str(os.getenv("ORCHESTRATION_CONTINUE_ON_SYMBOL_ERROR", "true")).lower() == "true"
+    )
+    orchestration_continue_on_job_error: bool = field(
+        default_factory=lambda: str(os.getenv("ORCHESTRATION_CONTINUE_ON_JOB_ERROR", "true")).lower() == "true"
+    )
+    orchestration_retry_failed_jobs: bool = field(
+        default_factory=lambda: str(os.getenv("ORCHESTRATION_RETRY_FAILED_JOBS", "false")).lower() == "true"
+    )
+    orchestration_max_retries: int = field(
+        default_factory=lambda: int(os.getenv("ORCHESTRATION_MAX_RETRIES", "1"))
+    )
+    orchestration_retry_delay_seconds: float = field(
+        default_factory=lambda: float(os.getenv("ORCHESTRATION_RETRY_DELAY_SECONDS", "2.0"))
+    )
+    orchestration_save_run_manifest: bool = field(
+        default_factory=lambda: str(os.getenv("ORCHESTRATION_SAVE_RUN_MANIFEST", "true")).lower() == "true"
+    )
+    orchestration_save_dependency_graph: bool = field(
+        default_factory=lambda: str(os.getenv("ORCHESTRATION_SAVE_DEPENDENCY_GRAPH", "true")).lower() == "true"
+    )
+    orchestration_save_execution_plan: bool = field(
+        default_factory=lambda: str(os.getenv("ORCHESTRATION_SAVE_EXECUTION_PLAN", "true")).lower() == "true"
+    )
+    orchestration_save_job_logs: bool = field(
+        default_factory=lambda: str(os.getenv("ORCHESTRATION_SAVE_JOB_LOGS", "true")).lower() == "true"
+    )
+    orchestration_enable_notifications: bool = field(
+        default_factory=lambda: str(os.getenv("ORCHESTRATION_ENABLE_NOTIFICATIONS", "false")).lower() == "true"
+    )
+    orchestration_notification_on_failure: bool = field(
+        default_factory=lambda: str(os.getenv("ORCHESTRATION_NOTIFICATION_ON_FAILURE", "true")).lower() == "true"
+    )
+    orchestration_notification_on_success: bool = field(
+        default_factory=lambda: str(os.getenv("ORCHESTRATION_NOTIFICATION_ON_SUCCESS", "false")).lower() == "true"
+    )
+    orchestration_dry_run: bool = field(
+        default_factory=lambda: str(os.getenv("ORCHESTRATION_DRY_RUN", "true")).lower() == "true"
+    )
+
     def __post_init__(self):
 
 
@@ -1815,6 +1875,66 @@ class Settings:
     )
     notification_max_rows_per_section: int = field(
         default_factory=lambda: int(os.getenv("NOTIFICATION_MAX_ROWS_PER_SECTION", "10"))
+    )
+
+
+    # Orchestration Settings
+    orchestration_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("ORCHESTRATION_ENABLED", "true")).lower() == "true"
+    )
+    pipeline_orchestrator_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("PIPELINE_ORCHESTRATOR_ENABLED", "true")).lower() == "true"
+    )
+    default_orchestration_profile: str = field(
+        default_factory=lambda: os.getenv("DEFAULT_ORCHESTRATION_PROFILE", "balanced_research_orchestration")
+    )
+    default_workflow_name: str = field(
+        default_factory=lambda: os.getenv("DEFAULT_WORKFLOW_NAME", "daily_research_workflow")
+    )
+    orchestration_default_timeframe: str = field(
+        default_factory=lambda: os.getenv("ORCHESTRATION_DEFAULT_TIMEFRAME", "1d")
+    )
+    orchestration_max_symbols_per_run: int = field(
+        default_factory=lambda: int(os.getenv("ORCHESTRATION_MAX_SYMBOLS_PER_RUN", "50"))
+    )
+    orchestration_continue_on_symbol_error: bool = field(
+        default_factory=lambda: str(os.getenv("ORCHESTRATION_CONTINUE_ON_SYMBOL_ERROR", "true")).lower() == "true"
+    )
+    orchestration_continue_on_job_error: bool = field(
+        default_factory=lambda: str(os.getenv("ORCHESTRATION_CONTINUE_ON_JOB_ERROR", "true")).lower() == "true"
+    )
+    orchestration_retry_failed_jobs: bool = field(
+        default_factory=lambda: str(os.getenv("ORCHESTRATION_RETRY_FAILED_JOBS", "false")).lower() == "true"
+    )
+    orchestration_max_retries: int = field(
+        default_factory=lambda: int(os.getenv("ORCHESTRATION_MAX_RETRIES", "1"))
+    )
+    orchestration_retry_delay_seconds: float = field(
+        default_factory=lambda: float(os.getenv("ORCHESTRATION_RETRY_DELAY_SECONDS", "2.0"))
+    )
+    orchestration_save_run_manifest: bool = field(
+        default_factory=lambda: str(os.getenv("ORCHESTRATION_SAVE_RUN_MANIFEST", "true")).lower() == "true"
+    )
+    orchestration_save_dependency_graph: bool = field(
+        default_factory=lambda: str(os.getenv("ORCHESTRATION_SAVE_DEPENDENCY_GRAPH", "true")).lower() == "true"
+    )
+    orchestration_save_execution_plan: bool = field(
+        default_factory=lambda: str(os.getenv("ORCHESTRATION_SAVE_EXECUTION_PLAN", "true")).lower() == "true"
+    )
+    orchestration_save_job_logs: bool = field(
+        default_factory=lambda: str(os.getenv("ORCHESTRATION_SAVE_JOB_LOGS", "true")).lower() == "true"
+    )
+    orchestration_enable_notifications: bool = field(
+        default_factory=lambda: str(os.getenv("ORCHESTRATION_ENABLE_NOTIFICATIONS", "false")).lower() == "true"
+    )
+    orchestration_notification_on_failure: bool = field(
+        default_factory=lambda: str(os.getenv("ORCHESTRATION_NOTIFICATION_ON_FAILURE", "true")).lower() == "true"
+    )
+    orchestration_notification_on_success: bool = field(
+        default_factory=lambda: str(os.getenv("ORCHESTRATION_NOTIFICATION_ON_SUCCESS", "false")).lower() == "true"
+    )
+    orchestration_dry_run: bool = field(
+        default_factory=lambda: str(os.getenv("ORCHESTRATION_DRY_RUN", "true")).lower() == "true"
     )
 
     def __post_init__(self):
