@@ -1236,3 +1236,188 @@ class DataLake:
                 pass
 
         return pd.DataFrame(data)
+
+    # --- Observability Reports Save/Load ---
+    def save_observability_health_report(self, report_name: str, df: pd.DataFrame, summary: dict) -> Path:
+        """Save a health report to the observability lake."""
+        target_dir = getattr(self.paths, 'LAKE_OBSERVABILITY_HEALTH_DIR', self.root_dir / 'observability' / 'health')
+        target_dir.mkdir(parents=True, exist_ok=True)
+
+        csv_path = target_dir / f"{report_name}.csv"
+        json_path = target_dir / f"{report_name}_summary.json"
+
+        if not df.empty:
+            df.to_csv(csv_path, index=False)
+
+        with open(json_path, 'w', encoding='utf-8') as f:
+            json.dump(summary, f, indent=2, ensure_ascii=False)
+
+        return csv_path
+
+    def load_observability_health_report(self, report_name: str) -> pd.DataFrame:
+        """Load a health report from the observability lake."""
+        target_dir = getattr(self.paths, 'LAKE_OBSERVABILITY_HEALTH_DIR', self.root_dir / 'observability' / 'health')
+        csv_path = target_dir / f"{report_name}.csv"
+        if csv_path.exists():
+            return pd.read_csv(csv_path)
+        return pd.DataFrame()
+
+    def save_runtime_metrics(self, report_name: str, df: pd.DataFrame, summary: dict) -> Path:
+        """Save runtime metrics to the observability lake."""
+        target_dir = getattr(self.paths, 'LAKE_OBSERVABILITY_RUNTIME_METRICS_DIR', self.root_dir / 'observability' / 'runtime_metrics')
+        target_dir.mkdir(parents=True, exist_ok=True)
+
+        csv_path = target_dir / f"{report_name}.csv"
+        json_path = target_dir / f"{report_name}_summary.json"
+
+        if not df.empty:
+            df.to_csv(csv_path, index=False)
+
+        with open(json_path, 'w', encoding='utf-8') as f:
+            json.dump(summary, f, indent=2, ensure_ascii=False)
+
+        return csv_path
+
+    def load_runtime_metrics(self, report_name: str) -> pd.DataFrame:
+        """Load runtime metrics from the observability lake."""
+        target_dir = getattr(self.paths, 'LAKE_OBSERVABILITY_RUNTIME_METRICS_DIR', self.root_dir / 'observability' / 'runtime_metrics')
+        csv_path = target_dir / f"{report_name}.csv"
+        if csv_path.exists():
+            return pd.read_csv(csv_path)
+        return pd.DataFrame()
+
+    def save_diagnostics_report(self, report_name: str, summary: dict) -> Path:
+        """Save self-diagnostics summary to the observability lake."""
+        target_dir = getattr(self.paths, 'LAKE_OBSERVABILITY_DIAGNOSTICS_DIR', self.root_dir / 'observability' / 'diagnostics')
+        target_dir.mkdir(parents=True, exist_ok=True)
+
+        json_path = target_dir / f"{report_name}.json"
+        with open(json_path, 'w', encoding='utf-8') as f:
+            json.dump(summary, f, indent=2, ensure_ascii=False)
+
+        return json_path
+
+    def load_diagnostics_report(self, report_name: str) -> dict:
+        """Load self-diagnostics summary from the observability lake."""
+        target_dir = getattr(self.paths, 'LAKE_OBSERVABILITY_DIAGNOSTICS_DIR', self.root_dir / 'observability' / 'diagnostics')
+        json_path = target_dir / f"{report_name}.json"
+        if json_path.exists():
+            with open(json_path, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        return {}
+
+    def save_error_taxonomy_report(self, df: pd.DataFrame, summary: dict) -> Path:
+        """Save error taxonomy to the observability lake."""
+        target_dir = getattr(self.paths, 'LAKE_OBSERVABILITY_ERROR_TAXONOMY_DIR', self.root_dir / 'observability' / 'error_taxonomy')
+        target_dir.mkdir(parents=True, exist_ok=True)
+
+        csv_path = target_dir / "error_taxonomy.csv"
+        json_path = target_dir / "error_taxonomy_summary.json"
+
+        if not df.empty:
+            df.to_csv(csv_path, index=False)
+
+        with open(json_path, 'w', encoding='utf-8') as f:
+            json.dump(summary, f, indent=2, ensure_ascii=False)
+
+        return csv_path
+
+    def load_error_taxonomy_report(self) -> pd.DataFrame:
+        """Load error taxonomy from the observability lake."""
+        target_dir = getattr(self.paths, 'LAKE_OBSERVABILITY_ERROR_TAXONOMY_DIR', self.root_dir / 'observability' / 'error_taxonomy')
+        csv_path = target_dir / "error_taxonomy.csv"
+        if csv_path.exists():
+            return pd.read_csv(csv_path)
+        return pd.DataFrame()
+
+    def save_data_freshness_report(self, df: pd.DataFrame, summary: dict) -> Path:
+        """Save data freshness report to the observability lake."""
+        target_dir = getattr(self.paths, 'LAKE_OBSERVABILITY_DATA_FRESHNESS_DIR', self.root_dir / 'observability' / 'data_freshness')
+        target_dir.mkdir(parents=True, exist_ok=True)
+
+        csv_path = target_dir / "data_freshness.csv"
+        json_path = target_dir / "data_freshness_summary.json"
+
+        if not df.empty:
+            df.to_csv(csv_path, index=False)
+
+        with open(json_path, 'w', encoding='utf-8') as f:
+            json.dump(summary, f, indent=2, ensure_ascii=False)
+
+        return csv_path
+
+    def load_data_freshness_report(self) -> pd.DataFrame:
+        """Load data freshness report from the observability lake."""
+        target_dir = getattr(self.paths, 'LAKE_OBSERVABILITY_DATA_FRESHNESS_DIR', self.root_dir / 'observability' / 'data_freshness')
+        csv_path = target_dir / "data_freshness.csv"
+        if csv_path.exists():
+            return pd.read_csv(csv_path)
+        return pd.DataFrame()
+
+    def save_artifact_integrity_report(self, df: pd.DataFrame, summary: dict) -> Path:
+        """Save artifact integrity report to the observability lake."""
+        target_dir = getattr(self.paths, 'LAKE_OBSERVABILITY_ARTIFACT_INTEGRITY_DIR', self.root_dir / 'observability' / 'artifact_integrity')
+        target_dir.mkdir(parents=True, exist_ok=True)
+
+        csv_path = target_dir / "artifact_integrity.csv"
+        json_path = target_dir / "artifact_integrity_summary.json"
+
+        if not df.empty:
+            df.to_csv(csv_path, index=False)
+
+        with open(json_path, 'w', encoding='utf-8') as f:
+            json.dump(summary, f, indent=2, ensure_ascii=False)
+
+        return csv_path
+
+    def load_artifact_integrity_report(self) -> pd.DataFrame:
+        """Load artifact integrity report from the observability lake."""
+        target_dir = getattr(self.paths, 'LAKE_OBSERVABILITY_ARTIFACT_INTEGRITY_DIR', self.root_dir / 'observability' / 'artifact_integrity')
+        csv_path = target_dir / "artifact_integrity.csv"
+        if csv_path.exists():
+            return pd.read_csv(csv_path)
+        return pd.DataFrame()
+
+    def save_observability_quality(self, report_name: str, quality: dict) -> Path:
+        """Save observability quality check results."""
+        target_dir = getattr(self.paths, 'LAKE_OBSERVABILITY_QUALITY_DIR', self.root_dir / 'observability' / 'quality')
+        target_dir.mkdir(parents=True, exist_ok=True)
+
+        json_path = target_dir / f"{report_name}_quality.json"
+        with open(json_path, 'w', encoding='utf-8') as f:
+            json.dump(quality, f, indent=2, ensure_ascii=False)
+
+        return json_path
+
+    def load_observability_quality(self, report_name: str) -> dict:
+        """Load observability quality check results."""
+        target_dir = getattr(self.paths, 'LAKE_OBSERVABILITY_QUALITY_DIR', self.root_dir / 'observability' / 'quality')
+        json_path = target_dir / f"{report_name}_quality.json"
+        if json_path.exists():
+            with open(json_path, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        return {}
+
+    def list_observability_reports(self) -> pd.DataFrame:
+        """List all available observability reports."""
+        target_dir = getattr(self.paths, 'LAKE_OBSERVABILITY_DIR', self.root_dir / 'observability')
+
+        if not target_dir.exists():
+            return pd.DataFrame()
+
+        rows = []
+        for file in target_dir.rglob("*"):
+            if file.is_file() and file.suffix in ['.csv', '.json']:
+                report_type = file.parent.name
+                rows.append({
+                    "report_type": report_type,
+                    "filename": file.name,
+                    "modified_time": pd.Timestamp(file.stat().st_mtime, unit='s'),
+                    "path": str(file)
+                })
+
+        if not rows:
+            return pd.DataFrame()
+
+        df = pd.DataFrame(rows)
+        return df.sort_values(by="modified_time", ascending=False)

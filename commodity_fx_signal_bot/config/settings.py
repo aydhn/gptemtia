@@ -1304,6 +1304,68 @@ class Settings:
         default_factory=lambda: str(os.getenv("ORCHESTRATION_DRY_RUN", "true")).lower() == "true"
     )
 
+    # Phase 36: Observability Settings
+    observability_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("OBSERVABILITY_ENABLED", "true")).lower() == "true"
+    )
+    structured_logging_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("STRUCTURED_LOGGING_ENABLED", "true")).lower() == "true"
+    )
+    default_observability_profile: str = field(
+        default_factory=lambda: os.getenv("DEFAULT_OBSERVABILITY_PROFILE", "balanced_system_observability")
+    )
+    observability_log_level: str = field(
+        default_factory=lambda: os.getenv("OBSERVABILITY_LOG_LEVEL", "INFO")
+    )
+    observability_log_to_file: bool = field(
+        default_factory=lambda: str(os.getenv("OBSERVABILITY_LOG_TO_FILE", "true")).lower() == "true"
+    )
+    observability_log_to_console: bool = field(
+        default_factory=lambda: str(os.getenv("OBSERVABILITY_LOG_TO_CONSOLE", "true")).lower() == "true"
+    )
+    observability_json_logs_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("OBSERVABILITY_JSON_LOGS_ENABLED", "true")).lower() == "true"
+    )
+    observability_max_log_files: int = field(
+        default_factory=lambda: int(os.getenv("OBSERVABILITY_MAX_LOG_FILES", "20"))
+    )
+    observability_healthcheck_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("OBSERVABILITY_HEALTHCHECK_ENABLED", "true")).lower() == "true"
+    )
+    observability_runtime_metrics_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("OBSERVABILITY_RUNTIME_METRICS_ENABLED", "true")).lower() == "true"
+    )
+    observability_data_freshness_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("OBSERVABILITY_DATA_FRESHNESS_ENABLED", "true")).lower() == "true"
+    )
+    observability_artifact_integrity_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("OBSERVABILITY_ARTIFACT_INTEGRITY_ENABLED", "true")).lower() == "true"
+    )
+    observability_dependency_diagnostics_enabled: bool = field(
+        default_factory=lambda: str(os.getenv("OBSERVABILITY_DEPENDENCY_DIAGNOSTICS_ENABLED", "true")).lower() == "true"
+    )
+    observability_max_stale_hours_daily: float = field(
+        default_factory=lambda: float(os.getenv("OBSERVABILITY_MAX_STALE_HOURS_DAILY", "48.0"))
+    )
+    observability_max_stale_hours_intraday: float = field(
+        default_factory=lambda: float(os.getenv("OBSERVABILITY_MAX_STALE_HOURS_INTRADAY", "12.0"))
+    )
+    observability_min_required_disk_free_mb: int = field(
+        default_factory=lambda: int(os.getenv("OBSERVABILITY_MIN_REQUIRED_DISK_FREE_MB", "1024"))
+    )
+    observability_save_health_reports: bool = field(
+        default_factory=lambda: str(os.getenv("OBSERVABILITY_SAVE_HEALTH_REPORTS", "true")).lower() == "true"
+    )
+    observability_save_runtime_metrics: bool = field(
+        default_factory=lambda: str(os.getenv("OBSERVABILITY_SAVE_RUNTIME_METRICS", "true")).lower() == "true"
+    )
+    observability_save_diagnostics: bool = field(
+        default_factory=lambda: str(os.getenv("OBSERVABILITY_SAVE_DIAGNOSTICS", "true")).lower() == "true"
+    )
+    observability_notification_on_critical: bool = field(
+        default_factory=lambda: str(os.getenv("OBSERVABILITY_NOTIFICATION_ON_CRITICAL", "false")).lower() == "true"
+    )
+
     def __post_init__(self):
 
 

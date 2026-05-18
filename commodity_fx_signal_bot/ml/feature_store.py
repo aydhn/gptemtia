@@ -377,3 +377,44 @@ class FeatureStore:
                 "profile": row["profile"]
             })
         return res
+
+    # --- Observability Reports Load ---
+    def load_latest_system_health_report(self) -> pd.DataFrame:
+        """Load the latest system healthcheck report."""
+        if hasattr(self.data_lake, "load_observability_health_report"):
+            return self.data_lake.load_observability_health_report("system_healthcheck")
+        return pd.DataFrame()
+
+    def load_latest_runtime_metrics(self) -> pd.DataFrame:
+        """Load the latest runtime metrics."""
+        if hasattr(self.data_lake, "load_runtime_metrics"):
+            return self.data_lake.load_runtime_metrics("current_session")
+        return pd.DataFrame()
+
+    def load_latest_data_freshness_report(self) -> pd.DataFrame:
+        """Load the latest data freshness report."""
+        if hasattr(self.data_lake, "load_data_freshness_report"):
+            return self.data_lake.load_data_freshness_report()
+        return pd.DataFrame()
+
+    def load_latest_artifact_integrity_report(self) -> pd.DataFrame:
+        """Load the latest artifact integrity report."""
+        if hasattr(self.data_lake, "load_artifact_integrity_report"):
+            return self.data_lake.load_artifact_integrity_report()
+        return pd.DataFrame()
+
+    def load_latest_diagnostics_report(self) -> dict:
+        """Load the latest self-diagnostics report."""
+        if hasattr(self.data_lake, "load_diagnostics_report"):
+            return self.data_lake.load_diagnostics_report("self_diagnostics")
+        return {}
+
+    def list_available_observability_reports(self) -> dict:
+        """List all available observability reports by type."""
+        if hasattr(self.data_lake, "list_observability_reports"):
+            df = self.data_lake.list_observability_reports()
+            if not df.empty:
+                # Group by report_type
+                grouped = df.groupby('report_type').apply(lambda x: x.to_dict('records')).to_dict()
+                return grouped
+        return {}
