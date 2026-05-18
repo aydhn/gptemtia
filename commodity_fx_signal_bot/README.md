@@ -523,3 +523,26 @@ python -m scripts.run_notification_status
 2. `.env` içine `TELEGRAM_ENABLED=true`, `TELEGRAM_DRY_RUN=false`, `TELEGRAM_BOT_TOKEN` ve `TELEGRAM_CHAT_ID` değerlerini ekleyin.
 3. Sonra ilgili komutu `--send` parametresiyle çalıştırın.
 Token bilgileri hiçbir log dosyasına kaydedilmez.
+
+
+## Observability, Healthcheck, and Self-Diagnostics (Phase 36)
+
+Bu faz canlı monitoring veya broker takip sistemi değildir.
+Sistem sağlık raporu, dependency diagnostics, data freshness, artifact integrity ve runtime metrics üretir.
+Structured logging JSON/file/console destekler.
+Error taxonomy standart hata kodları sağlar.
+Self-diagnostics recommended system actions üretir; bunlar trade önerisi değildir.
+Secret/token bilgileri loglarda maskelenir.
+Health status trade alarmı değildir.
+
+Kullanılabilir Komutlar:
+```bash
+python -m scripts.run_system_healthcheck
+python -m scripts.run_component_healthcheck --timeframe 1d
+python -m scripts.run_data_freshness_check --timeframe 1d
+python -m scripts.run_artifact_integrity_check
+python -m scripts.run_runtime_metrics_report
+python -m scripts.run_error_taxonomy_report
+python -m scripts.run_self_diagnostics --timeframe 1d
+python -m scripts.run_observability_status
+```

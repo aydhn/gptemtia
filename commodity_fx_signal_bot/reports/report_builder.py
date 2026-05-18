@@ -3094,3 +3094,207 @@ def build_failed_jobs_report(summary: dict, failed_df: 'pd.DataFrame' = None) ->
         lines.append("Failed Job Details:")
         lines.append(failed_df.to_string(index=False))
     return "\n".join(lines)
+
+# --- Phase 36: Observability Reports ---
+def build_system_healthcheck_report(health_df: pd.DataFrame, summary: dict) -> str:
+    """Build a text summary report of the system health."""
+    lines = [
+        "SİSTEM SAĞLIK KONTROLÜ RAPORU",
+        "=============================",
+        "Bu çıktı sistem sağlık/observability raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.",
+        "",
+        f"Genel Durum: {summary.get('overall_status', 'unknown')}",
+        f"Genel Skor: {summary.get('overall_score', 0.0):.2f}",
+        f"Geçen Kontrol Sayısı: {summary.get('total_checks_passed', 0)}",
+        f"Başarısız Kontrol Sayısı: {summary.get('total_checks_failed', 0)}",
+        ""
+    ]
+
+    if not health_df.empty:
+        lines.append("Bileşen Detayları:")
+        lines.append("-" * 30)
+        for _, row in health_df.iterrows():
+            lines.append(f"{row['component'].upper()}: {row['status']} (Skor: {row['health_score']:.2f})")
+            if row.get('errors_count', 0) > 0:
+                lines.append(f"  Hatalar: {row['errors_count']}")
+            if row.get('warnings_count', 0) > 0:
+                lines.append(f"  Uyarılar: {row['warnings_count']}")
+
+    return "\n".join(lines)
+
+def build_component_healthcheck_report(health_df: pd.DataFrame, summary: dict) -> str:
+    """Build a text summary report of component health."""
+    lines = [
+        "BİLEŞEN SAĞLIK KONTROLÜ RAPORU",
+        "==============================",
+        "Bu çıktı sistem sağlık/observability raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.",
+        "",
+        f"Genel Durum: {summary.get('overall_status', 'unknown')}",
+        f"Genel Skor: {summary.get('overall_score', 0.0):.2f}",
+        f"Kontrol Edilen Bileşen Sayısı: {summary.get('components_checked', 0)}",
+        f"Kritik Bileşen Sayısı: {summary.get('critical_components', 0)}",
+        ""
+    ]
+
+    if not health_df.empty:
+        for _, row in health_df.iterrows():
+            lines.append(f"{row['component']}: {row['status']} ({row['health_score']:.2f})")
+
+    return "\n".join(lines)
+
+def build_data_freshness_report(freshness_df: pd.DataFrame, summary: dict) -> str:
+    """Build a text summary report of data freshness."""
+    lines = [
+        "VERİ TAZELİĞİ (FRESHNESS) RAPORU",
+        "================================",
+        "Bu çıktı sistem sağlık/observability raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.",
+        "",
+        f"Genel Durum: {summary.get('status', 'unknown')}",
+        f"Kontrol Edilen Artifact Sayısı: {summary.get('total_artifacts_checked', 0)}",
+        f"Eksik Artifact Sayısı: {summary.get('missing_count', 0)}",
+        f"Stale (Eski) Artifact Sayısı: {summary.get('stale_count', 0)}",
+        f"Taze Artifact Sayısı: {summary.get('fresh_count', 0)}",
+        f"Ortalama Yaş (Saat): {summary.get('avg_age_hours', 0.0):.1f}",
+        ""
+    ]
+
+    if not freshness_df.empty and 'stale' in freshness_df.columns:
+        stale_df = freshness_df[freshness_df['stale'] == True]
+        if not stale_df.empty:
+            lines.append("Stale (Eski) Artifact Detayları:")
+            lines.append("-" * 30)
+            for _, row in stale_df.iterrows():
+                lines.append(f"{row.get('symbol', 'unknown')} - {row.get('artifact_type', 'unknown')}: {row.get('age_hours', 'N/A')} saat")
+
+    return "\n".join(lines)
+
+def build_artifact_integrity_report(integrity_df: pd.DataFrame, summary: dict) -> str:
+    """Build a text summary report of artifact integrity."""
+    lines = [
+        "ARTIFACT BÜTÜNLÜĞÜ (INTEGRITY) RAPORU",
+        "=====================================",
+        "Bu çıktı sistem sağlık/observability raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.",
+        "",
+        f"Genel Durum: {summary.get('status', 'unknown')}",
+        f"Kontrol Edilen Dosya Sayısı: {summary.get('total_checked', 0)}",
+        f"Geçerli (Valid) Dosya Sayısı: {summary.get('valid_count', 0)}",
+        f"Geçersiz/Bozuk (Invalid) Dosya Sayısı: {summary.get('invalid_count', 0)}",
+        f"Boş Dosya Sayısı: {summary.get('empty_count', 0)}",
+        ""
+    ]
+
+    if not integrity_df.empty and 'valid' in integrity_df.columns:
+        invalid_df = integrity_df[integrity_df['valid'] == False]
+        if not invalid_df.empty:
+            lines.append("Geçersiz/Bozuk Dosya Detayları:")
+            lines.append("-" * 30)
+            for _, row in invalid_df.iterrows():
+                lines.append(f"{row['filename']}: {row.get('error', 'Bilinmeyen Hata')}")
+
+    return "\n".join(lines)
+
+def build_runtime_metrics_report(metrics_df: pd.DataFrame, summary: dict) -> str:
+    """Build a text summary report of runtime metrics."""
+    lines = [
+        "ÇALIŞMA ZAMANI (RUNTIME METRICS) RAPORU",
+        "=======================================",
+        "Bu çıktı sistem sağlık/observability raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.",
+        "",
+        f"Toplam Kaydedilen Metrik: {summary.get('metric_count', 0)}",
+        f"Toplam Süre (Sn): {summary.get('total_duration_seconds', 0.0):.2f}",
+        f"Ortalama Süre (Sn): {summary.get('avg_duration_seconds', 0.0):.2f}",
+        f"En Uzun Süre (Sn): {summary.get('max_duration_seconds', 0.0):.2f}",
+        ""
+    ]
+
+    if 'by_component' in summary and summary['by_component']:
+        lines.append("Bileşen Bazlı Ortalama Süreler:")
+        lines.append("-" * 30)
+        for comp, stats in summary['by_component'].items():
+            lines.append(f"{comp}: {stats.get('mean', 0.0):.2f} sn (Adet: {stats.get('count', 0)})")
+        lines.append("")
+
+    if 'slowest_operations' in summary and summary['slowest_operations']:
+        lines.append("En Yavaş 5 Operasyon:")
+        lines.append("-" * 30)
+        for op in summary['slowest_operations']:
+            lines.append(f"{op.get('component')} - {op.get('operation')} ({op.get('symbol')}): {op.get('duration_seconds', 0.0):.2f} sn")
+
+    return "\n".join(lines)
+
+def build_error_taxonomy_report(error_df: pd.DataFrame, summary: dict) -> str:
+    """Build a text summary of the error taxonomy."""
+    lines = [
+        "HATA TAKSONOMİSİ (ERROR TAXONOMY) RAPORU",
+        "========================================",
+        "Bu çıktı sistem sağlık/observability raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.",
+        "",
+        f"Tanımlı Hata Kodu Sayısı: {summary.get('total_errors_defined', 0)}",
+        ""
+    ]
+
+    if 'by_category' in summary and summary['by_category']:
+        lines.append("Kategori Dağılımı:")
+        for cat, count in summary['by_category'].items():
+            lines.append(f"  {cat}: {count}")
+        lines.append("")
+
+    if 'by_severity' in summary and summary['by_severity']:
+        lines.append("Önem Derecesi (Severity) Dağılımı:")
+        for sev, count in summary['by_severity'].items():
+            lines.append(f"  {sev}: {count}")
+
+    return "\n".join(lines)
+
+def build_self_diagnostics_report(summary: dict) -> str:
+    """Build a text summary of the self-diagnostics results."""
+    lines = [
+        "SİSTEM OTO-DİYAGNOSTİK (SELF DIAGNOSTICS) RAPORU",
+        "================================================",
+        "Bu çıktı sistem sağlık/observability raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.",
+        "",
+        f"Genel Sağlık Durumu: {summary.get('overall_health_status', 'unknown')}",
+        f"Genel Sağlık Skoru: {summary.get('overall_health_score', 0.0):.2f}",
+        f"Kritik Sorun Sayısı: {summary.get('critical_count', 0)}",
+        f"Hata Sayısı: {summary.get('error_count', 0)}",
+        f"Uyarı Sayısı: {summary.get('warning_count', 0)}",
+        ""
+    ]
+
+    if summary.get('unhealthy_components'):
+        lines.append("Sağlıksız Bileşenler:")
+        for comp in summary['unhealthy_components']:
+            lines.append(f"- {comp}")
+        lines.append("")
+
+    if summary.get('degraded_components'):
+        lines.append("Performansı Düşük (Degraded) Bileşenler:")
+        for comp in summary['degraded_components']:
+            lines.append(f"- {comp}")
+        lines.append("")
+
+    if summary.get('recommended_system_actions'):
+        lines.append("Önerilen Sistem Aksiyonları:")
+        for action in summary['recommended_system_actions']:
+            lines.append(f"- {action}")
+
+    return "\n".join(lines)
+
+def build_observability_status_report(status_df: pd.DataFrame, summary: dict) -> str:
+    """Build a text summary of the observability data lake status."""
+    lines = [
+        "OBSERVABILITY VERİ GÖLÜ DURUM RAPORU",
+        "====================================",
+        "Bu çıktı sistem sağlık/observability raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.",
+        "",
+        f"Zaman: {summary.get('timestamp', 'unknown')}",
+        f"Bulunan Rapor Sayısı: {summary.get('reports_found', 0)}",
+        ""
+    ]
+
+    if summary.get('report_types'):
+        lines.append("Mevcut Rapor Türleri:")
+        for rtype in summary['report_types']:
+            lines.append(f"- {rtype}")
+
+    return "\n".join(lines)
