@@ -418,3 +418,20 @@ class FeatureStore:
                 grouped = df.groupby('report_type').apply(lambda x: x.to_dict('records')).to_dict()
                 return grouped
         return {}
+
+    def load_latest_security_audit_report(self) -> pd.DataFrame:
+        if hasattr(self.data_lake, "load_security_audit_report"): return self.data_lake.load_security_audit_report("security_audit")
+        return pd.DataFrame()
+    def load_latest_secret_hygiene_report(self) -> pd.DataFrame:
+        if hasattr(self.data_lake, "load_secret_hygiene_report"): return self.data_lake.load_secret_hygiene_report()
+        return pd.DataFrame()
+    def load_latest_config_hardening_report(self) -> pd.DataFrame:
+        if hasattr(self.data_lake, "load_config_hardening_report"): return self.data_lake.load_config_hardening_report()
+        return pd.DataFrame()
+    def load_latest_readiness_audit(self) -> pd.DataFrame:
+        if hasattr(self.data_lake, "load_readiness_audit"): return self.data_lake.load_readiness_audit()
+        return pd.DataFrame()
+    def load_latest_security_quality(self) -> dict:
+        if hasattr(self.data_lake, "load_security_quality"): return self.data_lake.load_security_quality("security_audit")
+        return {}
+    def list_available_security_reports(self) -> dict: return {}

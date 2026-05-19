@@ -3298,3 +3298,30 @@ def build_observability_status_report(status_df: pd.DataFrame, summary: dict) ->
             lines.append(f"- {rtype}")
 
     return "\n".join(lines)
+
+    # --- Phase 37: Security ---
+    def build_security_audit_report(self, findings_df: pd.DataFrame, summary: dict) -> str:
+        report = "SECURITY AUDIT REPORT\n"
+        report += "Bu çıktı güvenlik/readiness denetim raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal, production deploy onayı veya yatırım tavsiyesi değildir.\n\n"
+        report += f"Total Findings: {summary.get('total_findings', 0)}\n"
+        return report
+    def build_secret_hygiene_report(self, findings_df: pd.DataFrame, summary: dict) -> str:
+        report = "SECRET HYGIENE REPORT\nBu çıktı güvenlik/readiness denetim raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal, production deploy onayı veya yatırım tavsiyesi değildir.\n\n"
+        return report
+    def build_config_hardening_report(self, findings_df: pd.DataFrame, summary: dict) -> str:
+        report = "CONFIG HARDENING REPORT\nBu çıktı güvenlik/readiness denetim raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal, production deploy onayı veya yatırım tavsiyesi değildir.\n\n"
+        return report
+    def build_safe_defaults_report(self, findings_df: pd.DataFrame, summary: dict) -> str:
+        report = "SAFE DEFAULTS REPORT\nBu çıktı güvenlik/readiness denetim raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal, production deploy onayı veya yatırım tavsiyesi değildir.\n\n"
+        return report
+    def build_permission_boundary_report(self, findings_df: pd.DataFrame, summary: dict) -> str:
+        report = "PERMISSION BOUNDARY REPORT\nBu çıktı güvenlik/readiness denetim raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal, production deploy onayı veya yatırım tavsiyesi değildir.\n\n"
+        return report
+    def build_production_readiness_audit_report(self, readiness_df: pd.DataFrame, summary: dict) -> str:
+        report = "PRODUCTION READINESS AUDIT REPORT\nBu çıktı güvenlik/readiness denetim raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal, production deploy onayı veya yatırım tavsiyesi değildir.\n\n"
+        report += f"Readiness Score: {summary.get('readiness_score', 0.0)}\n"
+        report += f"Readiness Label: {summary.get('readiness_label', 'unknown')}\n"
+        return report
+    def build_security_status_report(self, status_df: pd.DataFrame, summary: dict) -> str:
+        report = "SECURITY STATUS REPORT\nBu çıktı güvenlik/readiness denetim raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal, production deploy onayı veya yatırım tavsiyesi değildir.\n\n"
+        return report

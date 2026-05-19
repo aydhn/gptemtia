@@ -1366,6 +1366,29 @@ class Settings:
         default_factory=lambda: str(os.getenv("OBSERVABILITY_NOTIFICATION_ON_CRITICAL", "false")).lower() == "true"
     )
 
+
+    # Phase 37: Security, Hardening & Readiness
+    security_audit_enabled: bool = field(default_factory=lambda: str(os.getenv("SECURITY_AUDIT_ENABLED", "true")).lower() == "true")
+    config_hardening_enabled: bool = field(default_factory=lambda: str(os.getenv("CONFIG_HARDENING_ENABLED", "true")).lower() == "true")
+    secret_hygiene_enabled: bool = field(default_factory=lambda: str(os.getenv("SECRET_HYGIENE_ENABLED", "true")).lower() == "true")
+    production_readiness_audit_enabled: bool = field(default_factory=lambda: str(os.getenv("PRODUCTION_READINESS_AUDIT_ENABLED", "true")).lower() == "true")
+    default_security_profile: str = field(default_factory=lambda: os.getenv("DEFAULT_SECURITY_PROFILE", "balanced_local_security"))
+    security_fail_on_secret_leak: bool = field(default_factory=lambda: str(os.getenv("SECURITY_FAIL_ON_SECRET_LEAK", "true")).lower() == "true")
+    security_fail_on_unsafe_live_flags: bool = field(default_factory=lambda: str(os.getenv("SECURITY_FAIL_ON_UNSAFE_LIVE_FLAGS", "true")).lower() == "true")
+    security_fail_on_path_traversal_risk: bool = field(default_factory=lambda: str(os.getenv("SECURITY_FAIL_ON_PATH_TRAVERSAL_RISK", "true")).lower() == "true")
+    security_allow_telegram_send: bool = field(default_factory=lambda: str(os.getenv("SECURITY_ALLOW_TELEGRAM_SEND", "false")).lower() == "true")
+    security_allow_live_trading: bool = field(default_factory=lambda: str(os.getenv("SECURITY_ALLOW_LIVE_TRADING", "false")).lower() == "true")
+    security_allow_broker_credentials: bool = field(default_factory=lambda: str(os.getenv("SECURITY_ALLOW_BROKER_CREDENTIALS", "false")).lower() == "true")
+    security_allow_network_calls_except_data_and_telegram: bool = field(default_factory=lambda: str(os.getenv("SECURITY_ALLOW_NETWORK_CALLS_EXCEPT_DATA_AND_TELEGRAM", "true")).lower() == "true")
+    security_require_dry_run_defaults: bool = field(default_factory=lambda: str(os.getenv("SECURITY_REQUIRE_DRY_RUN_DEFAULTS", "true")).lower() == "true")
+    security_required_gitignore_patterns: tuple[str, ...] = field(default_factory=lambda: tuple(os.getenv("SECURITY_REQUIRED_GITIGNORE_PATTERNS", ".env,*.key,*.pem,data/lake/ml/model_artifacts/*.joblib").split(",")))
+    security_sensitive_env_names: tuple[str, ...] = field(default_factory=lambda: tuple(os.getenv("SECURITY_SENSITIVE_ENV_NAMES", "TOKEN,SECRET,KEY,PASSWORD,CHAT_ID,API").split(",")))
+    security_scan_text_extensions: tuple[str, ...] = field(default_factory=lambda: tuple(os.getenv("SECURITY_SCAN_TEXT_EXTENSIONS", ".py,.md,.txt,.json,.yaml,.yml,.env,.example").split(",")))
+    security_max_file_scan_mb: int = field(default_factory=lambda: int(os.getenv("SECURITY_MAX_FILE_SCAN_MB", "5")))
+    security_save_audit_reports: bool = field(default_factory=lambda: str(os.getenv("SECURITY_SAVE_AUDIT_REPORTS", "true")).lower() == "true")
+    security_save_readiness_reports: bool = field(default_factory=lambda: str(os.getenv("SECURITY_SAVE_READINESS_REPORTS", "true")).lower() == "true")
+    security_notification_on_critical: bool = field(default_factory=lambda: str(os.getenv("SECURITY_NOTIFICATION_ON_CRITICAL", "false")).lower() == "true")
+
     def __post_init__(self):
 
 
@@ -1998,6 +2021,29 @@ class Settings:
     orchestration_dry_run: bool = field(
         default_factory=lambda: str(os.getenv("ORCHESTRATION_DRY_RUN", "true")).lower() == "true"
     )
+
+
+    # Phase 37: Security, Hardening & Readiness
+    security_audit_enabled: bool = field(default_factory=lambda: str(os.getenv("SECURITY_AUDIT_ENABLED", "true")).lower() == "true")
+    config_hardening_enabled: bool = field(default_factory=lambda: str(os.getenv("CONFIG_HARDENING_ENABLED", "true")).lower() == "true")
+    secret_hygiene_enabled: bool = field(default_factory=lambda: str(os.getenv("SECRET_HYGIENE_ENABLED", "true")).lower() == "true")
+    production_readiness_audit_enabled: bool = field(default_factory=lambda: str(os.getenv("PRODUCTION_READINESS_AUDIT_ENABLED", "true")).lower() == "true")
+    default_security_profile: str = field(default_factory=lambda: os.getenv("DEFAULT_SECURITY_PROFILE", "balanced_local_security"))
+    security_fail_on_secret_leak: bool = field(default_factory=lambda: str(os.getenv("SECURITY_FAIL_ON_SECRET_LEAK", "true")).lower() == "true")
+    security_fail_on_unsafe_live_flags: bool = field(default_factory=lambda: str(os.getenv("SECURITY_FAIL_ON_UNSAFE_LIVE_FLAGS", "true")).lower() == "true")
+    security_fail_on_path_traversal_risk: bool = field(default_factory=lambda: str(os.getenv("SECURITY_FAIL_ON_PATH_TRAVERSAL_RISK", "true")).lower() == "true")
+    security_allow_telegram_send: bool = field(default_factory=lambda: str(os.getenv("SECURITY_ALLOW_TELEGRAM_SEND", "false")).lower() == "true")
+    security_allow_live_trading: bool = field(default_factory=lambda: str(os.getenv("SECURITY_ALLOW_LIVE_TRADING", "false")).lower() == "true")
+    security_allow_broker_credentials: bool = field(default_factory=lambda: str(os.getenv("SECURITY_ALLOW_BROKER_CREDENTIALS", "false")).lower() == "true")
+    security_allow_network_calls_except_data_and_telegram: bool = field(default_factory=lambda: str(os.getenv("SECURITY_ALLOW_NETWORK_CALLS_EXCEPT_DATA_AND_TELEGRAM", "true")).lower() == "true")
+    security_require_dry_run_defaults: bool = field(default_factory=lambda: str(os.getenv("SECURITY_REQUIRE_DRY_RUN_DEFAULTS", "true")).lower() == "true")
+    security_required_gitignore_patterns: tuple[str, ...] = field(default_factory=lambda: tuple(os.getenv("SECURITY_REQUIRED_GITIGNORE_PATTERNS", ".env,*.key,*.pem,data/lake/ml/model_artifacts/*.joblib").split(",")))
+    security_sensitive_env_names: tuple[str, ...] = field(default_factory=lambda: tuple(os.getenv("SECURITY_SENSITIVE_ENV_NAMES", "TOKEN,SECRET,KEY,PASSWORD,CHAT_ID,API").split(",")))
+    security_scan_text_extensions: tuple[str, ...] = field(default_factory=lambda: tuple(os.getenv("SECURITY_SCAN_TEXT_EXTENSIONS", ".py,.md,.txt,.json,.yaml,.yml,.env,.example").split(",")))
+    security_max_file_scan_mb: int = field(default_factory=lambda: int(os.getenv("SECURITY_MAX_FILE_SCAN_MB", "5")))
+    security_save_audit_reports: bool = field(default_factory=lambda: str(os.getenv("SECURITY_SAVE_AUDIT_REPORTS", "true")).lower() == "true")
+    security_save_readiness_reports: bool = field(default_factory=lambda: str(os.getenv("SECURITY_SAVE_READINESS_REPORTS", "true")).lower() == "true")
+    security_notification_on_critical: bool = field(default_factory=lambda: str(os.getenv("SECURITY_NOTIFICATION_ON_CRITICAL", "false")).lower() == "true")
 
     def __post_init__(self):
 
