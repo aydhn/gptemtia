@@ -1421,3 +1421,49 @@ class DataLake:
 
         df = pd.DataFrame(rows)
         return df.sort_values(by="modified_time", ascending=False)
+
+    # --- Phase 37: Security ---
+    def save_security_audit_report(self, report_name: str, df: pd.DataFrame, summary: dict) -> Path:
+        self.paths.security_audits.mkdir(parents=True, exist_ok=True)
+        csv_path = self.paths.security_audits / f"{report_name}.csv"
+        json_path = self.paths.security_audits / f"{report_name}.json"
+        if not df.empty:
+            df.to_csv(csv_path, index=False)
+        with open(json_path, "w", encoding="utf-8") as f:
+            json.dump(summary, f, indent=2)
+        return csv_path
+
+    def load_security_audit_report(self, report_name: str) -> pd.DataFrame:
+        csv_path = self.paths.security_audits / f"{report_name}.csv"
+        if csv_path.exists():
+            return pd.read_csv(csv_path)
+        return pd.DataFrame()
+
+    def save_secret_hygiene_report(self, df: pd.DataFrame, summary: dict) -> Path: return self.save_security_audit_report("secret_hygiene", df, summary)
+    def load_secret_hygiene_report(self) -> pd.DataFrame: return self.load_security_audit_report("secret_hygiene")
+    def save_config_hardening_report(self, df: pd.DataFrame, summary: dict) -> Path: return self.save_security_audit_report("config_hardening", df, summary)
+    def load_config_hardening_report(self) -> pd.DataFrame: return self.load_security_audit_report("config_hardening")
+    def save_safe_defaults_report(self, df: pd.DataFrame, summary: dict) -> Path: return self.save_security_audit_report("safe_defaults", df, summary)
+    def load_safe_defaults_report(self) -> pd.DataFrame: return self.load_security_audit_report("safe_defaults")
+    def save_permission_boundary_report(self, df: pd.DataFrame, summary: dict) -> Path: return self.save_security_audit_report("permission_boundaries", df, summary)
+    def load_permission_boundary_report(self) -> pd.DataFrame: return self.load_security_audit_report("permission_boundaries")
+    def save_path_safety_report(self, df: pd.DataFrame, summary: dict) -> Path: return self.save_security_audit_report("path_safety", df, summary)
+    def save_token_scan_report(self, df: pd.DataFrame, summary: dict) -> Path: return self.save_security_audit_report("token_scan", df, summary)
+    def load_token_scan_report(self) -> pd.DataFrame: return self.load_security_audit_report("token_scan")
+    def save_readiness_audit(self, df: pd.DataFrame, summary: dict) -> Path: return self.save_security_audit_report("readiness_audit", df, summary)
+    def load_readiness_audit(self) -> pd.DataFrame: return self.load_security_audit_report("readiness_audit")
+
+    def save_security_quality(self, report_name: str, quality: dict) -> Path:
+        self.paths.security_quality.mkdir(parents=True, exist_ok=True)
+        json_path = self.paths.security_quality / f"{report_name}_quality.json"
+        with open(json_path, "w", encoding="utf-8") as f:
+            json.dump(quality, f, indent=2)
+        return json_path
+
+    def load_security_quality(self, report_name: str) -> dict:
+        json_path = self.paths.security_quality / f"{report_name}_quality.json"
+        if json_path.exists():
+            with open(json_path, "r", encoding="utf-8") as f: return json.load(f)
+        return {}
+
+    def list_security_reports(self) -> pd.DataFrame: return pd.DataFrame()
