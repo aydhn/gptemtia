@@ -407,3 +407,15 @@ Phase 19:
 - Devtools scriptleri eklendi.
 - DX quality report eklendi.
 - Testler genişletildi.
+
+## Phase 39: Research Reports
+- Added research report profile system and labels (`research_config.py`, `research_labels.py`).
+- Added `SymbolResearchSnapshot` and `ResearchReport` models.
+- Implemented `ResearchDataCollector` to collect metadata from DataLake.
+- Implemented summary modules: technical, risk, backtest, performance, validation, ml, paper, quality.
+- Added `RankingBuilder`, `NarrativeBuilder`, `MarkdownRenderer`, `CSVExporter`.
+- Added `ResearchQuality` to validate reports and strictly forbid live trading terminology.
+- Integrated `ResearchReportPipeline` for orchestration.
+- Updated DataLake and FeatureStore to save/load research report objects.
+- Added 5 new CLI scripts for generating symbol, universe, daily digest, ranking, and status reports.
+- Extended test coverage.

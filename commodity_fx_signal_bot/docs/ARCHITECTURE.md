@@ -17,3 +17,19 @@ Sistem aşağıdaki katmanlardan oluşur:
 - DevTools (Developer experience and repo hygiene)
 
 Bu sistem hiçbir koşulda canlı broker emri GÖNDERMEZ.
+
+## Research Reports (Phase 39)
+
+The Research Reports component extracts offline analysis, backtesting, and ML metadata to assemble human-readable reports without emitting real signals.
+The flow works as follows:
+
+DataLake Outputs / FeatureStore / Backtest / Validation / ML / Paper / Quality
+-> ResearchDataCollector
+-> Section Summaries
+-> SymbolResearchSnapshot
+-> NarrativeBuilder
+-> RankingBuilder
+-> MarkdownRenderer
+-> CSVExporter
+-> ResearchQuality
+-> User-Readable Research Reports (Markdown, TXT, CSV)

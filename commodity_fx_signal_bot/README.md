@@ -624,3 +624,18 @@ Gelişim detayları `docs/PHASE_LOG.md` içindedir.
 
 ## Lisans / Notlar
 Bu çıktı developer experience / repo bakım raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.
+
+## Research Reports (Phase 39)
+
+The Research Reports module generates user-readable offline research reports in Markdown, CSV, and TXT formats from simulation and analytics data.
+
+**Important Note:** Research reports are strictly offline simulation findings and do not contain or constitute live trading signals, broker orders, or financial advice.
+
+Available scripts:
+- `python -m scripts.run_symbol_research_report --symbol GC=F --timeframe 1d`
+- `python -m scripts.run_universe_research_report --asset-class metals --timeframe 1d --limit 20`
+- `python -m scripts.run_daily_research_digest_report --timeframe 1d`
+- `python -m scripts.run_research_ranking_report --timeframe 1d --limit 50`
+- `python -m scripts.run_research_report_status`
+
+These will output to `reports/output/research_reports`.
