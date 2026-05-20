@@ -3388,3 +3388,64 @@ def build_local_dev_check_report(summary: dict, findings_df: pd.DataFrame | None
     if findings_df is not None and not findings_df.empty:
         msg += findings_df.to_string()
     return msg
+
+
+# Phase 39: Research Reports
+def build_symbol_research_text_report(report, snapshot=None) -> str:
+    lines = [
+        f"Research Report: {report.title}",
+        f"Profile: {report.profile_name} | Timeframe: {report.timeframe}",
+        "--------------------------------------------------",
+        report.markdown,
+        "--------------------------------------------------",
+        "Bu çıktı offline araştırma/simülasyon raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir."
+    ]
+    return "\n".join(lines)
+
+def build_universe_research_text_report(report, ranking_df=None) -> str:
+    lines = [
+        f"Universe Research Report: {report.title}",
+        f"Profile: {report.profile_name} | Timeframe: {report.timeframe}",
+        "--------------------------------------------------",
+        report.markdown,
+        "--------------------------------------------------",
+        "Bu çıktı offline araştırma/simülasyon raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir."
+    ]
+    return "\n".join(lines)
+
+def build_daily_research_digest_text_report(report, ranking_df=None) -> str:
+    lines = [
+        f"Daily Research Digest: {report.title}",
+        f"Profile: {report.profile_name} | Timeframe: {report.timeframe}",
+        "--------------------------------------------------",
+        report.markdown,
+        "--------------------------------------------------",
+        "Bu çıktı offline araştırma/simülasyon raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir."
+    ]
+    return "\n".join(lines)
+
+def build_research_ranking_text_report(ranking_df, summary: dict) -> str:
+    lines = [
+        "Research Ranking Report",
+        "--------------------------------------------------",
+    ]
+    if not ranking_df.empty:
+        lines.append(ranking_df.to_string(index=False))
+    else:
+         lines.append("No rankings available.")
+    lines.append("--------------------------------------------------")
+    lines.append("Bu çıktı offline araştırma/simülasyon raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.")
+    return "\n".join(lines)
+
+def build_research_report_status_report(status_df, summary: dict) -> str:
+    lines = [
+        "Research Report Status",
+        "--------------------------------------------------",
+    ]
+    if not status_df.empty:
+         lines.append(status_df.to_string(index=False))
+    else:
+         lines.append("No status available.")
+    lines.append("--------------------------------------------------")
+    lines.append("Bu çıktı offline araştırma/simülasyon raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.")
+    return "\n".join(lines)
