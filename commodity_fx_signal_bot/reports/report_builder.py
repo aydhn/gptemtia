@@ -3325,3 +3325,66 @@ def build_observability_status_report(status_df: pd.DataFrame, summary: dict) ->
     def build_security_status_report(self, status_df: pd.DataFrame, summary: dict) -> str:
         report = "SECURITY STATUS REPORT\nBu çıktı güvenlik/readiness denetim raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal, production deploy onayı veya yatırım tavsiyesi değildir.\n\n"
         return report
+
+def build_cli_catalog_report(catalog_df: pd.DataFrame, summary: dict) -> str:
+    msg = "Bu çıktı developer experience / repo bakım raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.\n\n"
+    msg += f"Total Commands: {summary.get('total_commands', 0)}\n\n"
+    if not catalog_df.empty:
+        msg += catalog_df.to_string()
+    return msg
+
+def build_cli_help_audit_report(help_df: pd.DataFrame, summary: dict) -> str:
+    msg = "Bu çıktı developer experience / repo bakım raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.\n\n"
+    msg += f"Summary: {summary}\n\n"
+    if not help_df.empty:
+        msg += help_df.to_string()
+    return msg
+
+def build_import_smoke_test_report(import_df: pd.DataFrame, summary: dict) -> str:
+    msg = "Bu çıktı developer experience / repo bakım raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.\n\n"
+    msg += f"Summary: {summary}\n\n"
+    if not import_df.empty:
+        msg += import_df.to_string()
+    return msg
+
+def build_test_matrix_report(test_df: pd.DataFrame, summary: dict) -> str:
+    msg = "Bu çıktı developer experience / repo bakım raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.\n\n"
+    msg += f"Summary: {summary}\n\n"
+    if not test_df.empty:
+        msg += test_df.to_string()
+    return msg
+
+def build_package_audit_report(findings_df: pd.DataFrame, summary: dict) -> str:
+    msg = "Bu çıktı developer experience / repo bakım raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.\n\n"
+    msg += f"Summary: {summary}\n\n"
+    if not findings_df.empty:
+        msg += findings_df.to_string()
+    return msg
+
+def build_repo_hygiene_report(findings_df: pd.DataFrame, summary: dict) -> str:
+    msg = "Bu çıktı developer experience / repo bakım raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.\n\n"
+    msg += f"Summary: {summary}\n\n"
+    if not findings_df.empty:
+        msg += findings_df.to_string()
+    return msg
+
+def build_docs_audit_report(findings_df: pd.DataFrame, summary: dict) -> str:
+    msg = "Bu çıktı developer experience / repo bakım raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.\n\n"
+    msg += f"Summary: {summary}\n\n"
+    if not findings_df.empty:
+        msg += findings_df.to_string()
+    return msg
+
+def build_dx_quality_report(findings_df: pd.DataFrame, summary: dict) -> str:
+    msg = "Bu çıktı developer experience / repo bakım raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.\n\n"
+    msg += f"DX Summary: {summary}\n\n"
+    if not findings_df.empty:
+        msg += findings_df.to_string()
+    return msg
+
+def build_local_dev_check_report(summary: dict, findings_df: pd.DataFrame | None = None) -> str:
+    msg = "Bu çıktı developer experience / repo bakım raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.\n\n"
+    msg += f"Summary: {summary}\n\n"
+    if findings_df is not None and not findings_df.empty:
+        msg += findings_df.to_string()
+    return msg
