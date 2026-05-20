@@ -546,3 +546,81 @@ python -m scripts.run_error_taxonomy_report
 python -m scripts.run_self_diagnostics --timeframe 1d
 python -m scripts.run_observability_status
 ```
+
+---
+
+## Proje Amacı
+Bu proje emtia ve FX kurları üzerinde çevrimdışı (offline) araştırma yapmak, veri toplamak, teknik ve makro analizler uygulamak ve bu modelleri Telegram üzerinden raporlamak üzere tasarlanmıştır.
+
+## Güvenlik ve Sınırlar
+**Bu sistem ASLA canlı emir göndermez. Broker bağlantısı içermez.** Yapılacak bütün işlemler bir paper trading simülasyonu mantığıyla değerlendirilmeli ve asla yatırım tavsiyesi olarak kullanılmamalıdır.
+
+## Bu Sistem Ne Değildir?
+- Canlı trading botu değildir.
+- Broker emir yönlendiricisi değildir.
+- Yatırım tavsiye aracı değildir.
+
+## Kurulum
+Lütfen kurulum detayları için `docs/DEVELOPER_SETUP.md` dosyasını okuyun. Kısaca:
+`python -m v` `env .venv`
+`source .venv/bin/activate`
+`pip install -r requirements.txt`
+`cp .env.example .env`
+
+
+## Hızlı Başlangıç
+Sistemin çalıştığını doğrulamak için:
+```bash
+python -m scripts.run_system_healthcheck
+```
+
+## CLI Komutları
+Tüm CLI komutları için `docs/CLI_COMMANDS.md` dosyasına bakınız veya:
+```bash
+python -m scripts.run_cli_catalog
+```
+
+## Dry-Run Workflow
+Tam sistemi dry-run olarak (hiçbir aksiyon almadan) çalıştırmak için:
+```bash
+python -m scripts.run_daily_research_workflow --timeframe 1d
+```
+
+## Paper Trading Simülasyonu
+Stratejileri test etmek için paper trade simülasyonu kullanılır, kesinlikle live_trade_enabled True yapılamaz.
+
+## Offline ML Research
+Tahminleme için scikit-learn modellerini kullanır (bkz `ml/` klasörü).
+
+## Telegram Raporlama
+Sinyal ve sonuç raporları Telegram ile gönderilebilir.
+
+## Orchestration
+Komutlar `scripts/` klasöründen izole olarak veya `orchestration` altından tek zincirde çağrılır.
+
+## Observability
+Loglama ve sistem metrikleri offline incelenebilir. Arka planda çalışan bir daemon yoktur.
+
+## Security Audit
+Projenin secret ve dosya güvenliğini test etmek için:
+```bash
+python -m scripts.run_security_audit
+```
+
+## Developer Tools
+DX kalitesini korumak için `devtools/` araçları sağlanmıştır:
+```bash
+python -m scripts.run_dx_quality_report
+```
+
+## Testler
+Tüm testleri koşturmak için `make test` veya `python -m pytest` kullanabilirsiniz.
+
+## Sorun Giderme
+Sık karşılaşılan sorunlar için `docs/TROUBLESHOOTING.md` dosyasına bakabilirsiniz.
+
+## Faz Geçmişi
+Gelişim detayları `docs/PHASE_LOG.md` içindedir.
+
+## Lisans / Notlar
+Bu çıktı developer experience / repo bakım raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.
