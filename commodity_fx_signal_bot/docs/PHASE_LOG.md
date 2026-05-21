@@ -419,3 +419,25 @@ Phase 19:
 - Updated DataLake and FeatureStore to save/load research report objects.
 - Added 5 new CLI scripts for generating symbol, universe, daily digest, ranking, and status reports.
 - Extended test coverage.
+
+## Phase 42: Regime-Aware Portfolio Research
+- Portfolio regime profile sistemi eklendi.
+- Regime label registry eklendi.
+- RegimeClassificationResult, MacroScenarioDefinition, BasketStressTestResult ve DrawdownCluster modelleri eklendi.
+- PortfolioRegimeDataAdapter eklendi.
+- Regime classifier eklendi.
+- Regime-conditioned returns eklendi.
+- Regime-conditioned correlation eklendi.
+- Macro scenarios eklendi.
+- Scenario sensitivity eklendi.
+- Historical stress windows eklendi.
+- Basket stress test eklendi.
+- Drawdown clustering eklendi.
+- Recovery analysis eklendi.
+- Tail risk proxy modülü eklendi.
+- Risk regime exposure eklendi.
+- Regime quality report eklendi.
+- PortfolioRegimePipeline eklendi.
+- DataLake portfolio regime kayıt desteği aldı.
+- Portfolio regime scriptleri eklendi.
+- Testler genişletildi.

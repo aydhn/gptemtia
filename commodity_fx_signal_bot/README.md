@@ -639,3 +639,23 @@ Available scripts:
 - `python -m scripts.run_research_report_status`
 
 These will output to `reports/output/research_reports`.
+
+## Regime-Aware Portfolio Research and Stress Tests
+
+- Regime-aware portfolio research gerçek portföy yönetimi değildir.
+- Risk-on/risk-off label’ları canlı sinyal değildir.
+- Macro scenario sensitivity tahmin değildir.
+- Basket stress test gerçek risk limiti değildir.
+- Drawdown clustering geçmiş/sanal sepet analizidir.
+- Tail risk historical proxy’dir.
+- Çıktılar data/lake/portfolio_regime ve reports/output/portfolio_regime altında oluşur.
+
+Komutları:
+```bash
+python -m scripts.run_regime_portfolio_report --timeframe 1d --limit 20
+python -m scripts.run_macro_scenario_sensitivity_report --timeframe 1d --limit 20
+python -m scripts.run_basket_stress_test_report --timeframe 1d --limit 20
+python -m scripts.run_drawdown_cluster_report --timeframe 1d
+python -m scripts.run_risk_regime_exposure_report --timeframe 1d
+python -m scripts.run_portfolio_regime_status
+```
