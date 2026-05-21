@@ -31,9 +31,9 @@ def main():
         timeframe = f.stem
         df = pd.read_parquet(f)
 
-        report_builder = ReportBuilder()ed = (
-            df["report_builder = ReportBuilder()ed_risk_precheck"].sum()
-            if not df.empty and "report_builder = ReportBuilder()ed_risk_precheck" in df.columns
+        passed = (
+            df["passed_risk_precheck"].sum()
+            if not df.empty and "passed_risk_precheck" in df.columns
             else 0
         )
 
@@ -42,7 +42,7 @@ def main():
                 "symbol": symbol,
                 "timeframe": timeframe,
                 "candidates": len(df),
-                "report_builder = ReportBuilder()ed": report_builder = ReportBuilder()ed,
+                "passed": passed,
             }
         )
 

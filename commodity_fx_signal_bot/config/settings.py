@@ -1389,7 +1389,31 @@ class Settings:
     security_save_readiness_reports: bool = field(default_factory=lambda: str(os.getenv("SECURITY_SAVE_READINESS_REPORTS", "true")).lower() == "true")
     security_notification_on_critical: bool = field(default_factory=lambda: str(os.getenv("SECURITY_NOTIFICATION_ON_CRITICAL", "false")).lower() == "true")
 
+
+    # Phase 40: Report Exports, Archive and Comparisons
+    report_exports_enabled: bool = field(default_factory=lambda: str(os.getenv("REPORT_EXPORTS_ENABLED", "true")).lower() == "true")
+    report_html_export_enabled: bool = field(default_factory=lambda: str(os.getenv("REPORT_HTML_EXPORT_ENABLED", "true")).lower() == "true")
+    report_pdf_export_enabled: bool = field(default_factory=lambda: str(os.getenv("REPORT_PDF_EXPORT_ENABLED", "true")).lower() == "true")
+    default_report_export_profile: str = field(default_factory=lambda: os.getenv("DEFAULT_REPORT_EXPORT_PROFILE", "balanced_report_export"))
+    report_export_default_timeframe: str = field(default_factory=lambda: os.getenv("REPORT_EXPORT_DEFAULT_TIMEFRAME", "1d"))
+    report_export_language: str = field(default_factory=lambda: os.getenv("REPORT_EXPORT_LANGUAGE", "tr"))
+    report_export_include_html: bool = field(default_factory=lambda: str(os.getenv("REPORT_EXPORT_INCLUDE_HTML", "true")).lower() == "true")
+    report_export_include_pdf: bool = field(default_factory=lambda: str(os.getenv("REPORT_EXPORT_INCLUDE_PDF", "true")).lower() == "true")
+    report_export_include_csv_bundle: bool = field(default_factory=lambda: str(os.getenv("REPORT_EXPORT_INCLUDE_CSV_BUNDLE", "true")).lower() == "true")
+    report_export_archive_enabled: bool = field(default_factory=lambda: str(os.getenv("REPORT_EXPORT_ARCHIVE_ENABLED", "true")).lower() == "true")
+    report_export_comparison_enabled: bool = field(default_factory=lambda: str(os.getenv("REPORT_EXPORT_COMPARISON_ENABLED", "true")).lower() == "true")
+    report_export_periodic_tracking_enabled: bool = field(default_factory=lambda: str(os.getenv("REPORT_EXPORT_PERIODIC_TRACKING_ENABLED", "true")).lower() == "true")
+    report_export_max_archive_records: int = field(default_factory=lambda: int(os.getenv("REPORT_EXPORT_MAX_ARCHIVE_RECORDS", "5000")))
+    report_export_max_comparison_rows: int = field(default_factory=lambda: int(os.getenv("REPORT_EXPORT_MAX_COMPARISON_ROWS", "100")))
+    report_export_pdf_engine: str = field(default_factory=lambda: os.getenv("REPORT_EXPORT_PDF_ENGINE", "auto"))
+    report_export_html_theme: str = field(default_factory=lambda: os.getenv("REPORT_EXPORT_HTML_THEME", "clean_research"))
+    report_export_save_manifest: bool = field(default_factory=lambda: str(os.getenv("REPORT_EXPORT_SAVE_MANIFEST", "true")).lower() == "true")
+    report_export_save_quality: bool = field(default_factory=lambda: str(os.getenv("REPORT_EXPORT_SAVE_QUALITY", "true")).lower() == "true")
+    report_export_require_disclaimer: bool = field(default_factory=lambda: str(os.getenv("REPORT_EXPORT_REQUIRE_DISCLAIMER", "true")).lower() == "true")
+    report_export_min_quality_score: float = field(default_factory=lambda: float(os.getenv("REPORT_EXPORT_MIN_QUALITY_SCORE", "0.40")))
+
     def __post_init__(self):
+
 
 
         """Validate settings after initialization."""
@@ -2045,7 +2069,31 @@ class Settings:
     security_save_readiness_reports: bool = field(default_factory=lambda: str(os.getenv("SECURITY_SAVE_READINESS_REPORTS", "true")).lower() == "true")
     security_notification_on_critical: bool = field(default_factory=lambda: str(os.getenv("SECURITY_NOTIFICATION_ON_CRITICAL", "false")).lower() == "true")
 
+
+    # Phase 40: Report Exports, Archive and Comparisons
+    report_exports_enabled: bool = field(default_factory=lambda: str(os.getenv("REPORT_EXPORTS_ENABLED", "true")).lower() == "true")
+    report_html_export_enabled: bool = field(default_factory=lambda: str(os.getenv("REPORT_HTML_EXPORT_ENABLED", "true")).lower() == "true")
+    report_pdf_export_enabled: bool = field(default_factory=lambda: str(os.getenv("REPORT_PDF_EXPORT_ENABLED", "true")).lower() == "true")
+    default_report_export_profile: str = field(default_factory=lambda: os.getenv("DEFAULT_REPORT_EXPORT_PROFILE", "balanced_report_export"))
+    report_export_default_timeframe: str = field(default_factory=lambda: os.getenv("REPORT_EXPORT_DEFAULT_TIMEFRAME", "1d"))
+    report_export_language: str = field(default_factory=lambda: os.getenv("REPORT_EXPORT_LANGUAGE", "tr"))
+    report_export_include_html: bool = field(default_factory=lambda: str(os.getenv("REPORT_EXPORT_INCLUDE_HTML", "true")).lower() == "true")
+    report_export_include_pdf: bool = field(default_factory=lambda: str(os.getenv("REPORT_EXPORT_INCLUDE_PDF", "true")).lower() == "true")
+    report_export_include_csv_bundle: bool = field(default_factory=lambda: str(os.getenv("REPORT_EXPORT_INCLUDE_CSV_BUNDLE", "true")).lower() == "true")
+    report_export_archive_enabled: bool = field(default_factory=lambda: str(os.getenv("REPORT_EXPORT_ARCHIVE_ENABLED", "true")).lower() == "true")
+    report_export_comparison_enabled: bool = field(default_factory=lambda: str(os.getenv("REPORT_EXPORT_COMPARISON_ENABLED", "true")).lower() == "true")
+    report_export_periodic_tracking_enabled: bool = field(default_factory=lambda: str(os.getenv("REPORT_EXPORT_PERIODIC_TRACKING_ENABLED", "true")).lower() == "true")
+    report_export_max_archive_records: int = field(default_factory=lambda: int(os.getenv("REPORT_EXPORT_MAX_ARCHIVE_RECORDS", "5000")))
+    report_export_max_comparison_rows: int = field(default_factory=lambda: int(os.getenv("REPORT_EXPORT_MAX_COMPARISON_ROWS", "100")))
+    report_export_pdf_engine: str = field(default_factory=lambda: os.getenv("REPORT_EXPORT_PDF_ENGINE", "auto"))
+    report_export_html_theme: str = field(default_factory=lambda: os.getenv("REPORT_EXPORT_HTML_THEME", "clean_research"))
+    report_export_save_manifest: bool = field(default_factory=lambda: str(os.getenv("REPORT_EXPORT_SAVE_MANIFEST", "true")).lower() == "true")
+    report_export_save_quality: bool = field(default_factory=lambda: str(os.getenv("REPORT_EXPORT_SAVE_QUALITY", "true")).lower() == "true")
+    report_export_require_disclaimer: bool = field(default_factory=lambda: str(os.getenv("REPORT_EXPORT_REQUIRE_DISCLAIMER", "true")).lower() == "true")
+    report_export_min_quality_score: float = field(default_factory=lambda: float(os.getenv("REPORT_EXPORT_MIN_QUALITY_SCORE", "0.40")))
+
     def __post_init__(self):
+
 
 
         self.live_trading_enabled = False
