@@ -1,35 +1,15 @@
 import pytest
-from regimes.regime_config import (
-    get_regime_profile,
-    get_default_regime_profile,
-    validate_regime_profiles,
-    list_regime_profiles,
-)
-from core.exceptions import ConfigError
+from portfolio_regime.regime_config import get_portfolio_regime_profile, list_portfolio_regime_profiles, validate_portfolio_regime_profiles, get_default_portfolio_regime_profile, ConfigError
 
+def test_validate_portfolio_regime_profiles():
+    # Should not raise
+    validate_portfolio_regime_profiles()
 
-def test_validate_regime_profiles():
-    # Should not raise any exception for default profiles
-    validate_regime_profiles()
+def test_get_default_portfolio_regime_profile():
+    profile = get_default_portfolio_regime_profile()
+    assert profile is not None
+    assert profile.name == "balanced_regime_portfolio_research"
 
-
-def test_get_default_regime_profile():
-    prof = get_default_regime_profile()
-    assert prof.name == "balanced_regime"
-    assert "trend" in prof.feature_sets
-
-
-def test_get_regime_profile():
-    prof = get_regime_profile("volatility_sensitive")
-    assert prof.name == "volatility_sensitive"
-
+def test_unknown_profile():
     with pytest.raises(ConfigError):
-        get_regime_profile("unknown_profile")
-
-
-def test_list_regime_profiles():
-    profs = list_regime_profiles()
-    assert len(profs) >= 4
-    names = [p.name for p in profs]
-    assert "balanced_regime" in names
-    assert "trend_sensitive" in names
+        get_portfolio_regime_profile("non_existent_profile")

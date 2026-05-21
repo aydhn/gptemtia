@@ -33,3 +33,20 @@ DataLake Outputs / FeatureStore / Backtest / Validation / ML / Paper / Quality
 -> CSVExporter
 -> ResearchQuality
 -> User-Readable Research Reports (Markdown, TXT, CSV)
+
+## Regime-Aware Portfolio Research
+
+Portfolio Research / Returns / Baskets / Correlation
+-> RegimeClassifier
+-> RegimeConditionedReturns
+-> RegimeCorrelation
+-> MacroScenarios
+-> ScenarioSensitivity
+-> StressWindows
+-> BasketStressTest
+-> DrawdownClustering
+-> RecoveryAnalysis
+-> TailRisk
+-> RiskRegimeExposure
+-> RegimeQuality
+-> Regime-Aware Portfolio Reports
