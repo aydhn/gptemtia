@@ -1,59 +1,34 @@
-import pytest
 import pandas as pd
-import numpy as np
-from asset_profiles.relative_strength import (
-    calculate_relative_strength_vs_group,
-    calculate_relative_strength_rank,
-    build_relative_strength_features,
+from synthetic_indices.relative_strength import (
+    calculate_relative_return,
+    calculate_relative_strength_table,
+    rank_relative_strength,
+    infer_relative_strength_label
 )
 
+def test_relative_strength():
+    dates = pd.date_range("2023-01-01", periods=10)
+    # A outperforms, B underperforms benchmark
+    bench = pd.Series([0.01]*10, index=dates)
+    retA = pd.Series([0.02]*10, index=dates)
+    retB = pd.Series([-0.01]*10, index=dates)
 
-def test_calculate_relative_strength_vs_group():
-    idx = pd.date_range("2023-01-01", periods=10)
-    symbol_s = pd.Series(np.linspace(100, 110, 10), index=idx)
-    group_idx = pd.Series(np.linspace(100, 105, 10), index=idx)
+    returns_df = pd.DataFrame({"A": retA, "B": retB})
 
-    rs = calculate_relative_strength_vs_group(symbol_s, group_idx, windows=(2, 4))
-    assert "rs_vs_group_2" in rs.columns
-    assert "rs_vs_group_4" in rs.columns
+    rs_df = calculate_relative_strength_table(returns_df, bench, (5,))
 
+    # Check relative returns
+    assert float(rs_df.loc[rs_df["symbol"] == "A", "relative_return_5"].iloc[0]) > 0
+    assert rs_df.loc[rs_df["symbol"] == "B", "relative_return_5"].iloc[0] < 0
 
-def test_calculate_relative_strength_rank():
-    idx = pd.date_range("2023-01-01", periods=10)
-    # A performs best, B medium, C worst
-    returns = pd.DataFrame(
-        {
-            "A": np.linspace(0.01, 0.1, 10),
-            "B": np.linspace(0.005, 0.05, 10),
-            "C": np.linspace(-0.01, -0.1, 10),
-        },
-        index=idx,
-    )
+    ranked = rank_relative_strength(rs_df)
 
-    ranks, percentiles = calculate_relative_strength_rank(returns, window=2)
-    assert not ranks.empty
+    # A should be ranked 1
+    assert ranked.loc[ranked["symbol"] == "A", "relative_rank"].iloc[0] == 1
+    # B should be laggard
+    assert ranked.loc[ranked["symbol"] == "B", "relative_strength_label"].iloc[0] in ["strong_laggard", "moderate_laggard", "insufficient_data", "neutral_relative_strength"]
 
-    # After window, C should be rank 3.0, A should be rank 1.0
-    assert ranks["C"].iloc[-1] == 3.0
-    assert ranks["A"].iloc[-1] == 1.0
-
-
-def test_build_relative_strength_features():
-    idx = pd.date_range("2023-01-01", periods=10)
-    df = pd.DataFrame({"close": np.linspace(100, 110, 10)}, index=idx)
-    group_idx = pd.Series(np.linspace(100, 105, 10), index=idx)
-
-    returns = pd.DataFrame(
-        {
-            "TEST": np.linspace(0.01, 0.1, 10),
-            "B": np.linspace(0.005, 0.05, 10),
-            "C": np.linspace(-0.01, -0.1, 10),
-        },
-        index=idx,
-    )
-
-    features, summary = build_relative_strength_features("TEST", df, group_idx, returns)
-    assert not features.empty
-    assert "rs_vs_group_21" in features.columns
-    assert "rs_is_group_leader" in features.columns
-    assert summary["rows"] == 10
+def test_infer_relative_strength_label():
+    assert infer_relative_strength_label(0.9) == "strong_leader"
+    assert infer_relative_strength_label(0.1) == "strong_laggard"
+    assert infer_relative_strength_label(None) == "insufficient_data"

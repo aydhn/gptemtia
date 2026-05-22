@@ -659,3 +659,27 @@ python -m scripts.run_drawdown_cluster_report --timeframe 1d
 python -m scripts.run_risk_regime_exposure_report --timeframe 1d
 python -m scripts.run_portfolio_regime_status
 ```
+
+## Synthetic Benchmarks, Composite Indices and Relative Strength (Phase 43)
+
+The bot includes an offline research infrastructure to generate synthetic benchmarks, composite indices, relative strength rankings, and universe rotation analysis.
+
+**DISCLAIMER**:
+- Synthetic benchmarks are not real financial benchmarks.
+- Composite indices are not real index or ETF products.
+- Relative strength "leader" is not a buy signal.
+- "Laggard" label is not a sell signal.
+- Universe rotation is not a real rotation execution.
+- Outputs are for offline research only and do not constitute investment advice.
+
+Outputs are generated under `data/lake/synthetic_indices` and `reports/output/synthetic_indices`.
+
+Commands:
+```bash
+python -m scripts.run_synthetic_benchmark_report --timeframe 1d --limit 20
+python -m scripts.run_composite_index_report --timeframe 1d --limit 30
+python -m scripts.run_relative_strength_report --timeframe 1d --limit 30
+python -m scripts.run_universe_rotation_report --timeframe 1d --limit 30
+python -m scripts.run_leadership_laggard_report --timeframe 1d --limit 30
+python -m scripts.run_synthetic_index_status
+```

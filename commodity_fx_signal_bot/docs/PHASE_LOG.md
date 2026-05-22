@@ -441,3 +441,18 @@ Phase 19:
 - DataLake portfolio regime kayıt desteği aldı.
 - Portfolio regime scriptleri eklendi.
 - Testler genişletildi.
+
+## Phase 43: Synthetic Benchmark Baskets & Composite Indices
+- Synthetic index profile system added to settings.
+- Index label registry created for standardizing index and rotation tags.
+- SyntheticIndexDefinition, SyntheticIndexSeries, RelativeStrengthRecord, and RotationRecord models introduced.
+- Index universe and weighting schemes modules implemented.
+- Benchmark definitions and composite index builder constructed.
+- Relative strength and momentum analysis modules added.
+- Rotation research and cross-asset leadership/laggard reports implemented.
+- Benchmark comparison and index performance modules added.
+- Index quality module enforces zero forbidden trade instruction terms (like BUY/SELL/AL/SAT).
+- SyntheticIndexPipeline implemented to orchestrate the generation process.
+- DataLake and FeatureStore updated to support saving/loading synthetic index research artifacts.
+- Six new CLI scripts provided for triggering specific index, momentum, and rotation reports.
+- Tests updated to verify pipeline integrity, index definitions, and weighting distributions.

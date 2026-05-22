@@ -50,3 +50,6 @@ Portfolio Research / Returns / Baskets / Correlation
 -> RiskRegimeExposure
 -> RegimeQuality
 -> Regime-Aware Portfolio Reports
+
+### Synthetic Indices and Relative Strength Pipeline
+Universe Prices / Returns -> IndexUniverse -> BenchmarkDefinitions -> WeightingSchemes -> CompositeIndexBuilder -> RelativeStrength -> RelativeMomentum -> RotationResearch -> LeadershipLaggard -> BenchmarkComparison -> IndexPerformance -> IndexQuality -> Synthetic Index Research Reports

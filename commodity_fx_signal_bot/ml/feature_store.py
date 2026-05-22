@@ -500,3 +500,53 @@ class FeatureStore:
 
     def list_available_portfolio_regime_reports(self) -> dict:
         return {}
+
+    # Phase 43: Synthetic Indices Data Loading
+    def load_synthetic_index_definitions(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+        if profile_name is None:
+             profile_name = self.settings.default_synthetic_index_profile
+        return self.data_lake.load_synthetic_index_definitions(timeframe, profile_name)
+
+    def load_synthetic_index_levels(self, index_id: str, timeframe: str) -> pd.DataFrame:
+        return self.data_lake.load_synthetic_index_levels(index_id, timeframe)
+
+    def load_relative_strength_table(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+        if profile_name is None:
+             profile_name = self.settings.default_synthetic_index_profile
+        return self.data_lake.load_relative_strength_table(timeframe, profile_name)
+
+    def load_relative_momentum_table(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+        if profile_name is None:
+             profile_name = self.settings.default_synthetic_index_profile
+        return self.data_lake.load_relative_momentum_table(timeframe, profile_name)
+
+    def load_universe_rotation_table(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+        if profile_name is None:
+             profile_name = self.settings.default_synthetic_index_profile
+        return self.data_lake.load_universe_rotation_table(timeframe, profile_name)
+
+    def load_leadership_laggard_table(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+        if profile_name is None:
+             profile_name = self.settings.default_synthetic_index_profile
+        return self.data_lake.load_leadership_laggard_table(timeframe, profile_name)
+
+    def load_synthetic_benchmark_comparison(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+        if profile_name is None:
+             profile_name = self.settings.default_synthetic_index_profile
+        return self.data_lake.load_synthetic_benchmark_comparison(timeframe, profile_name)
+
+    def load_synthetic_index_performance(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+        if profile_name is None:
+             profile_name = self.settings.default_synthetic_index_profile
+        return self.data_lake.load_synthetic_index_performance(timeframe, profile_name)
+
+    def load_synthetic_index_report(self, timeframe: str, profile_name: str | None = None) -> dict:
+        if profile_name is None:
+             profile_name = self.settings.default_synthetic_index_profile
+        return self.data_lake.load_synthetic_index_report(timeframe, profile_name)
+
+    def list_available_synthetic_index_reports(self) -> dict:
+        df = self.data_lake.list_synthetic_index_reports()
+        if df.empty:
+             return {}
+        return df.to_dict(orient="records")
