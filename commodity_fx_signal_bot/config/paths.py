@@ -444,6 +444,25 @@ REPORTS_SYNTHETIC_INDICES_CSV_DIR = REPORTS_SYNTHETIC_INDICES_DIR / "csv"
 REPORTS_SYNTHETIC_INDICES_MARKDOWN_DIR = REPORTS_SYNTHETIC_INDICES_DIR / "markdown"
 REPORTS_SYNTHETIC_INDICES_TXT_DIR = REPORTS_SYNTHETIC_INDICES_DIR / "txt"
 
+
+# Phase 44: Factor Research
+LAKE_FACTOR_RESEARCH_DIR = LAKE_DIR / "factor_research"
+LAKE_FACTOR_RESEARCH_DEFINITIONS_DIR = LAKE_FACTOR_RESEARCH_DIR / "definitions"
+LAKE_FACTOR_RESEARCH_SCORES_DIR = LAKE_FACTOR_RESEARCH_DIR / "scores"
+LAKE_FACTOR_RESEARCH_RANKS_DIR = LAKE_FACTOR_RESEARCH_DIR / "ranks"
+LAKE_FACTOR_RESEARCH_BACKTESTS_DIR = LAKE_FACTOR_RESEARCH_DIR / "backtests"
+LAKE_FACTOR_RESEARCH_IC_DIR = LAKE_FACTOR_RESEARCH_DIR / "ic"
+LAKE_FACTOR_RESEARCH_STABILITY_DIR = LAKE_FACTOR_RESEARCH_DIR / "stability"
+LAKE_FACTOR_RESEARCH_EXPOSURE_DIR = LAKE_FACTOR_RESEARCH_DIR / "exposure"
+LAKE_FACTOR_RESEARCH_NEUTRALIZATION_DIR = LAKE_FACTOR_RESEARCH_DIR / "neutralization"
+LAKE_FACTOR_RESEARCH_REPORTS_DIR = LAKE_FACTOR_RESEARCH_DIR / "reports"
+LAKE_FACTOR_RESEARCH_QUALITY_DIR = LAKE_FACTOR_RESEARCH_DIR / "quality"
+
+REPORTS_FACTOR_RESEARCH_DIR = REPORTS_DIR / "factor_research"
+REPORTS_FACTOR_RESEARCH_CSV_DIR = REPORTS_FACTOR_RESEARCH_DIR / "csv"
+REPORTS_FACTOR_RESEARCH_MARKDOWN_DIR = REPORTS_FACTOR_RESEARCH_DIR / "markdown"
+REPORTS_FACTOR_RESEARCH_TXT_DIR = REPORTS_FACTOR_RESEARCH_DIR / "txt"
+
 class ProjectPaths:
 
     def __init__(self):
@@ -547,6 +566,25 @@ class ProjectPaths:
         self.synthetic_indices_reports_csv = REPORTS_SYNTHETIC_INDICES_CSV_DIR
         self.synthetic_indices_reports_markdown = REPORTS_SYNTHETIC_INDICES_MARKDOWN_DIR
         self.synthetic_indices_reports_txt = REPORTS_SYNTHETIC_INDICES_TXT_DIR
+
+        # Phase 44: Factor Research
+        self.factor_research_dir = LAKE_FACTOR_RESEARCH_DIR
+        self.factor_research_definitions = LAKE_FACTOR_RESEARCH_DEFINITIONS_DIR
+        self.factor_research_scores = LAKE_FACTOR_RESEARCH_SCORES_DIR
+        self.factor_research_ranks = LAKE_FACTOR_RESEARCH_RANKS_DIR
+        self.factor_research_backtests = LAKE_FACTOR_RESEARCH_BACKTESTS_DIR
+        self.factor_research_ic = LAKE_FACTOR_RESEARCH_IC_DIR
+        self.factor_research_stability = LAKE_FACTOR_RESEARCH_STABILITY_DIR
+        self.factor_research_exposure = LAKE_FACTOR_RESEARCH_EXPOSURE_DIR
+        self.factor_research_neutralization = LAKE_FACTOR_RESEARCH_NEUTRALIZATION_DIR
+        self.factor_research_quality = LAKE_FACTOR_RESEARCH_QUALITY_DIR
+        self.factor_research_lake_reports = LAKE_FACTOR_RESEARCH_REPORTS_DIR
+
+        self.factor_research_reports = REPORTS_FACTOR_RESEARCH_DIR
+        self.factor_research_reports_csv = REPORTS_FACTOR_RESEARCH_CSV_DIR
+        self.factor_research_reports_markdown = REPORTS_FACTOR_RESEARCH_MARKDOWN_DIR
+        self.factor_research_reports_txt = REPORTS_FACTOR_RESEARCH_TXT_DIR
+
 
 
 

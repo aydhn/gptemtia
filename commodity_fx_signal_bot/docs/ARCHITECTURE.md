@@ -53,3 +53,22 @@ Portfolio Research / Returns / Baskets / Correlation
 
 ### Synthetic Indices and Relative Strength Pipeline
 Universe Prices / Returns -> IndexUniverse -> BenchmarkDefinitions -> WeightingSchemes -> CompositeIndexBuilder -> RelativeStrength -> RelativeMomentum -> RotationResearch -> LeadershipLaggard -> BenchmarkComparison -> IndexPerformance -> IndexQuality -> Synthetic Index Research Reports
+
+### Factor Research Pipeline
+Universe Prices / Returns / Synthetic Indices / Macro Proxies
+-> FactorDefinitions
+-> TrendFactor
+-> MomentumFactor
+-> VolatilityFactor
+-> CarryProxyFactor
+-> ValueProxyFactor
+-> MacroSensitivityFactors
+-> FactorScoring
+-> FactorRanking
+-> FactorBacktest
+-> FactorIC
+-> FactorStability
+-> FactorExposure
+-> FactorNeutralization
+-> FactorQuality
+-> Factor Research Reports

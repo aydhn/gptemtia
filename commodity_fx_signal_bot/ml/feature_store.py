@@ -550,3 +550,61 @@ class FeatureStore:
         if df.empty:
              return {}
         return df.to_dict(orient="records")
+
+    # --- Phase 44: Factor Research Loading ---
+
+    def load_factor_definitions(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+        if profile_name is None:
+            profile_name = self.settings.default_factor_research_profile
+        return self.data_lake.load_factor_definitions(timeframe, profile_name)
+
+    def load_factor_score_table(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+         if profile_name is None:
+            profile_name = self.settings.default_factor_research_profile
+         return self.data_lake.load_factor_score_table(timeframe, profile_name)
+
+    def load_factor_rank_table(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+         if profile_name is None:
+            profile_name = self.settings.default_factor_research_profile
+         return self.data_lake.load_factor_rank_table(timeframe, profile_name)
+
+    def load_factor_bucket_returns(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+         if profile_name is None:
+            profile_name = self.settings.default_factor_research_profile
+         return self.data_lake.load_factor_bucket_returns(timeframe, profile_name)
+
+    def load_factor_backtest_results(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+         if profile_name is None:
+            profile_name = self.settings.default_factor_research_profile
+         return self.data_lake.load_factor_backtest_results(timeframe, profile_name)
+
+    def load_factor_ic_report(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+         if profile_name is None:
+            profile_name = self.settings.default_factor_research_profile
+         return self.data_lake.load_factor_ic_report(timeframe, profile_name)
+
+    def load_factor_stability_report(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+         if profile_name is None:
+            profile_name = self.settings.default_factor_research_profile
+         return self.data_lake.load_factor_stability_report(timeframe, profile_name)
+
+    def load_factor_exposure_table(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+         if profile_name is None:
+            profile_name = self.settings.default_factor_research_profile
+         return self.data_lake.load_factor_exposure_table(timeframe, profile_name)
+
+    def load_factor_neutral_basket(self, timeframe: str, profile_name: str | None = None) -> dict:
+         if profile_name is None:
+            profile_name = self.settings.default_factor_research_profile
+         return self.data_lake.load_factor_neutral_basket(timeframe, profile_name)
+
+    def load_factor_research_report(self, timeframe: str, profile_name: str | None = None) -> dict:
+         if profile_name is None:
+            profile_name = self.settings.default_factor_research_profile
+         return self.data_lake.load_factor_research_report(timeframe, profile_name)
+
+    def list_available_factor_research_reports(self) -> dict:
+         df = self.data_lake.list_factor_research_reports()
+         if df.empty:
+             return {}
+         return df.to_dict(orient="records")

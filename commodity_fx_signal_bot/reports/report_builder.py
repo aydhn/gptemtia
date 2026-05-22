@@ -1422,7 +1422,7 @@ def build_regime_status_report(status_df: pd.DataFrame, summary: dict) -> str:
         for k, v in summary.items():
             lines.append(f"{k}: {v}")
 
-        return "\n".join(lines)
+    return "\n".join(lines)
 
     def build_macro_feature_preview_report(
         self, summary: dict, tail_df: pd.DataFrame
@@ -1443,7 +1443,7 @@ def build_regime_status_report(status_df: pd.DataFrame, summary: dict) -> str:
         else:
             lines.append("Veri bulunamadı.")
 
-        return "\n".join(lines)
+    return "\n".join(lines)
 
     def build_macro_benchmark_report(
         self, summary: dict, benchmark_tail_df: pd.DataFrame
@@ -1464,7 +1464,7 @@ def build_regime_status_report(status_df: pd.DataFrame, summary: dict) -> str:
         else:
             lines.append("Veri bulunamadı.")
 
-        return "\n".join(lines)
+    return "\n".join(lines)
 
     def build_macro_batch_report(self, summary: dict) -> str:
         """Build report for macro batch execution."""
@@ -1477,7 +1477,7 @@ def build_regime_status_report(status_df: pd.DataFrame, summary: dict) -> str:
         for k, v in summary.items():
             lines.append(f"{k}: {v}")
 
-        return "\n".join(lines)
+    return "\n".join(lines)
 
     def build_macro_status_report(self, status_df: pd.DataFrame, summary: dict) -> str:
         """Build report for macro status."""
@@ -1496,7 +1496,7 @@ def build_regime_status_report(status_df: pd.DataFrame, summary: dict) -> str:
         else:
             lines.append("Durum bilgisi bulunamadı.")
 
-        return "\n".join(lines)
+    return "\n".join(lines)
 
 
 def build_asset_profile_preview_report(
@@ -1954,7 +1954,7 @@ def build_risk_precheck_preview_report(
     ]
     if "error" in summary:
         lines.append(f"Hata: {summary['error']}")
-        return "\n".join(lines)
+    return "\n".join(lines)
     lines.append(f"Toplam Aday: {summary.get('risk_candidate_count', 0)}")
     lines.append(f"Onaylanan: {summary.get('passed_risk_candidate_count', 0)}")
     lines.append(f"Reddedilen: {summary.get('rejected_risk_candidate_count', 0)}")
@@ -2593,7 +2593,7 @@ def build_validation_status_report(status_df: pd.DataFrame, summary: dict) -> st
             lines.append("--- Tail Data ---")
             lines.append(tail_df.to_string())
 
-        return "\n".join(lines)
+    return "\n".join(lines)
 
     def build_ml_target_preview_report(
         self,
@@ -2623,7 +2623,7 @@ def build_validation_status_report(status_df: pd.DataFrame, summary: dict) -> st
             lines.append("--- Target Data Tail ---")
             lines.append(target_tail_df.to_string())
 
-        return "\n".join(lines)
+    return "\n".join(lines)
 
     def build_ml_dataset_batch_report(self, summary: dict, ranking_df: pd.DataFrame | None = None) -> str:
         lines = [
@@ -2638,7 +2638,7 @@ def build_validation_status_report(status_df: pd.DataFrame, summary: dict) -> st
              lines.append("--- Dataset Ranking ---")
              lines.append(ranking_df.to_string(index=False))
 
-        return "\n".join(lines)
+    return "\n".join(lines)
 
     def build_ml_dataset_status_report(self, status_df: pd.DataFrame, summary: dict) -> str:
         lines = [
@@ -2658,7 +2658,7 @@ def build_validation_status_report(status_df: pd.DataFrame, summary: dict) -> st
             else:
                  lines.append(status_df.to_string(index=False))
 
-        return "\n".join(lines)
+    return "\n".join(lines)
 
 def build_ml_training_preview_report(symbol: str, timeframe: str, profile_name: str, summary: dict) -> str:
     lines = [
@@ -3566,4 +3566,49 @@ def build_synthetic_index_status_report(status_df: pd.DataFrame, summary: dict) 
     if not status_df.empty:
         lines.append("")
         lines.append(status_df.to_string())
+    # --- Phase 44: Factor Research Text Reports ---
+    def build_factor_research_text_report(self, summary: dict, tables: dict[str, pd.DataFrame] | None = None) -> str:
+        lines = [
+            "*** OFFLINE FACTOR RESEARCH REPORT ***",
+            "Bu cikti offline factor research/cross-sectional simulasyon raporudur.",
+            "Gercek long-short portfoy, gercek allocation, canli emir, broker talimati, gercek pozisyon veya yatirim tavsiyesi degildir.",
+            "---"
+        ]
+
+        lines.append(f"Profile: {summary.get('profile', 'Unknown')}")
+        lines.append(f"Timeframe: {summary.get('timeframe', 'Unknown')}")
+        lines.append(f"Generated: {summary.get('timestamp', 'Unknown')}")
+
+        coverage = summary.get("universe_coverage", {})
+        lines.append(f"Valid Symbols: {coverage.get('valid_symbols', 0)}")
+        lines.append("---")
+
+        if tables and "composite_ranking" in tables and not tables["composite_ranking"].empty:
+            lines.append("Composite Factor Ranking (Top 5):")
+            top5 = tables["composite_ranking"].head(5)
+            for _, row in top5.iterrows():
+                lines.append(f"- {row['symbol']}: {row.get('composite_factor_score', 0.0):.4f}")
+            lines.append("---")
+
+        if tables and "backtest_results" in tables and not tables["backtest_results"].empty:
+            lines.append("Factor Virtual Spreads (Top vs Bottom):")
+            for _, row in tables["backtest_results"].head(5).iterrows():
+                lines.append(f"- {row['factor_id']}: {row.get('spread_return', 0.0):.4f}")
+            lines.append("---")
+
     return "\n".join(lines)
+
+    def build_factor_score_text_report(self, summary: dict, score_df: pd.DataFrame | None = None, rank_df: pd.DataFrame | None = None) -> str:
+        return "Offline Factor Score Report\nGercek emir veya tavsiye degildir."
+
+    def build_factor_backtest_text_report(self, summary: dict, backtest_df: pd.DataFrame | None = None, ic_df: pd.DataFrame | None = None) -> str:
+        return "Offline Factor Backtest Report\nGercek performans garantisi degildir."
+
+    def build_factor_exposure_text_report(self, summary: dict, exposure_df: pd.DataFrame | None = None) -> str:
+         return "Offline Factor Exposure Report\nGercek portfoy degildir."
+
+    def build_factor_neutral_text_report(self, summary: dict, neutral_df: pd.DataFrame | None = None) -> str:
+         return "Offline Factor Neutral Report\nGercek portfoy degildir."
+
+    def build_factor_research_status_report(self, status_df: pd.DataFrame, summary: dict) -> str:
+         return f"Factor Research Status: {len(status_df)} reports found."
