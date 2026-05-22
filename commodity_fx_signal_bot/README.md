@@ -683,3 +683,23 @@ python -m scripts.run_universe_rotation_report --timeframe 1d --limit 30
 python -m scripts.run_leadership_laggard_report --timeframe 1d --limit 30
 python -m scripts.run_synthetic_index_status
 ```
+
+## Phase 44: Factor Research and Cross-Sectional Analysis
+
+Factor research canlı strateji değildir.
+Trend/momentum/value/carry/volatility factor skorları yatırım tavsiyesi değildir.
+Carry ve value faktörleri proxy olarak üretilir; gerçek fundamental/carry verisi değildir.
+Top-minus-bottom spread gerçek long-short portföy değildir.
+Factor-neutral basket gerçek portföy değildir.
+IC proxy ve factor decay geçmiş veri araştırma metrikleridir.
+Çıktılar data/lake/factor_research ve reports/output/factor_research altında oluşur.
+
+Komutlar:
+```bash
+python -m scripts.run_factor_research_report --timeframe 1d --limit 20
+python -m scripts.run_factor_score_report --timeframe 1d --limit 20
+python -m scripts.run_factor_backtest_report --timeframe 1d --limit 20
+python -m scripts.run_factor_exposure_report --timeframe 1d --limit 20
+python -m scripts.run_factor_neutral_report --timeframe 1d --limit 20
+python -m scripts.run_factor_research_status
+```

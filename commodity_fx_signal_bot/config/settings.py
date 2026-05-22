@@ -1455,6 +1455,29 @@ class Settings:
     synthetic_index_save_reports: bool = field(default_factory=lambda: str(os.getenv("SYNTHETIC_INDEX_SAVE_REPORTS", "true")).lower() == "true")
     synthetic_index_min_quality_score: float = field(default_factory=lambda: float(os.getenv("SYNTHETIC_INDEX_MIN_QUALITY_SCORE", "0.40")))
 
+
+    # Phase 44: Factor Research and Cross-Sectional Analysis
+    factor_research_enabled: bool = field(default_factory=lambda: str(os.getenv("FACTOR_RESEARCH_ENABLED", "true")).lower() == "true")
+    default_factor_research_profile: str = field(default_factory=lambda: os.getenv("DEFAULT_FACTOR_RESEARCH_PROFILE", "balanced_factor_research"))
+    factor_research_default_timeframe: str = field(default_factory=lambda: os.getenv("FACTOR_RESEARCH_DEFAULT_TIMEFRAME", "1d"))
+    factor_research_return_method: str = field(default_factory=lambda: os.getenv("FACTOR_RESEARCH_RETURN_METHOD", "log"))
+    factor_research_min_symbols: int = field(default_factory=lambda: int(os.getenv("FACTOR_RESEARCH_MIN_SYMBOLS", "5")))
+    factor_research_min_observations: int = field(default_factory=lambda: int(os.getenv("FACTOR_RESEARCH_MIN_OBSERVATIONS", "180")))
+    factor_research_forward_return_horizon: int = field(default_factory=lambda: int(os.getenv("FACTOR_RESEARCH_FORWARD_RETURN_HORIZON", "20")))
+    factor_research_rank_top_quantile: float = field(default_factory=lambda: float(os.getenv("FACTOR_RESEARCH_RANK_TOP_QUANTILE", "0.30")))
+    factor_research_rank_bottom_quantile: float = field(default_factory=lambda: float(os.getenv("FACTOR_RESEARCH_RANK_BOTTOM_QUANTILE", "0.30")))
+    factor_research_trend_windows: tuple[int, ...] = field(default_factory=lambda: tuple(map(int, os.getenv("FACTOR_RESEARCH_TREND_WINDOWS", "20,60,120").split(","))))
+    factor_research_momentum_windows: tuple[int, ...] = field(default_factory=lambda: tuple(map(int, os.getenv("FACTOR_RESEARCH_MOMENTUM_WINDOWS", "20,60,120").split(","))))
+    factor_research_volatility_windows: tuple[int, ...] = field(default_factory=lambda: tuple(map(int, os.getenv("FACTOR_RESEARCH_VOLATILITY_WINDOWS", "20,60").split(","))))
+    factor_research_decay_windows: tuple[int, ...] = field(default_factory=lambda: tuple(map(int, os.getenv("FACTOR_RESEARCH_DECAY_WINDOWS", "5,10,20,60").split(","))))
+    factor_research_neutralize_asset_class: bool = field(default_factory=lambda: str(os.getenv("FACTOR_RESEARCH_NEUTRALIZE_ASSET_CLASS", "true")).lower() == "true")
+    factor_research_neutralize_volatility: bool = field(default_factory=lambda: str(os.getenv("FACTOR_RESEARCH_NEUTRALIZE_VOLATILITY", "true")).lower() == "true")
+    factor_research_max_single_symbol_weight: float = field(default_factory=lambda: float(os.getenv("FACTOR_RESEARCH_MAX_SINGLE_SYMBOL_WEIGHT", "0.20")))
+    factor_research_save_scores: bool = field(default_factory=lambda: str(os.getenv("FACTOR_RESEARCH_SAVE_SCORES", "true")).lower() == "true")
+    factor_research_save_backtests: bool = field(default_factory=lambda: str(os.getenv("FACTOR_RESEARCH_SAVE_BACKTESTS", "true")).lower() == "true")
+    factor_research_save_reports: bool = field(default_factory=lambda: str(os.getenv("FACTOR_RESEARCH_SAVE_REPORTS", "true")).lower() == "true")
+    factor_research_min_quality_score: float = field(default_factory=lambda: float(os.getenv("FACTOR_RESEARCH_MIN_QUALITY_SCORE", "0.40")))
+
     def __post_init__(self):
 
 

@@ -456,3 +456,23 @@ Phase 19:
 - DataLake and FeatureStore updated to support saving/loading synthetic index research artifacts.
 - Six new CLI scripts provided for triggering specific index, momentum, and rotation reports.
 - Tests updated to verify pipeline integrity, index definitions, and weighting distributions.
+
+### Phase 44: Factor Research, Carry/Proxy Factor, Trend/Value/Volatility Factor Scoring, Cross-Sectional Factor Backtest ve Factor-Neutral Portfolio Research
+- Factor research profile sistemi eklendi.
+- Factor label registry eklendi.
+- FactorDefinition, FactorScoreRecord, FactorBacktestResult ve FactorNeutralBasket modelleri eklendi.
+- Factor universe modülü eklendi.
+- Factor definitions registry eklendi.
+- Factor data adapter eklendi.
+- Trend/momentum/volatility/carry proxy/value proxy/macro sensitivity factor modülleri eklendi.
+- Factor scoring ve ranking eklendi.
+- Cross-sectional factor backtest eklendi.
+- Factor IC proxy ve decay raporu eklendi.
+- Factor stability raporu eklendi.
+- Factor exposure raporu eklendi.
+- Factor neutralization ve factor-neutral virtual basket eklendi.
+- Factor quality report eklendi.
+- FactorResearchPipeline eklendi.
+- DataLake factor research kayıt desteği aldı.
+- Factor research scriptleri eklendi.
+- Testler genişletildi.
