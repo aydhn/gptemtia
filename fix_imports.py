@@ -1,14 +1,16 @@
 import os
 import glob
 
-# Search for the wrong import get_universe_specs and replace with get_enabled_symbols
-scripts = glob.glob("commodity_fx_signal_bot/scripts/run_*.py")
+# Search all files in synthetic_indices, scripts, and tests for "core.symbol_registry" and replace with "config.symbols"
+files_to_check = glob.glob("commodity_fx_signal_bot/synthetic_indices/*.py") + \
+                 glob.glob("commodity_fx_signal_bot/scripts/*.py") + \
+                 glob.glob("commodity_fx_signal_bot/tests/*.py")
 
-for script in scripts:
-    with open(script, "r") as f:
+for file in files_to_check:
+    with open(file, 'r') as f:
         content = f.read()
 
-    if "get_universe_specs" in content:
-        content = content.replace("get_universe_specs", "get_enabled_symbols")
-        with open(script, "w") as f:
+    if "core.symbol_registry" in content:
+        content = content.replace("core.symbol_registry", "config.symbols")
+        with open(file, 'w') as f:
             f.write(content)

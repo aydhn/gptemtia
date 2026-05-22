@@ -425,7 +425,27 @@ LAKE_FEATURES_LEVEL_POOL_DIR = LAKE_FEATURES_DIR / "level_pool"
 REPORTS_LEVEL_REPORTS_DIR = REPORTS_DIR / "level_reports"
 
 
+
+# Phase 43: Synthetic Indices
+LAKE_SYNTHETIC_INDICES_DIR = LAKE_DIR / "synthetic_indices"
+LAKE_SYNTHETIC_INDICES_DEFINITIONS_DIR = LAKE_SYNTHETIC_INDICES_DIR / "definitions"
+LAKE_SYNTHETIC_INDICES_LEVELS_DIR = LAKE_SYNTHETIC_INDICES_DIR / "levels"
+LAKE_SYNTHETIC_INDICES_RETURNS_DIR = LAKE_SYNTHETIC_INDICES_DIR / "returns"
+LAKE_SYNTHETIC_INDICES_RELATIVE_STRENGTH_DIR = LAKE_SYNTHETIC_INDICES_DIR / "relative_strength"
+LAKE_SYNTHETIC_INDICES_RELATIVE_MOMENTUM_DIR = LAKE_SYNTHETIC_INDICES_DIR / "relative_momentum"
+LAKE_SYNTHETIC_INDICES_ROTATION_DIR = LAKE_SYNTHETIC_INDICES_DIR / "rotation"
+LAKE_SYNTHETIC_INDICES_LEADERSHIP_DIR = LAKE_SYNTHETIC_INDICES_DIR / "leadership"
+LAKE_SYNTHETIC_INDICES_COMPARISONS_DIR = LAKE_SYNTHETIC_INDICES_DIR / "comparisons"
+LAKE_SYNTHETIC_INDICES_PERFORMANCE_DIR = LAKE_SYNTHETIC_INDICES_DIR / "performance"
+LAKE_SYNTHETIC_INDICES_QUALITY_DIR = LAKE_SYNTHETIC_INDICES_DIR / "quality"
+
+REPORTS_SYNTHETIC_INDICES_DIR = REPORTS_DIR / "synthetic_indices"
+REPORTS_SYNTHETIC_INDICES_CSV_DIR = REPORTS_SYNTHETIC_INDICES_DIR / "csv"
+REPORTS_SYNTHETIC_INDICES_MARKDOWN_DIR = REPORTS_SYNTHETIC_INDICES_DIR / "markdown"
+REPORTS_SYNTHETIC_INDICES_TXT_DIR = REPORTS_SYNTHETIC_INDICES_DIR / "txt"
+
 class ProjectPaths:
+
     def __init__(self):
         self.project_root = PROJECT_ROOT
         self.data_dir = DATA_DIR
@@ -508,7 +528,26 @@ class ProjectPaths:
         self.portfolio_regime_tail_risk = LAKE_PORTFOLIO_REGIME_TAIL_RISK_DIR
         self.portfolio_regime_exposure = LAKE_PORTFOLIO_REGIME_EXPOSURE_DIR
         self.portfolio_regime_quality = LAKE_PORTFOLIO_REGIME_QUALITY_DIR
+
         self.portfolio_regime_reports = REPORTS_PORTFOLIO_REGIME_DIR
+
+        # Phase 43: Synthetic Indices
+        self.synthetic_indices_dir = LAKE_SYNTHETIC_INDICES_DIR
+        self.synthetic_indices_definitions = LAKE_SYNTHETIC_INDICES_DEFINITIONS_DIR
+        self.synthetic_indices_levels = LAKE_SYNTHETIC_INDICES_LEVELS_DIR
+        self.synthetic_indices_returns = LAKE_SYNTHETIC_INDICES_RETURNS_DIR
+        self.synthetic_indices_relative_strength = LAKE_SYNTHETIC_INDICES_RELATIVE_STRENGTH_DIR
+        self.synthetic_indices_relative_momentum = LAKE_SYNTHETIC_INDICES_RELATIVE_MOMENTUM_DIR
+        self.synthetic_indices_rotation = LAKE_SYNTHETIC_INDICES_ROTATION_DIR
+        self.synthetic_indices_leadership = LAKE_SYNTHETIC_INDICES_LEADERSHIP_DIR
+        self.synthetic_indices_comparisons = LAKE_SYNTHETIC_INDICES_COMPARISONS_DIR
+        self.synthetic_indices_performance = LAKE_SYNTHETIC_INDICES_PERFORMANCE_DIR
+        self.synthetic_indices_quality = LAKE_SYNTHETIC_INDICES_QUALITY_DIR
+        self.synthetic_indices_reports = REPORTS_SYNTHETIC_INDICES_DIR
+        self.synthetic_indices_reports_csv = REPORTS_SYNTHETIC_INDICES_CSV_DIR
+        self.synthetic_indices_reports_markdown = REPORTS_SYNTHETIC_INDICES_MARKDOWN_DIR
+        self.synthetic_indices_reports_txt = REPORTS_SYNTHETIC_INDICES_TXT_DIR
+
 
 
 # Phase 39: Research Reports

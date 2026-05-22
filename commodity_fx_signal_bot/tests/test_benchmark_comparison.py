@@ -1,59 +1,32 @@
-import pytest
 import pandas as pd
-import numpy as np
-from backtesting.benchmark_comparison import (
-    align_equity_and_benchmarks,
-    calculate_benchmark_relative_return,
-    calculate_alpha_vs_benchmark,
-    calculate_tracking_error,
-    calculate_information_ratio,
-    calculate_benchmark_hit_rate,
-    build_benchmark_comparison_table,
+from synthetic_indices.benchmark_comparison import (
+    compare_symbol_to_synthetic_benchmark,
+    compare_universe_to_benchmarks
 )
+from synthetic_indices.index_models import SyntheticIndexSeries
 
+def test_benchmark_comparison():
+    dates = pd.date_range("2023-01-01", periods=10)
+    bench_ret = pd.Series([0.01]*10, index=dates)
+    sym_ret = pd.Series([0.02]*10, index=dates)
 
-def test_align_equity_and_benchmarks():
-    idx = pd.date_range("2024-01-01", periods=5)
-    eq = pd.DataFrame({"equity": [100, 110, 120, 130, 140]}, index=idx)
-    bm = pd.DataFrame({"bench_usdtry_index": [50, 52, 54, 56, 58]}, index=idx)
+    comp = compare_symbol_to_synthetic_benchmark(sym_ret, bench_ret, "A", "BENCH1")
+    assert "error" not in comp
+    assert comp["relative_return"] > 0
+    assert "beta_like_proxy" in comp
 
-    aligned = align_equity_and_benchmarks(eq, bm)
-    assert "bench_usdtry_index" in aligned.columns
-
-
-def test_metrics():
-    idx = pd.date_range("2024-01-01", periods=5)
-    aligned = pd.DataFrame(
-        {
-            "equity": [100, 101, 102, 103, 104],
-            "bench_usdtry_index": [100, 102, 104, 106, 108],
-        },
-        index=idx,
+    returns_df = pd.DataFrame({"A": sym_ret})
+    series = SyntheticIndexSeries(
+        index_id="BENCH1",
+        timeframe="1d",
+        level_series=pd.Series(),
+        return_series=bench_ret,
+        start_date=None,
+        end_date=None,
+        observation_count=10,
+        warnings=[]
     )
 
-    rel_ret = calculate_benchmark_relative_return(
-        aligned, "equity", "bench_usdtry_index"
-    )
-    assert not rel_ret.empty
-
-    alpha = calculate_alpha_vs_benchmark(aligned, "equity", "bench_usdtry_index")
-    assert not np.isnan(alpha)
-
-    te = calculate_tracking_error(aligned, "equity", "bench_usdtry_index")
-    assert not np.isnan(te)
-
-    ir = calculate_information_ratio(aligned, "equity", "bench_usdtry_index")
-    assert not np.isnan(ir)
-
-    hr = calculate_benchmark_hit_rate(aligned, "equity", "bench_usdtry_index")
-    assert not np.isnan(hr)
-
-
-def test_build_table():
-    idx = pd.date_range("2024-01-01", periods=5)
-    eq = pd.DataFrame({"equity": [100, 110, 120, 130, 140]}, index=idx)
-    bm = pd.DataFrame({"bench_usdtry_index": [100, 102, 104, 106, 108]}, index=idx)
-
-    df, summary = build_benchmark_comparison_table(eq, bm)
-    assert "usdtry_index_total_return_vs" in summary
-    assert "outperformed_usdtry_index" in summary
+    df = compare_universe_to_benchmarks(returns_df, {"BENCH1": series})
+    assert len(df) == 1
+    assert "A" in df["symbol"].values
