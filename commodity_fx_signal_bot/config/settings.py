@@ -1478,6 +1478,34 @@ class Settings:
     factor_research_save_reports: bool = field(default_factory=lambda: str(os.getenv("FACTOR_RESEARCH_SAVE_REPORTS", "true")).lower() == "true")
     factor_research_min_quality_score: float = field(default_factory=lambda: float(os.getenv("FACTOR_RESEARCH_MIN_QUALITY_SCORE", "0.40")))
 
+
+    # Phase 45: Meta Research and Consensus Engine
+    meta_research_enabled: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_ENABLED", "true")).lower() == "true")
+    default_meta_research_profile: str = field(default_factory=lambda: os.getenv("DEFAULT_META_RESEARCH_PROFILE", "balanced_meta_research"))
+    meta_research_default_timeframe: str = field(default_factory=lambda: os.getenv("META_RESEARCH_DEFAULT_TIMEFRAME", "1d"))
+    meta_research_min_sources: int = field(default_factory=lambda: int(os.getenv("META_RESEARCH_MIN_SOURCES", "3")))
+    meta_research_min_evidence_quality: float = field(default_factory=lambda: float(os.getenv("META_RESEARCH_MIN_EVIDENCE_QUALITY", "0.40")))
+    meta_research_conflict_threshold: float = field(default_factory=lambda: float(os.getenv("META_RESEARCH_CONFLICT_THRESHOLD", "0.35")))
+    meta_research_high_agreement_threshold: float = field(default_factory=lambda: float(os.getenv("META_RESEARCH_HIGH_AGREEMENT_THRESHOLD", "0.70")))
+    meta_research_uncertainty_penalty_enabled: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_UNCERTAINTY_PENALTY_ENABLED", "true")).lower() == "true")
+    meta_research_quality_penalty_enabled: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_QUALITY_PENALTY_ENABLED", "true")).lower() == "true")
+    meta_research_missing_source_penalty_enabled: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_MISSING_SOURCE_PENALTY_ENABLED", "true")).lower() == "true")
+    meta_research_include_technical: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_INCLUDE_TECHNICAL", "true")).lower() == "true")
+    meta_research_include_strategy: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_INCLUDE_STRATEGY", "true")).lower() == "true")
+    meta_research_include_risk_level: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_INCLUDE_RISK_LEVEL", "true")).lower() == "true")
+    meta_research_include_backtest: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_INCLUDE_BACKTEST", "true")).lower() == "true")
+    meta_research_include_validation: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_INCLUDE_VALIDATION", "true")).lower() == "true")
+    meta_research_include_ml: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_INCLUDE_ML", "true")).lower() == "true")
+    meta_research_include_paper: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_INCLUDE_PAPER", "true")).lower() == "true")
+    meta_research_include_factor: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_INCLUDE_FACTOR", "true")).lower() == "true")
+    meta_research_include_synthetic_index: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_INCLUDE_SYNTHETIC_INDEX", "true")).lower() == "true")
+    meta_research_include_portfolio: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_INCLUDE_PORTFOLIO", "true")).lower() == "true")
+    meta_research_include_regime: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_INCLUDE_REGIME", "true")).lower() == "true")
+    meta_research_save_reports: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_SAVE_REPORTS", "true")).lower() == "true")
+    meta_research_save_tables: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_SAVE_TABLES", "true")).lower() == "true")
+    meta_research_min_quality_score: float = field(default_factory=lambda: float(os.getenv("META_RESEARCH_MIN_QUALITY_SCORE", "0.40")))
+
+
     def __post_init__(self):
 
 
@@ -2201,6 +2229,34 @@ class Settings:
     synthetic_index_save_levels: bool = field(default_factory=lambda: str(os.getenv("SYNTHETIC_INDEX_SAVE_LEVELS", "true")).lower() == "true")
     synthetic_index_save_reports: bool = field(default_factory=lambda: str(os.getenv("SYNTHETIC_INDEX_SAVE_REPORTS", "true")).lower() == "true")
     synthetic_index_min_quality_score: float = field(default_factory=lambda: float(os.getenv("SYNTHETIC_INDEX_MIN_QUALITY_SCORE", "0.40")))
+
+
+    # Phase 45: Meta Research and Consensus Engine
+    meta_research_enabled: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_ENABLED", "true")).lower() == "true")
+    default_meta_research_profile: str = field(default_factory=lambda: os.getenv("DEFAULT_META_RESEARCH_PROFILE", "balanced_meta_research"))
+    meta_research_default_timeframe: str = field(default_factory=lambda: os.getenv("META_RESEARCH_DEFAULT_TIMEFRAME", "1d"))
+    meta_research_min_sources: int = field(default_factory=lambda: int(os.getenv("META_RESEARCH_MIN_SOURCES", "3")))
+    meta_research_min_evidence_quality: float = field(default_factory=lambda: float(os.getenv("META_RESEARCH_MIN_EVIDENCE_QUALITY", "0.40")))
+    meta_research_conflict_threshold: float = field(default_factory=lambda: float(os.getenv("META_RESEARCH_CONFLICT_THRESHOLD", "0.35")))
+    meta_research_high_agreement_threshold: float = field(default_factory=lambda: float(os.getenv("META_RESEARCH_HIGH_AGREEMENT_THRESHOLD", "0.70")))
+    meta_research_uncertainty_penalty_enabled: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_UNCERTAINTY_PENALTY_ENABLED", "true")).lower() == "true")
+    meta_research_quality_penalty_enabled: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_QUALITY_PENALTY_ENABLED", "true")).lower() == "true")
+    meta_research_missing_source_penalty_enabled: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_MISSING_SOURCE_PENALTY_ENABLED", "true")).lower() == "true")
+    meta_research_include_technical: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_INCLUDE_TECHNICAL", "true")).lower() == "true")
+    meta_research_include_strategy: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_INCLUDE_STRATEGY", "true")).lower() == "true")
+    meta_research_include_risk_level: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_INCLUDE_RISK_LEVEL", "true")).lower() == "true")
+    meta_research_include_backtest: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_INCLUDE_BACKTEST", "true")).lower() == "true")
+    meta_research_include_validation: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_INCLUDE_VALIDATION", "true")).lower() == "true")
+    meta_research_include_ml: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_INCLUDE_ML", "true")).lower() == "true")
+    meta_research_include_paper: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_INCLUDE_PAPER", "true")).lower() == "true")
+    meta_research_include_factor: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_INCLUDE_FACTOR", "true")).lower() == "true")
+    meta_research_include_synthetic_index: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_INCLUDE_SYNTHETIC_INDEX", "true")).lower() == "true")
+    meta_research_include_portfolio: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_INCLUDE_PORTFOLIO", "true")).lower() == "true")
+    meta_research_include_regime: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_INCLUDE_REGIME", "true")).lower() == "true")
+    meta_research_save_reports: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_SAVE_REPORTS", "true")).lower() == "true")
+    meta_research_save_tables: bool = field(default_factory=lambda: str(os.getenv("META_RESEARCH_SAVE_TABLES", "true")).lower() == "true")
+    meta_research_min_quality_score: float = field(default_factory=lambda: float(os.getenv("META_RESEARCH_MIN_QUALITY_SCORE", "0.40")))
+
 
     def __post_init__(self):
 

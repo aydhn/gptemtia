@@ -608,3 +608,46 @@ class FeatureStore:
          if df.empty:
              return {}
          return df.to_dict(orient="records")
+
+    # Phase 45: Meta Research
+    def load_meta_evidence_table(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+        profile = profile_name or "balanced_meta_research"
+        return self.data_lake.load_meta_evidence_table(timeframe, profile)
+
+    def load_meta_source_reliability(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+        profile = profile_name or "balanced_meta_research"
+        return self.data_lake.load_meta_source_reliability(timeframe, profile)
+
+    def load_meta_consensus_table(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+        profile = profile_name or "balanced_meta_research"
+        return self.data_lake.load_meta_consensus_table(timeframe, profile)
+
+    def load_meta_conflict_report(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+        profile = profile_name or "balanced_meta_research"
+        return self.data_lake.load_meta_conflict_report(timeframe, profile)
+
+    def load_meta_uncertainty_table(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+        profile = profile_name or "balanced_meta_research"
+        return self.data_lake.load_meta_uncertainty_table(timeframe, profile)
+
+    def load_meta_ensemble_table(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+        profile = profile_name or "balanced_meta_research"
+        return self.data_lake.load_meta_ensemble_table(timeframe, profile)
+
+    def load_meta_quality_adjusted_ranking(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+        profile = profile_name or "balanced_meta_research"
+        return self.data_lake.load_meta_quality_adjusted_ranking(timeframe, profile)
+
+    def load_meta_symbol_snapshot(self, spec, timeframe: str, profile_name: str | None = None) -> dict:
+        profile = profile_name or "balanced_meta_research"
+        return self.data_lake.load_meta_symbol_snapshot(spec.symbol, timeframe, profile)
+
+    def load_meta_research_report(self, timeframe: str, profile_name: str | None = None) -> dict:
+        profile = profile_name or "balanced_meta_research"
+        return self.data_lake.load_meta_research_report(timeframe, profile)
+
+    def list_available_meta_research_reports(self) -> dict:
+        df = self.data_lake.list_meta_research_reports()
+        if df.empty:
+            return {}
+        return df.to_dict(orient="records")
