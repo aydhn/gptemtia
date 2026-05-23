@@ -72,3 +72,21 @@ Universe Prices / Returns / Synthetic Indices / Macro Proxies
 -> FactorNeutralization
 -> FactorQuality
 -> Factor Research Reports
+
+
+## Meta Research Pipeline (Phase 45)
+
+Technical / Strategy / Risk-Level / Backtest / Validation / ML / Paper / Research Reports / Synthetic Index / Portfolio / Regime / Factor
+-> EvidenceCollector
+-> EvidenceNormalizer
+-> SourceRegistry
+-> ReliabilityScoring
+-> ConsensusEngine
+-> ConflictDetection
+-> UncertaintyAggregation
+-> EnsembleScoring
+-> QualityAdjustment
+-> MetaRanking
+-> MetaSnapshot
+-> MetaQuality
+-> Meta Research Reports

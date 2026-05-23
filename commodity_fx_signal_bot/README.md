@@ -703,3 +703,27 @@ python -m scripts.run_factor_exposure_report --timeframe 1d --limit 20
 python -m scripts.run_factor_neutral_report --timeframe 1d --limit 20
 python -m scripts.run_factor_research_status
 ```
+
+
+## Meta Research and Consensus Engine
+
+Bu proje bir meta-research/kanıt ağırlıklandırma katmanı içerir (Phase 45).
+Bu katman; teknik analiz, backtest, ML, sentetik endeks, makro rejim ve faktör araştırmalarından gelen verileri ağırlıklandırır ve araştırma kalitesine/güvenilirliğine göre düzenler.
+Önemli Uyarı:
+- Meta research canlı sinyal motoru değildir.
+- Consensus score yatırım tavsiyesi değildir.
+- Strong positive/negative consensus AL/SAT anlamına gelmez.
+- Evidence weighting kaynak güvenilirliğine ve kaliteye göre araştırma skorlarını birleştirir.
+- Conflict detection kaynaklar arası çelişkiyi gösterir.
+- Quality-adjusted ranking sadece araştırma önceliklendirmesidir.
+- Çıktılar `data/lake/meta_research` ve `reports/output/meta_research` altında oluşur.
+
+Komutlar:
+```bash
+python -m scripts.run_meta_research_report --timeframe 1d --limit 20
+python -m scripts.run_meta_consensus_report --timeframe 1d --limit 20
+python -m scripts.run_evidence_conflict_report --timeframe 1d --limit 20
+python -m scripts.run_quality_adjusted_ranking_report --timeframe 1d --limit 30
+python -m scripts.run_meta_symbol_snapshot --symbol GC=F --timeframe 1d
+python -m scripts.run_meta_research_status
+```

@@ -3612,3 +3612,112 @@ def build_synthetic_index_status_report(status_df: pd.DataFrame, summary: dict) 
 
     def build_factor_research_status_report(self, status_df: pd.DataFrame, summary: dict) -> str:
          return f"Factor Research Status: {len(status_df)} reports found."
+
+# Phase 45: Meta Research
+
+def _meta_disclaimer() -> str:
+    return (
+        "*** DISCLAIMER ***\n"
+        "Bu cikti offline meta-research/kanit agirliklandirma raporudur. "
+        "Canli emir, broker talimati, gercek pozisyon, otomatik trade onayi veya "
+        "yatirim tavsiyesi degildir. Yalnizca offline arastirma kanitlarini birlestirir.\n"
+    )
+
+def build_meta_research_text_report(summary: dict, tables: dict[str, pd.DataFrame] | None = None) -> str:
+    lines = [
+        "META RESEARCH REPORT",
+        "=" * 50,
+        f"Timeframe: {summary.get('timeframe', 'Unknown')}",
+        f"Processed Symbols: {summary.get('processed_symbols', 0)}",
+        f"Sources Checked: {summary.get('sources_checked', 0)}",
+        f"Quality Check Passed: {summary.get('quality_passed', False)}",
+        "-" * 50,
+        ""
+    ]
+    if tables and "consensus" in tables and not tables["consensus"].empty:
+        lines.append("TOP CONSENSUS (first 20 rows):")
+        lines.append(tables["consensus"].head(20).to_string(index=False))
+        lines.append("")
+
+    lines.append(_meta_disclaimer())
+    return "\n".join(lines)
+
+def build_meta_consensus_text_report(summary: dict, consensus_df: pd.DataFrame | None = None) -> str:
+    lines = [
+        "META CONSENSUS REPORT",
+        "=" * 50,
+        f"Timeframe: {summary.get('timeframe', 'Unknown')}",
+        "-" * 50,
+        ""
+    ]
+    if consensus_df is not None and not consensus_df.empty:
+        lines.append(consensus_df.to_string(index=False))
+        lines.append("")
+
+    lines.append(_meta_disclaimer())
+    return "\n".join(lines)
+
+def build_evidence_conflict_text_report(summary: dict, conflict_df: pd.DataFrame | None = None) -> str:
+    lines = [
+        "EVIDENCE CONFLICT REPORT",
+        "=" * 50,
+        f"Total Major Conflicts: {summary.get('total_major_conflicts', 0)}",
+        f"Avg Conflict Score: {summary.get('avg_conflict_score', 0.0):.3f}",
+        "-" * 50,
+        ""
+    ]
+    if conflict_df is not None and not conflict_df.empty:
+        lines.append(conflict_df.to_string(index=False))
+        lines.append("")
+
+    lines.append(_meta_disclaimer())
+    return "\n".join(lines)
+
+def build_quality_adjusted_ranking_text_report(summary: dict, ranking_df: pd.DataFrame | None = None) -> str:
+    lines = [
+        "QUALITY ADJUSTED RANKING REPORT",
+        "=" * 50,
+        f"Ranked Symbols: {summary.get('ranked_symbols', 0)}",
+        "-" * 50,
+        ""
+    ]
+    if ranking_df is not None and not ranking_df.empty:
+        lines.append(ranking_df.to_string(index=False))
+        lines.append("")
+
+    lines.append(_meta_disclaimer())
+    return "\n".join(lines)
+
+def build_meta_symbol_snapshot_text_report(summary: dict, snapshot: dict | None = None) -> str:
+    lines = [
+        f"META RESEARCH SNAPSHOT: {summary.get('symbol', 'UNKNOWN')}",
+        "=" * 50,
+    ]
+    if snapshot:
+        c = snapshot.get("consensus", {})
+        lines.append(f"Consensus Score: {c.get('consensus_score')}")
+        lines.append(f"Quality Adjusted Score: {snapshot.get('quality_adjusted_score')}")
+        lines.append(f"Research Alignment: {snapshot.get('final_research_label')}")
+        lines.append("-" * 50)
+        lines.append("Evidence List:")
+        for ev in snapshot.get("evidence", []):
+            lines.append(f"  {ev.get('source_label')}: {ev.get('evidence_direction')} (score: {ev.get('normalized_score')})")
+        lines.append("")
+
+    lines.append(_meta_disclaimer())
+    return "\n".join(lines)
+
+def build_meta_research_status_report(status_df: pd.DataFrame, summary: dict) -> str:
+    lines = [
+        "META RESEARCH SYSTEM STATUS",
+        "=" * 50,
+        f"Total Reports: {len(status_df)}",
+        "-" * 50,
+        ""
+    ]
+    if not status_df.empty:
+        lines.append(status_df.to_string(index=False))
+        lines.append("")
+
+    lines.append(_meta_disclaimer())
+    return "\n".join(lines)
