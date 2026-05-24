@@ -130,3 +130,22 @@ Governance / Experiments / Meta / Factor / Synthetic Index / Portfolio / Regime 
 → `OfflineTaskOrchestrationPlan`
 → `PlanningQuality`
 → Research Planning Reports
+
+
+## Phase 49: Knowledge Base & Analyst Workspace
+
+Docs / Reports Output / DataLake Research Artifacts / Experiments / Governance / Planning / Meta
+→ `DocumentDiscovery`
+→ `TextExtraction`
+→ `Chunking`
+→ `KnowledgeIndex`
+→ `TFIDFRetrieval`
+→ `FuzzyRetrieval`
+→ `HybridRetrieval`
+→ `MemoryCards`
+→ `DecisionJournal`
+→ `AnalystNotes`
+→ `FindingsDigest`
+→ `WorkspaceSummary`
+→ `KBQuality`
+→ Analyst Workspace Reports
