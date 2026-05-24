@@ -96,3 +96,19 @@ The Experiment Tracking layer standardizes how we record, compare, and version o
 It interacts with existing meta, factor, portfolio, ML, and paper research outputs.
 Workflow:
 Research Outputs -> HypothesisRegistry -> ExperimentRegistry -> ExperimentRunner -> ResearchVersioning -> ArtifactManifest -> ReproducibilityManifest -> ExperimentMetrics -> AblationStudies -> ExperimentComparison -> Leaderboard -> ExperimentQuality -> Experiment Reports
+
+### Data Provenance & Governance Flow
+DataLake / Reports Output / Experiment Manifests / Research Artifacts
+-> ArtifactInventory
+-> Fingerprinting
+-> ProvenanceRegistry
+-> LineageGraph
+-> DependencyTracing
+-> AuditTrail
+-> SourceAttribution
+-> FreshnessGovernance
+-> IntegrityGovernance
+-> ExperimentLineageBridge
+-> GovernanceChecklist
+-> GovernanceQuality
+-> Research Governance Reports

@@ -1,0 +1,31 @@
+path = "commodity_fx_signal_bot/config/paths.py"
+with open(path, "r") as f:
+    content = f.read()
+
+new_paths = """
+# Governance Paths
+DATA_LAKE_GOVERNANCE_DIR = LAKE_DIR / "governance"
+DATA_LAKE_GOVERNANCE_INVENTORY_DIR = DATA_LAKE_GOVERNANCE_DIR / "inventory"
+DATA_LAKE_GOVERNANCE_FINGERPRINTS_DIR = DATA_LAKE_GOVERNANCE_DIR / "fingerprints"
+DATA_LAKE_GOVERNANCE_PROVENANCE_DIR = DATA_LAKE_GOVERNANCE_DIR / "provenance"
+DATA_LAKE_GOVERNANCE_LINEAGE_DIR = DATA_LAKE_GOVERNANCE_DIR / "lineage"
+DATA_LAKE_GOVERNANCE_DEPENDENCIES_DIR = DATA_LAKE_GOVERNANCE_DIR / "dependencies"
+DATA_LAKE_GOVERNANCE_AUDIT_DIR = DATA_LAKE_GOVERNANCE_DIR / "audit"
+DATA_LAKE_GOVERNANCE_SOURCE_ATTRIBUTION_DIR = DATA_LAKE_GOVERNANCE_DIR / "source_attribution"
+DATA_LAKE_GOVERNANCE_CHECKLISTS_DIR = DATA_LAKE_GOVERNANCE_DIR / "checklists"
+DATA_LAKE_GOVERNANCE_QUALITY_DIR = DATA_LAKE_GOVERNANCE_DIR / "quality"
+
+REPORTS_GOVERNANCE_DIR = REPORTS_DIR / "governance"
+REPORTS_GOVERNANCE_CSV_DIR = REPORTS_GOVERNANCE_DIR / "csv"
+REPORTS_GOVERNANCE_MARKDOWN_DIR = REPORTS_GOVERNANCE_DIR / "markdown"
+REPORTS_GOVERNANCE_TXT_DIR = REPORTS_GOVERNANCE_DIR / "txt"
+REPORTS_GOVERNANCE_JSON_DIR = REPORTS_GOVERNANCE_DIR / "json"
+
+"""
+
+idx = content.find("def ensure_project_directories")
+content = content[:idx] + new_paths + content[idx:]
+
+with open(path, "w") as f:
+    f.write(content)
+print("Added governance paths before ensure")

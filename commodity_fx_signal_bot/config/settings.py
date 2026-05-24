@@ -1509,6 +1509,28 @@ class Settings:
 
     # Phase 46: Experiment Tracking and Research Versioning
     experiment_tracking_enabled: bool = field(default_factory=lambda: str(os.getenv("EXPERIMENT_TRACKING_ENABLED", "true")).lower() == "true")
+
+    # Governance Settings (Phase 47)
+    governance_enabled: bool = True
+    default_governance_profile: str = "balanced_research_governance"
+    governance_default_timeframe: str = "1d"
+    governance_scan_data_lake: bool = True
+    governance_scan_reports_output: bool = True
+    governance_capture_file_hashes: bool = True
+    governance_capture_schema_fingerprints: bool = True
+    governance_capture_row_counts: bool = True
+    governance_capture_modified_times: bool = True
+    governance_capture_artifact_sizes: bool = True
+    governance_max_file_hash_mb: int = 50
+    governance_lineage_max_depth: int = 8
+    governance_require_provenance_for_research_outputs: bool = True
+    governance_require_fingerprint_for_key_artifacts: bool = True
+    governance_require_audit_trail: bool = True
+    governance_save_inventory: bool = True
+    governance_save_lineage: bool = True
+    governance_save_audit_trail: bool = True
+    governance_save_reports: bool = True
+    governance_min_quality_score: float = 0.40
     default_experiment_profile: str = field(default_factory=lambda: os.getenv("DEFAULT_EXPERIMENT_PROFILE", "balanced_experiment_tracking"))
     experiment_default_timeframe: str = field(default_factory=lambda: os.getenv("EXPERIMENT_DEFAULT_TIMEFRAME", "1d"))
     experiment_save_run_manifest: bool = field(default_factory=lambda: str(os.getenv("EXPERIMENT_SAVE_RUN_MANIFEST", "true")).lower() == "true")
