@@ -510,3 +510,24 @@ Phase 19:
 - `ExperimentTrackingPipeline` orchestrator created.
 - Scripts added (`run_hypothesis_registry_report`, `run_experiment_tracking_report`, etc.).
 - Testing for the new modules added.
+
+## Phase 47: Data Provenance, Lineage and Research Governance
+- Governance profile sistemi eklendi.
+- Governance label registry eklendi.
+- ArtifactRecord, ProvenanceRecord, LineageNode, LineageEdge ve AuditTrailRecord modelleri eklendi.
+- Artifact inventory builder eklendi.
+- Fingerprinting modülü eklendi.
+- Provenance registry eklendi.
+- Lineage graph eklendi.
+- Dependency tracing eklendi.
+- Audit trail eklendi.
+- Source attribution eklendi.
+- Freshness governance eklendi.
+- Integrity governance eklendi.
+- Experiment lineage bridge eklendi.
+- Governance checklist eklendi.
+- Governance quality report eklendi.
+- GovernancePipeline eklendi.
+- DataLake governance kayıt desteği aldı.
+- Governance scriptleri eklendi.
+- Testler genişletildi.

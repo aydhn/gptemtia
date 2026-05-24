@@ -752,3 +752,24 @@ python -m scripts.run_experiment_comparison_report
 python -m scripts.run_experiment_leaderboard
 python -m scripts.run_experiment_status
 ```
+
+## Data Provenance, Lineage and Research Governance (Phase 47)
+- Governance katmanı canlı trading governance değildir. Sadece offline research artifact'leri içindir.
+- Artifact inventory data/lake ve reports/output dosyalarını tarar.
+- Fingerprinting veri/artifact izlenebilirliği içindir.
+- Provenance ve lineage graph kaynak/bağımlılık ilişkilerini araştırma bağlamında gösterir.
+- Audit trail broker audit veya compliance onayı değildir.
+- Dependency tracing approximation olabilir.
+- Governance passed production compliance onayı değildir.
+- Çıktılar data/lake/governance ve reports/output/governance altında oluşur.
+
+### Governance Commands
+```bash
+python -m scripts.run_artifact_inventory_report
+python -m scripts.run_lineage_graph_report
+python -m scripts.run_provenance_report
+python -m scripts.run_dependency_trace_report --symbol GC=F --direction upstream
+python -m scripts.run_audit_trail_report
+python -m scripts.run_research_governance_report
+python -m scripts.run_governance_status
+```
