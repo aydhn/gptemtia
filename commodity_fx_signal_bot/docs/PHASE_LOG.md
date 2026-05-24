@@ -498,3 +498,15 @@ Phase 19:
 - DataLake meta research kayıt desteği aldı.
 - Meta research scriptleri eklendi.
 - Testler genişletildi.
+
+### Phase 46: Experiment Tracking and Research Versioning
+- Experiment profile and label systems added.
+- `ResearchHypothesis`, `ExperimentDefinition`, `ExperimentRunManifest`, `ExperimentComparison` models added.
+- `HypothesisRegistry` and `ExperimentRegistry` added.
+- `ResearchVersioning`, `ArtifactManifest`, and `ReproducibilityManifest` added.
+- `ExperimentRunner` and `AblationStudies` added.
+- `ExperimentMetrics`, `ExperimentComparison`, and leaderboard added.
+- `ExperimentQuality` checking added to filter forbidden terms.
+- `ExperimentTrackingPipeline` orchestrator created.
+- Scripts added (`run_hypothesis_registry_report`, `run_experiment_tracking_report`, etc.).
+- Testing for the new modules added.

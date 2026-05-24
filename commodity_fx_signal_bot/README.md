@@ -727,3 +727,28 @@ python -m scripts.run_quality_adjusted_ranking_report --timeframe 1d --limit 30
 python -m scripts.run_meta_symbol_snapshot --symbol GC=F --timeframe 1d
 python -m scripts.run_meta_research_status
 ```
+
+## Phase 46: Experiment Tracking and Research Versioning
+This phase adds a professional experiment tracking and versioning layer.
+It includes components for:
+- Hypothesis registry
+- Experiment run manifests
+- Research version records (config, environment, git, data snapshots)
+- Artifact manifests
+- Reproducibility manifests
+- Ablation studies
+- Baseline vs candidate comparison
+- Experiment leaderboard
+
+**Disclaimer**: This is an offline research tool. Experiment tracking does NOT generate live signals, execute trades, deploy models, or provide investment advice.
+
+**Useful Commands:**
+```bash
+python -m scripts.run_hypothesis_registry_report
+python -m scripts.run_experiment_tracking_report --timeframe 1d
+python -m scripts.run_research_version_report
+python -m scripts.run_ablation_study_report
+python -m scripts.run_experiment_comparison_report
+python -m scripts.run_experiment_leaderboard
+python -m scripts.run_experiment_status
+```

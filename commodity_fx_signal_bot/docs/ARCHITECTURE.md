@@ -90,3 +90,9 @@ Technical / Strategy / Risk-Level / Backtest / Validation / ML / Paper / Researc
 -> MetaSnapshot
 -> MetaQuality
 -> Meta Research Reports
+
+## Experiment Tracking Layer
+The Experiment Tracking layer standardizes how we record, compare, and version offline research experiments.
+It interacts with existing meta, factor, portfolio, ML, and paper research outputs.
+Workflow:
+Research Outputs -> HypothesisRegistry -> ExperimentRegistry -> ExperimentRunner -> ResearchVersioning -> ArtifactManifest -> ReproducibilityManifest -> ExperimentMetrics -> AblationStudies -> ExperimentComparison -> Leaderboard -> ExperimentQuality -> Experiment Reports

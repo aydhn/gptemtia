@@ -1,42 +1,43 @@
-1. **Update Settings and Paths**
-   - Update `config/settings.py` and `.env.example` with `meta_research` settings.
-   - Update `config/paths.py` with the required directories for meta research data lake and reports.
-2. **Implement Meta Research Core Modules**
-   - Implement `meta_research/meta_config.py` (MetaResearchProfile definition).
-   - Implement `meta_research/meta_labels.py` (controlled label set).
-   - Implement `meta_research/meta_models.py` (ResearchEvidence, ConsensusResult, MetaResearchSnapshot).
-   - Implement `meta_research/source_registry.py` (EvidenceSourceDefinition).
-3. **Implement Pipeline Steps**
-   - `meta_research/evidence_collector.py`
-   - `meta_research/evidence_normalizer.py`
-   - `meta_research/reliability_scoring.py`
-   - `meta_research/consensus_engine.py`
-   - `meta_research/conflict_detection.py`
-   - `meta_research/uncertainty_aggregation.py`
-   - `meta_research/ensemble_scoring.py`
-   - `meta_research/quality_adjustment.py`
-   - `meta_research/meta_ranking.py`
-   - `meta_research/meta_snapshot.py`
-   - `meta_research/meta_quality.py`
-4. **Implement Reporting and Pipeline Integration**
-   - `meta_research/meta_report_builder.py`
-   - `meta_research/meta_pipeline.py`
-5. **Update Existing Layers**
-   - Update `data/storage/data_lake.py` to support `meta_research` outputs.
-   - Update `ml/feature_store.py` to fetch `meta_research` reports.
-   - Update `reports/report_builder.py` with meta text report methods.
-6. **Create Scripts**
-   - `scripts/run_meta_research_report.py`
-   - `scripts/run_meta_consensus_report.py`
-   - `scripts/run_evidence_conflict_report.py`
-   - `scripts/run_quality_adjusted_ranking_report.py`
-   - `scripts/run_meta_symbol_snapshot.py`
-   - `scripts/run_meta_research_status.py`
-7. **Create Tests**
-   - Implement all required test files in `tests/`.
-8. **Update Documentation**
-   - Update `README.md`
-   - Update `docs/ARCHITECTURE.md`
-   - Update `docs/PHASE_LOG.md`
-9. **Pre-commit Steps**
-   - Run tests, check types, run formatting, pre-commit fixes etc.
+1. **Update Configuration and Paths:**
+   - Update `config/settings.py` and `.env.example` with experiment tracking variables.
+   - Update `config/paths.py` with new paths for experiments (hypotheses, definitions, runs, artifacts, reproducibility, versions, ablation, comparisons, leaderboards, quality) under `data/lake/` and `reports/output/`.
+2. **Implement `experiments` module components:**
+   - Create `experiments/__init__.py`.
+   - Implement `experiment_config.py` (ExperimentProfile dataclass, predefined profiles).
+   - Implement `experiment_labels.py` (experiment types, statuses, hypothesis statuses, comparison results).
+   - Implement `experiment_models.py` (ResearchHypothesis, ExperimentDefinition, ExperimentRunManifest, ExperimentComparison dataclasses).
+   - Implement `hypothesis_registry.py` (HypothesisRegistry class to manage hypotheses).
+   - Implement `experiment_registry.py` (ExperimentRegistry class to manage definitions).
+   - Implement `research_versioning.py` (capture snapshots of config, environment, git, data).
+   - Implement `artifact_manifest.py` (hash files, build artifact records).
+   - Implement `reproducibility.py` (reproducibility manifest, score calculation).
+   - Implement `experiment_runner.py` (wrapper to record experiments, dry runs).
+   - Implement `ablation_studies.py` (AblationStudyDefinition, results).
+   - Implement `experiment_metrics.py` (extract and normalize metrics from reports).
+   - Implement `experiment_comparison.py` (compare runs and metrics).
+   - Implement `leaderboard.py` (generate leaderboard, assign ranks).
+   - Implement `experiment_quality.py` (check qualities, search for forbidden trade terms).
+   - Implement `experiment_report_builder.py` (build markdown reports with disclaimers).
+   - Implement `experiment_pipeline.py` (ExperimentTrackingPipeline orchestrator).
+3. **Update Data Storage Components:**
+   - Extend `data/storage/data_lake.py` with experiment load/save methods.
+   - Extend `ml/feature_store.py` with experiment load wrappers.
+   - Update `reports/report_builder.py` with text report generators for experiments.
+4. **Create CLI Scripts:**
+   - Implement `scripts/run_hypothesis_registry_report.py`.
+   - Implement `scripts/run_experiment_tracking_report.py`.
+   - Implement `scripts/run_research_version_report.py`.
+   - Implement `scripts/run_ablation_study_report.py`.
+   - Implement `scripts/run_experiment_comparison_report.py`.
+   - Implement `scripts/run_experiment_leaderboard.py`.
+   - Implement `scripts/run_experiment_status.py`.
+5. **Add Tests:**
+   - Write comprehensive tests for all new `experiments/` modules in `tests/test_experiment_*.py`.
+   - Write `tests/test_experiment_scripts_contract.py`.
+6. **Update Documentation:**
+   - Update `docs/ARCHITECTURE.md` to show the new experiment tracking flow.
+   - Update `docs/PHASE_LOG.md` for Phase 46.
+   - Update `README.md` with instructions and explanations.
+7. **Complete pre commit steps**
+   - Run formatting, linting, and type checking.
+   - Verify tests pass.
