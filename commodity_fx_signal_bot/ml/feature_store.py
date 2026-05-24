@@ -691,3 +691,41 @@ class FeatureStore:
 
     def list_available_governance_reports(self):
         return self.data_lake.list_governance_reports().to_dict(orient="records")
+
+
+    # Phase 48: Research Planning
+    def load_research_planning_signals(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+        return self.data_lake.load_research_planning_signals(timeframe, profile_name or "balanced_research_planning")
+
+    def load_research_task_registry(self, profile_name: str | None = None) -> pd.DataFrame:
+        return self.data_lake.load_research_task_registry(profile_name or "balanced_research_planning")
+
+    def load_research_backlog(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+        return self.data_lake.load_research_backlog(timeframe, profile_name or "balanced_research_planning")
+
+    def load_research_priority_scores(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+        return self.data_lake.load_research_priority_scores(timeframe, profile_name or "balanced_research_planning")
+
+    def load_next_best_experiments(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+        return self.data_lake.load_next_best_experiments(timeframe, profile_name or "balanced_research_planning")
+
+    def load_research_debt_report(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+        return self.data_lake.load_research_debt_report(timeframe, profile_name or "balanced_research_planning")
+
+    def load_research_opportunity_report(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+        return self.data_lake.load_research_opportunity_report(timeframe, profile_name or "balanced_research_planning")
+
+    def load_roadmap_health_snapshot(self, timeframe: str, profile_name: str | None = None) -> dict:
+        return self.data_lake.load_roadmap_health_snapshot(timeframe, profile_name or "balanced_research_planning")
+
+    def load_task_orchestration_plan(self, timeframe: str, profile_name: str | None = None) -> pd.DataFrame:
+        return self.data_lake.load_task_orchestration_plan(timeframe, profile_name or "balanced_research_planning")
+
+    def load_research_planning_report(self, timeframe: str, profile_name: str | None = None) -> dict:
+        return self.data_lake.load_research_planning_report(timeframe, profile_name or "balanced_research_planning")
+
+    def list_available_research_planning_reports(self) -> dict:
+        df = self.data_lake.list_research_planning_reports()
+        if df.empty:
+            return {"reports": []}
+        return {"reports": df.to_dict("records")}

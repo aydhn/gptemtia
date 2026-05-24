@@ -773,3 +773,26 @@ python -m scripts.run_audit_trail_report
 python -m scripts.run_research_governance_report
 python -m scripts.run_governance_status
 ```
+
+## Adaptive Research Planning and Backlog (Phase 48)
+
+The project includes an offline research planning layer that generates automated research tasks, priority scores, and next-best-experiment recommendations based on outputs from the governance, validation, observability, and other modules.
+
+- Research planning is not a live scheduler.
+- The backlog is a list of research tasks; it does not trigger automatic execution.
+- Priority scores are not live trading priorities.
+- Next-best-experiment recommendations do not automatically start experiments.
+- Research debt indicates maintenance risks, not trade alarms.
+- Roadmap health reflects offline research capacity, not production readiness.
+- Outputs are saved in `data/lake/research_planning` and `reports/output/research_planning`.
+
+### Generating Planning Reports
+
+```bash
+python -m scripts.run_research_backlog_report --timeframe 1d
+python -m scripts.run_priority_scoring_report --timeframe 1d
+python -m scripts.run_next_best_experiment_report --timeframe 1d
+python -m scripts.run_research_debt_report --timeframe 1d
+python -m scripts.run_roadmap_health_report --timeframe 1d
+python -m scripts.run_research_planning_status
+```

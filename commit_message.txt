@@ -1,3 +1,7 @@
-feat: Phase 46 - Experiment Tracking and Research Versioning
+Phase 48: Adaptive Research Planning
 
-Added comprehensive offline experiment tracking, hypothesis registry, reproducibility manifest, and ablation studies architecture. Ensures code is ready for advanced tracking without ever interacting with live trading systems.
+This commit introduces the Adaptive Research Planning and Backlog layer.
+It implements the `ResearchTaskRegistry`, `PlanningSignalCollector`, `BacklogBuilder`, `PriorityScoring`, and `NextBestExperiment` recommendation engines.
+It also includes reports for `RoadmapHealth` and `ResearchDebt` to aid in orchestrating offline tasks.
+
+No live trading instructions, broker orders, or auto-deployments are included.
