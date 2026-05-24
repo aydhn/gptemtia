@@ -552,3 +552,27 @@ Phase 19:
 - DataLake research planning kayıt desteği aldı.
 - Research planning scriptleri eklendi.
 - Testler genişletildi.
+
+
+### Phase 49: Knowledge Base, Research Memory and Analyst Workspace
+- Knowledge base profile sistemi eklendi.
+- KB label registry eklendi.
+- KnowledgeDocument, KnowledgeChunk, RetrievalResult, ResearchMemoryCard ve DecisionJournalEntry modelleri eklendi.
+- Document discovery eklendi.
+- Text extraction ve sensitive masking eklendi.
+- Chunking eklendi.
+- Local knowledge index eklendi.
+- TF-IDF retrieval eklendi.
+- Fuzzy retrieval eklendi.
+- Hybrid retrieval eklendi.
+- Memory cards eklendi.
+- Decision journal eklendi.
+- Analyst notes eklendi.
+- Research query engine eklendi.
+- Recent findings digest eklendi.
+- Workspace summary eklendi.
+- KB quality report eklendi.
+- KnowledgeBasePipeline eklendi.
+- DataLake knowledge base kayıt desteği aldı.
+- Knowledge base scriptleri eklendi.
+- Testler genişletildi.

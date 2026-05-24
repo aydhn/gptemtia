@@ -1574,6 +1574,30 @@ class Settings:
     research_planning_dry_run: bool = True
     research_planning_min_quality_score: float = 0.40
 
+# Phase 49: Knowledge Base & Analyst Workspace
+    knowledge_base_enabled: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_ENABLED", "true")).lower() == "true")
+    default_knowledge_base_profile: str = field(default_factory=lambda: os.getenv("DEFAULT_KNOWLEDGE_BASE_PROFILE", "balanced_local_knowledge_base"))
+    knowledge_base_default_timeframe: str = field(default_factory=lambda: os.getenv("KNOWLEDGE_BASE_DEFAULT_TIMEFRAME", "1d"))
+    knowledge_base_scan_reports_output: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_SCAN_REPORTS_OUTPUT", "true")).lower() == "true")
+    knowledge_base_scan_docs: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_SCAN_DOCS", "true")).lower() == "true")
+    knowledge_base_scan_data_lake_reports: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_SCAN_DATA_LAKE_REPORTS", "true")).lower() == "true")
+    knowledge_base_scan_experiments: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_SCAN_EXPERIMENTS", "true")).lower() == "true")
+    knowledge_base_scan_governance: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_SCAN_GOVERNANCE", "true")).lower() == "true")
+    knowledge_base_scan_planning: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_SCAN_PLANNING", "true")).lower() == "true")
+    knowledge_base_scan_meta_research: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_SCAN_META_RESEARCH", "true")).lower() == "true")
+    knowledge_base_max_documents: int = field(default_factory=lambda: int(os.getenv("KNOWLEDGE_BASE_MAX_DOCUMENTS", "5000")))
+    knowledge_base_max_document_mb: int = field(default_factory=lambda: int(os.getenv("KNOWLEDGE_BASE_MAX_DOCUMENT_MB", "10")))
+    knowledge_base_chunk_size_chars: int = field(default_factory=lambda: int(os.getenv("KNOWLEDGE_BASE_CHUNK_SIZE_CHARS", "1200")))
+    knowledge_base_chunk_overlap_chars: int = field(default_factory=lambda: int(os.getenv("KNOWLEDGE_BASE_CHUNK_OVERLAP_CHARS", "150")))
+    knowledge_base_max_chunks: int = field(default_factory=lambda: int(os.getenv("KNOWLEDGE_BASE_MAX_CHUNKS", "50000")))
+    knowledge_base_retrieval_top_k: int = field(default_factory=lambda: int(os.getenv("KNOWLEDGE_BASE_RETRIEVAL_TOP_K", "10")))
+    knowledge_base_enable_tfidf: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_ENABLE_TFIDF", "true")).lower() == "true")
+    knowledge_base_enable_fuzzy: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_ENABLE_FUZZY", "true")).lower() == "true")
+    knowledge_base_enable_hybrid: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_ENABLE_HYBRID", "true")).lower() == "true")
+    knowledge_base_save_index: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_SAVE_INDEX", "true")).lower() == "true")
+    knowledge_base_save_memory_cards: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_SAVE_MEMORY_CARDS", "true")).lower() == "true")
+    knowledge_base_save_reports: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_SAVE_REPORTS", "true")).lower() == "true")
+    knowledge_base_min_quality_score: float = field(default_factory=lambda: float(os.getenv("KNOWLEDGE_BASE_MIN_QUALITY_SCORE", "0.40")))
     def __post_init__(self):
 
 
@@ -2374,7 +2398,35 @@ class Settings:
     research_planning_dry_run: bool = True
     research_planning_min_quality_score: float = 0.40
 
+# Phase 49: Knowledge Base & Analyst Workspace
+    knowledge_base_enabled: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_ENABLED", "true")).lower() == "true")
+    default_knowledge_base_profile: str = field(default_factory=lambda: os.getenv("DEFAULT_KNOWLEDGE_BASE_PROFILE", "balanced_local_knowledge_base"))
+    knowledge_base_default_timeframe: str = field(default_factory=lambda: os.getenv("KNOWLEDGE_BASE_DEFAULT_TIMEFRAME", "1d"))
+    knowledge_base_scan_reports_output: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_SCAN_REPORTS_OUTPUT", "true")).lower() == "true")
+    knowledge_base_scan_docs: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_SCAN_DOCS", "true")).lower() == "true")
+    knowledge_base_scan_data_lake_reports: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_SCAN_DATA_LAKE_REPORTS", "true")).lower() == "true")
+    knowledge_base_scan_experiments: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_SCAN_EXPERIMENTS", "true")).lower() == "true")
+    knowledge_base_scan_governance: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_SCAN_GOVERNANCE", "true")).lower() == "true")
+    knowledge_base_scan_planning: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_SCAN_PLANNING", "true")).lower() == "true")
+    knowledge_base_scan_meta_research: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_SCAN_META_RESEARCH", "true")).lower() == "true")
+    knowledge_base_max_documents: int = field(default_factory=lambda: int(os.getenv("KNOWLEDGE_BASE_MAX_DOCUMENTS", "5000")))
+    knowledge_base_max_document_mb: int = field(default_factory=lambda: int(os.getenv("KNOWLEDGE_BASE_MAX_DOCUMENT_MB", "10")))
+    knowledge_base_chunk_size_chars: int = field(default_factory=lambda: int(os.getenv("KNOWLEDGE_BASE_CHUNK_SIZE_CHARS", "1200")))
+    knowledge_base_chunk_overlap_chars: int = field(default_factory=lambda: int(os.getenv("KNOWLEDGE_BASE_CHUNK_OVERLAP_CHARS", "150")))
+    knowledge_base_max_chunks: int = field(default_factory=lambda: int(os.getenv("KNOWLEDGE_BASE_MAX_CHUNKS", "50000")))
+    knowledge_base_retrieval_top_k: int = field(default_factory=lambda: int(os.getenv("KNOWLEDGE_BASE_RETRIEVAL_TOP_K", "10")))
+    knowledge_base_enable_tfidf: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_ENABLE_TFIDF", "true")).lower() == "true")
+    knowledge_base_enable_fuzzy: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_ENABLE_FUZZY", "true")).lower() == "true")
+    knowledge_base_enable_hybrid: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_ENABLE_HYBRID", "true")).lower() == "true")
+    knowledge_base_save_index: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_SAVE_INDEX", "true")).lower() == "true")
+    knowledge_base_save_memory_cards: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_SAVE_MEMORY_CARDS", "true")).lower() == "true")
+    knowledge_base_save_reports: bool = field(default_factory=lambda: str(os.getenv("KNOWLEDGE_BASE_SAVE_REPORTS", "true")).lower() == "true")
+    knowledge_base_min_quality_score: float = field(default_factory=lambda: float(os.getenv("KNOWLEDGE_BASE_MIN_QUALITY_SCORE", "0.40")))
     def __post_init__(self):
+
+
+
+
 
 
 

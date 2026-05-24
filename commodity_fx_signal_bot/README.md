@@ -796,3 +796,26 @@ python -m scripts.run_research_debt_report --timeframe 1d
 python -m scripts.run_roadmap_health_report --timeframe 1d
 python -m scripts.run_research_planning_status
 ```
+
+
+## Knowledge Base, Research Memory and Analyst Workspace
+
+The project includes an offline knowledge base and analyst workspace:
+- Knowledge base local/offline çalışır.
+- Ücretli embedding/API kullanmaz.
+- Raporlar, docs, experiment, governance, planning ve meta-research çıktıları indexlenir.
+- Retrieval result yatırım tavsiyesi değildir.
+- Symbol memory card AL/SAT üretmez.
+- Decision journal trade journal değildir.
+- Findings digest trade fırsatı listesi değildir.
+- Çıktılar `data/lake/knowledge_base` ve `reports/output/knowledge_base` altında oluşur.
+
+### Komutlar:
+```bash
+python -m scripts.run_knowledge_index_report
+python -m scripts.run_research_query --query "GC=F hakkında ne biliyoruz?"
+python -m scripts.run_symbol_memory_report --symbol GC=F
+python -m scripts.run_decision_journal_report
+python -m scripts.run_recent_findings_digest
+python -m scripts.run_analyst_workspace_status
+```
