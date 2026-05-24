@@ -20,3 +20,5 @@ __pycache__/
 
 update_*.py
 fix_*.py
+__pycache__/
+*.pyc

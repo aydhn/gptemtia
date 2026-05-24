@@ -112,3 +112,21 @@ DataLake / Reports Output / Experiment Manifests / Research Artifacts
 -> GovernanceChecklist
 -> GovernanceQuality
 -> Research Governance Reports
+
+## Phase 48: Adaptive Research Planning
+
+The architecture includes a comprehensive offline research planning pipeline:
+
+Governance / Experiments / Meta / Factor / Synthetic Index / Portfolio / Regime / Validation / ML / Paper / Observability
+→ `PlanningSignalCollector`
+→ `BacklogBuilder`
+→ `PriorityScoring`
+→ `NextBestExperiment`
+→ `ResearchDebt`
+→ `ResearchOpportunities`
+→ `RoadmapHealth`
+→ `TaskDependencies`
+→ `MilestoneTracking`
+→ `OfflineTaskOrchestrationPlan`
+→ `PlanningQuality`
+→ Research Planning Reports

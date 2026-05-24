@@ -531,3 +531,24 @@ Phase 19:
 - DataLake governance kayıt desteği aldı.
 - Governance scriptleri eklendi.
 - Testler genişletildi.
+
+### Phase 48: Adaptive Research Planning
+- Research planning profile sistemi eklendi.
+- Planning label registry eklendi.
+- ResearchSignal, ResearchTask, NextBestExperiment ve RoadmapHealthSnapshot modelleri eklendi.
+- PlanningSignalCollector eklendi.
+- ResearchTaskRegistry eklendi.
+- BacklogBuilder eklendi.
+- PriorityScoring eklendi.
+- Next-best-experiment öneri sistemi eklendi.
+- ResearchDebt raporu eklendi.
+- ResearchOpportunities raporu eklendi.
+- RoadmapHealth snapshot eklendi.
+- TaskDependencies eklendi.
+- MilestoneTracking eklendi.
+- Offline Task Orchestration Plan eklendi.
+- PlanningQuality report eklendi.
+- ResearchPlanningPipeline eklendi.
+- DataLake research planning kayıt desteği aldı.
+- Research planning scriptleri eklendi.
+- Testler genişletildi.

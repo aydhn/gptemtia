@@ -1551,6 +1551,29 @@ class Settings:
     experiment_allow_rerun_candidates: bool = field(default_factory=lambda: str(os.getenv("EXPERIMENT_ALLOW_RERUN_CANDIDATES", "true")).lower() == "true")
     experiment_tracking_dry_run: bool = field(default_factory=lambda: str(os.getenv("EXPERIMENT_TRACKING_DRY_RUN", "true")).lower() == "true")
 
+    # Research Planning Settings
+    research_planning_enabled: bool = True
+    default_research_planning_profile: str = "balanced_research_planning"
+    research_planning_default_timeframe: str = "1d"
+    research_planning_max_backlog_items: int = 500
+    research_planning_max_next_best_experiments: int = 25
+    research_planning_min_priority_score: float = 0.35
+    research_planning_high_priority_threshold: float = 0.70
+    research_planning_include_governance_signals: bool = True
+    research_planning_include_experiment_signals: bool = True
+    research_planning_include_meta_signals: bool = True
+    research_planning_include_factor_signals: bool = True
+    research_planning_include_portfolio_signals: bool = True
+    research_planning_include_regime_signals: bool = True
+    research_planning_include_validation_signals: bool = True
+    research_planning_include_ml_signals: bool = True
+    research_planning_include_paper_signals: bool = True
+    research_planning_include_observability_signals: bool = True
+    research_planning_save_backlog: bool = True
+    research_planning_save_reports: bool = True
+    research_planning_dry_run: bool = True
+    research_planning_min_quality_score: float = 0.40
+
     def __post_init__(self):
 
 
@@ -2325,6 +2348,31 @@ class Settings:
     experiment_capture_artifact_snapshot: bool = field(default_factory=lambda: str(os.getenv("EXPERIMENT_CAPTURE_ARTIFACT_SNAPSHOT", "true")).lower() == "true")
     experiment_allow_rerun_candidates: bool = field(default_factory=lambda: str(os.getenv("EXPERIMENT_ALLOW_RERUN_CANDIDATES", "true")).lower() == "true")
     experiment_tracking_dry_run: bool = field(default_factory=lambda: str(os.getenv("EXPERIMENT_TRACKING_DRY_RUN", "true")).lower() == "true")
+
+
+
+    # Research Planning Settings
+    research_planning_enabled: bool = True
+    default_research_planning_profile: str = "balanced_research_planning"
+    research_planning_default_timeframe: str = "1d"
+    research_planning_max_backlog_items: int = 500
+    research_planning_max_next_best_experiments: int = 25
+    research_planning_min_priority_score: float = 0.35
+    research_planning_high_priority_threshold: float = 0.70
+    research_planning_include_governance_signals: bool = True
+    research_planning_include_experiment_signals: bool = True
+    research_planning_include_meta_signals: bool = True
+    research_planning_include_factor_signals: bool = True
+    research_planning_include_portfolio_signals: bool = True
+    research_planning_include_regime_signals: bool = True
+    research_planning_include_validation_signals: bool = True
+    research_planning_include_ml_signals: bool = True
+    research_planning_include_paper_signals: bool = True
+    research_planning_include_observability_signals: bool = True
+    research_planning_save_backlog: bool = True
+    research_planning_save_reports: bool = True
+    research_planning_dry_run: bool = True
+    research_planning_min_quality_score: float = 0.40
 
     def __post_init__(self):
 
