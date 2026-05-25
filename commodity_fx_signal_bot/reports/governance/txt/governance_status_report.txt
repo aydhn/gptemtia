@@ -1,0 +1,6 @@
+=== GOVERNANCE STATUS REPORT ===
+Uyari: Bu cikti offline research governance/data lineage raporudur. Canli emir, broker talimati, gercek pozisyon, production compliance onayi veya yatirim tavsiyesi degildir.
+
+Files found: 2
+- governance_status.csv: reports/governance/csv/governance_status.csv
+- governance_status_report.txt: reports/governance/txt/governance_status_report.txt

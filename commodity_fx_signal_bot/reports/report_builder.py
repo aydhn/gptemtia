@@ -3839,3 +3839,34 @@ def build_command_center_status_report(status_df: pd.DataFrame, summary: dict) -
     if status_df is not None and not status_df.empty:
         txt += status_df.to_string(index=False)
     return txt
+
+    def build_performance_profile_text_report(self, summary: dict, runtime_df: pd.DataFrame | None = None, memory_df: pd.DataFrame | None = None) -> str:
+        from performance.performance_report_builder import build_performance_profile_markdown_report
+        return build_performance_profile_markdown_report(summary, runtime_df, memory_df)
+
+    def build_resource_budget_text_report(self, summary: dict, budget_df: pd.DataFrame | None = None, violation_df: pd.DataFrame | None = None) -> str:
+        from performance.performance_report_builder import build_resource_budget_markdown_report
+        return build_resource_budget_markdown_report(summary, budget_df, violation_df)
+
+    def build_cache_strategy_text_report(self, summary: dict, cache_df: pd.DataFrame | None = None, policy_df: pd.DataFrame | None = None) -> str:
+        from performance.performance_report_builder import build_cache_strategy_markdown_report
+        return build_cache_strategy_markdown_report(summary, cache_df, policy_df)
+
+    def build_large_run_stability_text_report(self, summary: dict, stability_df: pd.DataFrame | None = None) -> str:
+        from performance.performance_report_builder import build_large_run_stability_markdown_report
+        return build_large_run_stability_markdown_report(summary, stability_df)
+
+    def build_runtime_optimization_text_report(self, summary: dict, recommendation_df: pd.DataFrame | None = None) -> str:
+        from performance.performance_report_builder import build_runtime_optimization_markdown_report
+        return build_runtime_optimization_markdown_report(summary, recommendation_df)
+
+    def build_performance_status_report(self, status_df: pd.DataFrame, summary: dict) -> str:
+        from performance.performance_report_builder import build_performance_disclaimer
+        txt = "Performance Status Report\n"
+        txt += build_performance_disclaimer()
+        for k, v in summary.items():
+            txt += f"{k}: {v}\n"
+        txt += "\nReports:\n"
+        if not status_df.empty:
+            txt += status_df.to_string(index=False)
+        return txt
