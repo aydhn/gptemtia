@@ -1,101 +1,43 @@
 import argparse
 import sys
-import logging
-import pandas as pd
 from pathlib import Path
 
-from config.paths import ProjectPaths
+# Add project root to Python path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from config.settings import settings
 from data.storage.data_lake import DataLake
-import reports.report_builder as builder
-
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-)
-logger = logging.getLogger(__name__)
-
+from performance.performance_config import get_performance_profile
+from performance.performance_pipeline import PerformancePipeline
 
 def main():
-    parser = argparse.ArgumentParser(
-        description="Check the status of generated performance reports."
-    )
+    parser = argparse.ArgumentParser(description="Run Performance Status Report")
+    parser.add_argument("--profile", type=str, default="balanced_local_performance", help="Performance profile name")
+    parser.add_argument("--save", action="store_true", default=True, help="Save outputs")
+
     args = parser.parse_args()
 
-    logger.info("Checking performance reports status...")
-
-    p = ProjectPaths()
-    data_lake = DataLake(str(p.lake_dir))
-
-    if hasattr(data_lake, "list_performance_reports"):
-        reports_df = data_lake.list_performance_reports()
-    else:
-        logger.error("list_performance_reports not found on DataLake.")
+    print(f"Loading performance profile: {args.profile}")
+    try:
+        profile = get_performance_profile(args.profile)
+    except Exception as e:
+        print(f"Error loading profile: {e}")
         sys.exit(1)
 
-    if reports_df.empty:
-        logger.warning("No performance reports found.")
-        sys.exit(0)
+    project_root = Path(__file__).parent.parent
+    data_lake = DataLake(project_root / "data" / "lake")
 
-    status_records = []
+    print("Initializing Performance Pipeline...")
+    pipeline = PerformancePipeline(data_lake, settings, project_root, profile)
 
-    for _, row in reports_df.iterrows():
-        sym = row["symbol"]
-        tf = row["timeframe"]
-        prof = row["profile"]
+    print("Checking Performance Reports Status...")
+    df, summary = pipeline.build_performance_status(save=args.save)
 
-        summary = data_lake.load_backtest_performance_summary(sym, tf, prof)
-        if not summary:
-            continue
+    print("\n--- Performance Status Summary ---")
+    for k, v in summary.items():
+        print(f"{k}: {v}")
 
-        adv = summary.get("advanced_metrics", {})
-        qual = summary.get("quality_report", {})
-
-        has_bench_file = False
-        if hasattr(data_lake.paths, "backtest_benchmark_comparisons"):
-            bench_path = (
-                data_lake.paths.backtest_benchmark_comparisons
-                / f"{sym}_{tf}_{prof}_benchmark.parquet"
-            )
-            has_bench_file = bench_path.exists()
-
-        status_records.append(
-            {
-                "symbol": sym,
-                "timeframe": tf,
-                "profile": prof,
-                "trade_count": summary.get("trade_count", 0),
-                "total_return_pct": adv.get("total_return_pct", 0.0),
-                "sharpe_ratio": adv.get("sharpe_ratio", 0.0),
-                "max_drawdown_pct": adv.get("max_drawdown_pct", 0.0),
-                "has_benchmark_comparison": has_bench_file,
-                "quality_report_builder = ReportBuilder()ed": qual.get("report_builder = ReportBuilder()ed", False),
-            }
-        )
-
-    status_df = pd.DataFrame(status_records)
-
-    if hasattr(builder, "build_performance_status_report"):
-        report = builder.build_performance_status_report(status_df, {})
-    else:
-        report = "Performance Status:\n" + status_df.to_string()
-
-    print(report)
-
-    out_dir = (
-        p.performance_reports
-        if hasattr(p, "performance_reports")
-        else p.reports_dir / "performance_reports"
-    )
-    out_dir.mkdir(parents=True, exist_ok=True)
-
-    txt_file = out_dir / "performance_status_report.txt"
-    with open(txt_file, "w", encoding="utf-8") as f:
-        f.write(report)
-
-    csv_file = out_dir / "performance_status.csv"
-    status_df.to_csv(csv_file, index=False)
-
-    logger.info(f"Status report saved to {out_dir}")
-
+    print("\nPerformance Status check complete.")
 
 if __name__ == "__main__":
     main()

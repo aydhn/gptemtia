@@ -190,3 +190,20 @@ Source Code / Tests / Scripts / DataLake / Reports / Docs
 → ReleaseManifest
 → ReleaseNotes
 → QualityGatePipeline
+
+## Performance Profiling Flow
+Offline Scripts / Command Registry / DataLake / Reports / Knowledge Index
+→ RuntimeProfiler
+→ MemoryProfiler
+→ CPU/GPU Awareness
+→ ResourceBudget
+→ CacheRegistry
+→ CacheStrategy
+→ CacheInventory
+→ BatchPlanner
+→ Checkpointing
+→ LargeRunStability
+→ BottleneckDetection
+→ OptimizationRecommendations
+→ PerformanceQuality
+→ Performance Reports

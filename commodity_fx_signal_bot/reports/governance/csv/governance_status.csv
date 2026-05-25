@@ -1,0 +1,3 @@
+report_name,path
+governance_status.csv,reports/governance/csv/governance_status.csv
+governance_status_report.txt,reports/governance/txt/governance_status_report.txt

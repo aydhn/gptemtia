@@ -1,135 +1,129 @@
 import os
-import sys
+import re
 
-# Update settings.py
-settings_path = "commodity_fx_signal_bot/config/settings.py"
-with open(settings_path, 'r') as f:
-    settings_content = f.read()
+def update_settings():
+    settings_path = "commodity_fx_signal_bot/config/settings.py"
+    with open(settings_path, "r") as f:
+        content = f.read()
 
-new_settings = """
-    # Governance Settings (Phase 47)
-    governance_enabled: bool = True
-    default_governance_profile: str = "balanced_research_governance"
-    governance_default_timeframe: str = "1d"
-    governance_scan_data_lake: bool = True
-    governance_scan_reports_output: bool = True
-    governance_capture_file_hashes: bool = True
-    governance_capture_schema_fingerprints: bool = True
-    governance_capture_row_counts: bool = True
-    governance_capture_modified_times: bool = True
-    governance_capture_artifact_sizes: bool = True
-    governance_max_file_hash_mb: int = 50
-    governance_lineage_max_depth: int = 8
-    governance_require_provenance_for_research_outputs: bool = True
-    governance_require_fingerprint_for_key_artifacts: bool = True
-    governance_require_audit_trail: bool = True
-    governance_save_inventory: bool = True
-    governance_save_lineage: bool = True
-    governance_save_audit_trail: bool = True
-    governance_save_reports: bool = True
-    governance_min_quality_score: float = 0.40
+    new_settings = """
+    # Performance Profiling and Stability Settings
+    performance_monitoring_enabled: bool = True
+    default_performance_profile: str = "balanced_local_performance"
+    performance_default_timeframe: str = "1d"
+    performance_profile_scripts: bool = True
+    performance_profile_memory: bool = True
+    performance_profile_cpu: bool = True
+    performance_detect_gpu: bool = True
+    performance_allow_gpu_optional: bool = True
+    performance_max_runtime_seconds_per_script: int = 300
+    performance_max_memory_mb_per_script: int = 2048
+    performance_max_batch_symbols: int = 50
+    performance_max_parallel_workers: int = 1
+    performance_enable_cache: bool = True
+    performance_cache_format: str = "parquet_or_csv"
+    performance_cache_ttl_hours: int = 24
+    performance_cache_max_size_mb: int = 2048
+    performance_enable_checkpointing: bool = True
+    performance_checkpoint_every_items: int = 25
+    performance_save_reports: bool = True
+    performance_min_quality_score: float = 0.40
+"""
+    if "performance_monitoring_enabled" not in content:
+        content = content.replace("class Settings(BaseSettings):", "class Settings(BaseSettings):\n" + new_settings)
+
+    with open(settings_path, "w") as f:
+        f.write(content)
+
+def update_env_example():
+    env_path = "commodity_fx_signal_bot/.env.example"
+    with open(env_path, "r") as f:
+        content = f.read()
+
+    new_env = """
+# Performance Profiling
+PERFORMANCE_MONITORING_ENABLED=true
+DEFAULT_PERFORMANCE_PROFILE=balanced_local_performance
+PERFORMANCE_DEFAULT_TIMEFRAME=1d
+PERFORMANCE_PROFILE_SCRIPTS=true
+PERFORMANCE_PROFILE_MEMORY=true
+PERFORMANCE_PROFILE_CPU=true
+PERFORMANCE_DETECT_GPU=true
+PERFORMANCE_ALLOW_GPU_OPTIONAL=true
+PERFORMANCE_MAX_RUNTIME_SECONDS_PER_SCRIPT=300
+PERFORMANCE_MAX_MEMORY_MB_PER_SCRIPT=2048
+PERFORMANCE_MAX_BATCH_SYMBOLS=50
+PERFORMANCE_MAX_PARALLEL_WORKERS=1
+PERFORMANCE_ENABLE_CACHE=true
+PERFORMANCE_CACHE_FORMAT=parquet_or_csv
+PERFORMANCE_CACHE_TTL_HOURS=24
+PERFORMANCE_CACHE_MAX_SIZE_MB=2048
+PERFORMANCE_ENABLE_CHECKPOINTING=true
+PERFORMANCE_CHECKPOINT_EVERY_ITEMS=25
+PERFORMANCE_SAVE_REPORTS=true
+PERFORMANCE_MIN_QUALITY_SCORE=0.40
+"""
+    if "PERFORMANCE_MONITORING_ENABLED" not in content:
+        content += new_env
+
+    with open(env_path, "w") as f:
+        f.write(content)
+
+def update_paths():
+    paths_path = "commodity_fx_signal_bot/config/paths.py"
+    with open(paths_path, "r") as f:
+        content = f.read()
+
+    new_paths = """
+    LAKE_PERFORMANCE = LAKE_DIR / "performance"
+    LAKE_PERFORMANCE_PROFILES = LAKE_PERFORMANCE / "profiles"
+    LAKE_PERFORMANCE_RUNTIME = LAKE_PERFORMANCE / "runtime"
+    LAKE_PERFORMANCE_MEMORY = LAKE_PERFORMANCE / "memory"
+    LAKE_PERFORMANCE_BUDGET = LAKE_PERFORMANCE / "resource_budget"
+    LAKE_PERFORMANCE_CPU_GPU = LAKE_PERFORMANCE / "cpu_gpu"
+    LAKE_PERFORMANCE_CACHE = LAKE_PERFORMANCE / "cache"
+    LAKE_PERFORMANCE_BATCH_PLANS = LAKE_PERFORMANCE / "batch_plans"
+    LAKE_PERFORMANCE_CHECKPOINTS = LAKE_PERFORMANCE / "checkpoints"
+    LAKE_PERFORMANCE_STABILITY = LAKE_PERFORMANCE / "stability"
+    LAKE_PERFORMANCE_BOTTLENECKS = LAKE_PERFORMANCE / "bottlenecks"
+    LAKE_PERFORMANCE_OPTIMIZATION = LAKE_PERFORMANCE / "optimization"
+    LAKE_PERFORMANCE_QUALITY = LAKE_PERFORMANCE / "quality"
+
+    REPORTS_PERFORMANCE = REPORTS_OUTPUT_DIR / "performance"
+    REPORTS_PERFORMANCE_CSV = REPORTS_PERFORMANCE / "csv"
+    REPORTS_PERFORMANCE_MARKDOWN = REPORTS_PERFORMANCE / "markdown"
+    REPORTS_PERFORMANCE_TXT = REPORTS_PERFORMANCE / "txt"
+    REPORTS_PERFORMANCE_JSON = REPORTS_PERFORMANCE / "json"
+"""
+    new_dirs = """
+        cls.LAKE_PERFORMANCE,
+        cls.LAKE_PERFORMANCE_PROFILES,
+        cls.LAKE_PERFORMANCE_RUNTIME,
+        cls.LAKE_PERFORMANCE_MEMORY,
+        cls.LAKE_PERFORMANCE_BUDGET,
+        cls.LAKE_PERFORMANCE_CPU_GPU,
+        cls.LAKE_PERFORMANCE_CACHE,
+        cls.LAKE_PERFORMANCE_BATCH_PLANS,
+        cls.LAKE_PERFORMANCE_CHECKPOINTS,
+        cls.LAKE_PERFORMANCE_STABILITY,
+        cls.LAKE_PERFORMANCE_BOTTLENECKS,
+        cls.LAKE_PERFORMANCE_OPTIMIZATION,
+        cls.LAKE_PERFORMANCE_QUALITY,
+        cls.REPORTS_PERFORMANCE,
+        cls.REPORTS_PERFORMANCE_CSV,
+        cls.REPORTS_PERFORMANCE_MARKDOWN,
+        cls.REPORTS_PERFORMANCE_TXT,
+        cls.REPORTS_PERFORMANCE_JSON,
 """
 
-if "governance_enabled: bool" not in settings_content:
-    # Find a good place to insert, e.g. after experiment_tracking_enabled
-    insert_point = settings_content.find("experiment_tracking_enabled: bool")
-    if insert_point != -1:
-        # Find the end of that line
-        end_of_line = settings_content.find("\n", insert_point)
-        settings_content = settings_content[:end_of_line+1] + new_settings + settings_content[end_of_line+1:]
-        with open(settings_path, 'w') as f:
-            f.write(settings_content)
-        print("Updated settings.py")
-    else:
-        print("Could not find insert point in settings.py")
+    if "LAKE_PERFORMANCE" not in content:
+        content = re.sub(r'(LAKE_REPORTS_.*?\n)', r'\1' + new_paths, content, count=1)
+        content = re.sub(r'(cls\.LAKE_REPORTS_.*?,)', r'\1' + new_dirs, content, count=1)
 
-# Update paths.py
-paths_path = "commodity_fx_signal_bot/config/paths.py"
-with open(paths_path, 'r') as f:
-    paths_content = f.read()
+    with open(paths_path, "w") as f:
+        f.write(content)
 
-new_paths = """
-# Governance Paths
-DATA_LAKE_GOVERNANCE_DIR = DATA_LAKE_DIR / "governance"
-DATA_LAKE_GOVERNANCE_INVENTORY_DIR = DATA_LAKE_GOVERNANCE_DIR / "inventory"
-DATA_LAKE_GOVERNANCE_FINGERPRINTS_DIR = DATA_LAKE_GOVERNANCE_DIR / "fingerprints"
-DATA_LAKE_GOVERNANCE_PROVENANCE_DIR = DATA_LAKE_GOVERNANCE_DIR / "provenance"
-DATA_LAKE_GOVERNANCE_LINEAGE_DIR = DATA_LAKE_GOVERNANCE_DIR / "lineage"
-DATA_LAKE_GOVERNANCE_DEPENDENCIES_DIR = DATA_LAKE_GOVERNANCE_DIR / "dependencies"
-DATA_LAKE_GOVERNANCE_AUDIT_DIR = DATA_LAKE_GOVERNANCE_DIR / "audit"
-DATA_LAKE_GOVERNANCE_SOURCE_ATTRIBUTION_DIR = DATA_LAKE_GOVERNANCE_DIR / "source_attribution"
-DATA_LAKE_GOVERNANCE_CHECKLISTS_DIR = DATA_LAKE_GOVERNANCE_DIR / "checklists"
-DATA_LAKE_GOVERNANCE_QUALITY_DIR = DATA_LAKE_GOVERNANCE_DIR / "quality"
-
-REPORTS_GOVERNANCE_DIR = REPORTS_OUTPUT_DIR / "governance"
-REPORTS_GOVERNANCE_CSV_DIR = REPORTS_GOVERNANCE_DIR / "csv"
-REPORTS_GOVERNANCE_MARKDOWN_DIR = REPORTS_GOVERNANCE_DIR / "markdown"
-REPORTS_GOVERNANCE_TXT_DIR = REPORTS_GOVERNANCE_DIR / "txt"
-REPORTS_GOVERNANCE_JSON_DIR = REPORTS_GOVERNANCE_DIR / "json"
-"""
-
-if "DATA_LAKE_GOVERNANCE_DIR" not in paths_content:
-    paths_content += "\n" + new_paths
-
-    # Also update ensure_project_directories
-    ensure_func_start = paths_content.find("def ensure_project_directories():")
-    if ensure_func_start != -1:
-        # Find the list of directories
-        dirs_start = paths_content.find("directories = [", ensure_func_start)
-        if dirs_start != -1:
-            dirs_end = paths_content.find("]", dirs_start)
-            dirs_list = paths_content[dirs_start:dirs_end]
-
-            new_dirs = """,
-        DATA_LAKE_GOVERNANCE_DIR,
-        DATA_LAKE_GOVERNANCE_INVENTORY_DIR,
-        DATA_LAKE_GOVERNANCE_FINGERPRINTS_DIR,
-        DATA_LAKE_GOVERNANCE_PROVENANCE_DIR,
-        DATA_LAKE_GOVERNANCE_LINEAGE_DIR,
-        DATA_LAKE_GOVERNANCE_DEPENDENCIES_DIR,
-        DATA_LAKE_GOVERNANCE_AUDIT_DIR,
-        DATA_LAKE_GOVERNANCE_SOURCE_ATTRIBUTION_DIR,
-        DATA_LAKE_GOVERNANCE_CHECKLISTS_DIR,
-        DATA_LAKE_GOVERNANCE_QUALITY_DIR,
-        REPORTS_GOVERNANCE_DIR,
-        REPORTS_GOVERNANCE_CSV_DIR,
-        REPORTS_GOVERNANCE_MARKDOWN_DIR,
-        REPORTS_GOVERNANCE_TXT_DIR,
-        REPORTS_GOVERNANCE_JSON_DIR"""
-
-            paths_content = paths_content[:dirs_end] + new_dirs + paths_content[dirs_end:]
-            with open(paths_path, 'w') as f:
-                f.write(paths_content)
-            print("Updated paths.py")
-        else:
-            print("Could not find directories list in paths.py")
-    else:
-        print("Could not find ensure_project_directories in paths.py")
-
-# Update .env.example
-env_path = "commodity_fx_signal_bot/.env.example"
-with open(env_path, 'a') as f:
-    f.write("""
-# Governance Settings
-GOVERNANCE_ENABLED=true
-DEFAULT_GOVERNANCE_PROFILE=balanced_research_governance
-GOVERNANCE_DEFAULT_TIMEFRAME=1d
-GOVERNANCE_SCAN_DATA_LAKE=true
-GOVERNANCE_SCAN_REPORTS_OUTPUT=true
-GOVERNANCE_CAPTURE_FILE_HASHES=true
-GOVERNANCE_CAPTURE_SCHEMA_FINGERPRINTS=true
-GOVERNANCE_CAPTURE_ROW_COUNTS=true
-GOVERNANCE_CAPTURE_MODIFIED_TIMES=true
-GOVERNANCE_CAPTURE_ARTIFACT_SIZES=true
-GOVERNANCE_MAX_FILE_HASH_MB=50
-GOVERNANCE_LINEAGE_MAX_DEPTH=8
-GOVERNANCE_REQUIRE_PROVENANCE_FOR_RESEARCH_OUTPUTS=true
-GOVERNANCE_REQUIRE_FINGERPRINT_FOR_KEY_ARTIFACTS=true
-GOVERNANCE_REQUIRE_AUDIT_TRAIL=true
-GOVERNANCE_SAVE_INVENTORY=true
-GOVERNANCE_SAVE_LINEAGE=true
-GOVERNANCE_SAVE_AUDIT_TRAIL=true
-GOVERNANCE_SAVE_REPORTS=true
-GOVERNANCE_MIN_QUALITY_SCORE=0.40
-""")
-print("Updated .env.example")
+if __name__ == "__main__":
+    update_settings()
+    update_env_example()
+    update_paths()
