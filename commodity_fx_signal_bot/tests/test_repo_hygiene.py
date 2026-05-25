@@ -1,13 +1,40 @@
-from devtools.repo_hygiene import check_required_files, check_required_directories, check_gitignore_hygiene, check_large_files, check_empty_init_files
-from devtools.dev_config import get_default_dev_experience_profile
+import pandas as pd
+from pathlib import Path
+from quality_gates.repo_hygiene import (
+    check_required_directories,
+    check_required_docs,
+    check_python_file_hygiene,
+    check_large_files,
+    check_empty_or_placeholder_files,
+    check_duplicate_script_names,
+    build_repo_hygiene_report
+)
 
-def test_repo_hygiene_checks(tmp_path):
-    profile = get_default_dev_experience_profile()
-    c1, _ = check_required_files(tmp_path, profile)
-    assert len(c1) > 0
+def test_check_required_directories():
+    df = check_required_directories(Path("."))
+    assert isinstance(df, pd.DataFrame)
 
-    c2, _ = check_required_directories(tmp_path)
-    assert len(c2) > 0
+def test_check_required_docs():
+    df = check_required_docs(Path("."))
+    assert isinstance(df, pd.DataFrame)
 
-    c3, _ = check_gitignore_hygiene(tmp_path)
-    assert len(c3) > 0
+def test_check_python_file_hygiene():
+    df = check_python_file_hygiene(Path("."))
+    assert isinstance(df, pd.DataFrame)
+
+def test_check_large_files():
+    df = check_large_files(Path("."))
+    assert isinstance(df, pd.DataFrame)
+
+def test_check_empty_or_placeholder_files():
+    df = check_empty_or_placeholder_files(Path("."))
+    assert isinstance(df, pd.DataFrame)
+
+def test_check_duplicate_script_names():
+    df = check_duplicate_script_names(Path("."))
+    assert isinstance(df, pd.DataFrame)
+
+def test_build_repo_hygiene_report():
+    df, summary = build_repo_hygiene_report(Path("."))
+    assert isinstance(df, pd.DataFrame)
+    assert isinstance(summary, dict)

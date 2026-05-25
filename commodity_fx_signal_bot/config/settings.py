@@ -1623,7 +1623,35 @@ class Settings:
     command_center_save_reports: bool = field(default_factory=lambda: str(os.getenv("COMMAND_CENTER_SAVE_REPORTS", "true")).lower() == "true")
     command_center_min_quality_score: float = field(default_factory=lambda: float(os.getenv("COMMAND_CENTER_MIN_QUALITY_SCORE", "0.40")))
 
+
+    # Phase 51: Quality Gates
+    quality_gates_enabled: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATES_ENABLED", "true")).lower() == "true")
+    default_quality_gate_profile: str = field(default_factory=lambda: os.getenv("DEFAULT_QUALITY_GATE_PROFILE", "balanced_local_quality_gate"))
+    quality_gate_default_timeframe: str = field(default_factory=lambda: os.getenv("QUALITY_GATE_DEFAULT_TIMEFRAME", "1d"))
+    quality_gate_run_pytest: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_RUN_PYTEST", "true")).lower() == "true")
+    quality_gate_run_import_validation: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_RUN_IMPORT_VALIDATION", "true")).lower() == "true")
+    quality_gate_run_static_safety_scan: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_RUN_STATIC_SAFETY_SCAN", "true")).lower() == "true")
+    quality_gate_run_repo_hygiene: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_RUN_REPO_HYGIENE", "true")).lower() == "true")
+    quality_gate_run_dependency_audit: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_RUN_DEPENDENCY_AUDIT", "true")).lower() == "true")
+    quality_gate_run_smoke_tests: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_RUN_SMOKE_TESTS", "true")).lower() == "true")
+    quality_gate_run_output_contracts: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_RUN_OUTPUT_CONTRACTS", "true")).lower() == "true")
+    quality_gate_run_documentation_coverage: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_RUN_DOCUMENTATION_COVERAGE", "true")).lower() == "true")
+    quality_gate_max_test_runtime_seconds: int = field(default_factory=lambda: int(os.getenv("QUALITY_GATE_MAX_TEST_RUNTIME_SECONDS", "900")))
+    quality_gate_allow_network_calls: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_ALLOW_NETWORK_CALLS", "false")).lower() == "true")
+    quality_gate_allow_live_commands: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_ALLOW_LIVE_COMMANDS", "false")).lower() == "true")
+    quality_gate_allow_broker_commands: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_ALLOW_BROKER_COMMANDS", "false")).lower() == "true")
+    quality_gate_allow_deploy_commands: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_ALLOW_DEPLOY_COMMANDS", "false")).lower() == "true")
+    quality_gate_allow_background_daemons: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_ALLOW_BACKGROUND_DAEMONS", "false")).lower() == "true")
+    quality_gate_min_pass_rate: float = field(default_factory=lambda: float(os.getenv("QUALITY_GATE_MIN_PASS_RATE", "0.85")))
+    quality_gate_min_quality_score: float = field(default_factory=lambda: float(os.getenv("QUALITY_GATE_MIN_QUALITY_SCORE", "0.40")))
+    release_candidate_enabled: bool = field(default_factory=lambda: str(os.getenv("RELEASE_CANDIDATE_ENABLED", "true")).lower() == "true")
+    release_candidate_dry_run: bool = field(default_factory=lambda: str(os.getenv("RELEASE_CANDIDATE_DRY_RUN", "true")).lower() == "true")
+    release_candidate_include_reports: bool = field(default_factory=lambda: str(os.getenv("RELEASE_CANDIDATE_INCLUDE_REPORTS", "true")).lower() == "true")
+    release_candidate_include_docs: bool = field(default_factory=lambda: str(os.getenv("RELEASE_CANDIDATE_INCLUDE_DOCS", "true")).lower() == "true")
+    release_candidate_include_manifests: bool = field(default_factory=lambda: str(os.getenv("RELEASE_CANDIDATE_INCLUDE_MANIFESTS", "true")).lower() == "true")
+
     def __post_init__(self):
+
 
 
 
@@ -2472,7 +2500,35 @@ class Settings:
     command_center_save_reports: bool = field(default_factory=lambda: str(os.getenv("COMMAND_CENTER_SAVE_REPORTS", "true")).lower() == "true")
     command_center_min_quality_score: float = field(default_factory=lambda: float(os.getenv("COMMAND_CENTER_MIN_QUALITY_SCORE", "0.40")))
 
+
+    # Phase 51: Quality Gates
+    quality_gates_enabled: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATES_ENABLED", "true")).lower() == "true")
+    default_quality_gate_profile: str = field(default_factory=lambda: os.getenv("DEFAULT_QUALITY_GATE_PROFILE", "balanced_local_quality_gate"))
+    quality_gate_default_timeframe: str = field(default_factory=lambda: os.getenv("QUALITY_GATE_DEFAULT_TIMEFRAME", "1d"))
+    quality_gate_run_pytest: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_RUN_PYTEST", "true")).lower() == "true")
+    quality_gate_run_import_validation: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_RUN_IMPORT_VALIDATION", "true")).lower() == "true")
+    quality_gate_run_static_safety_scan: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_RUN_STATIC_SAFETY_SCAN", "true")).lower() == "true")
+    quality_gate_run_repo_hygiene: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_RUN_REPO_HYGIENE", "true")).lower() == "true")
+    quality_gate_run_dependency_audit: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_RUN_DEPENDENCY_AUDIT", "true")).lower() == "true")
+    quality_gate_run_smoke_tests: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_RUN_SMOKE_TESTS", "true")).lower() == "true")
+    quality_gate_run_output_contracts: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_RUN_OUTPUT_CONTRACTS", "true")).lower() == "true")
+    quality_gate_run_documentation_coverage: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_RUN_DOCUMENTATION_COVERAGE", "true")).lower() == "true")
+    quality_gate_max_test_runtime_seconds: int = field(default_factory=lambda: int(os.getenv("QUALITY_GATE_MAX_TEST_RUNTIME_SECONDS", "900")))
+    quality_gate_allow_network_calls: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_ALLOW_NETWORK_CALLS", "false")).lower() == "true")
+    quality_gate_allow_live_commands: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_ALLOW_LIVE_COMMANDS", "false")).lower() == "true")
+    quality_gate_allow_broker_commands: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_ALLOW_BROKER_COMMANDS", "false")).lower() == "true")
+    quality_gate_allow_deploy_commands: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_ALLOW_DEPLOY_COMMANDS", "false")).lower() == "true")
+    quality_gate_allow_background_daemons: bool = field(default_factory=lambda: str(os.getenv("QUALITY_GATE_ALLOW_BACKGROUND_DAEMONS", "false")).lower() == "true")
+    quality_gate_min_pass_rate: float = field(default_factory=lambda: float(os.getenv("QUALITY_GATE_MIN_PASS_RATE", "0.85")))
+    quality_gate_min_quality_score: float = field(default_factory=lambda: float(os.getenv("QUALITY_GATE_MIN_QUALITY_SCORE", "0.40")))
+    release_candidate_enabled: bool = field(default_factory=lambda: str(os.getenv("RELEASE_CANDIDATE_ENABLED", "true")).lower() == "true")
+    release_candidate_dry_run: bool = field(default_factory=lambda: str(os.getenv("RELEASE_CANDIDATE_DRY_RUN", "true")).lower() == "true")
+    release_candidate_include_reports: bool = field(default_factory=lambda: str(os.getenv("RELEASE_CANDIDATE_INCLUDE_REPORTS", "true")).lower() == "true")
+    release_candidate_include_docs: bool = field(default_factory=lambda: str(os.getenv("RELEASE_CANDIDATE_INCLUDE_DOCS", "true")).lower() == "true")
+    release_candidate_include_manifests: bool = field(default_factory=lambda: str(os.getenv("RELEASE_CANDIDATE_INCLUDE_MANIFESTS", "true")).lower() == "true")
+
     def __post_init__(self):
+
 
 
 

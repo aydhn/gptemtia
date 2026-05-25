@@ -845,3 +845,27 @@ python -m scripts.run_project_consolidation_report
 python -m scripts.run_analyst_command_query --query "GC=F için hangi raporları çalıştırmalıyım?"
 python -m scripts.run_command_center_status
 ```
+
+
+## Quality Gates, Local CI Validation and Release Candidate Preparation
+
+The system includes an offline local validation and quality gate layer to ensure the safety and reliability of the codebase without connecting to any live execution system.
+
+Important concepts:
+- Quality gates are not production CI pipelines; they run locally and offline.
+- A passed quality gate or "ready" release candidate label (`rc_ready_offline`) does NOT represent an approval for live trading, model deployment, or investment advice.
+- The static safety scanner actively checks for forbidden patterns, such as live orders, background loops, or data scrapers.
+- Smoke tests only execute offline, read-only commands without connecting to brokers or network instances.
+
+Commands for quality checking:
+- `python -m scripts.run_local_ci_validation`
+- `python -m scripts.run_test_health_report`
+- `python -m scripts.run_import_graph_report`
+- `python -m scripts.run_repo_hygiene_report`
+- `python -m scripts.run_dependency_audit_report`
+- `python -m scripts.run_static_safety_scan`
+- `python -m scripts.run_smoke_test_report`
+- `python -m scripts.run_release_candidate_report`
+- `python -m scripts.run_release_quality_gate_status`
+
+Reports are saved to `data/lake/quality_gates` and `reports/output/quality_gates`.
