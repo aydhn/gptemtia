@@ -1,12 +1,12 @@
-feat(knowledge_base): implement offline research memory and analyst workspace
+feat: Implement Phase 50 Offline Analyst Command Center
 
-- Implemented `KnowledgeDocumentDiscovery` for scanning files without active execution.
-- Added text extraction with sensitive data masking and token estimation.
-- Integrated NLP chunking for structured index generation.
-- Created `KnowledgeIndex` enabling search via symbol, module, and keywords.
-- Built TF-IDF and simple Fuzzy retrieval algorithms, merging them via `HybridRetrieval`.
-- Designed memory cards (Symbol, Hypothesis, Governance, Warning, Planning).
-- Added Decision Journal mechanism for offline tracking without live execution implications.
-- Developed `ResearchQueryEngine` for extracting QA with source mapping.
-- Handled reporting (`FindingsDigest`, `WorkspaceSummary`, `KBQuality`) providing strict local disclaimers ensuring no live-trade conflations.
-- Handled settings, paths, datalake saving, featurestore loading, and required reporting tests.
+- Added command_center module with profile, label, and safety validation
+- Implemented safe command registry for offline commands
+- Created guided workflow, runbook, and dry-run planner models and registries
+- Built project status, module health, script discovery, and phase coverage generators
+- Developed onboarding guide and troubleshooting runbooks for offline use
+- Integrated Command Center output storage with DataLake and FeatureStore
+- Implemented Command Center Pipeline for report generation (MD, TXT, CSV)
+- Added CLI scripts for generating CC status, workflow, runbook, and query reports
+- Updated README, ARCHITECTURE, and PHASE_LOG
+- Added comprehensive unit tests for all CC modules
