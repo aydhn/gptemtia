@@ -172,3 +172,21 @@ All Offline Modules / Scripts / Reports / DataLake / Knowledge Base
 -> Troubleshooting
 -> CommandQuality
 -> Offline Analyst Command Center Reports
+
+
+### Quality Gates Pipeline
+Source Code / Tests / Scripts / DataLake / Reports / Docs
+→ TestDiscovery
+→ TestHealth
+→ ImportGraph
+→ StaticSafetyScan
+→ RepoHygiene
+→ DependencyAudit
+→ SmokeTests
+→ OutputContracts
+→ DocumentationCoverage
+→ LocalCIRunner
+→ ReleaseChecklist
+→ ReleaseManifest
+→ ReleaseNotes
+→ QualityGatePipeline
