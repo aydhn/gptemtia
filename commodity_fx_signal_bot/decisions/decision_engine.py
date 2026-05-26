@@ -111,7 +111,7 @@ class DecisionEngine:
             detect_mtf_decision_conflict(context_frames, timestamp, dominant_bias),
             detect_macro_decision_conflict(context_frames, timestamp, dominant_bias),
             detect_asset_profile_conflict(context_frames, timestamp, candidate_type),
-            detect_ml_decision_conflict(context_frames, timestamp, target_direction),
+            detect_ml_decision_conflict(context_frames, timestamp, dominant_bias),
     ]
 
         conflict_summary = aggregate_decision_conflicts(conflicts)

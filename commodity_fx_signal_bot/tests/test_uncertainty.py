@@ -10,7 +10,7 @@ def test_calculate_probability_entropy():
     assert calculate_probability_entropy({"up": 0.5, "down": 0.5}) == 1.0
 
 def test_calculate_margin_confidence():
-    assert calculate_margin_confidence({"up": 0.8, "down": 0.2}) == 0.6
+    assert abs(calculate_margin_confidence({"up": 0.8, "down": 0.2}) - 0.6) < 0.001
     assert calculate_margin_confidence({"up": 0.5, "down": 0.5}) == 0.0
 
 def test_calculate_ensemble_disagreement():

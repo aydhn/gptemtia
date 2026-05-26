@@ -13,7 +13,7 @@ def test_normalize_regression_score():
     assert normalize_regression_score(0.0) == 0.5
     assert normalize_regression_score(0.05) == 1.0
     assert normalize_regression_score(-0.05) == 0.0
-    assert normalize_regression_score(0.025) == 0.75
+    assert abs(normalize_regression_score(0.025) - 0.75) < 0.001
 
     # With reference volatility
     assert normalize_regression_score(0.0, 0.02) == 0.5

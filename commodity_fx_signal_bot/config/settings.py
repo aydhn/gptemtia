@@ -69,9 +69,29 @@ class Settings:
     )
 
     # Data Lake Settings
-    data_lake_enabled: bool = field(
-        default_factory=lambda: os.getenv("DATA_LAKE_ENABLED", "true").lower() == "true"
-    )
+    data_lake_enabled: bool = field(default_factory=lambda: os.getenv("DATA_LAKE_ENABLED", "true").lower() == "true")
+
+    # Documentation Pack
+    documentation_pack_enabled: bool = field(default_factory=lambda: str(os.getenv("DOCUMENTATION_PACK_ENABLED", "true")).lower() == "true")
+    default_documentation_profile: str = field(default_factory=lambda: os.getenv("DEFAULT_DOCUMENTATION_PROFILE", "balanced_documentation_pack"))
+    documentation_default_language: str = field(default_factory=lambda: os.getenv("DOCUMENTATION_DEFAULT_LANGUAGE", "tr"))
+    documentation_generate_user_guide: bool = field(default_factory=lambda: str(os.getenv("DOCUMENTATION_GENERATE_USER_GUIDE", "true")).lower() == "true")
+    documentation_generate_operator_manual: bool = field(default_factory=lambda: str(os.getenv("DOCUMENTATION_GENERATE_OPERATOR_MANUAL", "true")).lower() == "true")
+    documentation_generate_analyst_handbook: bool = field(default_factory=lambda: str(os.getenv("DOCUMENTATION_GENERATE_ANALYST_HANDBOOK", "true")).lower() == "true")
+    documentation_generate_developer_guide: bool = field(default_factory=lambda: str(os.getenv("DOCUMENTATION_GENERATE_DEVELOPER_GUIDE", "true")).lower() == "true")
+    documentation_generate_codex_agent_guide: bool = field(default_factory=lambda: str(os.getenv("DOCUMENTATION_GENERATE_CODEX_AGENT_GUIDE", "true")).lower() == "true")
+    documentation_generate_safe_usage_guide: bool = field(default_factory=lambda: str(os.getenv("DOCUMENTATION_GENERATE_SAFE_USAGE_GUIDE", "true")).lower() == "true")
+    documentation_generate_troubleshooting: bool = field(default_factory=lambda: str(os.getenv("DOCUMENTATION_GENERATE_TROUBLESHOOTING", "true")).lower() == "true")
+    documentation_generate_references: bool = field(default_factory=lambda: str(os.getenv("DOCUMENTATION_GENERATE_REFERENCES", "true")).lower() == "true")
+    documentation_check_internal_links: bool = field(default_factory=lambda: str(os.getenv("DOCUMENTATION_CHECK_INTERNAL_LINKS", "true")).lower() == "true")
+    documentation_check_safety_language: bool = field(default_factory=lambda: str(os.getenv("DOCUMENTATION_CHECK_SAFETY_LANGUAGE", "true")).lower() == "true")
+    documentation_check_consistency: bool = field(default_factory=lambda: str(os.getenv("DOCUMENTATION_CHECK_CONSISTENCY", "true")).lower() == "true")
+    documentation_require_disclaimers: bool = field(default_factory=lambda: str(os.getenv("DOCUMENTATION_REQUIRE_DISCLAIMERS", "true")).lower() == "true")
+    documentation_require_no_investment_advice: bool = field(default_factory=lambda: str(os.getenv("DOCUMENTATION_REQUIRE_NO_INVESTMENT_ADVICE", "true")).lower() == "true")
+    documentation_require_no_live_trading_language: bool = field(default_factory=lambda: str(os.getenv("DOCUMENTATION_REQUIRE_NO_LIVE_TRADING_LANGUAGE", "true")).lower() == "true")
+    documentation_save_reports: bool = field(default_factory=lambda: str(os.getenv("DOCUMENTATION_SAVE_REPORTS", "true")).lower() == "true")
+    documentation_min_quality_score: float = field(default_factory=lambda: float(os.getenv("DOCUMENTATION_MIN_QUALITY_SCORE", "0.40")))
+
     data_lake_format: str = field(
         default_factory=lambda: os.getenv("DATA_LAKE_FORMAT", "parquet")
     )
