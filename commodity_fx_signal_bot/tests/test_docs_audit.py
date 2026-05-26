@@ -1,3 +1,6 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parent.parent))
 from devtools.docs_audit import check_required_docs, check_docs_nonempty, check_readme_sections, check_docs_for_forbidden_trade_language
 from devtools.dev_config import get_default_dev_experience_profile
 

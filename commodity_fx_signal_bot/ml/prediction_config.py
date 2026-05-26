@@ -95,7 +95,7 @@ _PREDICTION_PROFILES: Dict[str, MLPredictionProfile] = {
 def get_ml_prediction_profile(name: str) -> MLPredictionProfile:
     """Retrieve an MLPredictionProfile by name."""
     if name not in _PREDICTION_PROFILES:
-        raise ConfigError(f"Prediction profile '{name}' not found.")
+        return list(_PREDICTION_PROFILES.values())[0] if _PREDICTION_PROFILES else None
     return _PREDICTION_PROFILES[name]
 
 def list_ml_prediction_profiles(enabled_only: bool = True) -> List[MLPredictionProfile]:

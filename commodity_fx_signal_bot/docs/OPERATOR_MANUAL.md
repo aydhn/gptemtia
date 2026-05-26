@@ -1,0 +1,62 @@
+<!-- AUTO-GENERATED SECTION START -->
+# Operatör El Kitabı (Operator Manual)
+
+> **UYARI / YASAL BİLDİRİM**
+> Bu doküman ve açıklanan sistem yalnızca **offline/local araştırma platformu** kullanımını açıklar.
+> Bu proje bir canlı alım-satım botu değildir. Gerçek emir göndermez, canlı sinyal üretmez, broker talimatı vermez ve gerçek pozisyon yönetmez.
+> Model deployment, production scheduler veya otomatik trade özellikleri içermez.
+> Bu projede üretilen hiçbir rapor veya sinyal **yatırım tavsiyesi değildir**.
+> Eğitim, araştırma ve kağıt üzerinde test (paper trading) amacıyla geliştirilmiştir.
+
+
+## Amaç
+Bu kılavuz, sistemi çalıştıran, bakımını yapan ve rutin görevleri (veri güncelleme, raporlama, log takibi) yürüten teknik operatörler içindir.
+
+## Kapsam
+Veri pipeline'ı, hata ayıklama (troubleshooting), log yönetimi, sistem sağlığı kontrolleri ve Command Center kullanımı.
+
+
+## Güvenlik Sınırları (Safety Boundaries)
+
+Sistemin tasarımı gereği aşılmaması gereken sınırlar:
+1. **Canlı Emir Yasağı:** Sistem broker API'lerine emir gönderecek kod içermez.
+2. **Yatırım Tavsiyesi Yoktur:** Üretilen kararlar kesinlik bildirmez, araştırma hipotezidir.
+3. **Daemon/Cron Yasağı:** Sistem sonsuz döngüde veya arka planda sessizce çalışacak şekilde tasarlanmamıştır. Manuel veya kontrollü script execution gerektirir.
+4. **Web Dashboard Yok:** Dışarıya açık web sunucusu (Streamlit, Flask vb.) barındırmaz.
+5. **Scraping Yasağı:** Selenium, Playwright veya BeautifulSoup ile veri kazıma işlemi yapmaz; sadece resmi/ücretsiz veri API'lerini kullanır.
+
+
+## Kullanım Örnekleri
+- `make dx` ile developer experience toollarını çalıştırma.
+- Sağlık durumunu kontrol etme (`run_system_healthcheck.py`).
+
+## Üretilen Çıktılar
+- Observability metrikleri
+- DataLake manifestoları
+
+
+## Kapsam Dışı (Out of Scope)
+
+Aşağıdaki özellikler kasıtlı olarak sisteme **dahil edilmemiştir**:
+- Gerçek para ile işlem (Live Trading)
+- Otonom (kendi kendine çalışan) üretim dağıtımı (Production Deployment)
+- Otomatik alım-satım onayları (Auto Trade Approvals)
+- Kar garantisi veya riskten arındırılmış getiri iddiaları
+
+
+## Sık Hatalar
+- Disk dolması nedeniyle DataLake hataları.
+- API limitlerine (rate limit) takılma.
+
+## İlgili Komutlar
+- `python -m scripts.run_system_healthcheck`
+- `python -m scripts.run_observability_status`
+
+## İlgili Klasörler
+- `logs/`
+- `data/lake/`
+
+## Uyarılar
+Sistemi üretim ortamı gibi değil, bir laboratuvar ortamı gibi yönetin.
+
+<!-- AUTO-GENERATED SECTION END -->

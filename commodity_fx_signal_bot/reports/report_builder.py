@@ -3953,3 +3953,81 @@ def build_command_center_status_report(status_df: pd.DataFrame, summary: dict) -
         rep += "=========================\n\n"
         rep += f"Status: {summary.get('status', 'OK')}\n"
         return rep
+
+def build_documentation_pack_text_report(summary: dict, docs_df) -> str:
+    lines = [
+        "DOCUMENTATION PACK REPORT",
+        "=" * 50,
+        "UYARI: Bu çıktı offline/local documentation pack raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.",
+        "-" * 50,
+        f"Profile: {summary.get('profile', 'Unknown')}",
+        f"Quality Score: {summary.get('quality_score', 0.0):.2f}",
+        "-" * 50
+    ]
+    if docs_df is not None and not docs_df.empty:
+        for _, row in docs_df.iterrows():
+            lines.append(f"{row['relative_path']}: {row['document_type']} ({row['status']})")
+    return "\n".join(lines)
+
+def build_documentation_quality_text_report(summary: dict, quality: dict | None = None) -> str:
+    if quality is None:
+         quality = {}
+    lines = [
+        "DOCUMENTATION QUALITY REPORT",
+        "=" * 50,
+        "UYARI: Bu çıktı offline/local documentation pack raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.",
+        "-" * 50,
+        f"Status: {'PASSED' if quality.get('passed') else 'FAILED'}",
+        f"Warnings: {quality.get('warning_count', 0)}",
+        "-" * 50
+    ]
+    warnings = quality.get("warnings", [])
+    if warnings:
+        lines.append("Warnings Details:")
+        for w in warnings:
+             lines.append(f" - {w}")
+    return "\n".join(lines)
+
+def build_safe_usage_docs_text_report(summary: dict, safety_df) -> str:
+    lines = [
+        "SAFE USAGE DOCS REPORT",
+        "=" * 50,
+        "UYARI: Bu çıktı offline/local documentation pack raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.",
+        "-" * 50
+    ]
+    if safety_df is not None and not safety_df.empty:
+        lines.append(safety_df.to_string())
+    return "\n".join(lines)
+
+def build_script_reference_text_report(summary: dict, scripts_df) -> str:
+    lines = [
+        "SCRIPT REFERENCE REPORT",
+        "=" * 50,
+        "UYARI: Bu çıktı offline/local documentation pack raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.",
+        "-" * 50
+    ]
+    if scripts_df is not None and not scripts_df.empty:
+        lines.append(scripts_df.to_string())
+    return "\n".join(lines)
+
+def build_output_reference_text_report(summary: dict, outputs_df) -> str:
+    lines = [
+        "OUTPUT REFERENCE REPORT",
+        "=" * 50,
+        "UYARI: Bu çıktı offline/local documentation pack raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.",
+        "-" * 50
+    ]
+    if outputs_df is not None and not outputs_df.empty:
+        lines.append(outputs_df.to_string())
+    return "\n".join(lines)
+
+def build_documentation_status_report(status_df, summary: dict) -> str:
+    lines = [
+        "DOCUMENTATION STATUS REPORT",
+        "=" * 50,
+        "UYARI: Bu çıktı offline/local documentation pack raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.",
+        "-" * 50
+    ]
+    if status_df is not None and not status_df.empty:
+        lines.append(status_df.to_string())
+    return "\n".join(lines)

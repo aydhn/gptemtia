@@ -1,3 +1,6 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parent.parent))
 from pathlib import Path
 from knowledge_base.document_discovery import KnowledgeDocumentDiscovery
 from knowledge_base.kb_config import get_default_knowledge_base_profile

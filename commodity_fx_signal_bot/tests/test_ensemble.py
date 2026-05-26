@@ -20,4 +20,4 @@ def test_ensemble_classification():
     assert res.iloc[0]["ensemble_model_count"] == 2
     assert res.iloc[0]["ensemble_predicted_direction"] == "predicted_up"
     assert res.iloc[0]["ensemble_confidence_score"] == 0.7
-    assert res.iloc[0]["ensemble_disagreement_score"] == 0.3
+    assert abs(res.iloc[0]["ensemble_disagreement_score"] - 0.3) < 0.001

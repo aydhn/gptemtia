@@ -1,3 +1,6 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parent.parent))
 import pandas as pd
 from pathlib import Path
 from quality_gates.documentation_coverage import (

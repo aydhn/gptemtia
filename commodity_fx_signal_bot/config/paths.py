@@ -661,6 +661,22 @@ class ProjectPaths:
     REPORTS_PERFORMANCE_TXT = REPORTS_PERFORMANCE / "txt"
     REPORTS_PERFORMANCE_JSON = REPORTS_PERFORMANCE / "json"
 
+    LAKE_DOCUMENTATION_DIR = LAKE_DIR / "documentation"
+    LAKE_DOCUMENTATION_INVENTORY_DIR = LAKE_DOCUMENTATION_DIR / "inventory"
+    LAKE_DOCUMENTATION_COVERAGE_DIR = LAKE_DOCUMENTATION_DIR / "coverage"
+    LAKE_DOCUMENTATION_LINK_CHECKS_DIR = LAKE_DOCUMENTATION_DIR / "link_checks"
+    LAKE_DOCUMENTATION_SAFETY_SCAN_DIR = LAKE_DOCUMENTATION_DIR / "safety_scan"
+    LAKE_DOCUMENTATION_CONSISTENCY_DIR = LAKE_DOCUMENTATION_DIR / "consistency"
+    LAKE_DOCUMENTATION_MANIFESTS_DIR = LAKE_DOCUMENTATION_DIR / "manifests"
+    LAKE_DOCUMENTATION_INDEX_DIR = LAKE_DOCUMENTATION_DIR / "index"
+    LAKE_DOCUMENTATION_QUALITY_DIR = LAKE_DOCUMENTATION_DIR / "quality"
+
+    REPORTS_DOCUMENTATION_DIR = REPORTS_OUTPUT_DIR / "documentation"
+    REPORTS_DOCUMENTATION_CSV_DIR = REPORTS_DOCUMENTATION_DIR / "csv"
+    REPORTS_DOCUMENTATION_MARKDOWN_DIR = REPORTS_DOCUMENTATION_DIR / "markdown"
+    REPORTS_DOCUMENTATION_TXT_DIR = REPORTS_DOCUMENTATION_DIR / "txt"
+    REPORTS_DOCUMENTATION_JSON_DIR = REPORTS_DOCUMENTATION_DIR / "json"
+
     def __init__(self):
 
         self.experiments_dir = LAKE_EXPERIMENTS_DIR
@@ -684,6 +700,7 @@ class ProjectPaths:
         self.project_root = PROJECT_ROOT
         self.data_dir = DATA_DIR
         self.lake_dir = LAKE_DIR
+        self.reports_dir = REPORTS_DIR
         self.backtests = LAKE_DIR / "backtests"
         self.backtest_runs = self.backtests / "runs"
         self.backtest_trades = self.backtests / "trades"
