@@ -889,3 +889,20 @@ python -m scripts.run_large_run_stability_report
 python -m scripts.run_runtime_optimization_report
 python -m scripts.run_performance_status
 ```
+
+
+## Data Retention, Archive Strategy and Local Maintenance
+
+Maintenance katmanı otomatik silme sistemi değildir. Default mod dry-run’dır. Cleanup candidates sadece incelenecek adaylardır.
+Archive candidates otomatik taşınmaz. Source code, config, tests ve docs protected kabul edilir.
+Retention policies local araştırma çıktıları içindir. Storage lifecycle health production readiness değildir.
+Çıktılar `data/lake/maintenance` ve `reports/output/maintenance` altında oluşur.
+
+```bash
+python -m scripts.run_storage_inventory_report
+python -m scripts.run_retention_policy_report
+python -m scripts.run_cleanup_dry_run_report
+python -m scripts.run_archive_dry_run_report
+python -m scripts.run_storage_lifecycle_report
+python -m scripts.run_maintenance_status
+```
