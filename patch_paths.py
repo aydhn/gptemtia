@@ -3,74 +3,64 @@ import re
 with open("commodity_fx_signal_bot/config/paths.py", "r") as f:
     content = f.read()
 
-new_paths = """
-# Phase 46: Experiment Tracking
-LAKE_EXPERIMENTS_DIR = LAKE_DIR / "experiments"
-LAKE_EXPERIMENTS_HYPOTHESES_DIR = LAKE_EXPERIMENTS_DIR / "hypotheses"
-LAKE_EXPERIMENTS_DEFINITIONS_DIR = LAKE_EXPERIMENTS_DIR / "definitions"
-LAKE_EXPERIMENTS_RUNS_DIR = LAKE_EXPERIMENTS_DIR / "runs"
-LAKE_EXPERIMENTS_ARTIFACTS_DIR = LAKE_EXPERIMENTS_DIR / "artifacts"
-LAKE_EXPERIMENTS_REPRODUCIBILITY_DIR = LAKE_EXPERIMENTS_DIR / "reproducibility"
-LAKE_EXPERIMENTS_VERSIONS_DIR = LAKE_EXPERIMENTS_DIR / "versions"
-LAKE_EXPERIMENTS_ABLATION_DIR = LAKE_EXPERIMENTS_DIR / "ablation"
-LAKE_EXPERIMENTS_COMPARISONS_DIR = LAKE_EXPERIMENTS_DIR / "comparisons"
-LAKE_EXPERIMENTS_LEADERBOARDS_DIR = LAKE_EXPERIMENTS_DIR / "leaderboards"
-LAKE_EXPERIMENTS_QUALITY_DIR = LAKE_EXPERIMENTS_DIR / "quality"
+maintenance_paths = """
+    # Maintenance Paths
+    MAINTENANCE_DIR = DATA_LAKE_DIR / "maintenance"
+    MAINTENANCE_INVENTORY_DIR = MAINTENANCE_DIR / "inventory"
+    MAINTENANCE_POLICIES_DIR = MAINTENANCE_DIR / "policies"
+    MAINTENANCE_CLEANUP_DIR = MAINTENANCE_DIR / "cleanup"
+    MAINTENANCE_ARCHIVE_DIR = MAINTENANCE_DIR / "archive"
+    MAINTENANCE_ROTATION_DIR = MAINTENANCE_DIR / "rotation"
+    MAINTENANCE_DUPLICATES_DIR = MAINTENANCE_DIR / "duplicates"
+    MAINTENANCE_STALE_DIR = MAINTENANCE_DIR / "stale"
+    MAINTENANCE_LARGE_ARTIFACTS_DIR = MAINTENANCE_DIR / "large_artifacts"
+    MAINTENANCE_GROWTH_DIR = MAINTENANCE_DIR / "growth"
+    MAINTENANCE_CHECKLISTS_DIR = MAINTENANCE_DIR / "checklists"
+    MAINTENANCE_LIFECYCLE_DIR = MAINTENANCE_DIR / "lifecycle"
+    MAINTENANCE_QUALITY_DIR = MAINTENANCE_DIR / "quality"
 
-REPORTS_EXPERIMENTS_DIR = REPORTS_DIR / "experiments"
-REPORTS_EXPERIMENTS_CSV_DIR = REPORTS_EXPERIMENTS_DIR / "csv"
-REPORTS_EXPERIMENTS_MARKDOWN_DIR = REPORTS_EXPERIMENTS_DIR / "markdown"
-REPORTS_EXPERIMENTS_TXT_DIR = REPORTS_EXPERIMENTS_DIR / "txt"
-REPORTS_EXPERIMENTS_JSON_DIR = REPORTS_EXPERIMENTS_DIR / "json"
+    REPORTS_MAINTENANCE_DIR = REPORTS_OUTPUT_DIR / "maintenance"
+    REPORTS_MAINTENANCE_CSV_DIR = REPORTS_MAINTENANCE_DIR / "csv"
+    REPORTS_MAINTENANCE_MARKDOWN_DIR = REPORTS_MAINTENANCE_DIR / "markdown"
+    REPORTS_MAINTENANCE_TXT_DIR = REPORTS_MAINTENANCE_DIR / "txt"
+    REPORTS_MAINTENANCE_JSON_DIR = REPORTS_MAINTENANCE_DIR / "json"
 
+    ARCHIVES_DIR = PROJECT_ROOT / "archives"
+    ARCHIVES_MANIFESTS_DIR = ARCHIVES_DIR / "manifests"
+    ARCHIVES_BUNDLES_DIR = ARCHIVES_DIR / "bundles"
 """
 
-content = content.replace("class ProjectPaths:", new_paths + "class ProjectPaths:")
+if "MAINTENANCE_DIR" not in content:
+    # Insert after FEATURE_STORE_DIR or similar
+    content = re.sub(r'(class ProjectPaths:\n(.*\n)*?)(?=\n    @classmethod)', r'\1' + maintenance_paths, content)
 
-init_paths = """
-        self.experiments_dir = LAKE_EXPERIMENTS_DIR
-        self.experiments_hypotheses = LAKE_EXPERIMENTS_HYPOTHESES_DIR
-        self.experiments_definitions = LAKE_EXPERIMENTS_DEFINITIONS_DIR
-        self.experiments_runs = LAKE_EXPERIMENTS_RUNS_DIR
-        self.experiments_artifacts = LAKE_EXPERIMENTS_ARTIFACTS_DIR
-        self.experiments_reproducibility = LAKE_EXPERIMENTS_REPRODUCIBILITY_DIR
-        self.experiments_versions = LAKE_EXPERIMENTS_VERSIONS_DIR
-        self.experiments_ablation = LAKE_EXPERIMENTS_ABLATION_DIR
-        self.experiments_comparisons = LAKE_EXPERIMENTS_COMPARISONS_DIR
-        self.experiments_leaderboards = LAKE_EXPERIMENTS_LEADERBOARDS_DIR
-        self.experiments_quality = LAKE_EXPERIMENTS_QUALITY_DIR
-
-        self.experiments_reports = REPORTS_EXPERIMENTS_DIR
-        self.experiments_reports_csv = REPORTS_EXPERIMENTS_CSV_DIR
-        self.experiments_reports_markdown = REPORTS_EXPERIMENTS_MARKDOWN_DIR
-        self.experiments_reports_txt = REPORTS_EXPERIMENTS_TXT_DIR
-        self.experiments_reports_json = REPORTS_EXPERIMENTS_JSON_DIR
-
+dirs_to_add = """
+            cls.MAINTENANCE_DIR,
+            cls.MAINTENANCE_INVENTORY_DIR,
+            cls.MAINTENANCE_POLICIES_DIR,
+            cls.MAINTENANCE_CLEANUP_DIR,
+            cls.MAINTENANCE_ARCHIVE_DIR,
+            cls.MAINTENANCE_ROTATION_DIR,
+            cls.MAINTENANCE_DUPLICATES_DIR,
+            cls.MAINTENANCE_STALE_DIR,
+            cls.MAINTENANCE_LARGE_ARTIFACTS_DIR,
+            cls.MAINTENANCE_GROWTH_DIR,
+            cls.MAINTENANCE_CHECKLISTS_DIR,
+            cls.MAINTENANCE_LIFECYCLE_DIR,
+            cls.MAINTENANCE_QUALITY_DIR,
+            cls.REPORTS_MAINTENANCE_DIR,
+            cls.REPORTS_MAINTENANCE_CSV_DIR,
+            cls.REPORTS_MAINTENANCE_MARKDOWN_DIR,
+            cls.REPORTS_MAINTENANCE_TXT_DIR,
+            cls.REPORTS_MAINTENANCE_JSON_DIR,
+            cls.ARCHIVES_DIR,
+            cls.ARCHIVES_MANIFESTS_DIR,
+            cls.ARCHIVES_BUNDLES_DIR,
 """
 
-content = content.replace("self.project_root = PROJECT_ROOT", init_paths + "        self.project_root = PROJECT_ROOT")
-
-
-dirs_to_create = """
-        LAKE_EXPERIMENTS_DIR,
-        LAKE_EXPERIMENTS_HYPOTHESES_DIR,
-        LAKE_EXPERIMENTS_DEFINITIONS_DIR,
-        LAKE_EXPERIMENTS_RUNS_DIR,
-        LAKE_EXPERIMENTS_ARTIFACTS_DIR,
-        LAKE_EXPERIMENTS_REPRODUCIBILITY_DIR,
-        LAKE_EXPERIMENTS_VERSIONS_DIR,
-        LAKE_EXPERIMENTS_ABLATION_DIR,
-        LAKE_EXPERIMENTS_COMPARISONS_DIR,
-        LAKE_EXPERIMENTS_LEADERBOARDS_DIR,
-        LAKE_EXPERIMENTS_QUALITY_DIR,
-        REPORTS_EXPERIMENTS_DIR,
-        REPORTS_EXPERIMENTS_CSV_DIR,
-        REPORTS_EXPERIMENTS_MARKDOWN_DIR,
-        REPORTS_EXPERIMENTS_TXT_DIR,
-        REPORTS_EXPERIMENTS_JSON_DIR,
-"""
-
-content = content.replace("REPORTS_RESEARCH_REPORTS_TXT_DIR,", "REPORTS_RESEARCH_REPORTS_TXT_DIR," + dirs_to_create)
+if "cls.MAINTENANCE_DIR" not in content:
+    content = content.replace("        dirs = [", "        dirs = [" + dirs_to_add)
 
 with open("commodity_fx_signal_bot/config/paths.py", "w") as f:
     f.write(content)
+print("paths.py patched")

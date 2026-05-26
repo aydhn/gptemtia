@@ -106,8 +106,9 @@ def list_ml_prediction_profiles(enabled_only: bool = True) -> List[MLPredictionP
 
 def get_default_ml_prediction_profile() -> MLPredictionProfile:
     """Return the default ML prediction profile."""
-    from config.settings import settings
-    return get_ml_prediction_profile(settings.default_ml_prediction_profile)
+    from config.settings import get_settings
+    settings = get_settings()
+    return get_ml_prediction_profile(getattr(settings, 'default_ml_prediction_profile', 'balanced_ml_prediction'))
 
 def validate_ml_prediction_profiles() -> None:
     """Validate all registered ML prediction profiles."""

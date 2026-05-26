@@ -207,3 +207,20 @@ Offline Scripts / Command Registry / DataLake / Reports / Knowledge Index
 → OptimizationRecommendations
 → PerformanceQuality
 → Performance Reports
+
+### Maintenance Architecture
+DataLake / Reports Output / Logs / Cache / Checkpoints / Archives
+→ StorageInventory
+→ RetentionPolicies
+→ ArchiveStrategy
+→ CleanupPlanner
+→ RotationPlanner
+→ DuplicateDetection
+→ StaleDetection
+→ LargeArtifactReview
+→ StorageGrowth
+→ SafeFileOps
+→ MaintenanceChecklist
+→ LifecycleHealth
+→ MaintenanceQuality
+→ Maintenance Reports

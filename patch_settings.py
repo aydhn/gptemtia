@@ -3,32 +3,40 @@ import re
 with open("commodity_fx_signal_bot/config/settings.py", "r") as f:
     content = f.read()
 
-new_settings = """
-    # Phase 46: Experiment Tracking and Research Versioning
-    experiment_tracking_enabled: bool = field(default_factory=lambda: str(os.getenv("EXPERIMENT_TRACKING_ENABLED", "true")).lower() == "true")
-    default_experiment_profile: str = field(default_factory=lambda: os.getenv("DEFAULT_EXPERIMENT_PROFILE", "balanced_experiment_tracking"))
-    experiment_default_timeframe: str = field(default_factory=lambda: os.getenv("EXPERIMENT_DEFAULT_TIMEFRAME", "1d"))
-    experiment_save_run_manifest: bool = field(default_factory=lambda: str(os.getenv("EXPERIMENT_SAVE_RUN_MANIFEST", "true")).lower() == "true")
-    experiment_save_artifact_manifest: bool = field(default_factory=lambda: str(os.getenv("EXPERIMENT_SAVE_ARTIFACT_MANIFEST", "true")).lower() == "true")
-    experiment_save_reproducibility_manifest: bool = field(default_factory=lambda: str(os.getenv("EXPERIMENT_SAVE_REPRODUCIBILITY_MANIFEST", "true")).lower() == "true")
-    experiment_save_quality_report: bool = field(default_factory=lambda: str(os.getenv("EXPERIMENT_SAVE_QUALITY_REPORT", "true")).lower() == "true")
-    experiment_max_runs_in_leaderboard: int = field(default_factory=lambda: int(os.getenv("EXPERIMENT_MAX_RUNS_IN_LEADERBOARD", "500")))
-    experiment_min_quality_score: float = field(default_factory=lambda: float(os.getenv("EXPERIMENT_MIN_QUALITY_SCORE", "0.40")))
-    experiment_default_baseline_name: str = field(default_factory=lambda: os.getenv("EXPERIMENT_DEFAULT_BASELINE_NAME", "baseline_research_run"))
-    experiment_enable_ablation_studies: bool = field(default_factory=lambda: str(os.getenv("EXPERIMENT_ENABLE_ABLATION_STUDIES", "true")).lower() == "true")
-    experiment_enable_comparison: bool = field(default_factory=lambda: str(os.getenv("EXPERIMENT_ENABLE_COMPARISON", "true")).lower() == "true")
-    experiment_enable_leaderboard: bool = field(default_factory=lambda: str(os.getenv("EXPERIMENT_ENABLE_LEADERBOARD", "true")).lower() == "true")
-    experiment_require_hypothesis: bool = field(default_factory=lambda: str(os.getenv("EXPERIMENT_REQUIRE_HYPOTHESIS", "false")).lower() == "true")
-    experiment_require_reproducibility_manifest: bool = field(default_factory=lambda: str(os.getenv("EXPERIMENT_REQUIRE_REPRODUCIBILITY_MANIFEST", "true")).lower() == "true")
-    experiment_capture_environment: bool = field(default_factory=lambda: str(os.getenv("EXPERIMENT_CAPTURE_ENVIRONMENT", "true")).lower() == "true")
-    experiment_capture_config_snapshot: bool = field(default_factory=lambda: str(os.getenv("EXPERIMENT_CAPTURE_CONFIG_SNAPSHOT", "true")).lower() == "true")
-    experiment_capture_artifact_snapshot: bool = field(default_factory=lambda: str(os.getenv("EXPERIMENT_CAPTURE_ARTIFACT_SNAPSHOT", "true")).lower() == "true")
-    experiment_allow_rerun_candidates: bool = field(default_factory=lambda: str(os.getenv("EXPERIMENT_ALLOW_RERUN_CANDIDATES", "true")).lower() == "true")
-    experiment_tracking_dry_run: bool = field(default_factory=lambda: str(os.getenv("EXPERIMENT_TRACKING_DRY_RUN", "true")).lower() == "true")
-
+maintenance_settings = """
+    # Maintenance Settings
+    maintenance_enabled: bool = True
+    default_maintenance_profile: str = "balanced_local_maintenance"
+    maintenance_default_timeframe: str = "1d"
+    maintenance_dry_run_default: bool = True
+    maintenance_allow_delete: bool = False
+    maintenance_allow_archive_move: bool = False
+    maintenance_scan_data_lake: bool = True
+    maintenance_scan_reports_output: bool = True
+    maintenance_scan_logs: bool = True
+    maintenance_scan_cache: bool = True
+    maintenance_scan_checkpoints: bool = True
+    maintenance_max_inventory_files: int = 50000
+    maintenance_large_file_threshold_mb: int = 100
+    maintenance_stale_days_default: int = 30
+    maintenance_keep_latest_n_reports: int = 10
+    maintenance_keep_latest_n_runs: int = 20
+    maintenance_keep_quality_reports_days: int = 90
+    maintenance_keep_governance_reports_days: int = 180
+    maintenance_keep_experiment_manifests_days: int = 365
+    maintenance_keep_knowledge_index_days: int = 30
+    maintenance_keep_cache_days: int = 14
+    maintenance_keep_checkpoints_days: int = 30
+    maintenance_archive_format: str = "zip_manifest_only"
+    maintenance_archive_max_bundle_mb: int = 1024
+    maintenance_save_reports: bool = True
+    maintenance_min_quality_score: float = 0.40
 """
 
-content = content.replace("    def __post_init__(self):", new_settings + "    def __post_init__(self):")
-
-with open("commodity_fx_signal_bot/config/settings.py", "w") as f:
-    f.write(content)
+if "maintenance_enabled" not in content:
+    content = re.sub(r'(class Settings:\n(.*\n)*?)(?=\n    @classmethod)', r'\1' + maintenance_settings, content)
+    with open("commodity_fx_signal_bot/config/settings.py", "w") as f:
+        f.write(content)
+    print("settings.py patched")
+else:
+    print("settings.py already patched")
