@@ -4031,3 +4031,64 @@ def build_documentation_status_report(status_df, summary: dict) -> str:
     if status_df is not None and not status_df.empty:
         lines.append(status_df.to_string())
     return "\n".join(lines)
+
+    # --- Final Review Text Reports ---
+    @staticmethod
+    def _build_final_review_disclaimer() -> str:
+        return "DISCLAIMER: Bu çıktı offline final system review/release readiness dry-run raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production release, otomatik trade onayı veya yatırım tavsiyesi değildir."
+
+    @staticmethod
+    def build_final_system_review_text_report(summary: dict, audit_tables: Optional[Dict[str, pd.DataFrame]] = None) -> str:
+        lines = ["--- Final System Review Report ---", "", ReportBuilder._build_final_review_disclaimer(), ""]
+        lines.append(f"Passed: {summary.get('passed', False)}")
+        if audit_tables:
+            for name, df in audit_tables.items():
+                lines.append(f"\n[{name.upper()}]")
+                lines.append(df.to_string(index=False))
+        return "\n".join(lines)
+
+    @staticmethod
+    def build_architecture_audit_text_report(summary: dict, audit_df: Optional[pd.DataFrame] = None) -> str:
+        lines = ["--- Architecture Audit Report ---", "", ReportBuilder._build_final_review_disclaimer(), ""]
+        if audit_df is not None and not audit_df.empty:
+            lines.append(audit_df.to_string(index=False))
+        return "\n".join(lines)
+
+    @staticmethod
+    def build_safety_audit_text_report(summary: dict, safety_df: Optional[pd.DataFrame] = None) -> str:
+        lines = ["--- Safety Audit Report ---", "", ReportBuilder._build_final_review_disclaimer(), ""]
+        lines.append(f"Passed: {summary.get('passed', False)}")
+        lines.append(f"Critical Issues: {summary.get('critical_issues', 0)}")
+        if safety_df is not None and not safety_df.empty:
+            lines.append("\n" + safety_df.to_string(index=False))
+        return "\n".join(lines)
+
+    @staticmethod
+    def build_offline_acceptance_text_report(summary: dict, acceptance_df: Optional[pd.DataFrame] = None) -> str:
+        lines = ["--- Offline Acceptance Audit Report ---", "", ReportBuilder._build_final_review_disclaimer(), ""]
+        if acceptance_df is not None and not acceptance_df.empty:
+            lines.append(acceptance_df.to_string(index=False))
+        return "\n".join(lines)
+
+    @staticmethod
+    def build_release_readiness_dry_run_text_report(summary: dict, dry_run_df: Optional[pd.DataFrame] = None) -> str:
+        lines = ["--- Release Readiness Dry-Run Report ---", "", ReportBuilder._build_final_review_disclaimer(), ""]
+        lines.append(f"Ready: {summary.get('is_ready', False)}")
+        if dry_run_df is not None and not dry_run_df.empty:
+            lines.append("\n" + dry_run_df.to_string(index=False))
+        return "\n".join(lines)
+
+    @staticmethod
+    def build_final_consolidation_text_report(summary: dict, phase_df: Optional[pd.DataFrame] = None) -> str:
+        lines = ["--- Final Consolidation Audit Report ---", "", ReportBuilder._build_final_review_disclaimer(), ""]
+        if phase_df is not None and not phase_df.empty:
+            lines.append(phase_df.to_string(index=False))
+        return "\n".join(lines)
+
+    @staticmethod
+    def build_final_review_status_report(status_df: pd.DataFrame, summary: dict) -> str:
+        lines = ["--- Final Review Status Report ---", "", ReportBuilder._build_final_review_disclaimer(), ""]
+        lines.append(f"Passed: {summary.get('passed', False)}")
+        if not status_df.empty:
+            lines.append("\n" + status_df.to_string(index=False))
+        return "\n".join(lines)

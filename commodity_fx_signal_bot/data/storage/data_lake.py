@@ -3476,3 +3476,129 @@ class DataLake:
                 "modified_at": datetime.fromtimestamp(f.stat().st_mtime).isoformat()
             })
         return pd.DataFrame(records)
+
+    # --- Final Review Methods ---
+    def save_final_system_inventory(self, report_name: str, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
+        base_path = ProjectPaths.FINAL_REVIEW_SYSTEM_INVENTORY
+        return self._save_report_data(base_path, report_name, df, summary)
+
+    def load_final_system_inventory(self, report_name: str) -> pd.DataFrame:
+        return self._load_parquet(ProjectPaths.FINAL_REVIEW_SYSTEM_INVENTORY / f"{report_name}.parquet")
+
+    def save_architecture_audit(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
+        return self._save_report_data(ProjectPaths.FINAL_REVIEW_ARCHITECTURE, "architecture_audit", df, summary)
+
+    def load_architecture_audit(self) -> pd.DataFrame:
+        return self._load_parquet(ProjectPaths.FINAL_REVIEW_ARCHITECTURE / "architecture_audit.parquet")
+
+    def save_safety_audit(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
+        return self._save_report_data(ProjectPaths.FINAL_REVIEW_SAFETY, "safety_audit", df, summary)
+
+    def load_safety_audit(self) -> pd.DataFrame:
+        return self._load_parquet(ProjectPaths.FINAL_REVIEW_SAFETY / "safety_audit.parquet")
+
+    def save_integration_audit(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
+        return self._save_report_data(ProjectPaths.FINAL_REVIEW_INTEGRATION, "integration_audit", df, summary)
+
+    def load_integration_audit(self) -> pd.DataFrame:
+        return self._load_parquet(ProjectPaths.FINAL_REVIEW_INTEGRATION / "integration_audit.parquet")
+
+    def save_command_audit(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
+        return self._save_report_data(ProjectPaths.FINAL_REVIEW_COMMANDS, "command_audit", df, summary)
+
+    def load_command_audit(self) -> pd.DataFrame:
+        return self._load_parquet(ProjectPaths.FINAL_REVIEW_COMMANDS / "command_audit.parquet")
+
+    def save_datalake_contract_audit(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
+        return self._save_report_data(ProjectPaths.FINAL_REVIEW_DATALAKE, "datalake_contract_audit", df, summary)
+
+    def load_datalake_contract_audit(self) -> pd.DataFrame:
+        return self._load_parquet(ProjectPaths.FINAL_REVIEW_DATALAKE / "datalake_contract_audit.parquet")
+
+    def save_report_output_audit(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
+        return self._save_report_data(ProjectPaths.FINAL_REVIEW_REPORT_OUTPUTS, "report_output_audit", df, summary)
+
+    def load_report_output_audit(self) -> pd.DataFrame:
+        return self._load_parquet(ProjectPaths.FINAL_REVIEW_REPORT_OUTPUTS / "report_output_audit.parquet")
+
+    def save_documentation_audit(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
+        return self._save_report_data(ProjectPaths.FINAL_REVIEW_DOCUMENTATION, "documentation_audit", df, summary)
+
+    def load_documentation_audit(self) -> pd.DataFrame:
+        return self._load_parquet(ProjectPaths.FINAL_REVIEW_DOCUMENTATION / "documentation_audit.parquet")
+
+    def save_quality_gate_audit(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
+        return self._save_report_data(ProjectPaths.FINAL_REVIEW_QUALITY_GATES, "quality_gate_audit", df, summary)
+
+    def load_quality_gate_audit(self) -> pd.DataFrame:
+        return self._load_parquet(ProjectPaths.FINAL_REVIEW_QUALITY_GATES / "quality_gate_audit.parquet")
+
+    def save_readiness_audit(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
+        return self._save_report_data(ProjectPaths.FINAL_REVIEW_READINESS, "readiness_audit", df, summary)
+
+    def load_readiness_audit(self) -> pd.DataFrame:
+        return self._load_parquet(ProjectPaths.FINAL_REVIEW_READINESS / "readiness_audit.parquet")
+
+    def save_final_risk_register(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
+        return self._save_report_data(ProjectPaths.FINAL_REVIEW_RISKS, "final_risk_register", df, summary)
+
+    def load_final_risk_register(self) -> pd.DataFrame:
+        return self._load_parquet(ProjectPaths.FINAL_REVIEW_RISKS / "final_risk_register.parquet")
+
+    def save_final_gap_register(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
+        return self._save_report_data(ProjectPaths.FINAL_REVIEW_GAPS, "final_gap_register", df, summary)
+
+    def load_final_gap_register(self) -> pd.DataFrame:
+        return self._load_parquet(ProjectPaths.FINAL_REVIEW_GAPS / "final_gap_register.parquet")
+
+    def save_final_acceptance_checklist(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
+        return self._save_report_data(ProjectPaths.FINAL_REVIEW_ACCEPTANCE, "final_acceptance_checklist", df, summary)
+
+    def load_final_acceptance_checklist(self) -> pd.DataFrame:
+        return self._load_parquet(ProjectPaths.FINAL_REVIEW_ACCEPTANCE / "final_acceptance_checklist.parquet")
+
+    def save_final_acceptance_snapshot(self, snapshot: dict) -> Path:
+        path = ProjectPaths.FINAL_REVIEW_ACCEPTANCE / "final_acceptance_snapshot.json"
+        self._save_json(snapshot, path)
+        return path
+
+    def load_final_acceptance_snapshot(self) -> dict:
+        return self._load_json(ProjectPaths.FINAL_REVIEW_ACCEPTANCE / "final_acceptance_snapshot.json")
+
+    def save_release_readiness_dry_run(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
+        return self._save_report_data(ProjectPaths.FINAL_REVIEW_READINESS, "release_readiness_dry_run", df, summary)
+
+    def load_release_readiness_dry_run(self) -> pd.DataFrame:
+        return self._load_parquet(ProjectPaths.FINAL_REVIEW_READINESS / "release_readiness_dry_run.parquet")
+
+    def save_phase_1_55_consolidation_audit(self, report_name: str, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
+        return self._save_report_data(ProjectPaths.FINAL_REVIEW_CONSOLIDATION, report_name, df, summary)
+
+    def load_phase_1_55_consolidation_audit(self, report_name: str) -> pd.DataFrame:
+        return self._load_parquet(ProjectPaths.FINAL_REVIEW_CONSOLIDATION / f"{report_name}.parquet")
+
+    def save_final_review_quality(self, profile_name: str, quality: dict) -> Path:
+        path = ProjectPaths.FINAL_REVIEW_QUALITY / f"{profile_name}_quality.json"
+        self._save_json(quality, path)
+        return path
+
+    def load_final_review_quality(self, profile_name: str) -> dict:
+        return self._load_json(ProjectPaths.FINAL_REVIEW_QUALITY / f"{profile_name}_quality.json")
+
+    def save_final_review_report(self, profile_name: str, report: dict, markdown: Optional[str] = None) -> Path:
+        path = ProjectPaths.FINAL_REVIEW_REPORTS_JSON / f"{profile_name}_report.json"
+        self._save_json(report, path)
+        if markdown:
+            md_path = ProjectPaths.FINAL_REVIEW_REPORTS_MARKDOWN / f"{profile_name}_report.md"
+            with open(md_path, "w") as f:
+                f.write(markdown)
+        return path
+
+    def load_final_review_report(self, profile_name: str) -> dict:
+        return self._load_json(ProjectPaths.FINAL_REVIEW_REPORTS_JSON / f"{profile_name}_report.json")
+
+    def list_final_review_reports(self) -> pd.DataFrame:
+        rows = []
+        for p in ProjectPaths.FINAL_REVIEW_REPORTS_JSON.glob("*_report.json"):
+            rows.append({"report": p.stem, "path": str(p)})
+        return pd.DataFrame(rows)
