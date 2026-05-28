@@ -1009,3 +1009,55 @@ class FeatureStore:
     def list_available_maintenance_reports(self) -> dict:
         df = self.data_lake.list_maintenance_reports()
         return {"count": len(df), "files": df["file_name"].tolist() if not df.empty else []}
+
+    # --- Final Review ---
+    def load_architecture_audit(self) -> pd.DataFrame:
+        return self.data_lake.load_architecture_audit()
+
+    def load_safety_audit(self) -> pd.DataFrame:
+        return self.data_lake.load_safety_audit()
+
+    def load_integration_audit(self) -> pd.DataFrame:
+        return self.data_lake.load_integration_audit()
+
+    def load_command_audit(self) -> pd.DataFrame:
+        return self.data_lake.load_command_audit()
+
+    def load_datalake_contract_audit(self) -> pd.DataFrame:
+        return self.data_lake.load_datalake_contract_audit()
+
+    def load_report_output_audit(self) -> pd.DataFrame:
+        return self.data_lake.load_report_output_audit()
+
+    def load_documentation_audit(self) -> pd.DataFrame:
+        return self.data_lake.load_documentation_audit()
+
+    def load_quality_gate_audit(self) -> pd.DataFrame:
+        return self.data_lake.load_quality_gate_audit()
+
+    def load_readiness_audit(self) -> pd.DataFrame:
+        return self.data_lake.load_readiness_audit()
+
+    def load_final_risk_register(self) -> pd.DataFrame:
+        return self.data_lake.load_final_risk_register()
+
+    def load_final_gap_register(self) -> pd.DataFrame:
+        return self.data_lake.load_final_gap_register()
+
+    def load_final_acceptance_checklist(self) -> pd.DataFrame:
+        return self.data_lake.load_final_acceptance_checklist()
+
+    def load_final_acceptance_snapshot(self) -> dict:
+        return self.data_lake.load_final_acceptance_snapshot()
+
+    def load_release_readiness_dry_run(self) -> pd.DataFrame:
+        return self.data_lake.load_release_readiness_dry_run()
+
+    def load_final_review_quality(self, profile_name: str = "balanced_final_review") -> dict:
+        return self.data_lake.load_final_review_quality(profile_name)
+
+    def load_final_review_report(self, profile_name: str = "balanced_final_review") -> dict:
+        return self.data_lake.load_final_review_report(profile_name)
+
+    def list_available_final_review_reports(self) -> pd.DataFrame:
+        return self.data_lake.list_final_review_reports()

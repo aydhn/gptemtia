@@ -906,3 +906,25 @@ python -m scripts.run_archive_dry_run_report
 python -m scripts.run_storage_lifecycle_report
 python -m scripts.run_maintenance_status
 ```
+
+## Final System Review and Offline Acceptance
+
+The final review layer provides comprehensive audits for architecture, safety, integration, data contracts, reports, documentation, quality gates, and system readiness.
+Final review is an offline process and does not imply a production release.
+The acceptance score is not an approval for live trading.
+The safety audit strictly looks for broker execution, live trading, model deployment, background daemon, and web scraping risks.
+The release readiness dry-run is a simulated check and does not perform any package publish or actual deployment.
+The risk register lists project quality and safety risks, not financial investment risks.
+The gap register lists missing offline components to track for follow-up.
+Outputs are saved under `data/lake/final_review` and `reports/output/final_review`.
+
+Commands:
+```bash
+python -m scripts.run_final_system_review
+python -m scripts.run_architecture_audit
+python -m scripts.run_safety_audit
+python -m scripts.run_offline_acceptance_audit
+python -m scripts.run_release_readiness_dry_run
+python -m scripts.run_final_consolidation_audit
+python -m scripts.run_final_review_status
+```
