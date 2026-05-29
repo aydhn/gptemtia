@@ -11,6 +11,64 @@ from config.symbols import SymbolSpec
 from data.universe_analyzer import SymbolReliabilityResult, UniverseAnalyzer
 
 
+
+def _get_regression_disclaimer_rb() -> str:
+    return (
+        "*** WARNING / UYARI ***\n"
+        "Bu çıktı offline scenario regression/deterministic replay raporudur. "
+        "Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, "
+        "otomatik trade onayı veya yatırım tavsiyesi değildir.\n"
+        "***\n\n"
+    )
+
+def build_scenario_regression_registry_text_report(summary: dict, regression_df: pd.DataFrame | None = None) -> str:
+    txt = _get_regression_disclaimer_rb()
+    txt += "Scenario Regression Registry Report\n\n"
+    txt += f"Total definitions: {summary.get('total_definitions', 0)}\n\n"
+    if regression_df is not None and not regression_df.empty:
+        txt += regression_df.head(10).to_string() + "\n"
+    return txt
+
+def build_golden_output_text_report(summary: dict, golden_df: pd.DataFrame | None = None) -> str:
+    txt = _get_regression_disclaimer_rb()
+    txt += "Golden Output Report\n\n"
+    txt += f"Total golden outputs: {summary.get('total_golden_outputs', 0)}\n\n"
+    if golden_df is not None and not golden_df.empty:
+        txt += golden_df.head(10).to_string() + "\n"
+    return txt
+
+def build_snapshot_comparison_text_report(summary: dict, diff_df: pd.DataFrame | None = None) -> str:
+    txt = _get_regression_disclaimer_rb()
+    txt += "Snapshot Comparison Report\n\n"
+    txt += f"Total diffs: {summary.get('total_diffs', 0)}\n\n"
+    if diff_df is not None and not diff_df.empty:
+        txt += diff_df.head(10).to_string() + "\n"
+    return txt
+
+def build_deterministic_replay_text_report(summary: dict, replay_df: pd.DataFrame | None = None) -> str:
+    txt = _get_regression_disclaimer_rb()
+    txt += "Deterministic Replay Report\n\n"
+    txt += f"Total replays: {summary.get('total_replays', 0)}\n\n"
+    if replay_df is not None and not replay_df.empty:
+        txt += replay_df.head(10).to_string() + "\n"
+    return txt
+
+def build_demo_acceptance_text_report(summary: dict, acceptance_df: pd.DataFrame | None = None) -> str:
+    txt = _get_regression_disclaimer_rb()
+    txt += "Demo Acceptance Report\n\n"
+    txt += f"Score: {summary.get('score', 0)}\n"
+    txt += f"Label: {summary.get('label', 'unknown')}\n\n"
+    if acceptance_df is not None and not acceptance_df.empty:
+        txt += acceptance_df.to_string() + "\n"
+    return txt
+
+def build_scenario_regression_status_report(status_df: pd.DataFrame, summary: dict) -> str:
+    txt = _get_regression_disclaimer_rb()
+    txt += "Scenario Regression Status\n\n"
+    if status_df is not None and not status_df.empty:
+        txt += status_df.to_string() + "\n"
+    return txt
+
 def build_universe_report(symbols: List[SymbolSpec]) -> str:
     """
     Build a text summary report of the symbol universe.

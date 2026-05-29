@@ -1,7 +1,14 @@
-Phase 48: Adaptive Research Planning
+feat: Implement Scenario Regression and Deterministic Replay testing layer (Phase 57)
 
-This commit introduces the Adaptive Research Planning and Backlog layer.
-It implements the `ResearchTaskRegistry`, `PlanningSignalCollector`, `BacklogBuilder`, `PriorityScoring`, and `NextBestExperiment` recommendation engines.
-It also includes reports for `RoadmapHealth` and `ResearchDebt` to aid in orchestrating offline tasks.
-
-No live trading instructions, broker orders, or auto-deployments are included.
+- Scenario regression profile sistemi eklendi
+- Regression label registry eklendi
+- Regression definition, Golden Output, Snapshot, Replay, Failure modelleri
+- Regression Registry
+- Golden Outputs capture & validation
+- Snapshot capture & compare
+- Deterministic Replay runner
+- Demo Workflow Regression
+- End-to-end Demo Acceptance
+- Regression Quality ve Drift reports
+- DataLake and FeatureStore integration
+- Offline synthetic test and validation commands added

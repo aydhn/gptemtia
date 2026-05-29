@@ -928,3 +928,25 @@ python -m scripts.run_release_readiness_dry_run
 python -m scripts.run_final_consolidation_audit
 python -m scripts.run_final_review_status
 ```
+
+
+## Scenario Regression, Golden Outputs and Deterministic Replay (Phase 57)
+
+- Scenario regression canlı trading QA değildir.
+- Golden output gerçek piyasa performans referansı değildir.
+- Snapshot diff yatırım sinyali değildir.
+- Deterministic replay yalnız synthetic/offline fixture üzerinde çalışır.
+- Demo acceptance production acceptance değildir.
+- Varsayılan olarak gerçek piyasa verisi indirilmez.
+- Broker/live/deploy/daemon komutları blocked kabul edilir.
+- Çıktılar `data/lake/scenario_regression` ve `reports/output/scenario_regression` altında oluşur.
+
+### Komutlar
+```bash
+python -m scripts.run_scenario_regression_registry
+python -m scripts.run_golden_output_report
+python -m scripts.run_snapshot_comparison_report
+python -m scripts.run_deterministic_replay_report
+python -m scripts.run_demo_acceptance_report
+python -m scripts.run_scenario_regression_status
+```

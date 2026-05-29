@@ -1,0 +1,3 @@
+{
+  "content": "*** WARNING / UYARI ***\nBu \u00e7\u0131kt\u0131 offline scenario regression/deterministic replay raporudur. Canl\u0131 emir, broker talimat\u0131, ger\u00e7ek pozisyon, model deployment, production scheduler, otomatik trade onay\u0131 veya yat\u0131r\u0131m tavsiyesi de\u011fildir.\n***\n\nSnapshot Comparison Report\n\nTotal diffs: 1\n\n             diff_id scenario_id baseline_snapshot_id current_snapshot_id        diff_label numeric_diff_score text_similarity_score  schema_changed  row_count_changed                   warnings\n0  diff_e58a28adfd17      scen_1              missing   snap_3bc4b57a90f7  snapshot_missing               None                  None            True               True  Baseline snapshot missing\n"
+}
