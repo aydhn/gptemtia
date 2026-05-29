@@ -4090,6 +4090,54 @@ def build_documentation_status_report(status_df, summary: dict) -> str:
         lines.append(status_df.to_string())
     return "\n".join(lines)
 
+
+    # --- Analyst UX Text Reports ---
+    @staticmethod
+    def _build_ux_disclaimer() -> str:
+        return "UYARI: Bu çıktı offline analyst UX/productivity raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir."
+
+    @staticmethod
+    def build_ux_alias_text_report(summary: dict, aliases_df: pd.DataFrame = None) -> str:
+        lines = ["--- Command Alias Registry Report ---", "", ReportBuilder._build_ux_disclaimer(), ""]
+        if aliases_df is not None and not aliases_df.empty:
+            lines.append(aliases_df.to_string(index=False))
+        return "\n".join(lines)
+
+    @staticmethod
+    def build_safe_command_suggestion_text_report(summary: dict, suggestions_df: pd.DataFrame = None) -> str:
+        lines = ["--- Safe Command Suggestions Report ---", "", ReportBuilder._build_ux_disclaimer(), ""]
+        if suggestions_df is not None and not suggestions_df.empty:
+            lines.append(suggestions_df.to_string(index=False))
+        return "\n".join(lines)
+
+    @staticmethod
+    def build_prompt_pack_text_report(summary: dict, prompts_df: pd.DataFrame = None) -> str:
+        lines = ["--- Prompt Pack Report ---", "", ReportBuilder._build_ux_disclaimer(), ""]
+        if prompts_df is not None and not prompts_df.empty:
+            lines.append(prompts_df.to_string(index=False))
+        return "\n".join(lines)
+
+    @staticmethod
+    def build_productivity_checklist_text_report(summary: dict, checklist_df: pd.DataFrame = None) -> str:
+        lines = ["--- Productivity Checklist Report ---", "", ReportBuilder._build_ux_disclaimer(), ""]
+        if checklist_df is not None and not checklist_df.empty:
+            lines.append(checklist_df.to_string(index=False))
+        return "\n".join(lines)
+
+    @staticmethod
+    def build_analyst_task_board_text_report(summary: dict, task_df: pd.DataFrame = None) -> str:
+        lines = ["--- Analyst Task Board Report ---", "", ReportBuilder._build_ux_disclaimer(), ""]
+        if task_df is not None and not task_df.empty:
+            lines.append(task_df.to_string(index=False))
+        return "\n".join(lines)
+
+    @staticmethod
+    def build_operator_productivity_status_report(status_df: pd.DataFrame, summary: dict) -> str:
+        lines = ["--- Operator Productivity Status Report ---", "", ReportBuilder._build_ux_disclaimer(), ""]
+        if status_df is not None and not status_df.empty:
+            lines.append(status_df.to_string(index=False))
+        return "\n".join(lines)
+
     # --- Final Review Text Reports ---
     @staticmethod
     def _build_final_review_disclaimer() -> str:

@@ -80,3 +80,12 @@ To safely explore the system's capabilities without using real data or issuing r
 - **Deterministic Replay:** Sadece sentetik fixutre üzerinde kurulu deterministik bir test ortamıdır. Gerçek piyasa olaylarını doğrulamaz.
 - **Demo Acceptance:** Çıktıların belirli kurallara (örn. no-live-trading kuralı) uyduğunu offline olarak doğrular. Production acceptance değildir.
 - **Regression Failure:** Sadece test ortamındaki veya pipeline çıktılarındaki yapısal bozulmaları gösterir, yatırım veya portföy riski değildir.
+
+
+### Local Analyst UX & Operator Productivity (Phase 58)
+- **Command Aliases:** How to read aliases (`alias_name` maps to a safe offline `command`).
+- **Safe Command Suggestions:** When you ask "how to check status", the system suggests offline commands. These are NEVER executed automatically.
+- **Natural Language Mapping:** Queries map to local offline documentation and runbooks. No web search is performed.
+- **Prompt Packs:** Pre-packaged safe instructions to give to Codex agents.
+- **Task Board:** An offline checklist of pending system validations. NOT a trading or investment task board.
+- **Safety:** It is strictly prohibited to execute live trades, broker commands, real portfolio actions, or receive investment advice via these tools.

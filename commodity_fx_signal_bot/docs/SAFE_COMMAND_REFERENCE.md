@@ -17,3 +17,12 @@ Bu komutlar sistemi güvenli bir şekilde (dry-run / offline modda) çalıştır
 - `make dx`: Geliştirici kalite araçlarını çalıştırır.
 
 <!-- AUTO-GENERATED SECTION END -->
+
+
+### Local Analyst UX & Operator Productivity (Phase 58)
+- **Command Aliases:** How to read aliases (`alias_name` maps to a safe offline `command`).
+- **Safe Command Suggestions:** When you ask "how to check status", the system suggests offline commands. These are NEVER executed automatically.
+- **Natural Language Mapping:** Queries map to local offline documentation and runbooks. No web search is performed.
+- **Prompt Packs:** Pre-packaged safe instructions to give to Codex agents.
+- **Task Board:** An offline checklist of pending system validations. NOT a trading or investment task board.
+- **Safety:** It is strictly prohibited to execute live trades, broker commands, real portfolio actions, or receive investment advice via these tools.

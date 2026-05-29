@@ -1,56 +1,56 @@
 import re
 
 with open("commodity_fx_signal_bot/config/settings.py", "r") as f:
-    lines = f.readlines()
-
-new_lines = []
-in_settings = False
-has_maintenance = False
-for line in lines:
-    if "class Settings:" in line:
-        in_settings = True
-    if "maintenance_enabled" in line:
-        has_maintenance = True
-
-    if in_settings and line.strip() == "def get_settings():" and not has_maintenance:
-         pass # needs more complex patching
-
-with open("commodity_fx_signal_bot/config/settings.py", "r") as f:
     content = f.read()
 
-# Add settings loading from env
-env_loading = """
-        settings.maintenance_enabled = str(os.getenv("MAINTENANCE_ENABLED", "true")).lower() == "true"
-        settings.default_maintenance_profile = os.getenv("DEFAULT_MAINTENANCE_PROFILE", "balanced_local_maintenance")
-        settings.maintenance_default_timeframe = os.getenv("MAINTENANCE_DEFAULT_TIMEFRAME", "1d")
-        settings.maintenance_dry_run_default = str(os.getenv("MAINTENANCE_DRY_RUN_DEFAULT", "true")).lower() == "true"
-        settings.maintenance_allow_delete = str(os.getenv("MAINTENANCE_ALLOW_DELETE", "false")).lower() == "true"
-        settings.maintenance_allow_archive_move = str(os.getenv("MAINTENANCE_ALLOW_ARCHIVE_MOVE", "false")).lower() == "true"
-        settings.maintenance_scan_data_lake = str(os.getenv("MAINTENANCE_SCAN_DATA_LAKE", "true")).lower() == "true"
-        settings.maintenance_scan_reports_output = str(os.getenv("MAINTENANCE_SCAN_REPORTS_OUTPUT", "true")).lower() == "true"
-        settings.maintenance_scan_logs = str(os.getenv("MAINTENANCE_SCAN_LOGS", "true")).lower() == "true"
-        settings.maintenance_scan_cache = str(os.getenv("MAINTENANCE_SCAN_CACHE", "true")).lower() == "true"
-        settings.maintenance_scan_checkpoints = str(os.getenv("MAINTENANCE_SCAN_CHECKPOINTS", "true")).lower() == "true"
-        settings.maintenance_max_inventory_files = int(os.getenv("MAINTENANCE_MAX_INVENTORY_FILES", "50000"))
-        settings.maintenance_large_file_threshold_mb = int(os.getenv("MAINTENANCE_LARGE_FILE_THRESHOLD_MB", "100"))
-        settings.maintenance_stale_days_default = int(os.getenv("MAINTENANCE_STALE_DAYS_DEFAULT", "30"))
-        settings.maintenance_keep_latest_n_reports = int(os.getenv("MAINTENANCE_KEEP_LATEST_N_REPORTS", "10"))
-        settings.maintenance_keep_latest_n_runs = int(os.getenv("MAINTENANCE_KEEP_LATEST_N_RUNS", "20"))
-        settings.maintenance_keep_quality_reports_days = int(os.getenv("MAINTENANCE_KEEP_QUALITY_REPORTS_DAYS", "90"))
-        settings.maintenance_keep_governance_reports_days = int(os.getenv("MAINTENANCE_KEEP_GOVERNANCE_REPORTS_DAYS", "180"))
-        settings.maintenance_keep_experiment_manifests_days = int(os.getenv("MAINTENANCE_KEEP_EXPERIMENT_MANIFESTS_DAYS", "365"))
-        settings.maintenance_keep_knowledge_index_days = int(os.getenv("MAINTENANCE_KEEP_KNOWLEDGE_INDEX_DAYS", "30"))
-        settings.maintenance_keep_cache_days = int(os.getenv("MAINTENANCE_KEEP_CACHE_DAYS", "14"))
-        settings.maintenance_keep_checkpoints_days = int(os.getenv("MAINTENANCE_KEEP_CHECKPOINTS_DAYS", "30"))
-        settings.maintenance_archive_format = os.getenv("MAINTENANCE_ARCHIVE_FORMAT", "zip_manifest_only")
-        settings.maintenance_archive_max_bundle_mb = int(os.getenv("MAINTENANCE_ARCHIVE_MAX_BUNDLE_MB", "1024"))
-        settings.maintenance_save_reports = str(os.getenv("MAINTENANCE_SAVE_REPORTS", "true")).lower() == "true"
-        settings.maintenance_min_quality_score = float(os.getenv("MAINTENANCE_MIN_QUALITY_SCORE", "0.40"))
+new_settings = """
+    # Phase 58: Analyst UX & Operator Productivity
+    analyst_ux_enabled: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_ENABLED", "true")).lower() == "true")
+    default_analyst_ux_profile: str = field(default_factory=lambda: os.getenv("DEFAULT_ANALYST_UX_PROFILE", "balanced_analyst_productivity"))
+    analyst_ux_default_language: str = field(default_factory=lambda: os.getenv("ANALYST_UX_DEFAULT_LANGUAGE", "tr"))
+    analyst_ux_allow_live_commands: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_ALLOW_LIVE_COMMANDS", "false")).lower() == "true")
+    analyst_ux_allow_broker_commands: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_ALLOW_BROKER_COMMANDS", "false")).lower() == "true")
+    analyst_ux_allow_deploy_commands: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_ALLOW_DEPLOY_COMMANDS", "false")).lower() == "true")
+    analyst_ux_allow_background_daemons: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_ALLOW_BACKGROUND_DAEMONS", "false")).lower() == "true")
+    analyst_ux_allow_real_market_download: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_ALLOW_REAL_MARKET_DOWNLOAD", "false")).lower() == "true")
+    analyst_ux_generate_aliases: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_GENERATE_ALIASES", "true")).lower() == "true")
+    analyst_ux_generate_prompt_packs: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_GENERATE_PROMPT_PACKS", "true")).lower() == "true")
+    analyst_ux_generate_cheat_sheets: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_GENERATE_CHEAT_SHEETS", "true")).lower() == "true")
+    analyst_ux_generate_task_board: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_GENERATE_TASK_BOARD", "true")).lower() == "true")
+    analyst_ux_max_command_suggestions: int = field(default_factory=lambda: int(os.getenv("ANALYST_UX_MAX_COMMAND_SUGGESTIONS", "10")))
+    analyst_ux_min_intent_confidence: float = field(default_factory=lambda: float(os.getenv("ANALYST_UX_MIN_INTENT_CONFIDENCE", "0.40")))
+    analyst_ux_save_reports: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_SAVE_REPORTS", "true")).lower() == "true")
+    analyst_ux_min_quality_score: float = field(default_factory=lambda: float(os.getenv("ANALYST_UX_MIN_QUALITY_SCORE", "0.40")))
+
+    def __post_init__(self):"""
+
+content = content.replace("    def __post_init__(self):", new_settings)
+
+with open("commodity_fx_signal_bot/config/settings.py", "w") as f:
+    f.write(content)
+
+with open("commodity_fx_signal_bot/.env.example", "r") as f:
+    env_content = f.read()
+
+new_env = """
+ANALYST_UX_ENABLED=true
+DEFAULT_ANALYST_UX_PROFILE=balanced_analyst_productivity
+ANALYST_UX_DEFAULT_LANGUAGE=tr
+ANALYST_UX_ALLOW_LIVE_COMMANDS=false
+ANALYST_UX_ALLOW_BROKER_COMMANDS=false
+ANALYST_UX_ALLOW_DEPLOY_COMMANDS=false
+ANALYST_UX_ALLOW_BACKGROUND_DAEMONS=false
+ANALYST_UX_ALLOW_REAL_MARKET_DOWNLOAD=false
+ANALYST_UX_GENERATE_ALIASES=true
+ANALYST_UX_GENERATE_PROMPT_PACKS=true
+ANALYST_UX_GENERATE_CHEAT_SHEETS=true
+ANALYST_UX_GENERATE_TASK_BOARD=true
+ANALYST_UX_MAX_COMMAND_SUGGESTIONS=10
+ANALYST_UX_MIN_INTENT_CONFIDENCE=0.40
+ANALYST_UX_SAVE_REPORTS=true
+ANALYST_UX_MIN_QUALITY_SCORE=0.40
 """
-if "settings.maintenance_enabled" not in content:
-    content = content.replace("        return settings", env_loading + "\n        return settings")
-    with open("commodity_fx_signal_bot/config/settings.py", "w") as f:
-        f.write(content)
-    print("settings.py get_settings patched")
-else:
-    print("settings.py get_settings already patched")
+env_content += new_env
+
+with open("commodity_fx_signal_bot/.env.example", "w") as f:
+    f.write(env_content)
