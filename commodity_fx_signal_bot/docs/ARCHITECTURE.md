@@ -284,3 +284,20 @@ Scenario Registry / Synthetic Fixtures / Expected Outputs / Demo Workflows
 -> AcceptanceChecklist
 -> RegressionQuality
 -> Scenario Regression Reports
+
+
+## Analyst UX and Operator Productivity Flow (Phase 58)
+
+Command Center / Documentation / Scenario Regression / Quality Gates / Final Review
+-> CommandAliases
+-> IntentClassifier
+-> SafeCommandMapper
+-> PromptPacks
+-> WorkflowShortcuts
+-> QueryMapping
+-> AnalystTaskBoard
+-> CheatSheets
+-> ProductivityChecklist
+-> UXValidation
+-> UXQuality
+-> Analyst UX Reports

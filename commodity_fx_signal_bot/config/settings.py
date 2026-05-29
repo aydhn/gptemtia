@@ -1743,6 +1743,25 @@ class Settings:
     scenario_regression_save_reports: bool = field(default_factory=lambda: str(os.getenv("SCENARIO_REGRESSION_SAVE_REPORTS", "true")).lower() == "true")
     scenario_regression_min_quality_score: float = field(default_factory=lambda: float(os.getenv("SCENARIO_REGRESSION_MIN_QUALITY_SCORE", "0.40")))
 
+
+    # Phase 58: Analyst UX & Operator Productivity
+    analyst_ux_enabled: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_ENABLED", "true")).lower() == "true")
+    default_analyst_ux_profile: str = field(default_factory=lambda: os.getenv("DEFAULT_ANALYST_UX_PROFILE", "balanced_analyst_productivity"))
+    analyst_ux_default_language: str = field(default_factory=lambda: os.getenv("ANALYST_UX_DEFAULT_LANGUAGE", "tr"))
+    analyst_ux_allow_live_commands: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_ALLOW_LIVE_COMMANDS", "false")).lower() == "true")
+    analyst_ux_allow_broker_commands: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_ALLOW_BROKER_COMMANDS", "false")).lower() == "true")
+    analyst_ux_allow_deploy_commands: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_ALLOW_DEPLOY_COMMANDS", "false")).lower() == "true")
+    analyst_ux_allow_background_daemons: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_ALLOW_BACKGROUND_DAEMONS", "false")).lower() == "true")
+    analyst_ux_allow_real_market_download: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_ALLOW_REAL_MARKET_DOWNLOAD", "false")).lower() == "true")
+    analyst_ux_generate_aliases: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_GENERATE_ALIASES", "true")).lower() == "true")
+    analyst_ux_generate_prompt_packs: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_GENERATE_PROMPT_PACKS", "true")).lower() == "true")
+    analyst_ux_generate_cheat_sheets: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_GENERATE_CHEAT_SHEETS", "true")).lower() == "true")
+    analyst_ux_generate_task_board: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_GENERATE_TASK_BOARD", "true")).lower() == "true")
+    analyst_ux_max_command_suggestions: int = field(default_factory=lambda: int(os.getenv("ANALYST_UX_MAX_COMMAND_SUGGESTIONS", "10")))
+    analyst_ux_min_intent_confidence: float = field(default_factory=lambda: float(os.getenv("ANALYST_UX_MIN_INTENT_CONFIDENCE", "0.40")))
+    analyst_ux_save_reports: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_SAVE_REPORTS", "true")).lower() == "true")
+    analyst_ux_min_quality_score: float = field(default_factory=lambda: float(os.getenv("ANALYST_UX_MIN_QUALITY_SCORE", "0.40")))
+
     def __post_init__(self):
 
 
@@ -2647,6 +2666,25 @@ class Settings:
     final_review_save_reports: bool = field(default_factory=lambda: str(os.getenv("FINAL_REVIEW_SAVE_REPORTS", "true")).lower() == "true")
     final_review_dry_run: bool = field(default_factory=lambda: str(os.getenv("FINAL_REVIEW_DRY_RUN", "true")).lower() == "true")
     final_review_min_quality_score: float = field(default_factory=lambda: float(os.getenv("FINAL_REVIEW_MIN_QUALITY_SCORE", "0.40")))
+
+
+    # Phase 58: Analyst UX & Operator Productivity
+    analyst_ux_enabled: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_ENABLED", "true")).lower() == "true")
+    default_analyst_ux_profile: str = field(default_factory=lambda: os.getenv("DEFAULT_ANALYST_UX_PROFILE", "balanced_analyst_productivity"))
+    analyst_ux_default_language: str = field(default_factory=lambda: os.getenv("ANALYST_UX_DEFAULT_LANGUAGE", "tr"))
+    analyst_ux_allow_live_commands: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_ALLOW_LIVE_COMMANDS", "false")).lower() == "true")
+    analyst_ux_allow_broker_commands: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_ALLOW_BROKER_COMMANDS", "false")).lower() == "true")
+    analyst_ux_allow_deploy_commands: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_ALLOW_DEPLOY_COMMANDS", "false")).lower() == "true")
+    analyst_ux_allow_background_daemons: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_ALLOW_BACKGROUND_DAEMONS", "false")).lower() == "true")
+    analyst_ux_allow_real_market_download: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_ALLOW_REAL_MARKET_DOWNLOAD", "false")).lower() == "true")
+    analyst_ux_generate_aliases: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_GENERATE_ALIASES", "true")).lower() == "true")
+    analyst_ux_generate_prompt_packs: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_GENERATE_PROMPT_PACKS", "true")).lower() == "true")
+    analyst_ux_generate_cheat_sheets: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_GENERATE_CHEAT_SHEETS", "true")).lower() == "true")
+    analyst_ux_generate_task_board: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_GENERATE_TASK_BOARD", "true")).lower() == "true")
+    analyst_ux_max_command_suggestions: int = field(default_factory=lambda: int(os.getenv("ANALYST_UX_MAX_COMMAND_SUGGESTIONS", "10")))
+    analyst_ux_min_intent_confidence: float = field(default_factory=lambda: float(os.getenv("ANALYST_UX_MIN_INTENT_CONFIDENCE", "0.40")))
+    analyst_ux_save_reports: bool = field(default_factory=lambda: str(os.getenv("ANALYST_UX_SAVE_REPORTS", "true")).lower() == "true")
+    analyst_ux_min_quality_score: float = field(default_factory=lambda: float(os.getenv("ANALYST_UX_MIN_QUALITY_SCORE", "0.40")))
 
     def __post_init__(self):
 

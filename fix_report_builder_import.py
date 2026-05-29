@@ -1,17 +1,27 @@
 import os
-import glob
 
-# The report_builder.py is just a module with functions, not a class
-# So we shouldn't import ReportBuilder. Let's fix the scripts to just import the module
+scripts = [
+    "commodity_fx_signal_bot/scripts/run_ux_alias_report.py",
+    "commodity_fx_signal_bot/scripts/run_safe_command_suggestions.py",
+    "commodity_fx_signal_bot/scripts/run_prompt_pack_report.py",
+    "commodity_fx_signal_bot/scripts/run_productivity_checklist.py",
+    "commodity_fx_signal_bot/scripts/run_analyst_task_board.py",
+    "commodity_fx_signal_bot/scripts/run_operator_productivity_status.py"
+]
 
-for p in glob.glob("commodity_fx_signal_bot/scripts/run_*governance*.py") + glob.glob("commodity_fx_signal_bot/scripts/run_artifact*.py") + glob.glob("commodity_fx_signal_bot/scripts/run_provenance*.py") + glob.glob("commodity_fx_signal_bot/scripts/run_lineage*.py") + glob.glob("commodity_fx_signal_bot/scripts/run_audit*.py") + glob.glob("commodity_fx_signal_bot/scripts/run_dependency*.py"):
-    with open(p, "r") as f:
-        c = f.read()
+for script in scripts:
+    with open(script, "r") as f:
+        content = f.read()
 
-    c = c.replace("from reports.report_builder import report_builder as ReportBuilder", "import reports.report_builder as rb")
-    c = c.replace("rb = ReportBuilder(paths)", "")
+    # Change 'from reports.report_builder import ReportBuilder' to 'from reports.report_builder import build_ux_alias_text_report' or similar based on usage
+    if "from reports.report_builder import ReportBuilder" in content:
+        content = content.replace("from reports.report_builder import ReportBuilder", "from reports.report_builder import *")
+        content = content.replace("ReportBuilder.build_ux_alias_text_report", "build_ux_alias_text_report")
+        content = content.replace("ReportBuilder.build_safe_command_suggestion_text_report", "build_safe_command_suggestion_text_report")
+        content = content.replace("ReportBuilder.build_prompt_pack_text_report", "build_prompt_pack_text_report")
+        content = content.replace("ReportBuilder.build_productivity_checklist_text_report", "build_productivity_checklist_text_report")
+        content = content.replace("ReportBuilder.build_analyst_task_board_text_report", "build_analyst_task_board_text_report")
+        content = content.replace("ReportBuilder.build_operator_productivity_status_report", "build_operator_productivity_status_report")
 
-    with open(p, "w") as f:
-        f.write(c)
-
-print("Fixed imports")
+        with open(script, "w") as f:
+            f.write(content)
