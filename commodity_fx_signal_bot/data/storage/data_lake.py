@@ -16,6 +16,266 @@ logger = get_logger(__name__)
 
 class DataLake:
 
+    def save_scenario_registry(self, df: pd.DataFrame, summary: dict = None) -> Path:
+        """Saves the scenario registry."""
+        from config.paths import DATA_SCENARIOS_REGISTRY_DIR
+
+        file_path = DATA_SCENARIOS_REGISTRY_DIR / "scenario_registry.csv"
+        DATA_SCENARIOS_REGISTRY_DIR.mkdir(parents=True, exist_ok=True)
+        if df is not None and not df.empty:
+            df.to_csv(file_path, index=False)
+        return file_path
+
+    def load_scenario_registry(self) -> pd.DataFrame:
+        """Loads the scenario registry."""
+        from config.paths import DATA_SCENARIOS_REGISTRY_DIR
+
+        file_path = self.paths.DATA_SCENARIOS_REGISTRY_DIR / "scenario_registry.csv"
+        if file_path.exists():
+            return pd.read_csv(file_path)
+        return pd.DataFrame()
+
+    def save_scenario_sample_data_manifest(self, df: pd.DataFrame, summary: dict = None) -> Path:
+        """Saves the scenario sample data manifest."""
+        from config.paths import DATA_SCENARIOS_SAMPLE_DATA_DIR
+
+        file_path = DATA_SCENARIOS_SAMPLE_DATA_DIR / "sample_data_manifest.csv"
+        DATA_SCENARIOS_SAMPLE_DATA_DIR.mkdir(parents=True, exist_ok=True)
+        if df is not None and not df.empty:
+            df.to_csv(file_path, index=False)
+        return file_path
+
+    def load_scenario_sample_data_manifest(self) -> pd.DataFrame:
+        """Loads the scenario sample data manifest."""
+        from config.paths import DATA_SCENARIOS_SAMPLE_DATA_DIR
+
+        file_path = self.paths.DATA_SCENARIOS_SAMPLE_DATA_DIR / "sample_data_manifest.csv"
+        if file_path.exists():
+            return pd.read_csv(file_path)
+        return pd.DataFrame()
+
+    def save_scenario_fixtures(self, df: pd.DataFrame, summary: dict = None) -> Path:
+        """Saves scenario fixtures manifest."""
+        from config.paths import DATA_SCENARIOS_FIXTURES_DIR
+
+        file_path = DATA_SCENARIOS_FIXTURES_DIR / "scenario_fixtures.csv"
+        DATA_SCENARIOS_FIXTURES_DIR.mkdir(parents=True, exist_ok=True)
+        if df is not None and not df.empty:
+            df.to_csv(file_path, index=False)
+        return file_path
+
+    def load_scenario_fixtures(self) -> pd.DataFrame:
+        """Loads scenario fixtures manifest."""
+        from config.paths import DATA_SCENARIOS_FIXTURES_DIR
+
+        file_path = self.paths.DATA_SCENARIOS_FIXTURES_DIR / "scenario_fixtures.csv"
+        if file_path.exists():
+            return pd.read_csv(file_path)
+        return pd.DataFrame()
+
+    def save_scenario_expected_outputs(self, df: pd.DataFrame, summary: dict = None) -> Path:
+        """Saves expected outputs contracts."""
+        from config.paths import DATA_SCENARIOS_EXPECTED_OUTPUTS_DIR
+
+        file_path = DATA_SCENARIOS_EXPECTED_OUTPUTS_DIR / "scenario_expected_outputs.csv"
+        DATA_SCENARIOS_EXPECTED_OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
+        if df is not None and not df.empty:
+            df.to_csv(file_path, index=False)
+        return file_path
+
+    def load_scenario_expected_outputs(self) -> pd.DataFrame:
+        """Loads expected outputs contracts."""
+        from config.paths import DATA_SCENARIOS_EXPECTED_OUTPUTS_DIR
+
+        file_path = self.paths.DATA_SCENARIOS_EXPECTED_OUTPUTS_DIR / "scenario_expected_outputs.csv"
+        if file_path.exists():
+            return pd.read_csv(file_path)
+        return pd.DataFrame()
+
+    def save_scenario_workflow_packs(self, df: pd.DataFrame, summary: dict = None) -> Path:
+        """Saves scenario workflow packs."""
+        from config.paths import DATA_SCENARIOS_WORKFLOWS_DIR
+
+        file_path = DATA_SCENARIOS_WORKFLOWS_DIR / "scenario_workflow_packs.csv"
+        DATA_SCENARIOS_WORKFLOWS_DIR.mkdir(parents=True, exist_ok=True)
+        if df is not None and not df.empty:
+            df.to_csv(file_path, index=False)
+        return file_path
+
+    def load_scenario_workflow_packs(self) -> pd.DataFrame:
+        """Loads scenario workflow packs."""
+        from config.paths import DATA_SCENARIOS_WORKFLOWS_DIR
+
+        file_path = self.paths.DATA_SCENARIOS_WORKFLOWS_DIR / "scenario_workflow_packs.csv"
+        if file_path.exists():
+            return pd.read_csv(file_path)
+        return pd.DataFrame()
+
+    def save_demo_command_sequences(self, df: pd.DataFrame, summary: dict = None) -> Path:
+        """Saves demo command sequences."""
+        from config.paths import DATA_SCENARIOS_DEMO_COMMANDS_DIR
+
+        file_path = DATA_SCENARIOS_DEMO_COMMANDS_DIR / "demo_command_sequences.csv"
+        DATA_SCENARIOS_DEMO_COMMANDS_DIR.mkdir(parents=True, exist_ok=True)
+        if df is not None and not df.empty:
+            df.to_csv(file_path, index=False)
+        return file_path
+
+    def load_demo_command_sequences(self) -> pd.DataFrame:
+        """Loads demo command sequences."""
+        from config.paths import DATA_SCENARIOS_DEMO_COMMANDS_DIR
+
+        file_path = self.paths.DATA_SCENARIOS_DEMO_COMMANDS_DIR / "demo_command_sequences.csv"
+        if file_path.exists():
+            return pd.read_csv(file_path)
+        return pd.DataFrame()
+
+    def save_scenario_dry_run_results(self, df: pd.DataFrame, summary: dict = None) -> Path:
+        """Saves scenario dry run results."""
+        from config.paths import DATA_SCENARIOS_DRY_RUNS_DIR
+
+        file_path = DATA_SCENARIOS_DRY_RUNS_DIR / "scenario_dry_run_results.csv"
+        DATA_SCENARIOS_DRY_RUNS_DIR.mkdir(parents=True, exist_ok=True)
+        if df is not None and not df.empty:
+            df.to_csv(file_path, index=False)
+        return file_path
+
+    def load_scenario_dry_run_results(self) -> pd.DataFrame:
+        """Loads scenario dry run results."""
+        from config.paths import DATA_SCENARIOS_DRY_RUNS_DIR
+
+        file_path = self.paths.DATA_SCENARIOS_DRY_RUNS_DIR / "scenario_dry_run_results.csv"
+        if file_path.exists():
+            return pd.read_csv(file_path)
+        return pd.DataFrame()
+
+    def save_scenario_validation_report(self, df: pd.DataFrame, summary: dict = None) -> Path:
+        """Saves scenario validation report."""
+        from config.paths import DATA_SCENARIOS_VALIDATION_DIR
+
+        file_path = DATA_SCENARIOS_VALIDATION_DIR / "scenario_validation_report.csv"
+        DATA_SCENARIOS_VALIDATION_DIR.mkdir(parents=True, exist_ok=True)
+        if df is not None and not df.empty:
+            df.to_csv(file_path, index=False)
+        return file_path
+
+    def load_scenario_validation_report(self) -> pd.DataFrame:
+        """Loads scenario validation report."""
+        from config.paths import DATA_SCENARIOS_VALIDATION_DIR
+
+        file_path = self.paths.DATA_SCENARIOS_VALIDATION_DIR / "scenario_validation_report.csv"
+        if file_path.exists():
+            return pd.read_csv(file_path)
+        return pd.DataFrame()
+
+    def save_case_studies(self, df: pd.DataFrame, summary: dict = None) -> Path:
+        """Saves case studies."""
+        from config.paths import DATA_SCENARIOS_CASE_STUDIES_DIR
+
+        file_path = DATA_SCENARIOS_CASE_STUDIES_DIR / "case_studies.csv"
+        DATA_SCENARIOS_CASE_STUDIES_DIR.mkdir(parents=True, exist_ok=True)
+        if df is not None and not df.empty:
+            df.to_csv(file_path, index=False)
+        return file_path
+
+    def load_case_studies(self) -> pd.DataFrame:
+        """Loads case studies."""
+        from config.paths import DATA_SCENARIOS_CASE_STUDIES_DIR
+
+        file_path = self.paths.DATA_SCENARIOS_CASE_STUDIES_DIR / "case_studies.csv"
+        if file_path.exists():
+            return pd.read_csv(file_path)
+        return pd.DataFrame()
+
+    def save_module_demo_flows(self, df: pd.DataFrame, summary: dict = None) -> Path:
+        """Saves module demo flows."""
+        from config.paths import DATA_SCENARIOS_MODULE_FLOWS_DIR
+
+        file_path = DATA_SCENARIOS_MODULE_FLOWS_DIR / "module_demo_flows.csv"
+        DATA_SCENARIOS_MODULE_FLOWS_DIR.mkdir(parents=True, exist_ok=True)
+        if df is not None and not df.empty:
+            df.to_csv(file_path, index=False)
+        return file_path
+
+    def load_module_demo_flows(self) -> pd.DataFrame:
+        """Loads module demo flows."""
+        from config.paths import DATA_SCENARIOS_MODULE_FLOWS_DIR
+
+        file_path = self.paths.DATA_SCENARIOS_MODULE_FLOWS_DIR / "module_demo_flows.csv"
+        if file_path.exists():
+            return pd.read_csv(file_path)
+        return pd.DataFrame()
+
+    def save_end_to_end_demo_report(self, report_name: str, report: dict, markdown: str = None) -> Path:
+        """Saves end-to-end demo JSON report."""
+        from config.paths import DATA_SCENARIOS_END_TO_END_DIR
+        import json
+        file_path = DATA_SCENARIOS_END_TO_END_DIR / f"{report_name}.json"
+        DATA_SCENARIOS_END_TO_END_DIR.mkdir(parents=True, exist_ok=True)
+        with open(file_path, "w") as f:
+            json.dump(report, f, indent=4)
+        return file_path
+
+    def load_end_to_end_demo_report(self, report_name: str) -> dict:
+        """Loads end-to-end demo JSON report."""
+        from config.paths import DATA_SCENARIOS_END_TO_END_DIR
+        import json
+        file_path = DATA_SCENARIOS_END_TO_END_DIR / f"{report_name}.json"
+        if not file_path.exists():
+            return {}
+        with open(file_path, "r") as f:
+            return json.load(f)
+
+    def save_scenario_quality(self, profile_name: str, quality: dict) -> Path:
+        """Saves scenario quality JSON."""
+        from config.paths import DATA_SCENARIOS_QUALITY_DIR
+        import json
+        file_path = DATA_SCENARIOS_QUALITY_DIR / f"scenario_quality_{profile_name}.json"
+        DATA_SCENARIOS_QUALITY_DIR.mkdir(parents=True, exist_ok=True)
+        with open(file_path, "w") as f:
+            json.dump(quality, f, indent=4)
+        return file_path
+
+    def load_scenario_quality(self, profile_name: str) -> dict:
+        """Loads scenario quality JSON."""
+        from config.paths import DATA_SCENARIOS_QUALITY_DIR
+        import json
+        file_path = DATA_SCENARIOS_QUALITY_DIR / f"scenario_quality_{profile_name}.json"
+        if not file_path.exists():
+            return {}
+        with open(file_path, "r") as f:
+            return json.load(f)
+
+    def save_scenario_report(self, profile_name: str, report: dict, markdown: str = None) -> Path:
+        """Saves a general scenario report JSON."""
+        from config.paths import DATA_SCENARIOS_DIR
+        import json
+        file_path = DATA_SCENARIOS_DIR / f"scenario_report_{profile_name}.json"
+        DATA_SCENARIOS_DIR.mkdir(parents=True, exist_ok=True)
+        with open(file_path, "w") as f:
+            json.dump(report, f, indent=4)
+        return file_path
+
+    def load_scenario_report(self, profile_name: str) -> dict:
+        """Loads a general scenario report JSON."""
+        from config.paths import DATA_SCENARIOS_DIR
+        import json
+        file_path = DATA_SCENARIOS_DIR / f"scenario_report_{profile_name}.json"
+        if not file_path.exists():
+            return {}
+        with open(file_path, "r") as f:
+            return json.load(f)
+
+    def list_scenario_reports(self) -> pd.DataFrame:
+        """Lists all scenario reports."""
+        from config.paths import DATA_SCENARIOS_DIR
+        reports = []
+        if DATA_SCENARIOS_DIR.exists():
+            for p in DATA_SCENARIOS_DIR.glob("scenario_report_*.json"):
+                reports.append({"report_name": p.stem, "path": str(p)})
+        return pd.DataFrame(reports)
+
+
     # Phase 50: Command Center Methods
     def save_command_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
         return self._save_report(df, self.paths.LAKE_COMMAND_CENTER_REGISTRY_DIR / "command_registry.parquet", summary)
@@ -1722,55 +1982,55 @@ class DataLake:
 
     # Phase 42: Portfolio Regime Research
     def save_portfolio_regimes(self, timeframe: str, profile_name: str, df: pd.DataFrame) -> Path: # type: ignore
-        return self._save_df(df, self.paths.portfolio_regime_regimes / f"regimes_{timeframe}_{profile_name}.parquet")
+        return self._save_report(df, self.paths.portfolio_regime_regimes / f"regimes_{timeframe}_{profile_name}.parquet")
 
     def load_portfolio_regimes(self, timeframe: str, profile_name: str) -> pd.DataFrame:
         return self._load_df(self.paths.portfolio_regime_regimes / f"regimes_{timeframe}_{profile_name}.parquet")
 
     def save_regime_conditioned_returns(self, timeframe: str, profile_name: str, df: pd.DataFrame) -> Path: # type: ignore
-        return self._save_df(df, self.paths.portfolio_regime_conditioned_returns / f"conditioned_returns_{timeframe}_{profile_name}.parquet")
+        return self._save_report(df, self.paths.portfolio_regime_conditioned_returns / f"conditioned_returns_{timeframe}_{profile_name}.parquet")
 
     def load_regime_conditioned_returns(self, timeframe: str, profile_name: str) -> pd.DataFrame:
         return self._load_df(self.paths.portfolio_regime_conditioned_returns / f"conditioned_returns_{timeframe}_{profile_name}.parquet")
 
     def save_regime_correlation_summary(self, timeframe: str, profile_name: str, df: pd.DataFrame) -> Path: # type: ignore
-        return self._save_df(df, self.paths.portfolio_regime_correlation / f"correlation_{timeframe}_{profile_name}.parquet")
+        return self._save_report(df, self.paths.portfolio_regime_correlation / f"correlation_{timeframe}_{profile_name}.parquet")
 
     def load_regime_correlation_summary(self, timeframe: str, profile_name: str) -> pd.DataFrame:
         return self._load_df(self.paths.portfolio_regime_correlation / f"correlation_{timeframe}_{profile_name}.parquet")
 
     def save_macro_scenario_sensitivity(self, timeframe: str, profile_name: str, df: pd.DataFrame) -> Path: # type: ignore
-        return self._save_df(df, self.paths.portfolio_regime_scenarios / f"scenario_sensitivity_{timeframe}_{profile_name}.parquet")
+        return self._save_report(df, self.paths.portfolio_regime_scenarios / f"scenario_sensitivity_{timeframe}_{profile_name}.parquet")
 
     def load_macro_scenario_sensitivity(self, timeframe: str, profile_name: str) -> pd.DataFrame:
         return self._load_df(self.paths.portfolio_regime_scenarios / f"scenario_sensitivity_{timeframe}_{profile_name}.parquet")
 
     def save_basket_stress_test_results(self, timeframe: str, profile_name: str, df: pd.DataFrame) -> Path: # type: ignore
-        return self._save_df(df, self.paths.portfolio_regime_stress_tests / f"stress_test_{timeframe}_{profile_name}.parquet")
+        return self._save_report(df, self.paths.portfolio_regime_stress_tests / f"stress_test_{timeframe}_{profile_name}.parquet")
 
     def load_basket_stress_test_results(self, timeframe: str, profile_name: str) -> pd.DataFrame:
         return self._load_df(self.paths.portfolio_regime_stress_tests / f"stress_test_{timeframe}_{profile_name}.parquet")
 
     def save_drawdown_clusters(self, timeframe: str, profile_name: str, df: pd.DataFrame) -> Path: # type: ignore
-        return self._save_df(df, self.paths.portfolio_regime_drawdowns / f"drawdown_clusters_{timeframe}_{profile_name}.parquet")
+        return self._save_report(df, self.paths.portfolio_regime_drawdowns / f"drawdown_clusters_{timeframe}_{profile_name}.parquet")
 
     def load_drawdown_clusters(self, timeframe: str, profile_name: str) -> pd.DataFrame:
         return self._load_df(self.paths.portfolio_regime_drawdowns / f"drawdown_clusters_{timeframe}_{profile_name}.parquet")
 
     def save_recovery_analysis(self, timeframe: str, profile_name: str, df: pd.DataFrame) -> Path: # type: ignore
-        return self._save_df(df, self.paths.portfolio_regime_recovery / f"recovery_analysis_{timeframe}_{profile_name}.parquet")
+        return self._save_report(df, self.paths.portfolio_regime_recovery / f"recovery_analysis_{timeframe}_{profile_name}.parquet")
 
     def load_recovery_analysis(self, timeframe: str, profile_name: str) -> pd.DataFrame:
         return self._load_df(self.paths.portfolio_regime_recovery / f"recovery_analysis_{timeframe}_{profile_name}.parquet")
 
     def save_tail_risk_table(self, timeframe: str, profile_name: str, df: pd.DataFrame) -> Path: # type: ignore
-        return self._save_df(df, self.paths.portfolio_regime_tail_risk / f"tail_risk_{timeframe}_{profile_name}.parquet")
+        return self._save_report(df, self.paths.portfolio_regime_tail_risk / f"tail_risk_{timeframe}_{profile_name}.parquet")
 
     def load_tail_risk_table(self, timeframe: str, profile_name: str) -> pd.DataFrame:
         return self._load_df(self.paths.portfolio_regime_tail_risk / f"tail_risk_{timeframe}_{profile_name}.parquet")
 
     def save_risk_regime_exposure(self, timeframe: str, profile_name: str, df: pd.DataFrame) -> Path: # type: ignore
-        return self._save_df(df, self.paths.portfolio_regime_exposure / f"exposure_{timeframe}_{profile_name}.parquet")
+        return self._save_report(df, self.paths.portfolio_regime_exposure / f"exposure_{timeframe}_{profile_name}.parquet")
 
     def load_risk_regime_exposure(self, timeframe: str, profile_name: str) -> pd.DataFrame:
         return self._load_df(self.paths.portfolio_regime_exposure / f"exposure_{timeframe}_{profile_name}.parquet")

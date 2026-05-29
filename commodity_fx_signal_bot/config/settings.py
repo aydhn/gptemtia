@@ -29,6 +29,27 @@ class Settings:
         default_factory=lambda: os.getenv("BASE_CURRENCY", "TRY")
     )
 
+
+    # Scenarios settings
+    scenarios_enabled: bool = field(default_factory=lambda: os.getenv("SCENARIOS_ENABLED", "true").lower() == "true")
+    default_scenario_profile: str = field(default_factory=lambda: os.getenv("DEFAULT_SCENARIO_PROFILE", "balanced_offline_scenarios"))
+    scenario_default_timeframe: str = field(default_factory=lambda: os.getenv("SCENARIO_DEFAULT_TIMEFRAME", "1d"))
+    scenario_use_synthetic_data_only: bool = field(default_factory=lambda: os.getenv("SCENARIO_USE_SYNTHETIC_DATA_ONLY", "true").lower() == "true")
+    scenario_allow_real_market_download: bool = field(default_factory=lambda: os.getenv("SCENARIO_ALLOW_REAL_MARKET_DOWNLOAD", "false").lower() == "true")
+    scenario_allow_live_commands: bool = field(default_factory=lambda: os.getenv("SCENARIO_ALLOW_LIVE_COMMANDS", "false").lower() == "true")
+    scenario_allow_broker_commands: bool = field(default_factory=lambda: os.getenv("SCENARIO_ALLOW_BROKER_COMMANDS", "false").lower() == "true")
+    scenario_allow_deploy_commands: bool = field(default_factory=lambda: os.getenv("SCENARIO_ALLOW_DEPLOY_COMMANDS", "false").lower() == "true")
+    scenario_allow_background_daemons: bool = field(default_factory=lambda: os.getenv("SCENARIO_ALLOW_BACKGROUND_DAEMONS", "false").lower() == "true")
+    scenario_generate_sample_data: bool = field(default_factory=lambda: os.getenv("SCENARIO_GENERATE_SAMPLE_DATA", "true").lower() == "true")
+    scenario_generate_fixtures: bool = field(default_factory=lambda: os.getenv("SCENARIO_GENERATE_FIXTURES", "true").lower() == "true")
+    scenario_generate_expected_outputs: bool = field(default_factory=lambda: os.getenv("SCENARIO_GENERATE_EXPECTED_OUTPUTS", "true").lower() == "true")
+    scenario_run_dry_run_validation: bool = field(default_factory=lambda: os.getenv("SCENARIO_RUN_DRY_RUN_VALIDATION", "true").lower() == "true")
+    scenario_max_symbols: int = field(default_factory=lambda: int(os.getenv("SCENARIO_MAX_SYMBOLS", "20")))
+    scenario_max_rows_per_symbol: int = field(default_factory=lambda: int(os.getenv("SCENARIO_MAX_ROWS_PER_SYMBOL", "500")))
+    scenario_random_seed: int = field(default_factory=lambda: int(os.getenv("SCENARIO_RANDOM_SEED", "42")))
+    scenario_save_reports: bool = field(default_factory=lambda: os.getenv("SCENARIO_SAVE_REPORTS", "true").lower() == "true")
+    scenario_min_quality_score: float = field(default_factory=lambda: float(os.getenv("SCENARIO_MIN_QUALITY_SCORE", "0.40")))
+
     # Data Settings
     default_period: str = field(
         default_factory=lambda: os.getenv("DEFAULT_PERIOD", "2y")

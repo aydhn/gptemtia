@@ -60,3 +60,16 @@ Aşağıdaki özellikler kasıtlı olarak sisteme **dahil edilmemiştir**:
 Sistemi üretim ortamı gibi değil, bir laboratuvar ortamı gibi yönetin.
 
 <!-- AUTO-GENERATED SECTION END -->
+
+
+
+## Controlled Scenarios and Demos
+
+To safely explore the system's capabilities without using real data or issuing real trades, you can run offline scenarios:
+- **Generate Synthetic Data**: `python -m scripts.run_sample_data_builder`
+- **View Scenarios**: `python -m scripts.run_scenario_registry_report`
+- **Follow Demo Workflows**: `python -m scripts.run_demo_workflow_report`
+- **Simulate Execution**: `python -m scripts.run_scenario_dry_run`
+- **Read Case Studies**: `python -m scripts.run_case_study_report`
+
+**IMPORTANT**: These tools do NOT perform live trading, broker integrations, or produce investment advice. They only simulate the offline research workflow.

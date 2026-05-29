@@ -4092,3 +4092,83 @@ def build_documentation_status_report(status_df, summary: dict) -> str:
         if not status_df.empty:
             lines.append("\n" + status_df.to_string(index=False))
         return "\n".join(lines)
+
+
+
+def build_scenario_registry_text_report(summary: dict, scenarios_df: pd.DataFrame = None) -> str:
+    lines = [
+        "SCENARIO REGISTRY REPORT",
+        "------------------------",
+        "Bu çıktı offline controlled research scenario/demo raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.",
+        f"Total Scenarios: {summary.get('total_scenarios', 0)}"
+    ]
+    if scenarios_df is not None and not scenarios_df.empty:
+        lines.append("Scenarios:")
+        # only add if columns exist
+        cols = [c for c in ["scenario_name", "scenario_type"] if c in scenarios_df.columns]
+        if cols:
+            lines.append(scenarios_df[cols].to_string())
+    return "\n".join(lines)
+
+def build_sample_data_text_report(summary: dict, sample_df: pd.DataFrame = None) -> str:
+    lines = [
+        "SAMPLE DATA REPORT",
+        "------------------",
+        "Bu çıktı offline controlled research scenario/demo raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.",
+        f"Files Saved: {summary.get('files_saved', 0)}"
+    ]
+    if sample_df is not None and not sample_df.empty:
+        lines.append("Series:")
+        cols = [c for c in ["series_name", "synthetic"] if c in sample_df.columns]
+        if cols:
+            lines.append(sample_df[cols].to_string())
+    return "\n".join(lines)
+
+def build_scenario_dry_run_text_report(summary: dict, dry_run_df: pd.DataFrame = None) -> str:
+    lines = [
+        "SCENARIO DRY RUN REPORT",
+        "-----------------------",
+        "Bu çıktı offline controlled research scenario/demo raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.",
+        f"Total Runs: {summary.get('total_runs', 0)}",
+        f"Passed Runs: {summary.get('passed_runs', summary.get('passed', 0))}"
+    ]
+    return "\n".join(lines)
+
+def build_case_study_text_report(summary: dict, case_df: pd.DataFrame = None) -> str:
+    lines = [
+        "CASE STUDIES REPORT",
+        "-------------------",
+        "Bu çıktı offline controlled research scenario/demo raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.",
+        f"Total Case Studies: {summary.get('total', 0)}"
+    ]
+    return "\n".join(lines)
+
+def build_demo_workflow_text_report(summary: dict, workflow_df: pd.DataFrame = None) -> str:
+    lines = [
+        "DEMO WORKFLOWS REPORT",
+        "---------------------",
+        "Bu çıktı offline controlled research scenario/demo raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.",
+        f"Total Packs: {summary.get('total_packs', 0)}"
+    ]
+    return "\n".join(lines)
+
+def build_end_to_end_demo_text_report(summary: dict, plan_df: pd.DataFrame = None) -> str:
+    lines = [
+        "END-TO-END DEMO REPORT",
+        "----------------------",
+        "Bu çıktı offline controlled research scenario/demo raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.",
+        f"Total Steps: {summary.get('total_steps', 0)}"
+    ]
+    return "\n".join(lines)
+
+def build_scenario_status_report(status_df: pd.DataFrame, summary: dict) -> str:
+    lines = [
+        "SCENARIO STATUS REPORT",
+        "----------------------",
+        "Bu çıktı offline controlled research scenario/demo raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.",
+        f"Total Components: {summary.get('total_components', 0)}"
+    ]
+    if status_df is not None and not status_df.empty:
+        lines.append("Components:")
+        lines.append(status_df.to_string())
+    return "\n".join(lines)

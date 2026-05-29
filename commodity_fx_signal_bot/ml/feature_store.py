@@ -5,6 +5,70 @@ from data.storage.data_lake import DataLake
 
 class FeatureStore:
 
+    def load_scenario_registry(self) -> pd.DataFrame:
+        """Loads scenario registry."""
+        return self.data_lake.load_scenario_registry()
+
+    def load_scenario_sample_data_manifest(self) -> pd.DataFrame:
+        """Loads scenario sample data manifest."""
+        return self.data_lake.load_scenario_sample_data_manifest()
+
+    def load_scenario_fixtures(self) -> pd.DataFrame:
+        """Loads scenario fixtures."""
+        return self.data_lake.load_scenario_fixtures()
+
+    def load_scenario_expected_outputs(self) -> pd.DataFrame:
+        """Loads expected outputs."""
+        return self.data_lake.load_scenario_expected_outputs()
+
+    def load_scenario_workflow_packs(self) -> pd.DataFrame:
+        """Loads scenario workflow packs."""
+        return self.data_lake.load_scenario_workflow_packs()
+
+    def load_demo_command_sequences(self) -> pd.DataFrame:
+        """Loads demo command sequences."""
+        return self.data_lake.load_demo_command_sequences()
+
+    def load_scenario_dry_run_results(self) -> pd.DataFrame:
+        """Loads scenario dry run results."""
+        return self.data_lake.load_scenario_dry_run_results()
+
+    def load_scenario_validation_report(self) -> pd.DataFrame:
+        """Loads scenario validation report."""
+        return self.data_lake.load_scenario_validation_report()
+
+    def load_case_studies(self) -> pd.DataFrame:
+        """Loads case studies."""
+        return self.data_lake.load_case_studies()
+
+    def load_module_demo_flows(self) -> pd.DataFrame:
+        """Loads module demo flows."""
+        return self.data_lake.load_module_demo_flows()
+
+    def load_end_to_end_demo_report(self, report_name: str) -> dict:
+        """Loads end to end demo report."""
+        return self.data_lake.load_end_to_end_demo_report(report_name)
+
+    def load_scenario_quality(self, profile_name: str = None) -> dict:
+        """Loads scenario quality report."""
+        if profile_name is None:
+            profile_name = self.settings.default_scenario_profile
+        return self.data_lake.load_scenario_quality(profile_name)
+
+    def load_scenario_report(self, profile_name: str = None) -> dict:
+        """Loads scenario report."""
+        if profile_name is None:
+            profile_name = self.settings.default_scenario_profile
+        return self.data_lake.load_scenario_report(profile_name)
+
+    def list_available_scenario_reports(self) -> dict:
+        """Lists available scenario reports."""
+        df = self.data_lake.list_scenario_reports()
+        if df.empty:
+            return {"reports": []}
+        return {"reports": df.to_dict(orient="records")}
+
+
     # Phase 50: Command Center Methods
     def load_command_registry(self) -> pd.DataFrame:
         return self.data_lake.load_command_registry()
