@@ -5,6 +5,64 @@ from data.storage.data_lake import DataLake
 
 class FeatureStore:
 
+
+    def load_scenario_regression_registry(self) -> pd.DataFrame:
+        return self.data_lake.load_scenario_regression_registry()
+
+    def load_golden_outputs(self) -> pd.DataFrame:
+        return self.data_lake.load_golden_outputs()
+
+    def load_golden_output_manifest(self) -> dict:
+        return self.data_lake.load_golden_output_manifest()
+
+    def load_snapshot_manifest(self) -> pd.DataFrame:
+        return self.data_lake.load_snapshot_manifest()
+
+    def load_snapshot_diff_report(self) -> pd.DataFrame:
+        return self.data_lake.load_snapshot_diff_report()
+
+    def load_deterministic_replay_report(self) -> pd.DataFrame:
+        return self.data_lake.load_deterministic_replay_report()
+
+    def load_fixture_reproducibility_report(self) -> pd.DataFrame:
+        return self.data_lake.load_fixture_reproducibility_report()
+
+    def load_scenario_output_contract_validation(self) -> pd.DataFrame:
+        return self.data_lake.load_scenario_output_contract_validation()
+
+    def load_demo_workflow_regression_report(self) -> pd.DataFrame:
+        return self.data_lake.load_demo_workflow_regression_report()
+
+    def load_end_to_end_demo_acceptance(self) -> pd.DataFrame:
+        return self.data_lake.load_end_to_end_demo_acceptance()
+
+    def load_scenario_drift_report(self) -> pd.DataFrame:
+        return self.data_lake.load_scenario_drift_report()
+
+    def load_regression_failure_register(self) -> pd.DataFrame:
+        return self.data_lake.load_regression_failure_register()
+
+    def load_regression_acceptance_checklist(self) -> pd.DataFrame:
+        return self.data_lake.load_regression_acceptance_checklist()
+
+    def load_scenario_regression_quality(self, profile_name: str | None = None) -> dict:
+        if profile_name is None:
+            from config.settings import settings
+            profile_name = settings.default_scenario_regression_profile
+        return self.data_lake.load_scenario_regression_quality(profile_name)
+
+    def load_scenario_regression_report(self, profile_name: str | None = None) -> dict:
+        if profile_name is None:
+            from config.settings import settings
+            profile_name = settings.default_scenario_regression_profile
+        return self.data_lake.load_scenario_regression_report(profile_name)
+
+    def list_available_scenario_regression_reports(self) -> dict:
+        df = self.data_lake.list_scenario_regression_reports()
+        if df.empty:
+            return {"reports": []}
+        return {"reports": df.to_dict(orient="records")}
+
     def load_scenario_registry(self) -> pd.DataFrame:
         """Loads scenario registry."""
         return self.data_lake.load_scenario_registry()

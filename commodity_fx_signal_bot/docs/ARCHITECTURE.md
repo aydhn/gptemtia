@@ -266,3 +266,21 @@ ScenarioProfile
 → EndToEndDemo
 → ScenarioQuality
 → Scenario Reports
+
+
+## Scenario Regression Flow (Phase 57)
+Scenario Registry / Synthetic Fixtures / Expected Outputs / Demo Workflows
+-> RegressionRegistry
+-> GoldenOutputs
+-> SnapshotCapture
+-> SnapshotCompare
+-> DeterministicReplay
+-> FixtureReproducibility
+-> OutputContractValidation
+-> DemoWorkflowRegression
+-> EndToEndAcceptance
+-> DriftDetection
+-> FailureRegister
+-> AcceptanceChecklist
+-> RegressionQuality
+-> Scenario Regression Reports

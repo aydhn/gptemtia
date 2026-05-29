@@ -1,0 +1,7 @@
+cd commodity_fx_signal_bot
+python3 -m scripts.run_scenario_regression_registry
+python3 -m scripts.run_golden_output_report
+python3 -m scripts.run_snapshot_comparison_report
+python3 -m scripts.run_deterministic_replay_report
+python3 -m scripts.run_demo_acceptance_report
+python3 -m scripts.run_scenario_regression_status
