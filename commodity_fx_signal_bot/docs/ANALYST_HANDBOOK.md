@@ -60,3 +60,13 @@ Aşağıdaki özellikler kasıtlı olarak sisteme **dahil edilmemiştir**:
 Sinyal adayları kesin karar değildir; bir sonraki analiz katmanı için girdidir.
 
 <!-- AUTO-GENERATED SECTION END -->
+
+
+## Report Summarization
+Sistem offline araştırma süreçlerinden elde edilen bulguları özetler:
+- **Executive Summary:** Yatırım kararı özeti değildir. Offline kalite durumunu aktarır.
+- **Analyst Brief:** Gerçek piyasa sinyali değildir. Odaklanılması gereken modülleri öne çıkarır.
+- **Weekly Offline Review:** Piyasa strateji raporu değildir. Proje durum özetidir.
+- **Symbol Brief:** AL/SAT üretmez, tavsiye barındırmaz.
+- **Follow-up Tasks:** Safe/offline görevleridir. Kesinlikle live komut içermezler.
+Bu katman harici LLM kullanmaz ve sadece local rule-based özetleme yapar.

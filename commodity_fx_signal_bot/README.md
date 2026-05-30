@@ -973,3 +973,21 @@ python -m scripts.run_productivity_checklist
 python -m scripts.run_analyst_task_board
 python -m scripts.run_operator_productivity_status
 ```
+
+
+## Report Summarization, Analyst Briefs and Weekly Offline Review
+
+Sistem, offline araştırma çıktılarını sentezleyerek üst düzey analiz ve özet paketleri sunar. Bu katman harici LLM kullanmaz.
+Özetler yatırım tavsiyesi, canlı sinyal veya ticaret aksiyonu üretmez.
+Çıktılar `data/lake/report_summarization` ve `reports/output/report_summarization` altında oluşur.
+
+Mevcut raporları üretmek için:
+```bash
+python -m scripts.run_report_summary_registry
+python -m scripts.run_executive_summary_report
+python -m scripts.run_analyst_brief_report
+python -m scripts.run_weekly_offline_review_pack
+python -m scripts.run_research_digest_report
+python -m scripts.run_summary_quality_report
+python -m scripts.run_briefing_status
+```

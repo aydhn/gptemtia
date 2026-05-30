@@ -4201,6 +4201,63 @@ def build_documentation_status_report(status_df, summary: dict) -> str:
 
 
 
+
+    # Report Summarization Support
+    @staticmethod
+    def build_report_summary_registry_text_report(summary: dict, inventory_df: "pd.DataFrame | None" = None) -> str:
+        text = "REPORT SUMMARY REGISTRY\n"
+        text += "Bu çıktı offline/local report summarization ve research briefing raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.\n\n"
+        text += f"Total Reports: {summary.get('total_reports', 0)}\n"
+        return text
+
+    @staticmethod
+    def build_executive_summary_text_report(summary: dict, executive_text: "str | None" = None) -> str:
+        text = "EXECUTIVE SUMMARY\n"
+        text += "Bu çıktı offline/local report summarization ve research briefing raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.\n\n"
+        if executive_text:
+            text += executive_text
+        return text
+
+    @staticmethod
+    def build_analyst_brief_text_report(summary: dict, analyst_brief_text: "str | None" = None) -> str:
+        text = "ANALYST BRIEF\n"
+        text += "Bu çıktı offline/local report summarization ve research briefing raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.\n\n"
+        if analyst_brief_text:
+            text += analyst_brief_text
+        return text
+
+    @staticmethod
+    def build_weekly_offline_review_text_report(summary: dict, review_text: "str | None" = None) -> str:
+        text = "WEEKLY OFFLINE REVIEW PACK\n"
+        text += "Bu çıktı offline/local report summarization ve research briefing raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.\n\n"
+        if review_text:
+            text += review_text
+        return text
+
+    @staticmethod
+    def build_research_digest_text_report(summary: dict, cards_df: "pd.DataFrame | None" = None) -> str:
+        text = "RESEARCH DIGEST\n"
+        text += "Bu çıktı offline/local report summarization ve research briefing raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.\n\n"
+        text += f"Total Cards: {summary.get('total_cards', 0)}\n"
+        return text
+
+    @staticmethod
+    def build_summary_quality_text_report(summary: dict, quality: "dict | None" = None) -> str:
+        text = "SUMMARY QUALITY REPORT\n"
+        text += "Bu çıktı offline/local report summarization ve research briefing raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.\n\n"
+        if quality:
+            text += f"Passed: {quality.get('passed', False)}\n"
+            text += f"Warnings: {quality.get('warning_count', 0)}\n"
+        return text
+
+    @staticmethod
+    def build_briefing_status_report(status_df: "pd.DataFrame", summary: dict) -> str:
+        text = "BRIEFING STATUS\n"
+        text += "Bu çıktı offline/local report summarization ve research briefing raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.\n\n"
+        text += f"Status files checked: {len(status_df)}\n"
+        return text
+
+
 def build_scenario_registry_text_report(summary: dict, scenarios_df: pd.DataFrame = None) -> str:
     lines = [
         "SCENARIO REGISTRY REPORT",
