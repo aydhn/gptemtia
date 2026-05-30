@@ -301,3 +301,23 @@ Command Center / Documentation / Scenario Regression / Quality Gates / Final Rev
 -> UXValidation
 -> UXQuality
 -> Analyst UX Reports
+
+
+### Report Summarization Pipeline
+Reports Output / DataLake Reports / Docs / Status Outputs
+→ ReportInventory
+→ TextSummarizer
+→ FindingExtractor
+→ WarningExtractor
+→ RiskGapExtractor
+→ ModuleSummaries
+→ SymbolBriefs
+→ DigestCards
+→ SafetyQualityBriefs
+→ ExecutiveSummary
+→ AnalystBrief
+→ WeeklyReviewPack
+→ FollowUpTasks
+→ SummaryValidation
+→ SummaryQuality
+→ Report Summarization Outputs

@@ -21,6 +21,30 @@ class Settings:
     """
 
     app_name: str = "commodity_fx_signal_bot"
+
+    # Report Summarization Settings
+    report_summarization_enabled: bool = True
+    default_report_summary_profile: str = "balanced_local_summaries"
+    report_summary_default_language: str = "tr"
+    report_summary_use_local_only: bool = True
+    report_summary_allow_external_llm: bool = False
+    report_summary_allow_live_commands: bool = False
+    report_summary_allow_broker_commands: bool = False
+    report_summary_allow_deploy_commands: bool = False
+    report_summary_allow_background_daemons: bool = False
+    report_summary_allow_real_market_download: bool = False
+    report_summary_scan_reports_output: bool = True
+    report_summary_scan_data_lake: bool = True
+    report_summary_scan_docs: bool = True
+    report_summary_max_reports: int = 5000
+    report_summary_max_chars_per_report: int = 20000
+    report_summary_max_summary_bullets: int = 12
+    report_summary_max_findings: int = 100
+    report_summary_max_warnings: int = 100
+    report_summary_max_follow_up_tasks: int = 50
+    report_summary_save_reports: bool = True
+    report_summary_min_quality_score: float = 0.40
+
     environment: str = field(
         default_factory=lambda: os.getenv("APP_ENV", "development")
     )

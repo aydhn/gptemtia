@@ -89,3 +89,13 @@ To safely explore the system's capabilities without using real data or issuing r
 - **Prompt Packs:** Pre-packaged safe instructions to give to Codex agents.
 - **Task Board:** An offline checklist of pending system validations. NOT a trading or investment task board.
 - **Safety:** It is strictly prohibited to execute live trades, broker commands, real portfolio actions, or receive investment advice via these tools.
+
+
+## Report Summarization
+Sistem offline araştırma süreçlerinden elde edilen bulguları özetler:
+- **Executive Summary:** Yatırım kararı özeti değildir. Offline kalite durumunu aktarır.
+- **Analyst Brief:** Gerçek piyasa sinyali değildir. Odaklanılması gereken modülleri öne çıkarır.
+- **Weekly Offline Review:** Piyasa strateji raporu değildir. Proje durum özetidir.
+- **Symbol Brief:** AL/SAT üretmez, tavsiye barındırmaz.
+- **Follow-up Tasks:** Safe/offline görevleridir. Kesinlikle live komut içermezler.
+Bu katman harici LLM kullanmaz ve sadece local rule-based özetleme yapar.
