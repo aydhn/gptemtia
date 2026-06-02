@@ -16,6 +16,28 @@ load_dotenv()
 
 @dataclass
 class Settings:
+
+    # Master Orchestration Settings
+    master_orchestration_enabled: bool = True
+    default_master_orchestration_profile: str = "balanced_offline_master"
+    master_orchestration_default_language: str = "tr"
+    master_orchestration_dry_run_default: bool = True
+    master_orchestration_allow_execute: bool = False
+    master_orchestration_allow_live_commands: bool = False
+    master_orchestration_allow_broker_commands: bool = False
+    master_orchestration_allow_deploy_commands: bool = False
+    master_orchestration_allow_background_daemons: bool = False
+    master_orchestration_allow_real_market_download: bool = False
+    master_orchestration_allow_external_llm: bool = False
+    master_orchestration_generate_layer_map: bool = True
+    master_orchestration_generate_dependency_graphs: bool = True
+    master_orchestration_generate_master_plan: bool = True
+    master_orchestration_generate_playbook: bool = True
+    master_orchestration_generate_handoff_checklists: bool = True
+    master_orchestration_generate_phase_consolidation: bool = True
+    master_orchestration_max_commands_per_plan: int = 200
+    master_orchestration_min_quality_score: float = 0.40
+    master_orchestration_save_reports: bool = True
     """
     Application settings loaded from environment variables with defaults.
     """

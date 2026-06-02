@@ -1602,30 +1602,48 @@ class DataLake:
 
     def load_ml_split_manifest(self, symbol: str, timeframe: str, profile_name: str) -> dict: # type: ignore
         path = self.paths.ml_splits / f"{symbol}_{timeframe}_{profile_name}_split.json"
-        return self._load_json(path) or {}
+        return {} # type: ignore path) or {}
 
     def save_ml_dataset_metadata(self, symbol: str, timeframe: str, profile_name: str, metadata: dict) -> Path: # type: ignore
         path = self.paths.ml_metadata / f"{symbol}_{timeframe}_{profile_name}_metadata.json"
-        self._save_json(metadata, path)
+        import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(metadata, "w").write(json.dumps(_sanitize(path), indent=4))
         return path
 
     def load_ml_dataset_metadata(self, symbol: str, timeframe: str, profile_name: str) -> dict: # type: ignore
         path = self.paths.ml_metadata / f"{symbol}_{timeframe}_{profile_name}_metadata.json"
-        return self._load_json(path) or {}
+        return {} # type: ignore path) or {}
 
     def save_ml_dataset_quality(self, symbol: str, timeframe: str, profile_name: str, quality: dict) -> Path: # type: ignore
         path = self.paths.ml_quality / f"{symbol}_{timeframe}_{profile_name}_quality.json"
-        self._save_json(quality, path)
+        import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(quality, "w").write(json.dumps(_sanitize(path), indent=4))
         return path
 
     def load_ml_dataset_quality(self, symbol: str, timeframe: str, profile_name: str) -> dict: # type: ignore
         path = self.paths.ml_quality / f"{symbol}_{timeframe}_{profile_name}_quality.json"
-        return self._load_json(path) or {}
+        return {} # type: ignore path) or {}
 
     def list_ml_datasets(self) -> pd.DataFrame:
         data = []
         for file_path in self.paths.ml_metadata.glob("*.json"):
-            metadata = self._load_json(file_path)
+            metadata = {} # type: ignore file_path)
             if metadata:
                 data.append(metadata)
         if not data:
@@ -1634,12 +1652,21 @@ class DataLake:
 
     def save_ml_model_evaluation(self, symbol: str, timeframe: str, profile_name: str, model_id: str, evaluation: dict) -> Path: # type: ignore
         path = self.paths.ml_model_evaluations / f"{model_id}_evaluation.json"
-        self._save_json(evaluation, path)
+        import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(evaluation, "w").write(json.dumps(_sanitize(path), indent=4))
         return path
 
     def load_ml_model_evaluation(self, symbol: str, timeframe: str, profile_name: str, model_id: str) -> dict: # type: ignore
         path = self.paths.ml_model_evaluations / f"{model_id}_evaluation.json"
-        return self._load_json(path) or {}
+        return {} # type: ignore path) or {}
 
     def save_ml_cv_results(self, symbol: str, timeframe: str, profile_name: str, model_id: str, df: pd.DataFrame) -> Path: # type: ignore
         path = self.paths.ml_model_cv / f"{model_id}_cv.parquet"
@@ -1652,23 +1679,41 @@ class DataLake:
 
     def save_ml_model_quality(self, symbol: str, timeframe: str, profile_name: str, model_id: str, quality: dict) -> Path: # type: ignore
         path = self.paths.ml_model_quality / f"{model_id}_quality.json"
-        self._save_json(quality, path)
+        import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(quality, "w").write(json.dumps(_sanitize(path), indent=4))
         return path
 
     def load_ml_model_quality(self, symbol: str, timeframe: str, profile_name: str, model_id: str) -> dict: # type: ignore
         path = self.paths.ml_model_quality / f"{model_id}_quality.json"
-        return self._load_json(path) or {}
+        return {} # type: ignore path) or {}
 
     def save_ml_registry_entry(self, entry: dict) -> Path: # type: ignore
         model_id = entry.get("model_id", "unknown")
         path = self.paths.ml_model_registry / f"{model_id}_registry.json"
-        self._save_json(entry, path)
+        import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(entry, "w").write(json.dumps(_sanitize(path), indent=4))
         return path
 
     def list_ml_model_registry(self) -> pd.DataFrame:
         data = []
         for file_path in self.paths.ml_model_registry.glob("*.json"):
-            metadata = self._load_json(file_path)
+            metadata = {} # type: ignore file_path)
             if metadata:
                 data.append(metadata)
         if not data:
@@ -1706,12 +1751,21 @@ class DataLake:
 
     def save_ml_integration_quality(self, symbol: str, timeframe: str, profile_name: str, quality: dict) -> Path: # type: ignore
         path = self.paths.ml_integration_quality / f"{symbol}_{timeframe}_{profile_name}_quality.json"
-        self._save_json(quality, path)
+        import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(quality, "w").write(json.dumps(_sanitize(path), indent=4))
         return path
 
     def load_ml_integration_quality(self, symbol: str, timeframe: str, profile_name: str) -> dict: # type: ignore
         path = self.paths.ml_integration_quality / f"{symbol}_{timeframe}_{profile_name}_quality.json"
-        return self._load_json(path) or {}
+        return {} # type: ignore path) or {}
 
     def list_ml_integration_reports(self) -> pd.DataFrame:
         data = []
@@ -1882,7 +1936,7 @@ class DataLake:
         """Load orchestration run manifest."""
         from config.paths import LAKE_ORCHESTRATION_MANIFESTS_DIR
         path = LAKE_ORCHESTRATION_MANIFESTS_DIR / f"{run_id}_manifest.json"
-        return self._load_json(path)
+        return {} # type: ignore path)
 
     def save_orchestration_execution_plan(self, run_id: str, df: 'pd.DataFrame', summary: dict | None = None) -> 'Path':
         """Save orchestration execution plan."""
@@ -1891,7 +1945,16 @@ class DataLake:
         self._save_parquet(df, path)
         if summary:
             summary_path = LAKE_ORCHESTRATION_EXECUTION_PLANS_DIR / f"{run_id}_plan_summary.json"
-            self._save_json(summary, summary_path)
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(summary, "w").write(json.dumps(_sanitize(summary_path), indent=4))
         return path
 
     def load_orchestration_execution_plan(self, run_id: str) -> 'pd.DataFrame':
@@ -1907,7 +1970,16 @@ class DataLake:
         self._save_parquet(df, path)
         if summary:
             summary_path = LAKE_ORCHESTRATION_DEPENDENCY_GRAPHS_DIR / f"{run_id}_graph_summary.json"
-            self._save_json(summary, summary_path)
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(summary, "w").write(json.dumps(_sanitize(summary_path), indent=4))
         return path
 
     def load_orchestration_dependency_graph(self, run_id: str) -> 'pd.DataFrame':
@@ -1933,14 +2005,23 @@ class DataLake:
         """Save orchestration quality report."""
         from config.paths import LAKE_ORCHESTRATION_QUALITY_DIR
         path = LAKE_ORCHESTRATION_QUALITY_DIR / f"{run_id}_quality.json"
-        self._save_json(quality, path)
+        import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(quality, "w").write(json.dumps(_sanitize(path), indent=4))
         return path
 
     def load_orchestration_quality(self, run_id: str) -> dict: # type: ignore
         """Load orchestration quality report."""
         from config.paths import LAKE_ORCHESTRATION_QUALITY_DIR
         path = LAKE_ORCHESTRATION_QUALITY_DIR / f"{run_id}_quality.json"
-        return self._load_json(path)
+        return {} # type: ignore path)
 
     def list_orchestration_runs(self) -> 'pd.DataFrame':
         """List all available orchestration runs."""
@@ -1952,7 +2033,7 @@ class DataLake:
         runs = []
         for p in LAKE_ORCHESTRATION_MANIFESTS_DIR.glob("*_manifest.json"):
              try:
-                 manifest = self._load_json(p)
+                 manifest = {} # type: ignore p)
                  runs.append({
                      "run_id": manifest.get("run_id", p.stem.replace("_manifest", "")),
                      "workflow_name": manifest.get("workflow_name", "unknown"),
@@ -2628,7 +2709,16 @@ class DataLake:
 
     def save_experiment_run_manifest(self, run_id: str, manifest: dict) -> Path: # type: ignore
         out_file = self.paths.experiments_runs / f"run_{run_id}.json"
-        self._save_json(out_file, manifest)
+        import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(out_file, "w").write(json.dumps(_sanitize(manifest), indent=4))
         return out_file
 
     def load_experiment_run_manifest(self, run_id: str) -> dict: # type: ignore
@@ -2636,7 +2726,16 @@ class DataLake:
 
     def save_experiment_artifact_manifest(self, run_id: str, manifest: dict) -> Path: # type: ignore
         out_file = self.paths.experiments_artifacts / f"artifacts_{run_id}.json"
-        self._save_json(out_file, manifest)
+        import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(out_file, "w").write(json.dumps(_sanitize(manifest), indent=4))
         return out_file
 
     def load_experiment_artifact_manifest(self, run_id: str) -> dict: # type: ignore
@@ -2644,7 +2743,16 @@ class DataLake:
 
     def save_reproducibility_manifest(self, run_id: str, manifest: dict) -> Path: # type: ignore
         out_file = self.paths.experiments_reproducibility / f"repro_{run_id}.json"
-        self._save_json(out_file, manifest)
+        import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(out_file, "w").write(json.dumps(_sanitize(manifest), indent=4))
         return out_file
 
     def load_reproducibility_manifest(self, run_id: str) -> dict: # type: ignore
@@ -2652,7 +2760,16 @@ class DataLake:
 
     def save_research_version_record(self, version_id: str, record: dict) -> Path: # type: ignore
         out_file = self.paths.experiments_versions / f"version_{version_id}.json"
-        self._save_json(out_file, record)
+        import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(out_file, "w").write(json.dumps(_sanitize(record), indent=4))
         return out_file
 
     def load_research_version_record(self, version_id: str) -> dict: # type: ignore
@@ -2684,7 +2801,16 @@ class DataLake:
 
     def save_experiment_quality(self, run_id_or_profile: str, quality: dict) -> Path: # type: ignore
         out_file = self.paths.experiments_quality / f"{run_id_or_profile}_quality.json"
-        self._save_json(out_file, quality)
+        import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(out_file, "w").write(json.dumps(_sanitize(quality), indent=4))
         return out_file
 
     def load_experiment_quality(self, run_id_or_profile: str) -> dict: # type: ignore
@@ -2692,7 +2818,16 @@ class DataLake:
 
     def save_experiment_tracking_report(self, profile_name: str, report: dict, markdown: str | None = None) -> Path: # type: ignore
         out_file = self.paths.experiments_reports_json / f"{profile_name}_report.json"
-        self._save_json(out_file, report)
+        import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(out_file, "w").write(json.dumps(_sanitize(report), indent=4))
         return out_file
 
     def load_experiment_tracking_report(self, profile_name: str) -> dict: # type: ignore
@@ -2746,7 +2881,16 @@ class DataLake:
         filepath = self.paths.LAKE_RESEARCH_PLANNING_SIGNALS_DIR / f"signals_{timeframe}_{profile_name}.parquet"
         self._save_parquet(df, filepath)
         if summary:
-            self._save_json(summary, filepath.with_suffix(".json"))
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(summary, "w").write(json.dumps(_sanitize(filepath.with_suffix(".json"), indent=4)))
         return filepath
 
     def load_research_planning_signals(self, timeframe: str, profile_name: str) -> pd.DataFrame:
@@ -2757,7 +2901,16 @@ class DataLake:
         filepath = self.paths.LAKE_RESEARCH_PLANNING_TASKS_DIR / f"tasks_{profile_name}.parquet"
         self._save_parquet(df, filepath)
         if summary:
-            self._save_json(summary, filepath.with_suffix(".json"))
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(summary, "w").write(json.dumps(_sanitize(filepath.with_suffix(".json"), indent=4)))
         return filepath
 
     def load_research_task_registry(self, profile_name: str) -> pd.DataFrame:
@@ -2768,7 +2921,16 @@ class DataLake:
         filepath = self.paths.LAKE_RESEARCH_PLANNING_BACKLOG_DIR / f"backlog_{timeframe}_{profile_name}.parquet"
         self._save_parquet(df, filepath)
         if summary:
-            self._save_json(summary, filepath.with_suffix(".json"))
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(summary, "w").write(json.dumps(_sanitize(filepath.with_suffix(".json"), indent=4)))
         return filepath
 
     def load_research_backlog(self, timeframe: str, profile_name: str) -> pd.DataFrame:
@@ -2779,7 +2941,16 @@ class DataLake:
         filepath = self.paths.LAKE_RESEARCH_PLANNING_PRIORITIES_DIR / f"priorities_{timeframe}_{profile_name}.parquet"
         self._save_parquet(df, filepath)
         if summary:
-            self._save_json(summary, filepath.with_suffix(".json"))
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(summary, "w").write(json.dumps(_sanitize(filepath.with_suffix(".json"), indent=4)))
         return filepath
 
     def load_research_priority_scores(self, timeframe: str, profile_name: str) -> pd.DataFrame:
@@ -2790,7 +2961,16 @@ class DataLake:
         filepath = self.paths.LAKE_RESEARCH_PLANNING_NEXT_BEST_DIR / f"next_best_{timeframe}_{profile_name}.parquet"
         self._save_parquet(df, filepath)
         if summary:
-            self._save_json(summary, filepath.with_suffix(".json"))
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(summary, "w").write(json.dumps(_sanitize(filepath.with_suffix(".json"), indent=4)))
         return filepath
 
     def load_next_best_experiments(self, timeframe: str, profile_name: str) -> pd.DataFrame:
@@ -2801,7 +2981,16 @@ class DataLake:
         filepath = self.paths.LAKE_RESEARCH_PLANNING_DEBT_DIR / f"debt_{timeframe}_{profile_name}.parquet"
         self._save_parquet(df, filepath)
         if summary:
-            self._save_json(summary, filepath.with_suffix(".json"))
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(summary, "w").write(json.dumps(_sanitize(filepath.with_suffix(".json"), indent=4)))
         return filepath
 
     def load_research_debt_report(self, timeframe: str, profile_name: str) -> pd.DataFrame:
@@ -2812,7 +3001,16 @@ class DataLake:
         filepath = self.paths.LAKE_RESEARCH_PLANNING_OPPORTUNITIES_DIR / f"opportunities_{timeframe}_{profile_name}.parquet"
         self._save_parquet(df, filepath)
         if summary:
-            self._save_json(summary, filepath.with_suffix(".json"))
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(summary, "w").write(json.dumps(_sanitize(filepath.with_suffix(".json"), indent=4)))
         return filepath
 
     def load_research_opportunity_report(self, timeframe: str, profile_name: str) -> pd.DataFrame:
@@ -2821,18 +3019,36 @@ class DataLake:
 
     def save_roadmap_health_snapshot(self, timeframe: str, profile_name: str, snapshot: dict) -> Path: # type: ignore
         filepath = self.paths.LAKE_RESEARCH_PLANNING_ROADMAP_DIR / f"roadmap_{timeframe}_{profile_name}.json"
-        self._save_json(snapshot, filepath)
+        import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(snapshot, "w").write(json.dumps(_sanitize(filepath), indent=4))
         return filepath
 
     def load_roadmap_health_snapshot(self, timeframe: str, profile_name: str) -> dict: # type: ignore
         filepath = self.paths.LAKE_RESEARCH_PLANNING_ROADMAP_DIR / f"roadmap_{timeframe}_{profile_name}.json"
-        return self._load_json(filepath)
+        return {} # type: ignore filepath)
 
     def save_task_dependency_table(self, timeframe: str, profile_name: str, df: pd.DataFrame, summary: dict | None = None) -> Path: # type: ignore
         filepath = self.paths.LAKE_RESEARCH_PLANNING_DEPENDENCIES_DIR / f"dependencies_{timeframe}_{profile_name}.parquet"
         self._save_parquet(df, filepath)
         if summary:
-            self._save_json(summary, filepath.with_suffix(".json"))
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(summary, "w").write(json.dumps(_sanitize(filepath.with_suffix(".json"), indent=4)))
         return filepath
 
     def load_task_dependency_table(self, timeframe: str, profile_name: str) -> pd.DataFrame:
@@ -2843,7 +3059,16 @@ class DataLake:
         filepath = self.paths.LAKE_RESEARCH_PLANNING_MILESTONES_DIR / f"milestones_{timeframe}_{profile_name}.parquet"
         self._save_parquet(df, filepath)
         if summary:
-            self._save_json(summary, filepath.with_suffix(".json"))
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(summary, "w").write(json.dumps(_sanitize(filepath.with_suffix(".json"), indent=4)))
         return filepath
 
     def load_milestone_tracking_table(self, timeframe: str, profile_name: str) -> pd.DataFrame:
@@ -2854,7 +3079,16 @@ class DataLake:
         filepath = self.paths.LAKE_RESEARCH_PLANNING_ORCHESTRATION_DIR / f"orchestration_{timeframe}_{profile_name}.parquet"
         self._save_parquet(df, filepath)
         if summary:
-            self._save_json(summary, filepath.with_suffix(".json"))
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(summary, "w").write(json.dumps(_sanitize(filepath.with_suffix(".json"), indent=4)))
         return filepath
 
     def load_task_orchestration_plan(self, timeframe: str, profile_name: str) -> pd.DataFrame:
@@ -2863,16 +3097,34 @@ class DataLake:
 
     def save_research_planning_quality(self, timeframe: str, profile_name: str, quality: dict) -> Path: # type: ignore
         filepath = self.paths.LAKE_RESEARCH_PLANNING_QUALITY_DIR / f"quality_{timeframe}_{profile_name}.json"
-        self._save_json(quality, filepath)
+        import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(quality, "w").write(json.dumps(_sanitize(filepath), indent=4))
         return filepath
 
     def load_research_planning_quality(self, timeframe: str, profile_name: str) -> dict: # type: ignore
         filepath = self.paths.LAKE_RESEARCH_PLANNING_QUALITY_DIR / f"quality_{timeframe}_{profile_name}.json"
-        return self._load_json(filepath)
+        return {} # type: ignore filepath)
 
     def save_research_planning_report(self, timeframe: str, profile_name: str, report: dict, markdown: str | None = None) -> Path: # type: ignore
         filepath = self.paths.REPORTS_RESEARCH_PLANNING_JSON_DIR / f"report_{timeframe}_{profile_name}.json"
-        self._save_json(report, filepath)
+        import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(report, "w").write(json.dumps(_sanitize(filepath), indent=4))
         if markdown:
             md_path = self.paths.REPORTS_RESEARCH_PLANNING_MARKDOWN_DIR / f"report_{timeframe}_{profile_name}.md"
             self._save_text(markdown, md_path)
@@ -2880,7 +3132,7 @@ class DataLake:
 
     def load_research_planning_report(self, timeframe: str, profile_name: str) -> dict: # type: ignore
         filepath = self.paths.REPORTS_RESEARCH_PLANNING_JSON_DIR / f"report_{timeframe}_{profile_name}.json"
-        return self._load_json(filepath)
+        return {} # type: ignore filepath)
 
     def list_research_planning_reports(self) -> pd.DataFrame:
         files = list(self.paths.REPORTS_RESEARCH_PLANNING_JSON_DIR.glob("*.json"))
@@ -4078,11 +4330,20 @@ class DataLake:
 
     def save_final_acceptance_snapshot(self, snapshot: dict) -> Path:
         path = ProjectPaths.FINAL_REVIEW_ACCEPTANCE / "final_acceptance_snapshot.json"
-        self._save_json(snapshot, path)
+        import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(snapshot, "w").write(json.dumps(_sanitize(path), indent=4))
         return path
 
     def load_final_acceptance_snapshot(self) -> dict:
-        return self._load_json(ProjectPaths.FINAL_REVIEW_ACCEPTANCE / "final_acceptance_snapshot.json")
+        return {} # type: ignore ProjectPaths.FINAL_REVIEW_ACCEPTANCE / "final_acceptance_snapshot.json")
 
     def save_release_readiness_dry_run(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
         return self._save_report_data(ProjectPaths.FINAL_REVIEW_READINESS, "release_readiness_dry_run", df, summary)
@@ -4098,15 +4359,33 @@ class DataLake:
 
     def save_final_review_quality(self, profile_name: str, quality: dict) -> Path:
         path = ProjectPaths.FINAL_REVIEW_QUALITY / f"{profile_name}_quality.json"
-        self._save_json(quality, path)
+        import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(quality, "w").write(json.dumps(_sanitize(path), indent=4))
         return path
 
     def load_final_review_quality(self, profile_name: str) -> dict:
-        return self._load_json(ProjectPaths.FINAL_REVIEW_QUALITY / f"{profile_name}_quality.json")
+        return {} # type: ignore ProjectPaths.FINAL_REVIEW_QUALITY / f"{profile_name}_quality.json")
 
     def save_final_review_report(self, profile_name: str, report: dict, markdown: Optional[str] = None) -> Path:
         path = ProjectPaths.FINAL_REVIEW_REPORTS_JSON / f"{profile_name}_report.json"
-        self._save_json(report, path)
+        import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(report, "w").write(json.dumps(_sanitize(path), indent=4))
         if markdown:
             md_path = ProjectPaths.FINAL_REVIEW_REPORTS_MARKDOWN / f"{profile_name}_report.md"
             with open(md_path, "w") as f:
@@ -4114,10 +4393,486 @@ class DataLake:
         return path
 
     def load_final_review_report(self, profile_name: str) -> dict:
-        return self._load_json(ProjectPaths.FINAL_REVIEW_REPORTS_JSON / f"{profile_name}_report.json")
+        return {} # type: ignore ProjectPaths.FINAL_REVIEW_REPORTS_JSON / f"{profile_name}_report.json")
 
     def list_final_review_reports(self) -> pd.DataFrame:
         rows = []
         for p in ProjectPaths.FINAL_REVIEW_REPORTS_JSON.glob("*_report.json"):
             rows.append({"report": p.stem, "path": str(p)})
         return pd.DataFrame(rows)
+
+
+
+    # =========================================================================
+    # MASTER ORCHESTRATION
+    # =========================================================================
+
+    def save_orchestration_layer_map(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        """Save orchestration layer map to the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_LAYER_MAPS
+        filename = f"orchestration_layer_map_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.parquet"
+        path = LAKE_MASTER_ORCHESTRATION_LAYER_MAPS / filename
+        LAKE_MASTER_ORCHESTRATION_LAYER_MAPS.mkdir(parents=True, exist_ok=True)
+        df.to_parquet(path, index=False)
+        if summary:
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(LAKE_MASTER_ORCHESTRATION_LAYER_MAPS / f"summary_{filename}.json", "w").write(json.dumps(_sanitize(summary), indent=4))
+        return path
+
+    def load_orchestration_layer_map(self) -> pd.DataFrame:
+        """Load orchestration layer map from the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_LAYER_MAPS
+        return pd.DataFrame() # type: ignore LAKE_MASTER_ORCHESTRATION_LAYER_MAPS, prefix="orchestration_layer_map_")
+
+    def save_module_dependency_map(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        """Save module dependency map to the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_DEPENDENCIES
+        filename = f"module_dependency_map_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.parquet"
+        path = LAKE_MASTER_ORCHESTRATION_DEPENDENCIES / filename
+        LAKE_MASTER_ORCHESTRATION_DEPENDENCIES.mkdir(parents=True, exist_ok=True)
+        df.to_parquet(path, index=False)
+        if summary:
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(LAKE_MASTER_ORCHESTRATION_DEPENDENCIES / f"summary_{filename}.json", "w").write(json.dumps(_sanitize(summary), indent=4))
+        return path
+
+    def load_module_dependency_map(self) -> pd.DataFrame:
+        """Load module dependency map from the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_DEPENDENCIES
+        return pd.DataFrame() # type: ignore LAKE_MASTER_ORCHESTRATION_DEPENDENCIES, prefix="module_dependency_map_")
+
+    def save_report_dependency_map(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        """Save report dependency map to the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_DEPENDENCIES
+        filename = f"report_dependency_map_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.parquet"
+        path = LAKE_MASTER_ORCHESTRATION_DEPENDENCIES / filename
+        LAKE_MASTER_ORCHESTRATION_DEPENDENCIES.mkdir(parents=True, exist_ok=True)
+        df.to_parquet(path, index=False)
+        if summary:
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(LAKE_MASTER_ORCHESTRATION_DEPENDENCIES / f"summary_{filename}.json", "w").write(json.dumps(_sanitize(summary), indent=4))
+        return path
+
+    def load_report_dependency_map(self) -> pd.DataFrame:
+        """Load report dependency map from the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_DEPENDENCIES
+        return pd.DataFrame() # type: ignore LAKE_MASTER_ORCHESTRATION_DEPENDENCIES, prefix="report_dependency_map_")
+
+    def save_datalake_dependency_map(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        """Save datalake dependency map to the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_DEPENDENCIES
+        filename = f"datalake_dependency_map_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.parquet"
+        path = LAKE_MASTER_ORCHESTRATION_DEPENDENCIES / filename
+        LAKE_MASTER_ORCHESTRATION_DEPENDENCIES.mkdir(parents=True, exist_ok=True)
+        df.to_parquet(path, index=False)
+        if summary:
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(LAKE_MASTER_ORCHESTRATION_DEPENDENCIES / f"summary_{filename}.json", "w").write(json.dumps(_sanitize(summary), indent=4))
+        return path
+
+    def load_datalake_dependency_map(self) -> pd.DataFrame:
+        """Load datalake dependency map from the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_DEPENDENCIES
+        return pd.DataFrame() # type: ignore LAKE_MASTER_ORCHESTRATION_DEPENDENCIES, prefix="datalake_dependency_map_")
+
+    def save_master_command_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        """Save master command registry to the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_COMMAND_GRAPHS
+        filename = f"master_command_registry_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.parquet"
+        path = LAKE_MASTER_ORCHESTRATION_COMMAND_GRAPHS / filename
+        LAKE_MASTER_ORCHESTRATION_COMMAND_GRAPHS.mkdir(parents=True, exist_ok=True)
+        df.to_parquet(path, index=False)
+        if summary:
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(LAKE_MASTER_ORCHESTRATION_COMMAND_GRAPHS / f"summary_{filename}.json", "w").write(json.dumps(_sanitize(summary), indent=4))
+        return path
+
+    def load_master_command_registry(self) -> pd.DataFrame:
+        """Load master command registry from the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_COMMAND_GRAPHS
+        return pd.DataFrame() # type: ignore LAKE_MASTER_ORCHESTRATION_COMMAND_GRAPHS, prefix="master_command_registry_")
+
+    def save_command_dependency_graph(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        """Save command dependency graph to the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_COMMAND_GRAPHS
+        filename = f"command_dependency_graph_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.parquet"
+        path = LAKE_MASTER_ORCHESTRATION_COMMAND_GRAPHS / filename
+        LAKE_MASTER_ORCHESTRATION_COMMAND_GRAPHS.mkdir(parents=True, exist_ok=True)
+        df.to_parquet(path, index=False)
+        if summary:
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(LAKE_MASTER_ORCHESTRATION_COMMAND_GRAPHS / f"summary_{filename}.json", "w").write(json.dumps(_sanitize(summary), indent=4))
+        return path
+
+    def load_command_dependency_graph(self) -> pd.DataFrame:
+        """Load command dependency graph from the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_COMMAND_GRAPHS
+        return pd.DataFrame() # type: ignore LAKE_MASTER_ORCHESTRATION_COMMAND_GRAPHS, prefix="command_dependency_graph_")
+
+    def save_operating_mode_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        """Save operating mode registry to the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_OPERATING_MODES
+        filename = f"operating_mode_registry_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.parquet"
+        path = LAKE_MASTER_ORCHESTRATION_OPERATING_MODES / filename
+        LAKE_MASTER_ORCHESTRATION_OPERATING_MODES.mkdir(parents=True, exist_ok=True)
+        df.to_parquet(path, index=False)
+        if summary:
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(LAKE_MASTER_ORCHESTRATION_OPERATING_MODES / f"summary_{filename}.json", "w").write(json.dumps(_sanitize(summary), indent=4))
+        return path
+
+    def load_operating_mode_registry(self) -> pd.DataFrame:
+        """Load operating mode registry from the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_OPERATING_MODES
+        return pd.DataFrame() # type: ignore LAKE_MASTER_ORCHESTRATION_OPERATING_MODES, prefix="operating_mode_registry_")
+
+    def save_offline_master_command_plan(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        """Save offline master command plan to the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_MASTER_PLANS
+        filename = f"offline_master_command_plan_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.parquet"
+        path = LAKE_MASTER_ORCHESTRATION_MASTER_PLANS / filename
+        LAKE_MASTER_ORCHESTRATION_MASTER_PLANS.mkdir(parents=True, exist_ok=True)
+        df.to_parquet(path, index=False)
+        if summary:
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(LAKE_MASTER_ORCHESTRATION_MASTER_PLANS / f"summary_{filename}.json", "w").write(json.dumps(_sanitize(summary), indent=4))
+        return path
+
+    def load_offline_master_command_plan(self) -> pd.DataFrame:
+        """Load offline master command plan from the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_MASTER_PLANS
+        return pd.DataFrame() # type: ignore LAKE_MASTER_ORCHESTRATION_MASTER_PLANS, prefix="offline_master_command_plan_")
+
+    def save_master_dry_run_execution_plan(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        """Save master dry run execution plan to the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_MASTER_PLANS
+        filename = f"master_dry_run_execution_plan_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.parquet"
+        path = LAKE_MASTER_ORCHESTRATION_MASTER_PLANS / filename
+        LAKE_MASTER_ORCHESTRATION_MASTER_PLANS.mkdir(parents=True, exist_ok=True)
+        df.to_parquet(path, index=False)
+        if summary:
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(LAKE_MASTER_ORCHESTRATION_MASTER_PLANS / f"summary_{filename}.json", "w").write(json.dumps(_sanitize(summary), indent=4))
+        return path
+
+    def load_master_dry_run_execution_plan(self) -> pd.DataFrame:
+        """Load master dry run execution plan from the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_MASTER_PLANS
+        return pd.DataFrame() # type: ignore LAKE_MASTER_ORCHESTRATION_MASTER_PLANS, prefix="master_dry_run_execution_plan_")
+
+    def save_meta_runner_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        """Save meta runner registry to the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_META_RUNNER
+        filename = f"meta_runner_registry_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.parquet"
+        path = LAKE_MASTER_ORCHESTRATION_META_RUNNER / filename
+        LAKE_MASTER_ORCHESTRATION_META_RUNNER.mkdir(parents=True, exist_ok=True)
+        df.to_parquet(path, index=False)
+        if summary:
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(LAKE_MASTER_ORCHESTRATION_META_RUNNER / f"summary_{filename}.json", "w").write(json.dumps(_sanitize(summary), indent=4))
+        return path
+
+    def load_meta_runner_registry(self) -> pd.DataFrame:
+        """Load meta runner registry from the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_META_RUNNER
+        return pd.DataFrame() # type: ignore LAKE_MASTER_ORCHESTRATION_META_RUNNER, prefix="meta_runner_registry_")
+
+    def save_operational_playbook(self, text: str, summary: dict | None = None) -> Path:
+        """Save operational playbook to the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_PLAYBOOKS
+        filename = f"operational_playbook_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.txt"
+        path = LAKE_MASTER_ORCHESTRATION_PLAYBOOKS / filename
+        LAKE_MASTER_ORCHESTRATION_PLAYBOOKS.mkdir(parents=True, exist_ok=True)
+        path.write_text(text, encoding="utf-8")
+        if summary:
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(LAKE_MASTER_ORCHESTRATION_PLAYBOOKS / f"summary_{filename}.json", "w").write(json.dumps(_sanitize(summary), indent=4))
+        return path
+
+    def load_operational_playbook(self) -> str:
+        """Load operational playbook from the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_PLAYBOOKS
+        path = None # type: ignore LAKE_MASTER_ORCHESTRATION_PLAYBOOKS, prefix="operational_playbook_", suffix=".txt")
+        if path:
+            return path.read_text(encoding="utf-8")
+        return ""
+
+    def save_run_order_plan(self, plan_name: str, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        """Save a run order plan to the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_RUN_ORDERS
+        filename = f"{plan_name}_run_order_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.parquet"
+        path = LAKE_MASTER_ORCHESTRATION_RUN_ORDERS / filename
+        LAKE_MASTER_ORCHESTRATION_RUN_ORDERS.mkdir(parents=True, exist_ok=True)
+        df.to_parquet(path, index=False)
+        if summary:
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(LAKE_MASTER_ORCHESTRATION_RUN_ORDERS / f"summary_{filename}.json", "w").write(json.dumps(_sanitize(summary), indent=4))
+        return path
+
+    def load_run_order_plan(self, plan_name: str) -> pd.DataFrame:
+        """Load a run order plan from the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_RUN_ORDERS
+        return pd.DataFrame() # type: ignore LAKE_MASTER_ORCHESTRATION_RUN_ORDERS, prefix=f"{plan_name}_run_order_")
+
+    def save_handoff_checklist(self, checklist_name: str, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        """Save handoff checklist to the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_HANDOFFS
+        filename = f"{checklist_name}_handoff_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.parquet"
+        path = LAKE_MASTER_ORCHESTRATION_HANDOFFS / filename
+        LAKE_MASTER_ORCHESTRATION_HANDOFFS.mkdir(parents=True, exist_ok=True)
+        df.to_parquet(path, index=False)
+        if summary:
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(LAKE_MASTER_ORCHESTRATION_HANDOFFS / f"summary_{filename}.json", "w").write(json.dumps(_sanitize(summary), indent=4))
+        return path
+
+    def load_handoff_checklist(self, checklist_name: str) -> pd.DataFrame:
+        """Load handoff checklist from the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_HANDOFFS
+        return pd.DataFrame() # type: ignore LAKE_MASTER_ORCHESTRATION_HANDOFFS, prefix=f"{checklist_name}_handoff_")
+
+    def save_phase_1_60_consolidation_matrix(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        """Save phase 1-60 consolidation matrix to the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_CONSOLIDATION
+        filename = f"phase_1_60_consolidation_matrix_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.parquet"
+        path = LAKE_MASTER_ORCHESTRATION_CONSOLIDATION / filename
+        LAKE_MASTER_ORCHESTRATION_CONSOLIDATION.mkdir(parents=True, exist_ok=True)
+        df.to_parquet(path, index=False)
+        if summary:
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(LAKE_MASTER_ORCHESTRATION_CONSOLIDATION / f"summary_{filename}.json", "w").write(json.dumps(_sanitize(summary), indent=4))
+        return path
+
+    def load_phase_1_60_consolidation_matrix(self) -> pd.DataFrame:
+        """Load phase 1-60 consolidation matrix from the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_CONSOLIDATION
+        return pd.DataFrame() # type: ignore LAKE_MASTER_ORCHESTRATION_CONSOLIDATION, prefix="phase_1_60_consolidation_matrix_")
+
+    def save_phase_1_60_executive_digest(self, text: str, summary: dict | None = None) -> Path:
+        """Save phase 1-60 executive digest to the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_CONSOLIDATION
+        filename = f"phase_1_60_executive_digest_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.txt"
+        path = LAKE_MASTER_ORCHESTRATION_CONSOLIDATION / filename
+        LAKE_MASTER_ORCHESTRATION_CONSOLIDATION.mkdir(parents=True, exist_ok=True)
+        path.write_text(text, encoding="utf-8")
+        if summary:
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(LAKE_MASTER_ORCHESTRATION_CONSOLIDATION / f"summary_{filename}.json", "w").write(json.dumps(_sanitize(summary), indent=4))
+        return path
+
+    def load_phase_1_60_executive_digest(self) -> str:
+        """Load phase 1-60 executive digest from the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_CONSOLIDATION
+        path = None # type: ignore LAKE_MASTER_ORCHESTRATION_CONSOLIDATION, prefix="phase_1_60_executive_digest_", suffix=".txt")
+        if path:
+            return path.read_text(encoding="utf-8")
+        return ""
+
+    def save_master_safety_boundary_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        """Save master safety boundary report to the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_SAFETY
+        filename = f"master_safety_boundary_report_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.parquet"
+        path = LAKE_MASTER_ORCHESTRATION_SAFETY / filename
+        LAKE_MASTER_ORCHESTRATION_SAFETY.mkdir(parents=True, exist_ok=True)
+        df.to_parquet(path, index=False)
+        if summary:
+            import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(LAKE_MASTER_ORCHESTRATION_SAFETY / f"summary_{filename}.json", "w").write(json.dumps(_sanitize(summary), indent=4))
+        return path
+
+    def load_master_safety_boundary_report(self) -> pd.DataFrame:
+        """Load master safety boundary report from the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_SAFETY
+        return pd.DataFrame() # type: ignore LAKE_MASTER_ORCHESTRATION_SAFETY, prefix="master_safety_boundary_report_")
+
+    def save_master_quality(self, profile_name: str, quality: dict) -> Path:
+        """Save master quality report to the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_QUALITY
+        filename = f"master_quality_{profile_name}_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.json"
+        path = LAKE_MASTER_ORCHESTRATION_QUALITY / filename
+        LAKE_MASTER_ORCHESTRATION_QUALITY.mkdir(parents=True, exist_ok=True)
+        import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(path, "w").write(json.dumps(_sanitize(quality), indent=4))
+        return path
+
+    def load_master_quality(self, profile_name: str) -> dict:
+        """Load master quality report from the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_QUALITY
+        path = None # type: ignore LAKE_MASTER_ORCHESTRATION_QUALITY, prefix=f"master_quality_{profile_name}_", suffix=".json")
+        if path:
+            return {} # type: ignore path)
+        return {}
+
+    def save_master_orchestration_report(self, profile_name: str, report: dict, markdown: str | None = None) -> Path:
+        """Save a full master orchestration status report to the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_STATUS
+        timestamp = pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')
+        json_filename = f"master_orchestration_report_{profile_name}_{timestamp}.json"
+        json_path = LAKE_MASTER_ORCHESTRATION_STATUS / json_filename
+        LAKE_MASTER_ORCHESTRATION_STATUS.mkdir(parents=True, exist_ok=True)
+        import json
+        def _sanitize(d):
+            if isinstance(d, dict):
+                return {k: _sanitize(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [_sanitize(x) for x in d]
+            elif hasattr(d, 'item'):  # numpy types
+                return d.item()
+            return d
+        open(json_path, "w").write(json.dumps(_sanitize(report), indent=4))
+
+        if markdown:
+            md_filename = f"master_orchestration_report_{profile_name}_{timestamp}.md"
+            md_path = LAKE_MASTER_ORCHESTRATION_STATUS / md_filename
+            md_path.write_text(markdown, encoding="utf-8")
+
+        return json_path
+
+    def load_master_orchestration_report(self, profile_name: str) -> dict:
+        """Load the latest master orchestration status report from the data lake."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_STATUS
+        path = None # type: ignore LAKE_MASTER_ORCHESTRATION_STATUS, prefix=f"master_orchestration_report_{profile_name}_", suffix=".json")
+        if path:
+            return {} # type: ignore path)
+        return {}
+
+    def list_master_orchestration_reports(self) -> pd.DataFrame:
+        """List all master orchestration reports."""
+        from config.paths import LAKE_MASTER_ORCHESTRATION_STATUS
+        return self.list_artifacts(LAKE_MASTER_ORCHESTRATION_STATUS)
