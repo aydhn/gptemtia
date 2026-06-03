@@ -1251,3 +1251,64 @@ class FeatureStore:
 
     def list_available_final_review_reports(self) -> pd.DataFrame:
         return self.data_lake.list_final_review_reports()
+
+
+    # Phase 61: Portable Packaging
+    def load_environment_snapshot(self) -> dict:
+        return self.data_lake.load_environment_snapshot()
+
+    def load_installed_packages_snapshot(self) -> pd.DataFrame:
+        return self.data_lake.load_installed_packages_snapshot()
+
+    def load_dependency_inventory(self) -> pd.DataFrame:
+        return self.data_lake.load_dependency_inventory()
+
+    def load_requirements_export_report(self) -> pd.DataFrame:
+        return self.data_lake.load_requirements_export_report()
+
+    def load_install_verification_report(self) -> pd.DataFrame:
+        return self.data_lake.load_install_verification_report()
+
+    def load_import_verification_report(self) -> pd.DataFrame:
+        return self.data_lake.load_import_verification_report()
+
+    def load_script_verification_report(self) -> pd.DataFrame:
+        return self.data_lake.load_script_verification_report()
+
+    def load_config_template_verification(self) -> pd.DataFrame:
+        return self.data_lake.load_config_template_verification()
+
+    def load_bundle_artifact_inventory(self) -> pd.DataFrame:
+        return self.data_lake.load_bundle_artifact_inventory()
+
+    def load_portable_bundle_manifest(self) -> dict:
+        return self.data_lake.load_portable_bundle_manifest()
+
+    def load_archive_manifest(self) -> dict:
+        return self.data_lake.load_archive_manifest()
+
+    def load_source_policy(self, policy_name: str) -> pd.DataFrame:
+        return self.data_lake.load_source_policy(policy_name)
+
+    def load_reproducible_setup_guide(self) -> str:
+        return self.data_lake.load_reproducible_setup_guide()
+
+    def load_environment_drift_report(self) -> pd.DataFrame:
+        return self.data_lake.load_environment_drift_report()
+
+    def load_packaging_safety_report(self) -> pd.DataFrame:
+        return self.data_lake.load_packaging_safety_report()
+
+    def load_packaging_quality(self, profile_name: str = None) -> dict:
+        from config.settings import settings
+        p = profile_name or settings.default_portable_packaging_profile
+        return self.data_lake.load_packaging_quality(p)
+
+    def load_portable_packaging_report(self, profile_name: str = None) -> dict:
+        from config.settings import settings
+        p = profile_name or settings.default_portable_packaging_profile
+        return self.data_lake.load_portable_packaging_report(p)
+
+    def list_available_portable_packaging_reports(self) -> dict:
+        df = self.data_lake.list_portable_packaging_reports()
+        return df.to_dict(orient="records") if not df.empty else {}

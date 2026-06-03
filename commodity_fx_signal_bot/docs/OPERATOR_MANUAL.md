@@ -100,3 +100,6 @@ Sistem offline araştırma süreçlerinden elde edilen bulguları özetler:
 - **Symbol Brief:** AL/SAT üretmez, tavsiye barındırmaz.
 - **Follow-up Tasks:** Safe/offline görevleridir. Kesinlikle live komut içermezler.
 Bu katman harici LLM kullanmaz ve sadece local rule-based özetleme yapar.
+
+## Portable Packaging
+Environment snapshot, requirements export ve install verification işlemleri için Phase 61 scriptlerini kullanın (örn. `run_environment_snapshot.py`, `run_portable_bundle_manifest.py`). Package publish, Docker deploy, cloud deploy, canlı trading ve broker execution KESİNLİKLE YOKTUR.

@@ -991,3 +991,17 @@ python -m scripts.run_research_digest_report
 python -m scripts.run_summary_quality_report
 python -m scripts.run_briefing_status
 ```
+
+## Portable Packaging, Environment Snapshot and Install Verification
+Bu proje local/offline bir bot altyapısıdır. Portable packaging özellikleri, environment snapshot, dependency inventory, install verification ve portable bundle manifest süreçlerini otomatikleştirir. Bu çıktıların hiçbiri production release, package publish, broker deploy veya canlı yatırım tavsiyesi değildir.
+
+Komutlar:
+```bash
+python -m scripts.run_environment_snapshot
+python -m scripts.run_dependency_inventory
+python -m scripts.run_requirements_export
+python -m scripts.run_install_verification
+python -m scripts.run_portable_bundle_manifest
+python -m scripts.run_reproducible_setup_guide
+python -m scripts.run_packaging_status
+```

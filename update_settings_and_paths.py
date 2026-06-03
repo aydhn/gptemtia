@@ -1,129 +1,183 @@
 import os
 import re
 
-def update_settings():
-    settings_path = "commodity_fx_signal_bot/config/settings.py"
-    with open(settings_path, "r") as f:
-        content = f.read()
+# Update settings.py
+with open("commodity_fx_signal_bot/config/settings.py", "r") as f:
+    settings_content = f.read()
 
-    new_settings = """
-    # Performance Profiling and Stability Settings
-    performance_monitoring_enabled: bool = True
-    default_performance_profile: str = "balanced_local_performance"
-    performance_default_timeframe: str = "1d"
-    performance_profile_scripts: bool = True
-    performance_profile_memory: bool = True
-    performance_profile_cpu: bool = True
-    performance_detect_gpu: bool = True
-    performance_allow_gpu_optional: bool = True
-    performance_max_runtime_seconds_per_script: int = 300
-    performance_max_memory_mb_per_script: int = 2048
-    performance_max_batch_symbols: int = 50
-    performance_max_parallel_workers: int = 1
-    performance_enable_cache: bool = True
-    performance_cache_format: str = "parquet_or_csv"
-    performance_cache_ttl_hours: int = 24
-    performance_cache_max_size_mb: int = 2048
-    performance_enable_checkpointing: bool = True
-    performance_checkpoint_every_items: int = 25
-    performance_save_reports: bool = True
-    performance_min_quality_score: float = 0.40
-"""
-    if "performance_monitoring_enabled" not in content:
-        content = content.replace("class Settings(BaseSettings):", "class Settings(BaseSettings):\n" + new_settings)
+settings_injection = """
+    # Phase 61: Portable Packaging
+    portable_packaging_enabled: bool = field(default_factory=lambda: str(os.getenv("PORTABLE_PACKAGING_ENABLED", "true")).lower() == "true")
+    default_portable_packaging_profile: str = field(default_factory=lambda: os.getenv("DEFAULT_PORTABLE_PACKAGING_PROFILE", "balanced_local_packaging"))
+    portable_packaging_default_language: str = field(default_factory=lambda: os.getenv("PORTABLE_PACKAGING_DEFAULT_LANGUAGE", "tr"))
+    portable_packaging_dry_run_default: bool = field(default_factory=lambda: str(os.getenv("PORTABLE_PACKAGING_DRY_RUN_DEFAULT", "true")).lower() == "true")
+    portable_packaging_allow_archive_create: bool = field(default_factory=lambda: str(os.getenv("PORTABLE_PACKAGING_ALLOW_ARCHIVE_CREATE", "false")).lower() == "true")
+    portable_packaging_allow_package_publish: bool = field(default_factory=lambda: str(os.getenv("PORTABLE_PACKAGING_ALLOW_PACKAGE_PUBLISH", "false")).lower() == "true")
+    portable_packaging_allow_docker: bool = field(default_factory=lambda: str(os.getenv("PORTABLE_PACKAGING_ALLOW_DOCKER", "false")).lower() == "true")
+    portable_packaging_allow_cloud_deploy: bool = field(default_factory=lambda: str(os.getenv("PORTABLE_PACKAGING_ALLOW_CLOUD_DEPLOY", "false")).lower() == "true")
+    portable_packaging_allow_live_commands: bool = field(default_factory=lambda: str(os.getenv("PORTABLE_PACKAGING_ALLOW_LIVE_COMMANDS", "false")).lower() == "true")
+    portable_packaging_allow_broker_commands: bool = field(default_factory=lambda: str(os.getenv("PORTABLE_PACKAGING_ALLOW_BROKER_COMMANDS", "false")).lower() == "true")
+    portable_packaging_allow_deploy_commands: bool = field(default_factory=lambda: str(os.getenv("PORTABLE_PACKAGING_ALLOW_DEPLOY_COMMANDS", "false")).lower() == "true")
+    portable_packaging_allow_background_daemons: bool = field(default_factory=lambda: str(os.getenv("PORTABLE_PACKAGING_ALLOW_BACKGROUND_DAEMONS", "false")).lower() == "true")
+    portable_packaging_allow_real_market_download: bool = field(default_factory=lambda: str(os.getenv("PORTABLE_PACKAGING_ALLOW_REAL_MARKET_DOWNLOAD", "false")).lower() == "true")
+    portable_packaging_allow_external_llm: bool = field(default_factory=lambda: str(os.getenv("PORTABLE_PACKAGING_ALLOW_EXTERNAL_LLM", "false")).lower() == "true")
+    portable_packaging_include_source: bool = field(default_factory=lambda: str(os.getenv("PORTABLE_PACKAGING_INCLUDE_SOURCE", "true")).lower() == "true")
+    portable_packaging_include_docs: bool = field(default_factory=lambda: str(os.getenv("PORTABLE_PACKAGING_INCLUDE_DOCS", "true")).lower() == "true")
+    portable_packaging_include_tests: bool = field(default_factory=lambda: str(os.getenv("PORTABLE_PACKAGING_INCLUDE_TESTS", "true")).lower() == "true")
+    portable_packaging_include_configs: bool = field(default_factory=lambda: str(os.getenv("PORTABLE_PACKAGING_INCLUDE_CONFIGS", "true")).lower() == "true")
+    portable_packaging_include_reports_manifest_only: bool = field(default_factory=lambda: str(os.getenv("PORTABLE_PACKAGING_INCLUDE_REPORTS_MANIFEST_ONLY", "true")).lower() == "true")
+    portable_packaging_include_data_manifest_only: bool = field(default_factory=lambda: str(os.getenv("PORTABLE_PACKAGING_INCLUDE_DATA_MANIFEST_ONLY", "true")).lower() == "true")
+    portable_packaging_max_inventory_files: int = field(default_factory=lambda: int(os.getenv("PORTABLE_PACKAGING_MAX_INVENTORY_FILES", "100000")))
+    portable_packaging_max_manifest_file_mb: int = field(default_factory=lambda: int(os.getenv("PORTABLE_PACKAGING_MAX_MANIFEST_FILE_MB", "50")))
+    portable_packaging_save_reports: bool = field(default_factory=lambda: str(os.getenv("PORTABLE_PACKAGING_SAVE_REPORTS", "true")).lower() == "true")
+    portable_packaging_min_quality_score: float = field(default_factory=lambda: float(os.getenv("PORTABLE_PACKAGING_MIN_QUALITY_SCORE", "0.40")))
 
-    with open(settings_path, "w") as f:
-        f.write(content)
-
-def update_env_example():
-    env_path = "commodity_fx_signal_bot/.env.example"
-    with open(env_path, "r") as f:
-        content = f.read()
-
-    new_env = """
-# Performance Profiling
-PERFORMANCE_MONITORING_ENABLED=true
-DEFAULT_PERFORMANCE_PROFILE=balanced_local_performance
-PERFORMANCE_DEFAULT_TIMEFRAME=1d
-PERFORMANCE_PROFILE_SCRIPTS=true
-PERFORMANCE_PROFILE_MEMORY=true
-PERFORMANCE_PROFILE_CPU=true
-PERFORMANCE_DETECT_GPU=true
-PERFORMANCE_ALLOW_GPU_OPTIONAL=true
-PERFORMANCE_MAX_RUNTIME_SECONDS_PER_SCRIPT=300
-PERFORMANCE_MAX_MEMORY_MB_PER_SCRIPT=2048
-PERFORMANCE_MAX_BATCH_SYMBOLS=50
-PERFORMANCE_MAX_PARALLEL_WORKERS=1
-PERFORMANCE_ENABLE_CACHE=true
-PERFORMANCE_CACHE_FORMAT=parquet_or_csv
-PERFORMANCE_CACHE_TTL_HOURS=24
-PERFORMANCE_CACHE_MAX_SIZE_MB=2048
-PERFORMANCE_ENABLE_CHECKPOINTING=true
-PERFORMANCE_CHECKPOINT_EVERY_ITEMS=25
-PERFORMANCE_SAVE_REPORTS=true
-PERFORMANCE_MIN_QUALITY_SCORE=0.40
-"""
-    if "PERFORMANCE_MONITORING_ENABLED" not in content:
-        content += new_env
-
-    with open(env_path, "w") as f:
-        f.write(content)
-
-def update_paths():
-    paths_path = "commodity_fx_signal_bot/config/paths.py"
-    with open(paths_path, "r") as f:
-        content = f.read()
-
-    new_paths = """
-    LAKE_PERFORMANCE = LAKE_DIR / "performance"
-    LAKE_PERFORMANCE_PROFILES = LAKE_PERFORMANCE / "profiles"
-    LAKE_PERFORMANCE_RUNTIME = LAKE_PERFORMANCE / "runtime"
-    LAKE_PERFORMANCE_MEMORY = LAKE_PERFORMANCE / "memory"
-    LAKE_PERFORMANCE_BUDGET = LAKE_PERFORMANCE / "resource_budget"
-    LAKE_PERFORMANCE_CPU_GPU = LAKE_PERFORMANCE / "cpu_gpu"
-    LAKE_PERFORMANCE_CACHE = LAKE_PERFORMANCE / "cache"
-    LAKE_PERFORMANCE_BATCH_PLANS = LAKE_PERFORMANCE / "batch_plans"
-    LAKE_PERFORMANCE_CHECKPOINTS = LAKE_PERFORMANCE / "checkpoints"
-    LAKE_PERFORMANCE_STABILITY = LAKE_PERFORMANCE / "stability"
-    LAKE_PERFORMANCE_BOTTLENECKS = LAKE_PERFORMANCE / "bottlenecks"
-    LAKE_PERFORMANCE_OPTIMIZATION = LAKE_PERFORMANCE / "optimization"
-    LAKE_PERFORMANCE_QUALITY = LAKE_PERFORMANCE / "quality"
-
-    REPORTS_PERFORMANCE = REPORTS_OUTPUT_DIR / "performance"
-    REPORTS_PERFORMANCE_CSV = REPORTS_PERFORMANCE / "csv"
-    REPORTS_PERFORMANCE_MARKDOWN = REPORTS_PERFORMANCE / "markdown"
-    REPORTS_PERFORMANCE_TXT = REPORTS_PERFORMANCE / "txt"
-    REPORTS_PERFORMANCE_JSON = REPORTS_PERFORMANCE / "json"
-"""
-    new_dirs = """
-        cls.LAKE_PERFORMANCE,
-        cls.LAKE_PERFORMANCE_PROFILES,
-        cls.LAKE_PERFORMANCE_RUNTIME,
-        cls.LAKE_PERFORMANCE_MEMORY,
-        cls.LAKE_PERFORMANCE_BUDGET,
-        cls.LAKE_PERFORMANCE_CPU_GPU,
-        cls.LAKE_PERFORMANCE_CACHE,
-        cls.LAKE_PERFORMANCE_BATCH_PLANS,
-        cls.LAKE_PERFORMANCE_CHECKPOINTS,
-        cls.LAKE_PERFORMANCE_STABILITY,
-        cls.LAKE_PERFORMANCE_BOTTLENECKS,
-        cls.LAKE_PERFORMANCE_OPTIMIZATION,
-        cls.LAKE_PERFORMANCE_QUALITY,
-        cls.REPORTS_PERFORMANCE,
-        cls.REPORTS_PERFORMANCE_CSV,
-        cls.REPORTS_PERFORMANCE_MARKDOWN,
-        cls.REPORTS_PERFORMANCE_TXT,
-        cls.REPORTS_PERFORMANCE_JSON,
+    def __post_init__(self):
 """
 
-    if "LAKE_PERFORMANCE" not in content:
-        content = re.sub(r'(LAKE_REPORTS_.*?\n)', r'\1' + new_paths, content, count=1)
-        content = re.sub(r'(cls\.LAKE_REPORTS_.*?,)', r'\1' + new_dirs, content, count=1)
+settings_content = re.sub(r'    def __post_init__\(self\):', settings_injection, settings_content)
 
-    with open(paths_path, "w") as f:
-        f.write(content)
+with open("commodity_fx_signal_bot/config/settings.py", "w") as f:
+    f.write(settings_content)
 
-if __name__ == "__main__":
-    update_settings()
-    update_env_example()
-    update_paths()
+# Update paths.py
+with open("commodity_fx_signal_bot/config/paths.py", "r") as f:
+    paths_content = f.read()
+
+
+paths_injection = """
+        # Phase 61: Portable Packaging
+        self.LAKE_PORTABLE_PACKAGING_DIR = LAKE_PORTABLE_PACKAGING_DIR
+        self.LAKE_PORTABLE_PACKAGING_ENVIRONMENT_DIR = LAKE_PORTABLE_PACKAGING_ENVIRONMENT_DIR
+        self.LAKE_PORTABLE_PACKAGING_DEPENDENCIES_DIR = LAKE_PORTABLE_PACKAGING_DEPENDENCIES_DIR
+        self.LAKE_PORTABLE_PACKAGING_REQUIREMENTS_DIR = LAKE_PORTABLE_PACKAGING_REQUIREMENTS_DIR
+        self.LAKE_PORTABLE_PACKAGING_INSTALL_VERIFICATION_DIR = LAKE_PORTABLE_PACKAGING_INSTALL_VERIFICATION_DIR
+        self.LAKE_PORTABLE_PACKAGING_IMPORT_VERIFICATION_DIR = LAKE_PORTABLE_PACKAGING_IMPORT_VERIFICATION_DIR
+        self.LAKE_PORTABLE_PACKAGING_SCRIPT_VERIFICATION_DIR = LAKE_PORTABLE_PACKAGING_SCRIPT_VERIFICATION_DIR
+        self.LAKE_PORTABLE_PACKAGING_CONFIG_VERIFICATION_DIR = LAKE_PORTABLE_PACKAGING_CONFIG_VERIFICATION_DIR
+        self.LAKE_PORTABLE_PACKAGING_BUNDLE_MANIFEST_DIR = LAKE_PORTABLE_PACKAGING_BUNDLE_MANIFEST_DIR
+        self.LAKE_PORTABLE_PACKAGING_ARCHIVE_MANIFEST_DIR = LAKE_PORTABLE_PACKAGING_ARCHIVE_MANIFEST_DIR
+        self.LAKE_PORTABLE_PACKAGING_SOURCE_POLICY_DIR = LAKE_PORTABLE_PACKAGING_SOURCE_POLICY_DIR
+        self.LAKE_PORTABLE_PACKAGING_SETUP_GUIDES_DIR = LAKE_PORTABLE_PACKAGING_SETUP_GUIDES_DIR
+        self.LAKE_PORTABLE_PACKAGING_DRIFT_DIR = LAKE_PORTABLE_PACKAGING_DRIFT_DIR
+        self.LAKE_PORTABLE_PACKAGING_SAFETY_DIR = LAKE_PORTABLE_PACKAGING_SAFETY_DIR
+        self.LAKE_PORTABLE_PACKAGING_QUALITY_DIR = LAKE_PORTABLE_PACKAGING_QUALITY_DIR
+
+        self.REPORTS_PORTABLE_PACKAGING_DIR = REPORTS_PORTABLE_PACKAGING_DIR
+        self.REPORTS_PORTABLE_PACKAGING_CSV_DIR = REPORTS_PORTABLE_PACKAGING_CSV_DIR
+        self.REPORTS_PORTABLE_PACKAGING_MARKDOWN_DIR = REPORTS_PORTABLE_PACKAGING_MARKDOWN_DIR
+        self.REPORTS_PORTABLE_PACKAGING_TXT_DIR = REPORTS_PORTABLE_PACKAGING_TXT_DIR
+        self.REPORTS_PORTABLE_PACKAGING_JSON_DIR = REPORTS_PORTABLE_PACKAGING_JSON_DIR
+
+        self.PORTABLE_BUNDLE_DIR = PORTABLE_BUNDLE_DIR
+        self.PORTABLE_BUNDLE_MANIFESTS_DIR = PORTABLE_BUNDLE_MANIFESTS_DIR
+        self.PORTABLE_BUNDLE_SETUP_DIR = PORTABLE_BUNDLE_SETUP_DIR
+        self.PORTABLE_BUNDLE_ARCHIVE_PLANS_DIR = PORTABLE_BUNDLE_ARCHIVE_PLANS_DIR
+
+        self.DOCS_PORTABLE_PACKAGING_DIR = DOCS_PORTABLE_PACKAGING_DIR
+
+"""
+
+paths_content = re.sub(r'# Phase 39: Research Reports', paths_injection + '# Phase 39: Research Reports', paths_content)
+
+paths_constants_injection = """
+# Phase 61: Portable Packaging
+LAKE_PORTABLE_PACKAGING_DIR = LAKE_DIR / "portable_packaging"
+LAKE_PORTABLE_PACKAGING_ENVIRONMENT_DIR = LAKE_PORTABLE_PACKAGING_DIR / "environment"
+LAKE_PORTABLE_PACKAGING_DEPENDENCIES_DIR = LAKE_PORTABLE_PACKAGING_DIR / "dependencies"
+LAKE_PORTABLE_PACKAGING_REQUIREMENTS_DIR = LAKE_PORTABLE_PACKAGING_DIR / "requirements"
+LAKE_PORTABLE_PACKAGING_INSTALL_VERIFICATION_DIR = LAKE_PORTABLE_PACKAGING_DIR / "install_verification"
+LAKE_PORTABLE_PACKAGING_IMPORT_VERIFICATION_DIR = LAKE_PORTABLE_PACKAGING_DIR / "import_verification"
+LAKE_PORTABLE_PACKAGING_SCRIPT_VERIFICATION_DIR = LAKE_PORTABLE_PACKAGING_DIR / "script_verification"
+LAKE_PORTABLE_PACKAGING_CONFIG_VERIFICATION_DIR = LAKE_PORTABLE_PACKAGING_DIR / "config_verification"
+LAKE_PORTABLE_PACKAGING_BUNDLE_MANIFEST_DIR = LAKE_PORTABLE_PACKAGING_DIR / "bundle_manifest"
+LAKE_PORTABLE_PACKAGING_ARCHIVE_MANIFEST_DIR = LAKE_PORTABLE_PACKAGING_DIR / "archive_manifest"
+LAKE_PORTABLE_PACKAGING_SOURCE_POLICY_DIR = LAKE_PORTABLE_PACKAGING_DIR / "source_policy"
+LAKE_PORTABLE_PACKAGING_SETUP_GUIDES_DIR = LAKE_PORTABLE_PACKAGING_DIR / "setup_guides"
+LAKE_PORTABLE_PACKAGING_DRIFT_DIR = LAKE_PORTABLE_PACKAGING_DIR / "drift"
+LAKE_PORTABLE_PACKAGING_SAFETY_DIR = LAKE_PORTABLE_PACKAGING_DIR / "safety"
+LAKE_PORTABLE_PACKAGING_QUALITY_DIR = LAKE_PORTABLE_PACKAGING_DIR / "quality"
+
+REPORTS_PORTABLE_PACKAGING_DIR = REPORTS_DIR / "portable_packaging"
+REPORTS_PORTABLE_PACKAGING_CSV_DIR = REPORTS_PORTABLE_PACKAGING_DIR / "csv"
+REPORTS_PORTABLE_PACKAGING_MARKDOWN_DIR = REPORTS_PORTABLE_PACKAGING_DIR / "markdown"
+REPORTS_PORTABLE_PACKAGING_TXT_DIR = REPORTS_PORTABLE_PACKAGING_DIR / "txt"
+REPORTS_PORTABLE_PACKAGING_JSON_DIR = REPORTS_PORTABLE_PACKAGING_DIR / "json"
+
+PORTABLE_BUNDLE_DIR = PROJECT_ROOT / "portable_bundle"
+PORTABLE_BUNDLE_MANIFESTS_DIR = PORTABLE_BUNDLE_DIR / "manifests"
+PORTABLE_BUNDLE_SETUP_DIR = PORTABLE_BUNDLE_DIR / "setup"
+PORTABLE_BUNDLE_ARCHIVE_PLANS_DIR = PORTABLE_BUNDLE_DIR / "archive_plans"
+
+DOCS_PORTABLE_PACKAGING_DIR = PROJECT_ROOT / "docs" / "generated" / "portable_packaging"
+
+"""
+
+paths_content = paths_content + paths_constants_injection
+
+paths_create_injection = """
+            self.LAKE_PORTABLE_PACKAGING_DIR,
+            self.LAKE_PORTABLE_PACKAGING_ENVIRONMENT_DIR,
+            self.LAKE_PORTABLE_PACKAGING_DEPENDENCIES_DIR,
+            self.LAKE_PORTABLE_PACKAGING_REQUIREMENTS_DIR,
+            self.LAKE_PORTABLE_PACKAGING_INSTALL_VERIFICATION_DIR,
+            self.LAKE_PORTABLE_PACKAGING_IMPORT_VERIFICATION_DIR,
+            self.LAKE_PORTABLE_PACKAGING_SCRIPT_VERIFICATION_DIR,
+            self.LAKE_PORTABLE_PACKAGING_CONFIG_VERIFICATION_DIR,
+            self.LAKE_PORTABLE_PACKAGING_BUNDLE_MANIFEST_DIR,
+            self.LAKE_PORTABLE_PACKAGING_ARCHIVE_MANIFEST_DIR,
+            self.LAKE_PORTABLE_PACKAGING_SOURCE_POLICY_DIR,
+            self.LAKE_PORTABLE_PACKAGING_SETUP_GUIDES_DIR,
+            self.LAKE_PORTABLE_PACKAGING_DRIFT_DIR,
+            self.LAKE_PORTABLE_PACKAGING_SAFETY_DIR,
+            self.LAKE_PORTABLE_PACKAGING_QUALITY_DIR,
+
+            self.REPORTS_PORTABLE_PACKAGING_DIR,
+            self.REPORTS_PORTABLE_PACKAGING_CSV_DIR,
+            self.REPORTS_PORTABLE_PACKAGING_MARKDOWN_DIR,
+            self.REPORTS_PORTABLE_PACKAGING_TXT_DIR,
+            self.REPORTS_PORTABLE_PACKAGING_JSON_DIR,
+
+            self.PORTABLE_BUNDLE_DIR,
+            self.PORTABLE_BUNDLE_MANIFESTS_DIR,
+            self.PORTABLE_BUNDLE_SETUP_DIR,
+            self.PORTABLE_BUNDLE_ARCHIVE_PLANS_DIR,
+
+            self.DOCS_PORTABLE_PACKAGING_DIR,
+"""
+
+paths_content = re.sub(r'            self.DOCS_ANALYST_UX_DIR,', '            self.DOCS_ANALYST_UX_DIR,' + paths_create_injection, paths_content)
+
+with open("commodity_fx_signal_bot/config/paths.py", "w") as f:
+    f.write(paths_content)
+
+# Update .env.example
+with open("commodity_fx_signal_bot/.env.example", "a") as f:
+    f.write("""
+# Portable Packaging
+PORTABLE_PACKAGING_ENABLED=true
+DEFAULT_PORTABLE_PACKAGING_PROFILE=balanced_local_packaging
+PORTABLE_PACKAGING_DEFAULT_LANGUAGE=tr
+PORTABLE_PACKAGING_DRY_RUN_DEFAULT=true
+PORTABLE_PACKAGING_ALLOW_ARCHIVE_CREATE=false
+PORTABLE_PACKAGING_ALLOW_PACKAGE_PUBLISH=false
+PORTABLE_PACKAGING_ALLOW_DOCKER=false
+PORTABLE_PACKAGING_ALLOW_CLOUD_DEPLOY=false
+PORTABLE_PACKAGING_ALLOW_LIVE_COMMANDS=false
+PORTABLE_PACKAGING_ALLOW_BROKER_COMMANDS=false
+PORTABLE_PACKAGING_ALLOW_DEPLOY_COMMANDS=false
+PORTABLE_PACKAGING_ALLOW_BACKGROUND_DAEMONS=false
+PORTABLE_PACKAGING_ALLOW_REAL_MARKET_DOWNLOAD=false
+PORTABLE_PACKAGING_ALLOW_EXTERNAL_LLM=false
+PORTABLE_PACKAGING_INCLUDE_SOURCE=true
+PORTABLE_PACKAGING_INCLUDE_DOCS=true
+PORTABLE_PACKAGING_INCLUDE_TESTS=true
+PORTABLE_PACKAGING_INCLUDE_CONFIGS=true
+PORTABLE_PACKAGING_INCLUDE_REPORTS_MANIFEST_ONLY=true
+PORTABLE_PACKAGING_INCLUDE_DATA_MANIFEST_ONLY=true
+PORTABLE_PACKAGING_MAX_INVENTORY_FILES=100000
+PORTABLE_PACKAGING_MAX_MANIFEST_FILE_MB=50
+PORTABLE_PACKAGING_SAVE_REPORTS=true
+PORTABLE_PACKAGING_MIN_QUALITY_SCORE=0.40
+""")
+

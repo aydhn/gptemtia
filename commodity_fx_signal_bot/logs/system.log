@@ -130,3 +130,9 @@
 2026-05-29 02:42:28,434 - main - INFO - Project directories verified.
 2026-05-29 02:42:28,434 - main - INFO - System initialized successfully. Loaded 60 enabled symbols.
 2026-05-29 02:42:28,434 - main - INFO - Phase 1 initialization complete. Ready for Phase 2.
+2026-06-02 23:15:13,288 - main - INFO - ==================================================
+2026-06-02 23:15:13,289 - main - INFO - Starting commodity_fx_signal_bot [Env: development]
+2026-06-02 23:15:13,289 - main - INFO - ==================================================
+2026-06-02 23:15:13,294 - main - INFO - Project directories verified.
+2026-06-02 23:15:13,294 - main - INFO - System initialized successfully. Loaded 60 enabled symbols.
+2026-06-02 23:15:13,294 - main - INFO - Phase 1 initialization complete. Ready for Phase 2.
