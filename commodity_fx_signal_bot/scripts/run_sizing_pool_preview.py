@@ -7,6 +7,7 @@ from pathlib import Path
 from config.settings import settings
 from config.paths import REPORTS_SIZING_REPORTS_DIR
 from config.symbols import get_enabled_symbols
+from config.paths import DATA_DIR
 from data.storage.data_lake import DataLake
 from sizing.sizing_pipeline import SizingPipeline
 from sizing.sizing_config import get_sizing_profile
@@ -41,7 +42,7 @@ def main():
         logger.error(f"Error loading profile: {e}")
         sys.exit(1)
 
-    data_lake = DataLake()
+    data_lake = DataLake(DATA_DIR / "lake")
 
     u_df = pd.DataFrame()
     pool = SizingCandidatePool()

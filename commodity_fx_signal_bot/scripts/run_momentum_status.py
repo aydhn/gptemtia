@@ -3,6 +3,7 @@ import logging
 import pandas as pd
 
 from config.symbols import get_allowed_timeframes_for_symbol, get_enabled_symbols
+from config.paths import DATA_DIR
 from data.storage.data_lake import DataLake
 from reports.report_builder import build_momentum_status_report
 

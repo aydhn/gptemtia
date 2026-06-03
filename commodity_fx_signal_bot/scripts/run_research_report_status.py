@@ -1,6 +1,7 @@
 import sys
 import logging
 import pandas as pd
+from config.paths import DATA_DIR
 from data.storage.data_lake import DataLake
 from config.paths import REPORTS_RESEARCH_REPORTS_CSV_DIR, REPORTS_RESEARCH_REPORTS_TXT_DIR
 from reports.report_builder import build_research_report_status_report
@@ -11,7 +12,7 @@ logger = logging.getLogger(__name__)
 def main():
     logger.info("Checking research report status...")
 
-    data_lake = DataLake()
+    data_lake = DataLake(DATA_DIR / "lake")
 
     status_df = data_lake.list_research_reports()
 

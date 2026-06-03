@@ -2,6 +2,7 @@ import argparse
 import sys
 import logging
 from config.settings import settings
+from config.paths import DATA_DIR
 from data.storage.data_lake import DataLake
 from report_exports.export_pipeline import ReportExportPipeline
 from report_exports.export_config import get_default_report_export_profile
@@ -22,7 +23,7 @@ def main():
 
     args = parser.parse_args()
 
-    data_lake = DataLake()
+    data_lake = DataLake(DATA_DIR / "lake")
     profile = get_default_report_export_profile()
     pipeline = ReportExportPipeline(data_lake, settings, profile)
     save = not args.no_save

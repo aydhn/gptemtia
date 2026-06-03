@@ -4,6 +4,7 @@ import pandas as pd
 
 from config.paths import PRICE_ACTION_REPORTS_DIR
 from config.symbols import get_enabled_symbols
+from config.paths import DATA_DIR
 from data.storage.data_lake import DataLake
 from reports.report_builder import build_price_action_status_report
 

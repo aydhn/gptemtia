@@ -5,6 +5,7 @@ import sys
 from config.paths import ensure_project_directories
 from config.settings import settings
 from config.symbols import get_symbol_spec
+from config.paths import DATA_DIR
 from data.storage.data_lake import DataLake
 from indicators.feature_builder import FeatureBuilder
 from reports.report_builder import (

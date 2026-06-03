@@ -4,6 +4,7 @@ import logging
 import pandas as pd
 from config.settings import settings
 from config.symbols import get_enabled_symbols
+from config.paths import DATA_DIR
 from data.storage.data_lake import DataLake
 from research_reports.research_pipeline import ResearchReportPipeline
 from research_reports.research_config import get_research_report_profile
@@ -31,7 +32,7 @@ def main():
         logger.error(f"Invalid profile: {e}")
         sys.exit(1)
 
-    data_lake = DataLake()
+    data_lake = DataLake(DATA_DIR / "lake")
 
     universe = get_enabled_symbols()
     specs = [s for s in universe if s.enabled]

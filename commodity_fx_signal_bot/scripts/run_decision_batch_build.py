@@ -5,6 +5,7 @@ import logging
 
 from config.symbols import get_symbol_spec, get_enabled_symbols
 from config.settings import settings
+from config.paths import DATA_DIR
 from data.storage.data_lake import DataLake
 from decisions import DecisionPipeline, get_decision_profile
 from reports.report_builder import build_decision_batch_report
@@ -52,7 +53,7 @@ def main():
     else:
         specs = get_enabled_symbols()
 
-    data_lake = DataLake()
+    data_lake = DataLake(DATA_DIR / "lake")
     pipeline = DecisionPipeline(data_lake, settings, profile)
 
     logger.info(f"Starting batch build for {len(specs)} symbols (limit: {args.limit})")

@@ -5112,3 +5112,271 @@ class DataLake:
             for p in self.paths.LAKE_PORTABLE_PACKAGING_DIR.glob("report_*.json"):
                 data.append({"profile": p.stem.replace("report_", ""), "path": str(p)})
         return pd.DataFrame(data)
+
+
+    def save_project_state_inventory(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import BACKUP_RECOVERY_STATE_INVENTORY_DIR
+        out = BACKUP_RECOVERY_STATE_INVENTORY_DIR / "project_state_inventory.csv"
+        df.to_csv(out, index=False)
+        return out
+
+    def load_project_state_inventory(self) -> pd.DataFrame:
+        from config.paths import BACKUP_RECOVERY_STATE_INVENTORY_DIR
+        out = BACKUP_RECOVERY_STATE_INVENTORY_DIR / "project_state_inventory.csv"
+        if out.exists():
+            return pd.read_csv(out)
+        return pd.DataFrame()
+
+    def save_backup_policies(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import BACKUP_RECOVERY_POLICIES_DIR
+        out = BACKUP_RECOVERY_POLICIES_DIR / "backup_policies.csv"
+        df.to_csv(out, index=False)
+        return out
+
+    def load_backup_policies(self) -> pd.DataFrame:
+        from config.paths import BACKUP_RECOVERY_POLICIES_DIR
+        out = BACKUP_RECOVERY_POLICIES_DIR / "backup_policies.csv"
+        if out.exists():
+            return pd.read_csv(out)
+        return pd.DataFrame()
+
+    def save_backup_scope_table(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import BACKUP_RECOVERY_SCOPES_DIR
+        out = BACKUP_RECOVERY_SCOPES_DIR / "backup_scope_table.csv"
+        df.to_csv(out, index=False)
+        return out
+
+    def load_backup_scope_table(self) -> pd.DataFrame:
+        from config.paths import BACKUP_RECOVERY_SCOPES_DIR
+        out = BACKUP_RECOVERY_SCOPES_DIR / "backup_scope_table.csv"
+        if out.exists():
+            return pd.read_csv(out)
+        return pd.DataFrame()
+
+    def save_critical_artifact_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import BACKUP_RECOVERY_CRITICAL_ARTIFACTS_DIR
+        out = BACKUP_RECOVERY_CRITICAL_ARTIFACTS_DIR / "critical_artifact_registry.csv"
+        df.to_csv(out, index=False)
+        return out
+
+    def load_critical_artifact_registry(self) -> pd.DataFrame:
+        from config.paths import BACKUP_RECOVERY_CRITICAL_ARTIFACTS_DIR
+        out = BACKUP_RECOVERY_CRITICAL_ARTIFACTS_DIR / "critical_artifact_registry.csv"
+        if out.exists():
+            return pd.read_csv(out)
+        return pd.DataFrame()
+
+    def save_noncritical_artifact_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import BACKUP_RECOVERY_CRITICAL_ARTIFACTS_DIR
+        out = BACKUP_RECOVERY_CRITICAL_ARTIFACTS_DIR / "noncritical_artifact_registry.csv"
+        df.to_csv(out, index=False)
+        return out
+
+    def load_noncritical_artifact_registry(self) -> pd.DataFrame:
+        from config.paths import BACKUP_RECOVERY_CRITICAL_ARTIFACTS_DIR
+        out = BACKUP_RECOVERY_CRITICAL_ARTIFACTS_DIR / "noncritical_artifact_registry.csv"
+        if out.exists():
+            return pd.read_csv(out)
+        return pd.DataFrame()
+
+    def save_excluded_secret_artifact_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import BACKUP_RECOVERY_CRITICAL_ARTIFACTS_DIR
+        out = BACKUP_RECOVERY_CRITICAL_ARTIFACTS_DIR / "excluded_secret_artifact_registry.csv"
+        df.to_csv(out, index=False)
+        return out
+
+    def load_excluded_secret_artifact_registry(self) -> pd.DataFrame:
+        from config.paths import BACKUP_RECOVERY_CRITICAL_ARTIFACTS_DIR
+        out = BACKUP_RECOVERY_CRITICAL_ARTIFACTS_DIR / "excluded_secret_artifact_registry.csv"
+        if out.exists():
+            return pd.read_csv(out)
+        return pd.DataFrame()
+
+    def save_backup_manifest(self, manifest: dict) -> Path:
+        from config.paths import BACKUP_RECOVERY_MANIFESTS_DIR
+        import json
+        out = BACKUP_RECOVERY_MANIFESTS_DIR / "backup_manifest.json"
+        with open(out, "w") as f:
+            json.dump(manifest, f, indent=2)
+        return out
+
+    def load_backup_manifest(self) -> dict:
+        from config.paths import BACKUP_RECOVERY_MANIFESTS_DIR
+        import json
+        out = BACKUP_RECOVERY_MANIFESTS_DIR / "backup_manifest.json"
+        if out.exists():
+            with open(out, "r") as f:
+                return json.load(f)
+        return {}
+
+    def save_backup_dry_run_plan(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import BACKUP_RECOVERY_BACKUP_DRY_RUN_DIR
+        out = BACKUP_RECOVERY_BACKUP_DRY_RUN_DIR / "backup_dry_run_plan.csv"
+        df.to_csv(out, index=False)
+        return out
+
+    def load_backup_dry_run_plan(self) -> pd.DataFrame:
+        from config.paths import BACKUP_RECOVERY_BACKUP_DRY_RUN_DIR
+        out = BACKUP_RECOVERY_BACKUP_DRY_RUN_DIR / "backup_dry_run_plan.csv"
+        if out.exists():
+            return pd.read_csv(out)
+        return pd.DataFrame()
+
+    def save_restore_dry_run_plan(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import BACKUP_RECOVERY_RESTORE_DRY_RUN_DIR
+        out = BACKUP_RECOVERY_RESTORE_DRY_RUN_DIR / "restore_dry_run_plan.csv"
+        df.to_csv(out, index=False)
+        return out
+
+    def load_restore_dry_run_plan(self) -> pd.DataFrame:
+        from config.paths import BACKUP_RECOVERY_RESTORE_DRY_RUN_DIR
+        out = BACKUP_RECOVERY_RESTORE_DRY_RUN_DIR / "restore_dry_run_plan.csv"
+        if out.exists():
+            return pd.read_csv(out)
+        return pd.DataFrame()
+
+    def save_restore_verification_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import BACKUP_RECOVERY_RESTORE_VERIFICATION_DIR
+        out = BACKUP_RECOVERY_RESTORE_VERIFICATION_DIR / "restore_verification_report.csv"
+        df.to_csv(out, index=False)
+        return out
+
+    def load_restore_verification_report(self) -> pd.DataFrame:
+        from config.paths import BACKUP_RECOVERY_RESTORE_VERIFICATION_DIR
+        out = BACKUP_RECOVERY_RESTORE_VERIFICATION_DIR / "restore_verification_report.csv"
+        if out.exists():
+            return pd.read_csv(out)
+        return pd.DataFrame()
+
+    def save_disaster_recovery_manifest(self, manifest: dict) -> Path:
+        from config.paths import BACKUP_RECOVERY_DISASTER_RECOVERY_DIR
+        import json
+        out = BACKUP_RECOVERY_DISASTER_RECOVERY_DIR / "disaster_recovery_manifest.json"
+        with open(out, "w") as f:
+            json.dump(manifest, f, indent=2)
+        return out
+
+    def load_disaster_recovery_manifest(self) -> dict:
+        from config.paths import BACKUP_RECOVERY_DISASTER_RECOVERY_DIR
+        import json
+        out = BACKUP_RECOVERY_DISASTER_RECOVERY_DIR / "disaster_recovery_manifest.json"
+        if out.exists():
+            with open(out, "r") as f:
+                return json.load(f)
+        return {}
+
+    def save_recovery_runbook(self, text: str, summary: dict | None = None) -> Path:
+        from config.paths import BACKUP_RECOVERY_RUNBOOKS_DIR
+        out = BACKUP_RECOVERY_RUNBOOKS_DIR / "recovery_runbook.txt"
+        with open(out, "w") as f:
+            f.write(text)
+        return out
+
+    def load_recovery_runbook(self) -> str:
+        from config.paths import BACKUP_RECOVERY_RUNBOOKS_DIR
+        out = BACKUP_RECOVERY_RUNBOOKS_DIR / "recovery_runbook.txt"
+        if out.exists():
+            with open(out, "r") as f:
+                return f.read()
+        return ""
+
+    def save_backup_integrity_manifest(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import BACKUP_RECOVERY_INTEGRITY_DIR
+        out = BACKUP_RECOVERY_INTEGRITY_DIR / "backup_integrity_manifest.csv"
+        df.to_csv(out, index=False)
+        return out
+
+    def load_backup_integrity_manifest(self) -> pd.DataFrame:
+        from config.paths import BACKUP_RECOVERY_INTEGRITY_DIR
+        out = BACKUP_RECOVERY_INTEGRITY_DIR / "backup_integrity_manifest.csv"
+        if out.exists():
+            return pd.read_csv(out)
+        return pd.DataFrame()
+
+    def save_restore_integrity_verification(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import BACKUP_RECOVERY_INTEGRITY_DIR
+        out = BACKUP_RECOVERY_INTEGRITY_DIR / "restore_integrity_verification.csv"
+        df.to_csv(out, index=False)
+        return out
+
+    def load_restore_integrity_verification(self) -> pd.DataFrame:
+        from config.paths import BACKUP_RECOVERY_INTEGRITY_DIR
+        out = BACKUP_RECOVERY_INTEGRITY_DIR / "restore_integrity_verification.csv"
+        if out.exists():
+            return pd.read_csv(out)
+        return pd.DataFrame()
+
+    def save_recovery_gap_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import BACKUP_RECOVERY_GAPS_DIR
+        out = BACKUP_RECOVERY_GAPS_DIR / "recovery_gap_report.csv"
+        df.to_csv(out, index=False)
+        return out
+
+    def load_recovery_gap_report(self) -> pd.DataFrame:
+        from config.paths import BACKUP_RECOVERY_GAPS_DIR
+        out = BACKUP_RECOVERY_GAPS_DIR / "recovery_gap_report.csv"
+        if out.exists():
+            return pd.read_csv(out)
+        return pd.DataFrame()
+
+    def save_backup_safety_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import BACKUP_RECOVERY_SAFETY_DIR
+        out = BACKUP_RECOVERY_SAFETY_DIR / "backup_safety_report.csv"
+        df.to_csv(out, index=False)
+        return out
+
+    def load_backup_safety_report(self) -> pd.DataFrame:
+        from config.paths import BACKUP_RECOVERY_SAFETY_DIR
+        out = BACKUP_RECOVERY_SAFETY_DIR / "backup_safety_report.csv"
+        if out.exists():
+            return pd.read_csv(out)
+        return pd.DataFrame()
+
+    def save_backup_quality(self, profile_name: str, quality: dict) -> Path:
+        from config.paths import BACKUP_RECOVERY_QUALITY_DIR
+        import json
+        out = BACKUP_RECOVERY_QUALITY_DIR / f"backup_quality_{profile_name}.json"
+        with open(out, "w") as f:
+            json.dump(quality, f, indent=2)
+        return out
+
+    def load_backup_quality(self, profile_name: str) -> dict:
+        from config.paths import BACKUP_RECOVERY_QUALITY_DIR
+        import json
+        out = BACKUP_RECOVERY_QUALITY_DIR / f"backup_quality_{profile_name}.json"
+        if out.exists():
+            with open(out, "r") as f:
+                return json.load(f)
+        return {}
+
+    def save_backup_recovery_report(self, profile_name: str, report: dict, markdown: str | None = None) -> Path:
+        from config.paths import BACKUP_RECOVERY_DIR
+        import json
+        out = BACKUP_RECOVERY_DIR / f"backup_recovery_report_{profile_name}.json"
+        with open(out, "w") as f:
+            json.dump(report, f, indent=2)
+        return out
+
+    def load_backup_recovery_report(self, profile_name: str) -> dict:
+        from config.paths import BACKUP_RECOVERY_DIR
+        import json
+        out = BACKUP_RECOVERY_DIR / f"backup_recovery_report_{profile_name}.json"
+        if out.exists():
+            with open(out, "r") as f:
+                return json.load(f)
+        return {}
+
+    def list_backup_recovery_reports(self) -> pd.DataFrame:
+        from config.paths import BACKUP_RECOVERY_DIR
+        import glob
+        import json
+        files = glob.glob(str(BACKUP_RECOVERY_DIR / "backup_recovery_report_*.json"))
+        data = []
+        for f in files:
+            try:
+                with open(f, "r") as fh:
+                    d = json.load(fh)
+                data.append({"file": f, "profile_name": d.get("profile_name", "")})
+            except Exception:
+                pass
+        return pd.DataFrame(data)

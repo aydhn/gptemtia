@@ -2,6 +2,7 @@ import argparse
 import logging
 from datetime import datetime
 import pandas as pd
+from config.paths import DATA_DIR
 from data.storage.data_lake import DataLake
 import reports.report_builder as rb
 from config.paths import REPORTS_REPORT_EXPORTS_DIR
@@ -13,7 +14,7 @@ def main():
     parser = argparse.ArgumentParser(description="Check Report Export Status")
     parser.parse_args()
 
-    data_lake = DataLake()
+    data_lake = DataLake(DATA_DIR / "lake")
 
     status_data = [
         {"component": "manifests", "status": "ok"},

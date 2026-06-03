@@ -1312,3 +1312,48 @@ class FeatureStore:
     def list_available_portable_packaging_reports(self) -> dict:
         df = self.data_lake.list_portable_packaging_reports()
         return df.to_dict(orient="records") if not df.empty else {}
+
+
+    def load_project_state_inventory(self) -> pd.DataFrame:
+        return self.data_lake.load_project_state_inventory()
+    def load_backup_policies(self) -> pd.DataFrame:
+        return self.data_lake.load_backup_policies()
+    def load_backup_scope_table(self) -> pd.DataFrame:
+        return self.data_lake.load_backup_scope_table()
+    def load_critical_artifact_registry(self) -> pd.DataFrame:
+        return self.data_lake.load_critical_artifact_registry()
+    def load_noncritical_artifact_registry(self) -> pd.DataFrame:
+        return self.data_lake.load_noncritical_artifact_registry()
+    def load_excluded_secret_artifact_registry(self) -> pd.DataFrame:
+        return self.data_lake.load_excluded_secret_artifact_registry()
+    def load_backup_manifest(self) -> dict:
+        return self.data_lake.load_backup_manifest()
+    def load_backup_dry_run_plan(self) -> pd.DataFrame:
+        return self.data_lake.load_backup_dry_run_plan()
+    def load_restore_dry_run_plan(self) -> pd.DataFrame:
+        return self.data_lake.load_restore_dry_run_plan()
+    def load_restore_verification_report(self) -> pd.DataFrame:
+        return self.data_lake.load_restore_verification_report()
+    def load_disaster_recovery_manifest(self) -> dict:
+        return self.data_lake.load_disaster_recovery_manifest()
+    def load_recovery_runbook(self) -> str:
+        return self.data_lake.load_recovery_runbook()
+    def load_backup_integrity_manifest(self) -> pd.DataFrame:
+        return self.data_lake.load_backup_integrity_manifest()
+    def load_restore_integrity_verification(self) -> pd.DataFrame:
+        return self.data_lake.load_restore_integrity_verification()
+    def load_recovery_gap_report(self) -> pd.DataFrame:
+        return self.data_lake.load_recovery_gap_report()
+    def load_backup_safety_report(self) -> pd.DataFrame:
+        return self.data_lake.load_backup_safety_report()
+    def load_backup_quality(self, profile_name: str | None = None) -> dict:
+        # Simplified load
+        if profile_name:
+            return self.data_lake.load_backup_quality(profile_name)
+        return {}
+    def load_backup_recovery_report(self, profile_name: str | None = None) -> dict:
+        if profile_name:
+            return self.data_lake.load_backup_recovery_report(profile_name)
+        return {}
+    def list_available_backup_recovery_reports(self) -> dict:
+        return self.data_lake.list_backup_recovery_reports().to_dict('records')

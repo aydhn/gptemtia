@@ -6,6 +6,7 @@ import pandas as pd
 
 from config.paths import ensure_project_directories
 from config.symbols import DEFAULT_SYMBOL_UNIVERSE
+from config.paths import DATA_DIR
 from data.storage.data_lake import DataLake
 from reports.report_builder import build_mean_reversion_status_report, save_text_report
 

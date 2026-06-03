@@ -1005,3 +1005,28 @@ python -m scripts.run_portable_bundle_manifest
 python -m scripts.run_reproducible_setup_guide
 python -m scripts.run_packaging_status
 ```
+
+
+## Backup/Restore Dry-Run and Disaster Recovery Planning
+
+**Phase 62 added Backup/Restore Dry-Run & DR Planning to ensure local offline projects state can be safety backed up, without risking destructive overwrites, secret leaks or real deployment/trading triggers.**
+
+- Backup recovery katmanı gerçek backup/restore sistemi değildir; default dry-run manifest üretir.
+- Backup manifest dosya kopyalamaz.
+- Restore dry-run dosya kopyalamaz, overwrite yapmaz, silmez.
+- .env, secret, credential, token ve private key dosyaları excluded kalır.
+- data/lake ve reports/output varsayılan olarak manifest-only recovery planında yer alır.
+- Disaster recovery manifest production DR garantisi değildir.
+- Restore verification gerçek restore garantisi değildir.
+- Çıktılar data/lake/backup_recovery ve reports/output/backup_recovery altında oluşur.
+
+### Backup Recovery Commands
+```bash
+python -m scripts.run_project_state_inventory
+python -m scripts.run_backup_manifest_report
+python -m scripts.run_backup_dry_run_plan
+python -m scripts.run_restore_dry_run_plan
+python -m scripts.run_disaster_recovery_manifest
+python -m scripts.run_restore_verification_report
+python -m scripts.run_backup_recovery_status
+```

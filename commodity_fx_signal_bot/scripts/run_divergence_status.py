@@ -7,6 +7,7 @@ from config.paths import ensure_project_directories, DIVERGENCE_REPORTS_DIR
 from config.settings import settings
 from config.symbols import get_enabled_symbols
 from config.symbols import get_allowed_timeframes_for_symbol
+from config.paths import DATA_DIR
 from data.storage.data_lake import DataLake
 from ml.feature_store import FeatureStore
 from reports.report_builder import build_divergence_status_report

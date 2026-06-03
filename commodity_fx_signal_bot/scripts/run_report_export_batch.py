@@ -3,6 +3,7 @@ import sys
 import logging
 import pandas as pd
 from config.settings import settings
+from config.paths import DATA_DIR
 from data.storage.data_lake import DataLake
 from report_exports.export_pipeline import ReportExportPipeline
 from report_exports.export_config import get_report_export_profile
@@ -25,7 +26,7 @@ def main():
 
     args = parser.parse_args()
 
-    data_lake = DataLake()
+    data_lake = DataLake(DATA_DIR / "lake")
     profile = get_report_export_profile(args.export_profile)
 
     if args.include_pdf:

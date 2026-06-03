@@ -1,0 +1,9 @@
+def test_imports():
+    import scripts.run_project_state_inventory
+    import scripts.run_backup_manifest_report
+    import scripts.run_backup_dry_run_plan
+    import scripts.run_restore_dry_run_plan
+    import scripts.run_disaster_recovery_manifest
+    import scripts.run_restore_verification_report
+    import scripts.run_backup_recovery_status
+    assert True

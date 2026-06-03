@@ -8,6 +8,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config.settings import settings
+from config.paths import DATA_DIR
 from data.storage.data_lake import DataLake
 from config.symbols import DEFAULT_SYMBOL_UNIVERSE
 from factor_research.factor_pipeline import FactorResearchPipeline
@@ -27,7 +28,7 @@ def main():
     parser.add_argument("--no-save", action="store_true", help="Do not save reports to disk")
     args = parser.parse_args()
 
-    data_lake = DataLake()
+    data_lake = DataLake(DATA_DIR / "lake")
 
     universe = DEFAULT_SYMBOL_UNIVERSE
 

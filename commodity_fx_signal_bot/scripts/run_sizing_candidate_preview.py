@@ -5,6 +5,7 @@ import logging
 
 from config.settings import settings
 from config.paths import REPORTS_SIZING_REPORTS_DIR
+from config.paths import DATA_DIR
 from data.storage.data_lake import DataLake
 from sizing.sizing_pipeline import SizingPipeline
 from sizing.sizing_config import get_sizing_profile
@@ -51,7 +52,7 @@ def main():
         logger.error(f"Symbol {args.symbol} not found in manager.")
         sys.exit(1)
 
-    data_lake = DataLake()
+    data_lake = DataLake(DATA_DIR / "lake")
     pipeline = SizingPipeline(data_lake, settings, profile)
 
     logger.info(

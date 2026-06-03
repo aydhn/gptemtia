@@ -4335,3 +4335,36 @@ def build_scenario_status_report(status_df: pd.DataFrame, summary: dict) -> str:
         lines.append("Components:")
         lines.append(status_df.to_string())
     return "\n".join(lines)
+
+
+def build_project_state_inventory_text_report(summary: dict, inventory_df: pd.DataFrame | None = None) -> str:
+    from backup_recovery.backup_report_builder import build_backup_disclaimer
+    return build_backup_disclaimer() + "Project State Inventory Report\n\n" + str(summary)
+
+def build_backup_manifest_text_report(summary: dict, manifest_json: dict | None = None) -> str:
+    from backup_recovery.backup_report_builder import build_backup_disclaimer
+    return build_backup_disclaimer() + "Backup Manifest Report\n\n" + str(summary)
+
+def build_backup_dry_run_text_report(summary: dict, backup_plan_df: pd.DataFrame | None = None) -> str:
+    from backup_recovery.backup_report_builder import build_backup_disclaimer
+    return build_backup_disclaimer() + "Backup Dry-Run Plan Report\n\n" + str(summary)
+
+def build_restore_dry_run_text_report(summary: dict, restore_plan_df: pd.DataFrame | None = None) -> str:
+    from backup_recovery.backup_report_builder import build_backup_disclaimer
+    return build_backup_disclaimer() + "Restore Dry-Run Plan Report\n\n" + str(summary)
+
+def build_disaster_recovery_text_report(summary: dict, dr_manifest: dict | None = None) -> str:
+    from backup_recovery.backup_report_builder import build_backup_disclaimer
+    return build_backup_disclaimer() + "Disaster Recovery Manifest Report\n\n" + str(summary)
+
+def build_restore_verification_text_report(summary: dict, verification_df: pd.DataFrame | None = None) -> str:
+    from backup_recovery.backup_report_builder import build_backup_disclaimer
+    return build_backup_disclaimer() + "Restore Verification Report\n\n" + str(summary)
+
+def build_backup_quality_text_report(summary: dict, quality: dict | None = None) -> str:
+    from backup_recovery.backup_report_builder import build_backup_disclaimer
+    return build_backup_disclaimer() + "Backup Quality Report\n\n" + str(summary)
+
+def build_backup_recovery_status_report(status_df: pd.DataFrame, summary: dict) -> str:
+    from backup_recovery.backup_report_builder import build_backup_disclaimer
+    return build_backup_disclaimer() + "Backup Recovery Status Report\n\n" + str(summary)
