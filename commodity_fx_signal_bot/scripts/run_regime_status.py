@@ -8,6 +8,7 @@ import pandas as pd
 
 from config.symbols import DEFAULT_SYMBOL_UNIVERSE
 from config.paths import REGIME_REPORTS_DIR
+from config.paths import DATA_DIR
 from data.storage.data_lake import DataLake
 from reports.report_builder import (
     build_regime_status_report,

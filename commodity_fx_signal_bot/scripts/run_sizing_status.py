@@ -6,6 +6,7 @@ from pathlib import Path
 from config.settings import settings
 from config.paths import REPORTS_SIZING_REPORTS_DIR
 from config.symbols import get_enabled_symbols
+from config.paths import DATA_DIR
 from data.storage.data_lake import DataLake
 from sizing.sizing_pool import SizingCandidatePool
 from reports.report_builder import build_sizing_status_report
@@ -18,7 +19,7 @@ def main():
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO)
 
-    data_lake = DataLake()
+    data_lake = DataLake(DATA_DIR / "lake")
     specs = get_enabled_symbols()
 
     status_records = []

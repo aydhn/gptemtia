@@ -1,6 +1,7 @@
 import argparse
 import logging
 from config.symbols import get_enabled_symbols
+from config.paths import DATA_DIR
 from data.storage.data_lake import DataLake
 from config.paths import DECISION_REPORTS_DIR
 import pandas as pd
@@ -16,7 +17,7 @@ def main():
     parser = argparse.ArgumentParser(description="Check decision pipeline status")
     args = parser.parse_args()
 
-    data_lake = DataLake()
+    data_lake = DataLake(DATA_DIR / "lake")
     specs = get_enabled_symbols()
 
     status_records = []

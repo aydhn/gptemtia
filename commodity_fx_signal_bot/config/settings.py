@@ -17,6 +17,8 @@ load_dotenv()
 @dataclass
 class Settings:
 
+
+
     # Master Orchestration Settings
     master_orchestration_enabled: bool = True
     default_master_orchestration_profile: str = "balanced_offline_master"
@@ -1835,6 +1837,39 @@ class Settings:
     portable_packaging_save_reports: bool = field(default_factory=lambda: str(os.getenv("PORTABLE_PACKAGING_SAVE_REPORTS", "true")).lower() == "true")
     portable_packaging_min_quality_score: float = field(default_factory=lambda: float(os.getenv("PORTABLE_PACKAGING_MIN_QUALITY_SCORE", "0.40")))
 
+
+    backup_recovery_enabled: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ENABLED", "true")).lower() == "true")
+    default_backup_recovery_profile: str = field(default_factory=lambda: os.getenv("DEFAULT_BACKUP_RECOVERY_PROFILE", "balanced_local_backup_recovery"))
+    backup_recovery_default_language: str = field(default_factory=lambda: os.getenv("BACKUP_RECOVERY_DEFAULT_LANGUAGE", "tr"))
+    backup_recovery_dry_run_default: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_DRY_RUN_DEFAULT", "true")).lower() == "true")
+    backup_recovery_allow_backup_copy: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ALLOW_BACKUP_COPY", "false")).lower() == "true")
+    backup_recovery_allow_restore_copy: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ALLOW_RESTORE_COPY", "false")).lower() == "true")
+    backup_recovery_allow_overwrite: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ALLOW_OVERWRITE", "false")).lower() == "true")
+    backup_recovery_allow_delete: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ALLOW_DELETE", "false")).lower() == "true")
+    backup_recovery_allow_cloud_backup: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ALLOW_CLOUD_BACKUP", "false")).lower() == "true")
+    backup_recovery_allow_external_storage: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ALLOW_EXTERNAL_STORAGE", "false")).lower() == "true")
+    backup_recovery_allow_live_commands: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ALLOW_LIVE_COMMANDS", "false")).lower() == "true")
+    backup_recovery_allow_broker_commands: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ALLOW_BROKER_COMMANDS", "false")).lower() == "true")
+    backup_recovery_allow_deploy_commands: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ALLOW_DEPLOY_COMMANDS", "false")).lower() == "true")
+    backup_recovery_allow_background_daemons: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ALLOW_BACKGROUND_DAEMONS", "false")).lower() == "true")
+    backup_recovery_allow_real_market_download: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ALLOW_REAL_MARKET_DOWNLOAD", "false")).lower() == "true")
+    backup_recovery_allow_external_llm: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ALLOW_EXTERNAL_LLM", "false")).lower() == "true")
+    backup_recovery_include_source: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_INCLUDE_SOURCE", "true")).lower() == "true")
+    backup_recovery_include_docs: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_INCLUDE_DOCS", "true")).lower() == "true")
+    backup_recovery_include_tests: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_INCLUDE_TESTS", "true")).lower() == "true")
+    backup_recovery_include_configs: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_INCLUDE_CONFIGS", "true")).lower() == "true")
+    backup_recovery_include_reports_manifest_only: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_INCLUDE_REPORTS_MANIFEST_ONLY", "true")).lower() == "true")
+    backup_recovery_include_data_manifest_only: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_INCLUDE_DATA_MANIFEST_ONLY", "true")).lower() == "true")
+    backup_recovery_include_generated_manifests: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_INCLUDE_GENERATED_MANIFESTS", "true")).lower() == "true")
+    backup_recovery_max_inventory_files: int = field(default_factory=lambda: int(os.getenv("BACKUP_RECOVERY_MAX_INVENTORY_FILES", "150000")))
+    backup_recovery_max_hash_file_mb: int = field(default_factory=lambda: int(os.getenv("BACKUP_RECOVERY_MAX_HASH_FILE_MB", "100")))
+    backup_recovery_save_reports: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_SAVE_REPORTS", "true")).lower() == "true")
+    backup_recovery_min_quality_score: float = field(default_factory=lambda: float(os.getenv("BACKUP_RECOVERY_MIN_QUALITY_SCORE", "0.40")))
+
+    @classmethod
+    def from_env(cls) -> "Settings":
+        return cls()
+
     def __post_init__(self):
 
 
@@ -2786,6 +2821,39 @@ class Settings:
     portable_packaging_max_manifest_file_mb: int = field(default_factory=lambda: int(os.getenv("PORTABLE_PACKAGING_MAX_MANIFEST_FILE_MB", "50")))
     portable_packaging_save_reports: bool = field(default_factory=lambda: str(os.getenv("PORTABLE_PACKAGING_SAVE_REPORTS", "true")).lower() == "true")
     portable_packaging_min_quality_score: float = field(default_factory=lambda: float(os.getenv("PORTABLE_PACKAGING_MIN_QUALITY_SCORE", "0.40")))
+
+
+    backup_recovery_enabled: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ENABLED", "true")).lower() == "true")
+    default_backup_recovery_profile: str = field(default_factory=lambda: os.getenv("DEFAULT_BACKUP_RECOVERY_PROFILE", "balanced_local_backup_recovery"))
+    backup_recovery_default_language: str = field(default_factory=lambda: os.getenv("BACKUP_RECOVERY_DEFAULT_LANGUAGE", "tr"))
+    backup_recovery_dry_run_default: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_DRY_RUN_DEFAULT", "true")).lower() == "true")
+    backup_recovery_allow_backup_copy: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ALLOW_BACKUP_COPY", "false")).lower() == "true")
+    backup_recovery_allow_restore_copy: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ALLOW_RESTORE_COPY", "false")).lower() == "true")
+    backup_recovery_allow_overwrite: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ALLOW_OVERWRITE", "false")).lower() == "true")
+    backup_recovery_allow_delete: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ALLOW_DELETE", "false")).lower() == "true")
+    backup_recovery_allow_cloud_backup: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ALLOW_CLOUD_BACKUP", "false")).lower() == "true")
+    backup_recovery_allow_external_storage: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ALLOW_EXTERNAL_STORAGE", "false")).lower() == "true")
+    backup_recovery_allow_live_commands: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ALLOW_LIVE_COMMANDS", "false")).lower() == "true")
+    backup_recovery_allow_broker_commands: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ALLOW_BROKER_COMMANDS", "false")).lower() == "true")
+    backup_recovery_allow_deploy_commands: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ALLOW_DEPLOY_COMMANDS", "false")).lower() == "true")
+    backup_recovery_allow_background_daemons: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ALLOW_BACKGROUND_DAEMONS", "false")).lower() == "true")
+    backup_recovery_allow_real_market_download: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ALLOW_REAL_MARKET_DOWNLOAD", "false")).lower() == "true")
+    backup_recovery_allow_external_llm: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_ALLOW_EXTERNAL_LLM", "false")).lower() == "true")
+    backup_recovery_include_source: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_INCLUDE_SOURCE", "true")).lower() == "true")
+    backup_recovery_include_docs: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_INCLUDE_DOCS", "true")).lower() == "true")
+    backup_recovery_include_tests: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_INCLUDE_TESTS", "true")).lower() == "true")
+    backup_recovery_include_configs: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_INCLUDE_CONFIGS", "true")).lower() == "true")
+    backup_recovery_include_reports_manifest_only: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_INCLUDE_REPORTS_MANIFEST_ONLY", "true")).lower() == "true")
+    backup_recovery_include_data_manifest_only: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_INCLUDE_DATA_MANIFEST_ONLY", "true")).lower() == "true")
+    backup_recovery_include_generated_manifests: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_INCLUDE_GENERATED_MANIFESTS", "true")).lower() == "true")
+    backup_recovery_max_inventory_files: int = field(default_factory=lambda: int(os.getenv("BACKUP_RECOVERY_MAX_INVENTORY_FILES", "150000")))
+    backup_recovery_max_hash_file_mb: int = field(default_factory=lambda: int(os.getenv("BACKUP_RECOVERY_MAX_HASH_FILE_MB", "100")))
+    backup_recovery_save_reports: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_SAVE_REPORTS", "true")).lower() == "true")
+    backup_recovery_min_quality_score: float = field(default_factory=lambda: float(os.getenv("BACKUP_RECOVERY_MIN_QUALITY_SCORE", "0.40")))
+
+    @classmethod
+    def from_env(cls) -> "Settings":
+        return cls()
 
     def __post_init__(self):
 

@@ -5,6 +5,7 @@ import logging
 
 from config.symbols import get_symbol_spec
 from config.settings import settings
+from config.paths import DATA_DIR
 from data.storage.data_lake import DataLake
 from decisions import DecisionPipeline, get_decision_profile
 from reports.report_builder import build_decision_candidate_preview_report
@@ -45,7 +46,7 @@ def main():
         logger.error(f"Error getting decision profile: {e}")
         return
 
-    data_lake = DataLake()
+    data_lake = DataLake(DATA_DIR / "lake")
     pipeline = DecisionPipeline(data_lake, settings, profile)
 
     df, summary = pipeline.build_for_symbol_timeframe(

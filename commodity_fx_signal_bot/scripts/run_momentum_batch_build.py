@@ -8,6 +8,7 @@ from config.symbols import (
     get_symbol_spec,
     get_symbols_by_asset_class,
 )
+from config.paths import DATA_DIR
 from data.storage.data_lake import DataLake
 from indicators.feature_builder import FeatureBuilder
 from indicators.indicator_pipeline import IndicatorPipeline

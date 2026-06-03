@@ -5,6 +5,7 @@ import logging
 
 from config.symbols import get_enabled_symbols
 from config.settings import settings
+from config.paths import DATA_DIR
 from data.storage.data_lake import DataLake
 from decisions import DecisionPipeline, get_decision_profile, DecisionCandidatePool
 from ml.feature_store import FeatureStore
@@ -37,7 +38,7 @@ def main():
         logger.error(f"Error getting decision profile: {e}")
         return
 
-    data_lake = DataLake()
+    data_lake = DataLake(DATA_DIR / "lake")
 
     if args.rebuild:
         logger.info("Rebuilding universe pool...")

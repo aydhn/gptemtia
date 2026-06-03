@@ -7,13 +7,14 @@ from pathlib import Path
 
 sys.path.append(str(Path(__file__).parent.parent))
 
+from config.paths import DATA_DIR
 from data.storage.data_lake import DataLake
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 def main():
-    data_lake = DataLake()
+    data_lake = DataLake(DATA_DIR / "lake")
 
     if hasattr(data_lake, 'list_portfolio_research_reports'):
         df = data_lake.list_portfolio_research_reports()

@@ -8,6 +8,7 @@ import logging
 from config.symbols import DEFAULT_SYMBOL_UNIVERSE, get_symbol_spec
 from config.settings import settings
 from config.paths import REGIME_REPORTS_DIR
+from config.paths import DATA_DIR
 from data.storage.data_lake import DataLake
 from regimes.regime_config import get_regime_profile
 from regimes.regime_pipeline import RegimePipeline

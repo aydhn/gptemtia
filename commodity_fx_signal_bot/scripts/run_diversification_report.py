@@ -8,6 +8,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent))
 
 from config.settings import settings
+from config.paths import DATA_DIR
 from data.storage.data_lake import DataLake
 from config.symbols import SymbolSpec
 from portfolio_research.portfolio_config import get_portfolio_research_profile
@@ -25,7 +26,7 @@ def parse_args():
 
 def main():
     args = parse_args()
-    data_lake = DataLake()
+    data_lake = DataLake(DATA_DIR / "lake")
     profile = get_portfolio_research_profile("balanced_portfolio_research")
     specs = []
 
