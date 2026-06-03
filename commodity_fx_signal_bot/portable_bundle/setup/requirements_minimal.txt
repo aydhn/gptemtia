@@ -1,0 +1,17 @@
+coverage
+joblib
+mypy
+numpy
+pandas
+pre-commit
+pyarrow
+pydantic
+pytest
+python-dotenv
+requests
+ruff
+scikit-learn
+scipy
+ta
+tabulate
+yfinance
