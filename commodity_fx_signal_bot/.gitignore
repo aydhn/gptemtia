@@ -178,3 +178,8 @@ docs/generated/
 tests_output.log
 reports/validation_reports
 logs/
+
+# Secrets Hygiene Outputs
+data/lake/secrets_hygiene/
+reports/output/secrets_hygiene/
+docs/generated/secrets_hygiene/

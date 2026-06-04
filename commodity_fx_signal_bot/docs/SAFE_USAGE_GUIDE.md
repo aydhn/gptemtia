@@ -57,3 +57,13 @@ Aşağıdaki özellikler kasıtlı olarak sisteme **dahil edilmemiştir**:
 API anahtarlarınızı kimseyle paylaşmayın.
 
 <!-- AUTO-GENERATED SECTION END -->
+
+
+## Secrets Hygiene
+- **.env vs .env.example:** Real secrets live in `.env` (which is ignored). `.env.example` must only contain placeholders.
+- **Reporting:** Secret values are never written to reports to prevent leaks.
+- **Masked Findings:** Findings display masked representations (e.g. `abc****xyz`) for safe review.
+- **Credential Boundary:** Checks ensure secrets don't bleed into source code, tests, docs, or reports.
+- **Private Data Scanner:** Flags potential personal data (emails, phones) but is not a substitute for formal compliance.
+- **Backup/Packaging:** Manifests are checked to ensure sensitive files like `.env` are excluded.
+- **No Automatic Operations:** The tool will not automatically delete files, overwrite secrets, or integrate with cloud vaults.

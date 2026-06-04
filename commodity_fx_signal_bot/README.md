@@ -1030,3 +1030,24 @@ python -m scripts.run_disaster_recovery_manifest
 python -m scripts.run_restore_verification_report
 python -m scripts.run_backup_recovery_status
 ```
+
+
+## Secrets Hygiene, Credential Boundary and Private Data Protection
+* The secrets hygiene layer does not report real secret values.
+* The scanner does not modify files, delete secrets, or perform overwrites.
+* The `.env` file is never read; `.env.example` is audited instead.
+* Findings are masked and intended for manual review.
+* There is no cloud vault or external scanner integration.
+* Backup/packaging manifests are checked for secret exclusions.
+* Private data scanning provides warnings but is not a legal compliance guarantee.
+* Outputs are generated under `data/lake/secrets_hygiene` and `reports/output/secrets_hygiene`.
+
+```bash
+python -m scripts.run_sensitive_file_scan
+python -m scripts.run_env_template_audit
+python -m scripts.run_credential_boundary_report
+python -m scripts.run_private_data_protection_report
+python -m scripts.run_secret_remediation_report
+python -m scripts.run_secrets_quality_report
+python -m scripts.run_secrets_hygiene_status
+```

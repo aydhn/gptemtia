@@ -358,3 +358,24 @@ Project Source / Config / Docs / Tests / DataLake / Reports / Manifests
 → BackupSafety
 → BackupQuality
 → Backup Recovery Outputs
+
+
+### Secrets Hygiene Flow
+Project Files / Config Templates / Docs / Reports / DataLake / Backup-Packaging Manifests
+-> SensitiveFileScanner
+-> SecretPatterns
+-> EntropyDetector
+-> Redaction
+-> EnvTemplateAuditor
+-> CredentialBoundary
+-> PrivateDataScanner
+-> GitignoreAuditor
+-> ConfigBoundaryAuditor
+-> LeakageScanner
+-> Source/Test/Docs Secret Auditors
+-> BackupPackagingBoundary
+-> RemediationRecommendations
+-> SecretHygieneRunbook
+-> SecretsSafety
+-> SecretsQuality
+-> Secrets Hygiene Outputs

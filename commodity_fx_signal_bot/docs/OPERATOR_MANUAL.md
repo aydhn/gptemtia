@@ -113,3 +113,13 @@ Environment snapshot, requirements export ve install verification işlemleri iç
 - **Secrets exclusion**: Her durumda `.env`, `secret` vb dosyalar otomatik exclude edilir, içerikleri okunmaz.
 - **Data/report manifest-only**: Büyük klasörler default olarak "manifest-only" dahil edilir (hashlenmez veya kopyalanmaz).
 - **Gerçek restore/overwrite/cloud backup olmadığı açık yazılsın**: Backup Recovery tool'ları yalnızca dry-run raporlar üretmek ve sistemin recovery readiness'ını değerlendirmek (audit) içindir. Canlı deploy veya real overwrite için kullanılmaz.
+
+
+## Secrets Hygiene
+- **.env vs .env.example:** Real secrets live in `.env` (which is ignored). `.env.example` must only contain placeholders.
+- **Reporting:** Secret values are never written to reports to prevent leaks.
+- **Masked Findings:** Findings display masked representations (e.g. `abc****xyz`) for safe review.
+- **Credential Boundary:** Checks ensure secrets don't bleed into source code, tests, docs, or reports.
+- **Private Data Scanner:** Flags potential personal data (emails, phones) but is not a substitute for formal compliance.
+- **Backup/Packaging:** Manifests are checked to ensure sensitive files like `.env` are excluded.
+- **No Automatic Operations:** The tool will not automatically delete files, overwrite secrets, or integrate with cloud vaults.
