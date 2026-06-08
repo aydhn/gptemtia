@@ -1,0 +1,44 @@
+#!/usr/bin/env python3
+import argparse
+import sys
+import pandas as pd
+from pathlib import Path
+from config.settings import Settings
+from data.storage.data_lake import DataLake
+from secrets_hygiene.secrets_config import get_secrets_hygiene_profile
+from secrets_hygiene.secrets_pipeline import SecretsHygienePipeline
+from secrets_hygiene.secrets_report_builder import build_env_template_audit_markdown_report
+import reports.report_builder as ReportBuilder
+from config.paths import ProjectPaths
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--profile", type=str, default="balanced_local_secrets_hygiene")
+    parser.add_argument("--save", type=str, default="true")
+    args = parser.parse_args()
+
+    settings = Settings()
+    if not settings.secrets_hygiene_enabled: sys.exit(0)
+
+    profile = get_secrets_hygiene_profile(args.profile)
+    save = args.save.lower() == "true"
+    project_root = Path(__file__).resolve().parent.parent
+    paths = ProjectPaths()
+    paths.ensure_project_directories()
+    dl = DataLake(project_root)
+
+    pipeline = SecretsHygienePipeline(dl, settings, project_root, profile)
+    df, summary = pipeline.build_env_template_audit_report(save=save)
+
+    if save:
+        if df is not None and not df.empty:
+            df.to_csv(paths.output_secrets_hygiene_csv_dir / "env_template_audit.csv", index=False)
+            recs = df[df["has_realistic_secret_value"] == True] if "has_realistic_secret_value" in df.columns else pd.DataFrame()
+            recs.to_csv(paths.output_secrets_hygiene_csv_dir / "env_template_recommendations.csv", index=False)
+        md = build_env_template_audit_markdown_report(summary, df)
+        with open(paths.output_secrets_hygiene_markdown_dir / "env_template_audit_report.md", "w") as f: f.write(md)
+        txt = ReportBuilder.ReportBuilder.build_env_template_audit_text_report(summary, df)
+        with open(paths.output_secrets_hygiene_txt_dir / "env_template_audit_report.txt", "w") as f: f.write(txt)
+    print("Done")
+
+if __name__ == "__main__": main()
