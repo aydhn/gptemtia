@@ -789,6 +789,36 @@ REPORTS_COMMAND_CENTER_JSON_DIR = REPORTS_COMMAND_CENTER_DIR / "json"
 
 class ProjectPaths:
 
+    # Secrets Hygiene Lake Paths
+    lake_secrets_hygiene_dir: Path = LAKE_DIR / "secrets_hygiene"
+    lake_secrets_hygiene_sensitive_files_dir: Path = lake_secrets_hygiene_dir / "sensitive_files"
+    lake_secrets_hygiene_pattern_findings_dir: Path = lake_secrets_hygiene_dir / "pattern_findings"
+    lake_secrets_hygiene_entropy_findings_dir: Path = lake_secrets_hygiene_dir / "entropy_findings"
+    lake_secrets_hygiene_env_template_audit_dir: Path = lake_secrets_hygiene_dir / "env_template_audit"
+    lake_secrets_hygiene_credential_boundary_dir: Path = lake_secrets_hygiene_dir / "credential_boundary"
+    lake_secrets_hygiene_private_data_dir: Path = lake_secrets_hygiene_dir / "private_data"
+    lake_secrets_hygiene_gitignore_dir: Path = lake_secrets_hygiene_dir / "gitignore"
+    lake_secrets_hygiene_config_boundary_dir: Path = lake_secrets_hygiene_dir / "config_boundary"
+    lake_secrets_hygiene_leakage_dir: Path = lake_secrets_hygiene_dir / "leakage"
+    lake_secrets_hygiene_source_audit_dir: Path = lake_secrets_hygiene_dir / "source_audit"
+    lake_secrets_hygiene_test_fixtures_dir: Path = lake_secrets_hygiene_dir / "test_fixtures"
+    lake_secrets_hygiene_documentation_dir: Path = lake_secrets_hygiene_dir / "documentation"
+    lake_secrets_hygiene_backup_packaging_dir: Path = lake_secrets_hygiene_dir / "backup_packaging"
+    lake_secrets_hygiene_remediation_dir: Path = lake_secrets_hygiene_dir / "remediation"
+    lake_secrets_hygiene_runbooks_dir: Path = lake_secrets_hygiene_dir / "runbooks"
+    lake_secrets_hygiene_safety_dir: Path = lake_secrets_hygiene_dir / "safety"
+    lake_secrets_hygiene_quality_dir: Path = lake_secrets_hygiene_dir / "quality"
+
+    # Secrets Hygiene Report Outputs
+    output_secrets_hygiene_dir: Path = REPORTS_OUTPUT_DIR / "secrets_hygiene"
+    output_secrets_hygiene_csv_dir: Path = output_secrets_hygiene_dir / "csv"
+    output_secrets_hygiene_markdown_dir: Path = output_secrets_hygiene_dir / "markdown"
+    output_secrets_hygiene_txt_dir: Path = output_secrets_hygiene_dir / "txt"
+    output_secrets_hygiene_json_dir: Path = output_secrets_hygiene_dir / "json"
+
+    # Secrets Hygiene Docs Output
+    docs_generated_secrets_hygiene_dir: Path = (DOCS_DIR / "generated") / "secrets_hygiene"
+
     LAKE_PERFORMANCE = LAKE_DIR / "performance"
     LAKE_PERFORMANCE_PROFILES = LAKE_PERFORMANCE / "profiles"
     LAKE_PERFORMANCE_RUNTIME = LAKE_PERFORMANCE / "runtime"

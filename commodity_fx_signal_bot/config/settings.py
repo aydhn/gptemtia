@@ -17,6 +17,37 @@ load_dotenv()
 @dataclass
 class Settings:
 
+    # Secrets Hygiene Settings
+    secrets_hygiene_enabled: bool = True
+    default_secrets_hygiene_profile: str = "balanced_local_secrets_hygiene"
+    secrets_hygiene_default_language: str = "tr"
+    secrets_hygiene_dry_run_default: bool = True
+    secrets_hygiene_allow_secret_value_output: bool = False
+    secrets_hygiene_allow_file_modification: bool = False
+    secrets_hygiene_allow_secret_deletion: bool = False
+    secrets_hygiene_allow_cloud_vault: bool = False
+    secrets_hygiene_allow_external_scanner: bool = False
+    secrets_hygiene_allow_live_commands: bool = False
+    secrets_hygiene_allow_broker_commands: bool = False
+    secrets_hygiene_allow_deploy_commands: bool = False
+    secrets_hygiene_allow_background_daemons: bool = False
+    secrets_hygiene_allow_real_market_download: bool = False
+    secrets_hygiene_allow_external_llm: bool = False
+    secrets_hygiene_scan_source: bool = True
+    secrets_hygiene_scan_docs: bool = True
+    secrets_hygiene_scan_tests: bool = True
+    secrets_hygiene_scan_configs: bool = True
+    secrets_hygiene_scan_reports: bool = True
+    secrets_hygiene_scan_data_manifests: bool = True
+    secrets_hygiene_scan_generated_outputs: bool = True
+    secrets_hygiene_max_files: int = 150000
+    secrets_hygiene_max_file_mb: int = 20
+    secrets_hygiene_entropy_threshold: float = 4.2
+    secrets_hygiene_mask_keep_start: int = 4
+    secrets_hygiene_mask_keep_end: int = 4
+    secrets_hygiene_save_reports: bool = True
+    secrets_hygiene_min_quality_score: float = 0.40
+
 
 
     # Master Orchestration Settings
@@ -1872,6 +1903,62 @@ class Settings:
 
     def __post_init__(self):
 
+        # Secrets Hygiene
+        self.secrets_hygiene_enabled = str(os.getenv("SECRETS_HYGIENE_ENABLED", str(self.secrets_hygiene_enabled))).lower() == "true"
+        self.default_secrets_hygiene_profile = str(os.getenv("DEFAULT_SECRETS_HYGIENE_PROFILE", self.default_secrets_hygiene_profile))
+        self.secrets_hygiene_default_language = str(os.getenv("SECRETS_HYGIENE_DEFAULT_LANGUAGE", self.secrets_hygiene_default_language))
+        self.secrets_hygiene_dry_run_default = str(os.getenv("SECRETS_HYGIENE_DRY_RUN_DEFAULT", str(self.secrets_hygiene_dry_run_default))).lower() == "true"
+        self.secrets_hygiene_allow_secret_value_output = str(os.getenv("SECRETS_HYGIENE_ALLOW_SECRET_VALUE_OUTPUT", str(self.secrets_hygiene_allow_secret_value_output))).lower() == "true"
+        self.secrets_hygiene_allow_file_modification = str(os.getenv("SECRETS_HYGIENE_ALLOW_FILE_MODIFICATION", str(self.secrets_hygiene_allow_file_modification))).lower() == "true"
+        self.secrets_hygiene_allow_secret_deletion = str(os.getenv("SECRETS_HYGIENE_ALLOW_SECRET_DELETION", str(self.secrets_hygiene_allow_secret_deletion))).lower() == "true"
+        self.secrets_hygiene_allow_cloud_vault = str(os.getenv("SECRETS_HYGIENE_ALLOW_CLOUD_VAULT", str(self.secrets_hygiene_allow_cloud_vault))).lower() == "true"
+        self.secrets_hygiene_allow_external_scanner = str(os.getenv("SECRETS_HYGIENE_ALLOW_EXTERNAL_SCANNER", str(self.secrets_hygiene_allow_external_scanner))).lower() == "true"
+        self.secrets_hygiene_allow_live_commands = str(os.getenv("SECRETS_HYGIENE_ALLOW_LIVE_COMMANDS", str(self.secrets_hygiene_allow_live_commands))).lower() == "true"
+        self.secrets_hygiene_allow_broker_commands = str(os.getenv("SECRETS_HYGIENE_ALLOW_BROKER_COMMANDS", str(self.secrets_hygiene_allow_broker_commands))).lower() == "true"
+        self.secrets_hygiene_allow_deploy_commands = str(os.getenv("SECRETS_HYGIENE_ALLOW_DEPLOY_COMMANDS", str(self.secrets_hygiene_allow_deploy_commands))).lower() == "true"
+        self.secrets_hygiene_allow_background_daemons = str(os.getenv("SECRETS_HYGIENE_ALLOW_BACKGROUND_DAEMONS", str(self.secrets_hygiene_allow_background_daemons))).lower() == "true"
+        self.secrets_hygiene_allow_real_market_download = str(os.getenv("SECRETS_HYGIENE_ALLOW_REAL_MARKET_DOWNLOAD", str(self.secrets_hygiene_allow_real_market_download))).lower() == "true"
+        self.secrets_hygiene_allow_external_llm = str(os.getenv("SECRETS_HYGIENE_ALLOW_EXTERNAL_LLM", str(self.secrets_hygiene_allow_external_llm))).lower() == "true"
+        self.secrets_hygiene_scan_source = str(os.getenv("SECRETS_HYGIENE_SCAN_SOURCE", str(self.secrets_hygiene_scan_source))).lower() == "true"
+        self.secrets_hygiene_scan_docs = str(os.getenv("SECRETS_HYGIENE_SCAN_DOCS", str(self.secrets_hygiene_scan_docs))).lower() == "true"
+        self.secrets_hygiene_scan_tests = str(os.getenv("SECRETS_HYGIENE_SCAN_TESTS", str(self.secrets_hygiene_scan_tests))).lower() == "true"
+        self.secrets_hygiene_scan_configs = str(os.getenv("SECRETS_HYGIENE_SCAN_CONFIGS", str(self.secrets_hygiene_scan_configs))).lower() == "true"
+        self.secrets_hygiene_scan_reports = str(os.getenv("SECRETS_HYGIENE_SCAN_REPORTS", str(self.secrets_hygiene_scan_reports))).lower() == "true"
+        self.secrets_hygiene_scan_data_manifests = str(os.getenv("SECRETS_HYGIENE_SCAN_DATA_MANIFESTS", str(self.secrets_hygiene_scan_data_manifests))).lower() == "true"
+        self.secrets_hygiene_scan_generated_outputs = str(os.getenv("SECRETS_HYGIENE_SCAN_GENERATED_OUTPUTS", str(self.secrets_hygiene_scan_generated_outputs))).lower() == "true"
+
+        try:
+            self.secrets_hygiene_max_files = int(os.getenv("SECRETS_HYGIENE_MAX_FILES", str(self.secrets_hygiene_max_files)))
+        except ValueError:
+            pass
+
+        try:
+            self.secrets_hygiene_max_file_mb = int(os.getenv("SECRETS_HYGIENE_MAX_FILE_MB", str(self.secrets_hygiene_max_file_mb)))
+        except ValueError:
+            pass
+
+        try:
+            self.secrets_hygiene_entropy_threshold = float(os.getenv("SECRETS_HYGIENE_ENTROPY_THRESHOLD", str(self.secrets_hygiene_entropy_threshold)))
+        except ValueError:
+            pass
+
+        try:
+            self.secrets_hygiene_mask_keep_start = int(os.getenv("SECRETS_HYGIENE_MASK_KEEP_START", str(self.secrets_hygiene_mask_keep_start)))
+        except ValueError:
+            pass
+
+        try:
+            self.secrets_hygiene_mask_keep_end = int(os.getenv("SECRETS_HYGIENE_MASK_KEEP_END", str(self.secrets_hygiene_mask_keep_end)))
+        except ValueError:
+            pass
+
+        self.secrets_hygiene_save_reports = str(os.getenv("SECRETS_HYGIENE_SAVE_REPORTS", str(self.secrets_hygiene_save_reports))).lower() == "true"
+
+        try:
+            self.secrets_hygiene_min_quality_score = float(os.getenv("SECRETS_HYGIENE_MIN_QUALITY_SCORE", str(self.secrets_hygiene_min_quality_score)))
+        except ValueError:
+            pass
+
 
 
 
@@ -2856,6 +2943,62 @@ class Settings:
         return cls()
 
     def __post_init__(self):
+
+        # Secrets Hygiene
+        self.secrets_hygiene_enabled = str(os.getenv("SECRETS_HYGIENE_ENABLED", str(self.secrets_hygiene_enabled))).lower() == "true"
+        self.default_secrets_hygiene_profile = str(os.getenv("DEFAULT_SECRETS_HYGIENE_PROFILE", self.default_secrets_hygiene_profile))
+        self.secrets_hygiene_default_language = str(os.getenv("SECRETS_HYGIENE_DEFAULT_LANGUAGE", self.secrets_hygiene_default_language))
+        self.secrets_hygiene_dry_run_default = str(os.getenv("SECRETS_HYGIENE_DRY_RUN_DEFAULT", str(self.secrets_hygiene_dry_run_default))).lower() == "true"
+        self.secrets_hygiene_allow_secret_value_output = str(os.getenv("SECRETS_HYGIENE_ALLOW_SECRET_VALUE_OUTPUT", str(self.secrets_hygiene_allow_secret_value_output))).lower() == "true"
+        self.secrets_hygiene_allow_file_modification = str(os.getenv("SECRETS_HYGIENE_ALLOW_FILE_MODIFICATION", str(self.secrets_hygiene_allow_file_modification))).lower() == "true"
+        self.secrets_hygiene_allow_secret_deletion = str(os.getenv("SECRETS_HYGIENE_ALLOW_SECRET_DELETION", str(self.secrets_hygiene_allow_secret_deletion))).lower() == "true"
+        self.secrets_hygiene_allow_cloud_vault = str(os.getenv("SECRETS_HYGIENE_ALLOW_CLOUD_VAULT", str(self.secrets_hygiene_allow_cloud_vault))).lower() == "true"
+        self.secrets_hygiene_allow_external_scanner = str(os.getenv("SECRETS_HYGIENE_ALLOW_EXTERNAL_SCANNER", str(self.secrets_hygiene_allow_external_scanner))).lower() == "true"
+        self.secrets_hygiene_allow_live_commands = str(os.getenv("SECRETS_HYGIENE_ALLOW_LIVE_COMMANDS", str(self.secrets_hygiene_allow_live_commands))).lower() == "true"
+        self.secrets_hygiene_allow_broker_commands = str(os.getenv("SECRETS_HYGIENE_ALLOW_BROKER_COMMANDS", str(self.secrets_hygiene_allow_broker_commands))).lower() == "true"
+        self.secrets_hygiene_allow_deploy_commands = str(os.getenv("SECRETS_HYGIENE_ALLOW_DEPLOY_COMMANDS", str(self.secrets_hygiene_allow_deploy_commands))).lower() == "true"
+        self.secrets_hygiene_allow_background_daemons = str(os.getenv("SECRETS_HYGIENE_ALLOW_BACKGROUND_DAEMONS", str(self.secrets_hygiene_allow_background_daemons))).lower() == "true"
+        self.secrets_hygiene_allow_real_market_download = str(os.getenv("SECRETS_HYGIENE_ALLOW_REAL_MARKET_DOWNLOAD", str(self.secrets_hygiene_allow_real_market_download))).lower() == "true"
+        self.secrets_hygiene_allow_external_llm = str(os.getenv("SECRETS_HYGIENE_ALLOW_EXTERNAL_LLM", str(self.secrets_hygiene_allow_external_llm))).lower() == "true"
+        self.secrets_hygiene_scan_source = str(os.getenv("SECRETS_HYGIENE_SCAN_SOURCE", str(self.secrets_hygiene_scan_source))).lower() == "true"
+        self.secrets_hygiene_scan_docs = str(os.getenv("SECRETS_HYGIENE_SCAN_DOCS", str(self.secrets_hygiene_scan_docs))).lower() == "true"
+        self.secrets_hygiene_scan_tests = str(os.getenv("SECRETS_HYGIENE_SCAN_TESTS", str(self.secrets_hygiene_scan_tests))).lower() == "true"
+        self.secrets_hygiene_scan_configs = str(os.getenv("SECRETS_HYGIENE_SCAN_CONFIGS", str(self.secrets_hygiene_scan_configs))).lower() == "true"
+        self.secrets_hygiene_scan_reports = str(os.getenv("SECRETS_HYGIENE_SCAN_REPORTS", str(self.secrets_hygiene_scan_reports))).lower() == "true"
+        self.secrets_hygiene_scan_data_manifests = str(os.getenv("SECRETS_HYGIENE_SCAN_DATA_MANIFESTS", str(self.secrets_hygiene_scan_data_manifests))).lower() == "true"
+        self.secrets_hygiene_scan_generated_outputs = str(os.getenv("SECRETS_HYGIENE_SCAN_GENERATED_OUTPUTS", str(self.secrets_hygiene_scan_generated_outputs))).lower() == "true"
+
+        try:
+            self.secrets_hygiene_max_files = int(os.getenv("SECRETS_HYGIENE_MAX_FILES", str(self.secrets_hygiene_max_files)))
+        except ValueError:
+            pass
+
+        try:
+            self.secrets_hygiene_max_file_mb = int(os.getenv("SECRETS_HYGIENE_MAX_FILE_MB", str(self.secrets_hygiene_max_file_mb)))
+        except ValueError:
+            pass
+
+        try:
+            self.secrets_hygiene_entropy_threshold = float(os.getenv("SECRETS_HYGIENE_ENTROPY_THRESHOLD", str(self.secrets_hygiene_entropy_threshold)))
+        except ValueError:
+            pass
+
+        try:
+            self.secrets_hygiene_mask_keep_start = int(os.getenv("SECRETS_HYGIENE_MASK_KEEP_START", str(self.secrets_hygiene_mask_keep_start)))
+        except ValueError:
+            pass
+
+        try:
+            self.secrets_hygiene_mask_keep_end = int(os.getenv("SECRETS_HYGIENE_MASK_KEEP_END", str(self.secrets_hygiene_mask_keep_end)))
+        except ValueError:
+            pass
+
+        self.secrets_hygiene_save_reports = str(os.getenv("SECRETS_HYGIENE_SAVE_REPORTS", str(self.secrets_hygiene_save_reports))).lower() == "true"
+
+        try:
+            self.secrets_hygiene_min_quality_score = float(os.getenv("SECRETS_HYGIENE_MIN_QUALITY_SCORE", str(self.secrets_hygiene_min_quality_score)))
+        except ValueError:
+            pass
 
 
 
