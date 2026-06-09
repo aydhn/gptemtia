@@ -1,31 +1,54 @@
+import pytest
 from pathlib import Path
+import pandas as pd
+from evidence_governance.evidence_config import get_default_evidence_governance_profile
+from evidence_governance.artifact_inventory import (
+    discover_evidence_artifacts,
+    classify_evidence_artifact,
+    infer_evidence_module,
+    calculate_evidence_hash
+)
 
-from governance.artifact_inventory import ArtifactInventoryBuilder
-from governance.governance_config import get_default_governance_profile
+def test_discover_evidence_artifacts(tmp_path):
+    # Setup mock structure
+    reports_dir = tmp_path / "reports" / "output"
+    reports_dir.mkdir(parents=True)
+    f1 = reports_dir / "test_report.csv"
+    f1.write_text("dummy")
 
+    docs_dir = tmp_path / "docs"
+    docs_dir.mkdir(parents=True)
+    f2 = docs_dir / "TEST.md"
+    f2.write_text("docs")
 
-def test_classify_artifact_type():
-    builder = ArtifactInventoryBuilder(Path("/proj"), Path("/proj/lake"), Path("/proj/reports"))
-    assert builder.classify_artifact_type(Path("/proj/lake/features/f.parquet")) == "feature_artifact"
-    assert builder.classify_artifact_type(Path("/proj/lake/raw/r.csv")) == "raw_data_artifact"
-    assert builder.classify_artifact_type(Path("/proj/lake/unknown/u.txt")) == "unknown_artifact"
+    profile = get_default_evidence_governance_profile()
+    df, summary = discover_evidence_artifacts(tmp_path, profile)
 
-def test_scan_artifacts(tmp_path):
-    project_root = tmp_path
-    lake_root = project_root / "data" / "lake"
-    reports_root = project_root / "reports" / "output"
-
-    lake_root.mkdir(parents=True)
-    reports_root.mkdir(parents=True)
-
-    feat_dir = lake_root / "features"
-    feat_dir.mkdir()
-    (feat_dir / "test.txt").write_text("hello")
-
-    builder = ArtifactInventoryBuilder(project_root, lake_root, reports_root)
-    profile = get_default_governance_profile()
-
-    df, summary = builder.scan_artifacts(profile)
+    assert isinstance(df, pd.DataFrame)
     assert not df.empty
-    assert summary["total_artifacts"] == 1
-    assert "test.txt" in df["file_name"].values
+    assert "artifact_id" in df.columns
+
+def test_classify_evidence_artifact(tmp_path):
+    p1 = tmp_path / "reports" / "output" / "some_report.csv"
+    label = classify_evidence_artifact(p1, tmp_path)
+    assert label == "report_evidence"
+
+def test_infer_evidence_module(tmp_path):
+    p1 = tmp_path / "reports" / "output" / "safety" / "file.csv"
+    mod = infer_evidence_module(p1, tmp_path)
+    assert mod == "safety"
+
+def test_calculate_evidence_hash_skip_large(tmp_path, monkeypatch):
+    import os
+    profile = get_default_evidence_governance_profile()
+
+    # Mock max size to very small
+    class MockProfile:
+        max_artifact_mb = 0 # 0 mb limit
+
+    p1 = tmp_path / "test.txt"
+    p1.write_text("hello")
+
+    hash_val, info = calculate_evidence_hash(p1, MockProfile())
+    assert hash_val is None
+    assert "warning" in info

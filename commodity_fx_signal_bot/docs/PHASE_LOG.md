@@ -808,3 +808,24 @@ Phase 19:
 - DataLake backup recovery kayıt desteği aldı.
 - Backup recovery scriptleri eklendi.
 - Testler genişletildi.
+
+### Phase 64: Evidence Governance, Policy Traceability and Audit Binder
+- Evidence governance profile sistemi eklendi.
+- Evidence label registry eklendi.
+- EvidenceArtifact, PolicyItem, ControlItem, ControlEvidenceMapping ve EvidenceGap modelleri eklendi.
+- Evidence artifact inventory eklendi.
+- Policy registry eklendi.
+- Control registry eklendi.
+- Policy-to-control ve control-to-evidence mapping eklendi.
+- Audit evidence binder eklendi.
+- Evidence traceability matrix eklendi.
+- Evidence completeness/freshness scoring eklendi.
+- Evidence gap register eklendi.
+- Evidence packs eklendi.
+- Governance evidence export manifest eklendi.
+- Evidence digest eklendi.
+- Evidence validation ve evidence quality report eklendi.
+- EvidenceGovernancePipeline eklendi.
+- DataLake evidence governance kayıt desteği aldı.
+- Evidence governance scriptleri eklendi.
+- Testler genişletildi.

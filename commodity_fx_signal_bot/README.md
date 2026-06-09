@@ -1030,3 +1030,18 @@ python -m scripts.run_disaster_recovery_manifest
 python -m scripts.run_restore_verification_report
 python -m scripts.run_backup_recovery_status
 ```
+
+## Governance Evidence, Control Mapping and Audit Evidence Binder
+Bu proje local/offline bir araştırma ortamıdır. Evidence governance katmanı resmi compliance sertifikası değildir.
+Policy/control mapping project-local denetlenebilirlik içindir. Evidence binder cloud upload veya external auditor submission yapmaz. Evidence completeness/freshness score resmi uyum skoru değildir. Governance evidence export local manifest/index üretir. Secret/raw credential output yoktur. Çıktılar `data/lake/evidence_governance` ve `reports/output/evidence_governance` altında oluşur.
+
+Komutlar:
+```bash
+python -m scripts.run_evidence_artifact_inventory
+python -m scripts.run_policy_control_mapping
+python -m scripts.run_audit_evidence_binder
+python -m scripts.run_evidence_traceability_matrix
+python -m scripts.run_governance_evidence_export
+python -m scripts.run_evidence_quality_report
+python -m scripts.run_evidence_status
+```
