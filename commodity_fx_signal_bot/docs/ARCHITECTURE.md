@@ -358,3 +358,21 @@ Project Source / Config / Docs / Tests / DataLake / Reports / Manifests
 → BackupSafety
 → BackupQuality
 → Backup Recovery Outputs
+
+### Phase 64: Evidence Governance
+Reports / DataLake / Docs / Generated Evidence / Quality / Safety / Secrets / Backup / Packaging / Master Outputs
+→ EvidenceArtifactInventory
+→ PolicyRegistry
+→ ControlRegistry
+→ PolicyToControlMapping
+→ ControlToEvidenceMapping
+→ TraceabilityMatrix
+→ EvidenceScoring
+→ EvidenceGapRegister
+→ EvidencePacks
+→ AuditEvidenceBinder
+→ GovernanceEvidenceExport
+→ EvidenceDigest
+→ EvidenceValidation
+→ EvidenceQuality
+→ Evidence Governance Outputs

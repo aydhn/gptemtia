@@ -1,0 +1,3 @@
+for f in commodity_fx_signal_bot/tests/test_evidence_binder.py commodity_fx_signal_bot/tests/test_evidence_digest.py commodity_fx_signal_bot/tests/test_evidence_export.py commodity_fx_signal_bot/tests/test_evidence_gaps.py commodity_fx_signal_bot/tests/test_evidence_packs.py commodity_fx_signal_bot/tests/test_evidence_pipeline.py commodity_fx_signal_bot/tests/test_evidence_quality.py commodity_fx_signal_bot/tests/test_evidence_report_builder.py commodity_fx_signal_bot/tests/test_evidence_scoring.py commodity_fx_signal_bot/tests/test_evidence_validation.py; do
+    sed -i 's/from evidence_governance/from evidence_governance/g' $f
+done

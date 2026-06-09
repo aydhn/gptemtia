@@ -70,3 +70,6 @@ Sistem offline araştırma süreçlerinden elde edilen bulguları özetler:
 - **Symbol Brief:** AL/SAT üretmez, tavsiye barındırmaz.
 - **Follow-up Tasks:** Safe/offline görevleridir. Kesinlikle live komut içermezler.
 Bu katman harici LLM kullanmaz ve sadece local rule-based özetleme yapar.
+
+## Evidence Governance and Audit Binder
+Projedeki tüm safety, backup, packaging ve quality çıktılarını bir denetim paketinde toplamak için Phase 64 scriptlerini kullanın (örn. `run_audit_evidence_binder.py`, `run_evidence_traceability_matrix.py`). Policy/control mappingleri, traceability matrixleri ve evidence score'ları resmi/hukuki bir uyum sertifikasyonu (SOC2, ISO vb.) teşkil etmez, tamamen offline/local denetlenebilirlik amacını taşır.
