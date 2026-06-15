@@ -829,3 +829,14 @@ Phase 19:
 - DataLake evidence governance kayıt desteği aldı.
 - Evidence governance scriptleri eklendi.
 - Testler genişletildi.
+
+### Phase 65: Local Model Cards, Dataset Cards, Experiment Cards, Reproducibility Cards ve Research Artifact Metadata Layer
+- Artifact metadata profile sistemi eklendi.
+- Metadata label registry eklendi.
+- ResearchArtifact, ArtifactCard, ReproducibilityChecklistItem ve MetadataExportRecord modelleri eklendi.
+- Research artifact inventory, model cards, dataset cards, experiment cards, vb. eklendi.
+- Lineage, limitation, intended use, non-use policy kartlari eklendi.
+- Metadata completeness/freshness scoring eklendi.
+- Metadata validation ve quality report eklendi.
+- ArtifactMetadataPipeline eklendi.
+- Scriptler ve testler eklendi.

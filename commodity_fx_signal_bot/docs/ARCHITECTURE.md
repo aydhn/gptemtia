@@ -376,3 +376,6 @@ Reports / DataLake / Docs / Generated Evidence / Quality / Safety / Secrets / Ba
 → EvidenceValidation
 → EvidenceQuality
 → Evidence Governance Outputs
+
+### Artifact Metadata Flow
+Research Artifacts -> ResearchArtifactInventory -> ModelCards/DatasetCards/ExperimentCards/ReproducibilityCards -> BacktestCards/ScenarioCards/RegressionCards/FeatureSetCards/SyntheticDataCards/ResearchReportCards -> LineageCards/LimitationCards/IntendedUseCards/NonUsePolicyCards -> MetadataScoring/MetadataValidation/MetadataQuality/MetadataExport -> Artifact Metadata Outputs

@@ -1045,3 +1045,24 @@ python -m scripts.run_governance_evidence_export
 python -m scripts.run_evidence_quality_report
 python -m scripts.run_evidence_status
 ```
+
+## Research Artifact Metadata, Model Cards and Dataset Cards
+
+Artifact metadata katmani model deployment onayi degildir.
+Model cards canli trading veya broker execution icin kullanilamaz.
+Dataset cards veri dogrulugu veya canli piyasa uygunlugu garantisi degildir.
+Experiment/reproducibility cards gercek performans garantisi degildir.
+Scenario/regression cards production readiness degildir.
+Non-use policy her artefakt icin canli emir, broker execution, yatirim tavsiyesi ve deployment yasaklarini belirtir.
+Ciktilar data/lake/artifact_metadata ve reports/output/artifact_metadata altinda olusur.
+
+Komutlar:
+```bash
+python -m scripts.run_research_artifact_inventory
+python -m scripts.run_model_dataset_cards
+python -m scripts.run_experiment_reproducibility_cards
+python -m scripts.run_scenario_regression_cards
+python -m scripts.run_research_metadata_export
+python -m scripts.run_metadata_quality_report
+python -m scripts.run_metadata_status
+```

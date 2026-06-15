@@ -1,14 +1,15 @@
-feat: Implement Scenario Regression and Deterministic Replay testing layer (Phase 57)
+feat: Implement Local Artifact Metadata and Card Registries (Phase 65)
 
-- Scenario regression profile sistemi eklendi
-- Regression label registry eklendi
-- Regression definition, Golden Output, Snapshot, Replay, Failure modelleri
-- Regression Registry
-- Golden Outputs capture & validation
-- Snapshot capture & compare
-- Deterministic Replay runner
-- Demo Workflow Regression
-- End-to-end Demo Acceptance
-- Regression Quality ve Drift reports
-- DataLake and FeatureStore integration
-- Offline synthetic test and validation commands added
+This commit introduces the Local Artifact Metadata and Card Registry layer,
+focusing solely on offline local research documentation and governance.
+
+- Created ArtifactMetadataProfile and Metadata labels.
+- Implemented automated local inventorying of existing research artifacts.
+- Created Model Cards, Dataset Cards, Experiment Cards, Reproducibility Cards,
+  Backtest Cards, Scenario Cards, Regression Cards, Feature Set Cards,
+  Synthetic Data Cards, Research Report Cards, Lineage Cards, Limitation Cards,
+  Intended Use Cards, and Non-Use Policy Cards.
+- Created robust metadata validation, freshness, completeness scoring, and quality reports.
+- Extended the DataLake class to persist all these metadata registries.
+- Added strict safe non-use policies denying any investment advice, deployment, or live trading.
+- Completed all test coverage passing >2000 unit tests.

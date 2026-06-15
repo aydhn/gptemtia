@@ -3077,3 +3077,33 @@ class Settings:
 
 # Global settings instance
 settings = Settings()
+
+    # Artifact Metadata Settings
+artifact_metadata_enabled: bool = True
+default_artifact_metadata_profile: str = "balanced_local_metadata"
+artifact_metadata_default_language: str = "tr"
+artifact_metadata_dry_run_default: bool = True
+artifact_metadata_allow_model_deployment_claims: bool = False
+artifact_metadata_allow_official_certification_claims: bool = False
+artifact_metadata_allow_investment_advice_claims: bool = False
+artifact_metadata_allow_cloud_registry: bool = False
+artifact_metadata_allow_file_modification: bool = False
+artifact_metadata_allow_file_deletion: bool = False
+artifact_metadata_allow_live_commands: bool = False
+artifact_metadata_allow_broker_commands: bool = False
+artifact_metadata_allow_deploy_commands: bool = False
+artifact_metadata_allow_background_daemons: bool = False
+artifact_metadata_allow_real_market_download: bool = False
+artifact_metadata_allow_external_llm: bool = False
+artifact_metadata_scan_models: bool = True
+artifact_metadata_scan_datasets: bool = True
+artifact_metadata_scan_experiments: bool = True
+artifact_metadata_scan_backtests: bool = True
+artifact_metadata_scan_scenarios: bool = True
+artifact_metadata_scan_reports: bool = True
+artifact_metadata_scan_evidence: bool = True
+artifact_metadata_max_artifacts: int = 200000
+artifact_metadata_max_artifact_mb: int = 50
+artifact_metadata_freshness_days_warning: int = 45
+artifact_metadata_save_reports: bool = True
+artifact_metadata_min_quality_score: float = 0.40
