@@ -178,3 +178,11 @@ docs/generated/
 tests_output.log
 reports/validation_reports
 logs/
+venv/
+__pycache__/
+*.pyc
+tests_output.log
+*.log
+.pytest_cache/
+fix_*.py
+fix_*.sh

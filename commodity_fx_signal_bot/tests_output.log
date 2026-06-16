@@ -1,2 +1,26 @@
-...................................................                      [100%]
-51 passed in 4.96s
+============================= test session starts ==============================
+platform linux -- Python 3.12.13, pytest-9.1.0, pluggy-1.6.0
+rootdir: /app/commodity_fx_signal_bot
+configfile: pytest.ini (WARNING: ignoring pytest config in pyproject.toml!)
+collected 51 items
+
+tests/test_planning_config.py ...                                        [  5%]
+tests/test_planning_labels.py ...                                        [ 11%]
+tests/test_planning_models.py ...                                        [ 17%]
+tests/test_signal_sources.py .                                           [ 19%]
+tests/test_task_registry.py ..                                           [ 23%]
+tests/test_backlog_builder.py ....                                       [ 31%]
+tests/test_priority_scoring.py ...                                       [ 37%]
+tests/test_next_best_experiment.py ...                                   [ 43%]
+tests/test_research_debt.py ...                                          [ 49%]
+tests/test_research_opportunities.py ...                                 [ 54%]
+tests/test_roadmap_health.py ...                                         [ 60%]
+tests/test_task_dependencies.py ...                                      [ 66%]
+tests/test_milestone_tracking.py ...                                     [ 72%]
+tests/test_task_orchestration_plan.py ..                                 [ 76%]
+tests/test_planning_quality.py ...                                       [ 82%]
+tests/test_planning_report_builder.py ..                                 [ 86%]
+tests/test_planning_pipeline.py .                                        [ 88%]
+tests/test_research_planning_scripts_contract.py ......                  [100%]
+
+============================== 51 passed in 5.57s ==============================
