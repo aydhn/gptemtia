@@ -17,6 +17,176 @@ logger = get_logger(__name__)
 
 class DataLake:
 
+    # Phase 66: Local Knowledge Graph
+    def save_graph_node_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_KNOWLEDGE_GRAPH_NODES_DIR, "graph_node_registry")
+
+    def load_graph_node_registry(self) -> pd.DataFrame:
+        return self._load_parquet(LAKE_LOCAL_KNOWLEDGE_GRAPH_NODES_DIR / "graph_node_registry.parquet")
+
+    def save_graph_edge_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_KNOWLEDGE_GRAPH_EDGES_DIR, "graph_edge_registry")
+
+    def load_graph_edge_registry(self) -> pd.DataFrame:
+        return self._load_parquet(LAKE_LOCAL_KNOWLEDGE_GRAPH_EDGES_DIR / "graph_edge_registry.parquet")
+
+    def save_artifact_relationship_graph(self, graph: dict, summary: dict | None = None) -> Path:
+        path = LAKE_LOCAL_KNOWLEDGE_GRAPH_GRAPHS_DIR / "artifact_relationship_graph.json"
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(graph, f, indent=4)
+        return path
+
+    def load_artifact_relationship_graph(self) -> dict:
+        path = LAKE_LOCAL_KNOWLEDGE_GRAPH_GRAPHS_DIR / "artifact_relationship_graph.json"
+        if not path.exists():
+            return {}
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+
+    def save_module_relationship_graph(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_KNOWLEDGE_GRAPH_MODULE_GRAPHS_DIR, "module_relationship_graph")
+
+    def load_module_relationship_graph(self) -> pd.DataFrame:
+        return self._load_parquet(LAKE_LOCAL_KNOWLEDGE_GRAPH_MODULE_GRAPHS_DIR / "module_relationship_graph.parquet")
+
+    def save_report_relationship_graph(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_KNOWLEDGE_GRAPH_REPORT_GRAPHS_DIR, "report_relationship_graph")
+
+    def load_report_relationship_graph(self) -> pd.DataFrame:
+        return self._load_parquet(LAKE_LOCAL_KNOWLEDGE_GRAPH_REPORT_GRAPHS_DIR / "report_relationship_graph.parquet")
+
+    def save_evidence_relationship_graph(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_KNOWLEDGE_GRAPH_EVIDENCE_GRAPHS_DIR, "evidence_relationship_graph")
+
+    def load_evidence_relationship_graph(self) -> pd.DataFrame:
+        return self._load_parquet(LAKE_LOCAL_KNOWLEDGE_GRAPH_EVIDENCE_GRAPHS_DIR / "evidence_relationship_graph.parquet")
+
+    def save_card_relationship_graph(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_KNOWLEDGE_GRAPH_CARD_GRAPHS_DIR, "card_relationship_graph")
+
+    def load_card_relationship_graph(self) -> pd.DataFrame:
+        return self._load_parquet(LAKE_LOCAL_KNOWLEDGE_GRAPH_CARD_GRAPHS_DIR / "card_relationship_graph.parquet")
+
+    def save_scenario_regression_relationship_graph(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_KNOWLEDGE_GRAPH_SCENARIO_REGRESSION_GRAPHS_DIR, "scenario_regression_relationship_graph")
+
+    def load_scenario_regression_relationship_graph(self) -> pd.DataFrame:
+        return self._load_parquet(LAKE_LOCAL_KNOWLEDGE_GRAPH_SCENARIO_REGRESSION_GRAPHS_DIR / "scenario_regression_relationship_graph.parquet")
+
+    def save_command_report_relationship_graph(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_KNOWLEDGE_GRAPH_COMMAND_REPORT_GRAPHS_DIR, "command_report_relationship_graph")
+
+    def load_command_report_relationship_graph(self) -> pd.DataFrame:
+        return self._load_parquet(LAKE_LOCAL_KNOWLEDGE_GRAPH_COMMAND_REPORT_GRAPHS_DIR / "command_report_relationship_graph.parquet")
+
+    def save_local_semantic_keyword_index(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_KNOWLEDGE_GRAPH_SEMANTIC_INDEX_DIR, "local_semantic_keyword_index")
+
+    def load_local_semantic_keyword_index(self) -> pd.DataFrame:
+        return self._load_parquet(LAKE_LOCAL_KNOWLEDGE_GRAPH_SEMANTIC_INDEX_DIR / "local_semantic_keyword_index.parquet")
+
+    def save_local_tfidf_index_manifest(self, manifest: dict) -> Path:
+        path = LAKE_LOCAL_KNOWLEDGE_GRAPH_TFIDF_INDEX_DIR / "local_tfidf_index_manifest.json"
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(manifest, f, indent=4)
+        return path
+
+    def load_local_tfidf_index_manifest(self) -> dict:
+        path = LAKE_LOCAL_KNOWLEDGE_GRAPH_TFIDF_INDEX_DIR / "local_tfidf_index_manifest.json"
+        if not path.exists():
+            return {}
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+
+    def save_relationship_query_results(self, query_name: str, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_KNOWLEDGE_GRAPH_QUERIES_DIR, f"relationship_query_results_{query_name}")
+
+    def load_relationship_query_results(self, query_name: str) -> pd.DataFrame:
+        return self._load_parquet(LAKE_LOCAL_KNOWLEDGE_GRAPH_QUERIES_DIR / f"relationship_query_results_{query_name}.parquet")
+
+    def save_graph_neighborhood_report(self, node_id: str, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_KNOWLEDGE_GRAPH_NEIGHBORHOODS_DIR, f"graph_neighborhood_report_{node_id}")
+
+    def load_graph_neighborhood_report(self, node_id: str) -> pd.DataFrame:
+        return self._load_parquet(LAKE_LOCAL_KNOWLEDGE_GRAPH_NEIGHBORHOODS_DIR / f"graph_neighborhood_report_{node_id}.parquet")
+
+    def save_graph_centrality_summary(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_KNOWLEDGE_GRAPH_ANALYSIS_DIR, "graph_centrality_summary")
+
+    def load_graph_centrality_summary(self) -> pd.DataFrame:
+        return self._load_parquet(LAKE_LOCAL_KNOWLEDGE_GRAPH_ANALYSIS_DIR / "graph_centrality_summary.parquet")
+
+    def save_orphan_artifact_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_KNOWLEDGE_GRAPH_ANALYSIS_DIR, "orphan_artifact_report")
+
+    def load_orphan_artifact_report(self) -> pd.DataFrame:
+        return self._load_parquet(LAKE_LOCAL_KNOWLEDGE_GRAPH_ANALYSIS_DIR / "orphan_artifact_report.parquet")
+
+    def save_graph_gap_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_KNOWLEDGE_GRAPH_GAPS_DIR, "graph_gap_report")
+
+    def load_graph_gap_report(self) -> pd.DataFrame:
+        return self._load_parquet(LAKE_LOCAL_KNOWLEDGE_GRAPH_GAPS_DIR / "graph_gap_report.parquet")
+
+    def save_stale_relationship_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_KNOWLEDGE_GRAPH_GAPS_DIR, "stale_relationship_report")
+
+    def load_stale_relationship_report(self) -> pd.DataFrame:
+        return self._load_parquet(LAKE_LOCAL_KNOWLEDGE_GRAPH_GAPS_DIR / "stale_relationship_report.parquet")
+
+    def save_graph_export_manifest(self, manifest: dict) -> Path:
+        path = LAKE_LOCAL_KNOWLEDGE_GRAPH_EXPORTS_DIR / "graph_export_manifest.json"
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(manifest, f, indent=4)
+        return path
+
+    def load_graph_export_manifest(self) -> dict:
+        path = LAKE_LOCAL_KNOWLEDGE_GRAPH_EXPORTS_DIR / "graph_export_manifest.json"
+        if not path.exists():
+            return {}
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+
+    def save_graph_validation_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_KNOWLEDGE_GRAPH_VALIDATION_DIR, "graph_validation_report")
+
+    def load_graph_validation_report(self) -> pd.DataFrame:
+        return self._load_parquet(LAKE_LOCAL_KNOWLEDGE_GRAPH_VALIDATION_DIR / "graph_validation_report.parquet")
+
+    def save_graph_quality(self, profile_name: str, quality: dict) -> Path:
+        path = LAKE_LOCAL_KNOWLEDGE_GRAPH_QUALITY_DIR / f"graph_quality_{profile_name}.json"
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(quality, f, indent=4)
+        return path
+
+    def load_graph_quality(self, profile_name: str) -> dict:
+        path = LAKE_LOCAL_KNOWLEDGE_GRAPH_QUALITY_DIR / f"graph_quality_{profile_name}.json"
+        if not path.exists():
+            return {}
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+
+    def save_local_knowledge_graph_report(self, profile_name: str, report: dict, markdown: str | None = None) -> Path:
+        path = LAKE_LOCAL_KNOWLEDGE_GRAPH_EXPORTS_DIR / f"local_knowledge_graph_report_{profile_name}.json"
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(report, f, indent=4)
+        if markdown:
+            md_path = REPORTS_LOCAL_KNOWLEDGE_GRAPH_MARKDOWN_DIR / f"local_knowledge_graph_report_{profile_name}.md"
+            with open(md_path, "w", encoding="utf-8") as f:
+                f.write(markdown)
+        return path
+
+    def load_local_knowledge_graph_report(self, profile_name: str) -> dict:
+        path = LAKE_LOCAL_KNOWLEDGE_GRAPH_EXPORTS_DIR / f"local_knowledge_graph_report_{profile_name}.json"
+        if not path.exists():
+            return {}
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+
+    def list_local_knowledge_graph_reports(self) -> pd.DataFrame:
+        return pd.DataFrame()
+
+
     # ARTIFACT METADATA METHODS
     def save_research_artifact_inventory(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
         return self._save_parquet_and_csv(df, DATA_LAKE_ARTIFACT_METADATA_INVENTORY_DIR, "research_artifact_inventory")

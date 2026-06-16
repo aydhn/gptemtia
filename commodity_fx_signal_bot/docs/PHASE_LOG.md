@@ -840,3 +840,24 @@ Phase 19:
 - Metadata validation ve quality report eklendi.
 - ArtifactMetadataPipeline eklendi.
 - Scriptler ve testler eklendi.
+
+## Phase 66: Local Knowledge Graph
+- Local knowledge graph profile sistemi eklendi.
+- Graph label registry eklendi.
+- GraphNode, GraphEdge, RelationshipQuery, RelationshipQueryResult ve GraphExportManifest modelleri eklendi.
+- Node registry eklendi.
+- Edge registry eklendi.
+- Relationship extractors eklendi.
+- Artifact relationship graph eklendi.
+- Module/report/evidence/card/scenario-regression/command-report graph’ları eklendi.
+- Local semantic keyword index eklendi.
+- Local TF-IDF index manifest eklendi.
+- Relationship query layer eklendi.
+- Graph traversal ve neighborhood raporları eklendi.
+- Graph centrality/orphan/gap/stale relationship analizleri eklendi.
+- Graph export eklendi.
+- Graph validation ve quality report eklendi.
+- LocalKnowledgeGraphPipeline eklendi.
+- DataLake local knowledge graph kayıt desteği aldı.
+- Local knowledge graph scriptleri eklendi.
+- Testler genişletildi.
