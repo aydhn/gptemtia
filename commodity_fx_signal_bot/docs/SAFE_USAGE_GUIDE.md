@@ -63,3 +63,12 @@ Projedeki tüm safety, backup, packaging ve quality çıktılarını bir denetim
 
 ## Artifact Metadata
 Model card okuma rehberi, dataset card kullanim amaci, non-use policy onemi. Canli emir, broker execution, yatirim tavsiyesi, resmi sertifika ve deployment olmadigi acik yazilsin.
+
+## Local Knowledge Graph (Phase 66)
+- **Node/Edge Registry**: Lists all extracted artifacts and their relationships. Use to understand how components link together offline.
+- **Artifact Relationship Graph**: Maps dependencies without external cloud/DB usage. Does not execute code.
+- **Relationship Query**: Use for searching internal linkages (e.g. which report relates to which policy). Cannot generate investment advice or live commands.
+- **Semantic Keyword/TF-IDF Index**: Local text index only. External vector DBs are strictly disabled.
+- **Graph Centrality**: Purely structural metric. Does not denote investment opportunity or trading significance.
+- **Graph Gap/Orphan/Stale Report**: Useful for internal consistency audits. Not an indicator of live market risks.
+- **Notice**: No live trading, broker execution, external vector DB, cloud upload, or investment advice is provided by the Knowledge Graph tools.

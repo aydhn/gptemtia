@@ -1,78 +1,62 @@
-1. **Update `config/settings.py` and `.env.example`**
-   - Read `config/settings.py` to identify the right place to add scenario regression settings.
-   - Use a Python script to append `ScenarioRegressionProfile` attributes.
-   - Append default environment variables to `.env.example`.
+1. **Settings Update:**
+   - Update `config/settings.py` to add Phase 66 variables for `local_knowledge_graph` to the `Settings` dataclass and inside `__post_init__`. Also add these variables to `.env.example`.
 
-2. **Update `config/paths.py`**
-   - Read `config/paths.py` and append output paths for `scenario_regression`.
-   - Update `ensure_project_directories()` in `config/paths.py` to create the new directories.
+2. **Paths Update:**
+   - Update `config/paths.py` to add Phase 66 paths under `data/lake/local_knowledge_graph` and `reports/output/local_knowledge_graph`, and include them in the `ProjectPaths` class and `ensure_project_directories` function.
 
-3. **Create `scenario_regression` Module (Part 1)**
-   - Run `mkdir -p commodity_fx_signal_bot/scenario_regression`
-   - Create `__init__.py`.
-   - Create `regression_config.py`.
-   - Create `regression_labels.py`.
-   - Create `regression_models.py`.
-   - Verify files created using `ls -l commodity_fx_signal_bot/scenario_regression/`.
+3. **DataLake Update:**
+   - Add save/load functions for local_knowledge_graph artifacts in `data/storage/data_lake.py`.
 
-4. **Create `scenario_regression` Module (Part 2)**
-   - Create `regression_registry.py`.
-   - Create `golden_outputs.py`.
-   - Create `snapshot_capture.py`.
-   - Create `snapshot_compare.py`.
-   - Verify files created using `ls -l commodity_fx_signal_bot/scenario_regression/`.
+4. **FeatureStore Update:**
+   - Add load functions in `ml/feature_store.py` that call DataLake.
 
-5. **Create `scenario_regression` Module (Part 3)**
-   - Create `deterministic_replay.py`.
-   - Create `fixture_reproducibility.py`.
-   - Create `output_contract_validation.py`.
-   - Create `demo_workflow_regression.py`.
-   - Verify files created using `ls -l commodity_fx_signal_bot/scenario_regression/`.
+5. **ReportBuilder Update:**
+   - Add text generation functions in `reports/report_builder.py` with the required explicit disclaimer.
 
-6. **Create `scenario_regression` Module (Part 4)**
-   - Create `end_to_end_acceptance.py`.
-   - Create `drift_detection.py`.
-   - Create `failure_register.py`.
-   - Create `acceptance_checklist.py`.
-   - Create `regression_quality.py`.
-   - Create `regression_report_builder.py`.
-   - Create `regression_pipeline.py`.
-   - Verify files created using `ls -l commodity_fx_signal_bot/scenario_regression/`.
+6. **Create local_knowledge_graph module:**
+   - `local_knowledge_graph/__init__.py`
+   - `local_knowledge_graph/graph_config.py`
+   - `local_knowledge_graph/graph_labels.py`
+   - `local_knowledge_graph/graph_models.py`
+   - `local_knowledge_graph/node_registry.py`
+   - `local_knowledge_graph/edge_registry.py`
+   - `local_knowledge_graph/relationship_extractors.py`
+   - `local_knowledge_graph/graph_builder.py`
+   - `local_knowledge_graph/module_graph.py`
+   - `local_knowledge_graph/report_graph.py`
+   - `local_knowledge_graph/evidence_graph.py`
+   - `local_knowledge_graph/card_graph.py`
+   - `local_knowledge_graph/scenario_regression_graph.py`
+   - `local_knowledge_graph/command_report_graph.py`
+   - `local_knowledge_graph/semantic_keyword_index.py`
+   - `local_knowledge_graph/tfidf_index.py`
+   - `local_knowledge_graph/relationship_query.py`
+   - `local_knowledge_graph/graph_traversal.py`
+   - `local_knowledge_graph/graph_analysis.py`
+   - `local_knowledge_graph/graph_gap_detection.py`
+   - `local_knowledge_graph/graph_export.py`
+   - `local_knowledge_graph/graph_validation.py`
+   - `local_knowledge_graph/graph_quality.py`
+   - `local_knowledge_graph/graph_report_builder.py`
+   - `local_knowledge_graph/graph_pipeline.py`
 
-7. **Update Core System Files**
-   - Append scenario regression related save/load methods to `data/storage/data_lake.py`.
-   - Append scenario regression related load methods to `ml/feature_store.py`.
-   - Append report generation methods to `reports/report_builder.py`.
+7. **Create Scripts:**
+   - `scripts/run_graph_node_edge_registry.py`
+   - `scripts/run_artifact_relationship_graph.py`
+   - `scripts/run_semantic_index_report.py`
+   - `scripts/run_relationship_query.py`
+   - `scripts/run_graph_analysis_report.py`
+   - `scripts/run_graph_quality_report.py`
+   - `scripts/run_graph_status.py`
 
-8. **Create Scripts**
-   - Write `commodity_fx_signal_bot/scripts/run_scenario_regression_registry.py`.
-   - Write `commodity_fx_signal_bot/scripts/run_golden_output_report.py`.
-   - Write `commodity_fx_signal_bot/scripts/run_snapshot_comparison_report.py`.
-   - Write `commodity_fx_signal_bot/scripts/run_deterministic_replay_report.py`.
-   - Write `commodity_fx_signal_bot/scripts/run_demo_acceptance_report.py`.
-   - Write `commodity_fx_signal_bot/scripts/run_scenario_regression_status.py`.
-   - Verify using `ls -l commodity_fx_signal_bot/scripts/run_*_report.py` and others.
+8. **Create Tests:**
+   - Tests for all `local_knowledge_graph` modules.
+   - Script contract tests.
 
-9. **Create Tests**
-   - Create unit tests for models/config: `tests/test_regression_config.py`, `tests/test_regression_labels.py`, `tests/test_regression_models.py`.
-   - Create unit tests for registry/golden: `tests/test_regression_registry.py`, `tests/test_golden_outputs.py`.
-   - Create unit tests for snapshots: `tests/test_snapshot_capture.py`, `tests/test_snapshot_compare.py`.
-   - Create unit tests for replay/fixture: `tests/test_deterministic_replay.py`, `tests/test_fixture_reproducibility.py`.
-   - Create unit tests for contract/demo: `tests/test_output_contract_validation.py`, `tests/test_demo_workflow_regression.py`.
-   - Create unit tests for acceptance/drift: `tests/test_end_to_end_acceptance.py`, `tests/test_drift_detection.py`.
-   - Create unit tests for failure/checklist: `tests/test_failure_register.py`, `tests/test_acceptance_checklist.py`.
-   - Create unit tests for quality/builder: `tests/test_regression_quality.py`, `tests/test_regression_report_builder.py`.
-   - Create unit tests for pipeline/scripts: `tests/test_regression_pipeline.py`, `tests/test_scenario_regression_scripts_contract.py`.
-   - Verify using `ls -l commodity_fx_signal_bot/tests/test_*.py`.
+9. **Update Documentation:**
+   - Update `README.md`.
+   - Update `docs/ARCHITECTURE.md`, `docs/PHASE_LOG.md`, `docs/OPERATOR_MANUAL.md`, `docs/ANALYST_HANDBOOK.md`, `docs/CODEX_AGENT_GUIDE.md`, `docs/SAFE_USAGE_GUIDE.md`.
 
-10. **Update Documentation**
-   - Edit `README.md` to append the Scenario Regression section.
-   - Edit `docs/ARCHITECTURE.md` to append the new flow.
-   - Edit `docs/PHASE_LOG.md` to include Phase 57 completion details.
-   - Edit `docs/USER_GUIDE.md`, `docs/OPERATOR_MANUAL.md`, and `docs/CODEX_AGENT_GUIDE.md` to mention regression concepts.
-
-11. **Run All Tests**
-   - Run `cd commodity_fx_signal_bot && make test` to ensure everything is correct and no regressions were introduced.
-
-12. **Complete Pre-Commit Steps**
-   - Complete pre commit steps to make sure proper testing, verifications, reviews and reflections are done.
+10. **Verify & Pre-commit:**
+    - Run `pytest`.
+    - Complete pre-commit steps.

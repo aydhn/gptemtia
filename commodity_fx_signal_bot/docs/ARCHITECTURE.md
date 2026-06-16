@@ -379,3 +379,27 @@ Reports / DataLake / Docs / Generated Evidence / Quality / Safety / Secrets / Ba
 
 ### Artifact Metadata Flow
 Research Artifacts -> ResearchArtifactInventory -> ModelCards/DatasetCards/ExperimentCards/ReproducibilityCards -> BacktestCards/ScenarioCards/RegressionCards/FeatureSetCards/SyntheticDataCards/ResearchReportCards -> LineageCards/LimitationCards/IntendedUseCards/NonUsePolicyCards -> MetadataScoring/MetadataValidation/MetadataQuality/MetadataExport -> Artifact Metadata Outputs
+
+## Local Knowledge Graph Data Flow
+
+Artifact Metadata / Evidence Governance / Report Summaries / Docs / Commands / Scenarios / Regression / DataLake / Reports
+→ NodeRegistry
+→ EdgeRegistry
+→ RelationshipExtractors
+→ ArtifactRelationshipGraph
+→ ModuleGraph
+→ ReportGraph
+→ EvidenceGraph
+→ CardGraph
+→ ScenarioRegressionGraph
+→ CommandReportGraph
+→ LocalSemanticKeywordIndex
+→ LocalTFIDFIndex
+→ RelationshipQuery
+→ GraphTraversal
+→ GraphAnalysis
+→ GraphGapDetection
+→ GraphExport
+→ GraphValidation
+→ GraphQuality
+→ Local Knowledge Graph Outputs
