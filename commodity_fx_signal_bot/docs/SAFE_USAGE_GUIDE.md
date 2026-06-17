@@ -26,6 +26,12 @@ Sistemin tasarımı gereği aşılmaması gereken sınırlar:
 5. **Scraping Yasağı:** Selenium, Playwright veya BeautifulSoup ile veri kazıma işlemi yapmaz; sadece resmi/ücretsiz veri API'lerini kullanır.
 
 
+
+## Local Timeline ve Change History (Phase 67)
+- **Local Timeline Limits**: Local timeline engine Git geçmişi veya resmi audit trail değildir.
+- **Kesinlikle Yasaktır**: Cloud event service bağlantısı yapmak, timeline üzerinden canlı broker eventleri izlemek, production monitoring kurmak, veya export edilen timeline'ı trading journal olarak okumak yasaktır.
+- Timeline sadece proje artifactlerindeki değişimi ve dosyaların freshness oranını offline kontrol etmek içindir.
+
 ## Kullanım Örnekleri
 - `.env` dosyasında anahtarların saklanması (git commit edilmemesi).
 - Loglarda PII (Personal Identifiable Information) ve secret'ların maskelendiğinin kontrolü.

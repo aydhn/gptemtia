@@ -5,6 +5,88 @@ from data.storage.data_lake import DataLake
 
 class FeatureStore:
 
+    # Phase 67: Local Timeline
+    def load_project_event_registry(self) -> pd.DataFrame:
+        return self.data_lake.load_project_event_registry()
+
+    def load_phase_chronology_registry(self) -> pd.DataFrame:
+        return self.data_lake.load_phase_chronology_registry()
+
+    def load_artifact_evolution_registry(self) -> pd.DataFrame:
+        return self.data_lake.load_artifact_evolution_registry()
+
+    def load_file_modification_timeline(self) -> pd.DataFrame:
+        return self.data_lake.load_file_modification_timeline()
+
+    def load_report_generation_timeline(self) -> pd.DataFrame:
+        return self.data_lake.load_report_generation_timeline()
+
+    def load_datalake_artifact_timeline(self) -> pd.DataFrame:
+        return self.data_lake.load_datalake_artifact_timeline()
+
+    def load_documentation_evolution_timeline(self) -> pd.DataFrame:
+        return self.data_lake.load_documentation_evolution_timeline()
+
+    def load_command_script_evolution_timeline(self) -> pd.DataFrame:
+        return self.data_lake.load_command_script_evolution_timeline()
+
+    def load_evidence_timeline(self) -> pd.DataFrame:
+        return self.data_lake.load_evidence_timeline()
+
+    def load_metadata_card_timeline(self) -> pd.DataFrame:
+        return self.data_lake.load_metadata_card_timeline()
+
+    def load_knowledge_graph_evolution_timeline(self) -> pd.DataFrame:
+        return self.data_lake.load_knowledge_graph_evolution_timeline()
+
+    def load_scenario_regression_event_timeline(self) -> pd.DataFrame:
+        return self.data_lake.load_scenario_regression_event_timeline()
+
+    def load_quality_safety_event_timeline(self) -> pd.DataFrame:
+        return self.data_lake.load_quality_safety_event_timeline()
+
+    def load_backup_packaging_secrets_event_timeline(self) -> pd.DataFrame:
+        return self.data_lake.load_backup_packaging_secrets_event_timeline()
+
+    def load_artifact_temporal_lineage(self) -> pd.DataFrame:
+        return self.data_lake.load_artifact_temporal_lineage()
+
+    def load_module_event_cluster_report(self) -> pd.DataFrame:
+        return self.data_lake.load_module_event_cluster_report()
+
+    def load_event_freshness_report(self) -> pd.DataFrame:
+        return self.data_lake.load_event_freshness_report()
+
+    def load_stale_artifact_timeline_report(self) -> pd.DataFrame:
+        return self.data_lake.load_stale_artifact_timeline_report()
+
+    def load_event_gap_report(self) -> pd.DataFrame:
+        return self.data_lake.load_event_gap_report()
+
+    def load_phase_event_digest(self) -> str:
+        return self.data_lake.load_phase_event_digest()
+
+    def load_change_history_digest(self) -> str:
+        return self.data_lake.load_change_history_digest()
+
+    def load_timeline_query_results(self, query_name: str) -> pd.DataFrame:
+        return self.data_lake.load_timeline_query_results(query_name)
+
+    def load_timeline_export_manifest(self) -> dict:
+        return self.data_lake.load_timeline_export_manifest()
+
+    def load_timeline_validation_report(self) -> pd.DataFrame:
+        return self.data_lake.load_timeline_validation_report()
+
+    def load_timeline_quality(self, profile_name: str = "balanced_local_timeline") -> dict:
+        return self.data_lake.load_timeline_quality(profile_name)
+
+    def load_local_timeline_report(self, profile_name: str = "balanced_local_timeline") -> dict:
+        return self.data_lake.load_local_timeline_report(profile_name)
+
+    def list_available_local_timeline_reports(self) -> pd.DataFrame:
+        return self.data_lake.list_local_timeline_reports()
+
     # Phase 66: Local Knowledge Graph
     def load_graph_node_registry(self) -> pd.DataFrame:
         return self.data_lake.load_graph_node_registry()

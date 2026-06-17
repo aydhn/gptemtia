@@ -403,3 +403,30 @@ Artifact Metadata / Evidence Governance / Report Summaries / Docs / Commands / S
 → GraphValidation
 → GraphQuality
 → Local Knowledge Graph Outputs
+
+## Local Timeline Data Flow
+Project Files / Reports / DataLake / Docs / Metadata / Evidence / Graph / Quality / Safety
+→ EventRegistry
+→ PhaseChronology
+→ ArtifactEvolution
+→ FileTimeline
+→ ReportTimeline
+→ DataLakeTimeline
+→ DocumentationTimeline
+→ CommandTimeline
+→ EvidenceTimeline
+→ MetadataTimeline
+→ GraphTimeline
+→ ScenarioRegressionTimeline
+→ QualitySafetyTimeline
+→ BackupPackagingSecretsTimeline
+→ TemporalLineage
+→ EventClustering
+→ FreshnessAnalysis
+→ EventGapDetection
+→ ChangeDigest
+→ TimelineQuery
+→ TimelineExport
+→ TimelineValidation
+→ TimelineQuality
+→ Local Timeline Outputs
