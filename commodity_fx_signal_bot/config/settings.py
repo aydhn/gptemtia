@@ -1963,6 +1963,37 @@ class Settings:
     local_knowledge_graph_save_reports: bool = field(default_factory=lambda: str(os.getenv("LOCAL_KNOWLEDGE_GRAPH_SAVE_REPORTS", "true")).lower() == "true")
     local_knowledge_graph_min_quality_score: float = field(default_factory=lambda: float(os.getenv("LOCAL_KNOWLEDGE_GRAPH_MIN_QUALITY_SCORE", "0.40")))
 
+
+    # Phase 67: Local Timeline
+    local_timeline_enabled: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_ENABLED", "true")).lower() == "true")
+    default_local_timeline_profile: str = field(default_factory=lambda: os.getenv("DEFAULT_LOCAL_TIMELINE_PROFILE", "balanced_local_timeline"))
+    local_timeline_default_language: str = field(default_factory=lambda: os.getenv("LOCAL_TIMELINE_DEFAULT_LANGUAGE", "tr"))
+    local_timeline_dry_run_default: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_DRY_RUN_DEFAULT", "true")).lower() == "true")
+    local_timeline_allow_external_event_service: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_ALLOW_EXTERNAL_EVENT_SERVICE", "false")).lower() == "true")
+    local_timeline_allow_cloud_upload: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_ALLOW_CLOUD_UPLOAD", "false")).lower() == "true")
+    local_timeline_allow_file_modification: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_ALLOW_FILE_MODIFICATION", "false")).lower() == "true")
+    local_timeline_allow_file_deletion: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_ALLOW_FILE_DELETION", "false")).lower() == "true")
+    local_timeline_allow_live_commands: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_ALLOW_LIVE_COMMANDS", "false")).lower() == "true")
+    local_timeline_allow_broker_commands: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_ALLOW_BROKER_COMMANDS", "false")).lower() == "true")
+    local_timeline_allow_deploy_commands: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_ALLOW_DEPLOY_COMMANDS", "false")).lower() == "true")
+    local_timeline_allow_background_daemons: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_ALLOW_BACKGROUND_DAEMONS", "false")).lower() == "true")
+    local_timeline_allow_real_market_download: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_ALLOW_REAL_MARKET_DOWNLOAD", "false")).lower() == "true")
+    local_timeline_allow_external_llm: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_ALLOW_EXTERNAL_LLM", "false")).lower() == "true")
+    local_timeline_scan_project_files: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_SCAN_PROJECT_FILES", "true")).lower() == "true")
+    local_timeline_scan_reports: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_SCAN_REPORTS", "true")).lower() == "true")
+    local_timeline_scan_data_lake: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_SCAN_DATA_LAKE", "true")).lower() == "true")
+    local_timeline_scan_docs: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_SCAN_DOCS", "true")).lower() == "true")
+    local_timeline_scan_generated_docs: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_SCAN_GENERATED_DOCS", "true")).lower() == "true")
+    local_timeline_scan_metadata_outputs: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_SCAN_METADATA_OUTPUTS", "true")).lower() == "true")
+    local_timeline_scan_evidence_outputs: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_SCAN_EVIDENCE_OUTPUTS", "true")).lower() == "true")
+    local_timeline_scan_graph_outputs: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_SCAN_GRAPH_OUTPUTS", "true")).lower() == "true")
+    local_timeline_max_events: int = field(default_factory=lambda: int(os.getenv("LOCAL_TIMELINE_MAX_EVENTS", "300000")))
+    local_timeline_max_files: int = field(default_factory=lambda: int(os.getenv("LOCAL_TIMELINE_MAX_FILES", "200000")))
+    local_timeline_freshness_days_warning: int = field(default_factory=lambda: int(os.getenv("LOCAL_TIMELINE_FRESHNESS_DAYS_WARNING", "45")))
+    local_timeline_stale_days_warning: int = field(default_factory=lambda: int(os.getenv("LOCAL_TIMELINE_STALE_DAYS_WARNING", "90")))
+    local_timeline_save_reports: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_SAVE_REPORTS", "true")).lower() == "true")
+    local_timeline_min_quality_score: float = field(default_factory=lambda: float(os.getenv("LOCAL_TIMELINE_MIN_QUALITY_SCORE", "0.40")))
+
     def __post_init__(self):
 
 
@@ -3066,6 +3097,37 @@ class Settings:
     local_knowledge_graph_freshness_days_warning: int = field(default_factory=lambda: int(os.getenv("LOCAL_KNOWLEDGE_GRAPH_FRESHNESS_DAYS_WARNING", "60")))
     local_knowledge_graph_save_reports: bool = field(default_factory=lambda: str(os.getenv("LOCAL_KNOWLEDGE_GRAPH_SAVE_REPORTS", "true")).lower() == "true")
     local_knowledge_graph_min_quality_score: float = field(default_factory=lambda: float(os.getenv("LOCAL_KNOWLEDGE_GRAPH_MIN_QUALITY_SCORE", "0.40")))
+
+
+    # Phase 67: Local Timeline
+    local_timeline_enabled: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_ENABLED", "true")).lower() == "true")
+    default_local_timeline_profile: str = field(default_factory=lambda: os.getenv("DEFAULT_LOCAL_TIMELINE_PROFILE", "balanced_local_timeline"))
+    local_timeline_default_language: str = field(default_factory=lambda: os.getenv("LOCAL_TIMELINE_DEFAULT_LANGUAGE", "tr"))
+    local_timeline_dry_run_default: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_DRY_RUN_DEFAULT", "true")).lower() == "true")
+    local_timeline_allow_external_event_service: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_ALLOW_EXTERNAL_EVENT_SERVICE", "false")).lower() == "true")
+    local_timeline_allow_cloud_upload: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_ALLOW_CLOUD_UPLOAD", "false")).lower() == "true")
+    local_timeline_allow_file_modification: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_ALLOW_FILE_MODIFICATION", "false")).lower() == "true")
+    local_timeline_allow_file_deletion: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_ALLOW_FILE_DELETION", "false")).lower() == "true")
+    local_timeline_allow_live_commands: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_ALLOW_LIVE_COMMANDS", "false")).lower() == "true")
+    local_timeline_allow_broker_commands: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_ALLOW_BROKER_COMMANDS", "false")).lower() == "true")
+    local_timeline_allow_deploy_commands: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_ALLOW_DEPLOY_COMMANDS", "false")).lower() == "true")
+    local_timeline_allow_background_daemons: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_ALLOW_BACKGROUND_DAEMONS", "false")).lower() == "true")
+    local_timeline_allow_real_market_download: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_ALLOW_REAL_MARKET_DOWNLOAD", "false")).lower() == "true")
+    local_timeline_allow_external_llm: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_ALLOW_EXTERNAL_LLM", "false")).lower() == "true")
+    local_timeline_scan_project_files: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_SCAN_PROJECT_FILES", "true")).lower() == "true")
+    local_timeline_scan_reports: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_SCAN_REPORTS", "true")).lower() == "true")
+    local_timeline_scan_data_lake: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_SCAN_DATA_LAKE", "true")).lower() == "true")
+    local_timeline_scan_docs: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_SCAN_DOCS", "true")).lower() == "true")
+    local_timeline_scan_generated_docs: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_SCAN_GENERATED_DOCS", "true")).lower() == "true")
+    local_timeline_scan_metadata_outputs: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_SCAN_METADATA_OUTPUTS", "true")).lower() == "true")
+    local_timeline_scan_evidence_outputs: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_SCAN_EVIDENCE_OUTPUTS", "true")).lower() == "true")
+    local_timeline_scan_graph_outputs: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_SCAN_GRAPH_OUTPUTS", "true")).lower() == "true")
+    local_timeline_max_events: int = field(default_factory=lambda: int(os.getenv("LOCAL_TIMELINE_MAX_EVENTS", "300000")))
+    local_timeline_max_files: int = field(default_factory=lambda: int(os.getenv("LOCAL_TIMELINE_MAX_FILES", "200000")))
+    local_timeline_freshness_days_warning: int = field(default_factory=lambda: int(os.getenv("LOCAL_TIMELINE_FRESHNESS_DAYS_WARNING", "45")))
+    local_timeline_stale_days_warning: int = field(default_factory=lambda: int(os.getenv("LOCAL_TIMELINE_STALE_DAYS_WARNING", "90")))
+    local_timeline_save_reports: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_SAVE_REPORTS", "true")).lower() == "true")
+    local_timeline_min_quality_score: float = field(default_factory=lambda: float(os.getenv("LOCAL_TIMELINE_MIN_QUALITY_SCORE", "0.40")))
 
     def __post_init__(self):
 

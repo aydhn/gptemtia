@@ -26,6 +26,13 @@ Sistemin tasarımı gereği aşılmaması gereken sınırlar:
 5. **Scraping Yasağı:** Selenium, Playwright veya BeautifulSoup ile veri kazıma işlemi yapmaz; sadece resmi/ücretsiz veri API'lerini kullanır.
 
 
+
+## Local Timeline ve Change History (Phase 67)
+- **Change history digest neden trading journal değildir?**: Bu sistem proje dosyalarındaki değişiklikleri listeler; gerçek piyasa emirlerini veya işlem kayıtlarını (trade journal) listelemez.
+- **Timeline query nasıl kullanılır?**: `python -m scripts.run_timeline_query --query "Phase 60 sonrası hangi çıktılar oluştu?"` komutuyla offline timeline arayüzüne soru sorabilirsiniz. Yatırım tavsiyesi veya işlem sorgusu kabul edilmez.
+- **Stale artifact warning nasıl okunur?**: Bir doküman veya rapor uzun süredir güncellenmediyse uyarılır. Modeller için bu, yeniden eğitim ihtiyacını düşündürebilir ancak otomatik aksiyon almaz.
+- **Cloud event service, broker event, canlı emir, yatırım tavsiyesi ve production monitoring** işlevleri bulunmaz.
+
 ## Kullanım Örnekleri
 - Backtest sonuçlarının (Sharpe, Max Drawdown) incelenmesi.
 - Feature önem sırasının (feature importance) değerlendirilmesi.

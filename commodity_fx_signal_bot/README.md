@@ -1085,3 +1085,24 @@ python -m scripts.run_metadata_status
 - `python -m scripts.run_graph_analysis_report`: Runs centrality, orphans, and gap analysis.
 - `python -m scripts.run_graph_quality_report`: Validates graph and generates export manifest.
 - `python -m scripts.run_graph_status`: Checks graph creation status.
+
+## Local Timeline, Phase Chronology and Artifact Evolution
+
+- Local timeline engine Git geçmişi veya resmi audit trail değildir.
+- Event registry mevcut dosya/rapor/DataLake metadata’sından üretilir.
+- Phase chronology yaklaşık olabilir.
+- Artifact evolution içerik diff değildir; zaman/path/event metadata analizi yapar.
+- Change history digest trading journal değildir.
+- Timeline query komut çalıştırmaz ve yatırım tavsiyesi üretmez.
+- Timeline export local JSON/CSV çıktısıdır; cloud upload yapmaz.
+- Raw secret/private data timeline içine yazılmaz.
+- Çıktılar `data/lake/local_timeline` ve `reports/output/local_timeline` altında oluşur.
+
+### Phase 67 Commands
+- `python -m scripts.run_project_event_registry`: Builds the base project event registry from all tracked folders.
+- `python -m scripts.run_phase_chronology_report`: Maps events to known phases and generates a chronology digest.
+- `python -m scripts.run_artifact_evolution_timeline`: Builds timelines for files, reports, and specific system artifacts to track freshness and staleness.
+- `python -m scripts.run_change_history_digest`: Generates a high-level summary of recent changes and event gaps.
+- `python -m scripts.run_timeline_query --query "Phase 60 sonrası hangi çıktılar oluştu?"`: Queries timeline offline.
+- `python -m scripts.run_timeline_quality_report`: Validates timeline boundaries (no live/cloud traces) and produces a safety/quality report.
+- `python -m scripts.run_timeline_status`: Checks and lists the status of timeline generation.

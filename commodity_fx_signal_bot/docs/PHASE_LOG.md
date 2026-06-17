@@ -861,3 +861,28 @@ Phase 19:
 - DataLake local knowledge graph kayıt desteği aldı.
 - Local knowledge graph scriptleri eklendi.
 - Testler genişletildi.
+
+## Phase 67
+- Local timeline profile sistemi eklendi.
+- Timeline label registry eklendi.
+- ProjectEvent, PhaseChronologyItem, ArtifactEvolutionRecord, TimelineQuery ve TimelineQueryResult modelleri eklendi.
+- Project event registry eklendi.
+- Phase chronology registry eklendi.
+- Artifact evolution registry eklendi.
+- File/report/DataLake/documentation/command timelines eklendi.
+- Evidence/metadata/knowledge graph timelines eklendi.
+- Scenario/regression timeline eklendi.
+- Quality/safety timeline eklendi.
+- Backup/packaging/secrets timeline eklendi.
+- Artifact temporal lineage eklendi.
+- Event clustering eklendi.
+- Freshness/stale artifact analizleri eklendi.
+- Event gap detection eklendi.
+- Change history digest eklendi.
+- Timeline query layer eklendi.
+- Timeline export eklendi.
+- Timeline validation ve quality report eklendi.
+- LocalTimelinePipeline eklendi.
+- DataLake local timeline kayıt desteği aldı.
+- Local timeline scriptleri eklendi.
+- Testler genişletildi.

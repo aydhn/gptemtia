@@ -26,6 +26,13 @@ Sistemin tasarımı gereği aşılmaması gereken sınırlar:
 5. **Scraping Yasağı:** Selenium, Playwright veya BeautifulSoup ile veri kazıma işlemi yapmaz; sadece resmi/ücretsiz veri API'lerini kullanır.
 
 
+
+## Local Timeline ve Change History (Phase 67)
+- **Project event registry nasıl okunur?**: `reports/output/local_timeline/markdown/project_event_registry_report.md` dosyası, proje genelindeki dosya değişikliklerini kronolojik bir bakışla sunar. Gerçek zamanlı bir production monitoring aracı değil, sadece bir snapshot'tır.
+- **Phase chronology ne yapar/ne yapmaz?**: Phase bazlı event sayısını çıkarır. Biten fazların tam mükemmelliğini garantilemez.
+- **Artifact evolution nasıl yorumlanır?**: Sistemdeki dosyaların yenilik (freshness) durumunu gösterir. "Stale" artifact bir hata değil, manuel gözden geçirme uyarısıdır.
+- **Cloud event service, broker event, canlı emir, yatırım tavsiyesi ve production monitoring** işlevleri bulunmaz.
+
 ## Kullanım Örnekleri
 - `make dx` ile developer experience toollarını çalıştırma.
 - Sağlık durumunu kontrol etme (`run_system_healthcheck.py`).

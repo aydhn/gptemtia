@@ -17,6 +17,263 @@ logger = get_logger(__name__)
 
 class DataLake:
 
+    # Phase 67: Local Timeline
+    def save_project_event_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_EVENTS_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_TIMELINE_EVENTS_DIR, "project_event_registry")
+
+    def load_project_event_registry(self) -> pd.DataFrame:
+        from config.paths import LAKE_LOCAL_TIMELINE_EVENTS_DIR
+        return self._load_parquet(LAKE_LOCAL_TIMELINE_EVENTS_DIR / "project_event_registry.parquet")
+
+    def save_phase_chronology_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_PHASES_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_TIMELINE_PHASES_DIR, "phase_chronology_registry")
+
+    def load_phase_chronology_registry(self) -> pd.DataFrame:
+        from config.paths import LAKE_LOCAL_TIMELINE_PHASES_DIR
+        return self._load_parquet(LAKE_LOCAL_TIMELINE_PHASES_DIR / "phase_chronology_registry.parquet")
+
+    def save_artifact_evolution_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_ARTIFACT_EVOLUTION_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_TIMELINE_ARTIFACT_EVOLUTION_DIR, "artifact_evolution_registry")
+
+    def load_artifact_evolution_registry(self) -> pd.DataFrame:
+        from config.paths import LAKE_LOCAL_TIMELINE_ARTIFACT_EVOLUTION_DIR
+        return self._load_parquet(LAKE_LOCAL_TIMELINE_ARTIFACT_EVOLUTION_DIR / "artifact_evolution_registry.parquet")
+
+    def save_file_modification_timeline(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_FILE_TIMELINE_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_TIMELINE_FILE_TIMELINE_DIR, "file_modification_timeline")
+
+    def load_file_modification_timeline(self) -> pd.DataFrame:
+        from config.paths import LAKE_LOCAL_TIMELINE_FILE_TIMELINE_DIR
+        return self._load_parquet(LAKE_LOCAL_TIMELINE_FILE_TIMELINE_DIR / "file_modification_timeline.parquet")
+
+    def save_report_generation_timeline(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_REPORT_TIMELINE_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_TIMELINE_REPORT_TIMELINE_DIR, "report_generation_timeline")
+
+    def load_report_generation_timeline(self) -> pd.DataFrame:
+        from config.paths import LAKE_LOCAL_TIMELINE_REPORT_TIMELINE_DIR
+        return self._load_parquet(LAKE_LOCAL_TIMELINE_REPORT_TIMELINE_DIR / "report_generation_timeline.parquet")
+
+    def save_datalake_artifact_timeline(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_DATALAKE_TIMELINE_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_TIMELINE_DATALAKE_TIMELINE_DIR, "datalake_artifact_timeline")
+
+    def load_datalake_artifact_timeline(self) -> pd.DataFrame:
+        from config.paths import LAKE_LOCAL_TIMELINE_DATALAKE_TIMELINE_DIR
+        return self._load_parquet(LAKE_LOCAL_TIMELINE_DATALAKE_TIMELINE_DIR / "datalake_artifact_timeline.parquet")
+
+    def save_documentation_evolution_timeline(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_DOCUMENTATION_TIMELINE_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_TIMELINE_DOCUMENTATION_TIMELINE_DIR, "documentation_evolution_timeline")
+
+    def load_documentation_evolution_timeline(self) -> pd.DataFrame:
+        from config.paths import LAKE_LOCAL_TIMELINE_DOCUMENTATION_TIMELINE_DIR
+        return self._load_parquet(LAKE_LOCAL_TIMELINE_DOCUMENTATION_TIMELINE_DIR / "documentation_evolution_timeline.parquet")
+
+    def save_command_script_evolution_timeline(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_COMMAND_TIMELINE_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_TIMELINE_COMMAND_TIMELINE_DIR, "command_script_evolution_timeline")
+
+    def load_command_script_evolution_timeline(self) -> pd.DataFrame:
+        from config.paths import LAKE_LOCAL_TIMELINE_COMMAND_TIMELINE_DIR
+        return self._load_parquet(LAKE_LOCAL_TIMELINE_COMMAND_TIMELINE_DIR / "command_script_evolution_timeline.parquet")
+
+    def save_evidence_timeline(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_EVIDENCE_TIMELINE_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_TIMELINE_EVIDENCE_TIMELINE_DIR, "evidence_timeline")
+
+    def load_evidence_timeline(self) -> pd.DataFrame:
+        from config.paths import LAKE_LOCAL_TIMELINE_EVIDENCE_TIMELINE_DIR
+        return self._load_parquet(LAKE_LOCAL_TIMELINE_EVIDENCE_TIMELINE_DIR / "evidence_timeline.parquet")
+
+    def save_metadata_card_timeline(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_METADATA_TIMELINE_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_TIMELINE_METADATA_TIMELINE_DIR, "metadata_card_timeline")
+
+    def load_metadata_card_timeline(self) -> pd.DataFrame:
+        from config.paths import LAKE_LOCAL_TIMELINE_METADATA_TIMELINE_DIR
+        return self._load_parquet(LAKE_LOCAL_TIMELINE_METADATA_TIMELINE_DIR / "metadata_card_timeline.parquet")
+
+    def save_knowledge_graph_evolution_timeline(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_GRAPH_TIMELINE_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_TIMELINE_GRAPH_TIMELINE_DIR, "knowledge_graph_evolution_timeline")
+
+    def load_knowledge_graph_evolution_timeline(self) -> pd.DataFrame:
+        from config.paths import LAKE_LOCAL_TIMELINE_GRAPH_TIMELINE_DIR
+        return self._load_parquet(LAKE_LOCAL_TIMELINE_GRAPH_TIMELINE_DIR / "knowledge_graph_evolution_timeline.parquet")
+
+    def save_scenario_regression_event_timeline(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_SCENARIO_REGRESSION_TIMELINE_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_TIMELINE_SCENARIO_REGRESSION_TIMELINE_DIR, "scenario_regression_event_timeline")
+
+    def load_scenario_regression_event_timeline(self) -> pd.DataFrame:
+        from config.paths import LAKE_LOCAL_TIMELINE_SCENARIO_REGRESSION_TIMELINE_DIR
+        return self._load_parquet(LAKE_LOCAL_TIMELINE_SCENARIO_REGRESSION_TIMELINE_DIR / "scenario_regression_event_timeline.parquet")
+
+    def save_quality_safety_event_timeline(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_QUALITY_SAFETY_TIMELINE_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_TIMELINE_QUALITY_SAFETY_TIMELINE_DIR, "quality_safety_event_timeline")
+
+    def load_quality_safety_event_timeline(self) -> pd.DataFrame:
+        from config.paths import LAKE_LOCAL_TIMELINE_QUALITY_SAFETY_TIMELINE_DIR
+        return self._load_parquet(LAKE_LOCAL_TIMELINE_QUALITY_SAFETY_TIMELINE_DIR / "quality_safety_event_timeline.parquet")
+
+    def save_backup_packaging_secrets_event_timeline(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_BACKUP_PACKAGING_SECRETS_TIMELINE_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_TIMELINE_BACKUP_PACKAGING_SECRETS_TIMELINE_DIR, "backup_packaging_secrets_event_timeline")
+
+    def load_backup_packaging_secrets_event_timeline(self) -> pd.DataFrame:
+        from config.paths import LAKE_LOCAL_TIMELINE_BACKUP_PACKAGING_SECRETS_TIMELINE_DIR
+        return self._load_parquet(LAKE_LOCAL_TIMELINE_BACKUP_PACKAGING_SECRETS_TIMELINE_DIR / "backup_packaging_secrets_event_timeline.parquet")
+
+    def save_artifact_temporal_lineage(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_TEMPORAL_LINEAGE_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_TIMELINE_TEMPORAL_LINEAGE_DIR, "artifact_temporal_lineage")
+
+    def load_artifact_temporal_lineage(self) -> pd.DataFrame:
+        from config.paths import LAKE_LOCAL_TIMELINE_TEMPORAL_LINEAGE_DIR
+        return self._load_parquet(LAKE_LOCAL_TIMELINE_TEMPORAL_LINEAGE_DIR / "artifact_temporal_lineage.parquet")
+
+    def save_module_event_cluster_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_CLUSTERS_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_TIMELINE_CLUSTERS_DIR, "module_event_cluster_report")
+
+    def load_module_event_cluster_report(self) -> pd.DataFrame:
+        from config.paths import LAKE_LOCAL_TIMELINE_CLUSTERS_DIR
+        return self._load_parquet(LAKE_LOCAL_TIMELINE_CLUSTERS_DIR / "module_event_cluster_report.parquet")
+
+    def save_event_freshness_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_FRESHNESS_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_TIMELINE_FRESHNESS_DIR, "event_freshness_report")
+
+    def load_event_freshness_report(self) -> pd.DataFrame:
+        from config.paths import LAKE_LOCAL_TIMELINE_FRESHNESS_DIR
+        return self._load_parquet(LAKE_LOCAL_TIMELINE_FRESHNESS_DIR / "event_freshness_report.parquet")
+
+    def save_stale_artifact_timeline_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_FRESHNESS_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_TIMELINE_FRESHNESS_DIR, "stale_artifact_timeline_report")
+
+    def load_stale_artifact_timeline_report(self) -> pd.DataFrame:
+        from config.paths import LAKE_LOCAL_TIMELINE_FRESHNESS_DIR
+        return self._load_parquet(LAKE_LOCAL_TIMELINE_FRESHNESS_DIR / "stale_artifact_timeline_report.parquet")
+
+    def save_event_gap_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_GAPS_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_TIMELINE_GAPS_DIR, "event_gap_report")
+
+    def load_event_gap_report(self) -> pd.DataFrame:
+        from config.paths import LAKE_LOCAL_TIMELINE_GAPS_DIR
+        return self._load_parquet(LAKE_LOCAL_TIMELINE_GAPS_DIR / "event_gap_report.parquet")
+
+    def save_phase_event_digest(self, text: str, summary: dict | None = None) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_DIGESTS_DIR
+        p = LAKE_LOCAL_TIMELINE_DIGESTS_DIR / "phase_event_digest.txt"
+        LAKE_LOCAL_TIMELINE_DIGESTS_DIR.mkdir(parents=True, exist_ok=True)
+        with open(p, "w") as f:
+            f.write(text)
+        return p
+
+    def load_phase_event_digest(self) -> str:
+        from config.paths import LAKE_LOCAL_TIMELINE_DIGESTS_DIR
+        p = LAKE_LOCAL_TIMELINE_DIGESTS_DIR / "phase_event_digest.txt"
+        if p.exists():
+            with open(p, "r") as f:
+                return f.read()
+        return ""
+
+    def save_change_history_digest(self, text: str, summary: dict | None = None) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_DIGESTS_DIR
+        p = LAKE_LOCAL_TIMELINE_DIGESTS_DIR / "change_history_digest.txt"
+        LAKE_LOCAL_TIMELINE_DIGESTS_DIR.mkdir(parents=True, exist_ok=True)
+        with open(p, "w") as f:
+            f.write(text)
+        return p
+
+    def load_change_history_digest(self) -> str:
+        from config.paths import LAKE_LOCAL_TIMELINE_DIGESTS_DIR
+        p = LAKE_LOCAL_TIMELINE_DIGESTS_DIR / "change_history_digest.txt"
+        if p.exists():
+            with open(p, "r") as f:
+                return f.read()
+        return ""
+
+    def save_timeline_query_results(self, query_name: str, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_QUERIES_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_TIMELINE_QUERIES_DIR, f"query_result_{query_name}")
+
+    def load_timeline_query_results(self, query_name: str) -> pd.DataFrame:
+        from config.paths import LAKE_LOCAL_TIMELINE_QUERIES_DIR
+        return self._load_parquet(LAKE_LOCAL_TIMELINE_QUERIES_DIR / f"query_result_{query_name}.parquet")
+
+    def save_timeline_export_manifest(self, manifest: dict) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_EXPORTS_DIR
+        import json
+        p = LAKE_LOCAL_TIMELINE_EXPORTS_DIR / "export_manifest.json"
+        LAKE_LOCAL_TIMELINE_EXPORTS_DIR.mkdir(parents=True, exist_ok=True)
+        with open(p, "w") as f:
+            json.dump(manifest, f)
+        return p
+
+    def load_timeline_export_manifest(self) -> dict:
+        from config.paths import LAKE_LOCAL_TIMELINE_EXPORTS_DIR
+        import json
+        p = LAKE_LOCAL_TIMELINE_EXPORTS_DIR / "export_manifest.json"
+        if p.exists():
+            with open(p, "r") as f:
+                return json.load(f)
+        return {}
+
+    def save_timeline_validation_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_VALIDATION_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_TIMELINE_VALIDATION_DIR, "timeline_validation_report")
+
+    def load_timeline_validation_report(self) -> pd.DataFrame:
+        from config.paths import LAKE_LOCAL_TIMELINE_VALIDATION_DIR
+        return self._load_parquet(LAKE_LOCAL_TIMELINE_VALIDATION_DIR / "timeline_validation_report.parquet")
+
+    def save_timeline_quality(self, profile_name: str, quality: dict) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_QUALITY_DIR
+        import json
+        p = LAKE_LOCAL_TIMELINE_QUALITY_DIR / f"timeline_quality_{profile_name}.json"
+        LAKE_LOCAL_TIMELINE_QUALITY_DIR.mkdir(parents=True, exist_ok=True)
+        with open(p, "w") as f:
+            json.dump(quality, f)
+        return p
+
+    def load_timeline_quality(self, profile_name: str) -> dict:
+        from config.paths import LAKE_LOCAL_TIMELINE_QUALITY_DIR
+        import json
+        p = LAKE_LOCAL_TIMELINE_QUALITY_DIR / f"timeline_quality_{profile_name}.json"
+        if p.exists():
+            with open(p, "r") as f:
+                return json.load(f)
+        return {}
+
+    def save_local_timeline_report(self, profile_name: str, report: dict, markdown: str | None = None) -> Path:
+        from config.paths import LAKE_LOCAL_TIMELINE_DIR
+        import json
+        p = LAKE_LOCAL_TIMELINE_DIR / f"timeline_report_{profile_name}.json"
+        with open(p, "w") as f:
+            json.dump(report, f)
+        return p
+
+    def load_local_timeline_report(self, profile_name: str) -> dict:
+        from config.paths import LAKE_LOCAL_TIMELINE_DIR
+        import json
+        p = LAKE_LOCAL_TIMELINE_DIR / f"timeline_report_{profile_name}.json"
+        if p.exists():
+            with open(p, "r") as f:
+                return json.load(f)
+        return {}
+
+    def list_local_timeline_reports(self) -> pd.DataFrame:
+        return pd.DataFrame()
+
     # Phase 66: Local Knowledge Graph
     def save_graph_node_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
         return self._save_parquet_and_csv(df, LAKE_LOCAL_KNOWLEDGE_GRAPH_NODES_DIR, "graph_node_registry")
