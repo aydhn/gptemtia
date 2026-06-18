@@ -45,7 +45,7 @@ def parse_args():
 
 def main():
     args = parse_args()
-    lake = DataLake()
+    lake = DataLake(PROJECT_ROOT / "data")
     fb = FeatureBuilder()
     pipeline = IndicatorPipeline(lake, fb, settings)
     specs = []

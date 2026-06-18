@@ -41,7 +41,7 @@ def main():
         logger.error(f"Symbol {args.symbol} not found in configuration.")
         return
 
-    lake = DataLake()
+    lake = DataLake(PROJECT_ROOT / "data")
     store = FeatureStore(lake)
 
     features = None

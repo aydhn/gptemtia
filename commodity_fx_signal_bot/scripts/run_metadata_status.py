@@ -28,7 +28,7 @@ def main():
     class MockDataLake:
          pass
 
-    pipeline = ArtifactMetadataPipeline(MockDataLake(), settings, PROJECT_ROOT, profile)
+    pipeline = ArtifactMetadataPipeline(MockDataLake(PROJECT_ROOT / "data"), settings, PROJECT_ROOT, profile)
 
     print(f"Running metadata status with profile: {profile.name}")
     status_df, summary = pipeline.build_metadata_status(save=False)

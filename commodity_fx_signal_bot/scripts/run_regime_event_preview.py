@@ -47,7 +47,7 @@ def main():
         logger.error(str(e))
         return
 
-    lake = DataLake()
+    lake = DataLake(PROJECT_ROOT / "data")
 
     regime_df = None
     if args.use_saved_features and lake.has_features(spec, args.timeframe, "regime"):

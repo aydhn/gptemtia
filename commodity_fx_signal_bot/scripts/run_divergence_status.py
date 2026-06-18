@@ -19,7 +19,7 @@ def main():
     logging.basicConfig(level=logging.INFO)
     ensure_project_directories()
 
-    lake = DataLake()
+    lake = DataLake(PROJECT_ROOT / "data")
 
     logger.info("Starting Divergence Status Check...")
 

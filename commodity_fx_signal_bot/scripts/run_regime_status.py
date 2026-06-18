@@ -30,7 +30,7 @@ def main():
     )
     args = parse_args()
 
-    lake = DataLake()
+    lake = DataLake(PROJECT_ROOT / "data")
 
     tradeable_specs = [
         s for s in DEFAULT_SYMBOL_UNIVERSE if not s.is_synthetic() and not s.is_macro()

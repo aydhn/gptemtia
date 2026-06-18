@@ -1121,3 +1121,25 @@ python -m scripts.run_system_coherence_report
 python -m scripts.run_consistency_quality_report
 python -m scripts.run_consistency_status
 ```
+
+## Local Non-Production Readiness and Handoff
+
+Bu projede production release veya canli deployment onayi yoktur.
+- Local readiness gate production release onayi degildir.
+- Safe-go canli trading izni degildir.
+- No-go condition manual review gerektirir.
+- Operator checklist komutlari calistirmaz; guvenli ilk-run plani sunar.
+- Handoff manifest cloud upload/package publish yapmaz.
+- Readiness score resmi sign-off degildir.
+- Raw secret/private data outputta yer almaz.
+
+Local readiness ciktilari data/lake/local_readiness ve reports/output/local_readiness altinda olusur.
+
+Calistirilabilecek komutlar:
+python -m scripts.run_readiness_gate_registry
+python -m scripts.run_final_operator_checklist
+python -m scripts.run_readiness_reports
+python -m scripts.run_handoff_package_manifest
+python -m scripts.run_final_local_readiness_binder
+python -m scripts.run_readiness_quality_report
+python -m scripts.run_readiness_status

@@ -2026,6 +2026,68 @@ class Settings:
     local_consistency_min_coherence_score: float = 0.40
     local_consistency_save_reports: bool = True
     local_consistency_min_quality_score: float = 0.40
+    # Phase 69: Local Readiness Settings
+
+    local_readiness_enabled: bool = True
+
+    default_local_readiness_profile: str = "balanced_local_readiness"
+
+    local_readiness_default_language: str = "tr"
+
+    local_readiness_dry_run_default: bool = True
+
+    local_readiness_allow_production_release_claim: bool = False
+
+    local_readiness_allow_deployment_claim: bool = False
+
+    local_readiness_allow_auto_fix: bool = False
+
+    local_readiness_allow_file_modification: bool = False
+
+    local_readiness_allow_file_deletion: bool = False
+
+    local_readiness_allow_overwrite: bool = False
+
+    local_readiness_allow_cloud_upload: bool = False
+
+    local_readiness_allow_external_service: bool = False
+
+    local_readiness_allow_external_llm: bool = False
+
+    local_readiness_allow_live_commands: bool = False
+
+    local_readiness_allow_broker_commands: bool = False
+
+    local_readiness_allow_deploy_commands: bool = False
+
+    local_readiness_allow_background_daemons: bool = False
+
+    local_readiness_allow_real_market_download: bool = False
+
+    local_readiness_scan_docs: bool = True
+
+    local_readiness_scan_tests: bool = True
+
+    local_readiness_scan_scripts: bool = True
+
+    local_readiness_scan_reports: bool = True
+
+    local_readiness_scan_data_lake: bool = True
+
+    local_readiness_scan_security_layers: bool = True
+
+    local_readiness_scan_consistency_layers: bool = True
+
+    local_readiness_scan_metadata_layers: bool = True
+
+    local_readiness_max_checks: int = 300000
+
+    local_readiness_min_readiness_score: float = 0.40
+
+    local_readiness_min_quality_score: float = 0.40
+
+    local_readiness_save_reports: bool = True
+
 
     def __post_init__(self):
 

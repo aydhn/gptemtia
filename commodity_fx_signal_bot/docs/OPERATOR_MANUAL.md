@@ -144,3 +144,11 @@ Model card okuma rehberi, dataset card kullanim amaci, non-use policy onemi. Can
 - **Stale reconciliation plan**: Auto-fix değildir. Zamanı geçmiş artifactlar için manuel düzeltme tavsiyeleri verir.
 - **System coherence score**: Production readiness veya canlı sistem onayı değildir. Offline projenin uyumunu yansıtır.
 ÖNEMLİ: Canlı emir, broker execution, otomatik düzeltme, cloud upload ve yatırım tavsiyesi yeteneği YOKTUR.
+
+## Local Readiness
+
+- Readiness gate production release onayi degildir.
+- Safe-go/no-go manuel inceleme amaclidir, canli sinyal uretmez.
+- Final operator checklist sadece local dry-run plani sunar.
+- Handoff manifest resmi compliance sign-off degildir.
+- Kesinlikle canli emir, broker execution, deployment, package publish ve yatirim tavsiyesi icermez.

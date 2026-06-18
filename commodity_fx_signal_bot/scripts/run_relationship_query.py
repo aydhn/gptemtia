@@ -20,7 +20,7 @@ def main():
     parser.add_argument("--save", type=bool, default=True)
     args = parser.parse_args()
 
-    data_lake = DataLake()
+    data_lake = DataLake(PROJECT_ROOT / "data")
     profile = get_local_knowledge_graph_profile(args.profile)
     pipeline = LocalKnowledgeGraphPipeline(data_lake, settings, project_root, profile)
 

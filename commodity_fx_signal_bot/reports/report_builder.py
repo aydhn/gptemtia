@@ -4512,3 +4512,65 @@ def build_timeline_status_report(status_df: pd.DataFrame, summary: dict) -> str:
 
     def build_consistency_status_report(self, status_df: pd.DataFrame, summary: dict) -> str:
         return "Bu çıktı offline/local consistency ve system coherence raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik düzeltme, otomatik trade onayı veya yatırım tavsiyesi değildir.\n"
+
+# Phase 69: Local Readiness
+def build_readiness_gate_registry_text_report(summary: dict, gate_df: pd.DataFrame | None = None) -> str:
+    from local_readiness.readiness_report_builder import build_readiness_disclaimer
+    txt = build_readiness_disclaimer()
+    txt += "Readiness Gate Registry Report\n\n"
+    txt += f"Total Gates: {summary.get('total_gates', 0)}\n"
+    txt += f"Passed: {summary.get('passed_gates', 0)}\n"
+    txt += f"Failed: {summary.get('failed_gates', 0)}\n\n"
+    if gate_df is not None and not gate_df.empty:
+        txt += gate_df.to_string() + "\n"
+    return txt
+
+def build_final_operator_checklist_text_report(summary: dict, checklist_df: pd.DataFrame | None = None) -> str:
+    from local_readiness.readiness_report_builder import build_readiness_disclaimer
+    txt = build_readiness_disclaimer()
+    txt += "Final Operator Checklist Report\n\n"
+    if checklist_df is not None and not checklist_df.empty:
+        txt += checklist_df.to_string() + "\n"
+    return txt
+
+def build_readiness_reports_text_report(summary: dict, readiness_df: pd.DataFrame | None = None) -> str:
+    from local_readiness.readiness_report_builder import build_readiness_disclaimer
+    txt = build_readiness_disclaimer()
+    txt += "Readiness Reports Summary\n\n"
+    if readiness_df is not None and not readiness_df.empty:
+        txt += readiness_df.to_string() + "\n"
+    return txt
+
+def build_handoff_package_manifest_text_report(summary: dict, manifest: dict | None = None) -> str:
+    from local_readiness.readiness_report_builder import build_readiness_disclaimer
+    import json
+    txt = build_readiness_disclaimer()
+    txt += "Handoff Package Manifest Report\n\n"
+    if manifest:
+        txt += json.dumps(manifest, indent=2) + "\n"
+    return txt
+
+def build_final_local_readiness_binder_text_report(summary: dict, binder_text: str | None = None) -> str:
+    from local_readiness.readiness_report_builder import build_readiness_disclaimer
+    txt = build_readiness_disclaimer()
+    txt += "Final Local Readiness Binder Report\n\n"
+    if binder_text:
+        txt += binder_text + "\n"
+    return txt
+
+def build_readiness_quality_text_report(summary: dict, quality: dict | None = None) -> str:
+    from local_readiness.readiness_report_builder import build_readiness_disclaimer
+    import json
+    txt = build_readiness_disclaimer()
+    txt += "Readiness Quality Report\n\n"
+    if quality:
+        txt += json.dumps(quality, indent=2) + "\n"
+    return txt
+
+def build_readiness_status_report(status_df: pd.DataFrame, summary: dict) -> str:
+    from local_readiness.readiness_report_builder import build_readiness_disclaimer
+    txt = build_readiness_disclaimer()
+    txt += "Readiness Status Report\n\n"
+    if status_df is not None and not status_df.empty:
+        txt += status_df.to_string() + "\n"
+    return txt

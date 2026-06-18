@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 def main():
     logger.info("Checking Factor Research Status...")
-    dl = DataLake()
+    dl = DataLake(PROJECT_ROOT / "data")
 
     try:
          df = dl.list_factor_research_reports()
