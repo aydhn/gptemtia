@@ -92,3 +92,12 @@ Model card okuma rehberi, dataset card kullanim amaci, non-use policy onemi. Can
 - **Graph Centrality**: Purely structural metric. Does not denote investment opportunity or trading significance.
 - **Graph Gap/Orphan/Stale Report**: Useful for internal consistency audits. Not an indicator of live market risks.
 - **Notice**: No live trading, broker execution, external vector DB, cloud upload, or investment advice is provided by the Knowledge Graph tools.
+
+### Local Consistency Engine Guide
+- **Consistency check registry**: Tüm config, docs, reports, metadata, timeline vb. arasındaki kuralları listeler.
+- **Cross-layer consistency matrix**: Farklı proje katmanları arasındaki uyumun snapshot'ını verir.
+- **Contradiction detection**: Metinlerde "canlı emir yok" ile "canlı trade" gibi çelişen ifadeleri tespit eder.
+- **Missing/broken reference report**: Bozuk yolları ve bulunamayan referansları raporlar.
+- **Stale reconciliation plan**: Auto-fix değildir. Zamanı geçmiş artifactlar için manuel düzeltme tavsiyeleri verir.
+- **System coherence score**: Production readiness veya canlı sistem onayı değildir. Offline projenin uyumunu yansıtır.
+ÖNEMLİ: Canlı emir, broker execution, otomatik düzeltme, cloud upload ve yatırım tavsiyesi yeteneği YOKTUR.

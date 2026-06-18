@@ -1,0 +1,9 @@
+import pytest
+from pathlib import Path
+from local_consistency.consistency_config import get_default_local_consistency_profile
+from local_consistency.docs_phase_log_consistency import build_docs_phase_log_consistency_report
+
+def test_build_docs_phase_log_consistency_report():
+    profile = get_default_local_consistency_profile()
+    df, summary = build_docs_phase_log_consistency_report(Path("."), profile)
+    assert df is not None
