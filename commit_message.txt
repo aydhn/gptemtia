@@ -1,15 +1,13 @@
-feat: Implement Local Artifact Metadata and Card Registries (Phase 65)
+feat: Implement Local Consistency Engine and System Coherence (Phase 68)
 
-This commit introduces the Local Artifact Metadata and Card Registry layer,
-focusing solely on offline local research documentation and governance.
+This commit introduces the offline Local Consistency Engine and System Coherence reporting infrastructure.
 
-- Created ArtifactMetadataProfile and Metadata labels.
-- Implemented automated local inventorying of existing research artifacts.
-- Created Model Cards, Dataset Cards, Experiment Cards, Reproducibility Cards,
-  Backtest Cards, Scenario Cards, Regression Cards, Feature Set Cards,
-  Synthetic Data Cards, Research Report Cards, Lineage Cards, Limitation Cards,
-  Intended Use Cards, and Non-Use Policy Cards.
-- Created robust metadata validation, freshness, completeness scoring, and quality reports.
-- Extended the DataLake class to persist all these metadata registries.
-- Added strict safe non-use policies denying any investment advice, deployment, or live trading.
-- Completed all test coverage passing >2000 unit tests.
+- Added settings and profiles for local consistency checking.
+- Created robust check registries and consistency finding models.
+- Implemented diverse consistency checkers (config-to-env, settings-docs, paths-datalake, script-report, report-datalake, docs-phase-log, evidence-control, metadata-artifact, graph-metadata, timeline-artifact, backup-packaging-secrets).
+- Added non-use policy, disclaimer, and safety boundary consistency modules.
+- Implemented Contradiction Detection, Reference Checkers, and Stale Reconciliation Planners.
+- Added cross-layer Coherence Scoring.
+- Added Data Lake persistence and Feature Store wrappers for all outputs.
+- Developed all validation, quality, and pipeline logic, complete with test coverage.
+- Strictly prohibited auto-fix, live order, broker interactions, and model deployment terminology.

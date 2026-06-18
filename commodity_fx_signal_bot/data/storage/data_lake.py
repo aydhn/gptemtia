@@ -5954,3 +5954,343 @@ class DataLake:
             except Exception:
                 pass
         return pd.DataFrame(data)
+
+    # --- Local Consistency Engine Methods ---
+    def save_consistency_check_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        self.paths.local_consistency_check_registry_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_check_registry_dir / "consistency_check_registry.parquet"
+        df.to_parquet(path, index=False)
+        return path
+
+    def load_consistency_check_registry(self) -> pd.DataFrame:
+        path = self.paths.local_consistency_check_registry_dir / "consistency_check_registry.parquet"
+        if not path.exists():
+            return pd.DataFrame()
+        return pd.read_parquet(path)
+
+    def save_cross_layer_consistency_matrix(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        self.paths.local_consistency_matrix_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_matrix_dir / "cross_layer_consistency_matrix.parquet"
+        df.to_parquet(path, index=False)
+        return path
+
+    def load_cross_layer_consistency_matrix(self) -> pd.DataFrame:
+        path = self.paths.local_consistency_matrix_dir / "cross_layer_consistency_matrix.parquet"
+        if not path.exists():
+            return pd.DataFrame()
+        return pd.read_parquet(path)
+
+    def save_config_env_consistency_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        self.paths.local_consistency_config_env_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_config_env_dir / "config_env_consistency_report.parquet"
+        df.to_parquet(path, index=False)
+        return path
+
+    def load_config_env_consistency_report(self) -> pd.DataFrame:
+        path = self.paths.local_consistency_config_env_dir / "config_env_consistency_report.parquet"
+        if not path.exists():
+            return pd.DataFrame()
+        return pd.read_parquet(path)
+
+    def save_settings_docs_consistency_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        self.paths.local_consistency_settings_docs_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_settings_docs_dir / "settings_docs_consistency_report.parquet"
+        df.to_parquet(path, index=False)
+        return path
+
+    def load_settings_docs_consistency_report(self) -> pd.DataFrame:
+        path = self.paths.local_consistency_settings_docs_dir / "settings_docs_consistency_report.parquet"
+        if not path.exists():
+            return pd.DataFrame()
+        return pd.read_parquet(path)
+
+    def save_paths_datalake_consistency_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        self.paths.local_consistency_paths_datalake_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_paths_datalake_dir / "paths_datalake_consistency_report.parquet"
+        df.to_parquet(path, index=False)
+        return path
+
+    def load_paths_datalake_consistency_report(self) -> pd.DataFrame:
+        path = self.paths.local_consistency_paths_datalake_dir / "paths_datalake_consistency_report.parquet"
+        if not path.exists():
+            return pd.DataFrame()
+        return pd.read_parquet(path)
+
+    def save_script_report_consistency_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        self.paths.local_consistency_script_report_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_script_report_dir / "script_report_consistency_report.parquet"
+        df.to_parquet(path, index=False)
+        return path
+
+    def load_script_report_consistency_report(self) -> pd.DataFrame:
+        path = self.paths.local_consistency_script_report_dir / "script_report_consistency_report.parquet"
+        if not path.exists():
+            return pd.DataFrame()
+        return pd.read_parquet(path)
+
+    def save_report_datalake_consistency_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        self.paths.local_consistency_report_datalake_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_report_datalake_dir / "report_datalake_consistency_report.parquet"
+        df.to_parquet(path, index=False)
+        return path
+
+    def load_report_datalake_consistency_report(self) -> pd.DataFrame:
+        path = self.paths.local_consistency_report_datalake_dir / "report_datalake_consistency_report.parquet"
+        if not path.exists():
+            return pd.DataFrame()
+        return pd.read_parquet(path)
+
+    def save_docs_phase_log_consistency_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        self.paths.local_consistency_docs_phase_log_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_docs_phase_log_dir / "docs_phase_log_consistency_report.parquet"
+        df.to_parquet(path, index=False)
+        return path
+
+    def load_docs_phase_log_consistency_report(self) -> pd.DataFrame:
+        path = self.paths.local_consistency_docs_phase_log_dir / "docs_phase_log_consistency_report.parquet"
+        if not path.exists():
+            return pd.DataFrame()
+        return pd.read_parquet(path)
+
+    def save_evidence_control_consistency_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        self.paths.local_consistency_evidence_control_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_evidence_control_dir / "evidence_control_consistency_report.parquet"
+        df.to_parquet(path, index=False)
+        return path
+
+    def load_evidence_control_consistency_report(self) -> pd.DataFrame:
+        path = self.paths.local_consistency_evidence_control_dir / "evidence_control_consistency_report.parquet"
+        if not path.exists():
+            return pd.DataFrame()
+        return pd.read_parquet(path)
+
+    def save_metadata_artifact_consistency_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        self.paths.local_consistency_metadata_artifact_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_metadata_artifact_dir / "metadata_artifact_consistency_report.parquet"
+        df.to_parquet(path, index=False)
+        return path
+
+    def load_metadata_artifact_consistency_report(self) -> pd.DataFrame:
+        path = self.paths.local_consistency_metadata_artifact_dir / "metadata_artifact_consistency_report.parquet"
+        if not path.exists():
+            return pd.DataFrame()
+        return pd.read_parquet(path)
+
+    def save_graph_metadata_consistency_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        self.paths.local_consistency_graph_metadata_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_graph_metadata_dir / "graph_metadata_consistency_report.parquet"
+        df.to_parquet(path, index=False)
+        return path
+
+    def load_graph_metadata_consistency_report(self) -> pd.DataFrame:
+        path = self.paths.local_consistency_graph_metadata_dir / "graph_metadata_consistency_report.parquet"
+        if not path.exists():
+            return pd.DataFrame()
+        return pd.read_parquet(path)
+
+    def save_timeline_artifact_consistency_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        self.paths.local_consistency_timeline_artifact_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_timeline_artifact_dir / "timeline_artifact_consistency_report.parquet"
+        df.to_parquet(path, index=False)
+        return path
+
+    def load_timeline_artifact_consistency_report(self) -> pd.DataFrame:
+        path = self.paths.local_consistency_timeline_artifact_dir / "timeline_artifact_consistency_report.parquet"
+        if not path.exists():
+            return pd.DataFrame()
+        return pd.read_parquet(path)
+
+    def save_backup_packaging_secrets_consistency_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        self.paths.local_consistency_backup_packaging_secrets_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_backup_packaging_secrets_dir / "backup_packaging_secrets_consistency_report.parquet"
+        df.to_parquet(path, index=False)
+        return path
+
+    def load_backup_packaging_secrets_consistency_report(self) -> pd.DataFrame:
+        path = self.paths.local_consistency_backup_packaging_secrets_dir / "backup_packaging_secrets_consistency_report.parquet"
+        if not path.exists():
+            return pd.DataFrame()
+        return pd.read_parquet(path)
+
+    def save_non_use_policy_consistency_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        self.paths.local_consistency_non_use_policy_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_non_use_policy_dir / "non_use_policy_consistency_report.parquet"
+        df.to_parquet(path, index=False)
+        return path
+
+    def load_non_use_policy_consistency_report(self) -> pd.DataFrame:
+        path = self.paths.local_consistency_non_use_policy_dir / "non_use_policy_consistency_report.parquet"
+        if not path.exists():
+            return pd.DataFrame()
+        return pd.read_parquet(path)
+
+    def save_disclaimer_consistency_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        self.paths.local_consistency_disclaimers_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_disclaimers_dir / "disclaimer_consistency_report.parquet"
+        df.to_parquet(path, index=False)
+        return path
+
+    def load_disclaimer_consistency_report(self) -> pd.DataFrame:
+        path = self.paths.local_consistency_disclaimers_dir / "disclaimer_consistency_report.parquet"
+        if not path.exists():
+            return pd.DataFrame()
+        return pd.read_parquet(path)
+
+    def save_safety_boundary_consistency_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        self.paths.local_consistency_safety_boundaries_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_safety_boundaries_dir / "safety_boundary_consistency_report.parquet"
+        df.to_parquet(path, index=False)
+        return path
+
+    def load_safety_boundary_consistency_report(self) -> pd.DataFrame:
+        path = self.paths.local_consistency_safety_boundaries_dir / "safety_boundary_consistency_report.parquet"
+        if not path.exists():
+            return pd.DataFrame()
+        return pd.read_parquet(path)
+
+    def save_contradiction_detection_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        self.paths.local_consistency_contradictions_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_contradictions_dir / "contradiction_detection_report.parquet"
+        df.to_parquet(path, index=False)
+        return path
+
+    def load_contradiction_detection_report(self) -> pd.DataFrame:
+        path = self.paths.local_consistency_contradictions_dir / "contradiction_detection_report.parquet"
+        if not path.exists():
+            return pd.DataFrame()
+        return pd.read_parquet(path)
+
+    def save_missing_reference_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        self.paths.local_consistency_references_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_references_dir / "missing_reference_report.parquet"
+        df.to_parquet(path, index=False)
+        return path
+
+    def load_missing_reference_report(self) -> pd.DataFrame:
+        path = self.paths.local_consistency_references_dir / "missing_reference_report.parquet"
+        if not path.exists():
+            return pd.DataFrame()
+        return pd.read_parquet(path)
+
+    def save_broken_reference_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        self.paths.local_consistency_references_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_references_dir / "broken_reference_report.parquet"
+        df.to_parquet(path, index=False)
+        return path
+
+    def load_broken_reference_report(self) -> pd.DataFrame:
+        path = self.paths.local_consistency_references_dir / "broken_reference_report.parquet"
+        if not path.exists():
+            return pd.DataFrame()
+        return pd.read_parquet(path)
+
+    def save_stale_artifact_reconciliation_plan(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        self.paths.local_consistency_reconciliation_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_reconciliation_dir / "stale_artifact_reconciliation_plan.parquet"
+        df.to_parquet(path, index=False)
+        return path
+
+    def load_stale_artifact_reconciliation_plan(self) -> pd.DataFrame:
+        path = self.paths.local_consistency_reconciliation_dir / "stale_artifact_reconciliation_plan.parquet"
+        if not path.exists():
+            return pd.DataFrame()
+        return pd.read_parquet(path)
+
+    def save_consistency_gap_register(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        self.paths.local_consistency_reconciliation_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_reconciliation_dir / "consistency_gap_register.parquet"
+        df.to_parquet(path, index=False)
+        return path
+
+    def load_consistency_gap_register(self) -> pd.DataFrame:
+        path = self.paths.local_consistency_reconciliation_dir / "consistency_gap_register.parquet"
+        if not path.exists():
+            return pd.DataFrame()
+        return pd.read_parquet(path)
+
+    def save_cross_layer_coherence_score_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        self.paths.local_consistency_coherence_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_coherence_dir / "cross_layer_coherence_score_report.parquet"
+        df.to_parquet(path, index=False)
+        return path
+
+    def load_cross_layer_coherence_score_report(self) -> pd.DataFrame:
+        path = self.paths.local_consistency_coherence_dir / "cross_layer_coherence_score_report.parquet"
+        if not path.exists():
+            return pd.DataFrame()
+        return pd.read_parquet(path)
+
+    def save_system_coherence_report(self, report: dict, markdown: str | None = None) -> Path:
+        import json
+        self.paths.local_consistency_coherence_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_coherence_dir / "system_coherence_report.json"
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(report, f, indent=4)
+        return path
+
+    def load_system_coherence_report(self) -> dict:
+        import json
+        path = self.paths.local_consistency_coherence_dir / "system_coherence_report.json"
+        if not path.exists():
+            return {}
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+
+    def save_reconciliation_recommendations(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        self.paths.local_consistency_recommendations_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_recommendations_dir / "reconciliation_recommendations.parquet"
+        df.to_parquet(path, index=False)
+        return path
+
+    def load_reconciliation_recommendations(self) -> pd.DataFrame:
+        path = self.paths.local_consistency_recommendations_dir / "reconciliation_recommendations.parquet"
+        if not path.exists():
+            return pd.DataFrame()
+        return pd.read_parquet(path)
+
+    def save_consistency_validation_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        self.paths.local_consistency_validation_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_validation_dir / "consistency_validation_report.parquet"
+        df.to_parquet(path, index=False)
+        return path
+
+    def load_consistency_validation_report(self) -> pd.DataFrame:
+        path = self.paths.local_consistency_validation_dir / "consistency_validation_report.parquet"
+        if not path.exists():
+            return pd.DataFrame()
+        return pd.read_parquet(path)
+
+    def save_consistency_quality(self, profile_name: str, quality: dict) -> Path:
+        import json
+        self.paths.local_consistency_quality_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_quality_dir / f"consistency_quality_{profile_name}.json"
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(quality, f, indent=4)
+        return path
+
+    def load_consistency_quality(self, profile_name: str) -> dict:
+        import json
+        path = self.paths.local_consistency_quality_dir / f"consistency_quality_{profile_name}.json"
+        if not path.exists():
+            return {}
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+
+    def save_local_consistency_report(self, profile_name: str, report: dict, markdown: str | None = None) -> Path:
+        import json
+        self.paths.local_consistency_lake_dir.mkdir(parents=True, exist_ok=True)
+        path = self.paths.local_consistency_lake_dir / f"local_consistency_report_{profile_name}.json"
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(report, f, indent=4)
+        return path
+
+    def load_local_consistency_report(self, profile_name: str) -> dict:
+        import json
+        path = self.paths.local_consistency_lake_dir / f"local_consistency_report_{profile_name}.json"
+        if not path.exists():
+            return {}
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+
+    def list_local_consistency_reports(self) -> pd.DataFrame:
+        return pd.DataFrame()

@@ -1994,6 +1994,39 @@ class Settings:
     local_timeline_save_reports: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_SAVE_REPORTS", "true")).lower() == "true")
     local_timeline_min_quality_score: float = field(default_factory=lambda: float(os.getenv("LOCAL_TIMELINE_MIN_QUALITY_SCORE", "0.40")))
 
+    # Local Consistency Settings
+    local_consistency_enabled: bool = True
+    default_local_consistency_profile: str = "balanced_local_consistency"
+    local_consistency_default_language: str = "tr"
+    local_consistency_dry_run_default: bool = True
+    local_consistency_allow_auto_fix: bool = False
+    local_consistency_allow_file_modification: bool = False
+    local_consistency_allow_file_deletion: bool = False
+    local_consistency_allow_overwrite: bool = False
+    local_consistency_allow_cloud_upload: bool = False
+    local_consistency_allow_external_service: bool = False
+    local_consistency_allow_external_llm: bool = False
+    local_consistency_allow_live_commands: bool = False
+    local_consistency_allow_broker_commands: bool = False
+    local_consistency_allow_deploy_commands: bool = False
+    local_consistency_allow_background_daemons: bool = False
+    local_consistency_allow_real_market_download: bool = False
+    local_consistency_scan_config: bool = True
+    local_consistency_scan_docs: bool = True
+    local_consistency_scan_reports: bool = True
+    local_consistency_scan_data_lake: bool = True
+    local_consistency_scan_metadata: bool = True
+    local_consistency_scan_evidence: bool = True
+    local_consistency_scan_graph: bool = True
+    local_consistency_scan_timeline: bool = True
+    local_consistency_scan_security_layers: bool = True
+    local_consistency_max_checks: int = 250000
+    local_consistency_max_files: int = 200000
+    local_consistency_stale_days_warning: int = 90
+    local_consistency_min_coherence_score: float = 0.40
+    local_consistency_save_reports: bool = True
+    local_consistency_min_quality_score: float = 0.40
+
     def __post_init__(self):
 
 
@@ -3128,6 +3161,39 @@ class Settings:
     local_timeline_stale_days_warning: int = field(default_factory=lambda: int(os.getenv("LOCAL_TIMELINE_STALE_DAYS_WARNING", "90")))
     local_timeline_save_reports: bool = field(default_factory=lambda: str(os.getenv("LOCAL_TIMELINE_SAVE_REPORTS", "true")).lower() == "true")
     local_timeline_min_quality_score: float = field(default_factory=lambda: float(os.getenv("LOCAL_TIMELINE_MIN_QUALITY_SCORE", "0.40")))
+
+    # Local Consistency Settings
+    local_consistency_enabled: bool = True
+    default_local_consistency_profile: str = "balanced_local_consistency"
+    local_consistency_default_language: str = "tr"
+    local_consistency_dry_run_default: bool = True
+    local_consistency_allow_auto_fix: bool = False
+    local_consistency_allow_file_modification: bool = False
+    local_consistency_allow_file_deletion: bool = False
+    local_consistency_allow_overwrite: bool = False
+    local_consistency_allow_cloud_upload: bool = False
+    local_consistency_allow_external_service: bool = False
+    local_consistency_allow_external_llm: bool = False
+    local_consistency_allow_live_commands: bool = False
+    local_consistency_allow_broker_commands: bool = False
+    local_consistency_allow_deploy_commands: bool = False
+    local_consistency_allow_background_daemons: bool = False
+    local_consistency_allow_real_market_download: bool = False
+    local_consistency_scan_config: bool = True
+    local_consistency_scan_docs: bool = True
+    local_consistency_scan_reports: bool = True
+    local_consistency_scan_data_lake: bool = True
+    local_consistency_scan_metadata: bool = True
+    local_consistency_scan_evidence: bool = True
+    local_consistency_scan_graph: bool = True
+    local_consistency_scan_timeline: bool = True
+    local_consistency_scan_security_layers: bool = True
+    local_consistency_max_checks: int = 250000
+    local_consistency_max_files: int = 200000
+    local_consistency_stale_days_warning: int = 90
+    local_consistency_min_coherence_score: float = 0.40
+    local_consistency_save_reports: bool = True
+    local_consistency_min_quality_score: float = 0.40
 
     def __post_init__(self):
 

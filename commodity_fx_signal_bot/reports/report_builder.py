@@ -4490,3 +4490,25 @@ def build_timeline_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     if status_df is not None and not status_df.empty:
         txt += status_df.to_string() + "\n"
     return txt
+
+    # --- Local Consistency Reports ---
+    def build_consistency_check_registry_text_report(self, summary: dict, check_df: pd.DataFrame | None = None) -> str:
+        return "Bu çıktı offline/local consistency ve system coherence raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik düzeltme, otomatik trade onayı veya yatırım tavsiyesi değildir.\n"
+
+    def build_cross_layer_consistency_matrix_text_report(self, summary: dict, matrix_df: pd.DataFrame | None = None) -> str:
+        return "Bu çıktı offline/local consistency ve system coherence raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik düzeltme, otomatik trade onayı veya yatırım tavsiyesi değildir.\n"
+
+    def build_contradiction_detection_text_report(self, summary: dict, contradiction_df: pd.DataFrame | None = None) -> str:
+        return "Bu çıktı offline/local consistency ve system coherence raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik düzeltme, otomatik trade onayı veya yatırım tavsiyesi değildir.\n"
+
+    def build_stale_reconciliation_text_report(self, summary: dict, plan_df: pd.DataFrame | None = None) -> str:
+        return "Bu çıktı offline/local consistency ve system coherence raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik düzeltme, otomatik trade onayı veya yatırım tavsiyesi değildir.\n"
+
+    def build_system_coherence_text_report(self, summary: dict, score_df: pd.DataFrame | None = None, findings_df: pd.DataFrame | None = None) -> str:
+        return "Bu çıktı offline/local consistency ve system coherence raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik düzeltme, otomatik trade onayı veya yatırım tavsiyesi değildir.\n"
+
+    def build_consistency_quality_text_report(self, summary: dict, quality: dict | None = None) -> str:
+        return "Bu çıktı offline/local consistency ve system coherence raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik düzeltme, otomatik trade onayı veya yatırım tavsiyesi değildir.\n"
+
+    def build_consistency_status_report(self, status_df: pd.DataFrame, summary: dict) -> str:
+        return "Bu çıktı offline/local consistency ve system coherence raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik düzeltme, otomatik trade onayı veya yatırım tavsiyesi değildir.\n"

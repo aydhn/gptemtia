@@ -430,3 +430,30 @@ Project Files / Reports / DataLake / Docs / Metadata / Evidence / Graph / Qualit
 → TimelineValidation
 → TimelineQuality
 → Local Timeline Outputs
+
+### Local Consistency Engine Flow
+Config / Env Template / Paths / DataLake / Scripts / Reports / Docs / Evidence / Metadata / Graph / Timeline / Backup / Packaging / Secrets
+-> ConsistencyCheckRegistry
+-> CrossLayerConsistencyMatrix
+-> ConfigEnvConsistency
+-> SettingsDocsConsistency
+-> PathsDataLakeConsistency
+-> ScriptReportConsistency
+-> ReportDataLakeConsistency
+-> DocsPhaseLogConsistency
+-> EvidenceControlConsistency
+-> MetadataArtifactConsistency
+-> GraphMetadataConsistency
+-> TimelineArtifactConsistency
+-> BackupPackagingSecretsConsistency
+-> NonUsePolicyConsistency
+-> DisclaimerConsistency
+-> SafetyBoundaryConsistency
+-> ContradictionDetector
+-> ReferenceChecker
+-> StaleReconciliation
+-> CoherenceScoring
+-> ReconciliationRecommendations
+-> ConsistencyValidation
+-> ConsistencyQuality
+-> Local Consistency Outputs

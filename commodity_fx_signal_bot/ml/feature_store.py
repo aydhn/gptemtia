@@ -1581,3 +1581,88 @@ class FeatureStore:
         return {}
     def list_available_backup_recovery_reports(self) -> dict:
         return self.data_lake.list_backup_recovery_reports().to_dict('records')
+
+    # --- Local Consistency Methods ---
+    def load_consistency_check_registry(self) -> pd.DataFrame:
+        return self.data_lake.load_consistency_check_registry()
+
+    def load_cross_layer_consistency_matrix(self) -> pd.DataFrame:
+        return self.data_lake.load_cross_layer_consistency_matrix()
+
+    def load_config_env_consistency_report(self) -> pd.DataFrame:
+        return self.data_lake.load_config_env_consistency_report()
+
+    def load_settings_docs_consistency_report(self) -> pd.DataFrame:
+        return self.data_lake.load_settings_docs_consistency_report()
+
+    def load_paths_datalake_consistency_report(self) -> pd.DataFrame:
+        return self.data_lake.load_paths_datalake_consistency_report()
+
+    def load_script_report_consistency_report(self) -> pd.DataFrame:
+        return self.data_lake.load_script_report_consistency_report()
+
+    def load_report_datalake_consistency_report(self) -> pd.DataFrame:
+        return self.data_lake.load_report_datalake_consistency_report()
+
+    def load_docs_phase_log_consistency_report(self) -> pd.DataFrame:
+        return self.data_lake.load_docs_phase_log_consistency_report()
+
+    def load_evidence_control_consistency_report(self) -> pd.DataFrame:
+        return self.data_lake.load_evidence_control_consistency_report()
+
+    def load_metadata_artifact_consistency_report(self) -> pd.DataFrame:
+        return self.data_lake.load_metadata_artifact_consistency_report()
+
+    def load_graph_metadata_consistency_report(self) -> pd.DataFrame:
+        return self.data_lake.load_graph_metadata_consistency_report()
+
+    def load_timeline_artifact_consistency_report(self) -> pd.DataFrame:
+        return self.data_lake.load_timeline_artifact_consistency_report()
+
+    def load_backup_packaging_secrets_consistency_report(self) -> pd.DataFrame:
+        return self.data_lake.load_backup_packaging_secrets_consistency_report()
+
+    def load_non_use_policy_consistency_report(self) -> pd.DataFrame:
+        return self.data_lake.load_non_use_policy_consistency_report()
+
+    def load_disclaimer_consistency_report(self) -> pd.DataFrame:
+        return self.data_lake.load_disclaimer_consistency_report()
+
+    def load_safety_boundary_consistency_report(self) -> pd.DataFrame:
+        return self.data_lake.load_safety_boundary_consistency_report()
+
+    def load_contradiction_detection_report(self) -> pd.DataFrame:
+        return self.data_lake.load_contradiction_detection_report()
+
+    def load_missing_reference_report(self) -> pd.DataFrame:
+        return self.data_lake.load_missing_reference_report()
+
+    def load_broken_reference_report(self) -> pd.DataFrame:
+        return self.data_lake.load_broken_reference_report()
+
+    def load_stale_artifact_reconciliation_plan(self) -> pd.DataFrame:
+        return self.data_lake.load_stale_artifact_reconciliation_plan()
+
+    def load_consistency_gap_register(self) -> pd.DataFrame:
+        return self.data_lake.load_consistency_gap_register()
+
+    def load_cross_layer_coherence_score_report(self) -> pd.DataFrame:
+        return self.data_lake.load_cross_layer_coherence_score_report()
+
+    def load_system_coherence_report(self) -> dict:
+        return self.data_lake.load_system_coherence_report()
+
+    def load_reconciliation_recommendations(self) -> pd.DataFrame:
+        return self.data_lake.load_reconciliation_recommendations()
+
+    def load_consistency_validation_report(self) -> pd.DataFrame:
+        return self.data_lake.load_consistency_validation_report()
+
+    def load_consistency_quality(self, profile_name: str | None = None) -> dict:
+        return self.data_lake.load_consistency_quality(profile_name or "default")
+
+    def load_local_consistency_report(self, profile_name: str | None = None) -> dict:
+        return self.data_lake.load_local_consistency_report(profile_name or "default")
+
+    def list_available_local_consistency_reports(self) -> dict:
+        return {}

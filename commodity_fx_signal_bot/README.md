@@ -1106,3 +1106,18 @@ python -m scripts.run_metadata_status
 - `python -m scripts.run_timeline_query --query "Phase 60 sonrası hangi çıktılar oluştu?"`: Queries timeline offline.
 - `python -m scripts.run_timeline_quality_report`: Validates timeline boundaries (no live/cloud traces) and produces a safety/quality report.
 - `python -m scripts.run_timeline_status`: Checks and lists the status of timeline generation.
+
+
+## Local Consistency Engine and System Coherence
+Local consistency engine otomatik düzeltme yapmaz. Cross-layer checks config, docs, reports, DataLake, evidence, metadata, graph ve timeline katmanlarını karşılaştırır. Contradiction detection heuristic çalışır ve resmi audit değildir. Stale artifact reconciliation plan komut çalıştırmaz, dosya değiştirmez. Coherence score production readiness veya compliance skoru değildir. Raw secret/private data outputta yer almaz. Çıktılar data/lake/local_consistency ve reports/output/local_consistency altında oluşur.
+
+Commands:
+```bash
+python -m scripts.run_consistency_check_registry
+python -m scripts.run_cross_layer_consistency_matrix
+python -m scripts.run_contradiction_detection_report
+python -m scripts.run_stale_reconciliation_plan
+python -m scripts.run_system_coherence_report
+python -m scripts.run_consistency_quality_report
+python -m scripts.run_consistency_status
+```
