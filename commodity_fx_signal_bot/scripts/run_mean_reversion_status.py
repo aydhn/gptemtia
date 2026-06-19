@@ -26,7 +26,7 @@ def main():
     ensure_project_directories()
     args = parse_args()
 
-    lake = DataLake()
+    lake = DataLake(PROJECT_ROOT / "data")
 
     from config.symbols import get_profile_timeframes
 

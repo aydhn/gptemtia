@@ -17,6 +17,21 @@ logger = get_logger(__name__)
 
 class DataLake:
 
+    def _save_parquet_and_csv(self, df, directory, filename_prefix):
+        directory.mkdir(parents=True, exist_ok=True)
+        parquet_path = directory / f"{filename_prefix}.parquet"
+        csv_path = directory / f"{filename_prefix}.csv"
+        df.to_parquet(parquet_path, index=False)
+        df.to_csv(csv_path, index=False)
+        return parquet_path
+
+    def _load_parquet(self, path):
+        import pandas as pd
+        if path.exists():
+            return pd.read_parquet(path)
+        return pd.DataFrame()
+
+
     # Phase 67: Local Timeline
     def save_project_event_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
         from config.paths import LAKE_LOCAL_TIMELINE_EVENTS_DIR
@@ -6294,3 +6309,280 @@ class DataLake:
 
     def list_local_consistency_reports(self) -> pd.DataFrame:
         return pd.DataFrame()
+
+    # Phase 69: Local Readiness
+    def save_readiness_gate_registry(self, df, summary=None):
+        from config.paths import LAKE_LOCAL_READINESS_GATES_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_READINESS_GATES_DIR, "readiness_gate_registry")
+
+    def load_readiness_gate_registry(self):
+        from config.paths import LAKE_LOCAL_READINESS_GATES_DIR
+        return self._load_parquet(LAKE_LOCAL_READINESS_GATES_DIR / "readiness_gate_registry.parquet")
+
+    def save_milestone_acceptance_criteria(self, df, summary=None):
+        from config.paths import LAKE_LOCAL_READINESS_ACCEPTANCE_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_READINESS_ACCEPTANCE_DIR, "milestone_acceptance_criteria")
+
+    def load_milestone_acceptance_criteria(self):
+        from config.paths import LAKE_LOCAL_READINESS_ACCEPTANCE_DIR
+        return self._load_parquet(LAKE_LOCAL_READINESS_ACCEPTANCE_DIR / "milestone_acceptance_criteria.parquet")
+
+    def save_phase_completion_evidence_binder(self, text: str, summary=None):
+        from config.paths import LAKE_LOCAL_READINESS_PHASE_EVIDENCE_DIR
+        path = LAKE_LOCAL_READINESS_PHASE_EVIDENCE_DIR / "phase_completion_evidence_binder.txt"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, "w") as f:
+            f.write(text)
+        return path
+
+    def load_phase_completion_evidence_binder(self) -> str:
+        from config.paths import LAKE_LOCAL_READINESS_PHASE_EVIDENCE_DIR
+        path = LAKE_LOCAL_READINESS_PHASE_EVIDENCE_DIR / "phase_completion_evidence_binder.txt"
+        if path.exists():
+            with open(path, "r") as f:
+                return f.read()
+        return ""
+
+    def save_final_operator_checklist(self, df, summary=None):
+        from config.paths import LAKE_LOCAL_READINESS_OPERATOR_CHECKLISTS_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_READINESS_OPERATOR_CHECKLISTS_DIR, "final_operator_checklist")
+
+    def load_final_operator_checklist(self):
+        from config.paths import LAKE_LOCAL_READINESS_OPERATOR_CHECKLISTS_DIR
+        return self._load_parquet(LAKE_LOCAL_READINESS_OPERATOR_CHECKLISTS_DIR / "final_operator_checklist.parquet")
+
+    def save_pre_handoff_stabilization_checklist(self, df, summary=None):
+        from config.paths import LAKE_LOCAL_READINESS_STABILIZATION_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_READINESS_STABILIZATION_DIR, "pre_handoff_stabilization_checklist")
+
+    def load_pre_handoff_stabilization_checklist(self):
+        from config.paths import LAKE_LOCAL_READINESS_STABILIZATION_DIR
+        return self._load_parquet(LAKE_LOCAL_READINESS_STABILIZATION_DIR / "pre_handoff_stabilization_checklist.parquet")
+
+    def save_dry_run_command_checklist(self, df, summary=None):
+        from config.paths import LAKE_LOCAL_READINESS_DRY_RUN_COMMANDS_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_READINESS_DRY_RUN_COMMANDS_DIR, "dry_run_command_checklist")
+
+    def load_dry_run_command_checklist(self):
+        from config.paths import LAKE_LOCAL_READINESS_DRY_RUN_COMMANDS_DIR
+        return self._load_parquet(LAKE_LOCAL_READINESS_DRY_RUN_COMMANDS_DIR / "dry_run_command_checklist.parquet")
+
+    def save_safe_command_coverage_report(self, df, summary=None):
+        from config.paths import LAKE_LOCAL_READINESS_COMMAND_COVERAGE_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_READINESS_COMMAND_COVERAGE_DIR, "safe_command_coverage_report")
+
+    def load_safe_command_coverage_report(self):
+        from config.paths import LAKE_LOCAL_READINESS_COMMAND_COVERAGE_DIR
+        return self._load_parquet(LAKE_LOCAL_READINESS_COMMAND_COVERAGE_DIR / "safe_command_coverage_report.parquet")
+
+    def save_documentation_readiness_report(self, df, summary=None):
+        from config.paths import LAKE_LOCAL_READINESS_DOCS_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_READINESS_DOCS_DIR, "documentation_readiness_report")
+
+    def load_documentation_readiness_report(self):
+        from config.paths import LAKE_LOCAL_READINESS_DOCS_DIR
+        return self._load_parquet(LAKE_LOCAL_READINESS_DOCS_DIR / "documentation_readiness_report.parquet")
+
+    def save_test_readiness_report(self, df, summary=None):
+        from config.paths import LAKE_LOCAL_READINESS_TESTS_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_READINESS_TESTS_DIR, "test_readiness_report")
+
+    def load_test_readiness_report(self):
+        from config.paths import LAKE_LOCAL_READINESS_TESTS_DIR
+        return self._load_parquet(LAKE_LOCAL_READINESS_TESTS_DIR / "test_readiness_report.parquet")
+
+    def save_datalake_readiness_report(self, df, summary=None):
+        from config.paths import LAKE_LOCAL_READINESS_DATALAKE_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_READINESS_DATALAKE_DIR, "datalake_readiness_report")
+
+    def load_datalake_readiness_report(self):
+        from config.paths import LAKE_LOCAL_READINESS_DATALAKE_DIR
+        return self._load_parquet(LAKE_LOCAL_READINESS_DATALAKE_DIR / "datalake_readiness_report.parquet")
+
+    def save_report_output_readiness_report(self, df, summary=None):
+        from config.paths import LAKE_LOCAL_READINESS_REPORTS_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_READINESS_REPORTS_DIR, "report_output_readiness_report")
+
+    def load_report_output_readiness_report(self):
+        from config.paths import LAKE_LOCAL_READINESS_REPORTS_DIR
+        return self._load_parquet(LAKE_LOCAL_READINESS_REPORTS_DIR / "report_output_readiness_report.parquet")
+
+    def save_security_boundary_readiness_report(self, df, summary=None):
+        from config.paths import LAKE_LOCAL_READINESS_SECURITY_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_READINESS_SECURITY_DIR, "security_boundary_readiness_report")
+
+    def load_security_boundary_readiness_report(self):
+        from config.paths import LAKE_LOCAL_READINESS_SECURITY_DIR
+        return self._load_parquet(LAKE_LOCAL_READINESS_SECURITY_DIR / "security_boundary_readiness_report.parquet")
+
+    def save_backup_packaging_readiness_report(self, df, summary=None):
+        from config.paths import LAKE_LOCAL_READINESS_BACKUP_PACKAGING_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_READINESS_BACKUP_PACKAGING_DIR, "backup_packaging_readiness_report")
+
+    def load_backup_packaging_readiness_report(self):
+        from config.paths import LAKE_LOCAL_READINESS_BACKUP_PACKAGING_DIR
+        return self._load_parquet(LAKE_LOCAL_READINESS_BACKUP_PACKAGING_DIR / "backup_packaging_readiness_report.parquet")
+
+    def save_cross_layer_readiness_report(self, df, summary=None):
+        from config.paths import LAKE_LOCAL_READINESS_CROSS_LAYER_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_READINESS_CROSS_LAYER_DIR, "cross_layer_readiness_report")
+
+    def load_cross_layer_readiness_report(self):
+        from config.paths import LAKE_LOCAL_READINESS_CROSS_LAYER_DIR
+        return self._load_parquet(LAKE_LOCAL_READINESS_CROSS_LAYER_DIR / "cross_layer_readiness_report.parquet")
+
+    def save_known_limitations_register(self, df, summary=None):
+        from config.paths import LAKE_LOCAL_READINESS_LIMITATIONS_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_READINESS_LIMITATIONS_DIR, "known_limitations_register")
+
+    def load_known_limitations_register(self):
+        from config.paths import LAKE_LOCAL_READINESS_LIMITATIONS_DIR
+        return self._load_parquet(LAKE_LOCAL_READINESS_LIMITATIONS_DIR / "known_limitations_register.parquet")
+
+    def save_known_gaps_register(self, df, summary=None):
+        from config.paths import LAKE_LOCAL_READINESS_GAPS_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_READINESS_GAPS_DIR, "known_gaps_register")
+
+    def load_known_gaps_register(self):
+        from config.paths import LAKE_LOCAL_READINESS_GAPS_DIR
+        return self._load_parquet(LAKE_LOCAL_READINESS_GAPS_DIR / "known_gaps_register.parquet")
+
+    def save_manual_review_register(self, df, summary=None):
+        from config.paths import LAKE_LOCAL_READINESS_MANUAL_REVIEW_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_READINESS_MANUAL_REVIEW_DIR, "manual_review_register")
+
+    def load_manual_review_register(self):
+        from config.paths import LAKE_LOCAL_READINESS_MANUAL_REVIEW_DIR
+        return self._load_parquet(LAKE_LOCAL_READINESS_MANUAL_REVIEW_DIR / "manual_review_register.parquet")
+
+    def save_no_go_condition_registry(self, df, summary=None):
+        from config.paths import LAKE_LOCAL_READINESS_GO_NO_GO_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_READINESS_GO_NO_GO_DIR, "no_go_condition_registry")
+
+    def load_no_go_condition_registry(self):
+        from config.paths import LAKE_LOCAL_READINESS_GO_NO_GO_DIR
+        return self._load_parquet(LAKE_LOCAL_READINESS_GO_NO_GO_DIR / "no_go_condition_registry.parquet")
+
+    def save_safe_go_condition_registry(self, df, summary=None):
+        from config.paths import LAKE_LOCAL_READINESS_GO_NO_GO_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_READINESS_GO_NO_GO_DIR, "safe_go_condition_registry")
+
+    def load_safe_go_condition_registry(self):
+        from config.paths import LAKE_LOCAL_READINESS_GO_NO_GO_DIR
+        return self._load_parquet(LAKE_LOCAL_READINESS_GO_NO_GO_DIR / "safe_go_condition_registry.parquet")
+
+    def save_handoff_package_manifest(self, manifest: dict):
+        from config.paths import LAKE_LOCAL_READINESS_HANDOFF_DIR
+        import json
+        path = LAKE_LOCAL_READINESS_HANDOFF_DIR / "handoff_package_manifest.json"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, "w") as f:
+            json.dump(manifest, f, indent=2)
+        return path
+
+    def load_handoff_package_manifest(self) -> dict:
+        from config.paths import LAKE_LOCAL_READINESS_HANDOFF_DIR
+        import json
+        path = LAKE_LOCAL_READINESS_HANDOFF_DIR / "handoff_package_manifest.json"
+        if path.exists():
+            with open(path, "r") as f:
+                return json.load(f)
+        return {}
+
+    def save_operator_first_run_checklist(self, df, summary=None):
+        from config.paths import LAKE_LOCAL_READINESS_OPERATOR_CHECKLISTS_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_READINESS_OPERATOR_CHECKLISTS_DIR, "operator_first_run_checklist")
+
+    def load_operator_first_run_checklist(self):
+        from config.paths import LAKE_LOCAL_READINESS_OPERATOR_CHECKLISTS_DIR
+        return self._load_parquet(LAKE_LOCAL_READINESS_OPERATOR_CHECKLISTS_DIR / "operator_first_run_checklist.parquet")
+
+    def save_readiness_score_report(self, df, summary=None):
+        from config.paths import LAKE_LOCAL_READINESS_SCORING_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_READINESS_SCORING_DIR, "readiness_score_report")
+
+    def load_readiness_score_report(self):
+        from config.paths import LAKE_LOCAL_READINESS_SCORING_DIR
+        return self._load_parquet(LAKE_LOCAL_READINESS_SCORING_DIR / "readiness_score_report.parquet")
+
+    def save_pre_handoff_risk_summary(self, df, summary=None):
+        from config.paths import LAKE_LOCAL_READINESS_RISKS_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_READINESS_RISKS_DIR, "pre_handoff_risk_summary")
+
+    def load_pre_handoff_risk_summary(self):
+        from config.paths import LAKE_LOCAL_READINESS_RISKS_DIR
+        return self._load_parquet(LAKE_LOCAL_READINESS_RISKS_DIR / "pre_handoff_risk_summary.parquet")
+
+    def save_final_local_readiness_binder(self, text: str, summary=None):
+        from config.paths import LAKE_LOCAL_READINESS_PHASE_EVIDENCE_DIR
+        path = LAKE_LOCAL_READINESS_PHASE_EVIDENCE_DIR / "final_local_readiness_binder.txt"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, "w") as f:
+            f.write(text)
+        return path
+
+    def load_final_local_readiness_binder(self) -> str:
+        from config.paths import LAKE_LOCAL_READINESS_PHASE_EVIDENCE_DIR
+        path = LAKE_LOCAL_READINESS_PHASE_EVIDENCE_DIR / "final_local_readiness_binder.txt"
+        if path.exists():
+            with open(path, "r") as f:
+                return f.read()
+        return ""
+
+    def save_readiness_validation_report(self, df, summary=None):
+        from config.paths import LAKE_LOCAL_READINESS_VALIDATION_DIR
+        return self._save_parquet_and_csv(df, LAKE_LOCAL_READINESS_VALIDATION_DIR, "readiness_validation_report")
+
+    def load_readiness_validation_report(self):
+        from config.paths import LAKE_LOCAL_READINESS_VALIDATION_DIR
+        return self._load_parquet(LAKE_LOCAL_READINESS_VALIDATION_DIR / "readiness_validation_report.parquet")
+
+    def save_readiness_quality(self, profile_name: str, quality: dict):
+        from config.paths import LAKE_LOCAL_READINESS_QUALITY_DIR
+        import json
+        path = LAKE_LOCAL_READINESS_QUALITY_DIR / f"readiness_quality_{profile_name}.json"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, "w") as f:
+            json.dump(quality, f, indent=2)
+        return path
+
+    def load_readiness_quality(self, profile_name: str) -> dict:
+        from config.paths import LAKE_LOCAL_READINESS_QUALITY_DIR
+        import json
+        path = LAKE_LOCAL_READINESS_QUALITY_DIR / f"readiness_quality_{profile_name}.json"
+        if path.exists():
+            with open(path, "r") as f:
+                return json.load(f)
+        return {}
+
+    def save_local_readiness_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        from config.paths import LAKE_LOCAL_READINESS_DIR
+        import json
+        path = LAKE_LOCAL_READINESS_DIR / f"local_readiness_report_{profile_name}.json"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, "w") as f:
+            json.dump(report, f, indent=2)
+        if markdown:
+            md_path = LAKE_LOCAL_READINESS_DIR / f"local_readiness_report_{profile_name}.md"
+            with open(md_path, "w") as f:
+                f.write(markdown)
+        return path
+
+    def load_local_readiness_report(self, profile_name: str) -> dict:
+        from config.paths import LAKE_LOCAL_READINESS_DIR
+        import json
+        path = LAKE_LOCAL_READINESS_DIR / f"local_readiness_report_{profile_name}.json"
+        if path.exists():
+            with open(path, "r") as f:
+                return json.load(f)
+        return {}
+
+    def list_local_readiness_reports(self):
+        from config.paths import LAKE_LOCAL_READINESS_DIR
+        import pandas as pd
+        reports = []
+        if LAKE_LOCAL_READINESS_DIR.exists():
+            for p in LAKE_LOCAL_READINESS_DIR.glob("local_readiness_report_*.json"):
+                profile_name = p.stem.replace("local_readiness_report_", "")
+                reports.append({"profile_name": profile_name, "path": str(p)})
+        return pd.DataFrame(reports)

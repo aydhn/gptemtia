@@ -28,7 +28,7 @@ def main():
     class MockDataLake:
          pass
 
-    pipeline = ArtifactMetadataPipeline(MockDataLake(), settings, PROJECT_ROOT, profile)
+    pipeline = ArtifactMetadataPipeline(MockDataLake(PROJECT_ROOT / "data"), settings, PROJECT_ROOT, profile)
 
     print(f"Running model/dataset cards with profile: {profile.name}")
     tables, summary = pipeline.build_model_dataset_cards(save=False)

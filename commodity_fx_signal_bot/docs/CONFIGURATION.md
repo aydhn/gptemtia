@@ -11,3 +11,11 @@ Environment snapshot, requirements export ve install verification işlemleri iç
 - **Secrets exclusion**: Her durumda `.env`, `secret` vb dosyalar otomatik exclude edilir, içerikleri okunmaz.
 - **Data/report manifest-only**: Büyük klasörler default olarak "manifest-only" dahil edilir (hashlenmez veya kopyalanmaz).
 - **Gerçek restore/overwrite/cloud backup olmadığı açık yazılsın**: Backup Recovery tool'ları yalnızca dry-run raporlar üretmek ve sistemin recovery readiness'ını değerlendirmek (audit) içindir. Canlı deploy veya real overwrite için kullanılmaz.
+
+## Local Readiness
+
+- Readiness gate production release onayi degildir.
+- Safe-go/no-go manuel inceleme amaclidir, canli sinyal uretmez.
+- Final operator checklist sadece local dry-run plani sunar.
+- Handoff manifest resmi compliance sign-off degildir.
+- Kesinlikle canli emir, broker execution, deployment, package publish ve yatirim tavsiyesi icermez.

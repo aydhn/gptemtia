@@ -4,3 +4,10 @@ __pycache__/
 tests_output.log
 *.log
 .pytest_cache/
+
+*.pyc
+__pycache__/
+fix_*.py
+update_*.py
+force_*.py
+ultra_*.py

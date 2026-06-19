@@ -33,7 +33,7 @@ def main():
     if not spec:
         logger.error(f"Symbol {args.symbol} not found.")
         return
-    lake = DataLake()
+    lake = DataLake(PROJECT_ROOT / "data")
     features = None
     summary = {}
     if args.use_saved_features and lake.has_features(spec, args.timeframe, "momentum"):

@@ -48,7 +48,7 @@ def main():
         logger.error(str(e))
         sys.exit(1)
 
-    lake = DataLake()
+    lake = DataLake(PROJECT_ROOT / "data")
 
     event_df = None
     summary = {}

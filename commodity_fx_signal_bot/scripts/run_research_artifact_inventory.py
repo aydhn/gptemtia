@@ -29,7 +29,7 @@ def main():
     class MockDataLake:
          pass
 
-    pipeline = ArtifactMetadataPipeline(MockDataLake(), settings, PROJECT_ROOT, profile)
+    pipeline = ArtifactMetadataPipeline(MockDataLake(PROJECT_ROOT / "data"), settings, PROJECT_ROOT, profile)
 
     print(f"Running research artifact inventory with profile: {profile.name}")
     df, summary = pipeline.build_research_artifact_inventory(save=False)

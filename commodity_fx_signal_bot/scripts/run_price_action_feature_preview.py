@@ -42,7 +42,7 @@ def main():
         logger.error(f"Symbol {args.symbol} not found in configuration.")
         return
 
-    lake = DataLake()
+    lake = DataLake(PROJECT_ROOT / "data")
 
     if args.use_processed and lake.has_processed_ohlcv(spec, args.timeframe):
         df = lake.load_processed_ohlcv(spec, args.timeframe)

@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 def main():
-    lake = DataLake()
+    lake = DataLake(PROJECT_ROOT / "data")
     specs = get_enabled_symbols()
 
     rows = []

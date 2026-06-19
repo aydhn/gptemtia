@@ -29,7 +29,7 @@ def main():
     class MockDataLake:
          pass
 
-    pipeline = ArtifactMetadataPipeline(MockDataLake(), settings, PROJECT_ROOT, profile)
+    pipeline = ArtifactMetadataPipeline(MockDataLake(PROJECT_ROOT / "data"), settings, PROJECT_ROOT, profile)
 
     print(f"Running metadata quality report with profile: {profile.name}")
     q_report, summary = pipeline.build_metadata_quality_report(save=False)

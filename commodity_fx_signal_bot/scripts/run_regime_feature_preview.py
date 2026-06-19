@@ -60,7 +60,7 @@ def main():
         logger.error(f"Profile error: {e}")
         return
 
-    lake = DataLake()
+    lake = DataLake(PROJECT_ROOT / "data")
     pipeline = RegimePipeline(lake, settings, profile)
 
     logger.info(

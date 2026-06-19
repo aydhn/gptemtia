@@ -457,3 +457,31 @@ Config / Env Template / Paths / DataLake / Scripts / Reports / Docs / Evidence /
 -> ConsistencyValidation
 -> ConsistencyQuality
 -> Local Consistency Outputs
+
+## Local Readiness Pipeline
+
+Docs / Tests / Scripts / Reports / DataLake / Security / Backup / Packaging / Metadata / Evidence / Graph / Timeline / Consistency
+-> ReadinessGateRegistry
+-> MilestoneAcceptanceCriteria
+-> PhaseEvidenceBinder
+-> OperatorChecklist
+-> StabilizationChecklist
+-> DryRunCommands
+-> CommandCoverage
+-> DocsReadiness
+-> TestsReadiness
+-> DataLakeReadiness
+-> ReportsReadiness
+-> SecurityBoundaryReadiness
+-> BackupPackagingReadiness
+-> CrossLayerReadiness
+-> LimitationsRegister
+-> GapsRegister
+-> ManualReviewRegister
+-> GoNoGoRegistry
+-> HandoffManifest
+-> ReadinessScoring
+-> RiskSummary
+-> ReadinessValidation
+-> ReadinessQuality
+-> Local Readiness Outputs
