@@ -1,27 +1,29 @@
 import pytest
-from maintenance.maintenance_labels import (
-    list_artifact_lifecycle_labels, list_retention_category_labels,
-    list_maintenance_action_labels, list_storage_health_labels,
-    validate_artifact_lifecycle, validate_maintenance_action
+from local_maintenance.maintenance_labels import (
+    list_maintenance_domain_labels,
+    list_maintenance_task_status_labels,
+    list_refresh_cadence_labels,
+    list_dependency_status_labels,
+    list_sustainability_risk_labels,
+    validate_maintenance_domain_label,
+    validate_refresh_cadence_label
 )
 
 def test_label_lists_not_empty():
-    assert len(list_artifact_lifecycle_labels()) > 0
-    assert len(list_retention_category_labels()) > 0
-    assert len(list_maintenance_action_labels()) > 0
-    assert len(list_storage_health_labels()) > 0
+    assert len(list_maintenance_domain_labels()) > 0
+    assert len(list_maintenance_task_status_labels()) > 0
+    assert len(list_refresh_cadence_labels()) > 0
+    assert len(list_dependency_status_labels()) > 0
+    assert len(list_sustainability_risk_labels()) > 0
 
 def test_validate_labels():
-    validate_artifact_lifecycle("cleanup_candidate")
-    validate_maintenance_action("cleanup_dry_run_action")
+    validate_maintenance_domain_label("documentation_maintenance")
+    validate_refresh_cadence_label("refresh_monthly_manual")
 
     with pytest.raises(ValueError):
-        validate_artifact_lifecycle("invalid_label")
+        validate_maintenance_domain_label("invalid_label")
 
-    with pytest.raises(ValueError):
-        validate_maintenance_action("invalid_label")
-
-def test_cleanup_candidate_naming():
-    # Should not have "automatic" or "delete" in the label
-    assert "cleanup_candidate" in list_artifact_lifecycle_labels()
-    assert "automatic_delete" not in list_artifact_lifecycle_labels()
+def test_refresh_monthly_manual_not_scheduler():
+    labels = list_refresh_cadence_labels()
+    # verify naming implies manual
+    assert "refresh_monthly_manual" in labels

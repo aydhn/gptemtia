@@ -1,30 +1,30 @@
-from maintenance.maintenance_models import (
-    StorageArtifactRecord, build_storage_artifact_id,
-    build_retention_policy_id, build_maintenance_candidate_id,
-    build_archive_id, storage_artifact_record_to_dict
+import pytest
+from local_maintenance.maintenance_models import (
+    build_maintenance_domain_id,
+    build_maintenance_task_id,
+    build_dependency_watch_id,
+    build_maintenance_binder_id,
+    MaintenanceDomain,
+    maintenance_domain_to_dict
 )
 
-def test_deterministic_ids():
-    id1 = build_storage_artifact_id("test/path.txt", 100, "2023-01-01")
-    id2 = build_storage_artifact_id("test/path.txt", 100, "2023-01-01")
+def test_build_ids_deterministic():
+    id1 = build_maintenance_domain_id("test")
+    id2 = build_maintenance_domain_id("test")
     assert id1 == id2
+    assert id1.startswith("domain_")
 
-    assert build_retention_policy_id("raw_data") == "policy_raw_data"
+    tid1 = build_maintenance_task_id("domain", "task")
+    tid2 = build_maintenance_task_id("domain", "task")
+    assert tid1 == tid2
+    assert tid1.startswith("task_")
 
-    cand1 = build_maintenance_candidate_id("art1", "action1")
-    assert cand1 == "cand_art1_action1"
-
-    arch1 = build_archive_id("test", "2023-01-01")
-    arch2 = build_archive_id("test", "2023-01-01")
-    assert arch1 == arch2
-
-def test_to_dict():
-    record = StorageArtifactRecord(
-        artifact_id="1", path="a", relative_path="a", artifact_type="t",
-        retention_category="r", size_bytes=10, modified_at_utc="2023-01-01",
-        age_days=1.0, extension=".txt", protected=False, lifecycle_label="active",
-        warnings=[]
+def test_dataclass_to_dict():
+    domain = MaintenanceDomain(
+        domain_id="1", domain_name="n", domain_label="l",
+        description="d", owner_role="o", default_cadence="c",
+        required_artifacts=[], warnings=[]
     )
-    d = storage_artifact_record_to_dict(record)
-    assert "artifact_id" in d
-    assert d["artifact_id"] == "1"
+    d = maintenance_domain_to_dict(domain)
+    assert d["domain_id"] == "1"
+    assert "domain_name" in d

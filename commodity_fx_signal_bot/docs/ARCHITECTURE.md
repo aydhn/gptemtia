@@ -485,3 +485,29 @@ Docs / Tests / Scripts / Reports / DataLake / Security / Backup / Packaging / Me
 -> ReadinessValidation
 -> ReadinessQuality
 -> Local Readiness Outputs
+
+## Local Maintenance Data Flow
+
+Docs / Tests / Scripts / Reports / DataLake / Config / Requirements / Security / Backup / Packaging / Evidence / Metadata / Graph / Timeline / Consistency / Readiness
+-> MaintenanceDomainRegistry
+-> MaintenanceTaskRegistry
+-> PeriodicReviewCalendar
+-> RefreshCadence
+-> DependencyAgingWatch
+-> DependencyReviewChecklist
+-> StaleArtifactWatch
+-> StaleReportWatch
+-> StaleDocumentationWatch
+-> StaleTestWatch
+-> ManualReviewQueue
+-> MaintenanceGapRegister
+-> MaintenanceRiskSummary
+-> SustainabilityScoring
+-> OperatorPeriodicReviewChecklist
+-> ReviewTemplates
+-> RefreshCommandPlan
+-> MaintenanceRunbook
+-> LongTermSustainabilityBinder
+-> MaintenanceValidation
+-> MaintenanceQuality
+-> Local Maintenance Outputs

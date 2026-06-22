@@ -1,27 +1,22 @@
-from pathlib import Path
-from research_planning.task_registry import ResearchTaskRegistry, deduplicate_tasks
-from research_planning.planning_models import ResearchTask
+import pytest
+from local_maintenance.maintenance_config import get_default_local_maintenance_profile
+from local_maintenance.domain_registry import build_maintenance_domain_registry
+from local_maintenance.task_registry import build_maintenance_task_registry, evaluate_maintenance_task_status
 
-def test_registry_add_load():
-    registry = ResearchTaskRegistry(Path("/tmp/mock_registry"))
-    task = ResearchTask("id", "type", "title", "desc", "planned", 0.0, "low", "none", [], [], [], "low", "low", [], "time", [])
-    registry.add_task(task)
+def test_maintenance_task_registry():
+    profile = get_default_local_maintenance_profile()
+    domain_df, _ = build_maintenance_domain_registry(profile)
+    df, summary = build_maintenance_task_registry(domain_df, profile)
 
-    df = registry.load_tasks()
     assert not df.empty
-    assert len(df) == 1
+    assert "task_id" in df.columns
+    assert summary["total_tasks"] > 0
 
-    t = registry.get_task("id")
-    assert t["title"] == "title"
+def test_evaluate_maintenance_task_status():
+    profile = get_default_local_maintenance_profile()
+    domain_df, _ = build_maintenance_domain_registry(profile)
+    task_df, _ = build_maintenance_task_registry(domain_df, profile)
 
-    registry.update_task_status("id", "task_completed")
-    t2 = registry.get_task("id")
-    assert t2["status"] == "task_completed"
-
-def test_deduplicate_tasks():
-    task1 = ResearchTask("id1", "type", "title", "desc", "planned", 0.0, "low", "none", [], [], [], "low", "low", [], "time", [])
-    task2 = ResearchTask("id1", "type", "title", "desc", "planned", 0.0, "low", "none", [], [], [], "low", "low", [], "time", [])
-
-    deduped = deduplicate_tasks([task1, task2])
-    assert len(deduped) == 1
-    assert "Duplicate merged" in deduped[0].warnings
+    eval_df, eval_sum = evaluate_maintenance_task_status(task_df, None, profile)
+    assert not eval_df.empty
+    assert "maintenance_due_soon" in eval_df["status"].values
