@@ -1,25 +1,39 @@
 import pytest
-from maintenance.maintenance_config import get_maintenance_profile, list_maintenance_profiles, validate_maintenance_profiles, get_default_maintenance_profile, ConfigError
+from local_maintenance.maintenance_config import (
+    validate_local_maintenance_profiles,
+    get_default_local_maintenance_profile,
+    get_local_maintenance_profile,
+    ConfigError
+)
 
-def test_validate_maintenance_profiles():
-    validate_maintenance_profiles()
+def test_validate_local_maintenance_profiles():
+    # Should not raise exception
+    validate_local_maintenance_profiles()
 
-def test_get_default_maintenance_profile():
-    profile = get_default_maintenance_profile()
+def test_get_default_local_maintenance_profile():
+    profile = get_default_local_maintenance_profile()
+    assert profile is not None
     assert profile.name == "balanced_local_maintenance"
+    assert profile.language is not None
+    assert 1 <= profile.default_monthly_review_day <= 28
+    assert profile.stale_report_days_warning > 0
+    assert 0.0 <= profile.min_sustainability_score <= 1.0
     assert profile.dry_run_default is True
-    assert profile.allow_delete is False
-    assert profile.allow_archive_move is False
+    assert not profile.allow_production_scheduler
+    assert not profile.allow_background_daemon
+    assert not profile.allow_auto_upgrade
+    assert not profile.allow_auto_fix
+    assert not profile.allow_file_modification
+    assert not profile.allow_file_deletion
+    assert not profile.allow_overwrite
+    assert not profile.allow_cloud_upload
+    assert not profile.allow_external_service
+    assert not profile.allow_live_commands
+    assert not profile.allow_broker_commands
+    assert not profile.allow_deploy_commands
+    assert not profile.allow_real_market_download
+    assert not profile.allow_external_llm
 
-def test_profile_constraints():
-    profiles = list_maintenance_profiles()
-    for profile in profiles:
-        assert profile.max_inventory_files > 0
-        assert profile.large_file_threshold_mb > 0
-        assert profile.dry_run_default is True
-        assert profile.allow_delete is False
-        assert profile.allow_archive_move is False
-
-def test_unknown_profile():
+def test_get_local_maintenance_profile_unknown():
     with pytest.raises(ConfigError):
-        get_maintenance_profile("unknown_profile_123")
+        get_local_maintenance_profile("unknown_profile_123")

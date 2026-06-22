@@ -1,26 +1,41 @@
-from maintenance.maintenance_pipeline import MaintenancePipeline
-from maintenance.maintenance_config import get_default_maintenance_profile
-from config.settings import Settings
-from config.paths import ProjectPaths
+import pytest
+import pandas as pd
 from unittest.mock import MagicMock
+from pathlib import Path
+from local_maintenance.maintenance_config import get_default_local_maintenance_profile
+from local_maintenance.maintenance_pipeline import LocalMaintenancePipeline
 
 def test_maintenance_pipeline(tmp_path):
-    settings = Settings()
-    paths = ProjectPaths()
-    paths.PROJECT_ROOT = tmp_path
+    mock_data_lake = MagicMock()
+    profile = get_default_local_maintenance_profile()
 
-    dl_mock = MagicMock()
-    profile = get_default_maintenance_profile()
+    pipeline = LocalMaintenancePipeline(
+        data_lake=mock_data_lake,
+        settings=MagicMock(),
+        project_root=tmp_path,
+        profile=profile
+    )
 
-    pipe = MaintenancePipeline(dl_mock, settings, tmp_path, profile)
+    # Test one of the methods to ensure integration works
+    tables, summary = pipeline.build_maintenance_domain_registry(save=True)
 
-    # Very basic smoke test
-    df, summary = pipe.build_storage_inventory_report(save=False)
-    assert df is not None
-    assert isinstance(summary, dict)
+    assert "domains" in tables
+    assert "tasks" in tables
+    assert mock_data_lake.save_maintenance_domain_registry.called
+    assert mock_data_lake.save_maintenance_task_registry.called
 
-    df, summary = pipe.build_retention_policy_report(save=False)
-    assert not df.empty
+def test_pipeline_sustainability_report(tmp_path):
+    mock_data_lake = MagicMock()
+    profile = get_default_local_maintenance_profile()
 
-    df, summary = pipe.build_cleanup_dry_run_report(save=False)
-    assert df is not None
+    pipeline = LocalMaintenancePipeline(
+        data_lake=mock_data_lake,
+        settings=MagicMock(),
+        project_root=tmp_path,
+        profile=profile
+    )
+
+    tables, summary = pipeline.build_maintenance_sustainability_report(save=True)
+
+    assert "score" in tables
+    assert mock_data_lake.save_sustainability_score_report.called

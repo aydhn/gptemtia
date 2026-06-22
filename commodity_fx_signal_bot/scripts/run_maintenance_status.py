@@ -1,40 +1,56 @@
-"""Generate maintenance status report."""
 import argparse
-import pandas as pd
-from config.settings import Settings
-from config.paths import ProjectPaths
+from pathlib import Path
+from config.settings import settings
+from config.paths import PROJECT_ROOT
 from data.storage.data_lake import DataLake
-from maintenance.maintenance_config import get_maintenance_profile
-from maintenance.maintenance_pipeline import MaintenancePipeline
+from local_maintenance.maintenance_config import get_local_maintenance_profile
+from local_maintenance.maintenance_pipeline import LocalMaintenancePipeline
+
 
 def main():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description="Run Maintenance Status")
+    parser.add_argument("--profile", type=str, default=settings.default_local_maintenance_profile, help="Maintenance profile name")
+    parser.add_argument("--save", type=lambda x: (str(x).lower() == 'true'), default=True, help="Save to DataLake")
     args = parser.parse_args()
 
-    settings = Settings()
-    paths = ProjectPaths()
-    data_lake = DataLake(paths)
-    profile = get_maintenance_profile("balanced_local_maintenance")
+    if not settings.local_maintenance_enabled:
+        print("Local maintenance is disabled.")
+        return
 
-    pipeline = MaintenancePipeline(data_lake, settings, paths.PROJECT_ROOT, profile)
-    df, summary = pipeline.build_maintenance_status(save=True)
+    profile = get_local_maintenance_profile(args.profile)
+    data_lake = DataLake() if args.save else None
 
-    from reports.report_builder import ReportBuilder
-    from maintenance.maintenance_report_builder import build_maintenance_status_markdown_report
+    pipeline = LocalMaintenancePipeline(
+        data_lake=data_lake,
+        settings=settings,
+        project_root=PROJECT_ROOT,
+        profile=profile
+    )
 
-    rb = ReportBuilder(paths)
-    txt = rb.build_maintenance_status_report(df, summary)
+    tables, summary = pipeline.build_maintenance_status(save=args.save)
 
-    csv_dir = getattr(paths, "REPORTS_MAINTENANCE_CSV_DIR", paths.REPORTS_OUTPUT_DIR / "maintenance" / "csv")
-    csv_dir.mkdir(parents=True, exist_ok=True)
-    df.to_csv(csv_dir / "maintenance_status.csv", index=False)
+    if args.save:
 
-    txt_dir = getattr(paths, "REPORTS_MAINTENANCE_TXT_DIR", paths.REPORTS_OUTPUT_DIR / "maintenance" / "txt")
-    txt_dir.mkdir(parents=True, exist_ok=True)
-    with open(txt_dir / "maintenance_status_report.txt", "w") as f:
-        f.write(txt)
+        from local_maintenance.maintenance_report_builder import build_maintenance_status_markdown_report
 
-    print(f"Generated maintenance status report: {summary.get('status')}")
+        md = build_maintenance_status_markdown_report(summary, tables)
+        from reports.report_builder import build_maintenance_status_report
+        txt = build_maintenance_status_report(tables, summary)
+
+        out_dir = PROJECT_ROOT / "reports" / "output" / "local_maintenance"
+        out_dir.joinpath("csv").mkdir(parents=True, exist_ok=True)
+        out_dir.joinpath("markdown").mkdir(parents=True, exist_ok=True)
+        out_dir.joinpath("txt").mkdir(parents=True, exist_ok=True)
+
+        tables.to_csv(out_dir / "csv" / "maintenance_status.csv", index=False)
+
+        with open(out_dir / "markdown" / "maintenance_status_report.md", "w") as f:
+            f.write(md)
+
+        with open(out_dir / "txt" / "maintenance_status_report.txt", "w") as f:
+            f.write(txt)
+
+    print("Maintenance Status complete.")
 
 if __name__ == "__main__":
     main()
