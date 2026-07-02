@@ -53,4 +53,3 @@ def test_build_performance_quality_report():
     assert report["passed"]
     assert report["runtime_profiles_valid"]
     assert report["memory_profiles_valid"]
-

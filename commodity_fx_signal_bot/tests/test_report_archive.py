@@ -1,37 +1,16 @@
 import pytest
 from pathlib import Path
-from report_exports.report_archive import ReportArchive
-from report_exports.export_models import ReportArchiveRecord
+from local_archive.archive_config import get_default_local_archive_profile
+from local_archive.report_archive import build_report_archive_index
 
-def test_report_archive(tmp_path):
-    archive = ReportArchive(tmp_path)
+def test_report_archive_index(tmp_path):
+    profile = get_default_local_archive_profile()
 
-    record = ReportArchiveRecord(
-        archive_id="arc_1",
-        report_id="rpt_1",
-        report_type="symbol",
-        symbol="GC=F",
-        timeframe="1d",
-        profile_name="balanced",
-        created_at_utc="2023-01-01T12:00:00Z",
-        research_score=0.8,
-        warning_count=0,
-        missing_sources_count=0,
-        markdown_path=None,
-        html_path=None,
-        pdf_path=None,
-        csv_paths=[],
-        quality_passed=True,
-        metadata={}
-    )
+    rep_dir = tmp_path / "reports" / "output" / "local_archive"
+    rep_dir.mkdir(parents=True)
+    (rep_dir / "report.md").write_text("Report")
 
-    archive.add_record(record)
-    df = archive.load_records()
-    assert len(df) == 1
-    assert df.iloc[0]["archive_id"] == "arc_1"
+    df, summary = build_report_archive_index(tmp_path, profile)
 
-    summary = archive.summarize()
-    assert summary["total_records"] == 1
-
-    prev = archive.find_previous_report("symbol", "GC=F", "1d", "balanced")
-    assert prev["report_id"] == "rpt_1"
+    assert not df.empty
+    assert df.iloc[0]["report_domain"] == "local_archive"

@@ -1,38 +1,34 @@
-def update_readme():
-    file_path = "README.md"
-    with open(file_path, "r", encoding="utf-8") as f:
-        content = f.read()
+import re
+from pathlib import Path
 
-    readme_insertion = """
-## Long-Term Local Maintenance and Sustainability Planning
+f = Path("README.md")
+content = f.read_text()
 
-This project includes a local offline maintenance planner and sustainability review cadence.
+add = """
+### Local Archive Strategy and Long-Horizon Preservation
 
-**IMPORTANT:**
-- The local maintenance planner is **NOT** a production scheduler.
-- The periodic review calendar does **NOT** automatically run tasks; it provides a manual review plan for operators.
-- The dependency aging watch does **NOT** check for updates over the internet and does **NOT** automatically upgrade dependencies.
-- The refresh cadence reports provide a **manual/dry-run** refresh plan.
-- The sustainability score is **NOT** an official SLA or health score.
-- The maintenance runbook is **NOT** an automatic operation instruction.
-- Raw secrets and private data are **never** included in outputs.
-- All outputs are saved under `data/lake/local_maintenance` and `reports/output/local_maintenance`.
+- **Local archive strategy** cloud backup değildir.
+- **Cold storage manifest** dosya yüklemez, taşımaz, sıkıştırmaz. Sadece manual backup işlemleri için talimat ve metadata tutar.
+- **Snapshot catalog** dosya kopyalamaz; manifest/index üretir.
+- **Retention policy** resmi hukuki kayıt saklama politikası değildir. Offline ortamda neyin saklanıp neyin silinmeyeceğine dair manuel tavsiyelerdir.
+- **Archive integrity verification plan** read-only kontrol planıdır.
+- **Secret exclusion registry** raw secret içermez ve bu dosyaların arşivlenmesini engellemek için checklist sağlar.
+- **Preservation binder** production archive service veya compliance sertifikası değildir. Offline arşivi yöneten operator için referans kitapçığıdır.
+- Tüm çıktılar `data/lake/local_archive` ve `reports/output/local_archive` altında oluşur.
 
-### Maintenance Commands
-
+Komutlar:
 ```bash
-python -m scripts.run_maintenance_domain_registry
-python -m scripts.run_periodic_review_calendar
-python -m scripts.run_refresh_cadence_report
-python -m scripts.run_dependency_aging_watch
-python -m scripts.run_maintenance_sustainability_report
-python -m scripts.run_maintenance_quality_report
-python -m scripts.run_maintenance_status
+python -m scripts.run_archive_domain_registry
+python -m scripts.run_project_snapshot_catalog
+python -m scripts.run_cold_storage_manifest
+python -m scripts.run_archive_integrity_plan
+python -m scripts.run_preservation_binder
+python -m scripts.run_archive_quality_report
+python -m scripts.run_archive_status
 ```
 """
 
-    if "## Long-Term Local Maintenance and Sustainability Planning" not in content:
-        with open(file_path, "a", encoding="utf-8") as f:
-            f.write(readme_insertion)
-
-update_readme()
+if "Local Archive Strategy and Long-Horizon Preservation" not in content:
+    content += add
+    f.write_text(content)
+    print("README patched")

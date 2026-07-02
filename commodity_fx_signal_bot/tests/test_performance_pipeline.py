@@ -37,4 +37,3 @@ def test_performance_pipeline():
     # Test runtime optimization
     r_df, r_summary = pipeline.build_runtime_optimization_report(save=True)
     assert data_lake_mock.save_optimization_recommendations.called
-
