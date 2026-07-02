@@ -1,5 +1,5 @@
 ============================= test session starts ==============================
-platform linux -- Python 3.12.13, pytest-9.1.0, pluggy-1.6.0
+platform linux -- Python 3.12.13, pytest-9.1.1, pluggy-1.6.0
 rootdir: /app/commodity_fx_signal_bot
 configfile: pytest.ini (WARNING: ignoring pytest config in pyproject.toml!)
 collected 51 items
@@ -23,4 +23,4 @@ tests/test_planning_report_builder.py ..                                 [ 86%]
 tests/test_planning_pipeline.py .                                        [ 88%]
 tests/test_research_planning_scripts_contract.py ......                  [100%]
 
-============================== 51 passed in 5.57s ==============================
+============================== 51 passed in 6.52s ==============================

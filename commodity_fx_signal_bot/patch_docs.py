@@ -1,123 +1,94 @@
-import os
-def update_architecture():
-    file_path = "docs/ARCHITECTURE.md"
-    if not os.path.exists(file_path):
-        os.makedirs(os.path.dirname(file_path), exist_ok=True)
-        with open(file_path, "w", encoding="utf-8") as f:
-            f.write("# Architecture\n\n")
+import re
+from pathlib import Path
 
-    with open(file_path, "r", encoding="utf-8") as f:
-        content = f.read()
-
-    arch_insertion = """
-## Local Maintenance Data Flow
-
-Docs / Tests / Scripts / Reports / DataLake / Config / Requirements / Security / Backup / Packaging / Evidence / Metadata / Graph / Timeline / Consistency / Readiness
--> MaintenanceDomainRegistry
--> MaintenanceTaskRegistry
--> PeriodicReviewCalendar
--> RefreshCadence
--> DependencyAgingWatch
--> DependencyReviewChecklist
--> StaleArtifactWatch
--> StaleReportWatch
--> StaleDocumentationWatch
--> StaleTestWatch
--> ManualReviewQueue
--> MaintenanceGapRegister
--> MaintenanceRiskSummary
--> SustainabilityScoring
--> OperatorPeriodicReviewChecklist
--> ReviewTemplates
--> RefreshCommandPlan
--> MaintenanceRunbook
--> LongTermSustainabilityBinder
--> MaintenanceValidation
--> MaintenanceQuality
--> Local Maintenance Outputs
+# ARCHITECTURE.md
+arch = Path("docs/ARCHITECTURE.md")
+content = arch.read_text()
+if "Local Archive Outputs" not in content:
+    add = """
+### Phase 71: Local Archival Strategy & Preservation Layer
+Docs / Reports / DataLake / Config / Scripts / Tests / Security / Backup / Packaging / Evidence / Metadata / Graph / Timeline / Consistency / Readiness / Maintenance
+→ ArchiveDomainRegistry
+→ ArchiveItemRegistry
+→ ArchiveCandidateInventory
+→ ArchiveExclusionRegistry
+→ ProjectSnapshotCatalog
+→ ColdStorageManifest
+→ RetentionPolicy
+→ RetentionReview
+→ ArchiveHashManifest
+→ IntegrityVerification
+→ RestoreReadiness
+→ ProvenanceRegistry
+→ DependencySnapshot
+→ DocumentationArchiveIndex
+→ ReportArchiveIndex
+→ DataLakeArchiveIndex
+→ CrossLayerArchiveIndex
+→ SecurityArchiveBoundary
+→ SecretExclusionVerification
+→ ArchiveGapRegister
+→ ArchiveRiskSummary
+→ LongHorizonPreservationBinder
+→ ArchiveValidation
+→ ArchiveQuality
+→ Local Archive Outputs
 """
-    if "## Local Maintenance Data Flow" not in content:
-        with open(file_path, "a", encoding="utf-8") as f:
-            f.write(arch_insertion)
+    arch.write_text(content + add)
 
-def update_phase_log():
-    file_path = "docs/PHASE_LOG.md"
-    if not os.path.exists(file_path):
-        with open(file_path, "w", encoding="utf-8") as f:
-            f.write("# Phase Log\n\n")
-
-    with open(file_path, "r", encoding="utf-8") as f:
-        content = f.read()
-
-    phase_insertion = """
-## Phase 70: Local Long-Term Maintenance Planner
-- Local maintenance profile sistemi eklendi.
-- Maintenance label registry eklendi.
-- MaintenanceDomain, MaintenanceTask, DependencyWatchItem, MaintenanceFinding ve MaintenanceBinder modelleri eklendi.
-- Maintenance domain registry eklendi.
-- Maintenance task registry eklendi.
-- Periodic review calendar eklendi.
-- Refresh cadence registries eklendi.
-- Dependency aging watch eklendi.
-- Dependency review checklist eklendi.
-- Deprecated/stale artifact watch raporları eklendi.
-- Stale report/doc/test watch raporları eklendi.
-- Manual review queue eklendi.
-- Maintenance gap register eklendi.
-- Maintenance risk summary eklendi.
-- Sustainability score report eklendi.
-- Operator periodic review checklist eklendi.
-- Monthly/quarterly review templates eklendi.
-- Refresh command plan eklendi.
-- Maintenance runbook eklendi.
-- Long-term sustainability binder eklendi.
-- Maintenance validation ve quality report eklendi.
-- LocalMaintenancePipeline eklendi.
-- DataLake local maintenance kayıt desteği aldı.
-- Local maintenance scriptleri eklendi.
+# PHASE_LOG.md
+phase = Path("docs/PHASE_LOG.md")
+content = phase.read_text()
+if "Phase 71" not in content:
+    add = """
+## Phase 71
+- Local archive profile sistemi eklendi.
+- Archive label registry eklendi.
+- ArchiveDomain, ArchiveItem, SnapshotCatalogItem, RetentionPolicyItem ve ArchiveFinding modelleri eklendi.
+- Archive domain registry eklendi.
+- Archive item registry eklendi.
+- Archive candidate inventory eklendi.
+- Archive exclusion registry eklendi.
+- Project snapshot catalog eklendi.
+- Cold storage manifest eklendi.
+- Retention policy ve retention review checklist eklendi.
+- Archive hash manifest eklendi.
+- Archive integrity verification plan eklendi.
+- Restore-readiness checklist eklendi.
+- Archive provenance registry eklendi.
+- Dependency snapshot summary eklendi.
+- Documentation/report/DataLake/cross-layer archive index eklendi.
+- Security-sensitive archive boundary ve secret exclusion verification raporları eklendi.
+- Archive gap register eklendi.
+- Archive risk summary eklendi.
+- Long-horizon preservation binder eklendi.
+- Archive validation ve quality report eklendi.
+- LocalArchivePipeline eklendi.
+- DataLake local archive kayıt desteği aldı.
+- Local archive scriptleri eklendi.
 - Testler genişletildi.
 """
-    if "## Phase 70" not in content:
-        with open(file_path, "a", encoding="utf-8") as f:
-            f.write(phase_insertion)
+    phase.write_text(content + add)
 
-def update_guides():
-    guides = [
-        "docs/OPERATOR_MANUAL.md",
-        "docs/ANALYST_HANDBOOK.md",
-        "docs/CODEX_AGENT_GUIDE.md",
-        "docs/SAFE_USAGE_GUIDE.md",
-        "docs/INSTALLATION.md",
-        "docs/CONFIGURATION.md"
-    ]
-
-    guide_insertion = """
-## Local Maintenance Overview
-
-The local maintenance module is available to help evaluate project sustainability.
-
-- **Maintenance domain registry:** Lists all managed parts of the offline infrastructure.
-- **Periodic review calendar:** Gives manual hints for reviewing outputs. It is **NOT** a scheduler.
-- **Refresh cadence:** Recommended manual refresh schedules.
-- **Dependency aging watch:** Local-only scan (no internet connection) for missing metadata and stale files. Does **NOT** auto-upgrade.
-- **Manual review queue:** Summarizes tasks and artifacts that require human review.
-- **Sustainability score:** A local metric for project health. It is **NOT** an official SLA.
-- **Maintenance runbook:** Documentation on how to operate offline checks, **NOT** automatic operations.
-- **DISCLAIMER:** No live orders, no broker executions, no deployment scripts, no auto-upgrades, no cloud uploads, and absolutely no investment advice is generated by this module.
+def patch_manuals(file_name):
+    p = Path(f"docs/{file_name}")
+    if p.exists():
+        content = p.read_text()
+        if "Local Archive Strategy" not in content:
+            add = """
+### Local Archive Strategy & Preservation Layer (Phase 71)
+- **Archive domain registry nasıl okunur?**: Tüm dosyalar çeşitli local retention domain'lere bölünür.
+- **Snapshot catalog ne yapar/ne yapmaz?**: Cloud snapshot değildir, local file inventory'dir.
+- **Cold storage manifest neden cloud backup değildir?**: Dosya yüklemez veya taşımaz, operatöre offline USB/drive'a neleri atması gerektiğini gösterir.
+- **Retention policy neden resmi compliance değildir?**: Otomatik veri silmez, sadece tavsiye verir.
+- **Integrity verification plan nasıl kullanılır?**: Geri yükleme tatbikatında dosyaların bozulup bozulmadığını kontrol eder.
+- **Secret exclusion verification nasıl yorumlanır?**: .env gibi dosyaların arşivde HİÇ olmamasını denetler.
+- **Preservation binder ne işe yarar?**: Sistemin 5-10 yıl boyunca tekrar ayağa kalkabilmesi için operatöre manual yönergeler veren kitaptır.
+- **DİKKAT**: Sistemde cloud upload, auto archive, dosya taşıma/silme, canlı emir, broker execution, deployment ve yatırım tavsiyesi YOKTUR.
 """
-    for guide in guides:
-        if not os.path.exists(guide):
-            os.makedirs(os.path.dirname(guide), exist_ok=True)
-            with open(guide, "w", encoding="utf-8") as f:
-                f.write(f"# {os.path.basename(guide).split('.')[0]}\n\n")
+            p.write_text(content + add)
 
-        with open(guide, "r", encoding="utf-8") as f:
-            content = f.read()
+for doc in ["OPERATOR_MANUAL.md", "ANALYST_HANDBOOK.md", "CODEX_AGENT_GUIDE.md", "SAFE_USAGE_GUIDE.md", "INSTALLATION.md", "CONFIGURATION.md"]:
+    patch_manuals(doc)
 
-        if "## Local Maintenance Overview" not in content:
-            with open(guide, "a", encoding="utf-8") as f:
-                f.write(guide_insertion)
-
-update_architecture()
-update_phase_log()
-update_guides()
+print("Documentation patched")

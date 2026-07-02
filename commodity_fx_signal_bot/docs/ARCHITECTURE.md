@@ -511,3 +511,31 @@ Docs / Tests / Scripts / Reports / DataLake / Config / Requirements / Security /
 -> MaintenanceValidation
 -> MaintenanceQuality
 -> Local Maintenance Outputs
+
+### Phase 71: Local Archival Strategy & Preservation Layer
+Docs / Reports / DataLake / Config / Scripts / Tests / Security / Backup / Packaging / Evidence / Metadata / Graph / Timeline / Consistency / Readiness / Maintenance
+→ ArchiveDomainRegistry
+→ ArchiveItemRegistry
+→ ArchiveCandidateInventory
+→ ArchiveExclusionRegistry
+→ ProjectSnapshotCatalog
+→ ColdStorageManifest
+→ RetentionPolicy
+→ RetentionReview
+→ ArchiveHashManifest
+→ IntegrityVerification
+→ RestoreReadiness
+→ ProvenanceRegistry
+→ DependencySnapshot
+→ DocumentationArchiveIndex
+→ ReportArchiveIndex
+→ DataLakeArchiveIndex
+→ CrossLayerArchiveIndex
+→ SecurityArchiveBoundary
+→ SecretExclusionVerification
+→ ArchiveGapRegister
+→ ArchiveRiskSummary
+→ LongHorizonPreservationBinder
+→ ArchiveValidation
+→ ArchiveQuality
+→ Local Archive Outputs
