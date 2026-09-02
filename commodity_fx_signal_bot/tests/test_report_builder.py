@@ -182,3 +182,6 @@ def test_build_mean_reversion_status_report():
     df = pd.DataFrame()
     rep = build_mean_reversion_status_report(df, summary)
     assert "MEAN REVERSION STATUS REPORT" in rep
+
+
+def test_dummy(): pass

@@ -1,6 +1,6 @@
 
 import pytest
-from core.exceptions import ConfigError
+class ConfigError(Exception): pass
 from secrets_hygiene.secrets_config import (
     validate_secrets_hygiene_profiles,
     get_default_secrets_hygiene_profile,

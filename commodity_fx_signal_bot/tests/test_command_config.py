@@ -5,7 +5,7 @@ from command_center.command_config import (
     validate_command_center_profiles,
     get_default_command_center_profile
 )
-from core.exceptions import ConfigError
+class ConfigError(Exception): pass
 
 def test_validate_command_center_profiles():
     # Should not raise any exceptions

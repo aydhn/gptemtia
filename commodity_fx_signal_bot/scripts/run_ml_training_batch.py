@@ -3,7 +3,7 @@ import sys
 import logging
 import pandas as pd
 from config.settings import settings
-from config.paths import ProjectPaths
+from config.paths import ProjectPaths, ensure_project_directories, LAKE_DIR
 from config.symbols import get_enabled_symbols, get_symbol_spec
 from data.storage.data_lake import DataLake
 from ml.training_config import get_ml_training_profile

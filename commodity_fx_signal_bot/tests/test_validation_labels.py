@@ -30,3 +30,6 @@ def test_validate_optimizer_candidate_label():
 def test_blocking_status():
     assert is_blocking_validation_status("validation_failed") is True
     assert is_blocking_validation_status("validation_passed") is False
+
+
+def test_dummy(): pass

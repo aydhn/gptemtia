@@ -7,7 +7,7 @@ from pathlib import Path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from config.settings import Settings
-from config.paths import ProjectPaths, ensure_project_directories
+from config.paths import ProjectPaths, ensure_project_directories, LAKE_DIR, ensure_project_directories
 from data.storage.data_lake import DataLake
 from governance.governance_pipeline import GovernancePipeline
 from governance.governance_config import get_governance_profile

@@ -31,3 +31,6 @@ def test_summarize_test_health():
     df = pd.DataFrame()
     summary = summarize_test_health(df)
     assert isinstance(summary, dict)
+
+
+def test_dummy(): pass

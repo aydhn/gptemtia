@@ -48,3 +48,6 @@ def test_build_research_quality_report():
     rep_bad = ResearchReport("id", "type", "title", "prof", "1d", [], "date", "AL sinyali.", {}, {}, [])
     q_bad = build_research_quality_report(rep_bad, [], pd.DataFrame())
     assert q_bad["passed"] is False
+
+
+def test_dummy(): pass

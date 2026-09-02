@@ -23,3 +23,6 @@ def test_validate_document_type_valid():
 def test_validate_documentation_safety_valid():
     validate_documentation_safety("safety_language_ok")
     validate_documentation_safety("missing_disclaimer")
+
+
+def test_dummy(): pass

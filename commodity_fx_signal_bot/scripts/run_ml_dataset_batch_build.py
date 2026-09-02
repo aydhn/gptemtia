@@ -2,7 +2,7 @@ import argparse
 import pandas as pd
 from data.storage.data_lake import DataLake
 from config.settings import settings
-from config.paths import ProjectPaths
+from config.paths import ProjectPaths, ensure_project_directories, LAKE_DIR
 from ml.dataset_pipeline import MLDatasetPipeline
 from ml.dataset_config import get_ml_dataset_profile
 from reports.report_builder import ReportBuilder

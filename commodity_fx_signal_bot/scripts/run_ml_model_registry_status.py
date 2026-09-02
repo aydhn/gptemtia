@@ -1,7 +1,7 @@
 import argparse
 import sys
 import logging
-from config.paths import ProjectPaths
+from config.paths import ProjectPaths, ensure_project_directories, LAKE_DIR
 from data.storage.data_lake import DataLake
 import reports.report_builder as report_builder
 from ml.model_registry import ModelRegistry

@@ -17,3 +17,6 @@ def test_script_imports():
             assert hasattr(module, "main"), f"Script {script} must have a main() function"
         except ImportError as e:
             pytest.fail(f"Could not import {script}: {e}")
+
+
+def test_dummy(): pass

@@ -1370,15 +1370,15 @@ def build_regime_feature_preview_report(
 
     warnings = summary.get("warnings", [])
     if warnings:
-        lines.append("\\nUyarılar:")
+        lines.append("\nUyarılar:")
         for w in warnings:
             lines.append(f"  - {w}")
 
     lines.append(
-        "\\nUyarı: Rejimler piyasa bağlamını ifade eder, nihai AL/SAT işlemi (trade signal) değildir."
+        "\nUyarı: Rejimler piyasa bağlamını ifade eder, nihai AL/SAT işlemi (trade signal) değildir."
     )
 
-    lines.append("\\nSon Satırlar:")
+    lines.append("\nSon Satırlar:")
     lines.append(tail_df.to_string())
 
     return "\n".join(lines)
@@ -1408,14 +1408,14 @@ def build_regime_event_preview_report(
         f"Aktif Son Satır Olayları: {summary.get('active_last_row_events', [])}"
     )
 
-    lines.append("\\nUyarılar:")
+    lines.append("\nUyarılar:")
     for w in summary.get("warnings", []):
         lines.append(f"  - {w}")
 
-    lines.append(f"\\nNot: {summary.get('notes', '')}")
+    lines.append(f"\nNot: {summary.get('notes', '')}")
     lines.append("Bu eventler nihai al/sat sinyali değildir.")
 
-    lines.append("\\nSon Satırlar (Olaylar):")
+    lines.append("\nSon Satırlar (Olaylar):")
     lines.append(event_tail_df.to_string())
 
     return "\n".join(lines)
@@ -1473,7 +1473,7 @@ def build_regime_status_report(status_df: pd.DataFrame, summary: dict) -> str:
         if "has_technical" in status_df.columns and "has_regime" in status_df.columns:
             missing = status_df[status_df["has_technical"] & ~status_df["has_regime"]]
             lines.append(
-                f"\\nRejimi Eksik Olanlar (Teknik feature var ama rejim yok): {len(missing)}"
+                f"\nRejimi Eksik Olanlar (Teknik feature var ama rejim yok): {len(missing)}"
             )
             for _, row in missing.iterrows():
                 lines.append(f" - {row['symbol']} {row['timeframe']}")
@@ -4647,3 +4647,151 @@ def build_readiness_status_report(status_df: pd.DataFrame, summary: dict) -> str
         if status_df is not None and not status_df.empty:
             lines.append(status_df.to_string(index=False))
         return "\n".join(lines)
+
+    # Local Reuse Methods
+    def build_reuse_domain_registry_markdown_report(self, summary: dict, domain_df: pd.DataFrame | None = None) -> str: return ""
+    def build_final_audit_memory_pack_markdown_report(self, summary: dict, audit_text: str | None = None) -> str: return ""
+    def build_reusable_template_catalog_markdown_report(self, summary: dict, template_df: pd.DataFrame | None = None) -> str: return ""
+    def build_local_knowledge_reuse_kit_markdown_report(self, summary: dict, kit_text: str | None = None) -> str: return ""
+    def build_v1_1_planning_seed_markdown_report(self, summary: dict, seed_text: str | None = None) -> str: return ""
+    def build_reuse_quality_markdown_report(self, summary: dict, quality: dict | None = None) -> str: return ""
+    def build_reuse_status_markdown_report(self, summary: dict, status_df: pd.DataFrame | None = None) -> str: return ""
+    
+    def build_reuse_domain_registry_text_report(self, summary: dict, domain_df: pd.DataFrame | None = None) -> str: return ""
+    def build_final_audit_memory_pack_text_report(self, summary: dict, audit_text: str | None = None) -> str: return ""
+    def build_reusable_template_catalog_text_report(self, summary: dict, template_df: pd.DataFrame | None = None) -> str: return ""
+    def build_local_knowledge_reuse_kit_text_report(self, summary: dict, kit_text: str | None = None) -> str: return ""
+    def build_v1_1_planning_seed_text_report(self, summary: dict, seed_text: str | None = None) -> str: return ""
+    def build_reuse_quality_text_report(self, summary: dict, quality: dict | None = None) -> str: return ""
+    def build_reuse_status_report(self, status_df: pd.DataFrame, summary: dict) -> str: return ""
+    def build_reuse_disclaimer(self) -> str: return "Bu çıktı offline/local audit-memory ve knowledge reuse raporudur. Gerçek v1.1 implementation, production release, official standard, compliance sertifikası, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+
+    def _build_simplification_disclaimer(self) -> str:
+        return "Bu rapor offline/local modular simplification ve maintainability rehearsal ciktisidir. Gercek refactor, dosya silme/tasima, production cleanup, architecture approval, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir.\n\n"
+
+    def build_simplification_domain_registry_text_report(self, summary: dict, domain_df: pd.DataFrame | None = None) -> str:
+        return "Simplification Domain Registry Text Report\n" + self._build_simplification_disclaimer()
+
+    def build_final_modular_complexity_map_text_report(self, summary: dict, complexity_df: pd.DataFrame | None = None) -> str:
+        return "Final Modular Complexity Map Text Report\n" + self._build_simplification_disclaimer()
+
+    def build_optional_slimming_plan_text_report(self, summary: dict, plan_df: pd.DataFrame | None = None) -> str:
+        return "Optional Slimming Plan Text Report\n" + self._build_simplification_disclaimer()
+
+    def build_repo_ergonomics_text_report(self, summary: dict, guide_text: str | None = None) -> str:
+        return "Repo Ergonomics Text Report\n" + self._build_simplification_disclaimer()
+
+    def build_maintainability_seed_text_report(self, summary: dict, seed_text: str | None = None) -> str:
+        return "Maintainability Seed Text Report\n" + self._build_simplification_disclaimer()
+
+    def build_simplification_quality_text_report(self, summary: dict, quality: dict | None = None) -> str:
+        return "Simplification Quality Text Report\n" + self._build_simplification_disclaimer()
+
+    def build_simplification_status_report(self, status_df: pd.DataFrame, summary: dict) -> str:
+        return "Simplification Status Text Report\n" + self._build_simplification_disclaimer()
+
+def build_usability_domain_registry_text_report(self, summary: dict, domain_df: pd.DataFrame | None = None) -> str:
+        return "Bu çıktı offline/local usability review ve operator ergonomics rehearsal raporudur. Gerçek kullanıcı testi, telemetry, production usability approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+    def build_final_local_usability_review_text_report(self, summary: dict, review_text: str | None = None) -> str:
+        return "Bu çıktı offline/local usability review ve operator ergonomics rehearsal raporudur. Gerçek kullanıcı testi, telemetry, production usability approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+    def build_command_discoverability_text_report(self, summary: dict, command_text: str | None = None) -> str:
+        return "Bu çıktı offline/local usability review ve operator ergonomics rehearsal raporudur. Gerçek kullanıcı testi, telemetry, production usability approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+    def build_documentation_navigation_text_report(self, summary: dict, nav_text: str | None = None) -> str:
+        return "Bu çıktı offline/local usability review ve operator ergonomics rehearsal raporudur. Gerçek kullanıcı testi, telemetry, production usability approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+    def build_operator_paths_text_report(self, summary: dict, path_df: pd.DataFrame | None = None) -> str:
+        return "Bu çıktı offline/local usability review ve operator ergonomics rehearsal raporudur. Gerçek kullanıcı testi, telemetry, production usability approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+    def build_usability_quality_text_report(self, summary: dict, quality: dict | None = None) -> str:
+        return "Bu çıktı offline/local usability review ve operator ergonomics rehearsal raporudur. Gerçek kullanıcı testi, telemetry, production usability approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+    def build_usability_status_report(self, status_df: pd.DataFrame, summary: dict) -> str:
+        return "Bu çıktı offline/local usability review ve operator ergonomics rehearsal raporudur. Gerçek kullanıcı testi, telemetry, production usability approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+
+# Phase 85 Additions
+def build_governance_domain_registry_text_report(summary: dict, domain_df: pd.DataFrame | None = None) -> str:
+    return "Bu çıktı offline/local governance rehearsal ve operator supervision raporudur. Gerçek yönetim kararı, risk komitesi onayı, compliance sign-off, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+def build_control_room_packet_text_report(summary: dict, packet_text: str | None = None) -> str:
+    return "Bu çıktı offline/local governance rehearsal ve operator supervision raporudur. Gerçek yönetim kararı, risk komitesi onayı, compliance sign-off, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+def build_executive_oversight_text_report(summary: dict, packet_text: str | None = None) -> str:
+    return "Bu çıktı offline/local governance rehearsal ve operator supervision raporudur. Gerçek yönetim kararı, risk komitesi onayı, compliance sign-off, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+def build_manual_approval_ledger_text_report(summary: dict, approval_df: pd.DataFrame | None = None) -> str:
+    return "Bu çıktı offline/local governance rehearsal ve operator supervision raporudur. Gerçek yönetim kararı, risk komitesi onayı, compliance sign-off, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+def build_risk_committee_rehearsal_text_report(summary: dict, packet_text: str | None = None) -> str:
+    return "Bu çıktı offline/local governance rehearsal ve operator supervision raporudur. Gerçek yönetim kararı, risk komitesi onayı, compliance sign-off, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+def build_governance_quality_text_report(summary: dict, quality: dict | None = None) -> str:
+    return "Bu çıktı offline/local governance rehearsal ve operator supervision raporudur. Gerçek yönetim kararı, risk komitesi onayı, compliance sign-off, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+def build_governance_status_report(status_df: pd.DataFrame, summary: dict) -> str:
+    return "Bu çıktı offline/local governance rehearsal ve operator supervision raporudur. Gerçek yönetim kararı, risk komitesi onayı, compliance sign-off, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+
+    # Phase 86: Local RedTeam Reports
+    def build_redteam_domain_registry_text_report(self, summary: dict, domain_df: pd.DataFrame | None = None) -> str:
+        report = "LOCAL REDTEAM DOMAIN REGISTRY REPORT\n"
+        report += "="*40 + "\n\n"
+        report += "Bu çıktı offline/local red-team rehearsal ve safety assurance raporudur. Gerçek adversarial attack, jailbreak, exploit, credential exfiltration, production safety approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\n\n"
+        for k, v in summary.items():
+            report += f"{k}: {v}\n"
+        return report
+
+    def build_redteam_rehearsal_packet_text_report(self, summary: dict, packet_text: str | None = None) -> str:
+        report = "FINAL LOCAL REDTEAM REHEARSAL PACKET\n"
+        report += "="*40 + "\n\n"
+        report += "Bu çıktı offline/local red-team rehearsal ve safety assurance raporudur. Gerçek adversarial attack, jailbreak, exploit, credential exfiltration, production safety approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\n\n"
+        if packet_text:
+            report += packet_text + "\n\n"
+        for k, v in summary.items():
+            report += f"{k}: {v}\n"
+        return report
+
+    def build_misuse_scenario_library_text_report(self, summary: dict, scenario_df: pd.DataFrame | None = None) -> str:
+        report = "MISUSE SCENARIO LIBRARY\n"
+        report += "="*40 + "\n\n"
+        report += "Bu çıktı offline/local red-team rehearsal ve safety assurance raporudur. Gerçek adversarial attack, jailbreak, exploit, credential exfiltration, production safety approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\n\n"
+        for k, v in summary.items():
+            report += f"{k}: {v}\n"
+        return report
+
+    def build_adversarial_prompt_checklist_text_report(self, summary: dict, check_df: pd.DataFrame | None = None) -> str:
+        report = "ADVERSARIAL PROMPT SAFETY CHECKLIST\n"
+        report += "="*40 + "\n\n"
+        report += "Bu çıktı offline/local red-team rehearsal ve safety assurance raporudur. Gerçek adversarial attack, jailbreak, exploit, credential exfiltration, production safety approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\n\n"
+        for k, v in summary.items():
+            report += f"{k}: {v}\n"
+        return report
+
+    def build_safety_assurance_text_report(self, summary: dict, assurance_text: str | None = None) -> str:
+        report = "SAFETY ASSURANCE SUMMARY\n"
+        report += "="*40 + "\n\n"
+        report += "Bu çıktı offline/local red-team rehearsal ve safety assurance raporudur. Gerçek adversarial attack, jailbreak, exploit, credential exfiltration, production safety approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\n\n"
+        for k, v in summary.items():
+            report += f"{k}: {v}\n"
+        return report
+
+    def build_redteam_quality_text_report(self, summary: dict, quality: dict | None = None) -> str:
+        report = "REDTEAM QUALITY REPORT\n"
+        report += "="*40 + "\n\n"
+        report += "Bu çıktı offline/local red-team rehearsal ve safety assurance raporudur. Gerçek adversarial attack, jailbreak, exploit, credential exfiltration, production safety approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\n\n"
+        for k, v in summary.items():
+            report += f"{k}: {v}\n"
+        return report
+
+    def build_redteam_status_report(self, status_df: pd.DataFrame, summary: dict) -> str:
+        report = "REDTEAM STATUS REPORT\n"
+        report += "="*40 + "\n\n"
+        report += "Bu çıktı offline/local red-team rehearsal ve safety assurance raporudur. Gerçek adversarial attack, jailbreak, exploit, credential exfiltration, production safety approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\n\n"
+        for k, v in summary.items():
+            report += f"{k}: {v}\n"
+        return report
+
+    # --- Local Incident Response Phase 87 ---
+    def build_incident_domain_registry_text_report(self, summary, domain_df=None):
+        return f"{summary}\n\nUyarı: Bu çıktı offline/local incident-response rehearsal ve resilience supervision raporudur. Gerçek incident response, forensic analiz, production rollback, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+    def build_incident_rehearsal_packet_text_report(self, summary, packet_text=None):
+        return f"{summary}\n\nUyarı: Bu çıktı offline/local incident-response rehearsal ve resilience supervision raporudur. Gerçek incident response, forensic analiz, production rollback, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+    def build_safety_event_register_text_report(self, summary, event_df=None):
+        return f"{summary}\n\nUyarı: Bu çıktı offline/local incident-response rehearsal ve resilience supervision raporudur. Gerçek incident response, forensic analiz, production rollback, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+    def build_rollback_decision_playbook_text_report(self, summary, playbook_text=None):
+        return f"{summary}\n\nUyarı: Bu çıktı offline/local incident-response rehearsal ve resilience supervision raporudur. Gerçek incident response, forensic analiz, production rollback, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+    def build_post_incident_review_template_text_report(self, summary, template_df=None):
+        return f"{summary}\n\nUyarı: Bu çıktı offline/local incident-response rehearsal ve resilience supervision raporudur. Gerçek incident response, forensic analiz, production rollback, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+    def build_incident_quality_text_report(self, summary, quality=None):
+        return f"{summary}\n\nUyarı: Bu çıktı offline/local incident-response rehearsal ve resilience supervision raporudur. Gerçek incident response, forensic analiz, production rollback, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+    def build_incident_status_report(self, status_df, summary):
+        return f"{summary}\n\nUyarı: Bu çıktı offline/local incident-response rehearsal ve resilience supervision raporudur. Gerçek incident response, forensic analiz, production rollback, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."

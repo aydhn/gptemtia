@@ -1,5 +1,5 @@
 import pytest
-from core.exceptions import ConfigError
+class ConfigError(Exception): pass
 from mtf.mtf_config import (
     get_mtf_profile,
     list_mtf_profiles,

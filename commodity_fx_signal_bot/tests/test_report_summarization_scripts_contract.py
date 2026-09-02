@@ -17,3 +17,6 @@ def test_scripts_contract():
         mod = importlib.import_module(s)
         assert hasattr(mod, "main")
         assert hasattr(mod, "parse_args")
+
+
+def test_dummy(): pass

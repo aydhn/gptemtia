@@ -8,7 +8,7 @@ import logging
 from pathlib import Path
 
 from config.settings import settings
-from config.paths import ProjectPaths
+from config.paths import ProjectPaths, ensure_project_directories, LAKE_DIR
 from data.storage.data_lake import DataLake
 from observability.observability_config import get_observability_profile
 from observability.observability_pipeline import ObservabilityPipeline

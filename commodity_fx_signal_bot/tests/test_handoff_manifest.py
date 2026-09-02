@@ -7,3 +7,6 @@ def test_handoff_manifest():
     m, s = build_handoff_package_manifest(PROJECT_ROOT, 1.0, {}, profile)
     assert m["readiness_score"] == 1.0
     assert m["local_only"] is True
+
+
+def test_dummy(): pass

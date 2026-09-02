@@ -39,3 +39,6 @@ def test_script_availability_matrix(tmp_path):
     df = build_script_availability_matrix(tmp_path)
     assert not df.empty
     assert "status_script" in df.columns
+
+
+def test_dummy(): pass

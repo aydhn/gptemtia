@@ -1,0 +1,9 @@
+def test_scripts():
+    import scripts.run_training_domain_registry
+    import scripts.run_onboarding_curriculum
+    import scripts.run_guided_walkthroughs
+    import scripts.run_training_packs
+    import scripts.run_handover_education_binder
+    import scripts.run_training_quality_report
+    import scripts.run_training_status
+    assert True

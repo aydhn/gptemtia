@@ -63,3 +63,6 @@ def test_build_validation_quality_report():
     assert report["walk_forward_quality_passed"] is False
     assert report["forbidden_live_terms_found"] is False # passed = True means not found
     assert report["warning_count"] == 1
+
+
+def test_dummy(): pass

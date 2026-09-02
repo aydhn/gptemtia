@@ -1,3 +1,4 @@
+from typing import Dict, Optional
 from config.paths import LAKE_FEATURES_DIR
 import os
 from typing import Optional
@@ -6,6 +7,7 @@ import re
 from pathlib import Path
 
 import pandas as pd
+
 from config.paths import LAKE_FEATURES_GROUP_FEATURES_DIR
 
 from config.symbols import SymbolSpec
@@ -17,6 +19,448 @@ logger = get_logger(__name__)
 
 class DataLake:
 
+    def _save_df(self, df, directory, filename, summary=None):
+        import pandas as pd
+        if df is None: return Path(directory) / f"{filename}.csv"
+        Path(directory).mkdir(parents=True, exist_ok=True)
+        out_path = Path(directory) / f"{filename}.csv"
+        df.to_csv(out_path, index=False)
+        return out_path
+
+    def _load_df(self, directory, filename):
+        import pandas as pd
+        out_path = Path(directory) / f"{filename}.csv"
+        if not out_path.exists(): return pd.DataFrame()
+        return pd.read_csv(out_path)
+
+    def _save_text(self, text, directory, filename, summary=None):
+        if text is None: return Path(directory) / f"{filename}.md"
+        Path(directory).mkdir(parents=True, exist_ok=True)
+        out_path = Path(directory) / f"{filename}.md"
+        out_path.write_text(text, encoding="utf-8")
+        return out_path
+
+    def _load_text(self, directory, filename):
+        out_path = Path(directory) / f"{filename}.md"
+        if not out_path.exists(): return ""
+        return out_path.read_text(encoding="utf-8")
+
+    def _save_json(self, data, directory, filename):
+        import json
+        Path(directory).mkdir(parents=True, exist_ok=True)
+        out_path = Path(directory) / f"{filename}.json"
+        out_path.write_text(json.dumps(data, indent=2), encoding="utf-8")
+        return out_path
+
+    def _load_json(self, directory, filename):
+        import json
+        out_path = Path(directory) / f"{filename}.json"
+        if not out_path.exists(): return {}
+        return json.loads(out_path.read_text(encoding="utf-8"))
+
+
+
+    def save_performance_profile_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_PROFILES_DIR, "performance_profile_registry", summary)
+    def load_performance_profile_registry(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_PROFILES_DIR, "performance_profile_registry")
+
+    def save_performance_domain_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_DOMAINS_DIR, "performance_domain_registry", summary)
+    def load_performance_domain_registry(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_DOMAINS_DIR, "performance_domain_registry")
+
+    def save_final_local_performance_budget(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_BUDGET_DIR, "final_local_performance_budget", summary)
+    def load_final_local_performance_budget(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_BUDGET_DIR, "final_local_performance_budget")
+
+    def save_lightweight_runtime_profile(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_RUNTIME_PROFILE_DIR, "lightweight_runtime_profile", summary)
+    def load_lightweight_runtime_profile(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_RUNTIME_PROFILE_DIR, "lightweight_runtime_profile")
+
+    def save_resource_footprint_rehearsal_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_RESOURCE_FOOTPRINT_DIR, "resource_footprint_rehearsal_report", summary)
+    def load_resource_footprint_rehearsal_report(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_RESOURCE_FOOTPRINT_DIR, "resource_footprint_rehearsal_report")
+
+    def save_cpu_usage_estimate_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_CPU_DIR, "cpu_usage_estimate_registry", summary)
+    def load_cpu_usage_estimate_registry(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_CPU_DIR, "cpu_usage_estimate_registry")
+
+    def save_memory_usage_estimate_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_MEMORY_DIR, "memory_usage_estimate_registry", summary)
+    def load_memory_usage_estimate_registry(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_MEMORY_DIR, "memory_usage_estimate_registry")
+
+    def save_disk_usage_estimate_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_DISK_DIR, "disk_usage_estimate_registry", summary)
+    def load_disk_usage_estimate_registry(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_DISK_DIR, "disk_usage_estimate_registry")
+
+    def save_report_output_growth_estimate(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_GROWTH_DIR, "report_output_growth_estimate", summary)
+    def load_report_output_growth_estimate(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_GROWTH_DIR, "report_output_growth_estimate")
+
+    def save_datalake_growth_estimate(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_GROWTH_DIR, "datalake_growth_estimate", summary)
+    def load_datalake_growth_estimate(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_GROWTH_DIR, "datalake_growth_estimate")
+
+    def save_generated_docs_growth_estimate(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_GROWTH_DIR, "generated_docs_growth_estimate", summary)
+    def load_generated_docs_growth_estimate(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_GROWTH_DIR, "generated_docs_growth_estimate")
+
+    def save_script_runtime_estimate_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_SCRIPT_RUNTIME_DIR, "script_runtime_estimate_registry", summary)
+    def load_script_runtime_estimate_registry(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_SCRIPT_RUNTIME_DIR, "script_runtime_estimate_registry")
+
+    def save_test_runtime_estimate_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_TEST_RUNTIME_DIR, "test_runtime_estimate_registry", summary)
+    def load_test_runtime_estimate_registry(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_TEST_RUNTIME_DIR, "test_runtime_estimate_registry")
+
+    def save_pipeline_runtime_estimate_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_PIPELINE_RUNTIME_DIR, "pipeline_runtime_estimate_registry", summary)
+    def load_pipeline_runtime_estimate_registry(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_PIPELINE_RUNTIME_DIR, "pipeline_runtime_estimate_registry")
+
+    def save_maintenance_cost_estimate(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_MAINTENANCE_COST_DIR, "maintenance_cost_estimate", summary)
+    def load_maintenance_cost_estimate(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_MAINTENANCE_COST_DIR, "maintenance_cost_estimate")
+
+    def save_maintenance_effort_matrix(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_MAINTENANCE_EFFORT_DIR, "maintenance_effort_matrix", summary)
+    def load_maintenance_effort_matrix(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_MAINTENANCE_EFFORT_DIR, "maintenance_effort_matrix")
+
+    def save_operator_time_budget_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_OPERATOR_TIME_DIR, "operator_time_budget_report", summary)
+    def load_operator_time_budget_report(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_OPERATOR_TIME_DIR, "operator_time_budget_report")
+
+    def save_local_machine_suitability_checklist(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_MACHINE_SUITABILITY_DIR, "local_machine_suitability_checklist", summary)
+    def load_local_machine_suitability_checklist(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_MACHINE_SUITABILITY_DIR, "local_machine_suitability_checklist")
+
+    def save_offline_efficiency_planning_guide(self, text: str, summary: dict | None = None) -> Path:
+        return self._save_text(text, self.paths.LAKE_LOCAL_PERFORMANCE_EFFICIENCY_DIR, "offline_efficiency_planning_guide", summary)
+    def load_offline_efficiency_planning_guide(self) -> str:
+        return self._load_text(self.paths.LAKE_LOCAL_PERFORMANCE_EFFICIENCY_DIR, "offline_efficiency_planning_guide")
+
+    def save_efficiency_candidate_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_EFFICIENCY_DIR, "efficiency_candidate_registry", summary)
+    def load_efficiency_candidate_registry(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_EFFICIENCY_DIR, "efficiency_candidate_registry")
+
+    def save_lightweight_mode_recommendation_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_LIGHTWEIGHT_MODE_DIR, "lightweight_mode_recommendation_registry", summary)
+    def load_lightweight_mode_recommendation_registry(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_LIGHTWEIGHT_MODE_DIR, "lightweight_mode_recommendation_registry")
+
+    def save_heavy_output_warning_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_WARNINGS_DIR, "heavy_output_warning_registry", summary)
+    def load_heavy_output_warning_registry(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_WARNINGS_DIR, "heavy_output_warning_registry")
+
+    def save_storage_retention_rehearsal_plan(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_RETENTION_DIR, "storage_retention_rehearsal_plan", summary)
+    def load_storage_retention_rehearsal_plan(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_RETENTION_DIR, "storage_retention_rehearsal_plan")
+
+    def save_report_rotation_rehearsal_guide(self, text: str, summary: dict | None = None) -> Path:
+        return self._save_text(text, self.paths.LAKE_LOCAL_PERFORMANCE_RETENTION_DIR, "report_rotation_rehearsal_guide", summary)
+    def load_report_rotation_rehearsal_guide(self) -> str:
+        return self._load_text(self.paths.LAKE_LOCAL_PERFORMANCE_RETENTION_DIR, "report_rotation_rehearsal_guide")
+
+    def save_datalake_retention_rehearsal_guide(self, text: str, summary: dict | None = None) -> Path:
+        return self._save_text(text, self.paths.LAKE_LOCAL_PERFORMANCE_RETENTION_DIR, "datalake_retention_rehearsal_guide", summary)
+    def load_datalake_retention_rehearsal_guide(self) -> str:
+        return self._load_text(self.paths.LAKE_LOCAL_PERFORMANCE_RETENTION_DIR, "datalake_retention_rehearsal_guide")
+
+    def save_performance_no_go_safe_go_summary(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_NO_GO_SAFE_GO_DIR, "performance_no_go_safe_go_summary", summary)
+    def load_performance_no_go_safe_go_summary(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_NO_GO_SAFE_GO_DIR, "performance_no_go_safe_go_summary")
+
+    def save_performance_exception_register(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_EXCEPTIONS_DIR, "performance_exception_register", summary)
+    def load_performance_exception_register(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_EXCEPTIONS_DIR, "performance_exception_register")
+
+    def save_performance_gap_register(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_GAPS_DIR, "performance_gap_register", summary)
+    def load_performance_gap_register(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_GAPS_DIR, "performance_gap_register")
+
+    def save_performance_risk_summary(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_RISKS_DIR, "performance_risk_summary", summary)
+    def load_performance_risk_summary(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_RISKS_DIR, "performance_risk_summary")
+
+    def save_performance_readiness_score_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_SCORING_DIR, "performance_readiness_score_report", summary)
+    def load_performance_readiness_score_report(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_SCORING_DIR, "performance_readiness_score_report")
+
+    def save_performance_validation_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, self.paths.LAKE_LOCAL_PERFORMANCE_VALIDATION_DIR, "performance_validation_report", summary)
+    def load_performance_validation_report(self) -> pd.DataFrame:
+        return self._load_df(self.paths.LAKE_LOCAL_PERFORMANCE_VALIDATION_DIR, "performance_validation_report")
+
+    def save_performance_quality(self, profile_name: str, quality: dict) -> Path:
+        return self._save_json(quality, self.paths.LAKE_LOCAL_PERFORMANCE_QUALITY_DIR, f"performance_quality_{profile_name}")
+    def load_performance_quality(self, profile_name: str) -> dict:
+        return self._load_json(self.paths.LAKE_LOCAL_PERFORMANCE_QUALITY_DIR, f"performance_quality_{profile_name}")
+
+    def save_local_performance_report(self, profile_name: str, report: dict, markdown: str | None = None) -> Path:
+        if markdown:
+            self._save_text(markdown, self.paths.LAKE_LOCAL_PERFORMANCE_DIR, f"performance_report_{profile_name}")
+        return self._save_json(report, self.paths.LAKE_LOCAL_PERFORMANCE_DIR, f"performance_report_{profile_name}")
+    def load_local_performance_report(self, profile_name: str) -> dict:
+        return self._load_json(self.paths.LAKE_LOCAL_PERFORMANCE_DIR, f"performance_report_{profile_name}")
+    def list_local_performance_reports(self) -> pd.DataFrame:
+        return pd.DataFrame()
+
+    def save_communication_profile_registry(self, df, summary=None): pass
+    def load_communication_profile_registry(self): return pd.DataFrame()
+    def save_stakeholder_audience_registry(self, df, summary=None): pass
+    def load_stakeholder_audience_registry(self): return pd.DataFrame()
+    def save_executive_summary_pack(self, text, summary=None): pass
+    def load_executive_summary_pack(self): return ""
+    def save_project_one_pager(self, text, summary=None): pass
+    def load_project_one_pager(self): return ""
+    def save_non_technical_briefing_deck_source(self, df, summary=None): pass
+    def load_non_technical_briefing_deck_source(self): return pd.DataFrame()
+    def save_project_narrative_report(self, text, summary=None): pass
+    def load_project_narrative_report(self): return ""
+    def save_decision_context_binder(self, text, summary=None): pass
+    def load_decision_context_binder(self): return ""
+    def save_capability_map_nontechnical(self, df, summary=None): pass
+    def load_capability_map_nontechnical(self): return pd.DataFrame()
+    def save_boundary_non_use_summary(self, text, summary=None): pass
+    def load_boundary_non_use_summary(self): return ""
+    def save_risk_limitation_narrative(self, text, summary=None): pass
+    def load_risk_limitation_narrative(self): return ""
+    def save_milestone_narrative(self, text, summary=None): pass
+    def load_milestone_narrative(self): return ""
+    def save_phase_evolution_narrative(self, text, summary=None): pass
+    def load_phase_evolution_narrative(self): return ""
+    def save_local_only_architecture_narrative(self, text, summary=None): pass
+    def load_local_only_architecture_narrative(self): return ""
+    def save_stakeholder_faq_registry(self, df, summary=None): pass
+    def load_stakeholder_faq_registry(self): return pd.DataFrame()
+    def save_executive_glossary_registry(self, df, summary=None): pass
+    def load_executive_glossary_registry(self): return pd.DataFrame()
+    def save_safe_communication_guide(self, text, summary=None): pass
+    def load_safe_communication_guide(self): return ""
+    def save_communication_do_dont_registry(self, df, summary=None): pass
+    def load_communication_do_dont_registry(self): return pd.DataFrame()
+    def save_decision_question_registry(self, df, summary=None): pass
+    def load_decision_question_registry(self): return pd.DataFrame()
+    def save_decision_context_matrix(self, df, summary=None): pass
+    def load_decision_context_matrix(self): return pd.DataFrame()
+    def save_stakeholder_update_templates(self, df, summary=None): pass
+    def load_stakeholder_update_templates(self): return pd.DataFrame()
+    def save_communication_gap_register(self, df, summary=None): pass
+    def load_communication_gap_register(self): return pd.DataFrame()
+    def save_communication_risk_summary(self, df, summary=None): pass
+    def load_communication_risk_summary(self): return pd.DataFrame()
+    def save_briefing_validation_report(self, df, summary=None): pass
+    def load_briefing_validation_report(self): return pd.DataFrame()
+    def save_briefing_quality(self, profile_name, quality): pass
+    def load_briefing_quality(self, profile_name): return {}
+    def save_local_briefing_report(self, profile_name, report, markdown=None): pass
+    def load_local_briefing_report(self, profile_name): return {}
+    def list_local_briefing_reports(self): return pd.DataFrame()
+
+
+    def save_dr_domain_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_dr_domains", "dr_domain_registry", summary=summary)
+        
+    def load_dr_domain_registry(self) -> pd.DataFrame:
+        return self._load_df("local_dr_domains", "dr_domain_registry")
+        
+    def save_dr_tabletop_scenario_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_dr_tabletop", "dr_tabletop_scenario_registry", summary=summary)
+        
+    def load_dr_tabletop_scenario_registry(self) -> pd.DataFrame:
+        return self._load_df("local_dr_tabletop", "dr_tabletop_scenario_registry")
+        
+    def save_restore_drill_simulation_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_dr_restore_drills", "restore_drill_simulation_registry", summary=summary)
+        
+    def load_restore_drill_simulation_registry(self) -> pd.DataFrame:
+        return self._load_df("local_dr_restore_drills", "restore_drill_simulation_registry")
+        
+    def save_failure_mode_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_dr_failure_modes", "failure_mode_registry", summary=summary)
+        
+    def load_failure_mode_registry(self) -> pd.DataFrame:
+        return self._load_df("local_dr_failure_modes", "failure_mode_registry")
+        
+    def save_failure_mode_playbook_index(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_dr_playbooks", "failure_mode_playbook_index", summary=summary)
+        
+    def load_failure_mode_playbook_index(self) -> pd.DataFrame:
+        return self._load_df("local_dr_playbooks", "failure_mode_playbook_index")
+        
+    def save_incident_rehearsal_binder(self, text: str, summary: dict | None = None) -> Path:
+        path = self.paths.get("local_dr_rehearsals") / "incident_rehearsal_binder.txt"
+        path.write_text(text, encoding="utf-8")
+        if summary:
+            self._save_summary("local_dr_rehearsals", "incident_rehearsal_binder", summary)
+        return path
+        
+    def load_incident_rehearsal_binder(self) -> str:
+        path = self.paths.get("local_dr_rehearsals") / "incident_rehearsal_binder.txt"
+        if path.exists():
+            return path.read_text(encoding="utf-8")
+        return ""
+        
+    def save_resilience_exercise_calendar(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_dr_calendar", "resilience_exercise_calendar", summary=summary)
+        
+    def load_resilience_exercise_calendar(self) -> pd.DataFrame:
+        return self._load_df("local_dr_calendar", "resilience_exercise_calendar")
+        
+    def save_restore_readiness_dry_run_checklist(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_dr_restore_readiness", "restore_readiness_dry_run_checklist", summary=summary)
+        
+    def load_restore_readiness_dry_run_checklist(self) -> pd.DataFrame:
+        return self._load_df("local_dr_restore_readiness", "restore_readiness_dry_run_checklist")
+        
+    def save_archive_restore_traceability_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_dr_traceability", "archive_restore_traceability_report", summary=summary)
+        
+    def load_archive_restore_traceability_report(self) -> pd.DataFrame:
+        return self._load_df("local_dr_traceability", "archive_restore_traceability_report")
+        
+    def save_backup_restore_traceability_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_dr_traceability", "backup_restore_traceability_report", summary=summary)
+        
+    def load_backup_restore_traceability_report(self) -> pd.DataFrame:
+        return self._load_df("local_dr_traceability", "backup_restore_traceability_report")
+        
+    def save_datalake_restore_simulation_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_dr_datalake", "datalake_restore_simulation_report", summary=summary)
+        
+    def load_datalake_restore_simulation_report(self) -> pd.DataFrame:
+        return self._load_df("local_dr_datalake", "datalake_restore_simulation_report")
+        
+    def save_docs_restore_simulation_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_dr_docs", "docs_restore_simulation_report", summary=summary)
+        
+    def load_docs_restore_simulation_report(self) -> pd.DataFrame:
+        return self._load_df("local_dr_docs", "docs_restore_simulation_report")
+        
+    def save_reports_restore_simulation_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_dr_reports", "reports_restore_simulation_report", summary=summary)
+        
+    def load_reports_restore_simulation_report(self) -> pd.DataFrame:
+        return self._load_df("local_dr_reports", "reports_restore_simulation_report")
+        
+    def save_config_env_restore_simulation_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_dr_config_env", "config_env_restore_simulation_report", summary=summary)
+        
+    def load_config_env_restore_simulation_report(self) -> pd.DataFrame:
+        return self._load_df("local_dr_config_env", "config_env_restore_simulation_report")
+        
+    def save_scripts_tests_restore_simulation_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_dr_scripts_tests", "scripts_tests_restore_simulation_report", summary=summary)
+        
+    def load_scripts_tests_restore_simulation_report(self) -> pd.DataFrame:
+        return self._load_df("local_dr_scripts_tests", "scripts_tests_restore_simulation_report")
+        
+    def save_cross_layer_restore_simulation_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_dr_cross_layer", "cross_layer_restore_simulation_report", summary=summary)
+        
+    def load_cross_layer_restore_simulation_report(self) -> pd.DataFrame:
+        return self._load_df("local_dr_cross_layer", "cross_layer_restore_simulation_report")
+        
+    def save_secret_boundary_incident_rehearsal(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_dr_security", "secret_boundary_incident_rehearsal", summary=summary)
+        
+    def load_secret_boundary_incident_rehearsal(self) -> pd.DataFrame:
+        return self._load_df("local_dr_security", "secret_boundary_incident_rehearsal")
+        
+    def save_manual_recovery_command_plan(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_dr_recovery_commands", "manual_recovery_command_plan", summary=summary)
+        
+    def load_manual_recovery_command_plan(self) -> pd.DataFrame:
+        return self._load_df("local_dr_recovery_commands", "manual_recovery_command_plan")
+        
+    def save_dr_gap_register(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_dr_gaps", "dr_gap_register", summary=summary)
+        
+    def load_dr_gap_register(self) -> pd.DataFrame:
+        return self._load_df("local_dr_gaps", "dr_gap_register")
+        
+    def save_dr_risk_summary(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_dr_risks", "dr_risk_summary", summary=summary)
+        
+    def load_dr_risk_summary(self) -> pd.DataFrame:
+        return self._load_df("local_dr_risks", "dr_risk_summary")
+        
+    def save_resilience_score_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_dr_scoring", "resilience_score_report", summary=summary)
+        
+    def load_resilience_score_report(self) -> pd.DataFrame:
+        return self._load_df("local_dr_scoring", "resilience_score_report")
+        
+    def save_dr_validation_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_dr_validation", "dr_validation_report", summary=summary)
+        
+    def load_dr_validation_report(self) -> pd.DataFrame:
+        return self._load_df("local_dr_validation", "dr_validation_report")
+        
+    def save_dr_quality(self, profile_name: str, quality: dict) -> Path:
+        import json
+        path = self.paths.get("local_dr_quality") / f"dr_quality_{profile_name}.json"
+        path.write_text(json.dumps(quality, indent=2), encoding="utf-8")
+        return path
+        
+    def load_dr_quality(self, profile_name: str) -> dict:
+        import json
+        path = self.paths.get("local_dr_quality") / f"dr_quality_{profile_name}.json"
+        if path.exists():
+            return json.loads(path.read_text(encoding="utf-8"))
+        return {}
+        
+    def save_local_dr_report(self, profile_name: str, report: dict, markdown: str | None = None) -> Path:
+        import json
+        path = self.paths.get("local_dr_reports") / f"local_dr_report_{profile_name}.json"
+        path.write_text(json.dumps(report, indent=2), encoding="utf-8")
+        if markdown:
+            md_path = self.paths.get("local_dr_reports") / f"local_dr_report_{profile_name}.md"
+            md_path.write_text(markdown, encoding="utf-8")
+        return path
+        
+    def load_local_dr_report(self, profile_name: str) -> dict:
+        import json
+        path = self.paths.get("local_dr_reports") / f"local_dr_report_{profile_name}.json"
+        if path.exists():
+            return json.loads(path.read_text(encoding="utf-8"))
+        return {}
+        
+    def list_local_dr_reports(self) -> pd.DataFrame:
+        import pandas as pd
+
+        path = self.paths.get("local_dr_reports")
+        reports = []
+        if path.exists():
+            for f in path.glob("local_dr_report_*.json"):
+                reports.append({"report_file": f.name})
+        return pd.DataFrame(reports)
+
+
     def _save_parquet_and_csv(self, df, directory, filename_prefix):
         directory.mkdir(parents=True, exist_ok=True)
         parquet_path = directory / f"{filename_prefix}.parquet"
@@ -27,6 +471,7 @@ class DataLake:
 
     def _load_parquet(self, path):
         import pandas as pd
+
         if path.exists():
             return pd.read_parquet(path)
         return pd.DataFrame()
@@ -1384,8 +1829,9 @@ class DataLake:
             self.root_dir = root_dir.lake_dir
         else:
             self.root_dir = Path(root_dir)
-            from config.paths import ProjectPaths
+            from config import paths
 
+            from config.paths import ProjectPaths
             self.paths = ProjectPaths()
 
         self.ohlcv_dir = self.root_dir / "ohlcv"
@@ -4839,86 +5285,86 @@ class DataLake:
 
     # --- Final Review Methods ---
     def save_final_system_inventory(self, report_name: str, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
-        base_path = ProjectPaths.FINAL_REVIEW_SYSTEM_INVENTORY
+        base_path = paths.FINAL_REVIEW_SYSTEM_INVENTORY
         return self._save_report_data(base_path, report_name, df, summary)
 
     def load_final_system_inventory(self, report_name: str) -> pd.DataFrame:
-        return self._load_parquet(ProjectPaths.FINAL_REVIEW_SYSTEM_INVENTORY / f"{report_name}.parquet")
+        return self._load_parquet(paths.FINAL_REVIEW_SYSTEM_INVENTORY / f"{report_name}.parquet")
 
     def save_architecture_audit(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
-        return self._save_report_data(ProjectPaths.FINAL_REVIEW_ARCHITECTURE, "architecture_audit", df, summary)
+        return self._save_report_data(paths.FINAL_REVIEW_ARCHITECTURE, "architecture_audit", df, summary)
 
     def load_architecture_audit(self) -> pd.DataFrame:
-        return self._load_parquet(ProjectPaths.FINAL_REVIEW_ARCHITECTURE / "architecture_audit.parquet")
+        return self._load_parquet(paths.FINAL_REVIEW_ARCHITECTURE / "architecture_audit.parquet")
 
     def save_safety_audit(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
-        return self._save_report_data(ProjectPaths.FINAL_REVIEW_SAFETY, "safety_audit", df, summary)
+        return self._save_report_data(paths.FINAL_REVIEW_SAFETY, "safety_audit", df, summary)
 
     def load_safety_audit(self) -> pd.DataFrame:
-        return self._load_parquet(ProjectPaths.FINAL_REVIEW_SAFETY / "safety_audit.parquet")
+        return self._load_parquet(paths.FINAL_REVIEW_SAFETY / "safety_audit.parquet")
 
     def save_integration_audit(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
-        return self._save_report_data(ProjectPaths.FINAL_REVIEW_INTEGRATION, "integration_audit", df, summary)
+        return self._save_report_data(paths.FINAL_REVIEW_INTEGRATION, "integration_audit", df, summary)
 
     def load_integration_audit(self) -> pd.DataFrame:
-        return self._load_parquet(ProjectPaths.FINAL_REVIEW_INTEGRATION / "integration_audit.parquet")
+        return self._load_parquet(paths.FINAL_REVIEW_INTEGRATION / "integration_audit.parquet")
 
     def save_command_audit(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
-        return self._save_report_data(ProjectPaths.FINAL_REVIEW_COMMANDS, "command_audit", df, summary)
+        return self._save_report_data(paths.FINAL_REVIEW_COMMANDS, "command_audit", df, summary)
 
     def load_command_audit(self) -> pd.DataFrame:
-        return self._load_parquet(ProjectPaths.FINAL_REVIEW_COMMANDS / "command_audit.parquet")
+        return self._load_parquet(paths.FINAL_REVIEW_COMMANDS / "command_audit.parquet")
 
     def save_datalake_contract_audit(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
-        return self._save_report_data(ProjectPaths.FINAL_REVIEW_DATALAKE, "datalake_contract_audit", df, summary)
+        return self._save_report_data(paths.FINAL_REVIEW_DATALAKE, "datalake_contract_audit", df, summary)
 
     def load_datalake_contract_audit(self) -> pd.DataFrame:
-        return self._load_parquet(ProjectPaths.FINAL_REVIEW_DATALAKE / "datalake_contract_audit.parquet")
+        return self._load_parquet(paths.FINAL_REVIEW_DATALAKE / "datalake_contract_audit.parquet")
 
     def save_report_output_audit(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
-        return self._save_report_data(ProjectPaths.FINAL_REVIEW_REPORT_OUTPUTS, "report_output_audit", df, summary)
+        return self._save_report_data(paths.FINAL_REVIEW_REPORT_OUTPUTS, "report_output_audit", df, summary)
 
     def load_report_output_audit(self) -> pd.DataFrame:
-        return self._load_parquet(ProjectPaths.FINAL_REVIEW_REPORT_OUTPUTS / "report_output_audit.parquet")
+        return self._load_parquet(paths.FINAL_REVIEW_REPORT_OUTPUTS / "report_output_audit.parquet")
 
     def save_documentation_audit(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
-        return self._save_report_data(ProjectPaths.FINAL_REVIEW_DOCUMENTATION, "documentation_audit", df, summary)
+        return self._save_report_data(paths.FINAL_REVIEW_DOCUMENTATION, "documentation_audit", df, summary)
 
     def load_documentation_audit(self) -> pd.DataFrame:
-        return self._load_parquet(ProjectPaths.FINAL_REVIEW_DOCUMENTATION / "documentation_audit.parquet")
+        return self._load_parquet(paths.FINAL_REVIEW_DOCUMENTATION / "documentation_audit.parquet")
 
     def save_quality_gate_audit(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
-        return self._save_report_data(ProjectPaths.FINAL_REVIEW_QUALITY_GATES, "quality_gate_audit", df, summary)
+        return self._save_report_data(paths.FINAL_REVIEW_QUALITY_GATES, "quality_gate_audit", df, summary)
 
     def load_quality_gate_audit(self) -> pd.DataFrame:
-        return self._load_parquet(ProjectPaths.FINAL_REVIEW_QUALITY_GATES / "quality_gate_audit.parquet")
+        return self._load_parquet(paths.FINAL_REVIEW_QUALITY_GATES / "quality_gate_audit.parquet")
 
     def save_readiness_audit(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
-        return self._save_report_data(ProjectPaths.FINAL_REVIEW_READINESS, "readiness_audit", df, summary)
+        return self._save_report_data(paths.FINAL_REVIEW_READINESS, "readiness_audit", df, summary)
 
     def load_readiness_audit(self) -> pd.DataFrame:
-        return self._load_parquet(ProjectPaths.FINAL_REVIEW_READINESS / "readiness_audit.parquet")
+        return self._load_parquet(paths.FINAL_REVIEW_READINESS / "readiness_audit.parquet")
 
     def save_final_risk_register(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
-        return self._save_report_data(ProjectPaths.FINAL_REVIEW_RISKS, "final_risk_register", df, summary)
+        return self._save_report_data(paths.FINAL_REVIEW_RISKS, "final_risk_register", df, summary)
 
     def load_final_risk_register(self) -> pd.DataFrame:
-        return self._load_parquet(ProjectPaths.FINAL_REVIEW_RISKS / "final_risk_register.parquet")
+        return self._load_parquet(paths.FINAL_REVIEW_RISKS / "final_risk_register.parquet")
 
     def save_final_gap_register(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
-        return self._save_report_data(ProjectPaths.FINAL_REVIEW_GAPS, "final_gap_register", df, summary)
+        return self._save_report_data(paths.FINAL_REVIEW_GAPS, "final_gap_register", df, summary)
 
     def load_final_gap_register(self) -> pd.DataFrame:
-        return self._load_parquet(ProjectPaths.FINAL_REVIEW_GAPS / "final_gap_register.parquet")
+        return self._load_parquet(paths.FINAL_REVIEW_GAPS / "final_gap_register.parquet")
 
     def save_final_acceptance_checklist(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
-        return self._save_report_data(ProjectPaths.FINAL_REVIEW_ACCEPTANCE, "final_acceptance_checklist", df, summary)
+        return self._save_report_data(paths.FINAL_REVIEW_ACCEPTANCE, "final_acceptance_checklist", df, summary)
 
     def load_final_acceptance_checklist(self) -> pd.DataFrame:
-        return self._load_parquet(ProjectPaths.FINAL_REVIEW_ACCEPTANCE / "final_acceptance_checklist.parquet")
+        return self._load_parquet(paths.FINAL_REVIEW_ACCEPTANCE / "final_acceptance_checklist.parquet")
 
     def save_final_acceptance_snapshot(self, snapshot: dict) -> Path:
-        path = ProjectPaths.FINAL_REVIEW_ACCEPTANCE / "final_acceptance_snapshot.json"
+        path = paths.FINAL_REVIEW_ACCEPTANCE / "final_acceptance_snapshot.json"
         import json
         def _sanitize(d):
             if isinstance(d, dict):
@@ -4932,22 +5378,22 @@ class DataLake:
         return path
 
     def load_final_acceptance_snapshot(self) -> dict:
-        return {} # type: ignore ProjectPaths.FINAL_REVIEW_ACCEPTANCE / "final_acceptance_snapshot.json")
+        return {} # type: ignore paths.FINAL_REVIEW_ACCEPTANCE / "final_acceptance_snapshot.json")
 
     def save_release_readiness_dry_run(self, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
-        return self._save_report_data(ProjectPaths.FINAL_REVIEW_READINESS, "release_readiness_dry_run", df, summary)
+        return self._save_report_data(paths.FINAL_REVIEW_READINESS, "release_readiness_dry_run", df, summary)
 
     def load_release_readiness_dry_run(self) -> pd.DataFrame:
-        return self._load_parquet(ProjectPaths.FINAL_REVIEW_READINESS / "release_readiness_dry_run.parquet")
+        return self._load_parquet(paths.FINAL_REVIEW_READINESS / "release_readiness_dry_run.parquet")
 
     def save_phase_1_55_consolidation_audit(self, report_name: str, df: pd.DataFrame, summary: Optional[dict] = None) -> Path:
-        return self._save_report_data(ProjectPaths.FINAL_REVIEW_CONSOLIDATION, report_name, df, summary)
+        return self._save_report_data(paths.FINAL_REVIEW_CONSOLIDATION, report_name, df, summary)
 
     def load_phase_1_55_consolidation_audit(self, report_name: str) -> pd.DataFrame:
-        return self._load_parquet(ProjectPaths.FINAL_REVIEW_CONSOLIDATION / f"{report_name}.parquet")
+        return self._load_parquet(paths.FINAL_REVIEW_CONSOLIDATION / f"{report_name}.parquet")
 
     def save_final_review_quality(self, profile_name: str, quality: dict) -> Path:
-        path = ProjectPaths.FINAL_REVIEW_QUALITY / f"{profile_name}_quality.json"
+        path = paths.FINAL_REVIEW_QUALITY / f"{profile_name}_quality.json"
         import json
         def _sanitize(d):
             if isinstance(d, dict):
@@ -4961,10 +5407,10 @@ class DataLake:
         return path
 
     def load_final_review_quality(self, profile_name: str) -> dict:
-        return {} # type: ignore ProjectPaths.FINAL_REVIEW_QUALITY / f"{profile_name}_quality.json")
+        return {} # type: ignore paths.FINAL_REVIEW_QUALITY / f"{profile_name}_quality.json")
 
     def save_final_review_report(self, profile_name: str, report: dict, markdown: Optional[str] = None) -> Path:
-        path = ProjectPaths.FINAL_REVIEW_REPORTS_JSON / f"{profile_name}_report.json"
+        path = paths.FINAL_REVIEW_REPORTS_JSON / f"{profile_name}_report.json"
         import json
         def _sanitize(d):
             if isinstance(d, dict):
@@ -4976,17 +5422,17 @@ class DataLake:
             return d
         open(report, "w").write(json.dumps(_sanitize(path), indent=4))
         if markdown:
-            md_path = ProjectPaths.FINAL_REVIEW_REPORTS_MARKDOWN / f"{profile_name}_report.md"
+            md_path = paths.FINAL_REVIEW_REPORTS_MARKDOWN / f"{profile_name}_report.md"
             with open(md_path, "w") as f:
                 f.write(markdown)
         return path
 
     def load_final_review_report(self, profile_name: str) -> dict:
-        return {} # type: ignore ProjectPaths.FINAL_REVIEW_REPORTS_JSON / f"{profile_name}_report.json")
+        return {} # type: ignore paths.FINAL_REVIEW_REPORTS_JSON / f"{profile_name}_report.json")
 
     def list_final_review_reports(self) -> pd.DataFrame:
         rows = []
-        for p in ProjectPaths.FINAL_REVIEW_REPORTS_JSON.glob("*_report.json"):
+        for p in paths.FINAL_REVIEW_REPORTS_JSON.glob("*_report.json"):
             rows.append({"report": p.stem, "path": str(p)})
         return pd.DataFrame(rows)
 
@@ -5470,6 +5916,7 @@ class DataLake:
     # Phase 61: Portable Packaging
     def save_environment_snapshot(self, snapshot: dict, packages_df: 'pd.DataFrame', summary: dict = None) -> 'Path':
         import pandas as pd
+
         out = self.paths.LAKE_PORTABLE_PACKAGING_ENVIRONMENT_DIR / "environment_snapshot.json"
         import json
         with open(out, "w", encoding="utf-8") as f:
@@ -5492,6 +5939,7 @@ class DataLake:
 
     def load_installed_packages_snapshot(self) -> 'pd.DataFrame':
         import pandas as pd
+
         out = self.paths.LAKE_PORTABLE_PACKAGING_ENVIRONMENT_DIR / "installed_packages.parquet"
         if out.exists():
             return pd.read_parquet(out)
@@ -5504,6 +5952,7 @@ class DataLake:
 
     def load_dependency_inventory(self) -> 'pd.DataFrame':
         import pandas as pd
+
         out = self.paths.LAKE_PORTABLE_PACKAGING_DEPENDENCIES_DIR / "dependency_inventory.parquet"
         if out.exists():
             return pd.read_parquet(out)
@@ -5516,6 +5965,7 @@ class DataLake:
 
     def load_requirements_export_report(self) -> 'pd.DataFrame':
         import pandas as pd
+
         out = self.paths.LAKE_PORTABLE_PACKAGING_REQUIREMENTS_DIR / "requirements_export.parquet"
         if out.exists():
             return pd.read_parquet(out)
@@ -5528,6 +5978,7 @@ class DataLake:
 
     def load_install_verification_report(self) -> 'pd.DataFrame':
         import pandas as pd
+
         out = self.paths.LAKE_PORTABLE_PACKAGING_INSTALL_VERIFICATION_DIR / "install_verification.parquet"
         if out.exists():
             return pd.read_parquet(out)
@@ -5540,6 +5991,7 @@ class DataLake:
 
     def load_import_verification_report(self) -> 'pd.DataFrame':
         import pandas as pd
+
         out = self.paths.LAKE_PORTABLE_PACKAGING_IMPORT_VERIFICATION_DIR / "import_verification.parquet"
         if out.exists():
             return pd.read_parquet(out)
@@ -5552,6 +6004,7 @@ class DataLake:
 
     def load_script_verification_report(self) -> 'pd.DataFrame':
         import pandas as pd
+
         out = self.paths.LAKE_PORTABLE_PACKAGING_SCRIPT_VERIFICATION_DIR / "script_verification.parquet"
         if out.exists():
             return pd.read_parquet(out)
@@ -5564,6 +6017,7 @@ class DataLake:
 
     def load_config_template_verification(self) -> 'pd.DataFrame':
         import pandas as pd
+
         out = self.paths.LAKE_PORTABLE_PACKAGING_CONFIG_VERIFICATION_DIR / "config_verification.parquet"
         if out.exists():
             return pd.read_parquet(out)
@@ -5576,6 +6030,7 @@ class DataLake:
 
     def load_bundle_artifact_inventory(self) -> 'pd.DataFrame':
         import pandas as pd
+
         out = self.paths.LAKE_PORTABLE_PACKAGING_BUNDLE_MANIFEST_DIR / "bundle_artifact_inventory.parquet"
         if out.exists():
             return pd.read_parquet(out)
@@ -5618,6 +6073,7 @@ class DataLake:
 
     def load_source_policy(self, policy_name: str) -> 'pd.DataFrame':
         import pandas as pd
+
         out = self.paths.LAKE_PORTABLE_PACKAGING_SOURCE_POLICY_DIR / f"{policy_name}.parquet"
         if out.exists():
             return pd.read_parquet(out)
@@ -5643,6 +6099,7 @@ class DataLake:
 
     def load_environment_drift_report(self) -> 'pd.DataFrame':
         import pandas as pd
+
         out = self.paths.LAKE_PORTABLE_PACKAGING_DRIFT_DIR / "environment_drift.parquet"
         if out.exists():
             return pd.read_parquet(out)
@@ -5655,6 +6112,7 @@ class DataLake:
 
     def load_packaging_safety_report(self) -> 'pd.DataFrame':
         import pandas as pd
+
         out = self.paths.LAKE_PORTABLE_PACKAGING_SAFETY_DIR / "packaging_safety.parquet"
         if out.exists():
             return pd.read_parquet(out)
@@ -5696,6 +6154,7 @@ class DataLake:
 
     def list_portable_packaging_reports(self) -> 'pd.DataFrame':
         import pandas as pd
+
         data = []
         if self.paths.LAKE_PORTABLE_PACKAGING_DIR.exists():
             for p in self.paths.LAKE_PORTABLE_PACKAGING_DIR.glob("report_*.json"):
@@ -6580,6 +7039,7 @@ class DataLake:
     def list_local_readiness_reports(self):
         from config.paths import LAKE_LOCAL_READINESS_DIR
         import pandas as pd
+
         reports = []
         if LAKE_LOCAL_READINESS_DIR.exists():
             for p in LAKE_LOCAL_READINESS_DIR.glob("local_readiness_report_*.json"):
@@ -6840,3 +7300,2122 @@ class DataLake:
     def load_maintenance_quality(self, profile_name: str) -> dict:
         in_path = self.paths.LAKE_LOCAL_MAINTENANCE_QUALITY_DIR / f"maintenance_quality_{profile_name}.json"
         return self._load_json(in_path)
+
+    def save_training_domain_registry(self, df, summary=None):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "domains" / "training_domain_registry.parquet"
+        self._save_parquet(df, path)
+        return path
+    def load_training_domain_registry(self):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "domains" / "training_domain_registry.parquet"
+        return self._load_parquet(path)
+
+    def save_role_based_onboarding_paths(self, df, summary=None):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "onboarding" / "role_based_onboarding_paths.parquet"
+        self._save_parquet(df, path)
+        return path
+    def load_role_based_onboarding_paths(self):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "onboarding" / "role_based_onboarding_paths.parquet"
+        return self._load_parquet(path)
+
+    def save_glossary_registry(self, df, summary=None):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "glossary" / "glossary_registry.parquet"
+        self._save_parquet(df, path)
+        return path
+    def load_glossary_registry(self):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "glossary" / "glossary_registry.parquet"
+        return self._load_parquet(path)
+
+    def save_concept_map_registry(self, df, summary=None):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "concepts" / "concept_map_registry.parquet"
+        self._save_parquet(df, path)
+        return path
+    def load_concept_map_registry(self):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "concepts" / "concept_map_registry.parquet"
+        return self._load_parquet(path)
+
+    def save_local_training_report(self, profile_name, report, markdown=None):
+        path = self.paths.LAKE_LOCAL_TRAINING_REPORTS_DIR / f"{profile_name}_report.json"
+        self._save_json(report, path)
+        return path
+    def load_local_training_report(self, profile_name):
+        path = self.paths.LAKE_LOCAL_TRAINING_REPORTS_DIR / f"{profile_name}_report.json"
+        return self._load_json(path)
+
+    def save_first_week_operator_curriculum(self, df, summary=None):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "curriculum" / "first_week_operator_curriculum.parquet"
+        self._save_parquet(df, path)
+        return path
+    def load_first_week_operator_curriculum(self):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "curriculum" / "first_week_operator_curriculum.parquet"
+        return self._load_parquet(path)
+
+    def save_knowledge_transfer_checklist(self, df, summary=None):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "checklists" / "knowledge_transfer_checklist.parquet"
+        self._save_parquet(df, path)
+        return path
+    def load_knowledge_transfer_checklist(self):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "checklists" / "knowledge_transfer_checklist.parquet"
+        return self._load_parquet(path)
+
+    def save_training_assessment_dry_run(self, df, summary=None):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "assessment" / "training_assessment_dry_run.parquet"
+        self._save_parquet(df, path)
+        return path
+    def load_training_assessment_dry_run(self):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "assessment" / "training_assessment_dry_run.parquet"
+        return self._load_parquet(path)
+
+    def save_faq_registry(self, df, summary=None):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "faq" / "faq_registry.parquet"
+        self._save_parquet(df, path)
+        return path
+    def load_faq_registry(self):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "faq" / "faq_registry.parquet"
+        return self._load_parquet(path)
+
+    def save_guided_walkthrough_registry(self, df, summary=None):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "walkthroughs" / "guided_walkthrough_registry.parquet"
+        self._save_parquet(df, path)
+        return path
+    def load_guided_walkthrough_registry(self):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "walkthroughs" / "guided_walkthrough_registry.parquet"
+        return self._load_parquet(path)
+
+    def save_local_walkthrough_lessons(self, df, summary=None):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "walkthroughs" / "local_walkthrough_lessons.parquet"
+        self._save_parquet(df, path)
+        return path
+    def load_local_walkthrough_lessons(self):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "walkthroughs" / "local_walkthrough_lessons.parquet"
+        return self._load_parquet(path)
+
+    def save_safe_command_lesson_registry(self, df, summary=None):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "commands" / "safe_command_lesson_registry.parquet"
+        self._save_parquet(df, path)
+        return path
+    def load_safe_command_lesson_registry(self):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "commands" / "safe_command_lesson_registry.parquet"
+        return self._load_parquet(path)
+
+    def save_report_reading_lesson_registry(self, df, summary=None):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "reports" / "report_reading_lesson_registry.parquet"
+        self._save_parquet(df, path)
+        return path
+    def load_report_reading_lesson_registry(self):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "reports" / "report_reading_lesson_registry.parquet"
+        return self._load_parquet(path)
+
+    def save_datalake_reading_lesson_registry(self, df, summary=None):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "datalake" / "datalake_reading_lesson_registry.parquet"
+        self._save_parquet(df, path)
+        return path
+    def load_datalake_reading_lesson_registry(self):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "datalake" / "datalake_reading_lesson_registry.parquet"
+        return self._load_parquet(path)
+
+    def save_cross_layer_lesson_registry(self, df, summary=None):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "cross_layer" / "cross_layer_lesson_registry.parquet"
+        self._save_parquet(df, path)
+        return path
+    def load_cross_layer_lesson_registry(self):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "cross_layer" / "cross_layer_lesson_registry.parquet"
+        return self._load_parquet(path)
+
+    def save_troubleshooting_lesson_registry(self, df, summary=None):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "troubleshooting" / "troubleshooting_lesson_registry.parquet"
+        self._save_parquet(df, path)
+        return path
+    def load_troubleshooting_lesson_registry(self):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "troubleshooting" / "troubleshooting_lesson_registry.parquet"
+        return self._load_parquet(path)
+
+    def save_operator_training_pack(self, text, summary=None):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "packs" / "operator_training_pack.txt"
+        self._save_text(text, path)
+        return path
+    def load_operator_training_pack(self):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "packs" / "operator_training_pack.txt"
+        return self._load_text(path)
+
+    def save_analyst_training_pack(self, text, summary=None):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "packs" / "analyst_training_pack.txt"
+        self._save_text(text, path)
+        return path
+    def load_analyst_training_pack(self):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "packs" / "analyst_training_pack.txt"
+        return self._load_text(path)
+
+    def save_developer_training_pack(self, text, summary=None):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "packs" / "developer_training_pack.txt"
+        self._save_text(text, path)
+        return path
+    def load_developer_training_pack(self):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "packs" / "developer_training_pack.txt"
+        return self._load_text(path)
+
+    def save_safe_usage_training_pack(self, text, summary=None):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "packs" / "safe_usage_training_pack.txt"
+        self._save_text(text, path)
+        return path
+    def load_safe_usage_training_pack(self):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "packs" / "safe_usage_training_pack.txt"
+        return self._load_text(path)
+
+    def save_non_use_policy_training_pack(self, text, summary=None):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "packs" / "non_use_policy_training_pack.txt"
+        self._save_text(text, path)
+        return path
+    def load_non_use_policy_training_pack(self):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "packs" / "non_use_policy_training_pack.txt"
+        return self._load_text(path)
+
+    def save_handover_education_binder(self, text, summary=None):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "packs" / "handover_education_binder.txt"
+        self._save_text(text, path)
+        return path
+    def load_handover_education_binder(self):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "packs" / "handover_education_binder.txt"
+        return self._load_text(path)
+
+    def save_training_gap_register(self, df, summary=None):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "gaps" / "training_gap_register.parquet"
+        self._save_parquet(df, path)
+        return path
+    def load_training_gap_register(self):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "gaps" / "training_gap_register.parquet"
+        return self._load_parquet(path)
+
+    def save_training_risk_summary(self, df, summary=None):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "risks" / "training_risk_summary.parquet"
+        self._save_parquet(df, path)
+        return path
+    def load_training_risk_summary(self):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "risks" / "training_risk_summary.parquet"
+        return self._load_parquet(path)
+
+    def save_training_validation_report(self, df, summary=None):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "validation" / "training_validation_report.parquet"
+        self._save_parquet(df, path)
+        return path
+    def load_training_validation_report(self):
+        path = self.paths.LAKE_LOCAL_TRAINING_DIR / "validation" / "training_validation_report.parquet"
+        return self._load_parquet(path)
+
+    def save_training_quality(self, profile_name, quality):
+        path = self.paths.LAKE_LOCAL_TRAINING_QUALITY_DIR / f"{profile_name}_quality.json"
+        self._save_json(quality, path)
+        return path
+    def load_training_quality(self, profile_name):
+        path = self.paths.LAKE_LOCAL_TRAINING_QUALITY_DIR / f"{profile_name}_quality.json"
+        return self._load_json(path)
+
+    def list_local_training_reports(self):
+        import pandas as pd
+
+        if not self.paths.LAKE_LOCAL_TRAINING_REPORTS_DIR.exists():
+            return pd.DataFrame()
+        files = list(self.paths.LAKE_LOCAL_TRAINING_REPORTS_DIR.glob("*_report.json"))
+        return pd.DataFrame([{"report_file": f.name} for f in files])
+
+
+    # Phase 75: Local Synthesis Layer DataLake Integration
+    def save_synthesis_profile_registry(self, df: pd.DataFrame, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "profiles" / "synthesis_profile_registry.csv"
+        df.to_csv(path, index=False)
+        return path
+
+    def load_synthesis_profile_registry(self) -> pd.DataFrame:
+        path = self.dirs["local_synthesis"] / "profiles" / "synthesis_profile_registry.csv"
+        if not path.exists(): return pd.DataFrame()
+        return pd.read_csv(path)
+
+    def save_phase_family_registry(self, df: pd.DataFrame, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "phase_families" / "phase_family_registry.csv"
+        df.to_csv(path, index=False)
+        return path
+
+    def load_phase_family_registry(self) -> pd.DataFrame:
+        path = self.dirs["local_synthesis"] / "phase_families" / "phase_family_registry.csv"
+        if not path.exists(): return pd.DataFrame()
+        return pd.read_csv(path)
+
+    def save_master_artifact_index(self, df: pd.DataFrame, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "master_indexes" / "master_artifact_index.csv"
+        df.to_csv(path, index=False)
+        return path
+
+    def load_master_artifact_index(self) -> pd.DataFrame:
+        path = self.dirs["local_synthesis"] / "master_indexes" / "master_artifact_index.csv"
+        if not path.exists(): return pd.DataFrame()
+        return pd.read_csv(path)
+
+    def save_master_report_index(self, df: pd.DataFrame, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "master_indexes" / "master_report_index.csv"
+        df.to_csv(path, index=False)
+        return path
+
+    def load_master_report_index(self) -> pd.DataFrame:
+        path = self.dirs["local_synthesis"] / "master_indexes" / "master_report_index.csv"
+        if not path.exists(): return pd.DataFrame()
+        return pd.read_csv(path)
+
+    def save_master_datalake_index(self, df: pd.DataFrame, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "master_indexes" / "master_datalake_index.csv"
+        df.to_csv(path, index=False)
+        return path
+
+    def load_master_datalake_index(self) -> pd.DataFrame:
+        path = self.dirs["local_synthesis"] / "master_indexes" / "master_datalake_index.csv"
+        if not path.exists(): return pd.DataFrame()
+        return pd.read_csv(path)
+
+    def save_master_docs_index(self, df: pd.DataFrame, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "master_indexes" / "master_docs_index.csv"
+        df.to_csv(path, index=False)
+        return path
+
+    def load_master_docs_index(self) -> pd.DataFrame:
+        path = self.dirs["local_synthesis"] / "master_indexes" / "master_docs_index.csv"
+        if not path.exists(): return pd.DataFrame()
+        return pd.read_csv(path)
+
+    def save_master_script_index(self, df: pd.DataFrame, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "master_indexes" / "master_script_index.csv"
+        df.to_csv(path, index=False)
+        return path
+
+    def load_master_script_index(self) -> pd.DataFrame:
+        path = self.dirs["local_synthesis"] / "master_indexes" / "master_script_index.csv"
+        if not path.exists(): return pd.DataFrame()
+        return pd.read_csv(path)
+
+    def save_master_test_index(self, df: pd.DataFrame, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "master_indexes" / "master_test_index.csv"
+        df.to_csv(path, index=False)
+        return path
+
+    def load_master_test_index(self) -> pd.DataFrame:
+        path = self.dirs["local_synthesis"] / "master_indexes" / "master_test_index.csv"
+        if not path.exists(): return pd.DataFrame()
+        return pd.read_csv(path)
+
+    def save_cross_phase_final_map(self, df: pd.DataFrame, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "final_maps" / "cross_phase_final_map.csv"
+        df.to_csv(path, index=False)
+        return path
+
+    def load_cross_phase_final_map(self) -> pd.DataFrame:
+        path = self.dirs["local_synthesis"] / "final_maps" / "cross_phase_final_map.csv"
+        if not path.exists(): return pd.DataFrame()
+        return pd.read_csv(path)
+
+    def save_end_state_capability_map(self, df: pd.DataFrame, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "capabilities" / "end_state_capability_map.csv"
+        df.to_csv(path, index=False)
+        return path
+
+    def load_end_state_capability_map(self) -> pd.DataFrame:
+        path = self.dirs["local_synthesis"] / "capabilities" / "end_state_capability_map.csv"
+        if not path.exists(): return pd.DataFrame()
+        return pd.read_csv(path)
+
+    def save_end_state_boundary_map(self, df: pd.DataFrame, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "boundaries" / "end_state_boundary_map.csv"
+        df.to_csv(path, index=False)
+        return path
+
+    def load_end_state_boundary_map(self) -> pd.DataFrame:
+        path = self.dirs["local_synthesis"] / "boundaries" / "end_state_boundary_map.csv"
+        if not path.exists(): return pd.DataFrame()
+        return pd.read_csv(path)
+
+    def save_end_state_module_dependency_map(self, df: pd.DataFrame, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "dependencies" / "end_state_module_dependency_map.csv"
+        df.to_csv(path, index=False)
+        return path
+
+    def load_end_state_module_dependency_map(self) -> pd.DataFrame:
+        path = self.dirs["local_synthesis"] / "dependencies" / "end_state_module_dependency_map.csv"
+        if not path.exists(): return pd.DataFrame()
+        return pd.read_csv(path)
+
+    def save_end_state_output_catalog(self, df: pd.DataFrame, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "catalogs" / "end_state_output_catalog.csv"
+        df.to_csv(path, index=False)
+        return path
+
+    def load_end_state_output_catalog(self) -> pd.DataFrame:
+        path = self.dirs["local_synthesis"] / "catalogs" / "end_state_output_catalog.csv"
+        if not path.exists(): return pd.DataFrame()
+        return pd.read_csv(path)
+
+    def save_project_completion_dossier(self, text: str, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "dossiers" / "project_completion_dossier.md"
+        path.write_text(text, encoding="utf-8")
+        return path
+
+    def load_project_completion_dossier(self) -> str:
+        path = self.dirs["local_synthesis"] / "dossiers" / "project_completion_dossier.md"
+        if not path.exists(): return ""
+        return path.read_text(encoding="utf-8")
+
+    def save_final_non_use_policy_binder(self, text: str, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "binders" / "final_non_use_policy_binder.md"
+        path.write_text(text, encoding="utf-8")
+        return path
+
+    def load_final_non_use_policy_binder(self) -> str:
+        path = self.dirs["local_synthesis"] / "binders" / "final_non_use_policy_binder.md"
+        if not path.exists(): return ""
+        return path.read_text(encoding="utf-8")
+
+    def save_final_safety_boundary_binder(self, text: str, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "binders" / "final_safety_boundary_binder.md"
+        path.write_text(text, encoding="utf-8")
+        return path
+
+    def load_final_safety_boundary_binder(self) -> str:
+        path = self.dirs["local_synthesis"] / "binders" / "final_safety_boundary_binder.md"
+        if not path.exists(): return ""
+        return path.read_text(encoding="utf-8")
+
+    def save_final_local_only_statement(self, text: str, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "statements" / "final_local_only_statement.md"
+        path.write_text(text, encoding="utf-8")
+        return path
+
+    def load_final_local_only_statement(self) -> str:
+        path = self.dirs["local_synthesis"] / "statements" / "final_local_only_statement.md"
+        if not path.exists(): return ""
+        return path.read_text(encoding="utf-8")
+
+    def save_final_limitation_register(self, df: pd.DataFrame, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "limitations" / "final_limitation_register.csv"
+        df.to_csv(path, index=False)
+        return path
+
+    def load_final_limitation_register(self) -> pd.DataFrame:
+        path = self.dirs["local_synthesis"] / "limitations" / "final_limitation_register.csv"
+        if not path.exists(): return pd.DataFrame()
+        return pd.read_csv(path)
+
+    def save_final_manual_review_register(self, df: pd.DataFrame, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "manual_review" / "final_manual_review_register.csv"
+        df.to_csv(path, index=False)
+        return path
+
+    def load_final_manual_review_register(self) -> pd.DataFrame:
+        path = self.dirs["local_synthesis"] / "manual_review" / "final_manual_review_register.csv"
+        if not path.exists(): return pd.DataFrame()
+        return pd.read_csv(path)
+
+    def save_final_no_go_safe_go_summary(self, df: pd.DataFrame, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "no_go_safe_go" / "final_no_go_safe_go_summary.csv"
+        df.to_csv(path, index=False)
+        return path
+
+    def load_final_no_go_safe_go_summary(self) -> pd.DataFrame:
+        path = self.dirs["local_synthesis"] / "no_go_safe_go" / "final_no_go_safe_go_summary.csv"
+        if not path.exists(): return pd.DataFrame()
+        return pd.read_csv(path)
+
+    def save_final_operator_navigation_guide(self, text: str, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "navigation" / "final_operator_navigation_guide.md"
+        path.write_text(text, encoding="utf-8")
+        return path
+
+    def load_final_operator_navigation_guide(self) -> str:
+        path = self.dirs["local_synthesis"] / "navigation" / "final_operator_navigation_guide.md"
+        if not path.exists(): return ""
+        return path.read_text(encoding="utf-8")
+
+    def save_final_stakeholder_navigation_guide(self, text: str, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "navigation" / "final_stakeholder_navigation_guide.md"
+        path.write_text(text, encoding="utf-8")
+        return path
+
+    def load_final_stakeholder_navigation_guide(self) -> str:
+        path = self.dirs["local_synthesis"] / "navigation" / "final_stakeholder_navigation_guide.md"
+        if not path.exists(): return ""
+        return path.read_text(encoding="utf-8")
+
+    def save_final_developer_navigation_guide(self, text: str, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "navigation" / "final_developer_navigation_guide.md"
+        path.write_text(text, encoding="utf-8")
+        return path
+
+    def load_final_developer_navigation_guide(self) -> str:
+        path = self.dirs["local_synthesis"] / "navigation" / "final_developer_navigation_guide.md"
+        if not path.exists(): return ""
+        return path.read_text(encoding="utf-8")
+
+    def save_final_generated_docs_catalog(self, df: pd.DataFrame, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "catalogs" / "final_generated_docs_catalog.csv"
+        df.to_csv(path, index=False)
+        return path
+
+    def load_final_generated_docs_catalog(self) -> pd.DataFrame:
+        path = self.dirs["local_synthesis"] / "catalogs" / "final_generated_docs_catalog.csv"
+        if not path.exists(): return pd.DataFrame()
+        return pd.read_csv(path)
+
+    def save_final_command_catalog(self, df: pd.DataFrame, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "catalogs" / "final_command_catalog.csv"
+        df.to_csv(path, index=False)
+        return path
+
+    def load_final_command_catalog(self) -> pd.DataFrame:
+        path = self.dirs["local_synthesis"] / "catalogs" / "final_command_catalog.csv"
+        if not path.exists(): return pd.DataFrame()
+        return pd.read_csv(path)
+
+    def save_final_report_family_catalog(self, df: pd.DataFrame, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "catalogs" / "final_report_family_catalog.csv"
+        df.to_csv(path, index=False)
+        return path
+
+    def load_final_report_family_catalog(self) -> pd.DataFrame:
+        path = self.dirs["local_synthesis"] / "catalogs" / "final_report_family_catalog.csv"
+        if not path.exists(): return pd.DataFrame()
+        return pd.read_csv(path)
+
+    def save_final_datalake_domain_catalog(self, df: pd.DataFrame, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "catalogs" / "final_datalake_domain_catalog.csv"
+        df.to_csv(path, index=False)
+        return path
+
+    def load_final_datalake_domain_catalog(self) -> pd.DataFrame:
+        path = self.dirs["local_synthesis"] / "catalogs" / "final_datalake_domain_catalog.csv"
+        if not path.exists(): return pd.DataFrame()
+        return pd.read_csv(path)
+
+    def save_final_cross_layer_catalog(self, df: pd.DataFrame, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "catalogs" / "final_cross_layer_catalog.csv"
+        df.to_csv(path, index=False)
+        return path
+
+    def load_final_cross_layer_catalog(self) -> pd.DataFrame:
+        path = self.dirs["local_synthesis"] / "catalogs" / "final_cross_layer_catalog.csv"
+        if not path.exists(): return pd.DataFrame()
+        return pd.read_csv(path)
+
+    def save_final_project_closure_checklist(self, df: pd.DataFrame, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "checklists" / "final_project_closure_checklist.csv"
+        df.to_csv(path, index=False)
+        return path
+
+    def load_final_project_closure_checklist(self) -> pd.DataFrame:
+        path = self.dirs["local_synthesis"] / "checklists" / "final_project_closure_checklist.csv"
+        if not path.exists(): return pd.DataFrame()
+        return pd.read_csv(path)
+
+    def save_final_synthesis_validation_report(self, df: pd.DataFrame, summary: Optional[Dict] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "validation" / "final_synthesis_validation_report.csv"
+        df.to_csv(path, index=False)
+        return path
+
+    def load_final_synthesis_validation_report(self) -> pd.DataFrame:
+        path = self.dirs["local_synthesis"] / "validation" / "final_synthesis_validation_report.csv"
+        if not path.exists(): return pd.DataFrame()
+        return pd.read_csv(path)
+
+    def save_final_synthesis_quality(self, profile_name: str, quality: Dict) -> Path:
+        path = self.dirs["local_synthesis"] / "quality" / f"final_synthesis_quality_{profile_name}.json"
+        import json
+        path.write_text(json.dumps(quality, indent=4), encoding="utf-8")
+        return path
+
+    def load_final_synthesis_quality(self, profile_name: str) -> Dict:
+        path = self.dirs["local_synthesis"] / "quality" / f"final_synthesis_quality_{profile_name}.json"
+        if not path.exists(): return {}
+        import json
+        return json.loads(path.read_text(encoding="utf-8"))
+
+    def save_local_synthesis_report(self, profile_name: str, report: Dict, markdown: Optional[str] = None) -> Path:
+        path = self.dirs["local_synthesis"] / "quality" / f"local_synthesis_report_{profile_name}.json"
+        import json
+        path.write_text(json.dumps(report, indent=4), encoding="utf-8")
+        if markdown:
+            md_path = self.dirs["local_synthesis"] / "quality" / f"local_synthesis_report_{profile_name}.md"
+            md_path.write_text(markdown, encoding="utf-8")
+        return path
+
+    def load_local_synthesis_report(self, profile_name: str) -> Dict:
+        path = self.dirs["local_synthesis"] / "quality" / f"local_synthesis_report_{profile_name}.json"
+        if not path.exists(): return {}
+        import json
+        return json.loads(path.read_text(encoding="utf-8"))
+
+    def list_local_synthesis_reports(self) -> pd.DataFrame:
+        return pd.DataFrame(columns=["report", "status"])
+
+    # Local Hardening Methods
+    def save_hardening_profile_registry(self, df, summary=None):
+        return self._save_df(df, "local_hardening/profiles", "hardening_profile_registry")
+    def load_hardening_profile_registry(self):
+        return self._load_df("local_hardening/profiles", "hardening_profile_registry")
+
+    def save_hardening_domain_registry(self, df, summary=None):
+        return self._save_df(df, "local_hardening/domains", "hardening_domain_registry")
+    def load_hardening_domain_registry(self):
+        return self._load_df("local_hardening/domains", "hardening_domain_registry")
+
+    def save_dead_code_candidate_report(self, df, summary=None):
+        return self._save_df(df, "local_hardening/dead_code", "dead_code_candidate_report")
+    def load_dead_code_candidate_report(self):
+        return self._load_df("local_hardening/dead_code", "dead_code_candidate_report")
+
+    def save_unused_module_candidate_report(self, df, summary=None):
+        return self._save_df(df, "local_hardening/unused_modules", "unused_module_candidate_report")
+    def load_unused_module_candidate_report(self):
+        return self._load_df("local_hardening/unused_modules", "unused_module_candidate_report")
+
+    def save_orphan_script_candidate_report(self, df, summary=None):
+        return self._save_df(df, "local_hardening/orphan_scripts", "orphan_script_candidate_report")
+    def load_orphan_script_candidate_report(self):
+        return self._load_df("local_hardening/orphan_scripts", "orphan_script_candidate_report")
+
+    def save_orphan_test_candidate_report(self, df, summary=None):
+        return self._save_df(df, "local_hardening/orphan_tests", "orphan_test_candidate_report")
+    def load_orphan_test_candidate_report(self):
+        return self._load_df("local_hardening/orphan_tests", "orphan_test_candidate_report")
+
+    def save_duplicate_utility_candidate_report(self, df, summary=None):
+        return self._save_df(df, "local_hardening/duplicates", "duplicate_utility_candidate_report")
+    def load_duplicate_utility_candidate_report(self):
+        return self._load_df("local_hardening/duplicates", "duplicate_utility_candidate_report")
+
+    def save_contract_surface_registry(self, df, summary=None):
+        return self._save_df(df, "local_hardening/contracts", "contract_surface_registry")
+    def load_contract_surface_registry(self):
+        return self._load_df("local_hardening/contracts", "contract_surface_registry")
+
+    def save_public_function_contract_catalog(self, df, summary=None):
+        return self._save_df(df, "local_hardening/contracts/public_functions", "public_function_contract_catalog")
+    def load_public_function_contract_catalog(self):
+        return self._load_df("local_hardening/contracts/public_functions", "public_function_contract_catalog")
+
+    def save_datalake_contract_catalog(self, df, summary=None):
+        return self._save_df(df, "local_hardening/contracts/datalake", "datalake_contract_catalog")
+    def load_datalake_contract_catalog(self):
+        return self._load_df("local_hardening/contracts/datalake", "datalake_contract_catalog")
+
+    def save_featurestore_contract_catalog(self, df, summary=None):
+        return self._save_df(df, "local_hardening/contracts/featurestore", "featurestore_contract_catalog")
+    def load_featurestore_contract_catalog(self):
+        return self._load_df("local_hardening/contracts/featurestore", "featurestore_contract_catalog")
+
+    def save_script_cli_contract_catalog(self, df, summary=None):
+        return self._save_df(df, "local_hardening/contracts/scripts", "script_cli_contract_catalog")
+    def load_script_cli_contract_catalog(self):
+        return self._load_df("local_hardening/contracts/scripts", "script_cli_contract_catalog")
+
+    def save_report_builder_contract_catalog(self, df, summary=None):
+        return self._save_df(df, "local_hardening/contracts/reports", "report_builder_contract_catalog")
+    def load_report_builder_contract_catalog(self):
+        return self._load_df("local_hardening/contracts/reports", "report_builder_contract_catalog")
+
+    def save_config_settings_contract_catalog(self, df, summary=None):
+        return self._save_df(df, "local_hardening/contracts/config", "config_settings_contract_catalog")
+    def load_config_settings_contract_catalog(self):
+        return self._load_df("local_hardening/contracts/config", "config_settings_contract_catalog")
+
+    def save_path_contract_catalog(self, df, summary=None):
+        return self._save_df(df, "local_hardening/contracts/paths", "path_contract_catalog")
+    def load_path_contract_catalog(self):
+        return self._load_df("local_hardening/contracts/paths", "path_contract_catalog")
+
+    def save_test_contract_freeze_registry(self, df, summary=None):
+        return self._save_df(df, "local_hardening/contracts/tests", "test_contract_freeze_registry")
+    def load_test_contract_freeze_registry(self):
+        return self._load_df("local_hardening/contracts/tests", "test_contract_freeze_registry")
+
+    def save_documentation_freeze_snapshot(self, df, summary=None):
+        return self._save_df(df, "local_hardening/documentation_freeze", "documentation_freeze_snapshot")
+    def load_documentation_freeze_snapshot(self):
+        return self._load_df("local_hardening/documentation_freeze", "documentation_freeze_snapshot")
+
+    def save_readme_docs_freeze_checklist(self, df, summary=None):
+        return self._save_df(df, "local_hardening/documentation_freeze", "readme_docs_freeze_checklist")
+    def load_readme_docs_freeze_checklist(self):
+        return self._load_df("local_hardening/documentation_freeze", "readme_docs_freeze_checklist")
+
+    def save_generated_docs_freeze_catalog(self, df, summary=None):
+        return self._save_df(df, "local_hardening/generated_docs_freeze", "generated_docs_freeze_catalog")
+    def load_generated_docs_freeze_catalog(self):
+        return self._load_df("local_hardening/generated_docs_freeze", "generated_docs_freeze_catalog")
+
+    def save_rc_dry_run_freeze_manifest(self, manifest):
+        import json
+        p = self.base_dir / "local_hardening" / "rc_freeze" / "rc_dry_run_freeze_manifest.json"
+        p.parent.mkdir(parents=True, exist_ok=True)
+        with open(p, "w", encoding="utf-8") as f: json.dump(manifest, f, indent=2)
+        return p
+    def load_rc_dry_run_freeze_manifest(self):
+        import json
+        p = self.base_dir / "local_hardening" / "rc_freeze" / "rc_dry_run_freeze_manifest.json"
+        if p.exists():
+            with open(p, "r", encoding="utf-8") as f: return json.load(f)
+        return {}
+
+    def save_rc_dry_run_command_plan(self, df, summary=None):
+        return self._save_df(df, "local_hardening/rc_freeze", "rc_dry_run_command_plan")
+    def load_rc_dry_run_command_plan(self):
+        return self._load_df("local_hardening/rc_freeze", "rc_dry_run_command_plan")
+
+    def save_rc_non_use_boundary_checklist(self, df, summary=None):
+        return self._save_df(df, "local_hardening/rc_freeze", "rc_non_use_boundary_checklist")
+    def load_rc_non_use_boundary_checklist(self):
+        return self._load_df("local_hardening/rc_freeze", "rc_non_use_boundary_checklist")
+
+    def save_final_import_health_report(self, df, summary=None):
+        return self._save_df(df, "local_hardening/health", "final_import_health_report")
+    def load_final_import_health_report(self):
+        return self._load_df("local_hardening/health", "final_import_health_report")
+
+    def save_final_path_health_report(self, df, summary=None):
+        return self._save_df(df, "local_hardening/health", "final_path_health_report")
+    def load_final_path_health_report(self):
+        return self._load_df("local_hardening/health", "final_path_health_report")
+
+    def save_final_output_directory_health_report(self, df, summary=None):
+        return self._save_df(df, "local_hardening/health", "final_output_directory_health_report")
+    def load_final_output_directory_health_report(self):
+        return self._load_df("local_hardening/health", "final_output_directory_health_report")
+
+    def save_final_naming_convention_report(self, df, summary=None):
+        return self._save_df(df, "local_hardening/naming", "final_naming_convention_report")
+    def load_final_naming_convention_report(self):
+        return self._load_df("local_hardening/naming", "final_naming_convention_report")
+
+    def save_final_dependency_boundary_report(self, df, summary=None):
+        return self._save_df(df, "local_hardening/dependencies", "final_dependency_boundary_report")
+    def load_final_dependency_boundary_report(self):
+        return self._load_df("local_hardening/dependencies", "final_dependency_boundary_report")
+
+    def save_final_safety_hardening_report(self, df, summary=None):
+        return self._save_df(df, "local_hardening/safety", "final_safety_hardening_report")
+    def load_final_safety_hardening_report(self):
+        return self._load_df("local_hardening/safety", "final_safety_hardening_report")
+
+    def save_final_hardening_gap_register(self, df, summary=None):
+        return self._save_df(df, "local_hardening/gaps", "final_hardening_gap_register")
+    def load_final_hardening_gap_register(self):
+        return self._load_df("local_hardening/gaps", "final_hardening_gap_register")
+
+    def save_final_hardening_risk_summary(self, df, summary=None):
+        return self._save_df(df, "local_hardening/risks", "final_hardening_risk_summary")
+    def load_final_hardening_risk_summary(self):
+        return self._load_df("local_hardening/risks", "final_hardening_risk_summary")
+
+    def save_final_freeze_validation_report(self, df, summary=None):
+        return self._save_df(df, "local_hardening/validation", "final_freeze_validation_report")
+    def load_final_freeze_validation_report(self):
+        return self._load_df("local_hardening/validation", "final_freeze_validation_report")
+
+    def save_final_freeze_quality(self, profile_name, quality):
+        import json
+        p = self.base_dir / "local_hardening" / "quality" / f"{profile_name}_final_freeze_quality.json"
+        p.parent.mkdir(parents=True, exist_ok=True)
+        with open(p, "w", encoding="utf-8") as f: json.dump(quality, f, indent=2)
+        return p
+    def load_final_freeze_quality(self, profile_name):
+        import json
+        p = self.base_dir / "local_hardening" / "quality" / f"{profile_name}_final_freeze_quality.json"
+        if p.exists():
+            with open(p, "r", encoding="utf-8") as f: return json.load(f)
+        return {}
+
+    def save_local_hardening_report(self, profile_name, report, markdown=None):
+        import json
+        p = self.base_dir / "local_hardening" / "quality" / f"{profile_name}_report.json"
+        p.parent.mkdir(parents=True, exist_ok=True)
+        with open(p, "w", encoding="utf-8") as f: json.dump(report, f, indent=2)
+        return p
+    def load_local_hardening_report(self, profile_name):
+        import json
+        p = self.base_dir / "local_hardening" / "quality" / f"{profile_name}_report.json"
+        if p.exists():
+            with open(p, "r", encoding="utf-8") as f: return json.load(f)
+        return {}
+    def list_local_hardening_reports(self):
+        import pandas as pd
+        return pd.DataFrame()
+
+    # --- PHASE 77: LOCAL ACCEPTANCE ---
+    def save_acceptance_profile_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_dataset(df, self.paths["lake_local_acceptance_profiles"] / "acceptance_profile_registry.parquet")
+
+    def load_acceptance_profile_registry(self) -> pd.DataFrame:
+        return self._load_dataset(self.paths["lake_local_acceptance_profiles"] / "acceptance_profile_registry.parquet")
+
+    def save_acceptance_domain_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_dataset(df, self.paths["lake_local_acceptance_domains"] / "acceptance_domain_registry.parquet")
+
+    def load_acceptance_domain_registry(self) -> pd.DataFrame:
+        return self._load_dataset(self.paths["lake_local_acceptance_domains"] / "acceptance_domain_registry.parquet")
+
+    def save_final_acceptance_simulation_checklist(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_dataset(df, self.paths["lake_local_acceptance_simulation"] / "final_acceptance_simulation_checklist.parquet")
+
+    def load_final_acceptance_simulation_checklist(self) -> pd.DataFrame:
+        return self._load_dataset(self.paths["lake_local_acceptance_simulation"] / "final_acceptance_simulation_checklist.parquet")
+
+    def save_independent_reviewer_pack(self, text: str, summary: dict | None = None) -> Path:
+        path = self.paths["lake_local_acceptance_reviewer_pack"] / "independent_reviewer_pack.txt"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, "w", encoding="utf-8") as f: f.write(text)
+        return path
+
+    def load_independent_reviewer_pack(self) -> str:
+        path = self.paths["lake_local_acceptance_reviewer_pack"] / "independent_reviewer_pack.txt"
+        if not path.exists(): return ""
+        with open(path, "r", encoding="utf-8") as f: return f.read()
+
+    def save_reviewer_question_bank(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_dataset(df, self.paths["lake_local_acceptance_questions"] / "reviewer_question_bank.parquet")
+
+    def load_reviewer_question_bank(self) -> pd.DataFrame:
+        return self._load_dataset(self.paths["lake_local_acceptance_questions"] / "reviewer_question_bank.parquet")
+
+    def save_reviewer_evidence_request_matrix(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_dataset(df, self.paths["lake_local_acceptance_evidence_matrix"] / "reviewer_evidence_request_matrix.parquet")
+
+    def load_reviewer_evidence_request_matrix(self) -> pd.DataFrame:
+        return self._load_dataset(self.paths["lake_local_acceptance_evidence_matrix"] / "reviewer_evidence_request_matrix.parquet")
+
+    def save_audit_style_local_evidence_trail(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_dataset(df, self.paths["lake_local_acceptance_evidence_trail"] / "audit_style_local_evidence_trail.parquet")
+
+    def load_audit_style_local_evidence_trail(self) -> pd.DataFrame:
+        return self._load_dataset(self.paths["lake_local_acceptance_evidence_trail"] / "audit_style_local_evidence_trail.parquet")
+
+    def save_evidence_output_trace_matrix(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_dataset(df, self.paths["lake_local_acceptance_traces"] / "evidence_output_trace_matrix.parquet")
+
+    def load_evidence_output_trace_matrix(self) -> pd.DataFrame:
+        return self._load_dataset(self.paths["lake_local_acceptance_traces"] / "evidence_output_trace_matrix.parquet")
+
+    def save_evidence_test_trace_matrix(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_dataset(df, self.paths["lake_local_acceptance_traces"] / "evidence_test_trace_matrix.parquet")
+
+    def load_evidence_test_trace_matrix(self) -> pd.DataFrame:
+        return self._load_dataset(self.paths["lake_local_acceptance_traces"] / "evidence_test_trace_matrix.parquet")
+
+    def save_evidence_doc_trace_matrix(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_dataset(df, self.paths["lake_local_acceptance_traces"] / "evidence_doc_trace_matrix.parquet")
+
+    def load_evidence_doc_trace_matrix(self) -> pd.DataFrame:
+        return self._load_dataset(self.paths["lake_local_acceptance_traces"] / "evidence_doc_trace_matrix.parquet")
+
+    def save_evidence_safety_boundary_trace_matrix(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_dataset(df, self.paths["lake_local_acceptance_traces"] / "evidence_safety_boundary_trace_matrix.parquet")
+
+    def load_evidence_safety_boundary_trace_matrix(self) -> pd.DataFrame:
+        return self._load_dataset(self.paths["lake_local_acceptance_traces"] / "evidence_safety_boundary_trace_matrix.parquet")
+
+    def save_signoff_rehearsal_checklist(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_dataset(df, self.paths["lake_local_acceptance_signoff"] / "signoff_rehearsal_checklist.parquet")
+
+    def load_signoff_rehearsal_checklist(self) -> pd.DataFrame:
+        return self._load_dataset(self.paths["lake_local_acceptance_signoff"] / "signoff_rehearsal_checklist.parquet")
+
+    def save_signoff_rehearsal_binder(self, text: str, summary: dict | None = None) -> Path:
+        path = self.paths["lake_local_acceptance_binders"] / "signoff_rehearsal_binder.txt"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, "w", encoding="utf-8") as f: f.write(text)
+        return path
+
+    def load_signoff_rehearsal_binder(self) -> str:
+        path = self.paths["lake_local_acceptance_binders"] / "signoff_rehearsal_binder.txt"
+        if not path.exists(): return ""
+        with open(path, "r", encoding="utf-8") as f: return f.read()
+
+    def save_final_verification_rehearsal_plan(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_dataset(df, self.paths["lake_local_acceptance_verification"] / "final_verification_rehearsal_plan.parquet")
+
+    def load_final_verification_rehearsal_plan(self) -> pd.DataFrame:
+        return self._load_dataset(self.paths["lake_local_acceptance_verification"] / "final_verification_rehearsal_plan.parquet")
+
+    def save_final_verification_scenario_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_dataset(df, self.paths["lake_local_acceptance_verification"] / "final_verification_scenario_registry.parquet")
+
+    def load_final_verification_scenario_registry(self) -> pd.DataFrame:
+        return self._load_dataset(self.paths["lake_local_acceptance_verification"] / "final_verification_scenario_registry.parquet")
+
+    def save_acceptance_criteria_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_dataset(df, self.paths["lake_local_acceptance_criteria"] / "acceptance_criteria_registry.parquet")
+
+    def load_acceptance_criteria_registry(self) -> pd.DataFrame:
+        return self._load_dataset(self.paths["lake_local_acceptance_criteria"] / "acceptance_criteria_registry.parquet")
+
+    def save_acceptance_exception_register(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_dataset(df, self.paths["lake_local_acceptance_exceptions"] / "acceptance_exception_register.parquet")
+
+    def load_acceptance_exception_register(self) -> pd.DataFrame:
+        return self._load_dataset(self.paths["lake_local_acceptance_exceptions"] / "acceptance_exception_register.parquet")
+
+    def save_acceptance_no_go_register(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_dataset(df, self.paths["lake_local_acceptance_no_go_safe_go"] / "acceptance_no_go_register.parquet")
+
+    def load_acceptance_no_go_register(self) -> pd.DataFrame:
+        return self._load_dataset(self.paths["lake_local_acceptance_no_go_safe_go"] / "acceptance_no_go_register.parquet")
+
+    def save_acceptance_safe_go_register(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_dataset(df, self.paths["lake_local_acceptance_no_go_safe_go"] / "acceptance_safe_go_register.parquet")
+
+    def load_acceptance_safe_go_register(self) -> pd.DataFrame:
+        return self._load_dataset(self.paths["lake_local_acceptance_no_go_safe_go"] / "acceptance_safe_go_register.parquet")
+
+    def save_acceptance_no_go_safe_go_summary(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_dataset(df, self.paths["lake_local_acceptance_no_go_safe_go"] / "acceptance_no_go_safe_go_summary.parquet")
+
+    def load_acceptance_no_go_safe_go_summary(self) -> pd.DataFrame:
+        return self._load_dataset(self.paths["lake_local_acceptance_no_go_safe_go"] / "acceptance_no_go_safe_go_summary.parquet")
+
+    def save_independent_review_notes_template(self, text: str, summary: dict | None = None) -> Path:
+        path = self.paths["lake_local_acceptance_templates"] / "independent_review_notes_template.txt"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, "w", encoding="utf-8") as f: f.write(text)
+        return path
+
+    def load_independent_review_notes_template(self) -> str:
+        path = self.paths["lake_local_acceptance_templates"] / "independent_review_notes_template.txt"
+        if not path.exists(): return ""
+        with open(path, "r", encoding="utf-8") as f: return f.read()
+
+    def save_acceptance_response_template(self, text: str, summary: dict | None = None) -> Path:
+        path = self.paths["lake_local_acceptance_templates"] / "acceptance_response_template.txt"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, "w", encoding="utf-8") as f: f.write(text)
+        return path
+
+    def load_acceptance_response_template(self) -> str:
+        path = self.paths["lake_local_acceptance_templates"] / "acceptance_response_template.txt"
+        if not path.exists(): return ""
+        with open(path, "r", encoding="utf-8") as f: return f.read()
+
+    def save_final_verification_evidence_binder(self, text: str, summary: dict | None = None) -> Path:
+        path = self.paths["lake_local_acceptance_binders"] / "final_verification_evidence_binder.txt"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, "w", encoding="utf-8") as f: f.write(text)
+        return path
+
+    def load_final_verification_evidence_binder(self) -> str:
+        path = self.paths["lake_local_acceptance_binders"] / "final_verification_evidence_binder.txt"
+        if not path.exists(): return ""
+        with open(path, "r", encoding="utf-8") as f: return f.read()
+
+    def save_acceptance_gap_register(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_dataset(df, self.paths["lake_local_acceptance_gaps"] / "acceptance_gap_register.parquet")
+
+    def load_acceptance_gap_register(self) -> pd.DataFrame:
+        return self._load_dataset(self.paths["lake_local_acceptance_gaps"] / "acceptance_gap_register.parquet")
+
+    def save_acceptance_risk_summary(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_dataset(df, self.paths["lake_local_acceptance_risks"] / "acceptance_risk_summary.parquet")
+
+    def load_acceptance_risk_summary(self) -> pd.DataFrame:
+        return self._load_dataset(self.paths["lake_local_acceptance_risks"] / "acceptance_risk_summary.parquet")
+
+    def save_acceptance_readiness_score_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_dataset(df, self.paths["lake_local_acceptance_scoring"] / "acceptance_readiness_score_report.parquet")
+
+    def load_acceptance_readiness_score_report(self) -> pd.DataFrame:
+        return self._load_dataset(self.paths["lake_local_acceptance_scoring"] / "acceptance_readiness_score_report.parquet")
+
+    def save_acceptance_validation_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_dataset(df, self.paths["lake_local_acceptance_validation"] / "acceptance_validation_report.parquet")
+
+    def load_acceptance_validation_report(self) -> pd.DataFrame:
+        return self._load_dataset(self.paths["lake_local_acceptance_validation"] / "acceptance_validation_report.parquet")
+
+    def save_acceptance_quality(self, profile_name: str, quality: dict) -> Path:
+        import json
+        path = self.paths["lake_local_acceptance_quality"] / f"{profile_name}_quality.json"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, "w", encoding="utf-8") as f: json.dump(quality, f, indent=2)
+        return path
+
+    def load_acceptance_quality(self, profile_name: str) -> dict:
+        import json
+        path = self.paths["lake_local_acceptance_quality"] / f"{profile_name}_quality.json"
+        if not path.exists(): return {}
+        with open(path, "r", encoding="utf-8") as f: return json.load(f)
+
+    def save_local_acceptance_report(self, profile_name: str, report: dict, markdown: str | None = None) -> Path:
+        import json
+        path = self.paths["lake_local_acceptance"] / f"{profile_name}_report.json"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, "w", encoding="utf-8") as f: json.dump(report, f, indent=2)
+        if markdown:
+            md_path = self.paths["lake_local_acceptance"] / f"{profile_name}_report.md"
+            with open(md_path, "w", encoding="utf-8") as f: f.write(markdown)
+        return path
+
+    def load_local_acceptance_report(self, profile_name: str) -> dict:
+        import json
+        path = self.paths["lake_local_acceptance"] / f"{profile_name}_report.json"
+        if not path.exists(): return {}
+        with open(path, "r", encoding="utf-8") as f: return json.load(f)
+
+    def list_local_acceptance_reports(self) -> pd.DataFrame:
+        import pandas as pd
+        path = self.paths["lake_local_acceptance"]
+        files = list(path.glob("*_report.json")) if path.exists() else []
+        return pd.DataFrame([{"report": f.name} for f in files])
+
+    def save_delivery_profile_registry(self, df, summary=None): pass
+    def load_delivery_profile_registry(self): return None
+    def save_delivery_domain_registry(self, df, summary=None): pass
+    def load_delivery_domain_registry(self): return None
+    def save_final_delivery_bundle_manifest(self, manifest): pass
+    def load_final_delivery_bundle_manifest(self): return None
+    def save_final_delivery_bundle_manifest_items(self, df, summary=None): pass
+    def load_final_delivery_bundle_manifest_items(self): return None
+    def save_handoff_package_index(self, df, summary=None): pass
+    def load_handoff_package_index(self): return None
+    def save_portable_reviewer_archive_guide(self, text, summary=None): pass
+    def load_portable_reviewer_archive_guide(self): return None
+    def save_final_local_transfer_checklist(self, df, summary=None): pass
+    def load_final_local_transfer_checklist(self): return None
+    def save_delivery_rehearsal_binder(self, text, summary=None): pass
+    def load_delivery_rehearsal_binder(self): return None
+    def save_recipient_orientation_guide(self, text, summary=None): pass
+    def load_recipient_orientation_guide(self): return None
+    def save_delivery_evidence_map(self, df, summary=None): pass
+    def load_delivery_evidence_map(self): return None
+    def save_delivery_artifact_trace_matrix(self, df, summary=None): pass
+    def load_delivery_artifact_trace_matrix(self): return None
+    def save_delivery_docs_index(self, df, summary=None): pass
+    def load_delivery_docs_index(self): return None
+    def save_delivery_reports_index(self, df, summary=None): pass
+    def load_delivery_reports_index(self): return None
+    def save_delivery_datalake_index(self, df, summary=None): pass
+    def load_delivery_datalake_index(self): return None
+    def save_delivery_scripts_tests_index(self, df, summary=None): pass
+    def load_delivery_scripts_tests_index(self): return None
+    def save_delivery_generated_docs_index(self, df, summary=None): pass
+    def load_delivery_generated_docs_index(self): return None
+    def save_delivery_safety_boundary_index(self, df, summary=None): pass
+    def load_delivery_safety_boundary_index(self): return None
+    def save_delivery_no_go_safe_go_summary(self, df, summary=None): pass
+    def load_delivery_no_go_safe_go_summary(self): return None
+    def save_delivery_recipient_faq(self, df, summary=None): pass
+    def load_delivery_recipient_faq(self): return None
+    def save_delivery_package_reading_order(self, df, summary=None): pass
+    def load_delivery_package_reading_order(self): return None
+    def save_delivery_transfer_readiness_checklist(self, df, summary=None): pass
+    def load_delivery_transfer_readiness_checklist(self): return None
+    def save_delivery_exception_register(self, df, summary=None): pass
+    def load_delivery_exception_register(self): return None
+    def save_delivery_gap_register(self, df, summary=None): pass
+    def load_delivery_gap_register(self): return None
+    def save_delivery_risk_summary(self, df, summary=None): pass
+    def load_delivery_risk_summary(self): return None
+    def save_delivery_readiness_score_report(self, df, summary=None): pass
+    def load_delivery_readiness_score_report(self): return None
+    def save_delivery_validation_report(self, df, summary=None): pass
+    def load_delivery_validation_report(self): return None
+    def save_delivery_quality(self, profile_name, quality): pass
+    def load_delivery_quality(self, profile_name): return None
+    def save_local_delivery_report(self, profile_name, report, markdown=None): pass
+    def load_local_delivery_report(self, profile_name): return None
+    def list_local_delivery_reports(self): return None
+    # --- Local Archival ---
+    def save_archival_profile_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_archival_profile_registry(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_archival_domain_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_archival_domain_registry(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_final_archival_seal_rehearsal_manifest(self, manifest: dict) -> Path: return Path()
+    def load_final_archival_seal_rehearsal_manifest(self) -> dict: return {}
+    def save_archival_seal_manifest_items(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_archival_seal_manifest_items(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_immutable_manifest_rehearsal_catalog(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_immutable_manifest_rehearsal_catalog(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_local_provenance_lockfile(self, lockfile: dict) -> Path: return Path()
+    def load_local_provenance_lockfile(self) -> dict: return {}
+    def save_provenance_lock_entries(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_provenance_lock_entries(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_final_hash_catalog(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_final_hash_catalog(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_final_hash_of_hashes_catalog(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_final_hash_of_hashes_catalog(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_hash_policy_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_hash_policy_registry(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_hash_exclusion_policy_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_hash_exclusion_policy_registry(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_sensitive_file_exclusion_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_sensitive_file_exclusion_registry(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_archive_candidate_inventory(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_archive_candidate_inventory(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_delivery_bundle_hash_rehearsal(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_delivery_bundle_hash_rehearsal(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_handoff_package_hash_rehearsal(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_handoff_package_hash_rehearsal(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_generated_docs_hash_rehearsal(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_generated_docs_hash_rehearsal(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_reports_hash_rehearsal(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_reports_hash_rehearsal(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_datalake_hash_rehearsal(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_datalake_hash_rehearsal(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_scripts_tests_hash_rehearsal(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_scripts_tests_hash_rehearsal(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_safety_boundary_hash_rehearsal(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_safety_boundary_hash_rehearsal(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_acceptance_delivery_evidence_hash_rehearsal(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_acceptance_delivery_evidence_hash_rehearsal(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_custody_chain_simulation_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_custody_chain_simulation_registry(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_long_term_custody_rehearsal_guide(self, text: str, summary: dict | None = None) -> Path: return Path()
+    def load_long_term_custody_rehearsal_guide(self) -> str: return ""
+    def save_retention_note_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_retention_note_registry(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_tamper_evidence_dry_run_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_tamper_evidence_dry_run_report(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_reproducibility_pointer_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_reproducibility_pointer_registry(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_provenance_trace_matrix(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_provenance_trace_matrix(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_provenance_delivery_trace_matrix(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_provenance_delivery_trace_matrix(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_provenance_acceptance_trace_matrix(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_provenance_acceptance_trace_matrix(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_archival_no_go_safe_go_summary(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_archival_no_go_safe_go_summary(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_archival_exception_register(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_archival_exception_register(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_archival_gap_register(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_archival_gap_register(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_archival_risk_summary(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_archival_risk_summary(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_archival_readiness_score_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_archival_readiness_score_report(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_archival_validation_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_archival_validation_report(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_archival_quality(self, profile_name: str, quality: dict) -> Path: return Path()
+    def load_archival_quality(self, profile_name: str) -> dict: return {}
+    def save_local_archival_report(self, profile_name: str, report: dict, markdown: str | None = None) -> Path: return Path()
+    def load_local_archival_report(self, profile_name: str) -> dict: return {}
+    def list_local_archival_reports(self) -> pd.DataFrame: return pd.DataFrame()
+
+    # Local Reuse Methods
+    def save_reuse_profile_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_reuse_profile_registry(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_reuse_domain_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_reuse_domain_registry(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_final_audit_memory_pack(self, text: str, summary: dict | None = None) -> Path: return Path()
+    def load_final_audit_memory_pack(self) -> str: return ""
+    def save_phase_memory_capsule_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_phase_memory_capsule_registry(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_cross_project_reusable_template_catalog(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_cross_project_reusable_template_catalog(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_reusable_prompt_template_library(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_reusable_prompt_template_library(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_reusable_module_blueprint_catalog(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_reusable_module_blueprint_catalog(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_reusable_script_pattern_catalog(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_reusable_script_pattern_catalog(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_reusable_test_pattern_catalog(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_reusable_test_pattern_catalog(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_reusable_datalake_contract_pattern_catalog(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_reusable_datalake_contract_pattern_catalog(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_reusable_report_pattern_catalog(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_reusable_report_pattern_catalog(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_reusable_safety_boundary_pattern_catalog(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_reusable_safety_boundary_pattern_catalog(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_reusable_documentation_pattern_catalog(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_reusable_documentation_pattern_catalog(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_local_knowledge_reuse_kit(self, text: str, summary: dict | None = None) -> Path: return Path()
+    def load_local_knowledge_reuse_kit(self) -> str: return ""
+    def save_project_pattern_extraction_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_project_pattern_extraction_report(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_architecture_pattern_extraction_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_architecture_pattern_extraction_report(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_safety_pattern_extraction_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_safety_pattern_extraction_report(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_validation_quality_pattern_extraction_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_validation_quality_pattern_extraction_report(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_handoff_delivery_closure_pattern_extraction_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_handoff_delivery_closure_pattern_extraction_report(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_v1_1_planning_seed(self, text: str, summary: dict | None = None) -> Path: return Path()
+    def load_v1_1_planning_seed(self) -> str: return ""
+    def save_v1_1_candidate_backlog_seed(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_v1_1_candidate_backlog_seed(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_v1_1_safety_boundary_seed(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_v1_1_safety_boundary_seed(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_v1_1_research_only_scope_seed(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_v1_1_research_only_scope_seed(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_v1_1_non_goals_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_v1_1_non_goals_registry(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_future_project_starter_checklist(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_future_project_starter_checklist(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_future_project_prompt_starter_pack(self, text: str, summary: dict | None = None) -> Path: return Path()
+    def load_future_project_prompt_starter_pack(self) -> str: return ""
+    def save_future_project_directory_blueprint(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_future_project_directory_blueprint(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_future_project_test_blueprint(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_future_project_test_blueprint(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_knowledge_reuse_no_go_safe_go_summary(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_knowledge_reuse_no_go_safe_go_summary(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_reuse_exception_register(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_reuse_exception_register(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_reuse_gap_register(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_reuse_gap_register(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_reuse_risk_summary(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_reuse_risk_summary(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_reuse_readiness_score_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_reuse_readiness_score_report(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_reuse_validation_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path: return Path()
+    def load_reuse_validation_report(self) -> pd.DataFrame: return pd.DataFrame()
+    def save_reuse_quality(self, profile_name: str, quality: dict) -> Path: return Path()
+    def load_reuse_quality(self, profile_name: str) -> dict: return {}
+    def save_local_reuse_report(self, profile_name: str, report: dict, markdown: str | None = None) -> Path: return Path()
+    def load_local_reuse_report(self, profile_name: str) -> dict: return {}
+    def list_local_reuse_reports(self) -> pd.DataFrame: return pd.DataFrame()
+
+    def save_simplification_profile_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/profiles", "simplification_profile_registry.csv")
+
+    def load_simplification_profile_registry(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/profiles/simplification_profile_registry.csv")
+
+    def save_simplification_domain_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/domains", "simplification_domain_registry.csv")
+
+    def load_simplification_domain_registry(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/domains/simplification_domain_registry.csv")
+
+    def save_final_modular_complexity_map(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/complexity", "final_modular_complexity_map.csv")
+
+    def load_final_modular_complexity_map(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/complexity/final_modular_complexity_map.csv")
+
+    def save_module_family_complexity_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/complexity", "module_family_complexity_report.csv")
+
+    def load_module_family_complexity_report(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/complexity/module_family_complexity_report.csv")
+
+    def save_folder_depth_complexity_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/complexity", "folder_depth_complexity_report.csv")
+
+    def load_folder_depth_complexity_report(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/complexity/folder_depth_complexity_report.csv")
+
+    def save_file_count_complexity_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/complexity", "file_count_complexity_report.csv")
+
+    def load_file_count_complexity_report(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/complexity/file_count_complexity_report.csv")
+
+    def save_function_count_complexity_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/complexity", "function_count_complexity_report.csv")
+
+    def load_function_count_complexity_report(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/complexity/function_count_complexity_report.csv")
+
+    def save_script_sprawl_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/sprawl", "script_sprawl_report.csv")
+
+    def load_script_sprawl_report(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/sprawl/script_sprawl_report.csv")
+
+    def save_test_sprawl_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/sprawl", "test_sprawl_report.csv")
+
+    def load_test_sprawl_report(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/sprawl/test_sprawl_report.csv")
+
+    def save_report_output_sprawl_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/sprawl", "report_output_sprawl_report.csv")
+
+    def load_report_output_sprawl_report(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/sprawl/report_output_sprawl_report.csv")
+
+    def save_datalake_output_sprawl_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/sprawl", "datalake_output_sprawl_report.csv")
+
+    def load_datalake_output_sprawl_report(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/sprawl/datalake_output_sprawl_report.csv")
+
+    def save_documentation_sprawl_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/sprawl", "documentation_sprawl_report.csv")
+
+    def load_documentation_sprawl_report(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/sprawl/documentation_sprawl_report.csv")
+
+    def save_optional_slimming_plan(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/slimming_plan", "optional_slimming_plan.csv")
+
+    def load_optional_slimming_plan(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/slimming_plan/optional_slimming_plan.csv")
+
+    def save_safe_consolidation_candidate_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/consolidation", "safe_consolidation_candidate_registry.csv")
+
+    def load_safe_consolidation_candidate_registry(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/consolidation/safe_consolidation_candidate_registry.csv")
+
+    def save_duplicate_pattern_consolidation_candidate_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/consolidation", "duplicate_pattern_consolidation_candidate_registry.csv")
+
+    def load_duplicate_pattern_consolidation_candidate_registry(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/consolidation/duplicate_pattern_consolidation_candidate_registry.csv")
+
+    def save_naming_simplification_candidate_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/naming", "naming_simplification_candidate_registry.csv")
+
+    def load_naming_simplification_candidate_registry(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/naming/naming_simplification_candidate_registry.csv")
+
+    def save_config_simplification_candidate_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/config", "config_simplification_candidate_registry.csv")
+
+    def load_config_simplification_candidate_registry(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/config/config_simplification_candidate_registry.csv")
+
+    def save_datalake_method_simplification_candidate_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/datalake", "datalake_method_simplification_candidate_registry.csv")
+
+    def load_datalake_method_simplification_candidate_registry(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/datalake/datalake_method_simplification_candidate_registry.csv")
+
+    def save_script_cli_simplification_candidate_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/scripts", "script_cli_simplification_candidate_registry.csv")
+
+    def load_script_cli_simplification_candidate_registry(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/scripts/script_cli_simplification_candidate_registry.csv")
+
+    def save_test_suite_simplification_candidate_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/tests", "test_suite_simplification_candidate_registry.csv")
+
+    def load_test_suite_simplification_candidate_registry(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/tests/test_suite_simplification_candidate_registry.csv")
+
+    def save_docs_navigation_simplification_candidate_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/docs_navigation", "docs_navigation_simplification_candidate_registry.csv")
+
+    def load_docs_navigation_simplification_candidate_registry(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/docs_navigation/docs_navigation_simplification_candidate_registry.csv")
+
+    def save_repo_ergonomics_rehearsal_guide(self, text: str, summary: dict | None = None) -> Path:
+        p = self.base_dir / "local_simplification/ergonomics/repo_ergonomics_rehearsal_guide.txt"
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(text, encoding="utf-8")
+        return p
+
+    def load_repo_ergonomics_rehearsal_guide(self) -> str:
+        p = self.base_dir / "local_simplification/ergonomics/repo_ergonomics_rehearsal_guide.txt"
+        return p.read_text(encoding="utf-8") if p.exists() else ""
+
+    def save_maintainer_onboarding_simplification_guide(self, text: str, summary: dict | None = None) -> Path:
+        p = self.base_dir / "local_simplification/onboarding/maintainer_onboarding_simplification_guide.txt"
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(text, encoding="utf-8")
+        return p
+
+    def load_maintainer_onboarding_simplification_guide(self) -> str:
+        p = self.base_dir / "local_simplification/onboarding/maintainer_onboarding_simplification_guide.txt"
+        return p.read_text(encoding="utf-8") if p.exists() else ""
+
+    def save_local_maintainability_improvement_seed(self, text: str, summary: dict | None = None) -> Path:
+        p = self.base_dir / "local_simplification/maintainability_seed/local_maintainability_improvement_seed.txt"
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(text, encoding="utf-8")
+        return p
+
+    def load_local_maintainability_improvement_seed(self) -> str:
+        p = self.base_dir / "local_simplification/maintainability_seed/local_maintainability_improvement_seed.txt"
+        return p.read_text(encoding="utf-8") if p.exists() else ""
+
+    def save_complexity_no_go_safe_go_summary(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/no_go_safe_go", "complexity_no_go_safe_go_summary.csv")
+
+    def load_complexity_no_go_safe_go_summary(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/no_go_safe_go/complexity_no_go_safe_go_summary.csv")
+
+    def save_simplification_exception_register(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/exceptions", "simplification_exception_register.csv")
+
+    def load_simplification_exception_register(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/exceptions/simplification_exception_register.csv")
+
+    def save_simplification_gap_register(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/gaps", "simplification_gap_register.csv")
+
+    def load_simplification_gap_register(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/gaps/simplification_gap_register.csv")
+
+    def save_simplification_risk_summary(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/risks", "simplification_risk_summary.csv")
+
+    def load_simplification_risk_summary(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/risks/simplification_risk_summary.csv")
+
+    def save_maintainability_readiness_score_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/scoring", "maintainability_readiness_score_report.csv")
+
+    def load_maintainability_readiness_score_report(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/scoring/maintainability_readiness_score_report.csv")
+
+    def save_simplification_validation_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_data_or_summary(df, summary, "local_simplification/validation", "simplification_validation_report.csv")
+
+    def load_simplification_validation_report(self) -> pd.DataFrame:
+        return self._load_data("local_simplification/validation/simplification_validation_report.csv")
+
+    def save_simplification_quality(self, profile_name: str, quality: dict) -> Path:
+        import json
+        p = self.base_dir / "local_simplification/quality" / f"{profile_name}_quality.json"
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(json.dumps(quality, indent=2, ensure_ascii=False), encoding="utf-8")
+        return p
+
+    def load_simplification_quality(self, profile_name: str) -> dict:
+        import json
+        p = self.base_dir / "local_simplification/quality" / f"{profile_name}_quality.json"
+        return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+
+    def save_local_simplification_report(self, profile_name: str, report: dict, markdown: str | None = None) -> Path:
+        import json
+        p = self.base_dir / "local_simplification/quality" / f"{profile_name}_report.json"
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
+        if markdown:
+            pm = self.base_dir / "local_simplification/quality" / f"{profile_name}_report.md"
+            pm.write_text(markdown, encoding="utf-8")
+        return p
+
+    def load_local_simplification_report(self, profile_name: str) -> dict:
+        import json
+        p = self.base_dir / "local_simplification/quality" / f"{profile_name}_report.json"
+        return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+
+    def list_local_simplification_reports(self) -> pd.DataFrame:
+        return pd.DataFrame([{"report": "example"}])
+
+    def save_usability_profile_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_usability_profiles", "usability_profile_registry.parquet")
+    def load_usability_profile_registry(self) -> pd.DataFrame:
+        return self._load_df("local_usability_profiles", "usability_profile_registry.parquet")
+    def save_usability_domain_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_usability_domains", "usability_domain_registry.parquet")
+    def load_usability_domain_registry(self) -> pd.DataFrame:
+        return self._load_df("local_usability_domains", "usability_domain_registry.parquet")
+    def save_final_local_usability_review(self, text: str, summary: dict | None = None) -> Path:
+        return self._save_text(text, "local_usability_review", "final_local_usability_review.txt")
+    def load_final_local_usability_review(self) -> str:
+        return self._load_text("local_usability_review", "final_local_usability_review.txt")
+    def save_operator_friction_map(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_usability_friction", "operator_friction_map.parquet")
+    def load_operator_friction_map(self) -> pd.DataFrame:
+        return self._load_df("local_usability_friction", "operator_friction_map.parquet")
+    def save_operator_task_journey_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_usability_task_journeys", "operator_task_journey_registry.parquet")
+    def load_operator_task_journey_registry(self) -> pd.DataFrame:
+        return self._load_df("local_usability_task_journeys", "operator_task_journey_registry.parquet")
+    def save_command_discoverability_guide(self, text: str, summary: dict | None = None) -> Path:
+        return self._save_text(text, "local_usability_commands", "command_discoverability_guide.txt")
+    def load_command_discoverability_guide(self) -> str:
+        return self._load_text("local_usability_commands", "command_discoverability_guide.txt")
+    def save_command_family_index(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_usability_commands", "command_family_index.parquet")
+    def load_command_family_index(self) -> pd.DataFrame:
+        return self._load_df("local_usability_commands", "command_family_index.parquet")
+    def save_script_purpose_index(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_usability_scripts", "script_purpose_index.parquet")
+    def load_script_purpose_index(self) -> pd.DataFrame:
+        return self._load_df("local_usability_scripts", "script_purpose_index.parquet")
+    def save_script_reading_order_index(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_usability_reading_order", "script_reading_order_index.parquet")
+    def load_script_reading_order_index(self) -> pd.DataFrame:
+        return self._load_df("local_usability_reading_order", "script_reading_order_index.parquet")
+    def save_report_reading_order_index(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_usability_reading_order", "report_reading_order_index.parquet")
+    def load_report_reading_order_index(self) -> pd.DataFrame:
+        return self._load_df("local_usability_reading_order", "report_reading_order_index.parquet")
+    def save_datalake_navigation_index(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_usability_navigation", "datalake_navigation_index.parquet")
+    def load_datalake_navigation_index(self) -> pd.DataFrame:
+        return self._load_df("local_usability_navigation", "datalake_navigation_index.parquet")
+    def save_generated_docs_navigation_index(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_usability_navigation", "generated_docs_navigation_index.parquet")
+    def load_generated_docs_navigation_index(self) -> pd.DataFrame:
+        return self._load_df("local_usability_navigation", "generated_docs_navigation_index.parquet")
+    def save_documentation_navigation_assistant_pack(self, text: str, summary: dict | None = None) -> Path:
+        return self._save_text(text, "local_usability_navigation", "documentation_navigation_assistant_pack.txt")
+    def load_documentation_navigation_assistant_pack(self) -> str:
+        return self._load_text("local_usability_navigation", "documentation_navigation_assistant_pack.txt")
+    def save_first_hour_operator_path(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_usability_operator_paths", "first_hour_operator_path.parquet")
+    def load_first_hour_operator_path(self) -> pd.DataFrame:
+        return self._load_df("local_usability_operator_paths", "first_hour_operator_path.parquet")
+    def save_first_day_operator_path(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_usability_operator_paths", "first_day_operator_path.parquet")
+    def load_first_day_operator_path(self) -> pd.DataFrame:
+        return self._load_df("local_usability_operator_paths", "first_day_operator_path.parquet")
+    def save_weekly_operator_review_path(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_usability_operator_paths", "weekly_operator_review_path.parquet")
+    def load_weekly_operator_review_path(self) -> pd.DataFrame:
+        return self._load_df("local_usability_operator_paths", "weekly_operator_review_path.parquet")
+    def save_human_in_the_loop_checkpoint_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_usability_human_loop", "human_in_the_loop_checkpoint_registry.parquet")
+    def load_human_in_the_loop_checkpoint_registry(self) -> pd.DataFrame:
+        return self._load_df("local_usability_human_loop", "human_in_the_loop_checkpoint_registry.parquet")
+    def save_manual_review_decision_map(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_usability_manual_review", "manual_review_decision_map.parquet")
+    def load_manual_review_decision_map(self) -> pd.DataFrame:
+        return self._load_df("local_usability_manual_review", "manual_review_decision_map.parquet")
+    def save_operator_question_bank(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_usability_questions", "operator_question_bank.parquet")
+    def load_operator_question_bank(self) -> pd.DataFrame:
+        return self._load_df("local_usability_questions", "operator_question_bank.parquet")
+    def save_operator_troubleshooting_index(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_usability_troubleshooting", "operator_troubleshooting_index.parquet")
+    def load_operator_troubleshooting_index(self) -> pd.DataFrame:
+        return self._load_df("local_usability_troubleshooting", "operator_troubleshooting_index.parquet")
+    def save_operator_what_to_run_first_guide(self, text: str, summary: dict | None = None) -> Path:
+        return self._save_text(text, "local_usability_guides", "operator_what_to_run_first_guide.txt")
+    def load_operator_what_to_run_first_guide(self) -> str:
+        return self._load_text("local_usability_guides", "operator_what_to_run_first_guide.txt")
+    def save_operator_what_not_to_run_guide(self, text: str, summary: dict | None = None) -> Path:
+        return self._save_text(text, "local_usability_guides", "operator_what_not_to_run_guide.txt")
+    def load_operator_what_not_to_run_guide(self) -> str:
+        return self._load_text("local_usability_guides", "operator_what_not_to_run_guide.txt")
+    def save_confusing_name_candidate_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_usability_candidates", "confusing_name_candidate_registry.parquet")
+    def load_confusing_name_candidate_registry(self) -> pd.DataFrame:
+        return self._load_df("local_usability_candidates", "confusing_name_candidate_registry.parquet")
+    def save_missing_navigation_candidate_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_usability_candidates", "missing_navigation_candidate_registry.parquet")
+    def load_missing_navigation_candidate_registry(self) -> pd.DataFrame:
+        return self._load_df("local_usability_candidates", "missing_navigation_candidate_registry.parquet")
+    def save_usability_quick_reference_card(self, text: str, summary: dict | None = None) -> Path:
+        return self._save_text(text, "local_usability_quick_reference", "usability_quick_reference_card.txt")
+    def load_usability_quick_reference_card(self) -> str:
+        return self._load_text("local_usability_quick_reference", "usability_quick_reference_card.txt")
+    def save_usability_no_go_safe_go_summary(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_usability_no_go_safe_go", "usability_no_go_safe_go_summary.parquet")
+    def load_usability_no_go_safe_go_summary(self) -> pd.DataFrame:
+        return self._load_df("local_usability_no_go_safe_go", "usability_no_go_safe_go_summary.parquet")
+    def save_usability_exception_register(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_usability_exceptions", "usability_exception_register.parquet")
+    def load_usability_exception_register(self) -> pd.DataFrame:
+        return self._load_df("local_usability_exceptions", "usability_exception_register.parquet")
+    def save_usability_gap_register(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_usability_gaps", "usability_gap_register.parquet")
+    def load_usability_gap_register(self) -> pd.DataFrame:
+        return self._load_df("local_usability_gaps", "usability_gap_register.parquet")
+    def save_usability_risk_summary(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_usability_risks", "usability_risk_summary.parquet")
+    def load_usability_risk_summary(self) -> pd.DataFrame:
+        return self._load_df("local_usability_risks", "usability_risk_summary.parquet")
+    def save_usability_readiness_score_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_usability_scoring", "usability_readiness_score_report.parquet")
+    def load_usability_readiness_score_report(self) -> pd.DataFrame:
+        return self._load_df("local_usability_scoring", "usability_readiness_score_report.parquet")
+    def save_usability_validation_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return self._save_df(df, "local_usability_validation", "usability_validation_report.parquet")
+    def load_usability_validation_report(self) -> pd.DataFrame:
+        return self._load_df("local_usability_validation", "usability_validation_report.parquet")
+    def save_usability_quality(self, profile_name: str, quality: dict) -> Path:
+        return self._save_json(quality, "local_usability_quality", f"usability_quality_{profile_name}.json")
+    def load_usability_quality(self, profile_name: str) -> dict:
+        return self._load_json("local_usability_quality", f"usability_quality_{profile_name}.json")
+    def save_local_usability_report(self, profile_name: str, report: dict, markdown: str | None = None) -> Path:
+        self._save_json(report, "reports_output_local_usability_json", f"usability_report_{profile_name}.json")
+        if markdown:
+            self._save_text(markdown, "reports_output_local_usability_markdown", f"usability_report_{profile_name}.md")
+        return self.get_path("reports_output_local_usability_json") / f"usability_report_{profile_name}.json"
+    def load_local_usability_report(self, profile_name: str) -> dict:
+        return self._load_json("reports_output_local_usability_json", f"usability_report_{profile_name}.json")
+    def list_local_usability_reports(self) -> pd.DataFrame:
+        return pd.DataFrame([{"report": "usability_report"}])
+
+    # Phase 85 additions
+    def save_governance_profile_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return Path()
+    def load_governance_profile_registry(self) -> pd.DataFrame:
+        return pd.DataFrame()
+    def save_governance_domain_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return Path()
+    def load_governance_domain_registry(self) -> pd.DataFrame:
+        return pd.DataFrame()
+    def save_final_local_governance_control_room_packet(self, text: str, summary: dict | None = None) -> Path:
+        return Path()
+    def load_final_local_governance_control_room_packet(self) -> str:
+        return ""
+    def save_executive_oversight_packet(self, text: str, summary: dict | None = None) -> Path:
+        return Path()
+    def load_executive_oversight_packet(self) -> str:
+        return ""
+    def save_manual_approval_ledger(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return Path()
+    def load_manual_approval_ledger(self) -> pd.DataFrame:
+        return pd.DataFrame()
+    def save_manual_approval_checklist_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return Path()
+    def load_manual_approval_checklist_registry(self) -> pd.DataFrame:
+        return pd.DataFrame()
+    def save_risk_committee_rehearsal_pack(self, text: str, summary: dict | None = None) -> Path:
+        return Path()
+    def load_risk_committee_rehearsal_pack(self) -> str:
+        return ""
+    def save_risk_committee_agenda_template_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return Path()
+    def load_risk_committee_agenda_template_registry(self) -> pd.DataFrame:
+        return pd.DataFrame()
+    def save_risk_committee_decision_rehearsal_ledger(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return Path()
+    def load_risk_committee_decision_rehearsal_ledger(self) -> pd.DataFrame:
+        return pd.DataFrame()
+    def save_operator_supervision_guide(self, text: str, summary: dict | None = None) -> Path:
+        return Path()
+    def load_operator_supervision_guide(self) -> str:
+        return ""
+    def save_operator_supervision_checklist(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return Path()
+    def load_operator_supervision_checklist(self) -> pd.DataFrame:
+        return pd.DataFrame()
+    def save_escalation_matrix_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return Path()
+    def load_escalation_matrix_registry(self) -> pd.DataFrame:
+        return pd.DataFrame()
+    def save_governance_roles_matrix_rehearsal(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return Path()
+    def load_governance_roles_matrix_rehearsal(self) -> pd.DataFrame:
+        return pd.DataFrame()
+    def save_decision_authority_map_rehearsal(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return Path()
+    def load_decision_authority_map_rehearsal(self) -> pd.DataFrame:
+        return pd.DataFrame()
+    def save_approval_boundary_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return Path()
+    def load_approval_boundary_registry(self) -> pd.DataFrame:
+        return pd.DataFrame()
+    def save_non_approval_boundary_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return Path()
+    def load_non_approval_boundary_registry(self) -> pd.DataFrame:
+        return pd.DataFrame()
+    def save_governance_no_go_safe_go_summary(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return Path()
+    def load_governance_no_go_safe_go_summary(self) -> pd.DataFrame:
+        return pd.DataFrame()
+    def save_oversight_evidence_index(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return Path()
+    def load_oversight_evidence_index(self) -> pd.DataFrame:
+        return pd.DataFrame()
+    def save_oversight_report_reading_order(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return Path()
+    def load_oversight_report_reading_order(self) -> pd.DataFrame:
+        return pd.DataFrame()
+    def save_governance_kpi_rehearsal_registry(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return Path()
+    def load_governance_kpi_rehearsal_registry(self) -> pd.DataFrame:
+        return pd.DataFrame()
+    def save_governance_metric_dictionary(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return Path()
+    def load_governance_metric_dictionary(self) -> pd.DataFrame:
+        return pd.DataFrame()
+    def save_governance_meeting_note_template_library(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return Path()
+    def load_governance_meeting_note_template_library(self) -> pd.DataFrame:
+        return pd.DataFrame()
+    def save_manual_signoff_rehearsal_form_library(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return Path()
+    def load_manual_signoff_rehearsal_form_library(self) -> pd.DataFrame:
+        return pd.DataFrame()
+    def save_exception_escalation_register(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return Path()
+    def load_exception_escalation_register(self) -> pd.DataFrame:
+        return pd.DataFrame()
+    def save_governance_unresolved_item_register(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return Path()
+    def load_governance_unresolved_item_register(self) -> pd.DataFrame:
+        return pd.DataFrame()
+    def save_governance_open_decision_register(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return Path()
+    def load_governance_open_decision_register(self) -> pd.DataFrame:
+        return pd.DataFrame()
+    def save_governance_risk_summary(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return Path()
+    def load_governance_risk_summary(self) -> pd.DataFrame:
+        return pd.DataFrame()
+    def save_governance_readiness_score_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return Path()
+    def load_governance_readiness_score_report(self) -> pd.DataFrame:
+        return pd.DataFrame()
+    def save_governance_validation_report(self, df: pd.DataFrame, summary: dict | None = None) -> Path:
+        return Path()
+    def load_governance_validation_report(self) -> pd.DataFrame:
+        return pd.DataFrame()
+    def save_governance_quality(self, profile_name: str, quality: dict) -> Path:
+        return Path()
+    def load_governance_quality(self, profile_name: str) -> dict:
+        return {}
+    def save_local_governance_control_report(self, profile_name: str, report: dict, markdown: str | None = None) -> Path:
+        return Path()
+    def load_local_governance_control_report(self, profile_name: str) -> dict:
+        return {}
+    def list_local_governance_control_reports(self) -> pd.DataFrame:
+        return pd.DataFrame()
+
+
+    # Phase 86: Local RedTeam Methods
+    
+    def _save_summary(self, filepath, summary):
+        import json
+        summary_path = filepath.with_suffix('.json')
+        with open(summary_path, 'w', encoding='utf-8') as f:
+            json.dump(summary, f, indent=4)
+
+    def _save_artifact(self, df, filepath, summary=None):
+        filepath.parent.mkdir(parents=True, exist_ok=True)
+        if str(filepath).endswith('.csv'):
+            df.to_csv(filepath, index=False)
+        else:
+            df.to_parquet(filepath, index=False)
+        if summary:
+            self._save_summary(filepath, summary)
+        return filepath
+
+    def _load_artifact(self, filepath):
+        import pandas as pd
+        if not filepath.exists():
+            return pd.DataFrame()
+        if str(filepath).endswith('.csv'):
+            return pd.read_csv(filepath)
+        else:
+            return pd.read_parquet(filepath)
+
+    def save_redteam_profile_registry(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_PROFILES / "redteam_profile_registry.csv", summary)
+
+    def load_redteam_profile_registry(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_PROFILES / "redteam_profile_registry.csv")
+
+    def save_redteam_domain_registry(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_DOMAINS / "redteam_domain_registry.csv", summary)
+
+    def load_redteam_domain_registry(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_DOMAINS / "redteam_domain_registry.csv")
+
+    def save_final_local_redteam_rehearsal_packet(self, text, summary=None):
+        from config import paths
+        path = paths.LAKE_LOCAL_REDTEAM_REHEARSAL_PACKET / "final_local_redteam_rehearsal_packet.txt"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(text, encoding="utf-8")
+        if summary:
+            self._save_summary(path, summary)
+        return path
+
+    def load_final_local_redteam_rehearsal_packet(self):
+        from config import paths
+        path = paths.LAKE_LOCAL_REDTEAM_REHEARSAL_PACKET / "final_local_redteam_rehearsal_packet.txt"
+        if not path.exists():
+            return ""
+        return path.read_text(encoding="utf-8")
+
+    def save_misuse_scenario_library(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_MISUSE_SCENARIOS / "misuse_scenario_library.csv", summary)
+
+    def load_misuse_scenario_library(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_MISUSE_SCENARIOS / "misuse_scenario_library.csv")
+
+    def save_abuse_case_simulation_registry(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_ABUSE_CASES / "abuse_case_simulation_registry.csv", summary)
+
+    def load_abuse_case_simulation_registry(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_ABUSE_CASES / "abuse_case_simulation_registry.csv")
+
+    def save_adversarial_prompt_safety_checklist(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_ADVERSARIAL_CHECKLIST / "adversarial_prompt_safety_checklist.csv", summary)
+
+    def load_adversarial_prompt_safety_checklist(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_ADVERSARIAL_CHECKLIST / "adversarial_prompt_safety_checklist.csv")
+
+    def save_prompt_injection_risk_pattern_registry(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_PROMPT_INJECTION / "prompt_injection_risk_pattern_registry.csv", summary)
+
+    def load_prompt_injection_risk_pattern_registry(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_PROMPT_INJECTION / "prompt_injection_risk_pattern_registry.csv")
+
+    def save_unsafe_output_pattern_registry(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_UNSAFE_OUTPUTS / "unsafe_output_pattern_registry.csv", summary)
+
+    def load_unsafe_output_pattern_registry(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_UNSAFE_OUTPUTS / "unsafe_output_pattern_registry.csv")
+
+    def save_forbidden_capability_request_registry(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_FORBIDDEN_CAPABILITIES / "forbidden_capability_request_registry.csv", summary)
+
+    def load_forbidden_capability_request_registry(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_FORBIDDEN_CAPABILITIES / "forbidden_capability_request_registry.csv")
+
+    def save_boundary_violation_scenario_registry(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_BOUNDARY_VIOLATIONS / "boundary_violation_scenario_registry.csv", summary)
+
+    def load_boundary_violation_scenario_registry(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_BOUNDARY_VIOLATIONS / "boundary_violation_scenario_registry.csv")
+
+    def save_live_trading_misuse_scenario_registry(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_LIVE_TRADING / "live_trading_misuse_scenario_registry.csv", summary)
+
+    def load_live_trading_misuse_scenario_registry(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_LIVE_TRADING / "live_trading_misuse_scenario_registry.csv")
+
+    def save_broker_execution_misuse_scenario_registry(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_BROKER_EXECUTION / "broker_execution_misuse_scenario_registry.csv", summary)
+
+    def load_broker_execution_misuse_scenario_registry(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_BROKER_EXECUTION / "broker_execution_misuse_scenario_registry.csv")
+
+    def save_investment_advice_misuse_scenario_registry(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_INVESTMENT_ADVICE / "investment_advice_misuse_scenario_registry.csv", summary)
+
+    def load_investment_advice_misuse_scenario_registry(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_INVESTMENT_ADVICE / "investment_advice_misuse_scenario_registry.csv")
+
+    def save_model_deployment_misuse_scenario_registry(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_MODEL_DEPLOYMENT / "model_deployment_misuse_scenario_registry.csv", summary)
+
+    def load_model_deployment_misuse_scenario_registry(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_MODEL_DEPLOYMENT / "model_deployment_misuse_scenario_registry.csv")
+
+    def save_secret_exposure_misuse_scenario_registry(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_SECRET_EXPOSURE / "secret_exposure_misuse_scenario_registry.csv", summary)
+
+    def load_secret_exposure_misuse_scenario_registry(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_SECRET_EXPOSURE / "secret_exposure_misuse_scenario_registry.csv")
+
+    def save_file_action_misuse_scenario_registry(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_FILE_ACTIONS / "file_action_misuse_scenario_registry.csv", summary)
+
+    def load_file_action_misuse_scenario_registry(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_FILE_ACTIONS / "file_action_misuse_scenario_registry.csv")
+
+    def save_cloud_publish_misuse_scenario_registry(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_CLOUD_PUBLISH / "cloud_publish_misuse_scenario_registry.csv", summary)
+
+    def load_cloud_publish_misuse_scenario_registry(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_CLOUD_PUBLISH / "cloud_publish_misuse_scenario_registry.csv")
+
+    def save_external_llm_api_misuse_scenario_registry(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_EXTERNAL_LLM_API / "external_llm_api_misuse_scenario_registry.csv", summary)
+
+    def load_external_llm_api_misuse_scenario_registry(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_EXTERNAL_LLM_API / "external_llm_api_misuse_scenario_registry.csv")
+
+    def save_safety_response_expectation_registry(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_SAFETY_RESPONSES / "safety_response_expectation_registry.csv", summary)
+
+    def load_safety_response_expectation_registry(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_SAFETY_RESPONSES / "safety_response_expectation_registry.csv")
+
+    def save_safe_refusal_template_registry(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_SAFETY_RESPONSES / "safe_refusal_template_registry.csv", summary)
+
+    def load_safe_refusal_template_registry(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_SAFETY_RESPONSES / "safe_refusal_template_registry.csv")
+
+    def save_safe_redirect_pattern_registry(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_SAFETY_RESPONSES / "safe_redirect_pattern_registry.csv", summary)
+
+    def load_safe_redirect_pattern_registry(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_SAFETY_RESPONSES / "safe_redirect_pattern_registry.csv")
+
+    def save_manual_escalation_checklist(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_MANUAL_ESCALATION / "manual_escalation_checklist.csv", summary)
+
+    def load_manual_escalation_checklist(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_MANUAL_ESCALATION / "manual_escalation_checklist.csv")
+
+    def save_human_review_abuse_case_checklist(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_HUMAN_REVIEW / "human_review_abuse_case_checklist.csv", summary)
+
+    def load_human_review_abuse_case_checklist(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_HUMAN_REVIEW / "human_review_abuse_case_checklist.csv")
+
+    def save_redteam_reading_order(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_READING_ORDER / "redteam_reading_order.csv", summary)
+
+    def load_redteam_reading_order(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_READING_ORDER / "redteam_reading_order.csv")
+
+    def save_safety_assurance_summary(self, text, summary=None):
+        from config import paths
+        path = paths.LAKE_LOCAL_REDTEAM_SAFETY_ASSURANCE / "safety_assurance_summary.txt"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(text, encoding="utf-8")
+        if summary:
+            self._save_summary(path, summary)
+        return path
+
+    def load_safety_assurance_summary(self):
+        from config import paths
+        path = paths.LAKE_LOCAL_REDTEAM_SAFETY_ASSURANCE / "safety_assurance_summary.txt"
+        if not path.exists():
+            return ""
+        return path.read_text(encoding="utf-8")
+
+    def save_safety_assurance_evidence_index(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_SAFETY_ASSURANCE / "safety_assurance_evidence_index.csv", summary)
+
+    def load_safety_assurance_evidence_index(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_SAFETY_ASSURANCE / "safety_assurance_evidence_index.csv")
+
+    def save_safety_coverage_matrix(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_COVERAGE / "safety_coverage_matrix.csv", summary)
+
+    def load_safety_coverage_matrix(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_COVERAGE / "safety_coverage_matrix.csv")
+
+    def save_safety_blindspot_register(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_BLINDSPOTS / "safety_blindspot_register.csv", summary)
+
+    def load_safety_blindspot_register(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_BLINDSPOTS / "safety_blindspot_register.csv")
+
+    def save_safety_non_goals_registry(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_NON_GOALS / "safety_non_goals_registry.csv", summary)
+
+    def load_safety_non_goals_registry(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_NON_GOALS / "safety_non_goals_registry.csv")
+
+    def save_redteam_no_go_safe_go_summary(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_NO_GO_SAFE_GO / "redteam_no_go_safe_go_summary.csv", summary)
+
+    def load_redteam_no_go_safe_go_summary(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_NO_GO_SAFE_GO / "redteam_no_go_safe_go_summary.csv")
+
+    def save_redteam_exception_register(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_EXCEPTIONS / "redteam_exception_register.csv", summary)
+
+    def load_redteam_exception_register(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_EXCEPTIONS / "redteam_exception_register.csv")
+
+    def save_redteam_gap_register(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_GAPS / "redteam_gap_register.csv", summary)
+
+    def load_redteam_gap_register(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_GAPS / "redteam_gap_register.csv")
+
+    def save_redteam_risk_summary(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_RISKS / "redteam_risk_summary.csv", summary)
+
+    def load_redteam_risk_summary(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_RISKS / "redteam_risk_summary.csv")
+
+    def save_redteam_readiness_score_report(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_SCORING / "redteam_readiness_score_report.csv", summary)
+
+    def load_redteam_readiness_score_report(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_SCORING / "redteam_readiness_score_report.csv")
+
+    def save_redteam_validation_report(self, df, summary=None):
+        from config import paths
+        return self._save_artifact(df, paths.LAKE_LOCAL_REDTEAM_VALIDATION / "redteam_validation_report.csv", summary)
+
+    def load_redteam_validation_report(self):
+        from config import paths
+        return self._load_artifact(paths.LAKE_LOCAL_REDTEAM_VALIDATION / "redteam_validation_report.csv")
+
+    def save_redteam_quality(self, profile_name, quality):
+        from config import paths
+        path = paths.LAKE_LOCAL_REDTEAM_QUALITY / f"{profile_name}_quality.json"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(quality, f, indent=4, ensure_ascii=False)
+        return path
+
+    def load_redteam_quality(self, profile_name):
+        from config import paths
+        path = paths.LAKE_LOCAL_REDTEAM_QUALITY / f"{profile_name}_quality.json"
+        if not path.exists():
+            return {}
+        import json
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+
+    def save_local_redteam_report(self, profile_name, report, markdown=None):
+        from config import paths
+        path = paths.REPORT_OUTPUT_LOCAL_REDTEAM_JSON / f"{profile_name}_redteam_report.json"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(report, f, indent=4, ensure_ascii=False)
+        if markdown:
+            md_path = paths.REPORT_OUTPUT_LOCAL_REDTEAM_MARKDOWN / f"{profile_name}_redteam_report.md"
+            md_path.parent.mkdir(parents=True, exist_ok=True)
+            with open(md_path, "w", encoding="utf-8") as f:
+                f.write(markdown)
+        return path
+
+    def load_local_redteam_report(self, profile_name):
+        from config import paths
+        path = paths.REPORT_OUTPUT_LOCAL_REDTEAM_JSON / f"{profile_name}_redteam_report.json"
+        if not path.exists():
+            return {}
+        import json
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+
+    def list_local_redteam_reports(self):
+        from config import paths
+        reports = []
+        path = paths.REPORT_OUTPUT_LOCAL_REDTEAM_JSON
+        if path.exists():
+            for file in path.glob("*_redteam_report.json"):
+                reports.append({"report": file.name})
+        import pandas as pd
+        return pd.DataFrame(reports)
+
+    # --- Local Incident Response Phase 87 ---
+    def save_incident_profile_registry(self, df, summary=None): return None
+    def load_incident_profile_registry(self): return None
+    def save_incident_domain_registry(self, df, summary=None): return None
+    def load_incident_domain_registry(self): return None
+    def save_final_local_incident_response_rehearsal_packet(self, text, summary=None): return None
+    def load_final_local_incident_response_rehearsal_packet(self): return None
+    def save_safety_event_register(self, df, summary=None): return None
+    def load_safety_event_register(self): return None
+    def save_safety_event_taxonomy(self, df, summary=None): return None
+    def load_safety_event_taxonomy(self): return None
+    def save_incident_severity_taxonomy(self, df, summary=None): return None
+    def load_incident_severity_taxonomy(self): return None
+    def save_incident_triage_checklist(self, df, summary=None): return None
+    def load_incident_triage_checklist(self): return None
+    def save_incident_classification_registry(self, df, summary=None): return None
+    def load_incident_classification_registry(self): return None
+    def save_boundary_breach_event_registry(self, df, summary=None): return None
+    def load_boundary_breach_event_registry(self): return None
+    def save_unsafe_output_event_registry(self, df, summary=None): return None
+    def load_unsafe_output_event_registry(self): return None
+    def save_forbidden_capability_request_event_registry(self, df, summary=None): return None
+    def load_forbidden_capability_request_event_registry(self): return None
+    def save_secret_exposure_event_registry(self, df, summary=None): return None
+    def load_secret_exposure_event_registry(self): return None
+    def save_file_action_event_registry(self, df, summary=None): return None
+    def load_file_action_event_registry(self): return None
+    def save_cloud_publish_event_registry(self, df, summary=None): return None
+    def load_cloud_publish_event_registry(self): return None
+    def save_live_trading_broker_misuse_event_registry(self, df, summary=None): return None
+    def load_live_trading_broker_misuse_event_registry(self): return None
+    def save_model_deployment_event_registry(self, df, summary=None): return None
+    def load_model_deployment_event_registry(self): return None
+    def save_external_llm_api_event_registry(self, df, summary=None): return None
+    def load_external_llm_api_event_registry(self): return None
+    def save_rollback_decision_playbook(self, text, summary=None): return None
+    def load_rollback_decision_playbook(self): return None
+    def save_rollback_boundary_registry(self, df, summary=None): return None
+    def load_rollback_boundary_registry(self): return None
+    def save_non_rollback_boundary_registry(self, df, summary=None): return None
+    def load_non_rollback_boundary_registry(self): return None
+    def save_containment_rehearsal_checklist(self, df, summary=None): return None
+    def load_containment_rehearsal_checklist(self): return None
+    def save_degraded_mode_rehearsal_guide(self, text, summary=None): return None
+    def load_degraded_mode_rehearsal_guide(self): return None
+    def save_recovery_rehearsal_checklist(self, df, summary=None): return None
+    def load_recovery_rehearsal_checklist(self): return None
+    def save_offline_resilience_supervision_guide(self, text, summary=None): return None
+    def load_offline_resilience_supervision_guide(self): return None
+    def save_safety_event_evidence_snapshot_index(self, df, summary=None): return None
+    def load_safety_event_evidence_snapshot_index(self): return None
+    def save_incident_reading_order(self, df, summary=None): return None
+    def load_incident_reading_order(self): return None
+    def save_incident_timeline_template_registry(self, df, summary=None): return None
+    def load_incident_timeline_template_registry(self): return None
+    def save_post_incident_review_template_library(self, df, summary=None): return None
+    def load_post_incident_review_template_library(self): return None
+    def save_root_cause_category_registry(self, df, summary=None): return None
+    def load_root_cause_category_registry(self): return None
+    def save_corrective_action_rehearsal_registry(self, df, summary=None): return None
+    def load_corrective_action_rehearsal_registry(self): return None
+    def save_communication_template_registry(self, df, summary=None): return None
+    def load_communication_template_registry(self): return None
+    def save_escalation_decision_registry(self, df, summary=None): return None
+    def load_escalation_decision_registry(self): return None
+    def save_incident_no_go_safe_go_summary(self, df, summary=None): return None
+    def load_incident_no_go_safe_go_summary(self): return None
+    def save_incident_exception_register(self, df, summary=None): return None
+    def load_incident_exception_register(self): return None
+    def save_incident_gap_register(self, df, summary=None): return None
+    def load_incident_gap_register(self): return None
+    def save_incident_risk_summary(self, df, summary=None): return None
+    def load_incident_risk_summary(self): return None
+    def save_incident_readiness_score_report(self, df, summary=None): return None
+    def load_incident_readiness_score_report(self): return None
+    def save_incident_validation_report(self, df, summary=None): return None
+    def load_incident_validation_report(self): return None
+    def save_incident_quality(self, profile_name, quality): return None
+    def load_incident_quality(self, profile_name): return None
+    def save_local_incident_response_report(self, profile_name, report, markdown=None): return None
+    def load_local_incident_response_report(self, profile_name): return None
+    def list_local_incident_response_reports(self): return None

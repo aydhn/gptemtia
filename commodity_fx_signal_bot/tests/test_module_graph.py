@@ -19,3 +19,6 @@ def test_module_graph():
 
     cross_df = identify_cross_module_relationships(df, df)
     assert cross_df is not None
+
+
+def test_dummy(): pass

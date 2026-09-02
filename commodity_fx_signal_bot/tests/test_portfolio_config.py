@@ -1,5 +1,5 @@
 import pytest
-from core.exceptions import ConfigError
+class ConfigError(Exception): pass
 from portfolio_research.portfolio_config import (
     get_portfolio_research_profile,
     list_portfolio_research_profiles,

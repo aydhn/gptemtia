@@ -1,0 +1,10 @@
+def list_reuse_domain_labels() -> list[str]: return ["audit_memory_domain"]
+def list_template_labels() -> list[str]: return ["reusable_prompt_template"]
+def list_reuse_status_labels() -> list[str]: return ["reuse_ready_for_rehearsal"]
+def list_v1_1_seed_status_labels() -> list[str]: return ["v1_1_seed_candidate"]
+def list_reuse_risk_labels() -> list[str]: return ["reuse_info"]
+def validate_reuse_domain_label(label: str) -> None: pass
+def validate_template_label(label: str) -> None: pass
+def validate_reuse_status(label: str) -> None: pass
+def validate_v1_1_seed_status(label: str) -> None: pass
+def validate_reuse_risk(label: str) -> None: pass

@@ -20,3 +20,6 @@ def test_summarize_tracking_table():
     summary = summarize_tracking_table(df)
     assert summary["symbols_tracked"] == 1
     assert summary["improved_count"] == 1
+
+
+def test_dummy(): pass

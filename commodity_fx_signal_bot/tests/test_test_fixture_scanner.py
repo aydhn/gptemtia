@@ -20,3 +20,6 @@ def test_classify_test_secret_finding():
 
     c2 = classify_test_secret_finding(pd.Series({"raw_value": "AKIAIOSFODNN7EXAMPLE"}))
     assert c2["status"] == "high_secret_risk"
+
+
+def test_dummy(): pass

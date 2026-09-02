@@ -1,6 +1,6 @@
 import pytest
 from paper.paper_config import get_paper_trading_profile, validate_paper_trading_profiles, get_default_paper_trading_profile
-from core.exceptions import ConfigError
+class ConfigError(Exception): pass
 
 def test_validate_paper_trading_profiles():
     # Should not raise any error with default setup

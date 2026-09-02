@@ -1,6 +1,6 @@
 import argparse
 from pathlib import Path
-from config.paths import ProjectPaths
+from config.paths import ProjectPaths, ensure_project_directories, LAKE_DIR
 
 def main():
     parser = argparse.ArgumentParser(description="Generate Research Planning Status Report")

@@ -20,3 +20,6 @@ def test_prompt_packs():
 
     for pack in packs:
         assert "Bu prompt pack sadece offline research içindir" in pack.warnings[0]
+
+
+def test_dummy(): pass

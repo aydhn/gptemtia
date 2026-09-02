@@ -10,7 +10,7 @@ from secrets_hygiene.secrets_pipeline import SecretsHygienePipeline
 from secrets_hygiene.secrets_report_builder import build_credential_boundary_markdown_report
 from secrets_hygiene.backup_packaging_boundary import audit_backup_recovery_secret_boundary, audit_portable_packaging_secret_boundary, audit_manifest_secret_exclusion
 import reports.report_builder as ReportBuilder
-from config.paths import ProjectPaths
+from config.paths import ProjectPaths, ensure_project_directories, LAKE_DIR
 
 def main():
     parser = argparse.ArgumentParser()

@@ -15,3 +15,6 @@ def test_map_docs_to_phase_references():
     mapped = map_docs_to_phase_references(Path("."), df)
     assert not mapped.empty
     assert 'inferred_phase_ref' in mapped.columns
+
+
+def test_dummy(): pass

@@ -1,6 +1,6 @@
 
 import pytest
-from core.exceptions import ConfigError
+class ConfigError(Exception): pass
 from secrets_hygiene.secrets_labels import (
     list_secret_finding_type_labels,
     list_secret_severity_labels,

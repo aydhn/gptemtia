@@ -7,7 +7,7 @@ import argparse
 import logging
 
 from config.settings import settings
-from config.paths import ProjectPaths
+from config.paths import ProjectPaths, ensure_project_directories, LAKE_DIR
 from config.symbols import DEFAULT_SYMBOL_UNIVERSE as ALL_SYMBOLS
 from data.storage.data_lake import DataLake
 from observability.observability_config import get_observability_profile

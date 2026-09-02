@@ -9,7 +9,7 @@ sys.path.append(str(Path(__file__).parent.parent))
 
 from config.symbols import SymbolSpec
 from config.settings import settings
-from config.paths import ProjectPaths
+from config.paths import ProjectPaths, ensure_project_directories, LAKE_DIR
 from data.storage.data_lake import DataLake
 from backtesting.backtest_pipeline import BacktestPipeline
 from backtesting.backtest_config import get_backtest_profile

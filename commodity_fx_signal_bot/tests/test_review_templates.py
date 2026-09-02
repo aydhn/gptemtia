@@ -1,13 +1,9 @@
-import pytest
-from local_maintenance.maintenance_config import get_default_local_maintenance_profile
-from local_maintenance.review_templates import build_monthly_review_template, build_quarterly_review_template
+from local_acceptance.review_templates import build_independent_review_notes_template, build_acceptance_response_template
+from local_acceptance.acceptance_config import get_default_local_acceptance_profile
 
-def test_review_templates():
-    profile = get_default_local_maintenance_profile()
-
-    m_temp, _ = build_monthly_review_template(profile)
-    q_temp, _ = build_quarterly_review_template(profile)
-
-    assert "Monthly Operator Review Template" in m_temp
-    assert "Quarterly Operator Review Template" in q_temp
-    assert "audit" in m_temp.lower()
+def test_build_review_templates():
+    p = get_default_local_acceptance_profile()
+    nt, _ = build_independent_review_notes_template(p)
+    rt, _ = build_acceptance_response_template(p)
+    assert "Independent Review Notes" in nt
+    assert "Acceptance Response" in rt

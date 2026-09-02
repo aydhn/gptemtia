@@ -6,7 +6,7 @@ Script to generate the standard error taxonomy report.
 import argparse
 import logging
 
-from config.paths import ProjectPaths
+from config.paths import ProjectPaths, ensure_project_directories, LAKE_DIR
 from data.storage.data_lake import DataLake
 from observability.error_taxonomy import build_error_taxonomy_report
 from reports.report_builder import build_error_taxonomy_report as build_text_report

@@ -17,3 +17,6 @@ def test_collect_quality_alerts():
     alerts, _ = collector.collect_quality_alerts()
     assert len(alerts) > 0
     assert alerts[0]["type"] == "missing_data"
+
+
+def test_dummy(): pass

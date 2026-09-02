@@ -14,3 +14,6 @@ def test_datalake_archive_index(tmp_path):
 
     assert not df.empty
     assert df.iloc[0]["datalake_domain"] == "local_archive"
+
+
+def test_dummy(): pass

@@ -8,7 +8,7 @@ from config.settings import settings
 from config.symbols import get_symbol_spec
 from data.storage.data_lake import DataLake
 from backtesting.performance_pipeline import PerformanceAnalysisPipeline
-from config.paths import ProjectPaths
+from config.paths import ProjectPaths, ensure_project_directories, LAKE_DIR
 import reports.report_builder as builder
 
 logging.basicConfig(

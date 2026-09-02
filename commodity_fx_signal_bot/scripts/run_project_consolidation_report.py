@@ -5,7 +5,7 @@ import argparse
 from pathlib import Path
 from data.storage.data_lake import DataLake
 from config.settings import settings
-from config.paths import ProjectPaths
+from config.paths import ProjectPaths, ensure_project_directories, LAKE_DIR
 from command_center.command_config import get_command_center_profile
 from command_center.command_pipeline import CommandCenterPipeline
 

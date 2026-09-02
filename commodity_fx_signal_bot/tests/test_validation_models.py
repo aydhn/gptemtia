@@ -29,3 +29,6 @@ def test_dataclass_to_dict():
     split_dict = time_split_to_dict(split)
     assert "split_id" in split_dict
     assert split_dict["split_index"] == 1
+
+
+def test_dummy(): pass

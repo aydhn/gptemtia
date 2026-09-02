@@ -32,3 +32,6 @@ def test_summarize_test_discovery():
     source_df = pd.DataFrame([{"module_name": "mock"}])
     summary = summarize_test_discovery(test_df, source_df)
     assert "total_tests" in summary
+
+
+def test_dummy(): pass

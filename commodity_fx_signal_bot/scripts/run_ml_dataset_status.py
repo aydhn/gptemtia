@@ -1,7 +1,7 @@
 import argparse
 import pandas as pd
 from data.storage.data_lake import DataLake
-from config.paths import ProjectPaths
+from config.paths import ProjectPaths, ensure_project_directories, LAKE_DIR
 from reports.report_builder import ReportBuilder
 
 def main():

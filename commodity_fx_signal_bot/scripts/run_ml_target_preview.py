@@ -2,7 +2,7 @@ import argparse
 from config.symbols import SymbolSpec
 from data.storage.data_lake import DataLake
 from config.settings import settings
-from config.paths import ProjectPaths
+from config.paths import ProjectPaths, ensure_project_directories, LAKE_DIR
 from ml.dataset_config import get_ml_dataset_profile
 from ml.target_engineering import build_target_frame
 from reports.report_builder import ReportBuilder

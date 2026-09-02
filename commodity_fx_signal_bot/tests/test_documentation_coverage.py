@@ -31,3 +31,6 @@ def test_build_documentation_coverage_report():
     df, summary = build_documentation_coverage_report(Path("."))
     assert isinstance(df, pd.DataFrame)
     assert isinstance(summary, dict)
+
+
+def test_dummy(): pass

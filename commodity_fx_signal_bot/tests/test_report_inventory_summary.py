@@ -29,3 +29,6 @@ def test_read_report_text(tmp_path):
     text, meta = read_report_text(f, 100)
     assert len(text) == 100
     assert meta["truncated"] is True
+
+
+def test_dummy(): pass

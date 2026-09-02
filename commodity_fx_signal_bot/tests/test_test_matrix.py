@@ -11,3 +11,6 @@ def test_build_test_matrix(tmp_path):
     df, summary = build_test_matrix(tmp_path)
     assert "total_test_files" in summary
     assert isinstance(export_test_matrix_markdown(df), str)
+
+
+def test_dummy(): pass

@@ -12,3 +12,6 @@ def test_build_architecture_audit_report(project_root):
     df, summary = build_architecture_audit_report(project_root, profile)
     assert not df.empty
     assert "total_audits" in summary
+
+
+def test_dummy(): pass

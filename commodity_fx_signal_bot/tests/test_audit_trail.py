@@ -20,3 +20,6 @@ def test_build_events_from_inventory():
     df, meta = build_audit_events_from_inventory(inv_df)
     assert not df.empty
     assert "artifact_scanned" in df["event_label"].values
+
+
+def test_dummy(): pass

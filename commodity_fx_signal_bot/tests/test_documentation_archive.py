@@ -16,3 +16,6 @@ def test_documentation_archive_index(tmp_path):
     roles = df["doc_role"].tolist()
     assert "project_root" in roles
     assert "operator_guide" in roles
+
+
+def test_dummy(): pass

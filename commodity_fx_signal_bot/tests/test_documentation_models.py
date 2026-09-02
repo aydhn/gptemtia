@@ -52,3 +52,6 @@ def test_word_and_heading_count():
     text = "# Title\n\nSome words here."
     assert estimate_word_count(text) == 5
     assert count_markdown_headings(text) == 1
+
+
+def test_dummy(): pass

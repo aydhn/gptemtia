@@ -16,3 +16,6 @@ def test_build_datalake_domain_activity_summary():
     assert not summary_df.empty
     assert summary_df.iloc[0]['domain'] == "domainA"
     assert summary_df.iloc[0]['event_count'] == 2
+
+
+def test_dummy(): pass

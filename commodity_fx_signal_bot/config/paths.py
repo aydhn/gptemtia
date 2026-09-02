@@ -473,7 +473,153 @@ REPORTS_LOCAL_CONSISTENCY_JSON_DIR = REPORTS_LOCAL_CONSISTENCY_DIR / "json"
 
 DOCS_GENERATED_LOCAL_CONSISTENCY_DIR = DOCS_DIR / "generated" / "local_consistency"
 
+
+# Local Reuse Paths
+LOCAL_REUSE_DIR = LAKE_DIR / "local_reuse"
+LOCAL_REUSE_PROFILES_DIR = LOCAL_REUSE_DIR / "profiles"
+LOCAL_REUSE_DOMAINS_DIR = LOCAL_REUSE_DIR / "domains"
+LOCAL_REUSE_AUDIT_MEMORY_DIR = LOCAL_REUSE_DIR / "audit_memory"
+LOCAL_REUSE_PHASE_CAPSULES_DIR = LOCAL_REUSE_DIR / "phase_capsules"
+LOCAL_REUSE_TEMPLATE_CATALOG_DIR = LOCAL_REUSE_DIR / "template_catalog"
+LOCAL_REUSE_PROMPT_TEMPLATES_DIR = LOCAL_REUSE_DIR / "prompt_templates"
+LOCAL_REUSE_MODULE_BLUEPRINTS_DIR = LOCAL_REUSE_DIR / "module_blueprints"
+LOCAL_REUSE_SCRIPT_PATTERNS_DIR = LOCAL_REUSE_DIR / "script_patterns"
+LOCAL_REUSE_TEST_PATTERNS_DIR = LOCAL_REUSE_DIR / "test_patterns"
+LOCAL_REUSE_DATALAKE_PATTERNS_DIR = LOCAL_REUSE_DIR / "datalake_patterns"
+LOCAL_REUSE_REPORT_PATTERNS_DIR = LOCAL_REUSE_DIR / "report_patterns"
+LOCAL_REUSE_SAFETY_PATTERNS_DIR = LOCAL_REUSE_DIR / "safety_patterns"
+LOCAL_REUSE_DOCUMENTATION_PATTERNS_DIR = LOCAL_REUSE_DIR / "documentation_patterns"
+LOCAL_REUSE_KNOWLEDGE_REUSE_KIT_DIR = LOCAL_REUSE_DIR / "knowledge_reuse_kit"
+LOCAL_REUSE_PATTERN_EXTRACTION_DIR = LOCAL_REUSE_DIR / "pattern_extraction"
+LOCAL_REUSE_V1_1_SEED_DIR = LOCAL_REUSE_DIR / "v1_1_seed"
+LOCAL_REUSE_FUTURE_PROJECT_DIR = LOCAL_REUSE_DIR / "future_project"
+LOCAL_REUSE_NO_GO_SAFE_GO_DIR = LOCAL_REUSE_DIR / "no_go_safe_go"
+LOCAL_REUSE_EXCEPTIONS_DIR = LOCAL_REUSE_DIR / "exceptions"
+LOCAL_REUSE_GAPS_DIR = LOCAL_REUSE_DIR / "gaps"
+LOCAL_REUSE_RISKS_DIR = LOCAL_REUSE_DIR / "risks"
+LOCAL_REUSE_SCORING_DIR = LOCAL_REUSE_DIR / "scoring"
+LOCAL_REUSE_VALIDATION_DIR = LOCAL_REUSE_DIR / "validation"
+LOCAL_REUSE_QUALITY_DIR = LOCAL_REUSE_DIR / "quality"
+
+LOCAL_REUSE_REPORTS_DIR = REPORTS_OUTPUT_DIR / "local_reuse"
+LOCAL_REUSE_REPORTS_CSV_DIR = LOCAL_REUSE_REPORTS_DIR / "csv"
+LOCAL_REUSE_REPORTS_MD_DIR = LOCAL_REUSE_REPORTS_DIR / "markdown"
+LOCAL_REUSE_REPORTS_TXT_DIR = LOCAL_REUSE_REPORTS_DIR / "txt"
+LOCAL_REUSE_REPORTS_JSON_DIR = LOCAL_REUSE_REPORTS_DIR / "json"
+
+LOCAL_REUSE_DOCS_DIR = DOCS_DIR / "generated" / "local_reuse"
+
+
+LAKE_LOCAL_REDTEAM = LAKE_DIR / 'local_redteam'
+LAKE_LOCAL_REDTEAM_PROFILES = LAKE_LOCAL_REDTEAM / 'profiles'
+LAKE_LOCAL_REDTEAM_DOMAINS = LAKE_LOCAL_REDTEAM / 'domains'
+LAKE_LOCAL_REDTEAM_REHEARSAL_PACKET = LAKE_LOCAL_REDTEAM / 'rehearsal_packet'
+LAKE_LOCAL_REDTEAM_MISUSE_SCENARIOS = LAKE_LOCAL_REDTEAM / 'misuse_scenarios'
+LAKE_LOCAL_REDTEAM_ABUSE_CASES = LAKE_LOCAL_REDTEAM / 'abuse_cases'
+LAKE_LOCAL_REDTEAM_ADVERSARIAL_CHECKLIST = LAKE_LOCAL_REDTEAM / 'adversarial_checklist'
+LAKE_LOCAL_REDTEAM_PROMPT_INJECTION = LAKE_LOCAL_REDTEAM / 'prompt_injection'
+LAKE_LOCAL_REDTEAM_UNSAFE_OUTPUTS = LAKE_LOCAL_REDTEAM / 'unsafe_outputs'
+LAKE_LOCAL_REDTEAM_FORBIDDEN_CAPABILITIES = LAKE_LOCAL_REDTEAM / 'forbidden_capabilities'
+LAKE_LOCAL_REDTEAM_BOUNDARY_VIOLATIONS = LAKE_LOCAL_REDTEAM / 'boundary_violations'
+LAKE_LOCAL_REDTEAM_LIVE_TRADING = LAKE_LOCAL_REDTEAM / 'live_trading'
+LAKE_LOCAL_REDTEAM_BROKER_EXECUTION = LAKE_LOCAL_REDTEAM / 'broker_execution'
+LAKE_LOCAL_REDTEAM_INVESTMENT_ADVICE = LAKE_LOCAL_REDTEAM / 'investment_advice'
+LAKE_LOCAL_REDTEAM_MODEL_DEPLOYMENT = LAKE_LOCAL_REDTEAM / 'model_deployment'
+LAKE_LOCAL_REDTEAM_SECRET_EXPOSURE = LAKE_LOCAL_REDTEAM / 'secret_exposure'
+LAKE_LOCAL_REDTEAM_FILE_ACTIONS = LAKE_LOCAL_REDTEAM / 'file_actions'
+LAKE_LOCAL_REDTEAM_CLOUD_PUBLISH = LAKE_LOCAL_REDTEAM / 'cloud_publish'
+LAKE_LOCAL_REDTEAM_EXTERNAL_LLM_API = LAKE_LOCAL_REDTEAM / 'external_llm_api'
+LAKE_LOCAL_REDTEAM_SAFETY_RESPONSES = LAKE_LOCAL_REDTEAM / 'safety_responses'
+LAKE_LOCAL_REDTEAM_MANUAL_ESCALATION = LAKE_LOCAL_REDTEAM / 'manual_escalation'
+LAKE_LOCAL_REDTEAM_HUMAN_REVIEW = LAKE_LOCAL_REDTEAM / 'human_review'
+LAKE_LOCAL_REDTEAM_READING_ORDER = LAKE_LOCAL_REDTEAM / 'reading_order'
+LAKE_LOCAL_REDTEAM_SAFETY_ASSURANCE = LAKE_LOCAL_REDTEAM / 'safety_assurance'
+LAKE_LOCAL_REDTEAM_COVERAGE = LAKE_LOCAL_REDTEAM / 'coverage'
+LAKE_LOCAL_REDTEAM_BLINDSPOTS = LAKE_LOCAL_REDTEAM / 'blindspots'
+LAKE_LOCAL_REDTEAM_NON_GOALS = LAKE_LOCAL_REDTEAM / 'non_goals'
+LAKE_LOCAL_REDTEAM_NO_GO_SAFE_GO = LAKE_LOCAL_REDTEAM / 'no_go_safe_go'
+LAKE_LOCAL_REDTEAM_EXCEPTIONS = LAKE_LOCAL_REDTEAM / 'exceptions'
+LAKE_LOCAL_REDTEAM_GAPS = LAKE_LOCAL_REDTEAM / 'gaps'
+LAKE_LOCAL_REDTEAM_RISKS = LAKE_LOCAL_REDTEAM / 'risks'
+LAKE_LOCAL_REDTEAM_SCORING = LAKE_LOCAL_REDTEAM / 'scoring'
+LAKE_LOCAL_REDTEAM_VALIDATION = LAKE_LOCAL_REDTEAM / 'validation'
+LAKE_LOCAL_REDTEAM_QUALITY = LAKE_LOCAL_REDTEAM / 'quality'
+
+REPORT_OUTPUT_LOCAL_REDTEAM = REPORTS_OUTPUT_DIR / 'local_redteam'
+REPORT_OUTPUT_LOCAL_REDTEAM_JSON = REPORT_OUTPUT_LOCAL_REDTEAM / 'json'
+REPORT_OUTPUT_LOCAL_REDTEAM_MARKDOWN = REPORT_OUTPUT_LOCAL_REDTEAM / 'markdown'
+
 def ensure_project_directories() -> None:
+
+    LOCAL_REUSE_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_PROFILES_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_DOMAINS_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_AUDIT_MEMORY_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_PHASE_CAPSULES_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_TEMPLATE_CATALOG_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_PROMPT_TEMPLATES_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_MODULE_BLUEPRINTS_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_SCRIPT_PATTERNS_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_TEST_PATTERNS_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_DATALAKE_PATTERNS_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_REPORT_PATTERNS_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_SAFETY_PATTERNS_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_DOCUMENTATION_PATTERNS_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_KNOWLEDGE_REUSE_KIT_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_PATTERN_EXTRACTION_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_V1_1_SEED_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_FUTURE_PROJECT_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_NO_GO_SAFE_GO_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_EXCEPTIONS_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_GAPS_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_RISKS_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_SCORING_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_VALIDATION_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_QUALITY_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_REPORTS_CSV_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_REPORTS_MD_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_REPORTS_TXT_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_REPORTS_JSON_DIR.mkdir(parents=True, exist_ok=True)
+    LOCAL_REUSE_DOCS_DIR.mkdir(parents=True, exist_ok=True)
+
+
+    (LAKE_DIR / "local_delivery").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "profiles").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "domains").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "bundle_manifest").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "handoff_index").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "reviewer_guide").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "transfer_checklist").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "rehearsal_binder").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "orientation").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "evidence_map").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "traces").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "docs_index").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "reports_index").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "datalake_index").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "scripts_tests_index").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "generated_docs_index").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "safety_boundary_index").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "no_go_safe_go").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "faq").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "reading_order").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "readiness").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "exceptions").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "gaps").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "risks").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "scoring").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "validation").mkdir(parents=True, exist_ok=True)
+    (LAKE_DIR / "local_delivery" / "quality").mkdir(parents=True, exist_ok=True)
+    
+    (REPORTS_OUTPUT_DIR / "local_delivery").mkdir(parents=True, exist_ok=True)
+    (REPORTS_OUTPUT_DIR / "local_delivery" / "csv").mkdir(parents=True, exist_ok=True)
+    (REPORTS_OUTPUT_DIR / "local_delivery" / "markdown").mkdir(parents=True, exist_ok=True)
+    (REPORTS_OUTPUT_DIR / "local_delivery" / "txt").mkdir(parents=True, exist_ok=True)
+    (REPORTS_OUTPUT_DIR / "local_delivery" / "json").mkdir(parents=True, exist_ok=True)
+
+    ((DOCS_DIR / 'generated') / "local_delivery").mkdir(parents=True, exist_ok=True)
+
 
 
     """
@@ -734,6 +880,40 @@ def ensure_project_directories() -> None:
         REPORTS_SCENARIOS_JSON_DIR,
         DOCS_GENERATED_SCENARIOS_DIR,
     ]
+
+    # Phase 75: Local Synthesis
+    ls_lake = LAKE_DIR / 'local_synthesis'
+    ls_reps = REPORTS_DIR / 'output' / 'local_synthesis'
+    ls_docs = DOCS_DIR / 'generated' / 'local_synthesis'
+    
+    directories.extend([
+        ls_lake,
+        ls_lake / 'profiles',
+        ls_lake / 'phase_families',
+        ls_lake / 'master_indexes',
+        ls_lake / 'final_maps',
+        ls_lake / 'capabilities',
+        ls_lake / 'boundaries',
+        ls_lake / 'dependencies',
+        ls_lake / 'catalogs',
+        ls_lake / 'dossiers',
+        ls_lake / 'binders',
+        ls_lake / 'statements',
+        ls_lake / 'limitations',
+        ls_lake / 'manual_review',
+        ls_lake / 'no_go_safe_go',
+        ls_lake / 'navigation',
+        ls_lake / 'checklists',
+        ls_lake / 'validation',
+        ls_lake / 'quality',
+        ls_reps,
+        ls_reps / 'csv',
+        ls_reps / 'markdown',
+        ls_reps / 'txt',
+        ls_reps / 'json',
+        ls_docs
+    ])
+
     for directory in directories:
         directory.mkdir(parents=True, exist_ok=True)
 
@@ -852,7 +1032,100 @@ REPORTS_COMMAND_CENTER_MARKDOWN_DIR = REPORTS_COMMAND_CENTER_DIR / "markdown"
 REPORTS_COMMAND_CENTER_TXT_DIR = REPORTS_COMMAND_CENTER_DIR / "txt"
 REPORTS_COMMAND_CENTER_JSON_DIR = REPORTS_COMMAND_CENTER_DIR / "json"
 
+
+# Phase 83: Local Performance Lake Directories
+LAKE_LOCAL_PERFORMANCE_DIR = LAKE_DIR / "local_performance"
+LAKE_LOCAL_PERFORMANCE_PROFILES_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "profiles"
+LAKE_LOCAL_PERFORMANCE_DOMAINS_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "domains"
+LAKE_LOCAL_PERFORMANCE_BUDGET_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "budget"
+LAKE_LOCAL_PERFORMANCE_RUNTIME_PROFILE_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "runtime_profile"
+LAKE_LOCAL_PERFORMANCE_RESOURCE_FOOTPRINT_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "resource_footprint"
+LAKE_LOCAL_PERFORMANCE_CPU_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "cpu"
+LAKE_LOCAL_PERFORMANCE_MEMORY_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "memory"
+LAKE_LOCAL_PERFORMANCE_DISK_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "disk"
+LAKE_LOCAL_PERFORMANCE_GROWTH_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "growth"
+LAKE_LOCAL_PERFORMANCE_SCRIPT_RUNTIME_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "script_runtime"
+LAKE_LOCAL_PERFORMANCE_TEST_RUNTIME_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "test_runtime"
+LAKE_LOCAL_PERFORMANCE_PIPELINE_RUNTIME_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "pipeline_runtime"
+LAKE_LOCAL_PERFORMANCE_MAINTENANCE_COST_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "maintenance_cost"
+LAKE_LOCAL_PERFORMANCE_MAINTENANCE_EFFORT_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "maintenance_effort"
+LAKE_LOCAL_PERFORMANCE_OPERATOR_TIME_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "operator_time"
+LAKE_LOCAL_PERFORMANCE_MACHINE_SUITABILITY_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "machine_suitability"
+LAKE_LOCAL_PERFORMANCE_EFFICIENCY_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "efficiency"
+LAKE_LOCAL_PERFORMANCE_LIGHTWEIGHT_MODE_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "lightweight_mode"
+LAKE_LOCAL_PERFORMANCE_WARNINGS_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "warnings"
+LAKE_LOCAL_PERFORMANCE_RETENTION_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "retention"
+LAKE_LOCAL_PERFORMANCE_NO_GO_SAFE_GO_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "no_go_safe_go"
+LAKE_LOCAL_PERFORMANCE_EXCEPTIONS_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "exceptions"
+LAKE_LOCAL_PERFORMANCE_GAPS_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "gaps"
+LAKE_LOCAL_PERFORMANCE_RISKS_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "risks"
+LAKE_LOCAL_PERFORMANCE_SCORING_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "scoring"
+LAKE_LOCAL_PERFORMANCE_VALIDATION_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "validation"
+LAKE_LOCAL_PERFORMANCE_QUALITY_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "quality"
+    
+OUTPUT_LOCAL_PERFORMANCE_DIR = REPORTS_OUTPUT_DIR / "local_performance"
+OUTPUT_LOCAL_PERFORMANCE_CSV_DIR = OUTPUT_LOCAL_PERFORMANCE_DIR / "csv"
+OUTPUT_LOCAL_PERFORMANCE_MARKDOWN_DIR = OUTPUT_LOCAL_PERFORMANCE_DIR / "markdown"
+OUTPUT_LOCAL_PERFORMANCE_TXT_DIR = OUTPUT_LOCAL_PERFORMANCE_DIR / "txt"
+OUTPUT_LOCAL_PERFORMANCE_JSON_DIR = OUTPUT_LOCAL_PERFORMANCE_DIR / "json"
+    
+DOCS_GENERATED_LOCAL_PERFORMANCE_DIR = DOCS_DIR / "generated" / "local_performance"
+
 class ProjectPaths:
+
+    LAKE_LOCAL_PERFORMANCE_DIR: Path = LAKE_LOCAL_PERFORMANCE_DIR
+    LAKE_LOCAL_PERFORMANCE_PROFILES_DIR: Path = LAKE_LOCAL_PERFORMANCE_PROFILES_DIR
+    LAKE_LOCAL_PERFORMANCE_DOMAINS_DIR: Path = LAKE_LOCAL_PERFORMANCE_DOMAINS_DIR
+    LAKE_LOCAL_PERFORMANCE_BUDGET_DIR: Path = LAKE_LOCAL_PERFORMANCE_BUDGET_DIR
+    LAKE_LOCAL_PERFORMANCE_RUNTIME_PROFILE_DIR: Path = LAKE_LOCAL_PERFORMANCE_RUNTIME_PROFILE_DIR
+    LAKE_LOCAL_PERFORMANCE_RESOURCE_FOOTPRINT_DIR: Path = LAKE_LOCAL_PERFORMANCE_RESOURCE_FOOTPRINT_DIR
+    LAKE_LOCAL_PERFORMANCE_CPU_DIR: Path = LAKE_LOCAL_PERFORMANCE_CPU_DIR
+    LAKE_LOCAL_PERFORMANCE_MEMORY_DIR: Path = LAKE_LOCAL_PERFORMANCE_MEMORY_DIR
+    LAKE_LOCAL_PERFORMANCE_DISK_DIR: Path = LAKE_LOCAL_PERFORMANCE_DISK_DIR
+    LAKE_LOCAL_PERFORMANCE_GROWTH_DIR: Path = LAKE_LOCAL_PERFORMANCE_GROWTH_DIR
+    LAKE_LOCAL_PERFORMANCE_SCRIPT_RUNTIME_DIR: Path = LAKE_LOCAL_PERFORMANCE_SCRIPT_RUNTIME_DIR
+    LAKE_LOCAL_PERFORMANCE_TEST_RUNTIME_DIR: Path = LAKE_LOCAL_PERFORMANCE_TEST_RUNTIME_DIR
+    LAKE_LOCAL_PERFORMANCE_PIPELINE_RUNTIME_DIR: Path = LAKE_LOCAL_PERFORMANCE_PIPELINE_RUNTIME_DIR
+    LAKE_LOCAL_PERFORMANCE_MAINTENANCE_COST_DIR: Path = LAKE_LOCAL_PERFORMANCE_MAINTENANCE_COST_DIR
+    LAKE_LOCAL_PERFORMANCE_MAINTENANCE_EFFORT_DIR: Path = LAKE_LOCAL_PERFORMANCE_MAINTENANCE_EFFORT_DIR
+    LAKE_LOCAL_PERFORMANCE_OPERATOR_TIME_DIR: Path = LAKE_LOCAL_PERFORMANCE_OPERATOR_TIME_DIR
+    LAKE_LOCAL_PERFORMANCE_MACHINE_SUITABILITY_DIR: Path = LAKE_LOCAL_PERFORMANCE_MACHINE_SUITABILITY_DIR
+    LAKE_LOCAL_PERFORMANCE_EFFICIENCY_DIR: Path = LAKE_LOCAL_PERFORMANCE_EFFICIENCY_DIR
+    LAKE_LOCAL_PERFORMANCE_LIGHTWEIGHT_MODE_DIR: Path = LAKE_LOCAL_PERFORMANCE_LIGHTWEIGHT_MODE_DIR
+    LAKE_LOCAL_PERFORMANCE_WARNINGS_DIR: Path = LAKE_LOCAL_PERFORMANCE_WARNINGS_DIR
+    LAKE_LOCAL_PERFORMANCE_RETENTION_DIR: Path = LAKE_LOCAL_PERFORMANCE_RETENTION_DIR
+    LAKE_LOCAL_PERFORMANCE_NO_GO_SAFE_GO_DIR: Path = LAKE_LOCAL_PERFORMANCE_NO_GO_SAFE_GO_DIR
+    LAKE_LOCAL_PERFORMANCE_EXCEPTIONS_DIR: Path = LAKE_LOCAL_PERFORMANCE_EXCEPTIONS_DIR
+    LAKE_LOCAL_PERFORMANCE_GAPS_DIR: Path = LAKE_LOCAL_PERFORMANCE_GAPS_DIR
+    LAKE_LOCAL_PERFORMANCE_RISKS_DIR: Path = LAKE_LOCAL_PERFORMANCE_RISKS_DIR
+    LAKE_LOCAL_PERFORMANCE_SCORING_DIR: Path = LAKE_LOCAL_PERFORMANCE_SCORING_DIR
+    LAKE_LOCAL_PERFORMANCE_VALIDATION_DIR: Path = LAKE_LOCAL_PERFORMANCE_VALIDATION_DIR
+    LAKE_LOCAL_PERFORMANCE_QUALITY_DIR: Path = LAKE_LOCAL_PERFORMANCE_QUALITY_DIR
+    OUTPUT_LOCAL_PERFORMANCE_DIR: Path = OUTPUT_LOCAL_PERFORMANCE_DIR
+    DOCS_GENERATED_LOCAL_PERFORMANCE_DIR: Path = DOCS_GENERATED_LOCAL_PERFORMANCE_DIR
+
+    @property
+    def lake_local_performance_dir(self): return LAKE_LOCAL_PERFORMANCE_DIR
+    @property
+    def output_local_performance_dir(self): return OUTPUT_LOCAL_PERFORMANCE_DIR
+    @property
+    def docs_generated_local_performance_dir(self): return DOCS_GENERATED_LOCAL_PERFORMANCE_DIR
+
+
+
+    @property
+    def local_synthesis_dir(self): return self.data_lake_dir / "local_synthesis"
+    @property
+    def local_synthesis_reports_dir(self): return self.reports_dir / "output" / "local_synthesis"
+    @property
+    def local_synthesis_docs_dir(self): return self.docs_dir / "generated" / "local_synthesis"
+    @property
+    def local_briefing_dir(self): return self.data_lake_dir / "local_briefing"
+    @property
+    def local_briefing_reports_dir(self): return self.reports_dir / "output" / "local_briefing"
+    @property
+    def local_briefing_docs_dir(self): return self.docs_dir / "generated" / "local_briefing"
+
 
     # Secrets Hygiene Lake Paths
     lake_secrets_hygiene_dir: Path = LAKE_DIR / "secrets_hygiene"
@@ -1396,7 +1669,72 @@ REPORTS_LOCAL_MAINTENANCE_JSON_DIR = REPORTS_LOCAL_MAINTENANCE_DIR / "json"
 
 DOCS_GENERATED_LOCAL_MAINTENANCE_DIR = DOCS_DIR / "generated" / "local_maintenance"
 
+
+# Phase 73: Local Training
+LAKE_LOCAL_TRAINING_DIR = LAKE_DIR / "local_training"
+LAKE_LOCAL_TRAINING_DOMAINS_DIR = LAKE_LOCAL_TRAINING_DIR / "domains"
+LAKE_LOCAL_TRAINING_ONBOARDING_DIR = LAKE_LOCAL_TRAINING_DIR / "onboarding"
+LAKE_LOCAL_TRAINING_PACKS_DIR = LAKE_LOCAL_TRAINING_DIR / "packs"
+LAKE_LOCAL_TRAINING_SAFE_USAGE_DIR = LAKE_LOCAL_TRAINING_DIR / "safe_usage"
+LAKE_LOCAL_TRAINING_NON_USE_POLICY_DIR = LAKE_LOCAL_TRAINING_DIR / "non_use_policy"
+LAKE_LOCAL_TRAINING_WALKTHROUGHS_DIR = LAKE_LOCAL_TRAINING_DIR / "walkthroughs"
+LAKE_LOCAL_TRAINING_COMMANDS_DIR = LAKE_LOCAL_TRAINING_DIR / "commands"
+LAKE_LOCAL_TRAINING_REPORTS_DIR = LAKE_LOCAL_TRAINING_DIR / "reports"
+LAKE_LOCAL_TRAINING_DATALAKE_DIR = LAKE_LOCAL_TRAINING_DIR / "datalake"
+LAKE_LOCAL_TRAINING_CROSS_LAYER_DIR = LAKE_LOCAL_TRAINING_DIR / "cross_layer"
+LAKE_LOCAL_TRAINING_TROUBLESHOOTING_DIR = LAKE_LOCAL_TRAINING_DIR / "troubleshooting"
+LAKE_LOCAL_TRAINING_GLOSSARY_DIR = LAKE_LOCAL_TRAINING_DIR / "glossary"
+LAKE_LOCAL_TRAINING_CONCEPTS_DIR = LAKE_LOCAL_TRAINING_DIR / "concepts"
+LAKE_LOCAL_TRAINING_FAQ_DIR = LAKE_LOCAL_TRAINING_DIR / "faq"
+LAKE_LOCAL_TRAINING_HANDOVER_DIR = LAKE_LOCAL_TRAINING_DIR / "handover"
+LAKE_LOCAL_TRAINING_CURRICULUM_DIR = LAKE_LOCAL_TRAINING_DIR / "curriculum"
+LAKE_LOCAL_TRAINING_CHECKLISTS_DIR = LAKE_LOCAL_TRAINING_DIR / "checklists"
+LAKE_LOCAL_TRAINING_GAPS_DIR = LAKE_LOCAL_TRAINING_DIR / "gaps"
+LAKE_LOCAL_TRAINING_RISKS_DIR = LAKE_LOCAL_TRAINING_DIR / "risks"
+LAKE_LOCAL_TRAINING_ASSESSMENT_DIR = LAKE_LOCAL_TRAINING_DIR / "assessment"
+LAKE_LOCAL_TRAINING_VALIDATION_DIR = LAKE_LOCAL_TRAINING_DIR / "validation"
+LAKE_LOCAL_TRAINING_QUALITY_DIR = LAKE_LOCAL_TRAINING_DIR / "quality"
+
+REPORTS_LOCAL_TRAINING_DIR = REPORTS_OUTPUT_DIR / "local_training"
+REPORTS_LOCAL_TRAINING_CSV_DIR = REPORTS_LOCAL_TRAINING_DIR / "csv"
+REPORTS_LOCAL_TRAINING_MD_DIR = REPORTS_LOCAL_TRAINING_DIR / "markdown"
+REPORTS_LOCAL_TRAINING_TXT_DIR = REPORTS_LOCAL_TRAINING_DIR / "txt"
+REPORTS_LOCAL_TRAINING_JSON_DIR = REPORTS_LOCAL_TRAINING_DIR / "json"
+
+DOCS_GENERATED_LOCAL_TRAINING_DIR = DOCS_DIR / "generated" / "local_training"
+
 PROJECT_DIRS = [
+
+    LAKE_LOCAL_TRAINING_DIR,
+    LAKE_LOCAL_TRAINING_DOMAINS_DIR,
+    LAKE_LOCAL_TRAINING_ONBOARDING_DIR,
+    LAKE_LOCAL_TRAINING_PACKS_DIR,
+    LAKE_LOCAL_TRAINING_SAFE_USAGE_DIR,
+    LAKE_LOCAL_TRAINING_NON_USE_POLICY_DIR,
+    LAKE_LOCAL_TRAINING_WALKTHROUGHS_DIR,
+    LAKE_LOCAL_TRAINING_COMMANDS_DIR,
+    LAKE_LOCAL_TRAINING_REPORTS_DIR,
+    LAKE_LOCAL_TRAINING_DATALAKE_DIR,
+    LAKE_LOCAL_TRAINING_CROSS_LAYER_DIR,
+    LAKE_LOCAL_TRAINING_TROUBLESHOOTING_DIR,
+    LAKE_LOCAL_TRAINING_GLOSSARY_DIR,
+    LAKE_LOCAL_TRAINING_CONCEPTS_DIR,
+    LAKE_LOCAL_TRAINING_FAQ_DIR,
+    LAKE_LOCAL_TRAINING_HANDOVER_DIR,
+    LAKE_LOCAL_TRAINING_CURRICULUM_DIR,
+    LAKE_LOCAL_TRAINING_CHECKLISTS_DIR,
+    LAKE_LOCAL_TRAINING_GAPS_DIR,
+    LAKE_LOCAL_TRAINING_RISKS_DIR,
+    LAKE_LOCAL_TRAINING_ASSESSMENT_DIR,
+    LAKE_LOCAL_TRAINING_VALIDATION_DIR,
+    LAKE_LOCAL_TRAINING_QUALITY_DIR,
+    REPORTS_LOCAL_TRAINING_DIR,
+    REPORTS_LOCAL_TRAINING_CSV_DIR,
+    REPORTS_LOCAL_TRAINING_MD_DIR,
+    REPORTS_LOCAL_TRAINING_TXT_DIR,
+    REPORTS_LOCAL_TRAINING_JSON_DIR,
+    DOCS_GENERATED_LOCAL_TRAINING_DIR,
+
 
 
     LAKE_LOCAL_MAINTENANCE_DIR,
@@ -1461,6 +1799,37 @@ PROJECT_DIRS = [
 
 __all__ = [
 
+    "LAKE_LOCAL_TRAINING_DIR",
+    "LAKE_LOCAL_TRAINING_DOMAINS_DIR",
+    "LAKE_LOCAL_TRAINING_ONBOARDING_DIR",
+    "LAKE_LOCAL_TRAINING_PACKS_DIR",
+    "LAKE_LOCAL_TRAINING_SAFE_USAGE_DIR",
+    "LAKE_LOCAL_TRAINING_NON_USE_POLICY_DIR",
+    "LAKE_LOCAL_TRAINING_WALKTHROUGHS_DIR",
+    "LAKE_LOCAL_TRAINING_COMMANDS_DIR",
+    "LAKE_LOCAL_TRAINING_REPORTS_DIR",
+    "LAKE_LOCAL_TRAINING_DATALAKE_DIR",
+    "LAKE_LOCAL_TRAINING_CROSS_LAYER_DIR",
+    "LAKE_LOCAL_TRAINING_TROUBLESHOOTING_DIR",
+    "LAKE_LOCAL_TRAINING_GLOSSARY_DIR",
+    "LAKE_LOCAL_TRAINING_CONCEPTS_DIR",
+    "LAKE_LOCAL_TRAINING_FAQ_DIR",
+    "LAKE_LOCAL_TRAINING_HANDOVER_DIR",
+    "LAKE_LOCAL_TRAINING_CURRICULUM_DIR",
+    "LAKE_LOCAL_TRAINING_CHECKLISTS_DIR",
+    "LAKE_LOCAL_TRAINING_GAPS_DIR",
+    "LAKE_LOCAL_TRAINING_RISKS_DIR",
+    "LAKE_LOCAL_TRAINING_ASSESSMENT_DIR",
+    "LAKE_LOCAL_TRAINING_VALIDATION_DIR",
+    "LAKE_LOCAL_TRAINING_QUALITY_DIR",
+    "REPORTS_LOCAL_TRAINING_DIR",
+    "REPORTS_LOCAL_TRAINING_CSV_DIR",
+    "REPORTS_LOCAL_TRAINING_MD_DIR",
+    "REPORTS_LOCAL_TRAINING_TXT_DIR",
+    "REPORTS_LOCAL_TRAINING_JSON_DIR",
+    "DOCS_GENERATED_LOCAL_TRAINING_DIR",
+
+
 
     "LAKE_LOCAL_MAINTENANCE_DIR",
     "LAKE_LOCAL_MAINTENANCE_DOMAINS_DIR",
@@ -1521,3 +1890,38 @@ __all__ = [
     "REPORTS_LOCAL_READINESS_JSON_DIR",
     "DOCS_GENERATED_LOCAL_READINESS_DIR"
 ]
+
+EXTRA_PATHS = {
+"local_usability": ["data", "lake", "local_usability"],
+    "local_usability_profiles": ["data", "lake", "local_usability", "profiles"],
+    "local_usability_domains": ["data", "lake", "local_usability", "domains"],
+    "local_usability_review": ["data", "lake", "local_usability", "review"],
+    "local_usability_friction": ["data", "lake", "local_usability", "friction"],
+    "local_usability_task_journeys": ["data", "lake", "local_usability", "task_journeys"],
+    "local_usability_commands": ["data", "lake", "local_usability", "commands"],
+    "local_usability_scripts": ["data", "lake", "local_usability", "scripts"],
+    "local_usability_reading_order": ["data", "lake", "local_usability", "reading_order"],
+    "local_usability_navigation": ["data", "lake", "local_usability", "navigation"],
+    "local_usability_operator_paths": ["data", "lake", "local_usability", "operator_paths"],
+    "local_usability_human_loop": ["data", "lake", "local_usability", "human_loop"],
+    "local_usability_manual_review": ["data", "lake", "local_usability", "manual_review"],
+    "local_usability_questions": ["data", "lake", "local_usability", "questions"],
+    "local_usability_troubleshooting": ["data", "lake", "local_usability", "troubleshooting"],
+    "local_usability_guides": ["data", "lake", "local_usability", "guides"],
+    "local_usability_candidates": ["data", "lake", "local_usability", "candidates"],
+    "local_usability_quick_reference": ["data", "lake", "local_usability", "quick_reference"],
+    "local_usability_no_go_safe_go": ["data", "lake", "local_usability", "no_go_safe_go"],
+    "local_usability_exceptions": ["data", "lake", "local_usability", "exceptions"],
+    "local_usability_gaps": ["data", "lake", "local_usability", "gaps"],
+    "local_usability_risks": ["data", "lake", "local_usability", "risks"],
+    "local_usability_scoring": ["data", "lake", "local_usability", "scoring"],
+    "local_usability_validation": ["data", "lake", "local_usability", "validation"],
+    "local_usability_quality": ["data", "lake", "local_usability", "quality"],
+    "reports_output_local_usability": ["reports", "output", "local_usability"],
+    "reports_output_local_usability_csv": ["reports", "output", "local_usability", "csv"],
+    "reports_output_local_usability_markdown": ["reports", "output", "local_usability", "markdown"],
+    "reports_output_local_usability_txt": ["reports", "output", "local_usability", "txt"],
+    "reports_output_local_usability_json": ["reports", "output", "local_usability", "json"],
+    "docs_generated_local_usability": ["docs", "generated", "local_usability"],
+}
+

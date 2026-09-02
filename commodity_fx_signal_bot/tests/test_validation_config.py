@@ -30,3 +30,6 @@ def test_window_values_positive():
 def test_unknown_profile_raises_error():
     with pytest.raises(ConfigError):
         get_validation_profile("non_existent_profile_123")
+
+
+def test_dummy(): pass

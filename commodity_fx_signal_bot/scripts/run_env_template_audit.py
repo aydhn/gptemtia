@@ -9,7 +9,7 @@ from secrets_hygiene.secrets_config import get_secrets_hygiene_profile
 from secrets_hygiene.secrets_pipeline import SecretsHygienePipeline
 from secrets_hygiene.secrets_report_builder import build_env_template_audit_markdown_report
 import reports.report_builder as ReportBuilder
-from config.paths import ProjectPaths
+from config.paths import ProjectPaths, ensure_project_directories, LAKE_DIR
 
 def main():
     parser = argparse.ArgumentParser()

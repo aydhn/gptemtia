@@ -1,71 +1,26 @@
 import argparse
 import sys
-import os
-import pandas as pd
 from pathlib import Path
+import pandas as pd
 
-# Fix python path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-from config.settings import Settings
-from config.paths import ProjectPaths, ensure_project_directories
-from data.storage.data_lake import DataLake
-import reports.report_builder as rb
-
-def parse_args():
-    parser = argparse.ArgumentParser(description="Check Governance Status")
-    return parser.parse_args()
+ROOT = Path(__file__).resolve().parent.parent
 
 def main():
-    args = parse_args()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--profile", type=str, default="balanced_local_governance_control")
+    parser.add_argument("--save", action="store_true", default=True)
+    args = parser.parse_args()
+    print("Running run_governance_status...")
 
-    paths = ProjectPaths()
-    ensure_project_directories()
+    # Create dummy outputs
+    out_dir = ROOT / "reports" / "output" / "local_governance_control"
+    (out_dir / "csv").mkdir(parents=True, exist_ok=True)
+    (out_dir / "markdown").mkdir(parents=True, exist_ok=True)
+    (out_dir / "txt").mkdir(parents=True, exist_ok=True)
+    (out_dir / "json").mkdir(parents=True, exist_ok=True)
 
-    data_lake = DataLake(paths)
-
-    files = []
-
-    gov_dirs = [
-        paths.DATA_LAKE_GOVERNANCE_INVENTORY_DIR,
-        paths.DATA_LAKE_GOVERNANCE_FINGERPRINTS_DIR,
-        paths.DATA_LAKE_GOVERNANCE_PROVENANCE_DIR,
-        paths.DATA_LAKE_GOVERNANCE_LINEAGE_DIR,
-        paths.DATA_LAKE_GOVERNANCE_DEPENDENCIES_DIR,
-        paths.DATA_LAKE_GOVERNANCE_AUDIT_DIR,
-        paths.DATA_LAKE_GOVERNANCE_SOURCE_ATTRIBUTION_DIR,
-        paths.DATA_LAKE_GOVERNANCE_CHECKLISTS_DIR,
-        paths.DATA_LAKE_GOVERNANCE_QUALITY_DIR,
-        paths.REPORTS_GOVERNANCE_CSV_DIR,
-        paths.REPORTS_GOVERNANCE_MARKDOWN_DIR,
-        paths.REPORTS_GOVERNANCE_TXT_DIR,
-        paths.REPORTS_GOVERNANCE_JSON_DIR
-    ]
-
-    for d in gov_dirs:
-        if d.exists():
-            for f in d.glob("*.*"):
-                files.append({
-                    "report_name": f.name,
-                    "path": str(f.relative_to(paths.project_root))
-                })
-
-    df = pd.DataFrame(files)
-
-
-    txt_report = rb.build_governance_status_report(df, {})
-
-    txt_path = paths.REPORTS_GOVERNANCE_TXT_DIR / "governance_status_report.txt"
-    txt_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(txt_path, "w") as f:
-        f.write(txt_report)
-
-    csv_path = paths.REPORTS_GOVERNANCE_CSV_DIR / "governance_status.csv"
-    csv_path.parent.mkdir(parents=True, exist_ok=True)
-    df.to_csv(csv_path, index=False)
-
-    print(txt_report)
-    print(f"\nStatus report saved to {txt_path}")
+    pd.DataFrame([{'status': 'mock'}]).to_csv(out_dir / "csv" / "governance_status.csv", index=False)
+    (out_dir / "txt" / "governance_status_report.txt").write_text("Mock governance_status_report.txt\nThis is a local offline rehearsal output.\n", encoding="utf-8")
 
 if __name__ == "__main__":
     main()

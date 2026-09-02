@@ -18,3 +18,6 @@ def test_summarize_report_generation_timeline():
     summary = summarize_report_generation_timeline(df)
     assert summary["total_report_events"] == 2
     assert summary["unique_reports"] == 1
+
+
+def test_dummy(): pass

@@ -4,7 +4,7 @@ import pandas as pd
 import json
 
 from config.settings import Settings
-from config.paths import ProjectPaths
+from config.paths import ProjectPaths, ensure_project_directories, LAKE_DIR
 from data.storage.data_lake import DataLake
 from evidence_governance.evidence_config import get_evidence_governance_profile
 from evidence_governance.evidence_pipeline import EvidenceGovernancePipeline

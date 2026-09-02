@@ -1,0 +1,14 @@
+import pandas as pd
+from pathlib import Path
+from local_release_candidate.release_candidate_config import LocalReleaseCandidateProfile
+from local_release_candidate.release_candidate_models import *
+
+def build_v1_release_notes_rehearsal(project_root: Path, profile: LocalReleaseCandidateProfile) -> tuple[str, dict]:
+    return 'mock', {}
+
+def build_v1_release_note_sections(profile: LocalReleaseCandidateProfile) -> list[dict]:
+    return []
+
+def summarize_v1_release_notes(text: str) -> dict:
+    return {}
+

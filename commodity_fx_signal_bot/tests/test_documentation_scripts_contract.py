@@ -23,3 +23,6 @@ def test_run_output_reference_report_import():
 
 def test_run_documentation_status_import():
     importlib.import_module("scripts.run_documentation_status")
+
+
+def test_dummy(): pass

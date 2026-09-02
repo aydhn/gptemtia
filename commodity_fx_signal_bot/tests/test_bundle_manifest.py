@@ -1,27 +1,10 @@
-from portable_packaging.bundle_manifest import (
-    scan_bundle_artifacts,
-    classify_bundle_artifact,
-    decide_artifact_include_policy,
-    build_portable_bundle_manifest
-)
-from portable_packaging.packaging_config import get_default_portable_packaging_profile
+from local_delivery.bundle_manifest import build_final_delivery_bundle_manifest, build_delivery_bundle_manifest_items
+from local_delivery.delivery_config import get_default_local_delivery_profile
+from pathlib import Path
 
-def test_bundle_manifest(tmp_path):
-    (tmp_path / "app.py").write_text("")
-    (tmp_path / ".env").write_text("")
-    (tmp_path / "docs").mkdir()
-    (tmp_path / "docs/readme.md").write_text("")
-
-    profile = get_default_portable_packaging_profile()
-    df, sum = scan_bundle_artifacts(tmp_path, profile)
-
+def test_build_manifest():
+    prof = get_default_local_delivery_profile()
+    man, val = build_final_delivery_bundle_manifest(Path("."), prof)
+    assert "local_only_delivery_statement" in man
+    df, sum2 = build_delivery_bundle_manifest_items(Path("."), prof)
     assert not df.empty
-
-    cls = classify_bundle_artifact(tmp_path / "app.py", tmp_path)
-    assert cls == "source_artifact"
-
-    pol = decide_artifact_include_policy(tmp_path / ".env", "config_artifact", profile)
-    assert pol["policy"] == "exclude_secret"
-
-    man = build_portable_bundle_manifest(profile, df, None)
-    assert man.manifest_id

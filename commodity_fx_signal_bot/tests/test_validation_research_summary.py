@@ -25,3 +25,6 @@ def test_build_validation_research_summary():
     prof = ResearchReportProfile("test", "test")
     res = build_validation_research_summary({}, prof)
     assert "warnings" in res
+
+
+def test_dummy(): pass

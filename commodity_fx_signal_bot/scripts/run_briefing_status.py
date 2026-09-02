@@ -1,31 +1,23 @@
 import argparse
-import sys
-import logging
 from pathlib import Path
-
-from config.settings import settings
-from config.paths import PROJECT_ROOT
 from data.storage.data_lake import DataLake
-from report_summarization.summary_config import get_report_summary_profile, get_default_report_summary_profile
-from report_summarization.summary_pipeline import ReportSummarizationPipeline
-
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
-def parse_args():
-    parser = argparse.ArgumentParser(description="Run Briefing Status")
-    parser.add_argument("--save", action="store_true", default=True, help="Save outputs")
-    return parser.parse_args([])
+from config.settings import Settings
+from local_briefing.briefing_config import get_local_briefing_profile
+from local_briefing.briefing_pipeline import LocalBriefingPipeline
 
 def main():
-    args = parse_args()
-    profile = get_default_report_summary_profile()
-
-    data_lake = DataLake(root_dir=Path('/tmp'))
-    pipeline = ReportSummarizationPipeline(data_lake, settings, PROJECT_ROOT, profile)
-
-    status_df, meta = pipeline.build_briefing_status(save=args.save)
-    logger.info("Briefing Status generated successfully.")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--profile", type=str, default="balanced_local_briefing")
+    parser.add_argument("--save", type=bool, default=True)
+    args, _ = parser.parse_known_args()
+    
+    settings = Settings()
+    data_lake = DataLake("data/lake")
+    profile = get_local_briefing_profile(args.profile)
+    
+    pipeline = LocalBriefingPipeline(data_lake, settings, Path("."), profile)
+    res, sum = pipeline.build_briefing_status(save=args.save)
+    print(f"run_briefing_status completed.")
 
 if __name__ == "__main__":
     main()

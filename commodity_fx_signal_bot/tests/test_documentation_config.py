@@ -25,3 +25,6 @@ def test_get_default_documentation_profile():
 def test_get_documentation_profile_unknown():
     with pytest.raises(ConfigError):
         get_documentation_profile("unknown_profile")
+
+
+def test_dummy(): pass

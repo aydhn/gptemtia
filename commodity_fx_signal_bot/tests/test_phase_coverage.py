@@ -40,3 +40,6 @@ def test_summarize_phase_coverage():
     summary = summarize_phase_coverage(df)
     assert summary["phases_covered"] == 1
     assert summary["phases_missing"] == 1
+
+
+def test_dummy(): pass

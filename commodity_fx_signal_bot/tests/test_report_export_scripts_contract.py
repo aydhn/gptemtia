@@ -8,3 +8,6 @@ def test_scripts_importable():
     import scripts.run_periodic_tracking_report
     import scripts.run_report_export_batch
     import scripts.run_report_export_status
+
+
+def test_dummy(): pass

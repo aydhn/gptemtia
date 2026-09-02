@@ -8,7 +8,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).parent.parent.resolve()
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from config.settings import Settings
+from config.settings import Settings\nfrom config.paths import PROJECT_ROOT, paths
 from config.paths import DATA_DIR
 from data.storage.data_lake import DataLake
 from backup_recovery.backup_pipeline import BackupRecoveryPipeline

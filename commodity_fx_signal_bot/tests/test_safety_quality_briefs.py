@@ -23,3 +23,6 @@ def test_safety_quality_briefs():
 
     t5, _ = build_final_review_brief(df, df, df, profile)
     assert "Final Review Brief" in t5
+
+
+def test_dummy(): pass

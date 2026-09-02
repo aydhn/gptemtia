@@ -2,7 +2,7 @@ import argparse
 import sys
 import logging
 from config.settings import settings
-from config.paths import ProjectPaths
+from config.paths import ProjectPaths, ensure_project_directories, LAKE_DIR
 from data.storage.data_lake import DataLake
 from experiments.experiment_config import get_experiment_profile
 from experiments.experiment_pipeline import ExperimentTrackingPipeline

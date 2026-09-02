@@ -24,3 +24,6 @@ def test_script_verification(tmp_path):
 
     unsafe = classify_script_safety(scripts / "live_trade.py")
     assert unsafe == "forbidden"
+
+
+def test_dummy(): pass

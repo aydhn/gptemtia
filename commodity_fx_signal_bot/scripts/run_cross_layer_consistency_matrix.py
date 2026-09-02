@@ -1,6 +1,6 @@
 import argparse
 from config.settings import Settings
-from config.paths import ProjectPaths
+from config.paths import ProjectPaths, ensure_project_directories, LAKE_DIR
 from data.storage.data_lake import DataLake
 from local_consistency.consistency_config import get_local_consistency_profile
 from local_consistency.consistency_pipeline import LocalConsistencyPipeline

@@ -15,3 +15,6 @@ def test_scan_docs_for_secret_like():
 def test_audit_docs_guidance():
     df, s = audit_docs_for_secret_handling_guidance(Path("."))
     assert not df.empty
+
+
+def test_dummy(): pass

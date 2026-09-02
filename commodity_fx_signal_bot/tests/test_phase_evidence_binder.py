@@ -8,3 +8,6 @@ def test_phase_evidence_binder():
     assert len(text) > 0
     assert "Phase 1-69" in text
     assert summary["text_length"] > 0
+
+
+def test_dummy(): pass

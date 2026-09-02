@@ -7,7 +7,7 @@ import argparse
 import logging
 from datetime import datetime
 
-from config.paths import ProjectPaths
+from config.paths import ProjectPaths, ensure_project_directories, LAKE_DIR
 from data.storage.data_lake import DataLake
 from ml.feature_store import FeatureStore
 from reports.report_builder import build_observability_status_report

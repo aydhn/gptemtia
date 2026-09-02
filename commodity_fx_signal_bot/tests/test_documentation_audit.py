@@ -12,3 +12,6 @@ def test_build_documentation_audit_report(project_root):
     df, summary = build_documentation_audit_report(project_root, profile)
     assert not df.empty
     assert "passed" in summary
+
+
+def test_dummy(): pass

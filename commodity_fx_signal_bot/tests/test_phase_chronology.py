@@ -40,3 +40,6 @@ def test_build_phase_event_digest():
 
     assert isinstance(txt, str)
     assert "Phase 1 title" in txt
+
+
+def test_dummy(): pass

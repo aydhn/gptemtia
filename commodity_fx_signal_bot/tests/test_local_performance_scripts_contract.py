@@ -1,0 +1,9 @@
+def test_scripts_contract():
+    import scripts.run_performance_domain_registry
+    import scripts.run_final_local_performance_budget
+    import scripts.run_resource_footprint_rehearsal
+    import scripts.run_maintenance_cost_estimate
+    import scripts.run_offline_efficiency_plan
+    import scripts.run_performance_quality_report
+    import scripts.run_performance_status
+    assert True

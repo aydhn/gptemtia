@@ -19,3 +19,6 @@ def test_validate_report_export_manifest():
     }
     res = validate_report_export_manifest(manifest)
     assert res["valid"] is True
+
+
+def test_dummy(): pass

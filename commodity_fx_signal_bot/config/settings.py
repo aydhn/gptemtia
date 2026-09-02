@@ -16,6 +16,72 @@ load_dotenv()
 
 @dataclass
 class Settings:
+    # Phase 77 - Local Acceptance Settings
+    local_acceptance_enabled: bool = True
+    default_local_acceptance_profile: str = "balanced_local_acceptance"
+    local_acceptance_default_language: str = "tr"
+    local_acceptance_dry_run_default: bool = True
+    local_acceptance_allow_official_signoff: bool = False
+    local_acceptance_allow_compliance_claim: bool = False
+    local_acceptance_allow_production_release_claim: bool = False
+    local_acceptance_allow_live_trading_claim: bool = False
+    local_acceptance_allow_broker_readiness_claim: bool = False
+    local_acceptance_allow_investment_advice: bool = False
+    local_acceptance_allow_model_deployment_claim: bool = False
+    local_acceptance_allow_package_publish: bool = False
+    local_acceptance_allow_cloud_upload: bool = False
+    local_acceptance_allow_external_service: bool = False
+    local_acceptance_allow_external_llm: bool = False
+    local_acceptance_allow_file_modification: bool = False
+    local_acceptance_allow_file_deletion: bool = False
+    local_acceptance_allow_file_move: bool = False
+    local_acceptance_allow_overwrite: bool = False
+    local_acceptance_scan_docs: bool = True
+    local_acceptance_scan_reports: bool = True
+    local_acceptance_scan_data_lake: bool = True
+    local_acceptance_scan_scripts: bool = True
+    local_acceptance_scan_tests: bool = True
+    local_acceptance_scan_safety_outputs: bool = True
+    local_acceptance_scan_hardening_outputs: bool = True
+    local_acceptance_scan_synthesis_outputs: bool = True
+    local_acceptance_max_evidence_items: int = 500000
+    local_acceptance_max_questions: int = 5000
+    local_acceptance_min_readiness_score: float = 0.40
+    local_acceptance_min_quality_score: float = 0.40
+    local_acceptance_save_reports: bool = True
+
+
+    # Local Training Settings
+    local_training_enabled: bool = True
+    default_local_training_profile: str = "balanced_local_training"
+    local_training_default_language: str = "tr"
+    local_training_dry_run_default: bool = True
+    local_training_allow_cloud_upload: bool = False
+    local_training_allow_external_training_service: bool = False
+    local_training_allow_external_llm: bool = False
+    local_training_allow_file_modification: bool = False
+    local_training_allow_file_deletion: bool = False
+    local_training_allow_file_move: bool = False
+    local_training_allow_overwrite: bool = False
+    local_training_allow_live_commands: bool = False
+    local_training_allow_broker_commands: bool = False
+    local_training_allow_deploy_commands: bool = False
+    local_training_allow_background_daemons: bool = False
+    local_training_allow_real_market_download: bool = False
+    local_training_allow_certification_claim: bool = False
+    local_training_allow_investment_advice_training: bool = False
+    local_training_scan_docs: bool = True
+    local_training_scan_reports: bool = True
+    local_training_scan_scripts: bool = True
+    local_training_scan_tests: bool = True
+    local_training_scan_data_lake: bool = True
+    local_training_scan_cross_layer_outputs: bool = True
+    local_training_scan_safety_docs: bool = True
+    local_training_max_lessons: int = 10000
+    local_training_max_walkthrough_steps: int = 5000
+    local_training_min_training_quality_score: float = 0.40
+    local_training_save_reports: bool = True
+
 
     # Local Maintenance Settings
     local_maintenance_enabled: bool = True
@@ -1936,7 +2002,51 @@ class Settings:
     backup_recovery_save_reports: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_SAVE_REPORTS", "true")).lower() == "true")
     backup_recovery_min_quality_score: float = field(default_factory=lambda: float(os.getenv("BACKUP_RECOVERY_MIN_QUALITY_SCORE", "0.40")))
 
-    @classmethod
+    # Phase 86 - Local RedTeam Settings
+    local_redteam_enabled: bool = True
+    default_local_redteam_profile: str = "balanced_local_redteam"
+    local_redteam_default_language: str = "tr"
+    local_redteam_dry_run_default: bool = True
+    local_redteam_allow_real_attack: bool = False
+    local_redteam_allow_jailbreak_generation: bool = False
+    local_redteam_allow_exploit_generation: bool = False
+    local_redteam_allow_prompt_injection_payloads: bool = False
+    local_redteam_allow_credential_exfiltration: bool = False
+    local_redteam_allow_live_security_testing: bool = False
+    local_redteam_allow_telemetry: bool = False
+    local_redteam_allow_dashboard_creation: bool = False
+    local_redteam_allow_gui_creation: bool = False
+    local_redteam_allow_tui_creation: bool = False
+    local_redteam_allow_cloud_upload: bool = False
+    local_redteam_allow_package_publish: bool = False
+    local_redteam_allow_external_service: bool = False
+    local_redteam_allow_external_llm: bool = False
+    local_redteam_allow_file_modification: bool = False
+    local_redteam_allow_file_deletion: bool = False
+    local_redteam_allow_file_move: bool = False
+    local_redteam_allow_overwrite: bool = False
+    local_redteam_allow_safety_certification_claim: bool = False
+    local_redteam_allow_compliance_signoff: bool = False
+    local_redteam_allow_production_safety_approval_claim: bool = False
+    local_redteam_allow_live_trading_claim: bool = False
+    local_redteam_allow_broker_readiness_claim: bool = False
+    local_redteam_allow_investment_advice: bool = False
+    local_redteam_allow_model_deployment_claim: bool = False
+    local_redteam_scan_docs: bool = True
+    local_redteam_scan_reports: bool = True
+    local_redteam_scan_data_lake: bool = True
+    local_redteam_scan_scripts: bool = True
+    local_redteam_scan_tests: bool = True
+    local_redteam_scan_generated_docs: bool = True
+    local_redteam_scan_governance_outputs: bool = True
+    local_redteam_scan_usability_outputs: bool = True
+    local_redteam_scan_safety_outputs: bool = True
+    local_redteam_max_items: int = 500000
+    local_redteam_max_scenarios: int = 10000
+    local_redteam_min_readiness_score: float = 0.40
+    local_redteam_min_quality_score: float = 0.40
+    local_redteam_save_reports: bool = True
+
     def from_env(cls) -> "Settings":
         return cls()
 
@@ -3167,6 +3277,47 @@ class Settings:
     backup_recovery_save_reports: bool = field(default_factory=lambda: str(os.getenv("BACKUP_RECOVERY_SAVE_REPORTS", "true")).lower() == "true")
     backup_recovery_min_quality_score: float = field(default_factory=lambda: float(os.getenv("BACKUP_RECOVERY_MIN_QUALITY_SCORE", "0.40")))
 
+
+    # Local Reuse Settings
+    local_reuse_enabled: bool = True
+    default_local_reuse_profile: str = "balanced_local_reuse"
+    local_reuse_default_language: str = "tr"
+    local_reuse_dry_run_default: bool = True
+    local_reuse_allow_real_v1_1_implementation: bool = False
+    local_reuse_allow_implementation_approval: bool = False
+    local_reuse_allow_production_release_claim: bool = False
+    local_reuse_allow_official_standard_claim: bool = False
+    local_reuse_allow_compliance_claim: bool = False
+    local_reuse_allow_cloud_upload: bool = False
+    local_reuse_allow_package_publish: bool = False
+    local_reuse_allow_external_service: bool = False
+    local_reuse_allow_external_llm: bool = False
+    local_reuse_allow_file_modification: bool = False
+    local_reuse_allow_file_deletion: bool = False
+    local_reuse_allow_file_move: bool = False
+    local_reuse_allow_overwrite: bool = False
+    local_reuse_allow_live_trading_claim: bool = False
+    local_reuse_allow_broker_readiness_claim: bool = False
+    local_reuse_allow_investment_advice: bool = False
+    local_reuse_allow_model_deployment_claim: bool = False
+    
+    local_reuse_scan_docs: bool = True
+    local_reuse_scan_reports: bool = True
+    local_reuse_scan_data_lake: bool = True
+    local_reuse_scan_scripts: bool = True
+    local_reuse_scan_tests: bool = True
+    local_reuse_scan_generated_docs: bool = True
+    local_reuse_scan_closure_outputs: bool = True
+    local_reuse_scan_archival_outputs: bool = True
+    local_reuse_scan_delivery_outputs: bool = True
+    local_reuse_scan_acceptance_outputs: bool = True
+    local_reuse_scan_safety_outputs: bool = True
+    
+    local_reuse_max_items: int = 500000
+    local_reuse_max_templates: int = 10000
+    local_reuse_min_readiness_score: float = 0.40
+    local_reuse_min_quality_score: float = 0.40
+    local_reuse_save_reports: bool = True
     @classmethod
     def from_env(cls) -> "Settings":
         return cls()
@@ -3503,39 +3654,195 @@ class Settings:
 
         self.local_maintenance_save_reports = str(os.getenv("LOCAL_MAINTENANCE_SAVE_REPORTS", str(self.local_maintenance_save_reports))).lower() == "true"
 
+
+        self.local_training_enabled = str(os.getenv("LOCAL_TRAINING_ENABLED", str(self.local_training_enabled))).lower() == "true"
+        self.default_local_training_profile = str(os.getenv("DEFAULT_LOCAL_TRAINING_PROFILE", self.default_local_training_profile))
+        self.local_training_default_language = str(os.getenv("LOCAL_TRAINING_DEFAULT_LANGUAGE", self.local_training_default_language))
+        self.local_training_dry_run_default = str(os.getenv("LOCAL_TRAINING_DRY_RUN_DEFAULT", str(self.local_training_dry_run_default))).lower() == "true"
+        self.local_training_allow_cloud_upload = str(os.getenv("LOCAL_TRAINING_ALLOW_CLOUD_UPLOAD", str(self.local_training_allow_cloud_upload))).lower() == "true"
+        self.local_training_allow_external_training_service = str(os.getenv("LOCAL_TRAINING_ALLOW_EXTERNAL_TRAINING_SERVICE", str(self.local_training_allow_external_training_service))).lower() == "true"
+        self.local_training_allow_external_llm = str(os.getenv("LOCAL_TRAINING_ALLOW_EXTERNAL_LLM", str(self.local_training_allow_external_llm))).lower() == "true"
+        self.local_training_allow_file_modification = str(os.getenv("LOCAL_TRAINING_ALLOW_FILE_MODIFICATION", str(self.local_training_allow_file_modification))).lower() == "true"
+        self.local_training_allow_file_deletion = str(os.getenv("LOCAL_TRAINING_ALLOW_FILE_DELETION", str(self.local_training_allow_file_deletion))).lower() == "true"
+        self.local_training_allow_file_move = str(os.getenv("LOCAL_TRAINING_ALLOW_FILE_MOVE", str(self.local_training_allow_file_move))).lower() == "true"
+        self.local_training_allow_overwrite = str(os.getenv("LOCAL_TRAINING_ALLOW_OVERWRITE", str(self.local_training_allow_overwrite))).lower() == "true"
+        self.local_training_allow_live_commands = str(os.getenv("LOCAL_TRAINING_ALLOW_LIVE_COMMANDS", str(self.local_training_allow_live_commands))).lower() == "true"
+        self.local_training_allow_broker_commands = str(os.getenv("LOCAL_TRAINING_ALLOW_BROKER_COMMANDS", str(self.local_training_allow_broker_commands))).lower() == "true"
+        self.local_training_allow_deploy_commands = str(os.getenv("LOCAL_TRAINING_ALLOW_DEPLOY_COMMANDS", str(self.local_training_allow_deploy_commands))).lower() == "true"
+        self.local_training_allow_background_daemons = str(os.getenv("LOCAL_TRAINING_ALLOW_BACKGROUND_DAEMONS", str(self.local_training_allow_background_daemons))).lower() == "true"
+        self.local_training_allow_real_market_download = str(os.getenv("LOCAL_TRAINING_ALLOW_REAL_MARKET_DOWNLOAD", str(self.local_training_allow_real_market_download))).lower() == "true"
+        self.local_training_allow_certification_claim = str(os.getenv("LOCAL_TRAINING_ALLOW_CERTIFICATION_CLAIM", str(self.local_training_allow_certification_claim))).lower() == "true"
+        self.local_training_allow_investment_advice_training = str(os.getenv("LOCAL_TRAINING_ALLOW_INVESTMENT_ADVICE_TRAINING", str(self.local_training_allow_investment_advice_training))).lower() == "true"
+        self.local_training_scan_docs = str(os.getenv("LOCAL_TRAINING_SCAN_DOCS", str(self.local_training_scan_docs))).lower() == "true"
+        self.local_training_scan_reports = str(os.getenv("LOCAL_TRAINING_SCAN_REPORTS", str(self.local_training_scan_reports))).lower() == "true"
+        self.local_training_scan_scripts = str(os.getenv("LOCAL_TRAINING_SCAN_SCRIPTS", str(self.local_training_scan_scripts))).lower() == "true"
+        self.local_training_scan_tests = str(os.getenv("LOCAL_TRAINING_SCAN_TESTS", str(self.local_training_scan_tests))).lower() == "true"
+        self.local_training_scan_data_lake = str(os.getenv("LOCAL_TRAINING_SCAN_DATA_LAKE", str(self.local_training_scan_data_lake))).lower() == "true"
+        self.local_training_scan_cross_layer_outputs = str(os.getenv("LOCAL_TRAINING_SCAN_CROSS_LAYER_OUTPUTS", str(self.local_training_scan_cross_layer_outputs))).lower() == "true"
+        self.local_training_scan_safety_docs = str(os.getenv("LOCAL_TRAINING_SCAN_SAFETY_DOCS", str(self.local_training_scan_safety_docs))).lower() == "true"
+
+        try:
+            self.local_training_max_lessons = int(os.getenv("LOCAL_TRAINING_MAX_LESSONS", str(self.local_training_max_lessons)))
+        except ValueError:
+            pass
+
+        try:
+            self.local_training_max_walkthrough_steps = int(os.getenv("LOCAL_TRAINING_MAX_WALKTHROUGH_STEPS", str(self.local_training_max_walkthrough_steps)))
+        except ValueError:
+            pass
+
+        try:
+            self.local_training_min_training_quality_score = float(os.getenv("LOCAL_TRAINING_MIN_TRAINING_QUALITY_SCORE", str(self.local_training_min_training_quality_score)))
+        except ValueError:
+            pass
+
+        self.local_training_save_reports = str(os.getenv("LOCAL_TRAINING_SAVE_REPORTS", str(self.local_training_save_reports))).lower() == "true"
+
         self.live_trading_enabled = False
 
 
 
-# Global settings instance
-settings = Settings()
 
     # Artifact Metadata Settings
-artifact_metadata_enabled: bool = True
-default_artifact_metadata_profile: str = "balanced_local_metadata"
-artifact_metadata_default_language: str = "tr"
-artifact_metadata_dry_run_default: bool = True
-artifact_metadata_allow_model_deployment_claims: bool = False
-artifact_metadata_allow_official_certification_claims: bool = False
-artifact_metadata_allow_investment_advice_claims: bool = False
-artifact_metadata_allow_cloud_registry: bool = False
-artifact_metadata_allow_file_modification: bool = False
-artifact_metadata_allow_file_deletion: bool = False
-artifact_metadata_allow_live_commands: bool = False
-artifact_metadata_allow_broker_commands: bool = False
-artifact_metadata_allow_deploy_commands: bool = False
-artifact_metadata_allow_background_daemons: bool = False
-artifact_metadata_allow_real_market_download: bool = False
-artifact_metadata_allow_external_llm: bool = False
-artifact_metadata_scan_models: bool = True
-artifact_metadata_scan_datasets: bool = True
-artifact_metadata_scan_experiments: bool = True
-artifact_metadata_scan_backtests: bool = True
-artifact_metadata_scan_scenarios: bool = True
-artifact_metadata_scan_reports: bool = True
-artifact_metadata_scan_evidence: bool = True
-artifact_metadata_max_artifacts: int = 200000
-artifact_metadata_max_artifact_mb: int = 50
-artifact_metadata_freshness_days_warning: int = 45
-artifact_metadata_save_reports: bool = True
-artifact_metadata_min_quality_score: float = 0.40
+    artifact_metadata_enabled: bool = True
+    default_artifact_metadata_profile: str = "balanced_local_metadata"
+    artifact_metadata_default_language: str = "tr"
+    artifact_metadata_dry_run_default: bool = True
+    artifact_metadata_allow_model_deployment_claims: bool = False
+    artifact_metadata_allow_official_certification_claims: bool = False
+    artifact_metadata_allow_investment_advice_claims: bool = False
+    artifact_metadata_allow_cloud_registry: bool = False
+    artifact_metadata_allow_file_modification: bool = False
+    artifact_metadata_allow_file_deletion: bool = False
+    artifact_metadata_allow_live_commands: bool = False
+    artifact_metadata_allow_broker_commands: bool = False
+    artifact_metadata_allow_deploy_commands: bool = False
+    artifact_metadata_allow_background_daemons: bool = False
+    artifact_metadata_allow_real_market_download: bool = False
+    artifact_metadata_allow_external_llm: bool = False
+    artifact_metadata_scan_models: bool = True
+    artifact_metadata_scan_datasets: bool = True
+    artifact_metadata_scan_experiments: bool = True
+    artifact_metadata_scan_backtests: bool = True
+    artifact_metadata_scan_scenarios: bool = True
+    artifact_metadata_scan_reports: bool = True
+    artifact_metadata_scan_evidence: bool = True
+    artifact_metadata_max_artifacts: int = 200000
+    artifact_metadata_max_artifact_mb: int = 50
+    artifact_metadata_freshness_days_warning: int = 45
+    artifact_metadata_save_reports: bool = True
+    artifact_metadata_min_quality_score: float = 0.40
+
+    local_delivery_enabled: bool = True
+    default_local_delivery_profile: str = "balanced_local_delivery"
+    local_delivery_default_language: str = "tr"
+    local_delivery_dry_run_default: bool = True
+    local_delivery_allow_real_transfer: bool = False
+    local_delivery_allow_archive_creation: bool = False
+    local_delivery_allow_zip_creation: bool = False
+    local_delivery_allow_cloud_upload: bool = False
+    local_delivery_allow_package_publish: bool = False
+    local_delivery_allow_external_service: bool = False
+    local_delivery_allow_external_llm: bool = False
+    local_delivery_allow_file_modification: bool = False
+    local_delivery_allow_file_deletion: bool = False
+    local_delivery_allow_file_move: bool = False
+    local_delivery_allow_overwrite: bool = False
+    local_delivery_allow_official_handoff_claim: bool = False
+    local_delivery_allow_production_handoff_claim: bool = False
+    local_delivery_allow_compliance_claim: bool = False
+    local_delivery_allow_live_trading_claim: bool = False
+    local_delivery_allow_broker_readiness_claim: bool = False
+    local_delivery_allow_investment_advice: bool = False
+    local_delivery_allow_model_deployment_claim: bool = False
+    local_delivery_scan_docs: bool = True
+    local_delivery_scan_reports: bool = True
+    local_delivery_scan_data_lake: bool = True
+    local_delivery_scan_scripts: bool = True
+    local_delivery_scan_tests: bool = True
+    local_delivery_scan_generated_docs: bool = True
+    local_delivery_scan_safety_outputs: bool = True
+    local_delivery_scan_acceptance_outputs: bool = True
+    local_delivery_max_items: int = 500000
+    local_delivery_min_readiness_score: float = 0.40
+    local_delivery_min_quality_score: float = 0.40
+    local_delivery_save_reports: bool = True
+
+    # Phase 80: Local Closure Settings
+    local_closure_enabled: bool = True
+    default_local_closure_profile: str = "balanced_local_closure"
+    local_closure_default_language: str = "tr"
+    local_closure_dry_run_default: bool = True
+    local_closure_allow_real_v1_release: bool = False
+    local_closure_allow_production_release_claim: bool = False
+    local_closure_allow_official_project_closure_claim: bool = False
+    local_closure_allow_legal_signoff_claim: bool = False
+    local_closure_allow_compliance_claim: bool = False
+    local_closure_allow_cloud_upload: bool = False
+    local_closure_allow_package_publish: bool = False
+    local_closure_allow_external_service: bool = False
+    local_closure_allow_external_llm: bool = False
+    local_closure_allow_file_modification: bool = False
+    local_closure_allow_file_deletion: bool = False
+    local_closure_allow_file_move: bool = False
+    local_closure_allow_overwrite: bool = False
+    local_closure_allow_live_trading_claim: bool = False
+    local_closure_allow_broker_readiness_claim: bool = False
+    local_closure_allow_investment_advice: bool = False
+    local_closure_allow_model_deployment_claim: bool = False
+    local_closure_scan_docs: bool = True
+    local_closure_scan_reports: bool = True
+    local_closure_scan_data_lake: bool = True
+    local_closure_scan_scripts: bool = True
+    local_closure_scan_tests: bool = True
+    local_closure_scan_generated_docs: bool = True
+    local_closure_scan_archival_outputs: bool = True
+    local_closure_scan_delivery_outputs: bool = True
+    local_closure_scan_acceptance_outputs: bool = True
+    local_closure_scan_safety_outputs: bool = True
+    local_closure_max_items: int = 500000
+    local_closure_min_readiness_score: float = 0.40
+    local_closure_min_quality_score: float = 0.40
+    local_closure_save_reports: bool = True
+# Global settings instance
+settings = Settings()
+# 
+# local_usability_enabled: bool = True
+#     default_local_usability_profile: str = "balanced_local_usability"
+#     local_usability_default_language: str = "tr"
+#     local_usability_dry_run_default: bool = True
+#     local_usability_allow_real_user_testing: bool = False
+#     local_usability_allow_telemetry: bool = False
+#     local_usability_allow_analytics_tracking: bool = False
+#     local_usability_allow_behavior_monitoring: bool = False
+#     local_usability_allow_gui_creation: bool = False
+#     local_usability_allow_tui_creation: bool = False
+#     local_usability_allow_dashboard_creation: bool = False
+#     local_usability_allow_cloud_upload: bool = False
+#     local_usability_allow_package_publish: bool = False
+#     local_usability_allow_external_service: bool = False
+#     local_usability_allow_external_llm: bool = False
+#     local_usability_allow_file_modification: bool = False
+#     local_usability_allow_file_deletion: bool = False
+#     local_usability_allow_file_move: bool = False
+#     local_usability_allow_overwrite: bool = False
+#     local_usability_allow_production_usability_claim: bool = False
+#     local_usability_allow_official_ux_audit_claim: bool = False
+#     local_usability_allow_live_trading_claim: bool = False
+#     local_usability_allow_broker_readiness_claim: bool = False
+#     local_usability_allow_investment_advice: bool = False
+#     local_usability_allow_model_deployment_claim: bool = False
+#     local_usability_scan_docs: bool = True
+#     local_usability_scan_reports: bool = True
+#     local_usability_scan_data_lake: bool = True
+#     local_usability_scan_scripts: bool = True
+#     local_usability_scan_tests: bool = True
+#     local_usability_scan_generated_docs: bool = True
+#     local_usability_scan_performance_outputs: bool = True
+#     local_usability_scan_simplification_outputs: bool = True
+#     local_usability_scan_safety_outputs: bool = True
+#     local_usability_max_items: int = 500000
+#     local_usability_max_questions: int = 5000
+#     local_usability_min_readiness_score: float = 0.40
+#     local_usability_min_quality_score: float = 0.40
+#     local_usability_save_reports: bool = True

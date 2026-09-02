@@ -19,3 +19,6 @@ def test_report_graph():
 
     sum_df = link_reports_to_summaries(df, df)
     assert sum_df is not None
+
+
+def test_dummy(): pass

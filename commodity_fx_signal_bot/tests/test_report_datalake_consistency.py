@@ -7,3 +7,6 @@ def test_build_report_datalake_consistency_report():
     profile = get_default_local_consistency_profile()
     df, summary = build_report_datalake_consistency_report(Path("."), profile)
     assert df is not None
+
+
+def test_dummy(): pass

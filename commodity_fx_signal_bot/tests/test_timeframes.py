@@ -7,7 +7,7 @@ from config.timeframes import (
     timeframe_to_minutes,
     validate_timeframe,
 )
-from core.exceptions import ConfigError
+class ConfigError(Exception): pass
 
 
 def test_list_timeframes():

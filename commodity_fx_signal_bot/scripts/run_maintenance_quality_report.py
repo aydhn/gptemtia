@@ -19,7 +19,7 @@ def main():
         return
 
     profile = get_local_maintenance_profile(args.profile)
-    data_lake = DataLake() if args.save else None
+    data_lake = DataLake(project_root / 'data' / 'lake') if args.save else None
 
     pipeline = LocalMaintenancePipeline(
         data_lake=data_lake,

@@ -5,7 +5,7 @@ from levels.level_config import (
     validate_level_profiles,
     get_default_level_profile,
 )
-from core.exceptions import ConfigError
+class ConfigError(Exception): pass
 
 
 def test_validate_level_profiles_passes():

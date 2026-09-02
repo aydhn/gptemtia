@@ -92,3 +92,6 @@ def test_run_universe_validation(mock_data_lake, settings, spec):
     assert res["processed_count"] == 2
     assert len(res["ranking"]) == 2
     assert "validation_status" in res["ranking"][0]
+
+
+def test_dummy(): pass

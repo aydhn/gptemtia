@@ -1,8 +1,8 @@
-from local_readiness.readiness_config import get_default_local_readiness_profile
-from local_readiness.limitations_register import build_known_limitations_register
-from config.paths import PROJECT_ROOT
 
-def test_limitations_register():
-    profile = get_default_local_readiness_profile()
-    df, s = build_known_limitations_register(PROJECT_ROOT, profile)
+from local_closure.limitations_register import build_closure_known_limitations_register
+from local_closure.closure_config import get_default_local_closure_profile
+
+def test_lim():
+    p = get_default_local_closure_profile()
+    df, summary = build_closure_known_limitations_register(p)
     assert not df.empty

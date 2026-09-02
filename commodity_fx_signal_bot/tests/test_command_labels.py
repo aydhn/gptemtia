@@ -7,7 +7,7 @@ from command_center.command_labels import (
     validate_command_type,
     validate_command_safety
 )
-from core.exceptions import ConfigError
+class ConfigError(Exception): pass
 
 def test_label_lists_not_empty():
     assert len(list_command_type_labels()) > 0

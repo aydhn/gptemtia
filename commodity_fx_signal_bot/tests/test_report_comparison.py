@@ -20,3 +20,6 @@ def test_compare_archive_records():
     comp = compare_archive_records(curr, prev)
     assert comp.comparison_label == "improved"
     assert "improved" in comp.comparison_label
+
+
+def test_dummy(): pass

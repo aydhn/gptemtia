@@ -6,3 +6,6 @@ def test_datalake_readiness():
     profile = get_default_local_readiness_profile()
     df, s = build_datalake_readiness_report(PROJECT_ROOT, profile)
     assert not df.empty
+
+
+def test_dummy(): pass

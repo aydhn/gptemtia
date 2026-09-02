@@ -16,3 +16,6 @@ def test_write_package_readme(tmp_path):
     content = readme.read_text(encoding="utf-8")
     assert "offline araştırma raporu" in content
     assert "Canlı emir" in content
+
+
+def test_dummy(): pass

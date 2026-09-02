@@ -17,3 +17,6 @@ def test_rank_modules_by_attention_need():
     rank = rank_modules_by_attention_need(finds, warns)
     assert not rank.empty
     assert rank.iloc[0]["module_name"] == "mod1"
+
+
+def test_dummy(): pass

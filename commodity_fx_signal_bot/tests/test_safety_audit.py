@@ -15,3 +15,6 @@ def test_build_safety_audit_report(project_root):
 
 def test_false_positives():
     assert "yatırım tavsiyesi değildir" in _FALSE_POSITIVES
+
+
+def test_dummy(): pass

@@ -33,3 +33,6 @@ def test_module_health_table():
 
     summary = summarize_module_health(health_df)
     assert summary["healthy_modules"] == 1
+
+
+def test_dummy(): pass

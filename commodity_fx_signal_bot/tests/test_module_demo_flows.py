@@ -12,3 +12,6 @@ def test_module_demo_flows():
     flow = df.iloc[0].to_dict()
     val = validate_module_demo_flow(flow)
     assert val["is_valid"] is True
+
+
+def test_dummy(): pass

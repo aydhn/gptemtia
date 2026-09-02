@@ -5,7 +5,7 @@ Script to generate the Long-Horizon Preservation Binder.
 import argparse
 from pathlib import Path
 
-from config.paths import ProjectPaths
+from config.paths import ProjectPaths, ensure_project_directories, LAKE_DIR
 get_paths = lambda: ProjectPaths()
 from config.settings import settings
 from data.storage.data_lake import DataLake

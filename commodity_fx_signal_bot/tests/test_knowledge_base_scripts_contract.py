@@ -7,3 +7,6 @@ def test_script_imports():
     importlib.import_module("scripts.run_decision_journal_report")
     importlib.import_module("scripts.run_recent_findings_digest")
     importlib.import_module("scripts.run_analyst_workspace_status")
+
+
+def test_dummy(): pass

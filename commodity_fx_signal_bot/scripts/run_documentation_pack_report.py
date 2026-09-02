@@ -6,7 +6,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 from config.settings import settings
-from config.paths import ProjectPaths
+from config.paths import ProjectPaths, ensure_project_directories, LAKE_DIR
 paths = ProjectPaths()
 from data.storage.data_lake import DataLake
 from documentation.documentation_config import get_documentation_profile
