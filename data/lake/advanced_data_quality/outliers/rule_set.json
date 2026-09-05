@@ -1,0 +1,7 @@
+{
+  "rule_count": 1,
+  "rules": [
+    "numeric_outlier_placeholder"
+  ],
+  "domain": "outlier_placeholder"
+}

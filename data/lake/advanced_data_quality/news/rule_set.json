@@ -1,0 +1,9 @@
+{
+  "rule_count": 3,
+  "rules": [
+    "news_metadata_schema_integrity",
+    "news_copyright_safe_boundary",
+    "news_sentiment_non_signal"
+  ],
+  "domain": "news_metadata_quality"
+}

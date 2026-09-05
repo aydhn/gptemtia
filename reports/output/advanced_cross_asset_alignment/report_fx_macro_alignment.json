@@ -1,0 +1,17 @@
+{
+  "total_alignments": 5,
+  "fx_pairs": [
+    "EUR/USD",
+    "USD/TRY"
+  ],
+  "macro_indicators": [
+    "FED_POLICY_RATE",
+    "ECB_POLICY_RATE",
+    "DXY_PLACEHOLDER",
+    "CBRT_POLICY_RATE",
+    "TR_CPI_PLACEHOLDER"
+  ],
+  "all_non_signal": true,
+  "status": "READY",
+  "profile": "balanced_local_cross_asset_alignment"
+}

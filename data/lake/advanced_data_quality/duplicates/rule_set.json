@@ -1,0 +1,7 @@
+{
+  "rule_count": 1,
+  "rules": [
+    "check_duplicate_records"
+  ],
+  "domain": "duplicate_data"
+}

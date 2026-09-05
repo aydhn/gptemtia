@@ -1,0 +1,13 @@
+{
+  "total_profiles": 3,
+  "profiles": [
+    "balanced_local_data_quality",
+    "strict_data_quality_safety",
+    "dry_run_quality_contract_focus"
+  ],
+  "dry_run_all": true,
+  "local_only_all": true,
+  "non_production_all": true,
+  "current_phase": 112,
+  "target_final_phase": 160
+}

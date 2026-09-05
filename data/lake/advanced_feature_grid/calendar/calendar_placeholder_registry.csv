@@ -1,0 +1,10 @@
+placeholder_name,family,window,column_name,is_placeholder,non_signal,directional_claim
+pre_event_window_flag,calendar_placeholder,1,cal_pre_event_d1,True,True,False
+pre_event_window_flag,calendar_placeholder,3,cal_pre_event_d3,True,True,False
+pre_event_window_flag,calendar_placeholder,5,cal_pre_event_d5,True,True,False
+post_event_window_flag,calendar_placeholder,1,cal_post_event_d1,True,True,False
+post_event_window_flag,calendar_placeholder,3,cal_post_event_d3,True,True,False
+post_event_window_flag,calendar_placeholder,5,cal_post_event_d5,True,True,False
+event_importance_rolling_count,calendar_placeholder,5,cal_high_impact_cnt_w5,True,True,False
+event_importance_rolling_count,calendar_placeholder,10,cal_high_impact_cnt_w10,True,True,False
+event_importance_rolling_count,calendar_placeholder,20,cal_high_impact_cnt_w20,True,True,False

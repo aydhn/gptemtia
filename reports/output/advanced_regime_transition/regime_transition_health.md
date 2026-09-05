@@ -1,0 +1,28 @@
+# Phase 130: Regime Transition Health Check Report
+
+> [!IMPORTANT]
+> Bu çıktı Phase 130 Regime Transition and Stability Analysis raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, transition veya stability değerini trade sinyali olarak kullanma, strateji üretimi, backtest, optimizer, model training, clustering execution, unsupervised execution, dimensionality reduction execution, prediction/target/label üretimi, production-ready/official approval/broker-ready iddiası, haber tam metni kullanımı, production deployment, model deployment, scraping veya gerçek provider API çağrısı değildir.
+
+- **Overall Health Status**: HEALTHY
+- **Total Checks**: 14
+- **Passed Checks**: 14
+- **Failed Checks**: 0
+- **Non-Signal Mandate**: True
+
+## Health Verification Details
+| check_item | component | status | mandatory |
+| --- | --- | --- | --- |
+| phase_129_advanced_market_behavior_diagnostics | upstream_package | PASS | True |
+| phase_128_advanced_regime_rule_free | upstream_package | PASS | True |
+| phase_127_advanced_regime_matrix | upstream_package | PASS | True |
+| phase_126_advanced_regime_foundation | upstream_package | PASS | True |
+| phase_125_advanced_feature_factor_acceptance | upstream_package | PASS | True |
+| phase_124_advanced_feature_store_integration | upstream_package | PASS | True |
+| phase_123_advanced_feature_quality_drift | upstream_package | PASS | True |
+| phase_121_advanced_feature_validation | upstream_package | PASS | True |
+| advanced_regime_transition_package | core_package | PASS | True |
+| data_lake_storage_layer | storage | PASS | True |
+| feature_store_layer | feature_store | PASS | True |
+| scripts_directory | scripts | PASS | True |
+| tests_directory | tests | PASS | True |
+| docs_directory | docs | PASS | True |

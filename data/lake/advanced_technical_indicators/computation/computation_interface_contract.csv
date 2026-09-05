@@ -1,0 +1,4 @@
+interface_name,method,contract
+BaseTechnicalIndicatorComputer,"validate_input(df, required_fields)",Returns dict with valid=bool and errors=list
+BaseTechnicalIndicatorComputer,"compute(df, indicator_name, parameters)","Returns tuple(out_df, IndicatorComputationResult); immutable input"
+BaseTechnicalIndicatorComputer,metadata(),"Returns dict with provider, non_signal=True, phase=117"

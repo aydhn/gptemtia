@@ -1,0 +1,5 @@
+factor_name,factor_family,input_features,calculation_type,non_signal_usage,status_label,manual_review_required
+factor_trend_ma_slope_context,trend,"['trend__sma_20', 'trend__sma_50']",normalized_slope,Measures angle of moving average trajectories without trading recommendation.,factor_ready,False
+factor_trend_macd_context,trend,"['trend__macd_line_12_26', 'trend__macd_signal_9']",histogram_differential,Convergence and divergence spread context. Not a crossover buy/sell trigger.,factor_ready,False
+factor_trend_donchian_context,trend,"['trend__donchian_high_20', 'trend__donchian_low_20', 'close']",channel_position_ratio,Relative positioning within high/low breakout bounds.,factor_ready,False
+factor_trend_multi_window_context,trend,"['trend__sma_10', 'trend__sma_20', 'trend__sma_50', 'trend__sma_200']",multi_window_trend_alignment,Cross-timeframe trend consistency observation without signal.,factor_ready,False

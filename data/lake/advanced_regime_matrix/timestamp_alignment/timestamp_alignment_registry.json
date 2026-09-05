@@ -1,0 +1,15 @@
+{
+  "total_rules": 5,
+  "rule_ids": [
+    "ts_rule_utc_canonical",
+    "ts_rule_backward_only_context",
+    "ts_rule_macro_release_lag",
+    "ts_rule_zero_negative_shift",
+    "ts_rule_news_metadata_timestamp_order"
+  ],
+  "backward_only_enforced": true,
+  "all_enforced": true,
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "status": "matrix_ready"
+}

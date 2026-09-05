@@ -1,0 +1,16 @@
+{
+  "total_dependencies": 5,
+  "all_resolved": true,
+  "all_satisfied": true,
+  "blocking_dependencies_passed": true,
+  "mandatory_count": 5,
+  "source_phases": [
+    121,
+    123,
+    124,
+    127,
+    128
+  ],
+  "non_signal": true,
+  "active_profile": "balanced_local_market_behavior_diagnostics"
+}

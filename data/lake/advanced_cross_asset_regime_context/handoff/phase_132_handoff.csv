@@ -1,0 +1,11 @@
+handoff_item,category,description,status,verified
+macro_event_news_expansion_prerequisites,prerequisite_gate,"Baseline cross-asset regime context contracts verified for macro, calendar, and news linkages",READY,True
+macro_release_regime_context_dependencies,macro_dependency,Publication lag and scheduled vs actual release timestamp contracts established,READY,True
+calendar_event_window_regime_context_dependencies,calendar_dependency,Pre-event and post-event window boundaries formalized without lookahead leakage,READY,True
+news_metadata_only_regime_context_dependencies,news_dependency,"Strict metadata-only boundary enforced: zero article text, zero scraping, zero NLP models",READY,True
+cross_asset_macro_sensitivity_dependencies,sensitivity_contract,"Rate, inflation, and growth regime sensitivity linkages established for FX and commodities",READY,True
+timestamp_alignment_and_no_lookahead_requirements,validation_guard,Strict verification that context timestamps do not exceed observation timestamps,READY,True
+validation_and_quality_dependency_requirements,quality_gate,Upstream Phase 119-130 quality and validation gates verified and satisfied,READY,True
+source_preservation_and_manifest_requirements,integrity_manifest,"Phase 131 integrity manifest certifying zero-signal, zero-execution, and source preservation",READY,True
+manual_review_blocker_audit_for_phase_132,review_audit,Manual review queue audited; zero unresolved blocking issues for Phase 132 expansion,READY,True
+phase_132_boundary_charter,safety_boundary,"Explicit charter: Phase 132 expands macro, event, and news regime context, NEVER trade signals",READY,True

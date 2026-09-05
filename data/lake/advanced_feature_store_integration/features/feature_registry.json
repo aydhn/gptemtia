@@ -1,0 +1,26 @@
+{
+  "total_features": 9,
+  "source_phases": [
+    117,
+    118,
+    119,
+    120,
+    121,
+    123
+  ],
+  "feature_families": [
+    "cross_asset_alignment",
+    "feature_quality_drift",
+    "feature_validation",
+    "macro_news_fusion",
+    "multi_window_grid",
+    "technical_momentum",
+    "technical_moving_average",
+    "technical_volatility"
+  ],
+  "non_signal": true,
+  "source_preserved": true,
+  "contains_target_or_prediction": false,
+  "contains_trading_recommendation": false,
+  "contains_full_article_text": false
+}

@@ -1,0 +1,11 @@
+{
+  "active_profile": "balanced_local_regime_rule_free_prep",
+  "total_profiles": 3,
+  "current_phase": 128,
+  "next_phase": 129,
+  "target_final_phase": 160,
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "all_clustering_disallowed": true,
+  "all_model_training_disallowed": true
+}

@@ -1,0 +1,8 @@
+{
+  "total_providers_evaluated": 9,
+  "mean_manual_review_efficiency_score": 0.7889,
+  "manual_review_required_count": 3,
+  "destructive_action_allowed": false,
+  "current_phase": 115,
+  "target_final_phase": 160
+}

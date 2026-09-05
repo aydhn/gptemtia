@@ -1,0 +1,19 @@
+# Phase 115: Provider Quality Benchmark Report
+> **UYARI VE SINIRLAR**:
+> Bu çıktı Phase 115 Data Provider Benchmark Report raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, benchmark score’u trade sinyali olarak kullanma, provider official approval, production-ready/broker-ready iddiası, production deployment, model deployment, scraping, haber tam metni toplama, telifli içerik kopyalama, external LLM/API çağrısı, gerçek provider API çağrısı zorunluluğu, source overwrite veya destructive cleaning değildir.
+
+- **Değerlendirilen Sağlayıcı Sayısı**: 9
+- **Ortalama Kalite Puanı**: 0.8656
+
+### Kalite Değerlendirme Tablosu
+| record_id | provider_name | provider_domain | metric_label | raw_score | weighted_score | status_label | evidence_ref | limitation_note | manual_review_required |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| pb_rec::advanced_fx_providers_engine::metric_quality | advanced_fx_providers_engine | provider_domain_fx | metric_quality | 0.94 | 0.141 | benchmark_pass | Phase 112 FX quality rules passed: zero stale quotes, valid spreads | Derived from Phase 112 quality findings; historical performance only | False |
+| pb_rec::advanced_commodity_providers_engine::metric_quality | advanced_commodity_providers_engine | provider_domain_commodity | metric_quality | 0.91 | 0.1365 | benchmark_pass | Phase 112 Commodity quality rules: zero negative prices, valid OHLC | Derived from Phase 112 quality findings; historical performance only | False |
+| pb_rec::advanced_macro_providers_engine::metric_quality | advanced_macro_providers_engine | provider_domain_macro | metric_quality | 0.89 | 0.1335 | benchmark_pass | Phase 112 Macro quality rules: frequency integrity and release timestamp consistency | Derived from Phase 112 quality findings; historical performance only | False |
+| pb_rec::advanced_economic_calendar_engine::metric_quality | advanced_economic_calendar_engine | provider_domain_calendar | metric_quality | 0.93 | 0.1395 | benchmark_pass | Phase 112 Calendar rules: consensus/actual numerical sanity | Derived from Phase 112 quality findings; historical performance only | False |
+| pb_rec::advanced_news_metadata_engine::metric_quality | advanced_news_metadata_engine | provider_domain_news_metadata | metric_quality | 0.87 | 0.1305 | benchmark_pass | Phase 112 News quality rules: title freshness and duplicate slug prevention | Derived from Phase 112 quality findings; historical performance only | False |
+| pb_rec::manual_file_provider_adapter::metric_quality | manual_file_provider_adapter | provider_domain_cross_domain | metric_quality | 0.7 | 0.105 | benchmark_manual_review_required | Phase 112 schema compliance warnings detected for unformatted headers | Derived from Phase 112 quality findings; historical performance only | True |
+| pb_rec::local_cache_provider_adapter::metric_quality | local_cache_provider_adapter | provider_domain_cross_domain | metric_quality | 0.88 | 0.132 | benchmark_pass | Phase 112 cache integrity verified with zero data corruption | Derived from Phase 112 quality findings; historical performance only | False |
+| pb_rec::official_api_provider_placeholder::metric_quality | official_api_provider_placeholder | provider_domain_cross_domain | metric_quality | 0.82 | 0.123 | benchmark_manual_review_required | Phase 112 mock responses conform to API payload schemas | Derived from Phase 112 quality findings; historical performance only | True |
+| pb_rec::licensed_vendor_provider_placeholder::metric_quality | licensed_vendor_provider_placeholder | provider_domain_cross_domain | metric_quality | 0.85 | 0.1275 | benchmark_manual_review_required | Phase 112 vendor contracts pass strict type validation | Derived from Phase 112 quality findings; historical performance only | True |

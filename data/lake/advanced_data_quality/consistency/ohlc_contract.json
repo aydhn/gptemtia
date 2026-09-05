@@ -1,0 +1,9 @@
+{
+  "rule_count": 3,
+  "rules": [
+    "ohlc_geometry_high_ge_low",
+    "ohlc_geometry_open_close_in_bounds",
+    "ohlc_non_negative_prices"
+  ],
+  "domain": "ohlc_consistency"
+}

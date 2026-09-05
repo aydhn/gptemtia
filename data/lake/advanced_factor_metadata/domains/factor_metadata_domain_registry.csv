@@ -1,0 +1,33 @@
+domain_label,domain_name,current_phase,target_final_phase,next_phase,non_signal,status_label,local_only,dry_run
+factor_metadata_profile_domain,Factor Metadata Profile Domain,122,160,123,True,factor_ready,True,True
+factor_metadata_domain,Factor Metadata Domain,122,160,123,True,factor_ready,True,True
+factor_family_domain,Factor Family Domain,122,160,123,True,factor_ready,True,True
+factor_contract_domain,Factor Contract Domain,122,160,123,True,factor_ready,True,True
+factor_input_feature_set_domain,Factor Input Feature Set Domain,122,160,123,True,factor_ready,True,True
+factor_namespace_domain,Factor Namespace Domain,122,160,123,True,factor_ready,True,True
+factor_output_schema_domain,Factor Output Schema Domain,122,160,123,True,factor_ready,True,True
+factor_dependency_domain,Factor Dependency Domain,122,160,123,True,factor_ready,True,True
+factor_validation_dependency_domain,Factor Validation Dependency Domain,122,160,123,True,factor_ready,True,True
+factor_quality_dependency_domain,Factor Quality Dependency Domain,122,160,123,True,factor_ready,True,True
+technical_factor_domain,Technical Factor Domain,122,160,123,True,factor_ready,True,True
+trend_factor_domain,Trend Factor Domain,122,160,123,True,factor_ready,True,True
+momentum_factor_domain,Momentum Factor Domain,122,160,123,True,factor_ready,True,True
+volatility_factor_domain,Volatility Factor Domain,122,160,123,True,factor_ready,True,True
+mean_reversion_factor_domain,Mean Reversion Factor Domain,122,160,123,True,factor_ready,True,True
+return_factor_domain,Return Factor Domain,122,160,123,True,factor_ready,True,True
+quote_microstructure_factor_domain,Quote Microstructure Factor Domain,122,160,123,True,factor_ready,True,True
+macro_context_factor_domain,Macro Context Factor Domain,122,160,123,True,factor_ready,True,True
+calendar_event_factor_domain,Calendar Event Factor Domain,122,160,123,True,factor_ready,True,True
+news_attention_factor_domain,News Attention Factor Domain,122,160,123,True,factor_ready,True,True
+cross_asset_context_factor_domain,Cross Asset Context Factor Domain,122,160,123,True,factor_ready,True,True
+regime_prep_factor_domain,Regime Prep Factor Domain,122,160,123,True,factor_ready,True,True
+composite_factor_domain,Composite Factor Domain,122,160,123,True,factor_ready,True,True
+factor_manifest_domain,Factor Manifest Domain,122,160,123,True,factor_ready,True,True
+factor_manual_review_domain,Factor Manual Review Domain,122,160,123,True,factor_ready,True,True
+factor_non_signal_domain,Factor Non Signal Domain,122,160,123,True,factor_ready,True,True
+factor_forbidden_claim_domain,Factor Forbidden Claim Domain,122,160,123,True,factor_ready,True,True
+factor_health_domain,Factor Health Domain,122,160,123,True,factor_ready,True,True
+factor_validation_domain,Factor Validation Domain,122,160,123,True,factor_ready,True,True
+factor_safety_domain,Factor Safety Domain,122,160,123,True,factor_ready,True,True
+phase_123_handoff_domain,Phase 123 Handoff Domain,122,160,123,True,factor_ready,True,True
+unknown_factor_domain,Unknown Factor Domain,122,160,123,True,factor_ready,True,True

@@ -1,0 +1,6 @@
+indicator_name,output_pattern,default_window,family,non_signal
+momentum,momentum_{window},10,family_momentum,True
+roc,roc_{window},10,family_momentum,True
+rsi,rsi_{window},14,family_momentum,True
+cmo,cmo_{window},14,family_momentum,True
+tsi,tsi_{long}_{short},25,family_momentum,True

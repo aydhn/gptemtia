@@ -1,0 +1,25 @@
+{
+  "total_factor_schemas": 8,
+  "factor_names": [
+    "trend_factor_placeholder",
+    "momentum_factor_placeholder",
+    "volatility_factor_placeholder",
+    "mean_reversion_factor_placeholder",
+    "macro_pressure_factor_placeholder",
+    "event_risk_factor_placeholder",
+    "news_attention_factor_placeholder",
+    "cross_asset_context_factor_placeholder"
+  ],
+  "factor_types": [
+    "trend_factor",
+    "momentum_factor",
+    "volatility_factor",
+    "mean_reversion_factor",
+    "macro_factor",
+    "event_factor",
+    "attention_factor",
+    "cross_asset_factor"
+  ],
+  "all_non_signal": true,
+  "non_signal": true
+}

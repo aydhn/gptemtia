@@ -1,0 +1,15 @@
+{
+  "total_transformation_audit_records": 6,
+  "transformation_rules": [
+    "fx_symbol_slashing",
+    "commodity_symbol_root_mapping",
+    "macro_indicator_slugification",
+    "calendar_event_name_normalization",
+    "news_topic_tag_normalization",
+    "timestamp_utc_iso8601_conversion"
+  ],
+  "all_source_preserved": true,
+  "zero_destructive_actions": true,
+  "current_phase": 114,
+  "target_final_phase": 160
+}

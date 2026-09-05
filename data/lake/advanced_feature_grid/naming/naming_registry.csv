@@ -1,0 +1,12 @@
+indicator_name,pattern,example,family
+sma,sma_w{window},sma_w20,moving_average
+ema,ema_w{window},ema_w50,moving_average
+wma,wma_w{window},wma_w20,moving_average
+rsi,rsi_w{window},rsi_w14,momentum
+roc,roc_w{window},roc_w10,momentum
+atr,atr_w{window},atr_w14,volatility
+bollinger,bb_{band}_w{window}_std{num_std},bb_width_w20_std2,range_channel
+donchian,donchian_{channel}_w{window},donchian_high_w20,range_channel
+rolling_zscore,zscore_w{window},zscore_w20,mean_reversion
+realized_volatility,realized_vol_w{window},realized_vol_w20,volatility
+simple_return,return_w{window},return_w5,return

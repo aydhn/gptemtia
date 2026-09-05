@@ -1,0 +1,7 @@
+source_state,target_state,transition_count,empirical_frequency,sample_size,non_signal
+volatility_compression,volatility_expansion,24,0.57,42,True
+volatility_compression,range_bound_consolidation,18,0.43,42,True
+volatility_expansion,volatility_compression,20,0.71,28,True
+volatility_expansion,trend_persistent_bullish,8,0.29,28,True
+range_bound_consolidation,volatility_compression,35,0.64,55,True
+range_bound_consolidation,trend_persistent_bearish,20,0.36,55,True

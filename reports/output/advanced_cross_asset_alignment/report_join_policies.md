@@ -1,0 +1,19 @@
+# Phase 119: Feature Matrix Contracts Report
+
+> Bu çıktı Phase 119 Cross-Asset Feature Alignment ve Multi-Domain Feature Matrix Contracts raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, cross-asset hizalanmış feature'ları trade sinyali veya çoklu varlık arbitraj/al-sat kuralı olarak kullanma, strateji üretimi, backtest, optimizer, target/label/prediction üretimi, production deployment, model deployment, scraping, gerçek provider API çağrısı veya official approval sağlamaz.
+
+## Matris Sözleşmeleri Özeti
+- **Toplam Sözleşme**: 0
+- **Geriye Dönük (Backward-only) Asof İlkesi**: `Zorunlu`
+- **Lookahead Koruması**: `Aktif`
+- **Durum**: `READY`
+
+## Sözleşme Detayları
+
+| policy_id                         | policy_name                   | join_policy_label                    | left_timestamp_field | right_timestamp_field | tolerance_note                                                                           | backward_only | future_data_allowed | non_signal | manual_review_required | direction |
+| --------------------------------- | ----------------------------- | ------------------------------------ | -------------------- | --------------------- | ---------------------------------------------------------------------------------------- | ------------- | ------------------- | ---------- | ---------------------- | --------- |
+| ajp_exact_timestamp_join          | exact_timestamp_join          | join_policy_exact_timestamp          | normalized_timestamp | normalized_timestamp  | Aynı zaman damgasına sahip barlar için tam eşleşme (left join).                          | True          | False               | True       | False                  | exact     |
+| ajp_asof_backward_join            | asof_backward_join            | join_policy_asof_backward            | normalized_timestamp | normalized_timestamp  | Sağ taraf zaman damgası <= sol taraf zaman damgası olan en son geçerli değer.            | True          | False               | True       | False                  | backward  |
+| ajp_session_bucket_join           | session_bucket_join           | join_policy_session_bucket           | normalized_timestamp | normalized_timestamp  | Aynı takvim günü veya seans kovası içinde birleşim.                                      | True          | False               | True       | False                  | bucket    |
+| ajp_event_window_placeholder_join | event_window_placeholder_join | join_policy_event_window_placeholder | normalized_timestamp | normalized_timestamp  | Ekonomik takvim olay penceresi (yalnızca gerçekleşme anından önceki/tam andaki veriler). | True          | False               | True       | False                  | bucket    |
+| ajp_metadata_tag_link_join        | metadata_tag_link_join        | join_policy_metadata_tag_link        | normalized_timestamp | normalized_timestamp  | Haber metadata konu etiketleri üzerinden sembolik ve zamansal bağlantı (metadata-only).  | True          | False               | True       | False                  | link      |

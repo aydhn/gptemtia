@@ -1,0 +1,14 @@
+component_name,category,description,status,is_active,current_phase,target_final_phase,next_phase,non_signal
+phase_128_regime_rule_free_available,prerequisite,Availability of advanced_regime_rule_free package and candidate state contracts.,HEALTHY,True,129,160,130,True
+phase_127_regime_matrix_available,prerequisite,Availability of advanced_regime_matrix package and feature matrix contracts.,HEALTHY,True,129,160,130,True
+phase_126_regime_foundation_available,prerequisite,Availability of advanced_regime_foundation package and market behavior taxonomy.,HEALTHY,True,129,160,130,True
+phase_125_feature_factor_acceptance_available,prerequisite,Availability of advanced_feature_factor_acceptance package and block gates.,HEALTHY,True,129,160,130,True
+phase_124_feature_store_integration_available,prerequisite,Availability of advanced_feature_store_integration package and metadata registries.,HEALTHY,True,129,160,130,True
+phase_123_feature_quality_drift_available,prerequisite,Availability of advanced_feature_quality_drift package and metric thresholds.,HEALTHY,True,129,160,130,True
+phase_121_feature_validation_available,prerequisite,Availability of advanced_feature_validation package and no-lookahead guards.,HEALTHY,True,129,160,130,True
+advanced_market_behavior_diagnostics_available,current_package,Availability of advanced_market_behavior_diagnostics core package.,HEALTHY,True,129,160,130,True
+data_lake_available,storage,DataLake storage adapter available and operational.,HEALTHY,True,129,160,130,True
+feature_store_available,storage,FeatureStore diagnostics adapter available and operational.,HEALTHY,True,129,160,130,True
+scripts_present,operations,CLI operational scripts present in scripts directory.,HEALTHY,True,129,160,130,True
+tests_present,quality_assurance,Automated unit and contract test suites present in tests directory.,HEALTHY,True,129,160,130,True
+docs_present,documentation,"Architecture, operational manuals, and governance documentation present.",HEALTHY,True,129,160,130,True

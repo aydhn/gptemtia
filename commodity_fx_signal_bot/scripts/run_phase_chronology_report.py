@@ -24,7 +24,7 @@ def main():
 
     try:
         settings = Settings()
-        data_lake = DataLake(settings)
+        data_lake = DataLake('data/lake')
         profile = get_local_timeline_profile(args.profile)
 
         logger.info(f"Initializing LocalTimelinePipeline with profile: {profile.name}")

@@ -1,0 +1,5 @@
+Bu rapor Phase 124 Feature Store Integration Expansion çıktısıdır. Gerçek veri indirme zorunluluğu, scraping, haber tam metni kullanımı, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, feature store kaydını trade sinyali olarak kullanma, strateji/backtest/optimizer/model training çalıştırma, target/label/prediction üretme, otomatik feature silme/düzeltme, official approval, broker-ready veya production-ready iddiası değildir.
+Total Policies: 3
+Non-Signal Enforced: True
+Source Preservation Enforced: True
+Destructive Action Allowed: False

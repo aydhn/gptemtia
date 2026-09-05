@@ -1,0 +1,6 @@
+UYARI: Bu rapor Phase 125 Feature/Factor Engine Acceptance Report çıktısıdır. Gerçek veri indirme zorunluluğu, scraping, haber tam metni kullanımı, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, acceptance score’u trade sinyali olarak kullanma, strateji/backtest/optimizer/model training çalıştırma, target/label/prediction üretme, official approval, broker-ready veya production-ready iddiası değildir.
+Compliance Scope: non_signal
+Total Audited: 10
+Compliant Modules: 10
+Non-Signal Invariant: True
+Destructive Action Permitted: False

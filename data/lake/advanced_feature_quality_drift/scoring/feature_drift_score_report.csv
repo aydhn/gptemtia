@@ -1,0 +1,6 @@
+dimension,score,weight,status
+overall_stability,0.9841,1.0,diagnostic_pass
+mean_stability,1.0,0.3,diagnostic_pass
+std_stability,1.0,0.3,diagnostic_pass
+quantile_stability,1.0,0.2,diagnostic_pass
+rolling_stability,0.92046,0.2,diagnostic_pass

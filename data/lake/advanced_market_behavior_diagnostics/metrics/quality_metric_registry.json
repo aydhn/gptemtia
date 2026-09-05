@@ -1,0 +1,17 @@
+{
+  "total_metrics": 10,
+  "blocking_metrics_count": 5,
+  "all_non_signal": true,
+  "metric_names": [
+    "candidate_state_coverage_ratio",
+    "candidate_state_missingness_ratio",
+    "candidate_state_consistency_score",
+    "candidate_state_ambiguity_score",
+    "candidate_state_stability_score",
+    "pseudo_state_schema_completeness",
+    "regime_family_coverage_ratio",
+    "regime_family_consistency_score",
+    "behavior_context_availability",
+    "manual_review_blocker_count"
+  ]
+}

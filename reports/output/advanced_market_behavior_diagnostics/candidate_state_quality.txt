@@ -1,0 +1,7 @@
+Bu rapor Phase 129 Market Behavior Diagnostics and Regime Quality çıktısıdır. Gerçek veri indirme zorunluluğu, scraping, haber tam metni kullanımı, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, candidate state / rejim kalitesini trade sinyali olarak kullanma, clustering/model fitting/predicting çalıştırma, target/label üretme, otomatik feature silme/düzeltme, official approval, broker-ready veya production-ready iddiası değildir.
+Candidate States Analyzed: 10
+Mean Quality Score: 1.0000
+Coverage Ratio: 1.0000
+Consistency Score: 1.0000
+Ambiguity Rate: 0.1200
+Non-Signal Mandate: True

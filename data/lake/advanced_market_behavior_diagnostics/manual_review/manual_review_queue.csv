@@ -1,0 +1,4 @@
+item_id,domain,target_entity,severity,reason,suggested_action,blocking_for_phase_130,review_id,destructive_action_allowed,non_signal,current_phase,target_final_phase,next_phase
+review_p129_001,candidate_state_ambiguity_domain,candidate_state_range_breakout_transition,behavior_low,Verify boundary separation between range breakout and trend continuation states.,inspect candidate state ambiguity,False,review_p129_001,False,True,129,160,130
+review_p129_002,news_metadata_behavior_domain,news_metadata_context,behavior_info,Confirm metadata-only news ingestion boundaries remain intact across all providers.,inspect news metadata-only boundary,False,review_p129_002,False,True,129,160,130
+review_p129_003,transition_readiness_domain,phase_130_transition_handoff,behavior_info,Confirm readiness for Phase 130 Regime Transition and Stability Analysis initialization.,inspect transition readiness,False,review_p129_003,False,True,129,160,130

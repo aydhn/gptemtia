@@ -1,0 +1,9 @@
+{
+  "total_metadata_entries": 10,
+  "total_families": 6,
+  "all_non_signal": true,
+  "all_lookahead_checked": true,
+  "all_phase_119_ready": true,
+  "status": "READY",
+  "profile": "balanced_local_multi_window_feature_grid"
+}

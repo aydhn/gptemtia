@@ -1,0 +1,19 @@
+# Phase 115: Provider Capability Benchmark Report
+> **UYARI VE SINIRLAR**:
+> Bu çıktı Phase 115 Data Provider Benchmark Report raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, benchmark score’u trade sinyali olarak kullanma, provider official approval, production-ready/broker-ready iddiası, production deployment, model deployment, scraping, haber tam metni toplama, telifli içerik kopyalama, external LLM/API çağrısı, gerçek provider API çağrısı zorunluluğu, source overwrite veya destructive cleaning değildir.
+
+- **Değerlendirilen Sağlayıcı Sayısı**: 9
+- **Ortalama Yetenek Puanı**: 0.8233
+
+### Yetenek Değerlendirme Tablosu
+| record_id | provider_name | provider_domain | metric_label | raw_score | weighted_score | status_label | evidence_ref | limitation_note | manual_review_required |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| pb_rec::advanced_fx_providers_engine::metric_capability | advanced_fx_providers_engine | provider_domain_fx | metric_capability | 0.9 | 0.135 | benchmark_pass | OHLCV, Bid/Ask Quotes, Timestamps, Tick precision support | Technical schema capability verified; execution latency not benchmarked | False |
+| pb_rec::advanced_commodity_providers_engine::metric_capability | advanced_commodity_providers_engine | provider_domain_commodity | metric_capability | 0.85 | 0.1275 | benchmark_pass | Spot prices, futures metadata, contract roll dates | Technical schema capability verified; execution latency not benchmarked | False |
+| pb_rec::advanced_macro_providers_engine::metric_capability | advanced_macro_providers_engine | provider_domain_macro | metric_capability | 0.82 | 0.123 | benchmark_pass | Historical series, release frequency, revision markers | Technical schema capability verified; execution latency not benchmarked | False |
+| pb_rec::advanced_economic_calendar_engine::metric_capability | advanced_economic_calendar_engine | provider_domain_calendar | metric_capability | 0.88 | 0.132 | benchmark_pass | Scheduled vs actual timestamps, consensus figures, revision records | Technical schema capability verified; execution latency not benchmarked | False |
+| pb_rec::advanced_news_metadata_engine::metric_capability | advanced_news_metadata_engine | provider_domain_news_metadata | metric_capability | 0.8 | 0.12 | benchmark_pass | Topic taxonomies, asset tagging, headline metadata, event linkage | Technical schema capability verified; execution latency not benchmarked | False |
+| pb_rec::manual_file_provider_adapter::metric_capability | manual_file_provider_adapter | provider_domain_cross_domain | metric_capability | 0.65 | 0.0975 | benchmark_manual_review_required | CSV/JSON local file ingestion with schema validation | Technical schema capability verified; execution latency not benchmarked | True |
+| pb_rec::local_cache_provider_adapter::metric_capability | local_cache_provider_adapter | provider_domain_cross_domain | metric_capability | 0.78 | 0.117 | benchmark_pass | Fast local key-value store and snapshot reading | Technical schema capability verified; execution latency not benchmarked | False |
+| pb_rec::official_api_provider_placeholder::metric_capability | official_api_provider_placeholder | provider_domain_cross_domain | metric_capability | 0.85 | 0.1275 | benchmark_manual_review_required | REST endpoint emulation with request/response schema validation | Technical schema capability verified; execution latency not benchmarked | True |
+| pb_rec::licensed_vendor_provider_placeholder::metric_capability | licensed_vendor_provider_placeholder | provider_domain_cross_domain | metric_capability | 0.88 | 0.132 | benchmark_manual_review_required | High-throughput tick/quote specification adherence | Technical schema capability verified; execution latency not benchmarked | True |

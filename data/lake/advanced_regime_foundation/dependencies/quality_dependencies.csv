@@ -1,0 +1,8 @@
+quality_id,quality_metric,threshold_condition,scope,description,source_phase,non_signal,blocking
+qual_dep_01_missingness,missingness_score,missingness_ratio <= 0.05,All regime input features,Requires maximum allowable missing data ratio under 5% across feature lookback window,123,True,True
+qual_dep_02_drift,drift_score,drift_magnitude <= 0.25,All regime input features and factors,Requires population stability index (PSI) / Kolmogorov-Smirnov drift score below alert threshold,123,True,True
+qual_dep_03_staleness,staleness_diagnostics,max_stale_bars <= 3,High-frequency and quote features,Flags features repeating identical values across multiple consecutive time periods,123,True,True
+qual_dep_04_availability,factor_availability,factor_availability_ratio == 1.0,Registered factor families in Phase 122,All referenced factor columns must be fully calculated and present in the input feature store,122,True,True
+qual_dep_05_manual_review,manual_review_blockers,active_blocking_reviews == 0,Feature Store manual review blocker registry,No unresolved blocking manual review items may exist for input features before regime usage,124,True,True
+qual_dep_06_namespace_quality,namespace_quality,conforms_to_canonical_snake_case == True,Feature and regime naming,Enforces strict canonical naming schema without unapproved abbreviations or forbidden keywords,124,True,True
+qual_dep_07_data_availability,data_availability,feed_status == ACTIVE,Data Lake underlying raw partitions,Ensures raw source partitions are verified and intact without source file corruption,115,True,True

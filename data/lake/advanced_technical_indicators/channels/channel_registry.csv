@@ -1,0 +1,6 @@
+indicator_name,output_pattern,default_window,family,non_signal
+bollinger_bands,"bb_upper, bb_mid, bb_lower",20,family_channel,True
+bollinger_bandwidth,bb_bandwidth_{window},20,family_channel,True
+bollinger_percent_b,bb_percent_b_{window},20,family_channel,True
+keltner_channel,"keltner_upper, keltner_mid, keltner_lower",20,family_channel,True
+donchian_position,donchian_position_{window},20,family_channel,True

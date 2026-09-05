@@ -1,0 +1,15 @@
+{
+  "total_linkages": 4,
+  "linkage_categories": {
+    "cross_asset_volatility_level_context": 1,
+    "cross_asset_volatility_expansion_context": 1,
+    "cross_asset_volatility_compression_context": 1,
+    "volatility_regime_alignment_placeholder": 1
+  },
+  "mean_linkage_score": 0.85,
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "zero_trading_signals": true,
+  "zero_predictions": true,
+  "active_profile": "balanced_local_cross_asset_regime_context"
+}

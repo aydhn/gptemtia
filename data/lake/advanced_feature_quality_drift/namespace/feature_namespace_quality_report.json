@@ -1,0 +1,14 @@
+{
+  "total_features_checked": 6,
+  "forbidden_name_count": 0,
+  "namespace_collision_count": 0,
+  "non_standard_prefix_count": 0,
+  "status": "diagnostic_pass",
+  "manual_review_required": false,
+  "active_profile": "balanced_local_feature_quality_drift",
+  "current_phase": 123,
+  "target_final_phase": 160,
+  "next_phase": 124,
+  "non_signal": true,
+  "destructive_action_allowed": false
+}

@@ -1,0 +1,16 @@
+{
+  "total_mappings": 15,
+  "unique_normalized_indicators": [
+    "US_10Y_YIELD",
+    "FED_POLICY_RATE",
+    "US_CPI_YOY",
+    "TR_CPI_YOY",
+    "DXY_PLACEHOLDER",
+    "CBRT_POLICY_RATE",
+    "ECB_DEPOSIT_RATE",
+    "US_UNEMPLOYMENT_RATE",
+    "US_GDP_QOQ"
+  ],
+  "current_phase": 113,
+  "target_final_phase": 160
+}

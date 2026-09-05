@@ -1,0 +1,6 @@
+policy_id,action,rule,allowed
+SPP_001,overwrite_source,Kaynağın üzerine yazma kesinlikle yasaktır; her zaman yeni snapshot veya sürüm eklenir.,False
+SPP_002,delete_source,Kaynak veriyi veya kolonları silmek kesinlikle yasaktır; sorunlu kayıtlar inceleme kuyruğuna alınır.,False
+SPP_003,destructive_clean,Yıkıcı temizlik yapılamaz; veri orijinal formatında korunmalıdır.,False
+SPP_004,auto_impute_overwrite,Otomatik doldurma (imputation) ile kaynak değerlerin mutasyonu yasaktır.,False
+SPP_005,auto_drop_feature,Düşük kaliteli veya boş feature'ların otomatik düşürülmesi yasaktır.,False

@@ -1,0 +1,15 @@
+{
+  "total_namespaced_features": 8,
+  "total_features": 8,
+  "all_valid": true,
+  "domains": [
+    "fx",
+    "commodity",
+    "macro",
+    "calendar",
+    "news"
+  ],
+  "non_signal": true,
+  "status": "READY",
+  "profile": "balanced_local_cross_asset_alignment"
+}

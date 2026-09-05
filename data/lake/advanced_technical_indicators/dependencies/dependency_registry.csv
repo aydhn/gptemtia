@@ -1,0 +1,12 @@
+target_indicator,dependencies,dependency_count,formula_reference,status
+atr,true_range,1,rolling mean of true_range,VALIDATED
+bollinger_bandwidth,bollinger_bands,1,(upper - lower) / mid,VALIDATED
+bollinger_percent_b,bollinger_bands,1,(close - lower) / (upper - lower),VALIDATED
+macd,"ema_fast, ema_slow",2,ema(12) - ema(26),VALIDATED
+ppo,"ema_fast, ema_slow",2,(ema(12) - ema(26)) / ema(26),VALIDATED
+dema,"ema_1, ema_2",2,2*ema1 - ema2,VALIDATED
+tema,"ema_1, ema_2, ema_3",3,3*ema1 - 3*ema2 + ema3,VALIDATED
+stochastic,"rolling_high, rolling_low",2,(close - lowest) / (highest - lowest),VALIDATED
+donchian_position,"donchian_upper, donchian_lower",2,(close - lower) / (upper - lower),VALIDATED
+quote_spread_pct,"quote_mid, quote_spread",2,spread / mid,VALIDATED
+return_volatility_ratio,"simple_return, rolling_std",2,mean_return / std_return,VALIDATED

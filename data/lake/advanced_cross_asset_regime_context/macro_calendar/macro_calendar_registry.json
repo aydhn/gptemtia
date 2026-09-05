@@ -1,0 +1,15 @@
+{
+  "total_records": 4,
+  "context_categories": {
+    "macro_release_calendar_context": 1,
+    "macro_event_window_cross_asset_context": 1,
+    "scheduled_actual_release_alignment_context": 1,
+    "release_lag_cross_asset_context": 1
+  },
+  "mean_readiness_score": 0.9175000000000001,
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "zero_trading_signals": true,
+  "zero_predictions": true,
+  "active_profile": "balanced_local_cross_asset_regime_context"
+}

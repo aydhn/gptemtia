@@ -1,0 +1,6 @@
+method_name,return_type,description
+metadata,NewsProviderMetadata,Returns descriptive provider catalog metadata without credentials.
+capabilities,list[NewsProviderCapability],"Returns supported data types, topics, regions, and compliance flags."
+validate_request,dict,Validates request parameters against no-scraping and metadata-only boundaries.
+fetch_news_metadata,NewsProviderResponse,Retrieves news metadata or returns synthetic/cached records offline.
+health_check,dict,Evaluates local adapter operational readiness.

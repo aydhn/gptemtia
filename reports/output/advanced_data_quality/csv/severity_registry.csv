@@ -1,0 +1,6 @@
+severity_label,severity_level,name,description,score_penalty,requires_immediate_action,blocks_pipeline
+quality_critical,5,Critical,"Güvenlik, telif hakkı, credential sızıntısı, destructive action teşebbüsü veya kritik şema kırılması.",0.4,True,True
+quality_high,4,High,"Eksik birincil kritik alan, timestamp bozulması, ters spread, bid>ask veya provider metadata sorunu.",0.2,True,False
+quality_medium,3,Medium,"Stale veri, mükerrer kayıt, frekans/birim uyumsuzluğu veya outlier placeholder uyarısı.",0.1,False,False
+quality_low,2,Low,"Opsiyonel metadata eksikliği, eksik hacim/open interest veya ikincil alan uyarıları.",0.03,False,False
+quality_info,1,Info,"Bilgilendirme notu, kanonik format tavsiyesi veya manuel inceleme notu.",0.0,False,False

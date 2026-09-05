@@ -1,0 +1,7 @@
+{
+  "total_grid_features": 18,
+  "total_indicators": 4,
+  "non_signal": true,
+  "status": "READY",
+  "profile": "balanced_local_multi_window_feature_grid"
+}

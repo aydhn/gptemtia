@@ -1,0 +1,7 @@
+partition_strategy,partition_key,description,sample_partitions,non_signal,source_preserved
+by_source_phase,source_phase,"Özellikleri ve faktörleri kaynak faz numarasına göre bölümler (ör. phase_117, phase_118).","phase_116,phase_117,phase_118,phase_119,phase_120,phase_121,phase_122,phase_123",True,True
+by_entity_type,entity_type,"Varlık tipine göre bölümler (fx_pair, commodity_symbol, macro_indicator).","entity_fx_pair,entity_commodity_symbol,entity_macro_indicator",True,True
+by_feature_family,feature_family,"Özellik ailesine göre bölümler (moving_average, momentum, volatility).","technical,trend,momentum,volatility,mean_reversion",True,True
+by_date_bucket_placeholder,year_month,Tarih kovası yer tutucusu (YYYY-MM) temelinde bölümler.,"2026_01,2026_02,2026_03",True,True
+by_validation_status,validation_status,"Validasyon sonucuna göre bölümler (validation_pass, validation_manual_review).","validation_pass,validation_pass_with_warnings,validation_manual_review_required",True,True
+by_manual_review_required,manual_review_required,Manuel inceleme gerektiren ve gerektirmeyen kayıtları bölümler.,"review_required_true,review_required_false",True,True

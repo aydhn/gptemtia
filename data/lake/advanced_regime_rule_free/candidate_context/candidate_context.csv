@@ -1,0 +1,9 @@
+context_id,family,description,is_signal,non_signal,current_phase,next_phase,target_final_phase
+volatility_candidate_context,volatility,Contextual research annotation reflecting high/normal/compressed dispersion conditions.,False,True,128,129,160
+trend_candidate_context,trend,Contextual research annotation reflecting directional persistence or exhaustion without trade bias.,False,True,128,129,160
+range_candidate_context,range,Contextual research annotation reflecting mean reversion and boundary oscillation.,False,True,128,129,160
+macro_event_candidate_context,macro_event,Contextual research annotation tracking scheduled economic releases and central bank shocks.,False,True,128,129,160
+news_attention_candidate_context,news_attention,Contextual research annotation tracking headline metadata volume and attention spikes.,False,True,128,129,160
+cross_asset_candidate_context,cross_asset,"Contextual research annotation evaluating co-movement, decoupling, and flight-to-safety dynamics.",False,True,128,129,160
+transition_candidate_context,transition,Contextual research annotation evaluating market behavior shifts between baseline states.,False,True,128,129,160
+uncertainty_candidate_context,uncertain,"Contextual research annotation capturing degraded data, elevated drift, or high noise regimes.",False,True,128,129,160

@@ -1,0 +1,4 @@
+manifest_id,matrix_or_factor_name,source_phase_refs,feature_count,factor_family_count,missingness_warning_count,infinite_value_count,all_nan_count,zero_variance_count,duplicate_warning_count,drift_warning_count,manual_review_count,non_signal,official_approval,production_ready,source_preserved,auto_fix_allowed,auto_drop_allowed
+manifest_fx_technical_grid,fx_technical_multi_window_grid,"116,117,118,119,120,121,122",24,10,0,0,0,0,0,0,0,True,False,False,True,False,False
+manifest_commodity_cross_asset_fusion,commodity_macro_news_aligned_matrix,"116,117,118,119,120,121,122",32,10,0,0,0,0,0,0,0,True,False,False,True,False,False
+manifest_comprehensive_factor_pool,comprehensive_10_family_factor_pool,"116,117,118,119,120,121,122",56,10,0,0,0,0,0,0,0,True,False,False,True,False,False

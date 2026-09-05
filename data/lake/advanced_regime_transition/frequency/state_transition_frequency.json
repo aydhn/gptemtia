@@ -1,0 +1,8 @@
+{
+  "total_transition_pairs": 6,
+  "total_transitions_observed": 125,
+  "all_non_signal": true,
+  "contains_prediction": false,
+  "contains_trading_signal": false,
+  "active_profile": "balanced_local_regime_transition"
+}

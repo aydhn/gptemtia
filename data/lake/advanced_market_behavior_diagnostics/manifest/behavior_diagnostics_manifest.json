@@ -1,0 +1,12 @@
+{
+  "manifest_name": "market_behavior_diagnostics_manifest",
+  "is_valid": true,
+  "overall_quality_score": 0.96,
+  "non_signal": true,
+  "source_preserved": true,
+  "zero_execution_guaranteed": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false,
+  "active_profile": "balanced_local_market_behavior_diagnostics"
+}

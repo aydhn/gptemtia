@@ -1,0 +1,9 @@
+{
+  "total_contracts": 8,
+  "all_non_signal": true,
+  "all_target_forbidden": true,
+  "all_prediction_forbidden": true,
+  "all_clustering_forbidden": true,
+  "all_training_forbidden": true,
+  "contracts_status": "VALID"
+}

@@ -1,0 +1,2 @@
+rule_name,rule_domain,severity_label,description
+numeric_outlier_placeholder,outlier_placeholder,quality_medium,Sayısal alanlarda aşırı uç değer placeholder kontrolü (tahribatsız).

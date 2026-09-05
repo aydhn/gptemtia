@@ -1,0 +1,9 @@
+{
+  "total_conditions": 46,
+  "no_go_count": 31,
+  "safe_go_count": 15,
+  "all_no_go_enforced": true,
+  "all_safe_go_enabled": true,
+  "safety_status": "SECURE",
+  "profile": "balanced_local_cross_asset_alignment"
+}

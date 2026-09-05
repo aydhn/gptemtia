@@ -1,0 +1,5 @@
+contract_name,fusion_family,source_domains,required_fields,optional_fields,timestamp_field,join_policy
+release_actual_forecast_previous_context_contract,fusion_family_release_event,"['economic_calendar', 'macro_providers']","['event_id', 'actual', 'forecast', 'previous']","['unit', 'scale']",actual_release_time,fusion_join_policy_release_time_only
+release_surprise_placeholder_contract,fusion_family_release_event,['economic_calendar'],"['event_id', 'surprise_raw', 'surprise_direction_neutral']",['surprise_std_placeholder'],actual_release_time,fusion_join_policy_release_time_only
+revised_previous_context_contract,fusion_family_release_event,['economic_calendar'],"['event_id', 'revised_previous', 'is_previous_revised']",['revision_delta'],actual_release_time,fusion_join_policy_release_time_only
+release_delay_context_contract,fusion_family_release_event,['economic_calendar'],"['event_id', 'scheduled_time', 'actual_release_time', 'delay_minutes']",['delay_category'],actual_release_time,fusion_join_policy_release_time_only

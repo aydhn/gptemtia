@@ -1,0 +1,9 @@
+Bu rapor Phase 124 Feature Store Integration Expansion çıktısıdır. Gerçek veri indirme zorunluluğu, scraping, haber tam metni kullanımı, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, feature store kaydını trade sinyali olarak kullanma, strateji/backtest/optimizer/model training çalıştırma, target/label/prediction üretme, otomatik feature silme/düzeltme, official approval, broker-ready veya production-ready iddiası değildir.
+Store Name: central_feature_store_v124
+Total Features: 9
+Total Factors: 6
+Total Entities: 7
+Official Approval: False
+Production Ready: False
+Broker Ready: False
+Non-Signal Invariant: True

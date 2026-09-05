@@ -1,0 +1,3 @@
+Total Health Checks: 42
+Passed: 42
+Overall Status: PASS

@@ -1,0 +1,22 @@
+{
+  "total_contracts": 6,
+  "matrix_names": [
+    "fx_base_cross_asset_matrix_contract",
+    "commodity_base_cross_asset_matrix_contract",
+    "macro_context_matrix_contract",
+    "calendar_event_context_matrix_contract",
+    "news_metadata_context_matrix_contract",
+    "cross_domain_research_matrix_contract"
+  ],
+  "base_domains": [
+    "fx",
+    "commodity",
+    "macro",
+    "calendar",
+    "news"
+  ],
+  "all_non_signal": true,
+  "all_backward_only": true,
+  "status": "READY",
+  "profile": "balanced_local_cross_asset_alignment"
+}

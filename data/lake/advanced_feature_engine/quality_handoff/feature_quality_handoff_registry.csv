@@ -1,0 +1,9 @@
+handoff_area,source_phase,target_phase,description,enforcement_status
+Missing Feature Value Handling,Phase 112 Data Quality,Phase 117 Technical Indicator Expansion,Isınma periyodundaki eksik değerler maskelenir; veri uydurma veya sentetik dolgu yapılmaz.,ACTIVE
+Stale Input Feature Masking,Phase 112 Data Quality,Phase 116/117 Feature Engine,Bayat veri bayrağı taşıyan seriler feature hesaplamasında filtrelenir veya uyarılır.,ACTIVE
+Duplicate Key Feature Isolation,Phase 113 Normalization,Phase 116 Feature Engine,Kanonik tekil anahtarlar kullanılarak mükerrer kayıtların zaman serisi hesabını bozması engellenir.,ACTIVE
+Normalization Layer Dependency,Phase 113 Normalization,Phase 116 Feature Engine,"Semboller, saat dilimleri (UTC) ve birimler normalize edilmiş girdi kontratlarına dayanır.",ACTIVE
+Lineage Audit Dependency,Phase 114 Lineage,Phase 116 Feature Engine,Ham veriden türetilen her feature kolonunun girdi kaynağı ve dönüşüm adımı izlenebilir.,ACTIVE
+Rolling Warmup NaN Policy,Phase 116 Feature Engine,Phase 117/118 Feature Packs,Window - 1 kadar ilk satır için NaN korunur; erken sinyal veya sahte dolgu üretilmez.,ACTIVE
+Feature Outlier Clipping Placeholder,Phase 116 Feature Engine,Phase 118 Volatility Feature Pack,Aşırı aykırı değerlerin z-score ve IQR bazlı kırpılması placeholder'ı.,PLANNED
+Feature Drift Diagnostics Placeholder,Phase 116 Feature Engine,Phase 123 Feature Drift Diagnostics,Zaman içindeki feature dağılım kaymalarını izleme placeholder'ı.,PLANNED

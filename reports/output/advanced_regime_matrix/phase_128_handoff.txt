@@ -1,0 +1,8 @@
+UYARI: Bu rapor Phase 127 Regime Feature Matrix and State Dataset Contracts ciktisidir. Gercek veri indirme zorunlulugu, scraping, haber tam metni kullanimi, broker talimati, canli emir, kesin AL/SAT, yatirim tavsiyesi, regime state degerini trade sinyali olarak kullanma, strateji/backtest/optimizer/model training/clustering calistirma, target/label/prediction uretme, lookahead/forward-shift kullanma, kaynak mutasyonu yapma, official approval, broker-ready veya production-ready iddiasi degildir.
+Phase 128 Unsupervised Regime Discovery Handoff Status: READY
+Source Phase: 127
+Next Phase: 128
+Target Final Phase: 160
+Total Handoff Items: 12
+Ready Items: 12
+Non-Signal Invariant: True

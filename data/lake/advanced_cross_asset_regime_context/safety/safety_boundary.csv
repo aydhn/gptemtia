@@ -1,0 +1,19 @@
+rule_id,rule_name,category,status
+nogo_live_trading,No Live Trading,execution,ENFORCED
+nogo_broker_integration,No Broker Integration,connectivity,ENFORCED
+nogo_real_orders,No Real Orders,execution,ENFORCED
+nogo_investment_advice,No Investment Advice,compliance,ENFORCED
+nogo_context_as_signal,No Cross-Asset Context as Signal,analytics,ENFORCED
+nogo_correlation_as_signal,No Correlation as Signal,analytics,ENFORCED
+nogo_divergence_as_signal,No Divergence as Signal,analytics,ENFORCED
+nogo_directional_claims,No Directional Claims,claims,ENFORCED
+nogo_strategy_backtest,No Strategy / Backtest / Optimizer,modeling,ENFORCED
+nogo_model_training,No Model Training,ml_execution,ENFORCED
+nogo_model_fit_predict,No Model Fit / Inference,ml_execution,ENFORCED
+nogo_clustering_execution,No Clustering / Unsupervised Fit,ml_execution,ENFORCED
+nogo_target_label_prediction,No Target / Label / Prediction,data_engineering,ENFORCED
+nogo_commercial_claims,No Official Approval / Production Ready Claims,claims,ENFORCED
+nogo_source_overwrite,No Source Overwrite / Destructive Actions,governance,ENFORCED
+nogo_auto_imputation_drop,No Auto-Imputation / Auto-Feature-Drop,data_engineering,ENFORCED
+nogo_full_article_scraping,No Full Article Text / Scraping / NLP Sentiment,compliance,ENFORCED
+nogo_credential_deployment,No Credential Output / Cloud Deployment,security,ENFORCED

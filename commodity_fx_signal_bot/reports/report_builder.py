@@ -4780,6 +4780,32 @@ def build_governance_status_report(status_df: pd.DataFrame, summary: dict) -> st
             report += f"{k}: {v}\n"
         return report
 
+
+    # Local Long-Term Operations
+    def build_longterm_domain_registry_text_report(self, summary: dict, domain_df=None) -> str:
+        return f"Long-Term Domain Registry\n{summary}\n\nBu çıktı offline/local long-term operations rehearsal ve lifecycle roadmap governance raporudur. Gerçek production operations plan, official lifecycle policy, release commitment, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+        
+    def build_operations_binder_text_report(self, summary: dict, binder_text: str = None) -> str:
+        return f"Operations Binder\n{binder_text or summary}\n\nBu çıktı offline/local long-term operations rehearsal ve lifecycle roadmap governance raporudur. Gerçek production operations plan, official lifecycle policy, release commitment, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+        
+    def build_review_calendar_text_report(self, summary: dict, calendar_df=None) -> str:
+        return f"Review Calendar\n{summary}\n\nBu çıktı offline/local long-term operations rehearsal ve lifecycle roadmap governance raporudur. Gerçek production operations plan, official lifecycle policy, release commitment, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+        
+    def build_lifecycle_workbook_text_report(self, summary: dict, workbook_df=None) -> str:
+        return f"Lifecycle Workbook\n{summary}\n\nBu çıktı offline/local long-term operations rehearsal ve lifecycle roadmap governance raporudur. Gerçek production operations plan, official lifecycle policy, release commitment, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+        
+    def build_deprecation_rehearsal_text_report(self, summary: dict, deprecation_df=None) -> str:
+        return f"Deprecation Rehearsal\n{summary}\n\nBu çıktı offline/local long-term operations rehearsal ve lifecycle roadmap governance raporudur. Gerçek production operations plan, official lifecycle policy, release commitment, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+        
+    def build_v1x_roadmap_governance_text_report(self, summary: dict, roadmap_text: str = None) -> str:
+        return f"Roadmap Governance\n{roadmap_text or summary}\n\nBu çıktı offline/local long-term operations rehearsal ve lifecycle roadmap governance raporudur. Gerçek production operations plan, official lifecycle policy, release commitment, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+        
+    def build_lifecycle_quality_text_report(self, summary: dict, quality: dict = None) -> str:
+        return f"Lifecycle Quality\n{quality or summary}\n\nBu çıktı offline/local long-term operations rehearsal ve lifecycle roadmap governance raporudur. Gerçek production operations plan, official lifecycle policy, release commitment, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+        
+    def build_lifecycle_status_report(self, status_df, summary: dict) -> str:
+        return f"Lifecycle Status\n{summary}\n\nBu çıktı offline/local long-term operations rehearsal ve lifecycle roadmap governance raporudur. Gerçek production operations plan, official lifecycle policy, release commitment, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+
     # --- Local Incident Response Phase 87 ---
     def build_incident_domain_registry_text_report(self, summary, domain_df=None):
         return f"{summary}\n\nUyarı: Bu çıktı offline/local incident-response rehearsal ve resilience supervision raporudur. Gerçek incident response, forensic analiz, production rollback, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
@@ -4795,3 +4821,153 @@ def build_governance_status_report(status_df: pd.DataFrame, summary: dict) -> st
         return f"{summary}\n\nUyarı: Bu çıktı offline/local incident-response rehearsal ve resilience supervision raporudur. Gerçek incident response, forensic analiz, production rollback, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
     def build_incident_status_report(self, status_df, summary):
         return f"{summary}\n\nUyarı: Bu çıktı offline/local incident-response rehearsal ve resilience supervision raporudur. Gerçek incident response, forensic analiz, production rollback, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+
+    # Local Project Completion textual reports
+    def build_completion_domain_registry_text_report(self, summary: dict, domain_df=None) -> str:
+        return "Bu çıktı offline/local system closure rehearsal ve project completion dossier raporudur. Gerçek project closure, official completion approval, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nDomain Registry Text"
+    
+    def build_system_closure_dossier_text_report(self, summary: dict, dossier_text=None) -> str:
+        return "Bu çıktı offline/local system closure rehearsal ve project completion dossier raporudur. Gerçek project closure, official completion approval, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nDossier Text"
+    
+    def build_terminal_handoff_pack_text_report(self, summary: dict, handoff_text=None) -> str:
+        return "Bu çıktı offline/local system closure rehearsal ve project completion dossier raporudur. Gerçek project closure, official completion approval, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nHandoff Text"
+    
+    def build_knowledge_freeze_text_report(self, summary: dict, freeze_df=None) -> str:
+        return "Bu çıktı offline/local system closure rehearsal ve project completion dossier raporudur. Gerçek project closure, official completion approval, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nFreeze Text"
+    
+    def build_last_mile_audit_text_report(self, summary: dict, audit_text=None) -> str:
+        return "Bu çıktı offline/local system closure rehearsal ve project completion dossier raporudur. Gerçek project closure, official completion approval, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nAudit Text"
+    
+    def build_project_completion_readiness_text_report(self, summary: dict, readiness_text=None) -> str:
+        return "Bu çıktı offline/local system closure rehearsal ve project completion dossier raporudur. Gerçek project closure, official completion approval, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nReadiness Text"
+    
+    def build_completion_quality_text_report(self, summary: dict, quality=None) -> str:
+        return "Bu çıktı offline/local system closure rehearsal ve project completion dossier raporudur. Gerçek project closure, official completion approval, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nQuality Text"
+    
+    def build_completion_status_report(self, status_df, summary: dict) -> str:
+        return "Bu çıktı offline/local system closure rehearsal ve project completion dossier raporudur. Gerçek project closure, official completion approval, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nStatus Text"
+
+
+
+    # Local Continuity Intelligence Methods
+    def build_continuity_domain_registry_text_report(self, summary, domain_df=None):
+        return "Bu çıktı offline/local continuity intelligence ve operator memory rehearsal raporudur. Gerçek operator memory sistemi, official decision record, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+    def build_operator_memory_book_text_report(self, summary, memory_text=None):
+        return "Bu çıktı offline/local continuity intelligence ve operator memory rehearsal raporudur. Gerçek operator memory sistemi, official decision record, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+    def build_lessons_learned_codex_text_report(self, summary, lessons_text=None):
+        return "Bu çıktı offline/local continuity intelligence ve operator memory rehearsal raporudur. Gerçek operator memory sistemi, official decision record, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+    def build_decision_rationale_text_report(self, summary, decision_text=None):
+        return "Bu çıktı offline/local continuity intelligence ve operator memory rehearsal raporudur. Gerçek operator memory sistemi, official decision record, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+    def build_future_reader_guide_text_report(self, summary, reader_text=None):
+        return "Bu çıktı offline/local continuity intelligence ve operator memory rehearsal raporudur. Gerçek operator memory sistemi, official decision record, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+    def build_continuity_binder_text_report(self, summary, binder_text=None):
+        return "Bu çıktı offline/local continuity intelligence ve operator memory rehearsal raporudur. Gerçek operator memory sistemi, official decision record, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+    def build_continuity_quality_text_report(self, summary, quality=None):
+        return "Bu çıktı offline/local continuity intelligence ve operator memory rehearsal raporudur. Gerçek operator memory sistemi, official decision record, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+    def build_continuity_status_report(self, status_df, summary):
+        return "Bu çıktı offline/local continuity intelligence ve operator memory rehearsal raporudur. Gerçek operator memory sistemi, official decision record, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+
+
+
+    # Phase 93
+    def _build_atlas_text(self, title: str, summary: dict, df: pd.DataFrame | None = None) -> str:
+        lines = [f"{title.upper()}", "=" * len(title), ""]
+        lines.append("Uyari: Bu cikti offline/local project atlas ve meta-index raporudur. Gercek enterprise search, cloud index, vector DB, official knowledge index, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir.")
+        lines.append("")
+        for k, v in summary.items():
+            lines.append(f"{k}: {v}")
+        if df is not None and not df.empty:
+            lines.append("")
+            lines.append(df.to_string(index=False))
+        return "\n".join(lines)
+
+    def build_atlas_domain_registry_text_report(self, summary: dict, domain_df: pd.DataFrame | None = None) -> str: return self._build_atlas_text("Atlas Domain Registry", summary, domain_df)
+    def build_meta_index_text_report(self, summary: dict, meta_df: pd.DataFrame | None = None) -> str: return self._build_atlas_text("Final Local Meta-Index", summary, meta_df)
+    def build_universal_navigation_text_report(self, summary: dict, nav_df: pd.DataFrame | None = None) -> str: return self._build_atlas_text("Universal Navigation Map", summary, nav_df)
+    def build_cross_phase_lookup_text_report(self, summary: dict, lookup_df: pd.DataFrame | None = None) -> str: return self._build_atlas_text("Cross-Phase Lookup", summary, lookup_df)
+    def build_semantic_toc_text_report(self, summary: dict, toc_text: str | None = None) -> str: return self._build_atlas_text("Semantic TOC", summary) + f"\n\n{toc_text or ''}"
+    def build_terminal_project_atlas_text_report(self, summary: dict, atlas_text: str | None = None) -> str: return self._build_atlas_text("Terminal Project Atlas", summary) + f"\n\n{atlas_text or ''}"
+    def build_meta_index_quality_text_report(self, summary: dict, quality: dict | None = None) -> str: return self._build_atlas_text("Quality Report", summary)
+    def build_meta_index_status_report(self, status_df: pd.DataFrame, summary: dict) -> str: return self._build_atlas_text("Status Report", summary, status_df)
+
+import pandas as pd
+
+def build_review_domain_registry_text_report(summary: dict, domain_df: pd.DataFrame | None = None) -> str:
+    return "Review Governance Domain Registry\nOffline/local human-review rehearsal and terminal review governance raporudur. Gercek approval workflow, expert sign-off, legal/compliance approval, production approval, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+def build_human_review_cockpit_text_report(summary: dict, cockpit_text: str | None = None) -> str:
+    return "Final Local Human-Review Cockpit\nOffline/local human-review rehearsal and terminal review governance raporudur. Gercek approval workflow, expert sign-off, legal/compliance approval, production approval, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+def build_manual_approval_ledger_text_report(summary: dict, ledger_text: str | None = None) -> str:
+    return "Manual Approval Ledger Rehearsal\nOffline/local human-review rehearsal and terminal review governance raporudur. Gercek approval workflow, expert sign-off, legal/compliance approval, production approval, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+def build_expert_review_workbook_text_report(summary: dict, expert_df: pd.DataFrame | None = None) -> str:
+    return "Expert Review Workbook\nOffline/local human-review rehearsal and terminal review governance raporudur. Gercek approval workflow, expert sign-off, legal/compliance approval, production approval, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+def build_reviewer_console_text_report(summary: dict, console_text: str | None = None) -> str:
+    return "Offline Reviewer Console\nOffline/local human-review rehearsal and terminal review governance raporudur. Gercek approval workflow, expert sign-off, legal/compliance approval, production approval, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+def build_review_governance_binder_text_report(summary: dict, binder_text: str | None = None) -> str:
+    return "Terminal Review Governance Binder\nOffline/local human-review rehearsal and terminal review governance raporudur. Gercek approval workflow, expert sign-off, legal/compliance approval, production approval, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+def build_review_quality_text_report(summary: dict, quality: dict | None = None) -> str:
+    return "Review Quality Report\nOffline/local human-review rehearsal and terminal review governance raporudur. Gercek approval workflow, expert sign-off, legal/compliance approval, production approval, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+def build_review_status_report(status_df: pd.DataFrame, summary: dict) -> str:
+    return "Review Status Report\nOffline/local human-review rehearsal and terminal review governance raporudur. Gercek approval workflow, expert sign-off, legal/compliance approval, production approval, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+\n
+    def build_documentation_export_domain_registry_text_report(self, summary: dict, domain_df=None) -> str:
+        return "Bu çıktı offline/local documentation export rehearsal ve printable documentation pack raporudur. Gerçek static site deployment, web dashboard, PDF export, presentation deck, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nDomain Registry"
+    def build_static_site_export_text_report(self, summary: dict, static_text=None) -> str:
+        return "Bu çıktı offline/local documentation export rehearsal ve printable documentation pack raporudur. Gerçek static site deployment, web dashboard, PDF export, presentation deck, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nStatic Site Export"
+    def build_offline_html_pack_text_report(self, summary: dict, html_text=None) -> str:
+        return "Bu çıktı offline/local documentation export rehearsal ve printable documentation pack raporudur. Gerçek static site deployment, web dashboard, PDF export, presentation deck, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nOffline HTML Pack"
+    def build_printable_binder_text_report(self, summary: dict, binder_text=None) -> str:
+        return "Bu çıktı offline/local documentation export rehearsal ve printable documentation pack raporudur. Gerçek static site deployment, web dashboard, PDF export, presentation deck, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nPrintable Binder"
+    def build_pdf_ready_docs_text_report(self, summary: dict, pdf_ready_text=None) -> str:
+        return "Bu çıktı offline/local documentation export rehearsal ve printable documentation pack raporudur. Gerçek static site deployment, web dashboard, PDF export, presentation deck, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nPDF-Ready Docs"
+    def build_presentation_freeze_text_report(self, summary: dict, freeze_text=None) -> str:
+        return "Bu çıktı offline/local documentation export rehearsal ve printable documentation pack raporudur. Gerçek static site deployment, web dashboard, PDF export, presentation deck, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nPresentation Freeze"
+    def build_documentation_export_quality_text_report(self, summary: dict, quality=None) -> str:
+        return "Bu çıktı offline/local documentation export rehearsal ve printable documentation pack raporudur. Gerçek static site deployment, web dashboard, PDF export, presentation deck, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nQuality Report"
+    def build_documentation_export_status_report(self, status_df, summary: dict) -> str:
+        return "Bu çıktı offline/local documentation export rehearsal ve printable documentation pack raporudur. Gerçek static site deployment, web dashboard, PDF export, presentation deck, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nStatus Report"
+
+    # Phase 96: Local Distribution Packaging Text Reports
+    def build_packaging_domain_registry_text_report(self, summary: dict, domain_df: pd.DataFrame | None = None) -> str:
+        return f"Packaging Domain Registry\n{self._get_packaging_disclaimer()}"
+
+    def build_distribution_bundle_text_report(self, summary: dict, bundle_text: str | None = None) -> str:
+        return f"Distribution Bundle\n{self._get_packaging_disclaimer()}\n\n{bundle_text or ''}"
+
+    def build_portable_docs_bundle_text_report(self, summary: dict, portable_text: str | None = None) -> str:
+        return f"Portable Docs Bundle\n{self._get_packaging_disclaimer()}\n\n{portable_text or ''}"
+
+    def build_release_folder_manifest_text_report(self, summary: dict, folder_text: str | None = None) -> str:
+        return f"Release Folder Manifest\n{self._get_packaging_disclaimer()}\n\n{folder_text or ''}"
+
+    def build_handover_zip_map_text_report(self, summary: dict, zip_text: str | None = None) -> str:
+        return f"Handover ZIP-Map\n{self._get_packaging_disclaimer()}\n\n{zip_text or ''}"
+
+    def build_packaging_governance_text_report(self, summary: dict, governance_text: str | None = None) -> str:
+        return f"Packaging Governance\n{self._get_packaging_disclaimer()}\n\n{governance_text or ''}"
+
+    def build_packaging_quality_text_report(self, summary: dict, quality: dict | None = None) -> str:
+        return f"Packaging Quality Report\n{self._get_packaging_disclaimer()}"
+
+    def build_packaging_status_report(self, status_df: pd.DataFrame, summary: dict) -> str:
+        return f"Packaging Status\n{self._get_packaging_disclaimer()}"
+        
+    def _get_packaging_disclaimer(self) -> str:
+        return "Bu cikti offline/local distribution bundle rehearsal ve packaging governance raporudur. Gercek ZIP/archive, package publish, deployment, official handover, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+\n
+    def build_reproducibility_domain_registry_text_report(self, summary: dict, domain_df=None) -> str:
+        return "Bu cikti offline/local reproducibility dossier ve build-free reproduction governance raporudur. Gercek build, CI/CD, Docker image, dependency install, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+    def build_reproducibility_dossier_text_report(self, summary: dict, dossier_text=None) -> str:
+        return "Bu cikti offline/local reproducibility dossier ve build-free reproduction governance raporudur. Gercek build, CI/CD, Docker image, dependency install, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+    def build_environment_replay_text_report(self, summary: dict, replay_text=None) -> str:
+        return "Bu cikti offline/local reproducibility dossier ve build-free reproduction governance raporudur. Gercek build, CI/CD, Docker image, dependency install, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+    def build_deterministic_runbook_text_report(self, summary: dict, runbook_text=None) -> str:
+        return "Bu cikti offline/local reproducibility dossier ve build-free reproduction governance raporudur. Gercek build, CI/CD, Docker image, dependency install, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+    def build_build_free_reproduction_text_report(self, summary: dict, reproduction_text=None) -> str:
+        return "Bu cikti offline/local reproducibility dossier ve build-free reproduction governance raporudur. Gercek build, CI/CD, Docker image, dependency install, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+    def build_reproducibility_governance_text_report(self, summary: dict, governance_text=None) -> str:
+        return "Bu cikti offline/local reproducibility dossier ve build-free reproduction governance raporudur. Gercek build, CI/CD, Docker image, dependency install, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+    def build_reproducibility_quality_text_report(self, summary: dict, quality=None) -> str:
+        return "Bu cikti offline/local reproducibility dossier ve build-free reproduction governance raporudur. Gercek build, CI/CD, Docker image, dependency install, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+    def build_reproducibility_status_report(self, status_df, summary: dict) -> str:
+        return "Bu cikti offline/local reproducibility dossier ve build-free reproduction governance raporudur. Gercek build, CI/CD, Docker image, dependency install, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+\n

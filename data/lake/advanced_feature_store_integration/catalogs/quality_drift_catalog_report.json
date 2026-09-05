@@ -1,0 +1,8 @@
+{
+  "catalog_type": "quality_drift_catalog",
+  "total_items": 6,
+  "mean_quality_score": 0.96,
+  "mean_drift_score": 0.065,
+  "non_signal": true,
+  "source_preserved": true
+}

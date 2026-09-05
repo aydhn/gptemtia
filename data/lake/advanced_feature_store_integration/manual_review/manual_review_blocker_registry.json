@@ -1,0 +1,8 @@
+{
+  "total_blockers": 4,
+  "active_blocking_count": 4,
+  "destructive_action_allowed": false,
+  "auto_fix_allowed": false,
+  "auto_drop_allowed": false,
+  "non_signal": true
+}

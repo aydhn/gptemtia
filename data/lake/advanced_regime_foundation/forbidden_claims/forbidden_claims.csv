@@ -1,0 +1,14 @@
+claim_id,claim_text,severity,category
+fc_01,kesin al,CRITICAL,trade_instruction
+fc_02,kesin sat,CRITICAL,trade_instruction
+fc_03,buy signal,CRITICAL,signal_claim
+fc_04,sell signal,CRITICAL,signal_claim
+fc_05,long aç,CRITICAL,trade_instruction
+fc_06,short aç,CRITICAL,trade_instruction
+fc_07,position aç,CRITICAL,trade_instruction
+fc_08,trade signal,CRITICAL,signal_claim
+fc_09,yatırım tavsiyesi,CRITICAL,regulatory_violation
+fc_10,model prediction,HIGH,unsupported_claim
+fc_11,production ready,HIGH,premature_deployment
+fc_12,broker ready,HIGH,premature_deployment
+fc_13,official approval,HIGH,unauthorized_endorsement

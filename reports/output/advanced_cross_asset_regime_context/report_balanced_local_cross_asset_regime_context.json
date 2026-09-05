@@ -1,0 +1,217 @@
+{
+  "summary": {
+    "current_phase": 131,
+    "next_phase": 132,
+    "target_final_phase": 160,
+    "overall_status": "READY",
+    "active_profile": "balanced_local_cross_asset_regime_context",
+    "non_signal": true,
+    "source_preserved": true,
+    "official_approval": false,
+    "production_ready": false,
+    "broker_ready": false,
+    "zero_trading_signals": true,
+    "zero_model_training": true,
+    "zero_clustering": true
+  },
+  "status_table": [
+    {
+      "component": "profiles",
+      "items": 3,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "domains",
+      "items": 34,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "entities",
+      "items": 27,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "pairs",
+      "items": 12,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "taxonomy",
+      "items": 13,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "fx_commodity_context",
+      "items": 8,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "fx_macro_context",
+      "items": 6,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "commodity_macro_context",
+      "items": 6,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "macro_calendar_context",
+      "items": 4,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "calendar_news_context",
+      "items": 4,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "transition_alignment",
+      "items": 5,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "volatility_linkage",
+      "items": 4,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "trend_linkage",
+      "items": 4,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "range_linkage",
+      "items": 4,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "divergence",
+      "items": 3,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "convergence",
+      "items": 3,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "correlation_placeholders",
+      "items": 3,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "lead_lag_placeholders",
+      "items": 3,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "contracts",
+      "items": 6,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "timestamp_policies",
+      "items": 4,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "asof_join_policies",
+      "items": 2,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "no_lookahead_guard",
+      "items": 3,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "validation_dependencies",
+      "items": 7,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "quality_dependencies",
+      "items": 6,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "source_phases",
+      "items": 9,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "findings",
+      "items": 2,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "manual_review",
+      "items": 7,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "scoring",
+      "items": 1,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "manifest",
+      "items": 1,
+      "status": "READY",
+      "non_signal": true
+    },
+    {
+      "component": "health",
+      "items": 15,
+      "status": "HEALTHY",
+      "non_signal": true
+    },
+    {
+      "component": "validation",
+      "items": 8,
+      "status": "VALIDATION_PASS",
+      "non_signal": true
+    },
+    {
+      "component": "safety",
+      "items": 18,
+      "status": "SECURE",
+      "non_signal": true
+    },
+    {
+      "component": "phase_132_handoff",
+      "items": 10,
+      "status": "READY",
+      "non_signal": true
+    }
+  ]
+}

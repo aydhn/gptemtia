@@ -1,0 +1,5 @@
+factor_name,factor_family,input_features,calculation_type,non_signal_usage,status_label,manual_review_required
+factor_volatility_atr_context,volatility,"['volatility__atr_14', 'close']",normalized_atr_ratio,Measures price variance range normalized by price level.,factor_ready,False
+factor_volatility_realized_context,volatility,['volatility__realized_vol_20'],annualized_rolling_std,Annualized historical return variance without position sizing.,factor_ready,False
+factor_volatility_bollinger_width_context,volatility,['volatility__bb_bandwidth_20'],bollinger_bandwidth_ratio,Relative expansion/contraction of statistical bands.,factor_ready,False
+factor_volatility_range_context,volatility,"['volatility__parkinson_20', 'volatility__garman_klass_20']",extremum_range_dispersion,High-low intraday range dispersion observation.,factor_ready,False

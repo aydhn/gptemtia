@@ -1,0 +1,1 @@
+print('Provider registry run.')

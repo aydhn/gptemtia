@@ -1,0 +1,6 @@
+threshold_id,metric_id,warning_threshold,critical_threshold,unit,description,auto_drop_allowed,auto_fix_allowed,non_signal
+thresh_drift_distribution_mean_shift,distribution_mean_shift,0.5,1.0,standardized_delta,"Warning if normalized mean shift > 0.50, critical if > 1.00.",False,False,True
+thresh_drift_distribution_std_shift,distribution_std_shift,0.5,1.0,ratio_delta,"Warning if standard deviation change ratio > 0.50, critical if > 1.00.",False,False,True
+thresh_drift_quantile_shift,quantile_shift,0.6,1.2,quantile_delta,"Warning if quantile composite shift > 0.60, critical if > 1.20.",False,False,True
+thresh_drift_missingness_shift,missingness_shift,0.15,0.3,ratio_delta,"Warning if missingness ratio increases by > 15%, critical if > 30%.",False,False,True
+thresh_drift_min_sample_size,min_sample_size,30.0,15.0,count,Manual review required if observation count < 30 bars in comparison window.,False,False,True

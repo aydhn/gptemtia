@@ -1,0 +1,8 @@
+rule_id,target_schema,field_name,rule_description,severity,future_phase_owner,manual_review_required
+val_rule_missing_metadata,news_metadata_schema,"item_id, timestamp, source_name",Ensure required identifiers and timestamps are present and non-empty.,CRITICAL,Phase 112 Data Quality Engine,False
+val_rule_metadata_only_boundary,news_metadata_schema,metadata_only,Affirm that metadata_only is True and raw article text is absent.,CRITICAL,Phase 112 Data Quality Engine,False
+val_rule_duplicate_item,news_item_reference_schema,"item_id, content_hash_placeholder",Identify and flag duplicate news entries based on item IDs and hashes.,HIGH,Phase 112 Data Quality Engine,True
+val_rule_stale_news,news_metadata_schema,timestamp,Evaluate publication timestamp against freshness thresholds.,MEDIUM,Phase 112 Data Quality Engine,False
+val_rule_topic_tag_normalization,news_metadata_schema,"topic_tags, asset_tags",Validate tags against canonical taxonomy registries.,MEDIUM,Phase 113 Data Normalization Layer,False
+val_rule_source_lineage_provenance,news_metadata_schema,"source_name, provider_name","Trace source origin, retrieval mode, and compliance trail.",HIGH,Phase 114 Data Lineage and Provenance,True
+val_rule_provider_coverage_benchmark,news_provider_capability,"topic_support, region_support",Benchmark coverage breadth and latency across registered providers.,INFO,Phase 115 Data Provider Benchmark Report,False

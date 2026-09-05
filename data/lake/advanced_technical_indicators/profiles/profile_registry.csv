@@ -1,0 +1,4 @@
+profile_id,profile_name,current_phase,target_final_phase,next_phase,local_only,non_production,research_only,dry_run,non_signal,status_label,warnings
+tiprof_balanced_local_technical_indicators,balanced_local_technical_indicators,117,160,118,True,True,True,True,True,indicator_ready,[]
+tiprof_strict_no_signal_indicator_safety,strict_no_signal_indicator_safety,117,160,118,True,True,True,True,True,indicator_ready,[]
+tiprof_dry_run_indicator_computation_focus,dry_run_indicator_computation_focus,117,160,118,True,True,True,True,True,indicator_ready,[]

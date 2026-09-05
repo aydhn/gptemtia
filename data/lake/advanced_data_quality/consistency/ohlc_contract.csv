@@ -1,0 +1,4 @@
+rule_name,rule_domain,severity_label
+ohlc_geometry_high_ge_low,ohlc_consistency,quality_high
+ohlc_geometry_open_close_in_bounds,ohlc_consistency,quality_high
+ohlc_non_negative_prices,ohlc_consistency,quality_high

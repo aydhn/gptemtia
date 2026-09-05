@@ -1,0 +1,8 @@
+{
+  "profile_name": "balanced_local_feature_factor_acceptance",
+  "total_domains": 11,
+  "block_domains": 10,
+  "handoff_domains": 1,
+  "non_signal": true,
+  "source_preserved": true
+}

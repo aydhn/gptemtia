@@ -1,0 +1,7 @@
+indicator_name,output_pattern,default_window,family,non_signal
+sma,sma_{window},20,family_moving_average,True
+ema,ema_{window},20,family_moving_average,True
+wma,wma_{window},20,family_moving_average,True
+dema,dema_{window},20,family_moving_average,True
+tema,tema_{window},20,family_moving_average,True
+ma_distance,ma_distance_{window},20,family_moving_average,True

@@ -1,0 +1,4 @@
+context_name,description,coverage_ratio,mean_reversion_dependency_passed,range_factor_dependency_passed,zscore_channel_context_available,compression_range_readiness,is_ready,non_signal,contains_target_or_prediction,model_training_executed,clustering_executed,current_phase,target_final_phase,next_phase
+range_bound_oscillation_context,Equilibrium price action bounded between established support and resistance.,1.0,True,True,True,True,True,True,False,False,False,129,160,130
+range_channel_compression_context,Tightening Bollinger/Keltner channel width and reduced swing range context.,1.0,True,True,True,True,True,True,False,False,False,129,160,130
+mean_reversion_deviation_context,High z-score dispersion away from rolling mean baseline.,1.0,True,True,True,True,True,True,False,False,False,129,160,130

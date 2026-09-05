@@ -1,0 +1,12 @@
+{
+  "total_manual_review_items": 3,
+  "all_non_destructive": true,
+  "destructive_actions_prevented": true,
+  "review_providers": [
+    "manual_file_provider_adapter",
+    "official_api_provider_placeholder",
+    "licensed_vendor_provider_placeholder"
+  ],
+  "current_phase": 115,
+  "target_final_phase": 160
+}

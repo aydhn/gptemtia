@@ -1,0 +1,7 @@
+{
+  "total_validation_dependencies": 6,
+  "all_passed": true,
+  "all_blocking": true,
+  "non_signal": true,
+  "active_profile": "balanced_local_regime_transition"
+}

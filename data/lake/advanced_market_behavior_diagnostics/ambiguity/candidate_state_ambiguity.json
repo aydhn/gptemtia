@@ -1,0 +1,9 @@
+{
+  "total_states": 10,
+  "average_ambiguity_score": 0.12,
+  "high_ambiguity_count": 0,
+  "clustering_executed": false,
+  "unsupervised_execution": false,
+  "non_signal": true,
+  "active_profile": "balanced_local_market_behavior_diagnostics"
+}

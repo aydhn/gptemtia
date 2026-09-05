@@ -1,0 +1,7 @@
+dimension,score,weight,status
+overall_quality,1.0,1.0,diagnostic_pass
+missingness,1.0,0.25,diagnostic_pass
+infinite_values,1.0,0.25,diagnostic_pass
+zero_variance,1.0,0.2,diagnostic_pass
+duplicates,1.0,0.15,diagnostic_pass
+namespace,1.0,0.15,diagnostic_pass

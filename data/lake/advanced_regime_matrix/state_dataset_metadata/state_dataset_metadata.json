@@ -1,0 +1,15 @@
+{
+  "total_datasets": 5,
+  "dataset_names": [
+    "regime_state_research_dataset",
+    "regime_state_candidate_context_dataset",
+    "regime_state_taxonomy_mapping_dataset",
+    "regime_state_future_unsupervised_prep_dataset",
+    "unsupervised_clustering_input_dataset"
+  ],
+  "all_phase_128_ready": true,
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "any_target_or_prediction": false,
+  "status": "matrix_ready"
+}

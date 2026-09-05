@@ -1,0 +1,10 @@
+{
+  "total_items": 8,
+  "ready_items": 8,
+  "pending_items": 0,
+  "target_phase": 120,
+  "target_phase_name": "Macro/Calendar/News Feature Fusion",
+  "all_items_ready": true,
+  "handoff_status": "READY",
+  "profile": "balanced_local_cross_asset_alignment"
+}

@@ -1,0 +1,58 @@
+# Phase 115: Provider Benchmark Safety Boundary Report
+> **UYARI VE SINIRLAR**:
+> Bu çıktı Phase 115 Data Provider Benchmark Report raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, benchmark score’u trade sinyali olarak kullanma, provider official approval, production-ready/broker-ready iddiası, production deployment, model deployment, scraping, haber tam metni toplama, telifli içerik kopyalama, external LLM/API çağrısı, gerçek provider API çağrısı zorunluluğu, source overwrite veya destructive cleaning değildir.
+
+- **Tanımlı No-Go Kural Sayısı**: 32
+- **Tanımlı Safe-Go Kural Sayısı**: 15
+- **Güvenlik Sınırı Durumu**: ACTIVE
+
+### Güvenlik Sınırı Tablosu
+| condition_id | rule_type | name | description | enforced | permitted |
+| --- | --- | --- | --- | --- | --- |
+| NO_GO_01 | NO_GO | Live Trading Execution | Strictly prohibited from submitting real market orders or interacting with live exchange gateways | True | nan |
+| NO_GO_02 | NO_GO | Broker Integration | Strictly prohibited from binding broker accounts, protocols (FIX), or broker APIs | True | nan |
+| NO_GO_03 | NO_GO | Broker Credentials | Strictly prohibited from consuming or outputting broker API keys, tokens, or secret credentials | True | nan |
+| NO_GO_04 | NO_GO | Exact Buy/Sell Instructions | Strictly prohibited from generating deterministic buy/sell order recommendations | True | nan |
+| NO_GO_05 | NO_GO | Investment Advice | Strictly prohibited from offering fiduciary financial advice or capital allocation counsel | True | nan |
+| NO_GO_06 | NO_GO | Benchmark Score as Signal | Strictly prohibited from utilizing benchmark score values as trade entry/exit triggers | True | nan |
+| NO_GO_07 | NO_GO | Official Approval Claim | Strictly prohibited from claiming official endorsement or regulatory certification for any provider | True | nan |
+| NO_GO_08 | NO_GO | Production Ready Claim | Strictly prohibited from certifying providers as production-ready for live capital | True | nan |
+| NO_GO_09 | NO_GO | Broker Ready Claim | Strictly prohibited from declaring providers broker-compatible or broker-ready | True | nan |
+| NO_GO_10 | NO_GO | Live Provider API Calls | Strictly prohibited from requiring external network calls to paid or proprietary live endpoints | True | nan |
+| NO_GO_11 | NO_GO | Real Data Download Requirement | Strictly prohibited from enforcing real live data downloads to execute benchmarks | True | nan |
+| NO_GO_12 | NO_GO | Web Scraping | Strictly prohibited from conducting HTML scraping, DOM traversal, or web scraping | True | nan |
+| NO_GO_13 | NO_GO | News Page Scraping | Strictly prohibited from parsing online news portals or RSS web scraping | True | nan |
+| NO_GO_14 | NO_GO | Browser Automation | Strictly prohibited from utilizing Playwright, Selenium, Puppeteer, or headless browsers | True | nan |
+| NO_GO_15 | NO_GO | Hidden API Reverse Engineering | Strictly prohibited from reversing private endpoints or unauthorized REST calls | True | nan |
+| NO_GO_16 | NO_GO | Paywall Bypass | Strictly prohibited from circumventing content barriers or paywalls | True | nan |
+| NO_GO_17 | NO_GO | Rate Limit Abuse | Strictly prohibited from flooding endpoints or exceeding documented rate quotas | True | nan |
+| NO_GO_18 | NO_GO | Full Article Harvesting | Strictly prohibited from collecting full news article bodies or paragraphs | True | nan |
+| NO_GO_19 | NO_GO | Copyrighted Content Reproduction | Strictly prohibited from copying or redistributing copyrighted text | True | nan |
+| NO_GO_20 | NO_GO | Source File Overwriting | Strictly prohibited from modifying, mutating, or overwriting raw source data files | True | nan |
+| NO_GO_21 | NO_GO | Destructive Auto-Cleaning | Strictly prohibited from automatically dropping or deleting unmapped rows from sources | True | nan |
+| NO_GO_22 | NO_GO | File Deletion | Strictly prohibited from deleting existing historical data lake files | True | nan |
+| NO_GO_23 | NO_GO | File Relocation | Strictly prohibited from moving source files away from canonical paths | True | nan |
+| NO_GO_24 | NO_GO | Model Deployment | Strictly prohibited from deploying ML models to production inference services | True | nan |
+| NO_GO_25 | NO_GO | Production Deployment | Strictly prohibited from promoting pipeline artifacts to production servers | True | nan |
+| NO_GO_26 | NO_GO | Web Server Daemon | Strictly prohibited from running Flask, FastAPI, Uvicorn, or background web servers | True | nan |
+| NO_GO_27 | NO_GO | Interactive Dashboard | Strictly prohibited from launching web GUI/TUI dashboards | True | nan |
+| NO_GO_28 | NO_GO | External LLM / Cloud API | Strictly prohibited from calling remote AI APIs (OpenAI, Anthropic) during benchmark | True | nan |
+| NO_GO_29 | NO_GO | Vector Database Engine | Strictly prohibited from initializing Chroma, Pinecone, Milvus, or Qdrant | True | nan |
+| NO_GO_30 | NO_GO | Embedding Generation | Strictly prohibited from generating text embeddings via cloud APIs | True | nan |
+| NO_GO_31 | NO_GO | Cloud Registry Publishing | Strictly prohibited from executing docker push, cloud publishing, or git tagging | True | nan |
+| NO_GO_32 | NO_GO | Real Archive Packaging | Strictly prohibited from packaging production release archives or encrypted containers | True | nan |
+| SAFE_GO_01 | SAFE_GO | Local Offline Benchmark | Executing fully offline, local benchmark reports using existing phase artifacts | nan | True |
+| SAFE_GO_02 | SAFE_GO | Deterministic Mock Fixtures | Running mock and fixture-based provider benchmark rehearsals without external network | nan | True |
+| SAFE_GO_03 | SAFE_GO | Coverage Breadth Comparison | Comparing asset, symbol, and indicator universe coverage across offline registries | nan | True |
+| SAFE_GO_04 | SAFE_GO | Capability Analysis | Evaluating technical timeseries, quote, OHLCV, and timestamp capabilities offline | nan | True |
+| SAFE_GO_05 | SAFE_GO | Quality Engine Consolidation | Consolidating Phase 112 data quality findings into diagnostic benchmark scores | nan | True |
+| SAFE_GO_06 | SAFE_GO | Normalization Assessment | Evaluating adherence to Phase 113 canonical schemas and unit standardization | nan | True |
+| SAFE_GO_07 | SAFE_GO | Traceability Evaluation | Auditing source-to-normalized transformation lineage from Phase 114 | nan | True |
+| SAFE_GO_08 | SAFE_GO | License Boundary Review | Recording licensing restrictions and redistribution terms for research use | nan | True |
+| SAFE_GO_09 | SAFE_GO | Strict No-Scraping Audit | Enforcing 100% adherence to zero web scraping boundaries | nan | True |
+| SAFE_GO_10 | SAFE_GO | Metadata-Only Verification | Verifying zero full-text news article storage across all pipelines | nan | True |
+| SAFE_GO_11 | SAFE_GO | Non-Destructive Manual Review | Logging review items with destructive_action_allowed=False strictly | nan | True |
+| SAFE_GO_12 | SAFE_GO | Research Ranking Matrix | Compiling comparative suitability rankings labeled exclusively for research | nan | True |
+| SAFE_GO_13 | SAFE_GO | Diagnostic Health Check | Verifying module availability and directory integrity across Phases 106-115 | nan | True |
+| SAFE_GO_14 | SAFE_GO | Integrity Validation | Scanning outputs for forbidden commercial and trading approval claims | nan | True |
+| SAFE_GO_15 | SAFE_GO | Phase 116 Feature Engine Handoff | Delivering clean data readiness notes to Phase 116 without generating signals | nan | True |

@@ -1,0 +1,9 @@
+{
+  "total_policies": 2,
+  "all_backward_direction": true,
+  "zero_forward_allowed": true,
+  "all_enforce_zero_lookahead": true,
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "active_profile": "balanced_local_cross_asset_regime_context"
+}

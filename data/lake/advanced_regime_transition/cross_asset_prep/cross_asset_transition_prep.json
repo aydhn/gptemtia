@@ -1,0 +1,9 @@
+{
+  "total_cross_asset_pairs": 3,
+  "mean_alignment_readiness": 0.9,
+  "total_manual_review_blockers": 0,
+  "all_phase_131_ready": true,
+  "all_non_signal": true,
+  "contains_trading_signal": false,
+  "active_profile": "balanced_local_regime_transition"
+}

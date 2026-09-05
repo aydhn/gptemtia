@@ -1,0 +1,36 @@
+# Phase 126: Regime Foundation Safety Boundary Report
+
+> **UYARI / DISCLAIMER:** Bu çıktı Phase 126 Regime Classification and Market Behavior Foundation raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, regime state değerini trade sinyali olarak kullanma, strateji üretimi, backtest, optimizer, model training, clustering execution, prediction/target üretimi, production-ready/official approval/broker-ready iddiası, haber tam metni kullanımı, production deployment, model deployment, scraping veya gerçek provider API çağrısı değildir.
+
+## Özet
+- **Güvenlik Durumu:** `SECURE`
+- **NO-GO Kuralları Sayısı:** `15`
+- **SAFE-GO İlkeleri Sayısı:** `8`
+- **Non-Signal:** `True`
+
+## Güvenlik Sınırları Tablosu
+| rule_id | name | category | description | boundary_type | status |
+| --- | --- | --- | --- | --- | --- |
+| nogo_01 | prohibit_live_trading | execution | No live exchange connection or trade order dispatch | NO_GO | ENFORCED |
+| nogo_02 | prohibit_broker_integration | execution | No broker API binding or credentials | NO_GO | ENFORCED |
+| nogo_03 | prohibit_real_order | execution | No real money or paper trading order generation | NO_GO | ENFORCED |
+| nogo_04 | prohibit_investment_advice | regulatory | No financial recommendation or asset advisory | NO_GO | ENFORCED |
+| nogo_05 | prohibit_regime_as_signal | signal | No treating regime state values as BUY/SELL triggers | NO_GO | ENFORCED |
+| nogo_06 | prohibit_directional_certainty | signal | No asserting bullish/bearish directional certainty | NO_GO | ENFORCED |
+| nogo_07 | prohibit_strategy_and_backtest | strategy | No strategy generation, backtesting, or optimizer runs | NO_GO | ENFORCED |
+| nogo_08 | prohibit_model_training | modeling | No unsupervised clustering or supervised model training | NO_GO | ENFORCED |
+| nogo_09 | prohibit_target_and_predictions | modeling | No future target generation or return predictions | NO_GO | ENFORCED |
+| nogo_10 | prohibit_official_and_prod_claims | governance | No claims of official approval, broker-ready, or production-ready | NO_GO | ENFORCED |
+| nogo_11 | prohibit_source_overwrite | storage | No destructive cleaning, file deletion, or overwriting raw data | NO_GO | ENFORCED |
+| nogo_12 | prohibit_auto_imputation_drop | data_integrity | No automatic column drop or silent NaN filling | NO_GO | ENFORCED |
+| nogo_13 | prohibit_full_article_news | content | No full article text, copyrighted scraping, or embeddings | NO_GO | ENFORCED |
+| nogo_14 | prohibit_web_scraping | network | No active web scraping or browser automation | NO_GO | ENFORCED |
+| nogo_15 | prohibit_cloud_and_docker_push | deployment | No cloud publishing, docker push, git tags, or archives | NO_GO | ENFORCED |
+| safego_01 | local_offline_regime_taxonomy | taxonomy | Permit local, offline market behavior and regime state taxonomies | SAFE_GO | ACTIVE |
+| safego_02 | non_signal_regime_schema | schema | Enforce non-signal regime state output schemas with mandatory prefix | SAFE_GO | ACTIVE |
+| safego_03 | regime_family_contracts | contracts | Formalize volatility, trend, range, and liquidity family contracts | SAFE_GO | ACTIVE |
+| safego_04 | validation_aware_dependencies | validation | Link Phase 121 no-lookahead and timestamp validation requirements | SAFE_GO | ACTIVE |
+| safego_05 | quality_aware_dependencies | quality | Enforce Phase 123 quality and drift diagnostic prerequisites | SAFE_GO | ACTIVE |
+| safego_06 | metadata_only_news_context | content | Maintain strictly metadata-only news attention metrics | SAFE_GO | ACTIVE |
+| safego_07 | feature_store_dependency_mapping | feature_store | Map central Feature Store catalog references without mutation | SAFE_GO | ACTIVE |
+| safego_08 | phase_127_matrix_handoff | handoff | Deliver structured prerequisites to Phase 127 Regime Feature Matrix | SAFE_GO | ACTIVE |

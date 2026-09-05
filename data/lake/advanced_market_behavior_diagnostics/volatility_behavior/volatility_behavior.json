@@ -1,0 +1,8 @@
+{
+  "total_contexts": 4,
+  "average_coverage": 1.0,
+  "all_ready": true,
+  "dependencies_passed": true,
+  "non_signal": true,
+  "active_profile": "balanced_local_market_behavior_diagnostics"
+}

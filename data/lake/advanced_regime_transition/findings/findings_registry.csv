@@ -1,0 +1,3 @@
+finding_id,finding_type,transition_family,severity_label,message,recommendation,manual_review_required,destructive_action_allowed,auto_fix_allowed,auto_drop_allowed,non_signal
+FIND-130-001,transition_ambiguity_warning,trend_range,transition_medium,Elevated transition ambiguity observed during range boundary transition rehearsal,Perform manual review of candidate state thresholds without automated modification,True,False,False,False,True
+FIND-130-002,transition_continuity_warning,commodity_energy,transition_low,Minor weekend session gap noted in commodity sequence timestamps,Confirm calendar alignment contract covers exchange holiday sessions,True,False,False,False,True

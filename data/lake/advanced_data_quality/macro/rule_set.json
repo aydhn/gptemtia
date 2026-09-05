@@ -1,0 +1,8 @@
+{
+  "rule_count": 2,
+  "rules": [
+    "macro_timeseries_integrity",
+    "macro_release_metadata_integrity"
+  ],
+  "domain": "macro_quality"
+}

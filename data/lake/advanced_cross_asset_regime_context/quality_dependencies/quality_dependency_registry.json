@@ -1,0 +1,8 @@
+{
+  "total_quality_dependencies": 6,
+  "all_satisfied": true,
+  "mean_observed_score": 0.8916666666666666,
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "active_profile": "balanced_local_cross_asset_regime_context"
+}

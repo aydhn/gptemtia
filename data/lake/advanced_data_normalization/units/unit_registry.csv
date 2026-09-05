@@ -1,0 +1,22 @@
+raw_unit,normalized_unit,conversion_applied,current_phase
+PERCENT,percent,False,113
+PERCENTAGE,percent,False,113
+%,percent,False,113
+PCT,percent,False,113
+BASIS POINTS,bps,False,113
+BPS,bps,False,113
+BP,bps,False,113
+USD/BARREL,usd_per_barrel,False,113
+USD/BBL,usd_per_barrel,False,113
+$/BBL,usd_per_barrel,False,113
+USD/OZ,usd_per_oz,False,113
+USD/OUNCE,usd_per_oz,False,113
+$/OZ,usd_per_oz,False,113
+INDEX POINTS,index_points,False,113
+INDEX,index_points,False,113
+POINTS,index_points,False,113
+METRIC TON,metric_ton,False,113
+MT,metric_ton,False,113
+CONTRACTS,contracts,False,113
+THOUSANDS,thousands,False,113
+MILLIONS,millions,False,113

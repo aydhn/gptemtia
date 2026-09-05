@@ -1,0 +1,8 @@
+{
+  "validation_status": "INVALID",
+  "total_checks": 6,
+  "forbidden_claims_found": true,
+  "scores_valid": false,
+  "current_phase": 115,
+  "target_final_phase": 160
+}

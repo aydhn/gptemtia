@@ -1,0 +1,22 @@
+{
+  "total_findings": 7,
+  "critical_count": 2,
+  "high_count": 3,
+  "medium_count": 1,
+  "low_count": 1,
+  "info_count": 0,
+  "manual_review_required_count": 6,
+  "dataset_types": [
+    "dataset_commodity_spot",
+    "dataset_fx_ohlcv",
+    "dataset_fx_quote",
+    "dataset_news_metadata"
+  ],
+  "providers": [
+    "commodity_cbot_fixture",
+    "fx_yahoo_finance_fixture",
+    "news_reuters_fixture"
+  ],
+  "current_phase": 112,
+  "target_final_phase": 160
+}

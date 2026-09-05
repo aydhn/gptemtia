@@ -1,0 +1,12 @@
+{
+  "profile_name": "balanced_local_feature_factor_acceptance",
+  "total_dependencies": 10,
+  "all_satisfied": true,
+  "phase_start": "116",
+  "phase_end": "126",
+  "non_signal": true,
+  "source_preserved": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false
+}

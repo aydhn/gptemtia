@@ -1,0 +1,9 @@
+{
+  "total_write_contracts": 2,
+  "source_overwrite_forbidden": true,
+  "destructive_cleaning_forbidden": true,
+  "auto_impute_forbidden": true,
+  "auto_drop_forbidden": true,
+  "non_signal": true,
+  "source_preserved": true
+}

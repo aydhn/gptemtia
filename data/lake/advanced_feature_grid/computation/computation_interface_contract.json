@@ -1,0 +1,7 @@
+{
+  "profile": "balanced_local_multi_window_feature_grid",
+  "total_interfaces": 3,
+  "in_place_mutation_prevented": true,
+  "non_signal": true,
+  "status": "READY"
+}

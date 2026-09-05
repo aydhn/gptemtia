@@ -1,0 +1,17 @@
+{
+  "total_mappings": 21,
+  "canonical_units": [
+    "percent",
+    "bps",
+    "usd_per_barrel",
+    "usd_per_oz",
+    "index_points",
+    "metric_ton",
+    "contracts",
+    "thousands",
+    "millions"
+  ],
+  "conversion_deferred_to_future_phase": true,
+  "current_phase": 113,
+  "target_final_phase": 160
+}

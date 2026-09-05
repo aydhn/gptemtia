@@ -1,0 +1,17 @@
+{
+  "total_factor_inputs": 8,
+  "total_factors": 8,
+  "factor_families": [
+    "trend_factor_family",
+    "momentum_factor_family",
+    "volatility_factor_family",
+    "mean_reversion_factor_family",
+    "macro_factor_family",
+    "event_factor_family",
+    "news_metadata_factor_family",
+    "cross_asset_factor_family"
+  ],
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "status": "matrix_ready"
+}

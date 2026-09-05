@@ -1,0 +1,16 @@
+{
+  "family": "price",
+  "total_indicators": 9,
+  "all_non_signal": true,
+  "indicators": [
+    "close_return",
+    "log_return",
+    "high_low_range",
+    "close_to_open_return",
+    "gap_placeholder",
+    "rolling_mean",
+    "rolling_median",
+    "rolling_min",
+    "rolling_max"
+  ]
+}

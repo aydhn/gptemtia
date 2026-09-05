@@ -1,0 +1,55 @@
+weight_id,metric_label,provider_domain,weight,rationale,manual_review_required
+pb_weight::metric_coverage::provider_domain_fx,metric_coverage,provider_domain_fx,0.15,Major/minor/exotic pair universe coverage is essential,False
+pb_weight::metric_capability::provider_domain_fx,metric_capability,provider_domain_fx,0.15,OHLCV and quote streaming capability,False
+pb_weight::metric_quality::provider_domain_fx,metric_quality,provider_domain_fx,0.2,Bid/ask sanity and anomaly filtering from Phase 112,False
+pb_weight::metric_normalization::provider_domain_fx,metric_normalization,provider_domain_fx,0.15,Canonical pair representation and uppercase enforcement,False
+pb_weight::metric_traceability::provider_domain_fx,metric_traceability,provider_domain_fx,0.1,Source to canonical transformation provenance,False
+pb_weight::metric_license_provenance::provider_domain_fx,metric_license_provenance,provider_domain_fx,0.05,Open research license boundary,False
+pb_weight::metric_no_scraping_compliance::provider_domain_fx,metric_no_scraping_compliance,provider_domain_fx,0.15,Strict zero-scraping compliance,False
+pb_weight::metric_metadata_only_compliance::provider_domain_fx,metric_metadata_only_compliance,provider_domain_fx,0.0,Not applicable for numerical FX data,False
+pb_weight::metric_manual_review_load::provider_domain_fx,metric_manual_review_load,provider_domain_fx,0.05,Penalty weight for review backlogs,True
+pb_weight::metric_coverage::provider_domain_commodity,metric_coverage,provider_domain_commodity,0.15,Spot and futures contract universe coverage,False
+pb_weight::metric_capability::provider_domain_commodity,metric_capability,provider_domain_commodity,0.15,Contract roll and delivery metadata readiness,False
+pb_weight::metric_quality::provider_domain_commodity,metric_quality,provider_domain_commodity,0.15,Price boundary sanity and outlier checking,False
+pb_weight::metric_normalization::provider_domain_commodity,metric_normalization,provider_domain_commodity,0.15,"Unit normalization (USD/bbl, USD/oz)",False
+pb_weight::metric_traceability::provider_domain_commodity,metric_traceability,provider_domain_commodity,0.1,Physical/futures dataset provenance,False
+pb_weight::metric_license_provenance::provider_domain_commodity,metric_license_provenance,provider_domain_commodity,0.05,Exchange license terms review,True
+pb_weight::metric_no_scraping_compliance::provider_domain_commodity,metric_no_scraping_compliance,provider_domain_commodity,0.15,Strict zero-scraping compliance,False
+pb_weight::metric_metadata_only_compliance::provider_domain_commodity,metric_metadata_only_compliance,provider_domain_commodity,0.0,Not applicable for numerical commodity data,False
+pb_weight::metric_manual_review_load::provider_domain_commodity,metric_manual_review_load,provider_domain_commodity,0.1,Contract specifications manual review load,True
+pb_weight::metric_coverage::provider_domain_macro,metric_coverage,provider_domain_macro,0.15,"Indicator universe breadth (CPI, GDP, Rates, Employment)",False
+pb_weight::metric_capability::provider_domain_macro,metric_capability,provider_domain_macro,0.15,"Frequency (monthly, quarterly) and release date capability",False
+pb_weight::metric_quality::provider_domain_macro,metric_quality,provider_domain_macro,0.15,Historical revision integrity from Phase 112,False
+pb_weight::metric_normalization::provider_domain_macro,metric_normalization,provider_domain_macro,0.2,Canonical indicator nomenclature and unit standardization,False
+pb_weight::metric_traceability::provider_domain_macro,metric_traceability,provider_domain_macro,0.1,Statistical agency source provenance,False
+pb_weight::metric_license_provenance::provider_domain_macro,metric_license_provenance,provider_domain_macro,0.05,Public domain / government statistical terms,False
+pb_weight::metric_no_scraping_compliance::provider_domain_macro,metric_no_scraping_compliance,provider_domain_macro,0.15,Strict zero-scraping compliance,False
+pb_weight::metric_metadata_only_compliance::provider_domain_macro,metric_metadata_only_compliance,provider_domain_macro,0.0,Not applicable for macro data,False
+pb_weight::metric_manual_review_load::provider_domain_macro,metric_manual_review_load,provider_domain_macro,0.05,Indicator redefinition review penalty,True
+pb_weight::metric_coverage::provider_domain_calendar,metric_coverage,provider_domain_calendar,0.15,Global economic event universe coverage,False
+pb_weight::metric_capability::provider_domain_calendar,metric_capability,provider_domain_calendar,0.15,Scheduled vs actual release timestamp tracking,False
+pb_weight::metric_quality::provider_domain_calendar,metric_quality,provider_domain_calendar,0.15,Consensus vs actual surprise precision,False
+pb_weight::metric_normalization::provider_domain_calendar,metric_normalization,provider_domain_calendar,0.15,Event taxonomy and country code normalization,False
+pb_weight::metric_traceability::provider_domain_calendar,metric_traceability,provider_domain_calendar,0.1,Event schedule lineage and update history,False
+pb_weight::metric_license_provenance::provider_domain_calendar,metric_license_provenance,provider_domain_calendar,0.05,Commercial calendar redistribution restrictions,True
+pb_weight::metric_no_scraping_compliance::provider_domain_calendar,metric_no_scraping_compliance,provider_domain_calendar,0.15,Strict zero-scraping compliance,False
+pb_weight::metric_metadata_only_compliance::provider_domain_calendar,metric_metadata_only_compliance,provider_domain_calendar,0.0,Not applicable for economic events,False
+pb_weight::metric_manual_review_load::provider_domain_calendar,metric_manual_review_load,provider_domain_calendar,0.1,Unscheduled revision manual review penalty,True
+pb_weight::metric_coverage::provider_domain_news_metadata,metric_coverage,provider_domain_news_metadata,0.1,Headline and topic coverage across assets,False
+pb_weight::metric_capability::provider_domain_news_metadata,metric_capability,provider_domain_news_metadata,0.1,Event linking and tag extraction capability,False
+pb_weight::metric_quality::provider_domain_news_metadata,metric_quality,provider_domain_news_metadata,0.1,Spam/duplicate headline filtering from Phase 112,False
+pb_weight::metric_normalization::provider_domain_news_metadata,metric_normalization,provider_domain_news_metadata,0.1,Topic tag taxonomy and uppercase asset code normalization,False
+pb_weight::metric_traceability::provider_domain_news_metadata,metric_traceability,provider_domain_news_metadata,0.1,Source headline and publication time provenance,False
+pb_weight::metric_license_provenance::provider_domain_news_metadata,metric_license_provenance,provider_domain_news_metadata,0.1,Strict copyright and distribution boundary,True
+pb_weight::metric_no_scraping_compliance::provider_domain_news_metadata,metric_no_scraping_compliance,provider_domain_news_metadata,0.15,Mandatory zero-scraping compliance,False
+pb_weight::metric_metadata_only_compliance::provider_domain_news_metadata,metric_metadata_only_compliance,provider_domain_news_metadata,0.2,Mandatory zero full-text article boundary,False
+pb_weight::metric_manual_review_load::provider_domain_news_metadata,metric_manual_review_load,provider_domain_news_metadata,0.05,Copyright flag manual review penalty,True
+pb_weight::metric_coverage::provider_domain_cross_domain,metric_coverage,provider_domain_cross_domain,0.15,Cross-asset multi-provider coverage breadth,False
+pb_weight::metric_capability::provider_domain_cross_domain,metric_capability,provider_domain_cross_domain,0.15,Multi-source synchronization capability,False
+pb_weight::metric_quality::provider_domain_cross_domain,metric_quality,provider_domain_cross_domain,0.15,Cross-dataset coherence and alignment,False
+pb_weight::metric_normalization::provider_domain_cross_domain,metric_normalization,provider_domain_cross_domain,0.15,Universal canonical format alignment,False
+pb_weight::metric_traceability::provider_domain_cross_domain,metric_traceability,provider_domain_cross_domain,0.15,End-to-end lineage across all assets,False
+pb_weight::metric_license_provenance::provider_domain_cross_domain,metric_license_provenance,provider_domain_cross_domain,0.05,Cross-vendor licensing boundary coherence,True
+pb_weight::metric_no_scraping_compliance::provider_domain_cross_domain,metric_no_scraping_compliance,provider_domain_cross_domain,0.1,Cross-system zero-scraping enforcement,False
+pb_weight::metric_metadata_only_compliance::provider_domain_cross_domain,metric_metadata_only_compliance,provider_domain_cross_domain,0.05,Universal metadata-only policy adherence,False
+pb_weight::metric_manual_review_load::provider_domain_cross_domain,metric_manual_review_load,provider_domain_cross_domain,0.05,Cross-asset review queue load penalty,True

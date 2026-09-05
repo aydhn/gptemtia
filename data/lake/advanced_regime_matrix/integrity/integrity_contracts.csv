@@ -1,0 +1,9 @@
+integrity_rule_id,name,description,is_enforced,is_critical,non_signal,current_phase,target_final_phase,next_phase,source_preserved,status
+rule_no_forbidden_columns,Zero Forbidden Columns,"Neither feature matrices nor state datasets may contain buy, sell, target, or prediction columns.",True,True,True,127,160,128,True,matrix_ready
+rule_no_target_label_prediction,"Zero Target, Label, or Prediction Fields",Prohibits any representation of machine learning labels or directional forecasts.,True,True,True,127,160,128,True,matrix_ready
+rule_no_full_article_text,Zero Full Article News Content,"Prohibits article_body, raw_content, scraped HTML, or unstructured news bodies.",True,True,True,127,160,128,True,matrix_ready
+rule_no_embeddings_vector,Zero Vector Database or Embedding Tensors,Prohibits dense semantic vector embeddings or external vector database connections.,True,True,True,127,160,128,True,matrix_ready
+rule_source_preservation,Strict Source Data Preservation,Upstream source files and intermediate feature outputs must never be overwritten or deleted.,True,True,True,127,160,128,True,matrix_ready
+rule_no_auto_fix_or_drop,Prohibit Auto-Imputation and Auto-Feature-Drop,Automated destructive cleaning or synthetic imputation is strictly disallowed.,True,True,True,127,160,128,True,matrix_ready
+rule_validation_status_required,Mandatory Validation Status Pointer,Every matrix entry must reference a verified Phase 121 validation audit record.,True,True,True,127,160,128,True,matrix_ready
+rule_quality_metadata_required,Mandatory Quality & Drift Metadata,Every matrix entry must reference verified Phase 123 quality and drift scores.,True,True,True,127,160,128,True,matrix_ready

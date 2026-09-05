@@ -1,0 +1,14 @@
+{
+  "total_cross_domain_mappings": 6,
+  "domain_pairs": [
+    "fx_to_news",
+    "commodity_to_news",
+    "macro_to_calendar",
+    "calendar_to_macro",
+    "quality_to_lineage",
+    "license_to_usage"
+  ],
+  "all_source_preserved": true,
+  "current_phase": 114,
+  "target_final_phase": 160
+}

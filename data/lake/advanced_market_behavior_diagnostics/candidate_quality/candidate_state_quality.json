@@ -1,0 +1,8 @@
+{
+  "total_candidate_states": 10,
+  "ready_count": 10,
+  "average_completeness": 1.0,
+  "manual_review_required_count": 0,
+  "all_non_signal": true,
+  "all_training_disallowed": true
+}

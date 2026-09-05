@@ -1,0 +1,6 @@
+check_id,domain,description,passed,severity,status,manual_review_required,notes,non_signal
+macro_release_timestamp_quality,macro_calendar_news_quality_domain,Verify macro release timestamps are monotonically ordered and timezone-aware.,True,quality_info,diagnostic_pass,False,Boundary checks satisfied,True
+calendar_timestamp_completeness,macro_calendar_news_quality_domain,Check scheduled vs actual event release timestamp completeness.,True,quality_info,diagnostic_pass,False,Boundary checks satisfied,True
+release_lag_metadata_availability,macro_calendar_news_quality_domain,Ensure release lag features are explicitly calculated and non-negative.,True,quality_info,diagnostic_pass,False,Boundary checks satisfied,True
+news_metadata_only_boundary,macro_calendar_news_quality_domain,"Enforce strict prohibition on full-text, scraped HTML, and vector embeddings in feature matrix.",True,quality_info,diagnostic_pass,False,Boundary checks satisfied,True
+news_tag_topic_event_completeness,macro_calendar_news_quality_domain,Validate taxonomy completeness of news topic tags and event links.,True,quality_info,diagnostic_pass,False,Boundary checks satisfied,True

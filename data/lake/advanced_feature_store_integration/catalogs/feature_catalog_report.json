@@ -1,0 +1,14 @@
+{
+  "catalog_type": "feature_catalog",
+  "total_features": 9,
+  "source_phases": [
+    117,
+    118,
+    119,
+    120,
+    121,
+    123
+  ],
+  "non_signal": true,
+  "source_preserved": true
+}

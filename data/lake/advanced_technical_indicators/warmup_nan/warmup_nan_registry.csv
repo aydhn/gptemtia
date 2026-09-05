@@ -1,0 +1,16 @@
+indicator_name,warmup_formula,min_rows_needed,policy_action,future_handling
+sma,window - 1,window,preserve_nan_no_fill_no_delete,Handled in Phase 118 / Phase 121 validation
+ema,0 (or window for steady state),window,preserve_nan_no_fill_no_delete,Handled in Phase 118 / Phase 121 validation
+wma,window - 1,window,preserve_nan_no_fill_no_delete,Handled in Phase 118 / Phase 121 validation
+dema,2 * window - 1,2 * window,preserve_nan_no_fill_no_delete,Handled in Phase 118 / Phase 121 validation
+tema,3 * window - 2,3 * window,preserve_nan_no_fill_no_delete,Handled in Phase 118 / Phase 121 validation
+rsi,window,window + 1,preserve_nan_no_fill_no_delete,Handled in Phase 118 / Phase 121 validation
+cmo,window,window + 1,preserve_nan_no_fill_no_delete,Handled in Phase 118 / Phase 121 validation
+stochastic,k_window + d_window - 2,k_window + d_window,preserve_nan_no_fill_no_delete,Handled in Phase 118 / Phase 121 validation
+atr,window,window + 1,preserve_nan_no_fill_no_delete,Handled in Phase 118 / Phase 121 validation
+bollinger_bands,window - 1,window,preserve_nan_no_fill_no_delete,Handled in Phase 118 / Phase 121 validation
+rolling_zscore,window - 1,window,preserve_nan_no_fill_no_delete,Handled in Phase 118 / Phase 121 validation
+macd,slow + signal_window - 2,slow + signal_window,preserve_nan_no_fill_no_delete,Handled in Phase 118 / Phase 121 validation
+true_range,1,2,preserve_nan_no_fill_no_delete,Handled in Phase 118 / Phase 121 validation
+simple_return,window,window + 1,preserve_nan_no_fill_no_delete,Handled in Phase 118 / Phase 121 validation
+log_return,window,window + 1,preserve_nan_no_fill_no_delete,Handled in Phase 118 / Phase 121 validation

@@ -1,0 +1,14 @@
+{
+  "comparison_count": 5,
+  "domains": [
+    "FX Quotes",
+    "Commodities OHLCV",
+    "Macro Timeseries",
+    "Economic Calendar",
+    "News Metadata"
+  ],
+  "placeholder_only": true,
+  "benchmark_phase": 115,
+  "current_phase": 112,
+  "target_final_phase": 160
+}

@@ -1,0 +1,40 @@
+component,category,status,detail
+phase_113_data_normalization,prior_phase,HEALTHY,Modül 'advanced_data_normalization' başarıyla yüklendi.
+phase_114_data_lineage,prior_phase,HEALTHY,Modül 'advanced_data_lineage' başarıyla yüklendi.
+phase_115_data_quality,prior_phase,HEALTHY,Modül 'advanced_data_quality' başarıyla yüklendi.
+phase_116_feature_engine,prior_phase,HEALTHY,Modül 'advanced_feature_engine' başarıyla yüklendi.
+phase_117_technical_indicators,prior_phase,HEALTHY,Modül 'advanced_technical_indicators' başarıyla yüklendi.
+phase_118_feature_grid,prior_phase,HEALTHY,Modül 'advanced_feature_grid' başarıyla yüklendi.
+cross_asset_alignment_config,phase_119_core,HEALTHY,Modül hazır.
+cross_asset_alignment_models,phase_119_core,HEALTHY,Modül hazır.
+cross_asset_alignment_labels,phase_119_core,HEALTHY,Modül hazır.
+cross_asset_alignment_profile_registry,phase_119_core,HEALTHY,Modül hazır.
+cross_asset_alignment_domain_registry,phase_119_core,HEALTHY,Modül hazır.
+asset_universe_alignment,phase_119_core,HEALTHY,Modül hazır.
+asset_symbol_mapping,phase_119_core,HEALTHY,Modül hazır.
+cross_domain_feature_namespace,phase_119_core,HEALTHY,Modül hazır.
+timestamp_alignment_contracts,phase_119_core,HEALTHY,Modül hazır.
+session_calendar_alignment,phase_119_core,HEALTHY,Modül hazır.
+feature_matrix_contracts,phase_119_core,HEALTHY,Modül hazır.
+feature_matrix_join_policies,phase_119_core,HEALTHY,Modül hazır.
+asof_join_policies,phase_119_core,HEALTHY,Modül hazır.
+no_lookahead_alignment_guard,phase_119_core,HEALTHY,Modül hazır.
+cross_domain_feature_matrix,phase_119_core,HEALTHY,Modül hazır.
+aligned_feature_matrix_manifest,phase_119_core,HEALTHY,Modül hazır.
+cross_asset_feature_metadata,phase_119_core,HEALTHY,Modül hazır.
+cross_asset_alignment_validation_rules,phase_119_core,HEALTHY,Modül hazır.
+cross_asset_alignment_quality_handoff,phase_119_core,HEALTHY,Modül hazır.
+fx_commodity_alignment,domain_alignment,HEALTHY,Domain hizalama modülü hazır.
+fx_macro_alignment,domain_alignment,HEALTHY,Domain hizalama modülü hazır.
+fx_calendar_alignment,domain_alignment,HEALTHY,Domain hizalama modülü hazır.
+fx_news_metadata_alignment,domain_alignment,HEALTHY,Domain hizalama modülü hazır.
+commodity_macro_alignment,domain_alignment,HEALTHY,Domain hizalama modülü hazır.
+commodity_calendar_alignment,domain_alignment,HEALTHY,Domain hizalama modülü hazır.
+commodity_news_metadata_alignment,domain_alignment,HEALTHY,Domain hizalama modülü hazır.
+macro_calendar_alignment,domain_alignment,HEALTHY,Domain hizalama modülü hazır.
+calendar_news_metadata_alignment,domain_alignment,HEALTHY,Domain hizalama modülü hazır.
+safe_asof_join_backward,engine_function,HEALTHY,Geriye dönük asof join fonksiyonu erişilebilir.
+validate_alignment_no_lookahead,guard_function,HEALTHY,Lookahead koruma fonksiyonu aktif.
+scripts_directory,filesystem,HEALTHY,scripts dizini mevcut.
+tests_directory,filesystem,HEALTHY,tests dizini mevcut.
+docs_directory,filesystem,HEALTHY,docs dizini mevcut.

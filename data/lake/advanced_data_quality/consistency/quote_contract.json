@@ -1,0 +1,10 @@
+{
+  "rule_count": 4,
+  "rules": [
+    "quote_bid_le_ask",
+    "quote_spread_non_negative",
+    "quote_mid_within_spread",
+    "quote_timestamp_presence"
+  ],
+  "domain": "quote_consistency"
+}

@@ -1,0 +1,8 @@
+Bu rapor Phase 123 Feature Quality and Drift Diagnostics çıktısıdır. Gerçek veri indirme zorunluluğu, scraping, haber tam metni kullanımı, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, quality/drift score’u trade sinyali olarak kullanma, strateji/backtest/optimizer/model training çalıştırma, target/label/prediction üretme, otomatik feature silme/düzeltme, official approval veya production-ready iddiası değildir.
+Profile: balanced_local_feature_quality_drift
+Current Phase: 123
+Target Final Phase: 160
+Next Phase: 124
+Non-Signal Mandate: True
+Total Quality Metrics: 0
+Total Drift Metrics: 0

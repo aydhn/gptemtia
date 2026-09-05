@@ -1,0 +1,14 @@
+{
+  "total_statuses": 7,
+  "statuses": [
+    "normalization_applied",
+    "normalization_not_applicable",
+    "normalization_manual_review_required",
+    "normalization_blocked_by_safety",
+    "normalization_placeholder_only",
+    "normalization_failed",
+    "normalization_unknown"
+  ],
+  "current_phase": 113,
+  "target_final_phase": 160
+}

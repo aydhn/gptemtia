@@ -1,0 +1,5 @@
+provenance_id,dataset_type,metadata_only,full_text_prohibited,scraping_prohibited,copyright_compliant,retention_policy,status_label
+meta_prov_news,dataset_news_metadata,True,True,True,True,References and topic tags only,lineage_complete
+meta_prov_calendar,dataset_calendar_event,True,True,True,True,"Event schedules, categories, and impact flags only",lineage_complete
+meta_prov_macro,dataset_macro_timeseries,True,True,True,True,"Indicator definitions, frequencies, and numeric points only",lineage_complete
+meta_prov_provider,dataset_provider_metadata,True,True,True,True,Provider schemas and capability matrices only,lineage_complete

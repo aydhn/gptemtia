@@ -1,0 +1,9 @@
+{
+  "total_event_windows": 3,
+  "mean_transition_readiness": 0.8367,
+  "all_release_lags_satisfied": true,
+  "all_no_lookahead_verified": true,
+  "all_non_signal": true,
+  "contains_trading_signal": false,
+  "active_profile": "balanced_local_regime_transition"
+}

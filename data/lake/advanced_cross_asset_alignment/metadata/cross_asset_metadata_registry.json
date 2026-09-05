@@ -1,0 +1,26 @@
+{
+  "total_metadata_entries": 6,
+  "total_features": 6,
+  "domains": [
+    "fx",
+    "commodity",
+    "macro",
+    "calendar",
+    "news"
+  ],
+  "source_domains": [
+    "fx",
+    "commodity",
+    "macro",
+    "calendar",
+    "news"
+  ],
+  "aligned_domains": [
+    "fx"
+  ],
+  "all_non_signal": true,
+  "all_lookahead_checked": true,
+  "phase_120_fusion_ready_count": 6,
+  "status": "READY",
+  "profile": "balanced_local_cross_asset_alignment"
+}

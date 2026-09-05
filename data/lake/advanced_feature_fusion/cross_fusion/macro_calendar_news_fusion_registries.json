@@ -1,0 +1,37 @@
+{
+  "macro_calendar": {
+    "fusion_type": "macro_calendar_cross_domain",
+    "description": "Cross-fuses macro timeseries with economic calendar releases via backward-only asof join.",
+    "join_direction": "backward",
+    "no_lookahead_guaranteed": true,
+    "is_signal": false,
+    "policy": "release_timestamp <= macro_timestamp"
+  },
+  "macro_news": {
+    "fusion_type": "macro_news_metadata_cross_domain",
+    "description": "Cross-fuses macro timeseries with news metadata tags/topics via backward-only asof join.",
+    "join_direction": "backward",
+    "strictly_metadata_only": true,
+    "no_lookahead_guaranteed": true,
+    "is_signal": false,
+    "policy": "news_published_timestamp <= macro_timestamp"
+  },
+  "calendar_news": {
+    "fusion_type": "calendar_news_metadata_cross_domain",
+    "description": "Cross-fuses economic calendar events with news metadata linkage via backward-only asof join.",
+    "join_direction": "backward",
+    "strictly_metadata_only": true,
+    "no_lookahead_guaranteed": true,
+    "is_signal": false,
+    "policy": "news_published_timestamp <= calendar_release_timestamp"
+  },
+  "cross_domain": {
+    "engine": "cross_domain_context_fusion",
+    "purpose": "Multi-domain context representation linking FX/Commodity with Macro, Calendar, and News metadata.",
+    "join_policy": "backward_only_asof",
+    "no_lookahead": true,
+    "is_signal": false,
+    "strictly_metadata_only": true,
+    "research_only": true
+  }
+}

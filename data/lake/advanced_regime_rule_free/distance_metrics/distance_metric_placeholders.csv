@@ -1,0 +1,6 @@
+algorithm_id,family,description,is_placeholder_only,execution_permitted,model_fit_permitted,non_signal,current_phase,next_phase,target_final_phase
+euclidean_placeholder,distance_metric,Standard L2 Euclidean distance specification for normalized continuous features.,True,False,False,True,128,129,160
+cosine_placeholder,distance_metric,Cosine angular distance specification for directional feature vectors.,True,False,False,True,128,129,160
+manhattan_placeholder,distance_metric,L1 Manhattan distance specification robust to isolated outliers.,True,False,False,True,128,129,160
+correlation_distance_placeholder,distance_metric,1 - Pearson correlation distance specification for cross-asset behavior shape similarity.,True,False,False,True,128,129,160
+dynamic_time_warping_placeholder,distance_metric,Dynamic Time Warping (DTW) distance specification for non-linear temporal sequence alignment.,True,False,False,True,128,129,160

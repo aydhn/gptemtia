@@ -1,0 +1,4 @@
+policy_name,policy_type,description,future_data_allowed,full_text_allowed,destructive_action_allowed,non_signal,manual_review_required
+strict_metadata_only_news_boundary_policy,news_metadata_only,"Haber tarafında yalnızca etiket, konu, zaman damgası ve olay referansı kullanılır; tam metin kullanımı kesinlikle engellenir.",False,False,False,True,False
+forbidden_article_body_columns_policy,news_metadata_only,"Herhangi bir tabloda full_text, article_body, scraped_html veya embedding kolonu tespit edilirse pipeline durdurulur.",False,False,False,True,False
+zero_scraping_compliance_policy,news_metadata_only,"Web scraping, tarayıcı otomasyonu, paywall atlatma veya telifli içerik indirme kesin olarak yasaktır.",False,False,False,True,False

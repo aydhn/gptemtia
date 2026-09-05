@@ -1,0 +1,5 @@
+rule_name,rule_domain,severity_label
+quote_bid_le_ask,quote_consistency,quality_high
+quote_spread_non_negative,quote_consistency,quality_high
+quote_mid_within_spread,quote_consistency,quality_medium
+quote_timestamp_presence,quote_consistency,quality_high

@@ -1,0 +1,19 @@
+{
+  "total_contracts": 9,
+  "contract_names": [
+    "candidate_state_sequence_contract",
+    "pseudo_state_sequence_contract",
+    "regime_family_sequence_contract",
+    "volatility_state_sequence_contract",
+    "trend_state_sequence_contract",
+    "range_state_sequence_contract",
+    "macro_event_context_sequence_contract",
+    "news_metadata_context_sequence_contract",
+    "cross_asset_context_sequence_contract"
+  ],
+  "all_non_signal_required": true,
+  "all_no_lookahead_required": true,
+  "zero_model_training_allowed": true,
+  "zero_clustering_allowed": true,
+  "active_profile": "balanced_local_regime_transition"
+}

@@ -1,0 +1,18 @@
+raw_topic,normalized_topic,current_phase
+central bank,CENTRAL_BANK,113
+central_bank,CENTRAL_BANK,113
+monetary policy,CENTRAL_BANK,113
+inflation,INFLATION,113
+cpi,INFLATION,113
+crude oil,CRUDE_OIL,113
+oil,CRUDE_OIL,113
+energy,CRUDE_OIL,113
+gold,PRECIOUS_METALS,113
+precious metals,PRECIOUS_METALS,113
+interest rate,INTEREST_RATE,113
+rates,INTEREST_RATE,113
+risk sentiment,RISK_SENTIMENT,113
+risk_on,RISK_SENTIMENT,113
+risk_off,RISK_SENTIMENT,113
+forex,FX_CURRENCY,113
+currencies,FX_CURRENCY,113

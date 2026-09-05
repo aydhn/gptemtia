@@ -1,0 +1,9 @@
+namespace_id,domain,symbol,raw_feature_name,namespaced_feature,is_valid,issues,description,non_signal
+ns_fx_eur_usd_sma_w20,fx,EUR/USD,sma_w20,fx_eur_usd_sma_w20,True,[],EUR/USD 20 periyotluk basit hareketli ortalama.,True
+ns_fx_eur_usd_rsi_w14,fx,EUR/USD,rsi_w14,fx_eur_usd_rsi_w14,True,[],EUR/USD 14 periyotluk Göreceli Güç Endeksi.,True
+ns_fx_usd_try_atr_w14,fx,USD/TRY,atr_w14,fx_usd_try_atr_w14,True,[],USD/TRY 14 periyotluk Ortalama Gerçek Aralık.,True
+ns_commodity_xau_usd_bb_width_w20_std2,commodity,XAU/USD,bb_width_w20_std2,commodity_xau_usd_bb_width_w20_std2,True,[],XAU/USD Bollinger Band genişliği.,True
+ns_commodity_wti_crude_continuous_placeholder_rolling_zscore_w20,commodity,WTI_CRUDE_CONTINUOUS_PLACEHOLDER,rolling_zscore_w20,commodity_wti_crude_continuous_placeholder_rolling_zscore_w20,True,[],WTI sürekli kontrat 20 periyotluk z-skoru.,True
+ns_macro_us_10y_yield_yield_diff_1d,macro,US_10Y_YIELD,yield_diff_1d,macro_us_10y_yield_yield_diff_1d,True,[],US 10Y faizi günlük fark göstergesi.,True
+ns_calendar_fomc_rate_decision_event_active_window,calendar,FOMC_RATE_DECISION,event_active_window,calendar_fomc_rate_decision_event_active_window,True,[],FOMC faiz kararı aktif pencere bayrağı.,True
+ns_news_crude_oil_news_mention_count_1d,news,CRUDE_OIL,news_mention_count_1d,news_crude_oil_news_mention_count_1d,True,[],Ham petrol haber başlığı günlük frekans sayımı (metadata-only).,True

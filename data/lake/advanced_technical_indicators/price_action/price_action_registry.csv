@@ -1,0 +1,6 @@
+indicator_name,output_field,required_fields,family,non_signal
+high_low_range,high_low_range,"['high', 'low']",family_price_action,True
+close_open_range,close_open_range,"['close', 'open']",family_price_action,True
+range_pct,range_pct,"['high', 'low', 'close']",family_price_action,True
+gap_from_prev_close,gap_from_prev_close,"['open', 'close']",family_price_action,True
+close_location_value,close_location_value,"['high', 'low', 'close']",family_price_action,True

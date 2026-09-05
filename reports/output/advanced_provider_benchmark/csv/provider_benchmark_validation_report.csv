@@ -1,0 +1,7 @@
+validation_area,status,issues
+profile_registry,VALID,None
+metric_registry,VALID,None
+benchmark_scores,VALID,None
+ranking_research,VALID,None
+manual_review_queue,VALID,None
+forbidden_claims_enforcement,VALID,None

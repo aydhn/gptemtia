@@ -1,0 +1,13 @@
+{
+  "validation_status": "VALIDATION_PASS",
+  "total_rules": 5,
+  "passed_rules": 5,
+  "failed_rules": 0,
+  "all_passed": true,
+  "forbidden_claims_clean": true,
+  "current_phase": 127,
+  "target_final_phase": 160,
+  "next_phase": 128,
+  "non_signal": true,
+  "source_preserved": true
+}

@@ -1,0 +1,11 @@
+family_id,family_name,feature_count,drift_warning_count,drift_critical_count,mean_shift_status,std_shift_status,stability_status,family_drift_score,status,severity,manual_review_required,non_signal
+trend,Trend Factor Family,3,0,0,diagnostic_pass,diagnostic_pass,diagnostic_pass,0.95,diagnostic_pass,drift_low,False,True
+momentum,Momentum Factor Family,4,0,0,diagnostic_pass,diagnostic_pass,diagnostic_pass,0.95,diagnostic_pass,drift_low,False,True
+volatility,Volatility Factor Family,4,0,0,diagnostic_pass,diagnostic_pass,diagnostic_pass,0.95,diagnostic_pass,drift_low,False,True
+mean_reversion,Mean Reversion Factor Family,3,0,0,diagnostic_pass,diagnostic_pass,diagnostic_pass,0.95,diagnostic_pass,drift_low,False,True
+returns,Return Factor Family,3,0,0,diagnostic_pass,diagnostic_pass,diagnostic_pass,0.95,diagnostic_pass,drift_low,False,True
+quote_microstructure,Quote Microstructure Factor Family,3,0,0,diagnostic_pass,diagnostic_pass,diagnostic_pass,0.95,diagnostic_pass,drift_low,False,True
+macro_context,Macro Context Factor Family,3,0,0,diagnostic_pass,diagnostic_pass,diagnostic_pass,0.95,diagnostic_pass,drift_low,False,True
+calendar_event,Calendar Event Factor Family,3,0,0,diagnostic_pass,diagnostic_pass,diagnostic_pass,0.95,diagnostic_pass,drift_low,False,True
+news_attention,News Attention Factor Family,3,0,0,diagnostic_pass,diagnostic_pass,diagnostic_pass,0.95,diagnostic_pass,drift_low,False,True
+cross_asset_context,Cross-Asset Context Factor Family,3,0,0,diagnostic_pass,diagnostic_pass,diagnostic_pass,0.95,diagnostic_pass,drift_low,False,True

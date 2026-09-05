@@ -1,0 +1,12 @@
+{
+  "total_contexts": 3,
+  "all_ready": true,
+  "zero_full_text_guaranteed": true,
+  "zero_article_body_guaranteed": true,
+  "zero_embedding_guaranteed": true,
+  "zero_sentiment_model_guaranteed": true,
+  "dependencies_passed": true,
+  "all_zero_full_text": true,
+  "non_signal": true,
+  "active_profile": "balanced_local_market_behavior_diagnostics"
+}

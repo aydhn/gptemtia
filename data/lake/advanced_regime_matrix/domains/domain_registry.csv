@@ -1,0 +1,23 @@
+domain_id,domain_name,name,description,source_phase,status,non_signal,source_preserved
+technical_volatility,technical_volatility,Technical Volatility Domain,"Contracts governing technical, volatility, and range feature matrices.",127,matrix_ready,True,True
+factor_trend,factor_trend,Factor Trend Domain,Contracts governing trend factors and persistence metrics.,127,matrix_ready,True,True
+cross_asset,cross_asset,Cross-Asset Domain,"Contracts governing cross-asset coupling, correlation, and relative spread.",127,matrix_ready,True,True
+regime_feature_matrix_contracts,regime_feature_matrix_contracts,Feature Matrix Contracts,"Contracts governing technical, factor, context, and quality matrix schemas.",127,matrix_ready,True,True
+regime_state_dataset_contracts,regime_state_dataset_contracts,State Dataset Contracts,Non-signal dataset contracts preparing for Phase 128 unsupervised learning and labeling.,127,matrix_ready,True,True
+regime_matrix_entities,regime_matrix_entities,Entity Registry,"Canonical entity mapping for FX, commodities, macro, calendar, news, and cross-asset components.",127,matrix_ready,True,True
+regime_matrix_namespace_schema,regime_matrix_namespace_schema,Namespace and Schema,"Standard snake_case prefixing, canonical keys, and column schema validation.",127,matrix_ready,True,True
+regime_matrix_input_features,,Input Features Registry,Feature inputs sourced from Phase 117-124 pipelines.,127,matrix_ready,True,True
+regime_matrix_factor_inputs,,Factor Inputs Registry,Factor inputs sourced from Phase 122 factor metadata and Phase 123 diagnostics.,127,matrix_ready,True,True
+regime_matrix_context_inputs,,Context Inputs Registry,"Macro, event, news metadata (strictly metadata-only), and cross-asset context features.",127,matrix_ready,True,True
+regime_matrix_quality_inputs,,Quality Inputs Registry,"Missingness, drift, staleness, and validation blocker diagnostic inputs.",127,matrix_ready,True,True
+regime_matrix_timestamp_alignment,,Timestamp Alignment,UTC timestamp normalization and strict release lag order verification.,127,matrix_ready,True,True
+regime_matrix_asof_join_policy,,Asof Join Policy,Backward-only merge rules prohibiting nearest or forward matching.,127,matrix_ready,True,True
+regime_matrix_no_lookahead_guard,,No-Lookahead Guard,"Strict detection and blocking of shift(-1), forward returns, and future timestamps.",127,matrix_ready,True,True
+regime_state_dataset_schema,,State Dataset Schema,Standard schema for state dataset rows prohibiting label/target/prediction fields.,127,matrix_ready,True,True
+regime_state_candidate_context,,Candidate Context Registry,"Research context candidates (volatility, trend, range, macro, etc.) without labels.",127,matrix_ready,True,True
+regime_matrix_integrity_manifest,,Matrix Integrity Manifest,Phase 127 immutable governance manifest verifying integrity invariants.,127,matrix_ready,True,True
+regime_matrix_source_phases,,Source Phases Registry,Upstream provenance mapping spanning Phases 117 through 126.,127,matrix_ready,True,True
+regime_matrix_validation_quality_dependencies,,Validation & Quality Dependencies,Dependency contracts linking validation passes and quality thresholds to matrix rows.,127,matrix_ready,True,True
+regime_matrix_non_signal_policies,,Non-Signal Policies,Zero-tolerance policies preventing trade recommendations and directional claims.,127,matrix_ready,True,True
+regime_matrix_source_preservation,,Source Preservation Policies,Non-destructive governance strictly banning raw data overwrites or file deletions.,127,matrix_ready,True,True
+phase_128_handoff,,Phase 128 Handoff,Structured prerequisites for Phase 128 Rule-Free Labeling Contracts and Unsupervised Prep.,127,matrix_ready,True,True

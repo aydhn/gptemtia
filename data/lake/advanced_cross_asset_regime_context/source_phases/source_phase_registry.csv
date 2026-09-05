@@ -1,0 +1,10 @@
+source_phase_num,phase_name,contribution,status,verified,non_signal,source_preserved,official_approval,production_ready,broker_ready,contains_target_or_prediction,contains_trading_recommendation
+119,Phase 119 Cross-Asset Feature Alignment,Multi-asset time-series synchronization contracts and canonical alignment policies.,COMPLETED,True,True,True,False,False,False,False,False
+120,Phase 120 Macro/Calendar/News Feature Fusion,"Lag-tolerant macro fusion, calendar window features, and metadata-only news tags.",COMPLETED,True,True,True,False,False,False,False,False
+121,Phase 121 Feature Validation and No-Lookahead Guard,Zero negative shift validation and forbidden column rejection mechanisms.,COMPLETED,True,True,True,False,False,False,False,False
+123,Phase 123 Feature Quality and Drift Diagnostics,Distribution drift monitoring and missingness quality baselines.,COMPLETED,True,True,True,False,False,False,False,False
+124,Phase 124 Feature Store Integration Expansion,Centralized metadata catalogs and read-only feature access contracts.,COMPLETED,True,True,True,False,False,False,False,False
+126,Phase 126 Regime Classification and Market Behavior Foundation,"Regime families (volatility, trend, range) and foundational taxonomy.",COMPLETED,True,True,True,False,False,False,False,False
+127,Phase 127 Regime Feature Matrix and State Dataset Contracts,Regime feature matrices and non-target candidate context specifications.,COMPLETED,True,True,True,False,False,False,False,False
+129,Phase 129 Market Behavior Diagnostics and Regime Quality,Market behavior diagnostic coverage and regime quality scoring.,COMPLETED,True,True,True,False,False,False,False,False
+130,Phase 130 Regime Transition and Stability Analysis,"State sequence continuity, empirical transition frequency, and stability scoring.",COMPLETED,True,True,True,False,False,False,False,False

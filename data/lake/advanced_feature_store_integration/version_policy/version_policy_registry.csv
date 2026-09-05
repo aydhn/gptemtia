@@ -1,0 +1,4 @@
+policy_id,policy_name,description,destructive_overwrite_allowed,production_release_tag_allowed,immutable_snapshot_supported,non_signal,source_preserved
+VPOL_001,immutable_snapshot_policy,"Her sürüm değişmez bir snapshot olarak saklanır, önceki sürümler asla silinmez veya üzerine yazılmaz.",False,False,True,True,True
+VPOL_002,metadata_audit_trail_policy,Tüm sürüm değişimleri lineage ve audit kayıtlarında tarih damgası ile izlenir.,False,False,True,True,True
+VPOL_003,phase_bound_versioning_policy,Sürüm numaralandırması faz ilerlemesi ile uyumlu olup Phase 124 araştırma sınırını aşmaz.,False,False,True,True,True

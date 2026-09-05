@@ -295,3 +295,57 @@ python -m scripts.run_usability_status
 - Post-incident review template nasıl kullanılır: Sadece geçmişe yönelik taslak çıkarır.
 - Incident no-go/safe-go sınırları nasıl korunur: Kalite kontrolleri tarafından hard limit olarak izlenir.
 - Uyarı: Gerçek incident response, forensic analiz, production recovery, canlı emir, broker execution, deployment ve yatırım tavsiyesi YOKTUR.
+
+## Local Long-Term Operations
+- **Long-term operations binder nasıl okunur?** Bu belge lokal bakım işlemlerinin bir provasıdır.
+- **Review calendars nasıl yorumlanır?** Sadece manuel hatırlatma ve inceleme önerileridir, entegre takvim değildir.
+- **Lifecycle maintenance workbook neden official lifecycle policy değildir?** Offline/local bir projedir ve regülatif bağlayıcılığı yoktur.
+- **Deprecation rehearsal neden gerçek kaldırma/migration değildir?** Dosya silinmez, taşınmaz, değiştirilmez; sadece raporlanır.
+- **v1.x roadmap governance neden official roadmap commitment değildir?** Planlama provasıdır, kesin sürüm garantisi sunmaz.
+- **Feature intake ve change-control rehearsal nasıl kullanılır?** Sistemin gelişimini lokal bağlamda teorik olarak denetlemek için kullanılır.
+- **ÖNEMLİ:** Gerçek operations plan, package publish, Docker push, Git tag, cloud upload, deployment, legal/compliance sign-off, canlı emir, broker execution ve yatırım tavsiyesi YOKTUR.
+
+## Local Project Completion
+- System closure dossier nasıl okunur? -> Sadece rehearsal.
+- Terminal handoff pack nasıl kullanılır? -> Gerçek devir değildir.
+- Knowledge freeze rehearsal neden gerçek freeze/git tag değildir? -> Offline dokümantasyon snapshottır.
+- Last-mile audit binder neden official audit değildir? -> Sadece local proof.
+- Completion readiness packet neden production approval değildir? -> Gerçek sign-off içermez.
+- Final handoff checklistleri nasıl yorumlanır? -> Rehearsal only.
+- Gerçek project closure, official completion approval, package publish, Docker push, Git tag, cloud upload, deployment, legal/compliance sign-off, canlı emir, broker execution ve yatırım tavsiyesi YOKTUR.
+
+
+## Local Post-Completion Preservation
+- **Archive seal rehearsal nasıl okunur?**: data/lake/local_post_completion_preservation/archive_seal/ altındaki rehearsal raporu incelenir. Bu dosya gerçek seal değildir.
+- **Immutable README rehearsal neden gerçek immutable lock değildir?**: Hiçbir chmod, file lock uygulanmaz; sadece deneme amaçlı okuma dosyasıdır.
+- **Evidence vault index nasıl yorumlanır?**: Projedeki kritik verilerin listesidir, ancak legal/audit bir evidence vault değildir.
+- **Final knowledge capsule nasıl kullanılır?**: Projenin genel durumunu ve kritik okuma noktalarını sunar; official freeze değildir.
+- **Preservation binder neden official preservation policy değildir?**: Offline/local deneme amaçlı bir dosya olup, gerçek policy onayı içermez.
+- **Fingerprint rehearsal neden official artifact seal değildir?**: Kriptografik hash'ler üretir ancak legal signoff eksiktir.
+- **ÖNEMLİ**: Gerçek archive seal, chmod, Git tag, release publish, package publish, deployment, legal/compliance sign-off, canlı emir, broker execution ve yatırım tavsiyesi yoktur!
+
+
+## Local Project Atlas (Phase 93)
+- Meta-index, projenin okunabilir listesidir, official knowledge index değildir.
+- Universal navigation map, başlangıç noktalarını gösterir, official SOP değildir.
+- Cross-phase lookup engine, klasör içi anahtar kelime eşleştirmesidir, enterprise search değildir.
+- Offline semantic table of contents, başlıkların statik hiyerarşisidir, vector/embedding search değildir.
+- Terminal project atlas projenin haritasıdır.
+- Gerçek cloud index, vector DB, embedding API, external LLM, package publish, deployment, canlı emir, broker execution ve yatırım tavsiyesi yoktur.
+
+## Local Review Governance
+- **Human-review cockpit:** Sadece text/markdown tabanli offline review aracidir, gercek bir dashboard veya GUI/TUI degildir.
+- **Manual approval ledger:** Gercek bir approval workflow, e-signature veya sign-off sistemi degildir; rehearsal amacli uretilmistir.
+- **Expert review workbook:** Sadece offline dokumantasyon uretir, resmi expert sign-off, legal approval veya compliance onayi vermez.
+- **Offline reviewer console:** Sadece komut/rapor ciktilarini listeler, bir konsol uzerinden islem calistirmaz, dashboard degildir.
+- **Review governance binder:** Legal/compliance/production approval icermez, yatırım tavsiyesi verilmez.
+- Hicbir sekilde package publish, deployment, Docker push, Git tag, bulut yukleme, canli emir, broker execution desteklenmez ve yatirim tavsiyesi degildir.
+
+## Local Distribution Packaging
+- Distribution bundle rehearsal nasil okunur? 
+- Portable docs bundle nasil kullanilir?
+- Offline release folder manifest neden gercek release degildir?
+- Terminal handover ZIP-map neden gercek ZIP/archive uretmez?
+- Packaging governance binder nasil yorumlanir?
+- Inclusion/exclusion matrices ve source/output/command maps nasil okunur?
+- Gercek ZIP/archive, installer, binary artifact, package publish, deployment, canli emir, broker execution ve yatirim tavsiyesi olmadigi acik yazilsin.

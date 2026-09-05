@@ -1,0 +1,58 @@
+# Phase 113 — Data Normalization Health Check Report
+
+> [!IMPORTANT]
+> **YASAL UYARI VE GÜVENLİK SINIRI**:
+> Bu çıktı Phase 113 Data Normalization Layer raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, normalized data’yı trade sinyali olarak kullanma, official approval, production deployment, model deployment, scraping, haber tam metni toplama, telifli içerik kopyalama, external LLM/API çağrısı, gerçek provider API çağrısı zorunluluğu, source overwrite veya destructive cleaning değildir.
+
+
+## Sistem Sağlık Özeti
+- **Toplam Kontrol Sayısı**: 42
+- **Başarılı**: 42
+- **Başarısız**: 0
+- **Genel Durum**: PASS
+
+## Sağlık Kontrolleri
+| check_name | status | passed | note | manual_review_required | current_phase |
+| --- | --- | --- | --- | --- | --- |
+| config_importable | PASS | True | data_normalization_config yüklenebilir. | False | 113 |
+| labels_importable | PASS | True | data_normalization_labels yüklenebilir. | False | 113 |
+| models_importable | PASS | True | data_normalization_models yüklenebilir. | False | 113 |
+| profile_registry_available | PASS | True | Profile registry oluşturulabilir. | False | 113 |
+| domain_registry_available | PASS | True | Domain registry oluşturulabilir. | False | 113 |
+| status_registry_available | PASS | True | Status registry oluşturulabilir. | False | 113 |
+| rule_registry_available | PASS | True | Rule registry oluşturulabilir. | False | 113 |
+| canonical_schema_registry_available | PASS | True | Canonical schema registry mevcut. | False | 113 |
+| canonical_field_registry_available | PASS | True | Canonical field registry mevcut. | False | 113 |
+| schema_version_normalization_available | PASS | True | Schema version normalizasyonu hazır. | False | 113 |
+| provider_name_normalization_available | PASS | True | Provider name normalizasyonu hazır. | False | 113 |
+| fx_symbol_normalization_available | PASS | True | FX symbol normalizasyonu hazır. | False | 113 |
+| commodity_symbol_normalization_available | PASS | True | Commodity symbol normalizasyonu hazır. | False | 113 |
+| macro_indicator_normalization_available | PASS | True | Macro indicator normalizasyonu hazır. | False | 113 |
+| calendar_event_normalization_available | PASS | True | Calendar event normalizasyonu hazır. | False | 113 |
+| news_topic_tag_normalization_available | PASS | True | News topic/tag normalizasyonu hazır. | False | 113 |
+| region_currency_normalization_available | PASS | True | Region/currency normalizasyonu hazır. | False | 113 |
+| timestamp_timezone_normalization_available | PASS | True | Timestamp/timezone UTC normalizasyonu hazır. | False | 113 |
+| session_alignment_available | PASS | True | Session alignment gereksinimleri hazır. | False | 113 |
+| frequency_normalization_available | PASS | True | Frequency normalizasyonu hazır. | False | 113 |
+| unit_normalization_available | PASS | True | Unit normalizasyonu hazır. | False | 113 |
+| numeric_type_normalization_available | PASS | True | Numeric type safe cast hazır. | False | 113 |
+| string_case_slug_normalization_available | PASS | True | String/slug normalizasyonu hazır. | False | 113 |
+| duplicate_key_normalization_available | PASS | True | Duplicate key generation hazır. | False | 113 |
+| normalized_view_models_available | PASS | True | Normalized view modelleri hazır. | False | 113 |
+| findings_decisions_available | PASS | True | Findings & decisions registry hazır. | False | 113 |
+| manual_review_queue_available | PASS | True | Non-destructive manual review kuyruğu hazır. | False | 113 |
+| normalized_output_writer_available | PASS | True | Normalized output writer hazır. | False | 113 |
+| normalization_scoring_available | PASS | True | Scoring modülü hazır. | False | 113 |
+| cross_domain_mapping_available | PASS | True | Cross-domain mapping hazır. | False | 113 |
+| phase_106_providers_available | PASS | True | Phase 106 paketi mevcut. | False | 113 |
+| phase_107_fx_available | PASS | True | Phase 107 paketi mevcut. | False | 113 |
+| phase_108_commodity_available | PASS | True | Phase 108 paketi mevcut. | False | 113 |
+| phase_109_macro_available | PASS | True | Phase 109 paketi mevcut. | False | 113 |
+| phase_110_calendar_available | PASS | True | Phase 110 paketi mevcut. | False | 113 |
+| phase_111_news_available | PASS | True | Phase 111 paketi mevcut. | False | 113 |
+| phase_112_quality_available | PASS | True | Phase 112 paketi mevcut. | False | 113 |
+| datalake_integration_available | PASS | True | DataLake save/load metotları tanımlı. | False | 113 |
+| featurestore_integration_available | PASS | True | FeatureStore yükleme metotları tanımlı. | False | 113 |
+| scripts_present | PASS | True | Scripts dizini mevcut. | False | 113 |
+| tests_present | PASS | True | Tests dizini mevcut. | False | 113 |
+| docs_present | PASS | True | Docs dizini mevcut. | False | 113 |

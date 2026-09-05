@@ -1,0 +1,13 @@
+{
+  "catalog": "calendar_event_features",
+  "total_features": 6,
+  "all_non_signal": true,
+  "features": [
+    "event_day_flag_placeholder",
+    "pre_event_window_flag_placeholder",
+    "post_event_window_flag_placeholder",
+    "event_importance_weight_placeholder",
+    "release_delay_placeholder",
+    "event_surprise_placeholder"
+  ]
+}

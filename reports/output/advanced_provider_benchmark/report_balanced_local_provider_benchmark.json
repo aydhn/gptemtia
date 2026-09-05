@@ -1,0 +1,9 @@
+{
+  "current_phase": 115,
+  "phase_name": "Data Provider Benchmark Report",
+  "target_final_phase": 160,
+  "next_phase": 116,
+  "total_subsystems": 7,
+  "all_subsystems_ready": true,
+  "mean_benchmark_score": 0.8462
+}

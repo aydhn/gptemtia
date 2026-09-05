@@ -1,0 +1,7 @@
+contract_name,fusion_family,source_domains,required_fields,optional_fields,timestamp_field,join_policy
+news_topic_metadata_contract,fusion_family_news_metadata,"['news_metadata', 'cross_asset_alignment']","['news_id', 'topic', 'published_timestamp']","['subtopic', 'topic_confidence']",published_timestamp,fusion_join_policy_backward_asof
+news_asset_tag_metadata_contract,fusion_family_news_metadata,['news_metadata'],"['news_id', 'asset_tags', 'published_timestamp']","['primary_asset_symbol', 'tag_count']",published_timestamp,fusion_join_policy_metadata_tag_link
+news_macro_tag_metadata_contract,fusion_family_news_metadata,"['news_metadata', 'macro_providers']","['news_id', 'macro_tags', 'published_timestamp']","['macro_category', 'indicator_reference']",published_timestamp,fusion_join_policy_metadata_tag_link
+news_event_linkage_metadata_contract,fusion_family_news_metadata,"['news_metadata', 'economic_calendar']","['news_id', 'event_reference', 'published_timestamp']","['linked_event_id', 'linkage_type']",published_timestamp,fusion_join_policy_metadata_tag_link
+news_source_reference_metadata_contract,fusion_family_news_metadata,['news_metadata'],"['news_id', 'source_reference_id', 'source_category']","['source_tier', 'is_official_feed']",published_timestamp,fusion_join_policy_backward_asof
+news_freshness_metadata_contract,fusion_family_news_metadata,['news_metadata'],"['news_id', 'age_minutes_at_join', 'published_timestamp']",['decay_half_life_placeholder'],published_timestamp,fusion_join_policy_backward_asof

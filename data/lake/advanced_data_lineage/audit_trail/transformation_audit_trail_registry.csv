@@ -1,0 +1,7 @@
+audit_id,dataset_type,transformation_rule,source_field,target_field,input_sample,output_sample,source_preserved,destructive_action_allowed,lineage_status
+trans_aud_001,dataset_fx_quote,fx_symbol_slashing,pair,normalized_pair,EURUSD,EUR/USD,True,False,lineage_complete
+trans_aud_002,dataset_commodity_spot,commodity_symbol_root_mapping,symbol,normalized_symbol,GOLD,XAU/USD,True,False,lineage_complete
+trans_aud_003,dataset_macro_timeseries,macro_indicator_slugification,indicator,normalized_indicator,US10Y,US_10Y_YIELD,True,False,lineage_complete
+trans_aud_004,dataset_calendar_event,calendar_event_name_normalization,event,normalized_event,FOMC,FOMC_RATE_DECISION,True,False,lineage_complete
+trans_aud_005,dataset_news_metadata,news_topic_tag_normalization,tags,normalized_tags,['central bank'],['CENTRAL_BANK'],True,False,lineage_complete
+trans_aud_006,all,timestamp_utc_iso8601_conversion,timestamp,normalized_timestamp,2026-01-01 10:00:00+03:00,2026-01-01T07:00:00Z,True,False,lineage_complete

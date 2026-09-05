@@ -1,0 +1,9 @@
+metric_name,metric_family,description,formula_placeholder,expected_range,non_signal,source_preserved,requires_no_lookahead
+state_persistence_score_placeholder,state_persistence,Probability proxy that a state persists into the subsequent interval,count(state_{t} == state_{t-1}) / total_transitions,"[0.0, 1.0]",True,True,True
+average_state_duration_placeholder,state_persistence,Average consecutive intervals spent within a single candidate state run,mean(run_lengths),"[1.0, inf)",True,True,True
+stability_score_placeholder,stability_score,"Overall stability index combining persistence, low ambiguity, and sequence completeness",0.4 * persistence + 0.3 * (1 - ambiguity) + 0.3 * completeness,"[0.0, 1.0]",True,True,True
+rolling_stability_placeholder,stability_score,Rolling window stability metric tracking regime persistence variance,"rolling_mean(persistence, window=W)","[0.0, 1.0]",True,True,True
+regime_family_stability_placeholder,family_stability,"Persistence score measured across entire regime families (volatility, trend, range)",mean(family_member_persistence),"[0.0, 1.0]",True,True,True
+pseudo_state_stability_placeholder,pseudo_stability,Persistence placeholder for pseudo-state cluster sequences,pseudo_run_length / expected_duration,"[0.0, 1.0]",True,True,True
+state_sequence_completeness_score,completeness,Ratio of valid non-null state observations in sequence record,count(non_null_states) / total_sequence_length,"[0.0, 1.0]",True,True,True
+source_quality_dependency_score,dependency,Upstream quality score from Phase 123/129 verifying input factor sanity,"min(phase_123_quality, phase_129_quality)","[0.0, 1.0]",True,True,True

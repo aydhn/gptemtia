@@ -1,0 +1,11 @@
+{
+  "total_guards": 3,
+  "guard_keys": [
+    "guard_no_forbidden_columns",
+    "guard_no_future_joins",
+    "guard_no_negative_shift"
+  ],
+  "all_strict_blocking": true,
+  "forbidden_column_count": 19,
+  "active_profile": "balanced_local_regime_transition"
+}

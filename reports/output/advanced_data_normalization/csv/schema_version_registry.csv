@@ -1,0 +1,10 @@
+raw_version_input,normalized_version,is_canonical,manual_review_required,non_destructive
+1,v1.0,True,False,True
+1.0,v1.0,True,False,True
+v1,v1.0,True,False,True
+v1.0,v1.0,True,False,True
+version_1,v1.0,True,False,True
+2,v2.0,True,False,True
+2.0,v2.0,True,False,True
+v2,v2.0,True,False,True
+v2.0,v2.0,True,False,True

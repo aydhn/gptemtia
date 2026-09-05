@@ -1,0 +1,8 @@
+candidate_state_family,state_count,avg_completeness,coverage_ratio,coverage_status,non_signal
+cross_asset,1,1.0,0.1,behavior_quality_ready,True
+macro_event,1,1.0,0.1,behavior_quality_ready,True
+news_metadata,1,1.0,0.1,behavior_quality_ready,True
+range,2,1.0,0.2,behavior_quality_ready,True
+trend,2,1.0,0.2,behavior_quality_ready,True
+uncertain,1,1.0,0.1,behavior_quality_ready,True
+volatility,2,1.0,0.2,behavior_quality_ready,True

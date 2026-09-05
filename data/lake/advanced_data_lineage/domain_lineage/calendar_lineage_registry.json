@@ -1,0 +1,12 @@
+{
+  "total_calendar_lineage_items": 3,
+  "canonical_fields": [
+    "normalized_event",
+    "normalized_scheduled_time, actual_release_time",
+    "canonical_surprise_requirement"
+  ],
+  "all_source_preserved": true,
+  "zero_destructive_actions": true,
+  "current_phase": 114,
+  "target_final_phase": 160
+}

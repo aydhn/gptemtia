@@ -53,7 +53,7 @@ def main():
     else:
          specs = get_enabled_symbols()
 
-    data_lake = DataLake(settings)
+    data_lake = DataLake('data/lake')
     pipeline = ValidationPipeline(data_lake, settings, profile)
 
     res = pipeline.run_universe_validation(specs, args.timeframe, args.backtest_profile, profile, limit=args.limit, save=not args.no_save)

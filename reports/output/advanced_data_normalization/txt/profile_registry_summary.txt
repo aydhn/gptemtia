@@ -1,0 +1,2 @@
+Data Normalization Profiles: 3
+Normalization Domains: 32

@@ -1,0 +1,4 @@
+context_name,description,coverage_ratio,moving_average_dependency_passed,momentum_factor_dependency_passed,persistence_readiness,transition_readiness,is_ready,non_signal,contains_target_or_prediction,model_training_executed,clustering_executed,current_phase,target_final_phase,next_phase
+trend_directional_persistence_context,Sequential trend continuation and moving average alignment context.,1.0,True,True,True,True,True,True,False,False,False,129,160,130
+trend_exhaustion_context,Momentum deceleration and trend stall diagnostic context.,1.0,True,True,True,True,True,True,False,False,False,129,160,130
+trend_inflection_readiness_context,Slope divergence and boundary inflection preparation context.,1.0,True,True,True,True,True,True,False,False,False,129,160,130

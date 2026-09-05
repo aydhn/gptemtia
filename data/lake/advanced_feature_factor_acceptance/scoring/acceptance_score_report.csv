@@ -1,0 +1,2 @@
+overall_score,score_tier,total_gates,passed_gates,failed_gates,warning_gates,manual_review_required,non_signal,official_approval,production_ready,broker_ready
+1.0,EXCELLENT_READINESS,16,16,0,0,False,True,False,False,False

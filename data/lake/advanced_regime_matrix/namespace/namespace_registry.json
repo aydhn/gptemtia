@@ -1,0 +1,14 @@
+{
+  "total_conventions": 4,
+  "namespace_types": [
+    "feature_matrix_key",
+    "factor_matrix_key",
+    "context_matrix_key",
+    "state_dataset_key"
+  ],
+  "all_non_signal": true,
+  "mandatory_prefix": "regime_matrix_",
+  "state_prefix": "regime_state_",
+  "forbidden_terms_count": 13,
+  "status": "matrix_ready"
+}

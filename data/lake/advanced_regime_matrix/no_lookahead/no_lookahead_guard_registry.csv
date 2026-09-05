@@ -1,0 +1,5 @@
+guard_id,name,description,is_active,non_signal,current_phase,target_final_phase,next_phase,source_preserved,status
+guard_no_negative_shift,Prohibit shift(-N) Lookahead Leakage,Scans code and pipelines to ensure negative shift calls are never executed.,True,True,127,160,128,True,matrix_ready
+guard_no_forward_asof_join,Prohibit Forward Asof Joins,Guarantees temporal join operations never look forward into unobserved future rows.,True,True,127,160,128,True,matrix_ready
+guard_no_forbidden_columns,Audit Forbidden Target and Prediction Columns,"Verifies that regime matrix and state datasets contain zero target, prediction, or trade signal fields.",True,True,127,160,128,True,matrix_ready
+guard_metadata_only_news_boundary,News Metadata-Only Boundary,"Prohibits article body text, raw HTML, embeddings, or scraped content from entering the matrix.",True,True,127,160,128,True,matrix_ready

@@ -1,0 +1,9 @@
+{
+  "rule_count": 3,
+  "rules": [
+    "release_timing_consistency",
+    "revision_status_presence",
+    "surprise_calculation_notice"
+  ],
+  "domain": "event_release_consistency"
+}

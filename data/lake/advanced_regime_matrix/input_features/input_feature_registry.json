@@ -1,0 +1,29 @@
+{
+  "total_input_features": 11,
+  "total_features": 11,
+  "source_phases": [
+    117,
+    118,
+    119,
+    120,
+    121,
+    123,
+    124
+  ],
+  "feature_families": [
+    "trend",
+    "volatility",
+    "returns",
+    "range",
+    "cross_asset",
+    "macro_fusion",
+    "event_fusion",
+    "news_metadata",
+    "validation",
+    "quality_drift",
+    "store_metadata"
+  ],
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "status": "matrix_ready"
+}

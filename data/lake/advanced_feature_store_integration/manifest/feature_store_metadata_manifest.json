@@ -1,0 +1,12 @@
+{
+  "store_name": "central_feature_store_v124",
+  "total_features": 9,
+  "total_factors": 6,
+  "total_entities": 7,
+  "non_signal": true,
+  "source_preserved": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false,
+  "destructive_action_allowed": false
+}

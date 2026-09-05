@@ -1,0 +1,13 @@
+column_name,data_type,is_required,is_entity_key,is_timestamp,description
+sequence_key,string,True,True,False,Unique key identifying the state sequence observation
+entity_type,string,True,True,False,"Asset class or instrument domain (e.g. fx, commodity)"
+entity_id,string,True,True,False,Symbol or asset identifier
+timestamp_utc,timestamp_utc,True,False,True,UTC timestamp of the state observation point
+candidate_state_context,string,True,False,False,Current candidate state descriptor from Phase 128/129
+previous_candidate_state_context,string,True,False,False,Preceding candidate state descriptor in chronological sequence
+sequence_position_placeholder,integer,True,False,False,Integer index indicating sequential position in entity run
+source_candidate_state_ref,string,True,False,False,Reference pointer to Phase 128 candidate state record
+validation_status_ref,string,True,False,False,Validation compliance reference status
+quality_status_ref,string,True,False,False,Data quality compliance reference status
+manual_review_required,boolean,True,False,False,Flag indicating manual inspection is required
+non_signal,boolean,True,False,False,Invariant flag certifying non-signal nature of this sequence

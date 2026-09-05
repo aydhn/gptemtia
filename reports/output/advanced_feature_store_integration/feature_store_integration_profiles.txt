@@ -1,0 +1,8 @@
+Bu rapor Phase 124 Feature Store Integration Expansion çıktısıdır. Gerçek veri indirme zorunluluğu, scraping, haber tam metni kullanımı, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, feature store kaydını trade sinyali olarak kullanma, strateji/backtest/optimizer/model training çalıştırma, target/label/prediction üretme, otomatik feature silme/düzeltme, official approval, broker-ready veya production-ready iddiası değildir.
+Profile: balanced_local_feature_store_integration
+Total Profiles: 3
+Current Phase: 124
+Next Phase: 125
+Target Final Phase: 160
+Non-Signal Mandate: True
+Source Preserved: True

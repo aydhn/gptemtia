@@ -148,3 +148,13 @@
 2026-09-02 15:46:38,380 - main - INFO - Project directories verified.
 2026-09-02 15:46:38,380 - main - INFO - System initialized successfully. Loaded 60 enabled symbols.
 2026-09-02 15:46:38,380 - main - INFO - Phase 1 initialization complete. Ready for Phase 2.
+2026-09-02 23:08:46,462 - main - INFO - ==================================================
+2026-09-02 23:08:46,479 - main - INFO - Starting commodity_fx_signal_bot [Env: development]
+2026-09-02 23:08:46,479 - main - INFO - ==================================================
+2026-09-02 23:08:46,503 - main - INFO - Project directories verified.
+2026-09-02 23:08:46,503 - main - INFO - System initialized successfully. Loaded 60 enabled symbols.
+2026-09-02 23:08:46,503 - main - INFO - Phase 1 initialization complete. Ready for Phase 2.
+2026-09-03 13:35:29,593 - main - INFO - ==================================================
+2026-09-03 13:35:29,610 - main - INFO - Starting commodity_fx_signal_bot [Env: development]
+2026-09-03 13:35:29,610 - main - INFO - ==================================================
+2026-09-03 13:35:29,615 - main - CRITICAL - System failed to start: name 'ADVANCED_CONTINUATION_DIR' is not defined

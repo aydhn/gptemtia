@@ -1,0 +1,15 @@
+{
+  "total_alignments": 3,
+  "fx_pairs": [
+    "EUR/USD",
+    "USD/TRY",
+    "USD/CAD"
+  ],
+  "commodities": [
+    "XAU/USD",
+    "WTI_CRUDE_CONTINUOUS_PLACEHOLDER"
+  ],
+  "all_non_signal": true,
+  "status": "READY",
+  "profile": "balanced_local_cross_asset_alignment"
+}

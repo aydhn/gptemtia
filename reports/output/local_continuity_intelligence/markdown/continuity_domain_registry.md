@@ -1,0 +1,2 @@
+# continuity_domain_registry
+Bu çıktı offline/local continuity intelligence ve operator memory rehearsal raporudur. Gerçek operator memory sistemi, official decision record, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.

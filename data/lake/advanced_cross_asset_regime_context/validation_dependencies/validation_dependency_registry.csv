@@ -1,0 +1,8 @@
+dependency_id,dependency_name,source_phase,required_status,is_blocking,description,verified,non_signal,source_preserved,official_approval,production_ready,broker_ready,contains_target_or_prediction,contains_trading_recommendation
+val_dep_p121_no_lookahead,Phase 121 No-Lookahead Validation Gate,121,PASSED,True,Upstream feature validation ensuring zero negative shift and zero forward leakage.,True,True,True,False,False,False,False,False
+val_dep_p127_regime_matrix,Phase 127 Regime Matrix Integrity Gate,127,PASSED,True,Dataset schema and candidate context non-signal verification.,True,True,True,False,False,False,False,False
+val_dep_p128_candidate_state,Phase 128 Candidate State No-Lookahead Gate,128,PASSED,True,Candidate state sequence temporal order verification.,True,True,True,False,False,False,False,False
+val_dep_p129_behavior_validation,Phase 129 Behavior Validation Gate,129,PASSED,True,Market behavior diagnostic quality gates verification.,True,True,True,False,False,False,False,False
+val_dep_p130_transition_no_lookahead,Phase 130 Transition No-Lookahead Gate,130,PASSED,True,State transition continuity and strictly backward-looking sequence contracts.,True,True,True,False,False,False,False,False
+val_dep_metadata_news_boundary,Metadata-Only News Boundary Gate,111,PASSED,True,"Guaranteed absence of full article body, scraped content, or sentiment models.",True,True,True,False,False,False,False,False
+val_dep_source_preservation,Source Preservation & Non-Destruction Gate,131,PASSED,True,"Prohibition of in-place mutation, auto-imputation, and auto-feature-drop.",True,True,True,False,False,False,False,False

@@ -1,0 +1,14 @@
+{
+  "catalog": "news_metadata_features",
+  "total_features": 6,
+  "all_non_signal": true,
+  "features": [
+    "news_topic_flag_placeholder",
+    "news_asset_tag_count_placeholder",
+    "news_macro_tag_count_placeholder",
+    "news_event_linkage_flag_placeholder",
+    "news_freshness_placeholder",
+    "news_attention_placeholder"
+  ],
+  "zero_full_text_enforced": true
+}

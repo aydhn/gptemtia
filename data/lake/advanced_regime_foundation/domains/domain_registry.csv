@@ -1,0 +1,23 @@
+domain_id,domain_name,scope,canonical_label,non_signal,source_phase,status
+domain_01_profile,Regime Foundation Profiles,Operational execution profiles and safety bounds,regime_foundation_profile_domain,True,126,ACTIVE
+domain_02_market_behavior,Market Behavior Taxonomy,"12 canonical market behavior modes (trending, ranging, high/low vol, etc.)",market_behavior_taxonomy_domain,True,126,ACTIVE
+domain_03_regime_state,Regime State Taxonomy,Standard non-signal regime state definitions with regime_state_ prefix,regime_state_taxonomy_domain,True,126,ACTIVE
+domain_04_regime_families,Regime Families,Primary family classification grouping indicators and contexts,regime_family_domain,True,126,ACTIVE
+domain_05_volatility_regimes,Volatility Regime Family,"Level, expansion, compression, ATR realized vol, Bollinger width context",volatility_regime_domain,True,126,ACTIVE
+domain_06_trend_regimes,Trend Regime Family,"MA trend, MACD context, Donchian trend, persistence and transition context",trend_regime_domain,True,126,ACTIVE
+domain_07_range_regimes,Range Regime Family,"Range-bound, mean-reversion, zscore, channel position, compression range context",range_regime_domain,True,126,ACTIVE
+domain_08_liquidity_placeholders,Liquidity Regime Placeholders,"Quote spread, quote staleness, session liquidity, data availability context",liquidity_regime_domain,True,126,ACTIVE
+domain_09_macro_context,Macro Regime Context,"Inflation, rate, growth, revision, release context registries",macro_regime_context_domain,True,126,ACTIVE
+domain_10_event_context,Event Regime Context,"Pre-event, post-event, event importance, release delay, event window context",event_regime_context_domain,True,126,ACTIVE
+domain_11_news_metadata_context,News Metadata Regime Context,"Metadata-only news attention, asset tag, macro tag, freshness context",news_metadata_regime_context_domain,True,126,ACTIVE
+domain_12_cross_asset_context,Cross-Asset Regime Context,"FX-commodity, FX-macro, commodity-macro, macro-calendar, cross-domain context",cross_asset_regime_context_domain,True,126,ACTIVE
+domain_13_input_contracts,Regime Input Feature Contracts,Prerequisite feature/factor input specifications and phase linkages,regime_input_contract_domain,True,126,ACTIVE
+domain_14_factor_dependencies,Regime Factor Dependencies,Factor family mappings from Phase 119-124 to regime families,regime_factor_dependency_domain,True,126,ACTIVE
+domain_15_validation_dependencies,Regime Validation Dependencies,"Validation requirements: no lookahead, timestamp order, forbidden column checks",regime_validation_dependency_domain,True,126,ACTIVE
+domain_16_quality_dependencies,Regime Quality Dependencies,"Quality scores, drift scores, missingness, staleness, manual review blockers",regime_quality_dependency_domain,True,126,ACTIVE
+domain_17_output_schema,Regime State Output Schema,"Field names, types, and schema validation prohibiting trade terms",regime_output_schema_domain,True,126,ACTIVE
+domain_18_namespace,Regime Namespace Registry,Canonical snake_case standard with mandatory regime_state_ prefix,regime_namespace_domain,True,126,ACTIVE
+domain_19_non_signal_policies,Regime Non-Signal Policies,"System-level guarantees that states are non-signal context, not execution",regime_non_signal_domain,True,126,ACTIVE
+domain_20_forbidden_claims,Regime Forbidden Claims,"Scanning and blocking commercial, trade, prediction, and approval claims",regime_forbidden_claim_domain,True,126,ACTIVE
+domain_21_manifest,Regime Foundation Manifest,Immutable master governance record of Phase 126 completion,regime_manifest_domain,True,126,ACTIVE
+domain_22_phase_127_handoff,Phase 127 Regime Feature Matrix Handoff,Prerequisites and contracts for Phase 127 regime matrix construction,phase_127_handoff_domain,True,126,ACTIVE

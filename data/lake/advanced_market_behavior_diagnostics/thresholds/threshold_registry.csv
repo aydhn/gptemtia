@@ -1,0 +1,8 @@
+threshold_name,metric_name,warning_threshold,critical_threshold,evaluation_operator,action_on_warning,action_on_critical,non_signal,current_phase,target_final_phase,next_phase
+coverage_warning_below,candidate_state_coverage_ratio,0.5,0.25,lt,record_finding,manual_review_required,True,129,160,130
+coverage_critical_below,candidate_state_coverage_ratio,0.4,0.25,lt,record_finding,manual_review_required,True,129,160,130
+ambiguity_warning_above,candidate_state_ambiguity_score,0.5,0.75,gt,record_finding,manual_review_required,True,129,160,130
+missingness_warning_above,candidate_state_missingness_ratio,0.25,0.5,gt,record_finding,manual_review_required,True,129,160,130
+missingness_critical_above,candidate_state_missingness_ratio,0.35,0.5,gt,record_finding,manual_review_required,True,129,160,130
+manual_review_if_insufficient_data,behavior_context_availability,0.6,0.4,lt,record_finding,manual_review_required,True,129,160,130
+manual_review_if_schema_placeholder,pseudo_state_schema_completeness,0.7,0.5,lt,record_finding,manual_review_required,True,129,160,130

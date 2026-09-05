@@ -1,0 +1,12 @@
+field_name,data_type,description,current_phase,target_final_phase,next_phase,non_signal,source_preserved
+dataset_key,string,Canonical state dataset row identifier.,127,160,128,True,True
+entity_type,string,"Type of entity (fx_pair, commodity_symbol, etc.).",127,160,128,True,True
+entity_id,string,Normalized identifier of the entity.,127,160,128,True,True
+timestamp_utc,"datetime64[ns, UTC]",UTC timestamp of the state context.,127,160,128,True,True
+regime_family,string,Associated regime family from Phase 126.,127,160,128,True,True
+regime_state_candidate_context,string,Descriptive candidate context flag (NOT a label or target).,127,160,128,True,True
+source_matrix_ref,string,Lineage reference to source feature matrix key.,127,160,128,True,True
+validation_status_ref,string,Audit validation status code.,127,160,128,True,True
+quality_status_ref,string,Quality assurance audit status code.,127,160,128,True,True
+manual_review_required,bool,Manual review queue requirement flag.,127,160,128,True,True
+non_signal,bool,System invariant indicating non-signal status.,127,160,128,True,True

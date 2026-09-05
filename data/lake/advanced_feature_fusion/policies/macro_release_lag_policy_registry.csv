@@ -1,0 +1,4 @@
+policy_name,policy_type,description,future_data_allowed,full_text_allowed,destructive_action_allowed,non_signal,manual_review_required
+strict_release_timestamp_availability_policy,macro_lag,Makro veri değeri sadece release_timestamp <= base_timestamp olduğunda kullanılabilir.,False,False,False,True,False
+revision_effective_timestamp_tracking_policy,macro_lag,Revize edilmiş makro veri değeri sadece revision_timestamp sonrasında devreye girer.,False,False,False,True,False
+unknown_release_lag_manual_review_policy,macro_lag,Eğer release gecikmesi veya yayın saati bilinmiyorsa otomatik join engellenir ve manuel inceleme gerekir.,False,False,False,True,True

@@ -1,0 +1,7 @@
+{
+  "total_drift_scores": 6,
+  "mean_drift_score": 0.065,
+  "any_drift_detected": false,
+  "non_signal": true,
+  "source_preserved": true
+}

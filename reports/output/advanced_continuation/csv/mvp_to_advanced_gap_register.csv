@@ -1,0 +1,15 @@
+gap_id,gap_area,current_state,target_state,target_phase_range,priority,risk_label,recommendation
+GAP-PROVIDER_ABSTRACTION_EKSIKLERI-101-160,provider abstraction eksikleri,MVP,Advanced,101-160,High,continuation_medium_risk,Plan
+GAP-FX_PROVIDER_EKSIKLERI-101-160,FX provider eksikleri,MVP,Advanced,101-160,High,continuation_medium_risk,Plan
+GAP-COMMODITIES_PROVIDER_EKSIKLERI-101-160,commodities provider eksikleri,MVP,Advanced,101-160,High,continuation_medium_risk,Plan
+GAP-MACRO_PROVIDER_EKSIKLERI-101-160,macro provider eksikleri,MVP,Advanced,101-160,High,continuation_medium_risk,Plan
+GAP-ECONOMIC_CALENDAR_EKSIKLERI-101-160,economic calendar eksikleri,MVP,Advanced,101-160,High,continuation_medium_risk,Plan
+GAP-NEWS_METADATA_EKSIKLERI-101-160,news metadata eksikleri,MVP,Advanced,101-160,High,continuation_medium_risk,Plan
+GAP-DATA_QUALITY_EKSIKLERI-101-160,data quality eksikleri,MVP,Advanced,101-160,High,continuation_medium_risk,Plan
+GAP-FEATURE/INDICATOR_EKSIKLERI-101-160,feature/indicator eksikleri,MVP,Advanced,101-160,High,continuation_medium_risk,Plan
+GAP-REGIME_ENGINE_EKSIKLERI-101-160,regime engine eksikleri,MVP,Advanced,101-160,High,continuation_medium_risk,Plan
+GAP-ML/GPU_EKSIKLERI-101-160,ML/GPU eksikleri,MVP,Advanced,101-160,High,continuation_medium_risk,Plan
+GAP-BACKTEST_REALISM_EKSIKLERI-101-160,backtest realism eksikleri,MVP,Advanced,101-160,High,continuation_medium_risk,Plan
+GAP-SLIPPAGE/COST_EKSIKLERI-101-160,slippage/cost eksikleri,MVP,Advanced,101-160,High,continuation_medium_risk,Plan
+GAP-PORTFOLIO_OPTIMIZATION_EKSIKLERI-101-160,portfolio optimization eksikleri,MVP,Advanced,101-160,High,continuation_medium_risk,Plan
+GAP-FINAL_INTEGRATION_EKSIKLERI-101-160,final integration eksikleri,MVP,Advanced,101-160,High,continuation_medium_risk,Plan

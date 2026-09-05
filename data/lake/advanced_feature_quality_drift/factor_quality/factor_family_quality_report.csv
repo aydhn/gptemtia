@@ -1,0 +1,11 @@
+family_id,family_name,feature_count,missingness_warning_count,infinite_count,all_nan_count,zero_variance_count,family_quality_score,status,severity,manual_review_required,non_signal
+trend,Trend Factor Family,3,0,0,0,0,1.0,diagnostic_pass,quality_info,False,True
+momentum,Momentum Factor Family,4,0,0,0,0,1.0,diagnostic_pass,quality_info,False,True
+volatility,Volatility Factor Family,4,0,0,0,0,1.0,diagnostic_pass,quality_info,False,True
+mean_reversion,Mean Reversion Factor Family,3,0,0,0,0,1.0,diagnostic_pass,quality_info,False,True
+returns,Return Factor Family,3,0,0,0,0,1.0,diagnostic_pass,quality_info,False,True
+quote_microstructure,Quote Microstructure Factor Family,3,0,0,0,0,1.0,diagnostic_pass,quality_info,False,True
+macro_context,Macro Context Factor Family,3,0,0,0,0,1.0,diagnostic_pass,quality_info,False,True
+calendar_event,Calendar Event Factor Family,3,0,0,0,0,1.0,diagnostic_pass,quality_info,False,True
+news_attention,News Attention Factor Family,3,0,0,0,0,1.0,diagnostic_pass,quality_info,False,True
+cross_asset_context,Cross-Asset Context Factor Family,3,0,0,0,0,1.0,diagnostic_pass,quality_info,False,True

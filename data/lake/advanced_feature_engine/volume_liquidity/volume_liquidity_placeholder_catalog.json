@@ -1,0 +1,12 @@
+{
+  "catalog": "volume_liquidity_placeholders",
+  "total_features": 5,
+  "all_non_signal": true,
+  "features": [
+    "volume_change_placeholder",
+    "rolling_volume_mean_placeholder",
+    "volume_zscore_placeholder",
+    "liquidity_proxy_placeholder",
+    "open_interest_change_placeholder"
+  ]
+}

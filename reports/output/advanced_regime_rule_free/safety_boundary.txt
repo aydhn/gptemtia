@@ -1,0 +1,6 @@
+UYARI: Bu rapor Phase 128 Regime Rule-Free Labeling Contracts and Unsupervised Prep çıktısıdır. Gerçek veri indirme zorunluluğu, scraping, haber tam metni kullanımı, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, candidate state veya pseudo-state değerini trade sinyali olarak kullanma, strateji/backtest/optimizer/model training/clustering/unsupervised execution çalıştırma, target/label/prediction üretme, official approval, broker-ready veya production-ready iddiası değildir.
+Safety Boundary Status: SECURE
+NO-GO Rules Enforced: 16
+SAFE-GO Principles Active: 8
+Live Trading Prohibited: True
+Clustering Execution Prohibited: True

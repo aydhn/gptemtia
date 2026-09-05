@@ -1,0 +1,11 @@
+{
+  "profile": "balanced_local_multi_window_feature_grid",
+  "validation_status": "PASS",
+  "rules_checked": 25,
+  "violations_count": 0,
+  "no_forbidden_claims": true,
+  "non_signal": true,
+  "current_phase": 118,
+  "target_final_phase": 160,
+  "next_phase": 119
+}

@@ -1,0 +1,7 @@
+validation_area,status,issues
+profile_registry,INVALID,Profile registry is empty
+metric_registry,INVALID,Metric registry is empty
+benchmark_scores,INVALID,Scores dataframe is empty
+ranking_research,INVALID,Ranking dataframe is empty
+manual_review_queue,VALID,None
+forbidden_claims_enforcement,VALID,None

@@ -1,0 +1,8 @@
+{
+  "total_schema_columns": 12,
+  "required_columns_count": 12,
+  "zero_model_training_certified": true,
+  "zero_clustering_certified": true,
+  "non_signal_certified": true,
+  "active_profile": "balanced_local_regime_transition"
+}

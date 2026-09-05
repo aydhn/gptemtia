@@ -1,0 +1,17 @@
+column_name,data_type,description,current_phase,target_final_phase,next_phase,non_signal,source_preserved
+matrix_key,string,Canonical regime matrix column or row identifier.,127,160,128,True,True
+entity_type,string,"Type of entity (fx_pair, commodity_symbol, etc.).",127,160,128,True,True
+entity_id,string,"Specific entity identifier (e.g. EUR/USD, XAU/USD).",127,160,128,True,True
+timestamp_utc,"datetime64[ns, UTC]",UTC timestamp of the observation point.,127,160,128,True,True
+symbol,string,Normalized asset or cross symbol.,127,160,128,True,True
+feature_name,string,Name of the aligned feature or metric.,127,160,128,True,True
+feature_family,string,"Underlying feature family (trend, vol, etc.).",127,160,128,True,True
+factor_family,string,Corresponding factor family from Phase 122.,127,160,128,True,True
+regime_family,string,Associated regime family from Phase 126.,127,160,128,True,True
+source_phase,int64,Upstream source phase providing this feature.,127,160,128,True,True
+validation_status,string,"Audit status (VALIDATION_PASS, VALIDATION_WARN, etc.).",127,160,128,True,True
+quality_score_ref,string,Reference key to quality score record.,127,160,128,True,True
+drift_score_ref,string,Reference key to drift score record.,127,160,128,True,True
+lineage_ref,string,Lineage provenance reference.,127,160,128,True,True
+manual_review_required,bool,Flag indicating manual audit is mandatory.,127,160,128,True,True
+non_signal,bool,System invariant indicating non-signal status.,127,160,128,True,True

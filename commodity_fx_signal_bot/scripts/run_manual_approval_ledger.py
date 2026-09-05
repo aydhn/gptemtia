@@ -1,30 +1,33 @@
 import argparse
 import sys
 from pathlib import Path
-import pandas as pd
+from config.settings import Settings
+from data.storage.data_lake import DataLake
+from ml.feature_store import FeatureStore
+from local_review_governance.review_config import get_local_review_governance_profile, LocalReviewGovernanceProfile
+from local_review_governance.review_pipeline import LocalReviewGovernancePipeline
 
-ROOT = Path(__file__).resolve().parent.parent
+def get_profile(name: str | None = None) -> LocalReviewGovernanceProfile:
+    from local_review_governance.review_config import get_default_local_review_governance_profile
+    if not name:
+        return get_default_local_review_governance_profile()
+    return get_local_review_governance_profile(name)
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--profile", type=str, default="balanced_local_governance_control")
+    parser.add_argument("--profile", type=str, default="balanced_local_review_governance")
     parser.add_argument("--save", action="store_true", default=True)
     args = parser.parse_args()
-    print("Running run_manual_approval_ledger...")
 
-    # Create dummy outputs
-    out_dir = ROOT / "reports" / "output" / "local_governance_control"
-    (out_dir / "csv").mkdir(parents=True, exist_ok=True)
-    (out_dir / "markdown").mkdir(parents=True, exist_ok=True)
-    (out_dir / "txt").mkdir(parents=True, exist_ok=True)
-    (out_dir / "json").mkdir(parents=True, exist_ok=True)
+    settings = Settings()
+    data_lake = DataLake('data/lake')
+    project_root = Path(__file__).parent.parent
+    profile = get_profile(args.profile)
 
-    pd.DataFrame([{'status': 'mock'}]).to_csv(out_dir / "csv" / "manual_approval_ledger.csv", index=False)
-    pd.DataFrame([{'status': 'mock'}]).to_csv(out_dir / "csv" / "manual_approval_checklist_registry.csv", index=False)
-    pd.DataFrame([{'status': 'mock'}]).to_csv(out_dir / "csv" / "manual_signoff_rehearsal_form_library.csv", index=False)
-    pd.DataFrame([{'status': 'mock'}]).to_csv(out_dir / "csv" / "operator_supervision_checklist.csv", index=False)
-    (out_dir / "markdown" / "manual_approval_ledger.md").write_text("# Mock manual_approval_ledger.md\nThis is a local offline rehearsal output.\n", encoding="utf-8")
-    (out_dir / "txt" / "manual_approval_ledger.txt").write_text("Mock manual_approval_ledger.txt\nThis is a local offline rehearsal output.\n", encoding="utf-8")
+    pipeline = LocalReviewGovernancePipeline(data_lake, settings, project_root, profile)
+    return pipeline, args
 
 if __name__ == "__main__":
-    main()
+    pipeline, args = main()
+    pipeline.build_manual_approval_ledger(save=args.save)
+    print('Manual approval ledger generated.')

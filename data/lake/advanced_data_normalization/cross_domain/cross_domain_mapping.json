@@ -1,0 +1,14 @@
+{
+  "total_mappings": 6,
+  "mapping_domains": [
+    "fx_to_news_tag",
+    "commodity_to_news_tag",
+    "macro_to_calendar_event",
+    "calendar_to_news_linkage",
+    "region_currency_to_macro_calendar",
+    "provider_name_to_metadata"
+  ],
+  "manual_review_count": 1,
+  "current_phase": 113,
+  "target_final_phase": 160
+}

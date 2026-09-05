@@ -1,0 +1,8 @@
+{
+  "domain": "provider_domain_cross_domain",
+  "total_cross_domain_evaluations": 8,
+  "mean_cross_domain_score": 0.9287,
+  "all_alignments_pass": true,
+  "current_phase": 115,
+  "target_final_phase": 160
+}

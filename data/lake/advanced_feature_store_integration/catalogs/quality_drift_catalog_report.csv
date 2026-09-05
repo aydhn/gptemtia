@@ -1,0 +1,7 @@
+score_id_quality,feature_name,entity_id,quality_score,completeness_score,variance_score,stability_score,passed,non_signal_quality,source_preserved_quality,score_id_drift,drift_score,ks_statistic,psi_score,drift_detected,non_signal_drift,source_preserved_drift
+QSC_004,atr_14,brent,0.96,1.0,0.93,0.95,True,True,True,DSC_004,0.07,0.06,0.04,False,True,True
+QSC_006,brent_eurusd_corr_30,cross_asset,0.91,0.95,0.88,0.9,True,True,True,DSC_006,0.12,0.11,0.08,False,True,True
+QSC_002,ema_50,eurusd,0.97,1.0,0.95,0.96,True,True,True,DSC_002,0.04,0.03,0.02,False,True,True
+QSC_005,rolling_mean_20,brent,0.99,1.0,0.98,0.99,True,True,True,DSC_005,0.03,0.02,0.01,False,True,True
+QSC_003,rsi_14,eurusd,0.95,0.99,0.94,0.92,True,True,True,DSC_003,0.08,0.07,0.05,False,True,True
+QSC_001,sma_20,eurusd,0.98,1.0,0.96,0.98,True,True,True,DSC_001,0.05,0.04,0.03,False,True,True

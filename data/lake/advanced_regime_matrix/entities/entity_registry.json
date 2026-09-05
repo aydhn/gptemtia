@@ -1,0 +1,17 @@
+{
+  "total_entities": 9,
+  "entity_types": [
+    "fx_pair",
+    "commodity_symbol",
+    "macro_indicator",
+    "calendar_event",
+    "news_metadata_tag",
+    "cross_asset_context",
+    "factor_family",
+    "regime_family",
+    "regime_state_candidate_context"
+  ],
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "status": "matrix_ready"
+}

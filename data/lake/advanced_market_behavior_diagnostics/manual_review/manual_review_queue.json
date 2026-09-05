@@ -1,0 +1,12 @@
+{
+  "total_items": 3,
+  "blocking_items_count": 0,
+  "destructive_action_allowed": false,
+  "non_signal": true,
+  "actions": [
+    "inspect candidate state ambiguity",
+    "inspect news metadata-only boundary",
+    "inspect transition readiness"
+  ],
+  "active_profile": "balanced_local_market_behavior_diagnostics"
+}

@@ -1,0 +1,15 @@
+{
+  "total_validation_dependencies": 5,
+  "total_dependencies": 5,
+  "dependency_ids": [
+    "val_dep_no_lookahead_ts_order",
+    "val_dep_forbidden_column_block",
+    "val_dep_news_metadata_boundary",
+    "val_dep_warmup_nan_boundary",
+    "val_dep_source_preservation"
+  ],
+  "all_mandatory": true,
+  "all_verified": true,
+  "all_non_signal": true,
+  "status": "matrix_ready"
+}

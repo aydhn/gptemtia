@@ -1,0 +1,13 @@
+{
+  "total_macro_lineage_items": 4,
+  "canonical_fields": [
+    "normalized_indicator",
+    "normalized_frequency",
+    "normalized_unit",
+    "canonical_revision_metadata"
+  ],
+  "all_source_preserved": true,
+  "zero_destructive_actions": true,
+  "current_phase": 114,
+  "target_final_phase": 160
+}

@@ -1,0 +1,6 @@
+UYARI: Bu rapor Phase 127 Regime Feature Matrix and State Dataset Contracts ciktisidir. Gercek veri indirme zorunlulugu, scraping, haber tam metni kullanimi, broker talimati, canli emir, kesin AL/SAT, yatirim tavsiyesi, regime state degerini trade sinyali olarak kullanma, strateji/backtest/optimizer/model training/clustering calistirma, target/label/prediction uretme, lookahead/forward-shift kullanma, kaynak mutasyonu yapma, official approval, broker-ready veya production-ready iddiasi degildir.
+Total State Dataset Contracts: 4
+Candidate Contexts Registered: 0
+Candidate Contexts As Targets: False
+Contains Target/Prediction: False
+Non-Signal Invariant: True

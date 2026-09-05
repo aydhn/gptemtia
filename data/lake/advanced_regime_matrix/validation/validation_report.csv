@@ -1,0 +1,6 @@
+rule_name,status
+Profile Registry Invariants,PASS
+Feature Matrix Contracts Non-Signal,PASS
+State Dataset Contracts Zero Target/Label,PASS
+Integrity Manifest Compliance,PASS
+Zero Forbidden Claims Audit,PASS

@@ -1,0 +1,16 @@
+{
+  "total_session_policies": 7,
+  "total_policies": 7,
+  "policy_list": [
+    "utc_day",
+    "utc_hour",
+    "fx_24_5_placeholder",
+    "commodity_session_placeholder",
+    "macro_release_session_placeholder",
+    "calendar_event_window_placeholder",
+    "news_metadata_window_placeholder"
+  ],
+  "non_signal": true,
+  "status": "READY",
+  "profile": "balanced_local_cross_asset_alignment"
+}

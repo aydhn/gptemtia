@@ -1,0 +1,16 @@
+subsystem,path,description,exists,status,non_signal,source_preserved
+phase_130_advanced_regime_transition,C:\Users\immor\OneDrive\Belgeler\Projelerim\gptemtia\advanced_regime_transition,Phase 130 Regime Transition and Stability Analysis module availability,True,HEALTHY,True,True
+phase_129_advanced_market_behavior_diagnostics,C:\Users\immor\OneDrive\Belgeler\Projelerim\gptemtia\advanced_market_behavior_diagnostics,Phase 129 Market Behavior Diagnostics module availability,True,HEALTHY,True,True
+phase_128_advanced_regime_rule_free,C:\Users\immor\OneDrive\Belgeler\Projelerim\gptemtia\advanced_regime_rule_free,Phase 128 Regime Rule-Free Labeling module availability,True,HEALTHY,True,True
+phase_127_advanced_regime_matrix,C:\Users\immor\OneDrive\Belgeler\Projelerim\gptemtia\advanced_regime_matrix,Phase 127 Regime Feature Matrix module availability,True,HEALTHY,True,True
+phase_126_advanced_regime_foundation,C:\Users\immor\OneDrive\Belgeler\Projelerim\gptemtia\advanced_regime_foundation,Phase 126 Regime Classification Foundation module availability,True,HEALTHY,True,True
+phase_124_advanced_feature_store_integration,C:\Users\immor\OneDrive\Belgeler\Projelerim\gptemtia\advanced_feature_store_integration,Phase 124 Feature Store Integration module availability,True,HEALTHY,True,True
+phase_123_advanced_feature_quality_drift,C:\Users\immor\OneDrive\Belgeler\Projelerim\gptemtia\advanced_feature_quality_drift,Phase 123 Feature Quality and Drift module availability,True,HEALTHY,True,True
+phase_121_advanced_feature_validation,C:\Users\immor\OneDrive\Belgeler\Projelerim\gptemtia\advanced_feature_validation,Phase 121 Feature Validation and No-Lookahead module availability,True,HEALTHY,True,True
+phase_119_advanced_cross_asset_alignment,C:\Users\immor\OneDrive\Belgeler\Projelerim\gptemtia\advanced_cross_asset_alignment,Phase 119 Cross-Asset Alignment module availability,True,HEALTHY,True,True
+advanced_cross_asset_regime_context,C:\Users\immor\OneDrive\Belgeler\Projelerim\gptemtia\advanced_cross_asset_regime_context,Phase 131 Cross-Asset Regime Context core package availability,True,HEALTHY,True,True
+data_lake,C:\Users\immor\OneDrive\Belgeler\Projelerim\gptemtia\data\storage\data_lake.py,DataLake storage integration module availability,True,HEALTHY,True,True
+feature_store,C:\Users\immor\OneDrive\Belgeler\Projelerim\gptemtia\ml\feature_store.py,FeatureStore access module availability,True,HEALTHY,True,True
+scripts,C:\Users\immor\OneDrive\Belgeler\Projelerim\gptemtia\scripts,CLI operations script directory availability,True,HEALTHY,True,True
+tests,C:\Users\immor\OneDrive\Belgeler\Projelerim\gptemtia\tests,Pytest test directory availability,True,HEALTHY,True,True
+docs,C:\Users\immor\OneDrive\Belgeler\Projelerim\gptemtia\docs,Documentation directory availability,True,HEALTHY,True,True

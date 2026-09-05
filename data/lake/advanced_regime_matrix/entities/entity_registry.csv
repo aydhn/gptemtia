@@ -1,0 +1,10 @@
+entity_type,canonical_prefix,description,source_phases,status,non_signal,source_preserved,current_phase,target_final_phase,next_phase
+fx_pair,fx,"Foreign exchange currency pairs (e.g. EUR/USD, USD/TRY).","[107, 113, 116, 117, 118, 119, 124, 126]",matrix_ready,True,True,127,160,128
+commodity_symbol,cmd,"Commodity spot and continuous contract symbols (e.g. XAU/USD, BRENT).","[108, 113, 116, 117, 118, 119, 124, 126]",matrix_ready,True,True,127,160,128
+macro_indicator,macro,"Macroeconomic time-series indicators (e.g. US10Y, FEDFUNDS, CPI).","[109, 113, 120, 122, 124, 126]",matrix_ready,True,True,127,160,128
+calendar_event,event,Economic calendar scheduled announcements and releases.,"[110, 113, 120, 122, 124, 126]",matrix_ready,True,True,127,160,128
+news_metadata_tag,news,"Metadata-only news category, asset, and intensity tags (strictly zero full text).","[111, 113, 120, 122, 124, 126]",matrix_ready,True,True,127,160,128
+cross_asset_context,cross,Intermarket coupling and relative spread relationships.,"[119, 120, 122, 124, 126]",matrix_ready,True,True,127,160,128
+factor_family,factor,"Standard factor families from Phase 122 metadata (trend, vol, macro, etc.).","[122, 123, 124, 126]",matrix_ready,True,True,127,160,128
+regime_family,regime,Master and specialized regime families from Phase 126 foundation.,[126],matrix_ready,True,True,127,160,128
+regime_state_candidate_context,candidate,Research candidate context indicators for Phase 128 preparation.,"[126, 127]",matrix_ready,True,True,127,160,128

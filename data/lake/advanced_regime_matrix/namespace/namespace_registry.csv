@@ -1,0 +1,5 @@
+namespace_type,pattern,example,description,status,non_signal,current_phase,target_final_phase,next_phase,source_preserved
+feature_matrix_key,^regime_matrix__[a-z0-9_]+__[a-z0-9_]+__[a-z0-9_]+$,regime_matrix__fx__eur_usd__trend_context,Standard identifier for a regime feature matrix column.,matrix_ready,True,127,160,128,True
+factor_matrix_key,^regime_matrix__factor__[a-z0-9_]+__[a-z0-9_]+$,regime_matrix__factor__volatility__compression_ratio,Standard identifier for an aligned factor in the regime matrix.,matrix_ready,True,127,160,128,True
+context_matrix_key,^regime_matrix__context__[a-z0-9_]+__[a-z0-9_]+$,regime_matrix__context__macro__inflation_trend,Standard identifier for an environmental context indicator.,matrix_ready,True,127,160,128,True
+state_dataset_key,^regime_state__[a-z0-9_]+__[a-z0-9_]+$,regime_state__candidate_context__volatility_high,Standard identifier for a candidate state dataset row or field.,matrix_ready,True,127,160,128,True

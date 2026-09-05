@@ -1,0 +1,7 @@
+rule_name,status,issues
+profile_registry_validation,PASS,[]
+market_behavior_taxonomy_validation,PASS,[]
+regime_state_taxonomy_validation,PASS,[]
+regime_family_registry_validation,PASS,[]
+manifest_validation,PASS,[]
+forbidden_claims_overall,PASS,[]

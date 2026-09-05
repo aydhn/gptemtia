@@ -1,0 +1,13 @@
+{
+  "family": "mean_reversion",
+  "total_indicators": 6,
+  "all_non_signal": true,
+  "indicators": [
+    "zscore",
+    "bollinger_zscore",
+    "distance_to_sma",
+    "distance_to_ema",
+    "percentile_rank_placeholder",
+    "rolling_deviation_placeholder"
+  ]
+}

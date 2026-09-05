@@ -1,0 +1,15 @@
+{
+  "total_mappings": 16,
+  "unique_normalized_symbols": [
+    "XAU/USD",
+    "XAG/USD",
+    "WTI_CRUDE_CONTINUOUS_PLACEHOLDER",
+    "NATURAL_GAS_CONTINUOUS_PLACEHOLDER",
+    "BRENT_CRUDE_CONTINUOUS_PLACEHOLDER",
+    "COPPER_CONTINUOUS_PLACEHOLDER",
+    "XPT/USD",
+    "XPD/USD"
+  ],
+  "current_phase": 113,
+  "target_final_phase": 160
+}

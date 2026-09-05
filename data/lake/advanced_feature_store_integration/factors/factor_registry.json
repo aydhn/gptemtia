@@ -1,0 +1,16 @@
+{
+  "total_factors": 6,
+  "factor_families": [
+    "cross_asset_context",
+    "macro_context",
+    "momentum",
+    "technical",
+    "trend",
+    "volatility"
+  ],
+  "non_signal": true,
+  "source_preserved": true,
+  "destructive_action_allowed": false,
+  "auto_fix_allowed": false,
+  "auto_drop_allowed": false
+}

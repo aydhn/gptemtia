@@ -1,0 +1,7 @@
+category,forbidden_terms,rationale,is_blocking,current_phase,target_final_phase,next_phase,source_preserved,non_signal,status
+trading_signal,"['signal', 'buy', 'sell', 'long', 'short', 'position', 'recommendation']",Prevents trade execution directives in offline research layers.,True,127,160,128,True,True,matrix_ready
+supervised_target_label,"['target', 'label', 'prediction', 'forecast']",Prevents target leakage prior to Phase 128 rule-free labeling and Phase 136 ML.,True,127,160,128,True,True,matrix_ready
+lookahead_future_return,"['future_return', 'forward_return', 'next_return', 'shift_neg']",Prevents temporal lookahead bias and future observation contamination.,True,127,160,128,True,True,matrix_ready
+copyrighted_scraping_content,"['full_text', 'article_body', 'raw_content', 'scraped_html', 'page_html']",Strictly enforces news metadata-only policy with zero web scraping.,True,127,160,128,True,True,matrix_ready
+dense_vectors,"['embedding', 'vector', 'latent_dim']",Enforces transparent tabulate-compatible numerical research representations.,True,127,160,128,True,True,matrix_ready
+broker_execution_directives,"['order_id', 'broker_account', 'fill_price', 'slippage_sim', 'execution_status']",Prohibits live broker order fields and simulated trade accounting artifacts.,True,127,160,128,True,True,matrix_ready

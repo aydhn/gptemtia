@@ -1,0 +1,4 @@
+profile_id,profile_name,current_phase,target_final_phase,next_phase,local_only,non_production,research_only,dry_run,status_label,warnings
+pb_profile::balanced_local_provider_benchmark,balanced_local_provider_benchmark,115,160,116,True,True,True,True,benchmark_pass,[]
+pb_profile::strict_provider_benchmark_safety,strict_provider_benchmark_safety,115,160,116,True,True,True,True,benchmark_pass,['High minimum benchmark score threshold configured']
+pb_profile::dry_run_provider_benchmark_focus,dry_run_provider_benchmark_focus,115,160,116,True,True,True,True,benchmark_pass,[]

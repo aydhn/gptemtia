@@ -1,0 +1,6 @@
+check_name,is_valid,details
+profile_registry_validation,True,"{'is_valid': True, 'valid_phases': True, 'zero_trading': True, 'all_non_signal': True}"
+sequence_contracts_validation,True,"{'is_valid': True, 'all_non_signal_required': True, 'all_no_lookahead_required': True, 'zero_model_training': True, 'zero_clustering': True}"
+transition_metrics_validation,True,"{'is_valid': True, 'all_non_signal': True, 'all_source_preserved': True}"
+manifest_invariants_validation,True,"{'is_valid': True, 'passed_checks': 11, 'total_checks': 11}"
+forbidden_claims_validation,True,"{'is_valid': True, 'violations': [], 'violations_count': 0}"

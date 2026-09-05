@@ -1,0 +1,3 @@
+contract_id,contract_name,write_mode,source_overwrite_allowed,destructive_cleaning_allowed,auto_delete_allowed,auto_impute_allowed,auto_drop_allowed,validation_metadata_required,quality_drift_metadata_tracked,non_signal,source_preserved
+WCON_001,append_snapshot_write_contract,append_or_snapshot_only,False,False,False,False,False,True,True,True,True
+WCON_002,schema_conformance_write_contract,schema_validated_only,False,False,False,False,False,True,True,True,True

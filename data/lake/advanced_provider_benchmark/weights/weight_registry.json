@@ -1,0 +1,21 @@
+{
+  "total_weights": 54,
+  "domains": [
+    "provider_domain_fx",
+    "provider_domain_commodity",
+    "provider_domain_macro",
+    "provider_domain_calendar",
+    "provider_domain_news_metadata",
+    "provider_domain_cross_domain"
+  ],
+  "sum_by_domain": {
+    "provider_domain_fx": 1.0,
+    "provider_domain_commodity": 1.0,
+    "provider_domain_macro": 1.0,
+    "provider_domain_calendar": 1.0,
+    "provider_domain_news_metadata": 1.0,
+    "provider_domain_cross_domain": 1.0
+  },
+  "current_phase": 115,
+  "target_final_phase": 160
+}

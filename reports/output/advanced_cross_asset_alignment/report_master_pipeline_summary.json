@@ -1,0 +1,434 @@
+{
+  "phase": 119,
+  "target_final_phase": 160,
+  "next_phase": 120,
+  "profile": "balanced_local_cross_asset_alignment",
+  "pipeline_status": "SUCCESS",
+  "total_tables_generated": 27,
+  "summaries": {
+    "profiles": {
+      "total_profiles": 3,
+      "current_phase": 119,
+      "target_final_phase": 160,
+      "next_phase": 120,
+      "local_only": true,
+      "research_only": true,
+      "non_signal": true,
+      "status": "READY",
+      "active_profile": "balanced_local_cross_asset_alignment",
+      "dry_run": true,
+      "dry_run_default": true
+    },
+    "domains": {
+      "profile": "balanced_local_cross_asset_alignment",
+      "total_domains": 28,
+      "non_signal": true,
+      "status": "READY"
+    },
+    "universes": {
+      "total_universes": 5,
+      "total_asset_domains": 2,
+      "canonical_symbols": [
+        "EUR/USD",
+        "USD/TRY",
+        "XAU/USD",
+        "WTI_CRUDE_CONTINUOUS_PLACEHOLDER",
+        "NATURAL_GAS_CONTINUOUS_PLACEHOLDER"
+      ],
+      "manual_review_count": 0,
+      "non_signal": true,
+      "status": "READY",
+      "profile": "balanced_local_cross_asset_alignment"
+    },
+    "symbols": {
+      "total_mappings": 8,
+      "unique_source_symbols": 5,
+      "unique_target_domains": [
+        "macro",
+        "calendar",
+        "commodity",
+        "fx"
+      ],
+      "asset_types": [
+        "fx",
+        "commodity"
+      ],
+      "high_confidence_count": 7,
+      "non_signal": true,
+      "status": "READY",
+      "profile": "balanced_local_cross_asset_alignment"
+    },
+    "namespaces": {
+      "total_namespaced_features": 8,
+      "total_features": 8,
+      "all_valid": true,
+      "domains": [
+        "fx",
+        "commodity",
+        "macro",
+        "calendar",
+        "news"
+      ],
+      "non_signal": true,
+      "status": "READY",
+      "profile": "balanced_local_cross_asset_alignment"
+    },
+    "timestamps": {
+      "total_contracts": 5,
+      "domains": [
+        "fx",
+        "commodity",
+        "macro",
+        "calendar",
+        "news"
+      ],
+      "all_future_data_blocked": true,
+      "non_signal": true,
+      "status": "READY",
+      "profile": "balanced_local_cross_asset_alignment"
+    },
+    "sessions": {
+      "total_session_policies": 7,
+      "total_policies": 7,
+      "policy_list": [
+        "utc_day",
+        "utc_hour",
+        "fx_24_5_placeholder",
+        "commodity_session_placeholder",
+        "macro_release_session_placeholder",
+        "calendar_event_window_placeholder",
+        "news_metadata_window_placeholder"
+      ],
+      "non_signal": true,
+      "status": "READY",
+      "profile": "balanced_local_cross_asset_alignment"
+    },
+    "matrix_contracts": {
+      "total_contracts": 6,
+      "matrix_names": [
+        "fx_base_cross_asset_matrix_contract",
+        "commodity_base_cross_asset_matrix_contract",
+        "macro_context_matrix_contract",
+        "calendar_event_context_matrix_contract",
+        "news_metadata_context_matrix_contract",
+        "cross_domain_research_matrix_contract"
+      ],
+      "base_domains": [
+        "fx",
+        "commodity",
+        "macro",
+        "calendar",
+        "news"
+      ],
+      "all_non_signal": true,
+      "all_backward_only": true,
+      "status": "READY",
+      "profile": "balanced_local_cross_asset_alignment"
+    },
+    "join_policies": {
+      "total_policies": 5,
+      "policy_names": [
+        "exact_timestamp_join",
+        "asof_backward_join",
+        "session_bucket_join",
+        "event_window_placeholder_join",
+        "metadata_tag_link_join"
+      ],
+      "all_backward_only": true,
+      "all_backward_direction": true,
+      "all_future_data_blocked": true,
+      "non_signal": true,
+      "status": "READY",
+      "profile": "balanced_local_cross_asset_alignment"
+    },
+    "fx_commodity": {
+      "total_alignments": 3,
+      "fx_pairs": [
+        "EUR/USD",
+        "USD/TRY",
+        "USD/CAD"
+      ],
+      "commodities": [
+        "XAU/USD",
+        "WTI_CRUDE_CONTINUOUS_PLACEHOLDER"
+      ],
+      "all_non_signal": true,
+      "status": "READY",
+      "profile": "balanced_local_cross_asset_alignment"
+    },
+    "fx_macro": {
+      "total_alignments": 5,
+      "fx_pairs": [
+        "EUR/USD",
+        "USD/TRY"
+      ],
+      "macro_indicators": [
+        "FED_POLICY_RATE",
+        "ECB_POLICY_RATE",
+        "DXY_PLACEHOLDER",
+        "CBRT_POLICY_RATE",
+        "TR_CPI_PLACEHOLDER"
+      ],
+      "all_non_signal": true,
+      "status": "READY",
+      "profile": "balanced_local_cross_asset_alignment"
+    },
+    "fx_calendar": {
+      "total_alignments": 5,
+      "fx_pairs": [
+        "EUR/USD",
+        "USD/TRY"
+      ],
+      "calendar_events": [
+        "FOMC_RATE_DECISION",
+        "ECB_RATE_DECISION",
+        "US_NONFARM_PAYROLLS_RELEASE",
+        "CBRT_RATE_DECISION",
+        "TR_CPI_RELEASE"
+      ],
+      "all_non_signal": true,
+      "all_direction_claims_blocked": true,
+      "status": "READY",
+      "profile": "balanced_local_cross_asset_alignment"
+    },
+    "fx_news": {
+      "total_alignments": 4,
+      "fx_pairs": [
+        "EUR/USD",
+        "USD/TRY"
+      ],
+      "news_tags": [
+        "CENTRAL_BANK",
+        "INFLATION",
+        "TURKEY_ECONOMY",
+        "RISK_SENTIMENT"
+      ],
+      "all_metadata_only": true,
+      "all_no_full_text": true,
+      "all_non_signal": true,
+      "non_signal": true,
+      "status": "READY",
+      "profile": "balanced_local_cross_asset_alignment"
+    },
+    "commodity_macro": {
+      "total_alignments": 4,
+      "commodities": [
+        "XAU/USD",
+        "WTI_CRUDE_CONTINUOUS_PLACEHOLDER",
+        "NATURAL_GAS_CONTINUOUS_PLACEHOLDER"
+      ],
+      "macro_indicators": [
+        "US_10Y_YIELD",
+        "DXY_PLACEHOLDER",
+        "US_CPI_RELEASE",
+        "GLOBAL_GROWTH_SENTIMENT"
+      ],
+      "all_non_signal": true,
+      "status": "READY",
+      "profile": "balanced_local_cross_asset_alignment"
+    },
+    "commodity_calendar": {
+      "total_alignments": 3,
+      "commodities": [
+        "WTI_CRUDE_CONTINUOUS_PLACEHOLDER",
+        "NATURAL_GAS_CONTINUOUS_PLACEHOLDER",
+        "XAU/USD"
+      ],
+      "calendar_events": [
+        "EIA_CRUDE_INVENTORY_RELEASE",
+        "EIA_NATURAL_GAS_STORAGE_RELEASE",
+        "FOMC_RATE_DECISION"
+      ],
+      "all_non_signal": true,
+      "status": "READY",
+      "profile": "balanced_local_cross_asset_alignment"
+    },
+    "commodity_news": {
+      "total_alignments": 4,
+      "commodities": [
+        "WTI_CRUDE_CONTINUOUS_PLACEHOLDER",
+        "XAU/USD",
+        "NATURAL_GAS_CONTINUOUS_PLACEHOLDER"
+      ],
+      "news_tags": [
+        "CRUDE_OIL",
+        "ENERGY",
+        "PRECIOUS_METALS",
+        "NATURAL_GAS"
+      ],
+      "all_metadata_only": true,
+      "all_no_full_text": true,
+      "all_non_signal": true,
+      "non_signal": true,
+      "status": "READY",
+      "profile": "balanced_local_cross_asset_alignment"
+    },
+    "macro_calendar": {
+      "total_alignments": 5,
+      "macro_indicators": [
+        "FED_POLICY_RATE",
+        "ECB_POLICY_RATE",
+        "CBRT_POLICY_RATE",
+        "US_CPI_RELEASE",
+        "US_NONFARM_PAYROLLS"
+      ],
+      "calendar_events": [
+        "FOMC_RATE_DECISION",
+        "ECB_RATE_DECISION",
+        "CBRT_RATE_DECISION",
+        "US_CPI_RELEASE",
+        "US_NONFARM_PAYROLLS_RELEASE"
+      ],
+      "all_non_signal": true,
+      "status": "READY",
+      "profile": "balanced_local_cross_asset_alignment"
+    },
+    "calendar_news": {
+      "total_alignments": 4,
+      "calendar_events": [
+        "FOMC_RATE_DECISION",
+        "US_CPI_RELEASE",
+        "EIA_CRUDE_INVENTORY_RELEASE",
+        "US_NONFARM_PAYROLLS_RELEASE"
+      ],
+      "news_topics": [
+        "CENTRAL_BANK",
+        "INFLATION",
+        "CRUDE_OIL",
+        "LABOR_MARKET"
+      ],
+      "all_no_full_text": true,
+      "all_non_signal": true,
+      "status": "READY",
+      "profile": "balanced_local_cross_asset_alignment"
+    },
+    "cross_domain_matrix": {
+      "total_rows": 10,
+      "total_columns": 9,
+      "total_features": 7,
+      "contract_name": "cross_domain_research",
+      "feature_columns": [
+        "fx_eur_usd_close",
+        "fx_eur_usd_sma_w20",
+        "commodity_xau_usd_close",
+        "commodity_xau_usd_bb_width_w20_std2",
+        "macro_us_10y_yield_yield_diff_1d",
+        "calendar_fomc_event_active_window",
+        "news_central_bank_mention_count_1d"
+      ],
+      "is_non_signal": true,
+      "non_signal": true,
+      "forbidden_columns_found": [],
+      "status": "READY",
+      "profile": "balanced_local_cross_asset_alignment"
+    },
+    "manifests": {
+      "total_manifests": 2,
+      "matrix_names": [
+        "fx_cross_asset_aligned_matrix_v1",
+        "commodity_cross_asset_aligned_matrix_v1"
+      ],
+      "all_source_preserved": true,
+      "all_non_signal": true,
+      "all_no_target_or_prediction": true,
+      "status": "READY",
+      "profile": "balanced_local_cross_asset_alignment"
+    },
+    "feature_metadata": {
+      "total_metadata_entries": 6,
+      "total_features": 6,
+      "domains": [
+        "fx",
+        "commodity",
+        "macro",
+        "calendar",
+        "news"
+      ],
+      "source_domains": [
+        "fx",
+        "commodity",
+        "macro",
+        "calendar",
+        "news"
+      ],
+      "aligned_domains": [
+        "fx"
+      ],
+      "all_non_signal": true,
+      "all_lookahead_checked": true,
+      "phase_120_fusion_ready_count": 6,
+      "status": "READY",
+      "profile": "balanced_local_cross_asset_alignment"
+    },
+    "validation_rules": {
+      "total_rules": 8,
+      "rule_ids": [
+        "rule_forbidden_columns",
+        "rule_timestamp_order",
+        "rule_namespace_conformance",
+        "rule_no_future_leakage",
+        "rule_metadata_only_news",
+        "rule_backward_only_asof",
+        "rule_non_mutation_guarantee",
+        "rule_dry_run_local_safety"
+      ],
+      "all_rules_active": true,
+      "all_enforced": true,
+      "non_signal": true,
+      "status": "READY",
+      "profile": "balanced_local_cross_asset_alignment"
+    },
+    "quality_handoff": {
+      "total_handoff_items": 11,
+      "ready_items_count": 9,
+      "forward_contract_count": 2,
+      "target_phases": [
+        "119",
+        "121",
+        "120",
+        "124"
+      ],
+      "non_signal": true,
+      "status": "READY",
+      "profile": "balanced_local_cross_asset_alignment"
+    },
+    "validation_report": {
+      "total_checks": 6,
+      "passed_checks": 6,
+      "failed_checks": 0,
+      "all_passed": true,
+      "validation_status": "PASS",
+      "profile": "balanced_local_cross_asset_alignment"
+    },
+    "health_check": {
+      "total_components": 39,
+      "healthy_components": 39,
+      "unhealthy_components": 0,
+      "all_healthy": true,
+      "prior_phases_healthy": true,
+      "health_status": "HEALTHY",
+      "profile": "balanced_local_cross_asset_alignment"
+    },
+    "safety_boundary": {
+      "total_conditions": 46,
+      "no_go_count": 31,
+      "safe_go_count": 15,
+      "all_no_go_enforced": true,
+      "all_safe_go_enabled": true,
+      "safety_status": "SECURE",
+      "profile": "balanced_local_cross_asset_alignment"
+    },
+    "phase_120_handoff": {
+      "total_items": 8,
+      "ready_items": 8,
+      "pending_items": 0,
+      "target_phase": 120,
+      "target_phase_name": "Macro/Calendar/News Feature Fusion",
+      "all_items_ready": true,
+      "handoff_status": "READY",
+      "profile": "balanced_local_cross_asset_alignment"
+    }
+  },
+  "non_signal": true,
+  "future_data_allowed": false
+}

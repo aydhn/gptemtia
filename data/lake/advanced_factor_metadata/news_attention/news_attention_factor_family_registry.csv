@@ -1,0 +1,6 @@
+factor_name,factor_family,input_features,calculation_type,non_signal_usage,status_label,manual_review_required
+factor_news_topic_attention_context,news_attention,['fusion__news_topic_attention_count'],topic_category_frequency_counter,Counts published headlines under relevant macro/commodity topics. Zero text NLP.,factor_ready,False
+factor_news_asset_tag_attention_context,news_attention,['fusion__news_asset_tag_count'],entity_tag_frequency_counter,"Counts direct asset entity tags (e.g. GOLD, OIL, USDTRY) in metadata feed.",factor_ready,False
+factor_news_macro_tag_attention_context,news_attention,['fusion__news_macro_tag_count'],macro_tag_frequency_counter,"Counts macroeconomic tag occurrences (e.g. FED, CBRT, CPI, RATES).",factor_ready,False
+factor_news_event_linkage_context,news_attention,['fusion__news_event_linkage_flag'],binary_event_news_overlap_flag,Flag indicating headline is explicitly tied to scheduled calendar event.,factor_ready,False
+factor_news_freshness_placeholder_context,news_attention,['fusion__news_freshness_decay'],exponential_time_decay_weight,Time elapsed since last headline metadata item placeholder.,factor_placeholder_only,True

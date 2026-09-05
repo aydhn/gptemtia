@@ -1,0 +1,15 @@
+{
+  "total_quality_finding_lineage": 5,
+  "finding_types": [
+    "missing_bid_quote",
+    "negative_spread_anomaly",
+    "ohlc_high_low_inversion",
+    "unrecognized_macro_unit",
+    "scheduled_actual_time_gap"
+  ],
+  "all_source_preserved": true,
+  "zero_destructive_actions": true,
+  "manual_review_count": 4,
+  "current_phase": 114,
+  "target_final_phase": 160
+}

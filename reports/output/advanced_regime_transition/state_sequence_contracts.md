@@ -1,0 +1,23 @@
+# Phase 130: State Sequence Contract Registry Report
+
+> [!IMPORTANT]
+> Bu çıktı Phase 130 Regime Transition and Stability Analysis raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, transition veya stability değerini trade sinyali olarak kullanma, strateji üretimi, backtest, optimizer, model training, clustering execution, unsupervised execution, dimensionality reduction execution, prediction/target/label üretimi, production-ready/official approval/broker-ready iddiası, haber tam metni kullanımı, production deployment, model deployment, scraping veya gerçek provider API çağrısı değildir.
+
+- **Total Sequence Contracts**: 9
+- **All Non-Signal Required**: True
+- **All No-Lookahead Required**: True
+- **Zero Model Training Allowed**: True
+- **Zero Clustering Allowed**: True
+
+## Sequence Contracts Table
+| contract_name | sequence_family | entity_keys | timestamp_field | state_context_field | source_phase_refs | required_validation_refs | required_quality_refs | no_lookahead_required | metadata_only_news_required | non_signal_required | model_training_allowed | clustering_allowed | manual_review_required |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| candidate_state_sequence_contract | candidate_state | entity_type,entity_id | timestamp_utc | candidate_state_context | Phase 128,Phase 129 | val_no_lookahead,val_chronological_order | qual_missingness,qual_coverage | True | True | True | False | False | True |
+| pseudo_state_sequence_contract | pseudo_state | entity_type,entity_id | timestamp_utc | pseudo_state_context | Phase 128 | val_no_lookahead,val_zero_ml | qual_pseudo_stability | True | True | True | False | False | True |
+| regime_family_sequence_contract | regime_family | entity_type,entity_id | timestamp_utc | regime_family_context | Phase 126,Phase 127,Phase 129 | val_family_consistency | qual_family_quality | True | True | True | False | False | True |
+| volatility_state_sequence_contract | volatility_state | entity_type,entity_id | timestamp_utc | volatility_state_context | Phase 117,Phase 126,Phase 129 | val_no_lookahead | qual_volatility_coverage | True | True | True | False | False | True |
+| trend_state_sequence_contract | trend_state | entity_type,entity_id | timestamp_utc | trend_state_context | Phase 117,Phase 126,Phase 129 | val_no_lookahead | qual_trend_coverage | True | True | True | False | False | True |
+| range_state_sequence_contract | range_state | entity_type,entity_id | timestamp_utc | range_state_context | Phase 117,Phase 126,Phase 129 | val_no_lookahead | qual_range_coverage | True | True | True | False | False | True |
+| macro_event_context_sequence_contract | macro_event_context | country_code,event_id | release_timestamp_utc | event_window_context | Phase 120,Phase 129 | val_release_lag,val_no_lookahead | qual_macro_quality | True | True | True | False | False | True |
+| news_metadata_context_sequence_contract | news_metadata_context | news_id,asset_tag | published_timestamp_utc | topic_metadata_context | Phase 120,Phase 129 | val_metadata_only_boundary | qual_news_quality | True | True | True | False | False | True |
+| cross_asset_context_sequence_contract | cross_asset_context | base_asset_id,cross_asset_id | timestamp_utc | cross_asset_state_context | Phase 119,Phase 126,Phase 129 | val_cross_asset_alignment | qual_alignment_quality | True | True | True | False | False | True |

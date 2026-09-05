@@ -1,0 +1,6 @@
+{
+  "total_normalization_contracts": 4,
+  "all_non_mutating": true,
+  "all_non_signal": true,
+  "status": "VALID"
+}

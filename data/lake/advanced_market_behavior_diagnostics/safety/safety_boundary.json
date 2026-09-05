@@ -1,0 +1,8 @@
+{
+  "safety_status": "SECURE",
+  "no_go_count": 21,
+  "safe_go_count": 8,
+  "total_rules": 29,
+  "non_signal": true,
+  "active_profile": "balanced_local_market_behavior_diagnostics"
+}

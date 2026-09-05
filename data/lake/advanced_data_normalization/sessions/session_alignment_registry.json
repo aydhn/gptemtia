@@ -1,0 +1,13 @@
+{
+  "total_requirements": 5,
+  "session_types": [
+    "fx_market_hours",
+    "commodity_futures_session",
+    "macro_release_alignment",
+    "calendar_release_session",
+    "news_freshness_alignment"
+  ],
+  "manual_review_count": 2,
+  "current_phase": 113,
+  "target_final_phase": 160
+}

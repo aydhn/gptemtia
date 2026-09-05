@@ -1,0 +1,6 @@
+factor_name,factor_family,input_features,calculation_type,non_signal_usage,status_label,manual_review_required
+factor_macro_inflation_context,macro_context,"['fusion__macro_cpi_rate', 'fusion__macro_ppi_rate']",point_in_time_inflation_level,Inflation environment context. Backward-asof lagged only.,factor_ready,False
+factor_macro_rate_context,macro_context,"['fusion__macro_policy_rate', 'fusion__macro_10y_yield']",interest_rate_level_and_slope,Monetary policy rate backdrop observation.,factor_ready,False
+factor_macro_growth_context,macro_context,"['fusion__macro_gdp_growth', 'fusion__macro_pmi']",macro_growth_composite,Economic expansion and business cycle observation.,factor_ready,False
+factor_macro_revision_context,macro_context,['fusion__macro_revision_flag'],vintage_revision_indicator,Data quality flag indicating post-release revision occurred.,factor_ready,False
+factor_macro_surprise_placeholder_context,macro_context,['fusion__macro_surprise_value'],actual_vs_consensus_differential,Macroeconomic release surprise placeholder.,factor_placeholder_only,True

@@ -1,0 +1,5 @@
+Bu rapor Phase 130 Regime Transition and Stability Analysis çıktısıdır. Gerçek veri indirme zorunluluğu, scraping, haber tam metni kullanımı, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, transition veya stability değerini trade sinyali olarak kullanma, strateji/backtest/optimizer/model training/clustering/unsupervised execution çalıştırma, target/label/prediction üretme, official approval, broker-ready veya production-ready iddiası değildir.
+Total Findings: 2
+Manual Reviews: 2
+Auto Fix Prohibited: True
+Non-Signal Certified: True

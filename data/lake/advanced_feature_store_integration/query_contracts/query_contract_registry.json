@@ -1,0 +1,5 @@
+{
+  "total_query_contracts": 2,
+  "non_signal_guaranteed": true,
+  "target_prediction_query_forbidden": true
+}

@@ -1,0 +1,13 @@
+{
+  "total_partition_policies": 6,
+  "supported_strategies": [
+    "by_source_phase",
+    "by_entity_type",
+    "by_feature_family",
+    "by_date_bucket_placeholder",
+    "by_validation_status",
+    "by_manual_review_required"
+  ],
+  "non_signal": true,
+  "source_preserved": true
+}

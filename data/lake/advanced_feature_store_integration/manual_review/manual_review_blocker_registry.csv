@@ -1,0 +1,5 @@
+blocker_id,target_item,blocker_type,reason,blocking_status,non_signal,destructive_action_allowed,auto_fix_allowed,auto_drop_allowed
+BLK_001,raw_feed_delta_check,no_lookahead_unresolved,İleriye dönük zaman damgası şüphesi manuel doğrulama bekliyor.,True,True,False,False,False
+BLK_002,vendor_feed_column_check,forbidden_column_risk,Harici dosyadaki kolon adı kontrolü; otomatik silme yapılmadı.,True,True,False,False,False
+BLK_003,news_headline_feed_review,metadata_only_boundary_unresolved,Haber metaveri sınırı teyidi; telifli tam metin kopyalama yasak.,True,True,False,False,False
+BLK_004,factor_dependency_tree_check,factor_dependency_unresolved,Faktör girdi bağımlılık grafiğinde eksik girdi incelemesi.,True,True,False,False,False

@@ -1,0 +1,9 @@
+{
+  "total_names": 10,
+  "all_valid": true,
+  "all_namespaces_valid": true,
+  "forbidden_count": 0,
+  "forbidden_keywords_found": false,
+  "non_signal": true,
+  "active_profile": "balanced_local_market_behavior_diagnostics"
+}

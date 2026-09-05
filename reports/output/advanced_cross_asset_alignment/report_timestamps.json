@@ -1,0 +1,14 @@
+{
+  "total_contracts": 5,
+  "domains": [
+    "fx",
+    "commodity",
+    "macro",
+    "calendar",
+    "news"
+  ],
+  "all_future_data_blocked": true,
+  "non_signal": true,
+  "status": "READY",
+  "profile": "balanced_local_cross_asset_alignment"
+}

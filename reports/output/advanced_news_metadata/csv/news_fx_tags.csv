@@ -1,0 +1,11 @@
+tag_id,tag_label,tag_domain,mapped_entity,description,manual_review_required
+tag_fx_usd,USD,fx,United States Dollar,"Federal Reserve decisions, US Treasury actions, global reserve currency dynamics.",False
+tag_fx_eur,EUR,fx,Euro,"European Central Bank monetary policy, Eurozone fragmentation risk, sovereign spreads.",False
+tag_fx_gbp,GBP,fx,British Pound Sterling,"Bank of England rate setting, UK fiscal policy, gilt market conditions.",False
+tag_fx_jpy,JPY,fx,Japanese Yen,"Bank of Japan yield curve control, intervention risks, global carry trade funding.",False
+tag_fx_chf,CHF,fx,Swiss Franc,"Swiss National Bank policy, traditional safe-haven destination flows.",False
+tag_fx_try,TRY,fx,Turkish Lira,"CBRT monetary policy, domestic inflation path, reserve build-up, and regulatory changes.",False
+tag_fx_cnh,CNH,fx,Offshore Chinese Yuan,"PBOC fixing guidance, liquidity operations, China trade balances, economic stimulus.",False
+tag_fx_dxy,DXY,fx,US Dollar Index Placeholder,Trade-weighted dollar valuation basket against major trading partners.,False
+tag_fx_major_fx,MAJOR_FX,fx,G10 Major Currencies,Group of Ten developed market currency pairs and rate differentials.,False
+tag_fx_em_fx,EM_FX,fx,Emerging Market Currencies,"Emerging market risk premia, external debt vulnerability, and portfolio capital flows.",False

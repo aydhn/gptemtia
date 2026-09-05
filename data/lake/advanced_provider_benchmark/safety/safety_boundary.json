@@ -1,0 +1,10 @@
+{
+  "safety_status": "ACTIVE",
+  "total_rules": 47,
+  "total_no_go_rules": 32,
+  "total_safe_go_rules": 15,
+  "all_no_go_enforced": true,
+  "all_safe_go_permitted": true,
+  "current_phase": 115,
+  "target_final_phase": 160
+}

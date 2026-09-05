@@ -16,6 +16,56 @@ load_dotenv()
 
 @dataclass
 class Settings:
+
+    # Local Long-Term Operations and v1.x Roadmap Governance
+    local_longterm_operations_enabled: bool = True
+    default_local_longterm_operations_profile: str = "balanced_local_longterm_operations"
+    local_longterm_operations_default_language: str = "tr"
+    local_longterm_operations_dry_run_default: bool = True
+    local_longterm_operations_allow_real_operations_plan: bool = False
+    local_longterm_operations_allow_official_lifecycle_policy: bool = False
+    local_longterm_operations_allow_real_deprecation: bool = False
+    local_longterm_operations_allow_auto_deprecation: bool = False
+    local_longterm_operations_allow_auto_migration: bool = False
+    local_longterm_operations_allow_production_roadmap_claim: bool = False
+    local_longterm_operations_allow_official_release_commitment: bool = False
+    local_longterm_operations_allow_package_publish: bool = False
+    local_longterm_operations_allow_docker_build_push: bool = False
+    local_longterm_operations_allow_git_tag: bool = False
+    local_longterm_operations_allow_cloud_upload: bool = False
+    local_longterm_operations_allow_deployment: bool = False
+    local_longterm_operations_allow_legal_signoff: bool = False
+    local_longterm_operations_allow_compliance_signoff: bool = False
+    local_longterm_operations_allow_live_trading_claim: bool = False
+    local_longterm_operations_allow_broker_readiness_claim: bool = False
+    local_longterm_operations_allow_investment_advice: bool = False
+    local_longterm_operations_allow_model_deployment_claim: bool = False
+    local_longterm_operations_allow_telemetry: bool = False
+    local_longterm_operations_allow_dashboard_creation: bool = False
+    local_longterm_operations_allow_gui_creation: bool = False
+    local_longterm_operations_allow_tui_creation: bool = False
+    local_longterm_operations_allow_external_service: bool = False
+    local_longterm_operations_allow_external_llm: bool = False
+    local_longterm_operations_allow_file_modification: bool = False
+    local_longterm_operations_allow_file_deletion: bool = False
+    local_longterm_operations_allow_file_move: bool = False
+    local_longterm_operations_allow_overwrite: bool = False
+    local_longterm_operations_scan_docs: bool = True
+    local_longterm_operations_scan_reports: bool = True
+    local_longterm_operations_scan_data_lake: bool = True
+    local_longterm_operations_scan_scripts: bool = True
+    local_longterm_operations_scan_tests: bool = True
+    local_longterm_operations_scan_generated_docs: bool = True
+    local_longterm_operations_scan_release_candidate_outputs: bool = True
+    local_longterm_operations_scan_incident_outputs: bool = True
+    local_longterm_operations_scan_governance_outputs: bool = True
+    local_longterm_operations_scan_safety_outputs: bool = True
+    local_longterm_operations_max_items: int = 500000
+    local_longterm_operations_max_calendar_rows: int = 10000
+    local_longterm_operations_max_workbook_rows: int = 100000
+    local_longterm_operations_min_readiness_score: float = 0.40
+    local_longterm_operations_min_quality_score: float = 0.40
+    local_longterm_operations_save_reports: bool = True
     # Phase 77 - Local Acceptance Settings
     local_acceptance_enabled: bool = True
     default_local_acceptance_profile: str = "balanced_local_acceptance"
@@ -2238,6 +2288,110 @@ class Settings:
     local_readiness_save_reports: bool = True
 
 
+    
+    # Local Continuity Intelligence
+    local_continuity_intelligence_enabled: bool = True
+    default_local_continuity_intelligence_profile: str = "balanced_local_continuity"
+    local_continuity_intelligence_default_language: str = "tr"
+    local_continuity_intelligence_dry_run_default: bool = True
+    local_continuity_intelligence_allow_real_memory_system: bool = False
+    local_continuity_intelligence_allow_cloud_memory_sync: bool = False
+    local_continuity_intelligence_allow_official_lessons_report: bool = False
+    local_continuity_intelligence_allow_official_decision_record: bool = False
+    local_continuity_intelligence_allow_legal_evidence_claim: bool = False
+    local_continuity_intelligence_allow_compliance_evidence_claim: bool = False
+    local_continuity_intelligence_allow_production_approval_claim: bool = False
+    local_continuity_intelligence_allow_official_acceptance_claim: bool = False
+    local_continuity_intelligence_allow_package_publish: bool = False
+    local_continuity_intelligence_allow_docker_build_push: bool = False
+    local_continuity_intelligence_allow_git_tag: bool = False
+    local_continuity_intelligence_allow_cloud_upload: bool = False
+    local_continuity_intelligence_allow_deployment: bool = False
+    local_continuity_intelligence_allow_live_trading_claim: bool = False
+    local_continuity_intelligence_allow_broker_readiness_claim: bool = False
+    local_continuity_intelligence_allow_investment_advice: bool = False
+    local_continuity_intelligence_allow_model_deployment_claim: bool = False
+    local_continuity_intelligence_allow_telemetry: bool = False
+    local_continuity_intelligence_allow_dashboard_creation: bool = False
+    local_continuity_intelligence_allow_gui_creation: bool = False
+    local_continuity_intelligence_allow_tui_creation: bool = False
+    local_continuity_intelligence_allow_external_service: bool = False
+    local_continuity_intelligence_allow_external_llm: bool = False
+    local_continuity_intelligence_allow_file_modification: bool = False
+    local_continuity_intelligence_allow_file_deletion: bool = False
+    local_continuity_intelligence_allow_file_move: bool = False
+    local_continuity_intelligence_allow_overwrite: bool = False
+    local_continuity_intelligence_scan_docs: bool = True
+    local_continuity_intelligence_scan_reports: bool = True
+    local_continuity_intelligence_scan_data_lake: bool = True
+    local_continuity_intelligence_scan_scripts: bool = True
+    local_continuity_intelligence_scan_tests: bool = True
+    local_continuity_intelligence_scan_generated_docs: bool = True
+    local_continuity_intelligence_scan_preservation_outputs: bool = True
+    local_continuity_intelligence_scan_completion_outputs: bool = True
+    local_continuity_intelligence_scan_longterm_outputs: bool = True
+    local_continuity_intelligence_scan_governance_outputs: bool = True
+    local_continuity_intelligence_scan_safety_outputs: bool = True
+    local_continuity_intelligence_max_items: int = 500000
+    local_continuity_intelligence_max_rows: int = 250000
+    local_continuity_intelligence_min_readiness_score: float = 0.40
+    local_continuity_intelligence_min_quality_score: float = 0.40
+    local_continuity_intelligence_save_reports: bool = True
+
+
+    # Phase 93 - Local Project Atlas
+    local_project_atlas_enabled: bool = True
+    default_local_project_atlas_profile: str = "balanced_local_project_atlas"
+    local_project_atlas_default_language: str = "tr"
+    local_project_atlas_dry_run_default: bool = True
+    local_project_atlas_allow_enterprise_search_claim: bool = False
+    local_project_atlas_allow_cloud_index: bool = False
+    local_project_atlas_allow_vector_db: bool = False
+    local_project_atlas_allow_embedding_api: bool = False
+    local_project_atlas_allow_external_search_service: bool = False
+    local_project_atlas_allow_external_llm: bool = False
+    local_project_atlas_allow_official_knowledge_index: bool = False
+    local_project_atlas_allow_legal_evidence_claim: bool = False
+    local_project_atlas_allow_compliance_evidence_claim: bool = False
+    local_project_atlas_allow_production_approval_claim: bool = False
+    local_project_atlas_allow_official_acceptance_claim: bool = False
+    local_project_atlas_allow_package_publish: bool = False
+    local_project_atlas_allow_docker_build_push: bool = False
+    local_project_atlas_allow_git_tag: bool = False
+    local_project_atlas_allow_cloud_upload: bool = False
+    local_project_atlas_allow_deployment: bool = False
+    local_project_atlas_allow_live_trading_claim: bool = False
+    local_project_atlas_allow_broker_readiness_claim: bool = False
+    local_project_atlas_allow_investment_advice: bool = False
+    local_project_atlas_allow_model_deployment_claim: bool = False
+    local_project_atlas_allow_telemetry: bool = False
+    local_project_atlas_allow_dashboard_creation: bool = False
+    local_project_atlas_allow_gui_creation: bool = False
+    local_project_atlas_allow_tui_creation: bool = False
+    local_project_atlas_allow_file_modification: bool = False
+    local_project_atlas_allow_file_deletion: bool = False
+    local_project_atlas_allow_file_move: bool = False
+    local_project_atlas_allow_overwrite: bool = False
+    local_project_atlas_scan_docs: bool = True
+    local_project_atlas_scan_reports: bool = True
+    local_project_atlas_scan_data_lake: bool = True
+    local_project_atlas_scan_scripts: bool = True
+    local_project_atlas_scan_tests: bool = True
+    local_project_atlas_scan_generated_docs: bool = True
+    local_project_atlas_scan_continuity_outputs: bool = True
+    local_project_atlas_scan_preservation_outputs: bool = True
+    local_project_atlas_scan_completion_outputs: bool = True
+    local_project_atlas_scan_longterm_outputs: bool = True
+    local_project_atlas_scan_release_outputs: bool = True
+    local_project_atlas_scan_incident_outputs: bool = True
+    local_project_atlas_scan_governance_outputs: bool = True
+    local_project_atlas_scan_safety_outputs: bool = True
+    local_project_atlas_max_items: int = 750000
+    local_project_atlas_max_rows: int = 300000
+    local_project_atlas_min_readiness_score: float = 0.40
+    local_project_atlas_min_quality_score: float = 0.40
+    local_project_atlas_save_reports: bool = True
+
     def __post_init__(self):
 
 
@@ -3447,6 +3601,110 @@ class Settings:
     local_consistency_save_reports: bool = True
     local_consistency_min_quality_score: float = 0.40
 
+    
+    # Local Continuity Intelligence
+    local_continuity_intelligence_enabled: bool = True
+    default_local_continuity_intelligence_profile: str = "balanced_local_continuity"
+    local_continuity_intelligence_default_language: str = "tr"
+    local_continuity_intelligence_dry_run_default: bool = True
+    local_continuity_intelligence_allow_real_memory_system: bool = False
+    local_continuity_intelligence_allow_cloud_memory_sync: bool = False
+    local_continuity_intelligence_allow_official_lessons_report: bool = False
+    local_continuity_intelligence_allow_official_decision_record: bool = False
+    local_continuity_intelligence_allow_legal_evidence_claim: bool = False
+    local_continuity_intelligence_allow_compliance_evidence_claim: bool = False
+    local_continuity_intelligence_allow_production_approval_claim: bool = False
+    local_continuity_intelligence_allow_official_acceptance_claim: bool = False
+    local_continuity_intelligence_allow_package_publish: bool = False
+    local_continuity_intelligence_allow_docker_build_push: bool = False
+    local_continuity_intelligence_allow_git_tag: bool = False
+    local_continuity_intelligence_allow_cloud_upload: bool = False
+    local_continuity_intelligence_allow_deployment: bool = False
+    local_continuity_intelligence_allow_live_trading_claim: bool = False
+    local_continuity_intelligence_allow_broker_readiness_claim: bool = False
+    local_continuity_intelligence_allow_investment_advice: bool = False
+    local_continuity_intelligence_allow_model_deployment_claim: bool = False
+    local_continuity_intelligence_allow_telemetry: bool = False
+    local_continuity_intelligence_allow_dashboard_creation: bool = False
+    local_continuity_intelligence_allow_gui_creation: bool = False
+    local_continuity_intelligence_allow_tui_creation: bool = False
+    local_continuity_intelligence_allow_external_service: bool = False
+    local_continuity_intelligence_allow_external_llm: bool = False
+    local_continuity_intelligence_allow_file_modification: bool = False
+    local_continuity_intelligence_allow_file_deletion: bool = False
+    local_continuity_intelligence_allow_file_move: bool = False
+    local_continuity_intelligence_allow_overwrite: bool = False
+    local_continuity_intelligence_scan_docs: bool = True
+    local_continuity_intelligence_scan_reports: bool = True
+    local_continuity_intelligence_scan_data_lake: bool = True
+    local_continuity_intelligence_scan_scripts: bool = True
+    local_continuity_intelligence_scan_tests: bool = True
+    local_continuity_intelligence_scan_generated_docs: bool = True
+    local_continuity_intelligence_scan_preservation_outputs: bool = True
+    local_continuity_intelligence_scan_completion_outputs: bool = True
+    local_continuity_intelligence_scan_longterm_outputs: bool = True
+    local_continuity_intelligence_scan_governance_outputs: bool = True
+    local_continuity_intelligence_scan_safety_outputs: bool = True
+    local_continuity_intelligence_max_items: int = 500000
+    local_continuity_intelligence_max_rows: int = 250000
+    local_continuity_intelligence_min_readiness_score: float = 0.40
+    local_continuity_intelligence_min_quality_score: float = 0.40
+    local_continuity_intelligence_save_reports: bool = True
+
+
+    # Phase 93 - Local Project Atlas
+    local_project_atlas_enabled: bool = True
+    default_local_project_atlas_profile: str = "balanced_local_project_atlas"
+    local_project_atlas_default_language: str = "tr"
+    local_project_atlas_dry_run_default: bool = True
+    local_project_atlas_allow_enterprise_search_claim: bool = False
+    local_project_atlas_allow_cloud_index: bool = False
+    local_project_atlas_allow_vector_db: bool = False
+    local_project_atlas_allow_embedding_api: bool = False
+    local_project_atlas_allow_external_search_service: bool = False
+    local_project_atlas_allow_external_llm: bool = False
+    local_project_atlas_allow_official_knowledge_index: bool = False
+    local_project_atlas_allow_legal_evidence_claim: bool = False
+    local_project_atlas_allow_compliance_evidence_claim: bool = False
+    local_project_atlas_allow_production_approval_claim: bool = False
+    local_project_atlas_allow_official_acceptance_claim: bool = False
+    local_project_atlas_allow_package_publish: bool = False
+    local_project_atlas_allow_docker_build_push: bool = False
+    local_project_atlas_allow_git_tag: bool = False
+    local_project_atlas_allow_cloud_upload: bool = False
+    local_project_atlas_allow_deployment: bool = False
+    local_project_atlas_allow_live_trading_claim: bool = False
+    local_project_atlas_allow_broker_readiness_claim: bool = False
+    local_project_atlas_allow_investment_advice: bool = False
+    local_project_atlas_allow_model_deployment_claim: bool = False
+    local_project_atlas_allow_telemetry: bool = False
+    local_project_atlas_allow_dashboard_creation: bool = False
+    local_project_atlas_allow_gui_creation: bool = False
+    local_project_atlas_allow_tui_creation: bool = False
+    local_project_atlas_allow_file_modification: bool = False
+    local_project_atlas_allow_file_deletion: bool = False
+    local_project_atlas_allow_file_move: bool = False
+    local_project_atlas_allow_overwrite: bool = False
+    local_project_atlas_scan_docs: bool = True
+    local_project_atlas_scan_reports: bool = True
+    local_project_atlas_scan_data_lake: bool = True
+    local_project_atlas_scan_scripts: bool = True
+    local_project_atlas_scan_tests: bool = True
+    local_project_atlas_scan_generated_docs: bool = True
+    local_project_atlas_scan_continuity_outputs: bool = True
+    local_project_atlas_scan_preservation_outputs: bool = True
+    local_project_atlas_scan_completion_outputs: bool = True
+    local_project_atlas_scan_longterm_outputs: bool = True
+    local_project_atlas_scan_release_outputs: bool = True
+    local_project_atlas_scan_incident_outputs: bool = True
+    local_project_atlas_scan_governance_outputs: bool = True
+    local_project_atlas_scan_safety_outputs: bool = True
+    local_project_atlas_max_items: int = 750000
+    local_project_atlas_max_rows: int = 300000
+    local_project_atlas_min_readiness_score: float = 0.40
+    local_project_atlas_min_quality_score: float = 0.40
+    local_project_atlas_save_reports: bool = True
+
     def __post_init__(self):
 
 
@@ -3805,7 +4063,7 @@ class Settings:
     local_closure_min_quality_score: float = 0.40
     local_closure_save_reports: bool = True
 # Global settings instance
-settings = Settings()
+
 # 
 # local_usability_enabled: bool = True
 #     default_local_usability_profile: str = "balanced_local_usability"
@@ -3846,3 +4104,207 @@ settings = Settings()
 #     local_usability_min_readiness_score: float = 0.40
 #     local_usability_min_quality_score: float = 0.40
 #     local_usability_save_reports: bool = True
+
+    # Phase 91: Local Post-Completion Preservation
+    local_post_completion_preservation_enabled: bool = True
+    default_local_post_completion_preservation_profile: str = "balanced_local_preservation"
+    local_post_completion_preservation_default_language: str = "tr"
+    local_post_completion_preservation_dry_run_default: bool = True
+    local_post_completion_preservation_allow_real_archive_seal: bool = False
+    local_post_completion_preservation_allow_immutable_file_lock: bool = False
+    local_post_completion_preservation_allow_chmod_or_permission_change: bool = False
+    local_post_completion_preservation_allow_git_tag: bool = False
+    local_post_completion_preservation_allow_release_publish: bool = False
+    local_post_completion_preservation_allow_package_publish: bool = False
+    local_post_completion_preservation_allow_docker_build_push: bool = False
+    local_post_completion_preservation_allow_cloud_upload: bool = False
+    local_post_completion_preservation_allow_deployment: bool = False
+    local_post_completion_preservation_allow_official_archive_approval: bool = False
+    local_post_completion_preservation_allow_production_approval_claim: bool = False
+    local_post_completion_preservation_allow_official_acceptance_claim: bool = False
+    local_post_completion_preservation_allow_legal_signoff: bool = False
+    local_post_completion_preservation_allow_compliance_signoff: bool = False
+    local_post_completion_preservation_allow_live_trading_claim: bool = False
+    local_post_completion_preservation_allow_broker_readiness_claim: bool = False
+    local_post_completion_preservation_allow_investment_advice: bool = False
+    local_post_completion_preservation_allow_model_deployment_claim: bool = False
+    local_post_completion_preservation_allow_telemetry: bool = False
+    local_post_completion_preservation_allow_dashboard_creation: bool = False
+    local_post_completion_preservation_allow_gui_creation: bool = False
+    local_post_completion_preservation_allow_tui_creation: bool = False
+    local_post_completion_preservation_allow_external_service: bool = False
+    local_post_completion_preservation_allow_external_llm: bool = False
+    local_post_completion_preservation_allow_file_modification: bool = False
+    local_post_completion_preservation_allow_file_deletion: bool = False
+    local_post_completion_preservation_allow_file_move: bool = False
+    local_post_completion_preservation_allow_overwrite: bool = False
+    local_post_completion_preservation_scan_docs: bool = True
+    local_post_completion_preservation_scan_reports: bool = True
+    local_post_completion_preservation_scan_data_lake: bool = True
+    local_post_completion_preservation_scan_scripts: bool = True
+    local_post_completion_preservation_scan_tests: bool = True
+    local_post_completion_preservation_scan_generated_docs: bool = True
+    local_post_completion_preservation_scan_completion_outputs: bool = True
+    local_post_completion_preservation_scan_longterm_outputs: bool = True
+    local_post_completion_preservation_scan_release_outputs: bool = True
+    local_post_completion_preservation_scan_safety_outputs: bool = True
+    local_post_completion_preservation_max_items: int = 500000
+    local_post_completion_preservation_max_inventory_rows: int = 250000
+    local_post_completion_preservation_min_readiness_score: float = 0.40
+    local_post_completion_preservation_min_quality_score: float = 0.40
+    local_post_completion_preservation_save_reports: bool = True
+
+
+    # Local Review Governance (Phase 94)
+    local_review_governance_enabled: bool = True
+    default_local_review_governance_profile: str = "balanced_local_review_governance"
+    local_review_governance_default_language: str = "tr"
+    local_review_governance_dry_run_default: bool = True
+    local_review_governance_allow_real_approval_workflow: bool = False
+    local_review_governance_allow_e_signature: bool = False
+    local_review_governance_allow_official_expert_signoff: bool = False
+    local_review_governance_allow_legal_signoff: bool = False
+    local_review_governance_allow_compliance_approval: bool = False
+    local_review_governance_allow_production_approval_claim: bool = False
+    local_review_governance_allow_official_acceptance_claim: bool = False
+    local_review_governance_allow_broker_readiness_claim: bool = False
+    local_review_governance_allow_live_trading_claim: bool = False
+    local_review_governance_allow_investment_advice: bool = False
+    local_review_governance_allow_package_publish: bool = False
+    local_review_governance_allow_docker_build_push: bool = False
+    local_review_governance_allow_git_tag: bool = False
+    local_review_governance_allow_cloud_upload: bool = False
+    local_review_governance_allow_deployment: bool = False
+    local_review_governance_allow_model_deployment_claim: bool = False
+    local_review_governance_allow_telemetry: bool = False
+    local_review_governance_allow_dashboard_creation: bool = False
+    local_review_governance_allow_gui_creation: bool = False
+    local_review_governance_allow_tui_creation: bool = False
+    local_review_governance_allow_cloud_review_service: bool = False
+    local_review_governance_allow_external_service: bool = False
+    local_review_governance_allow_external_llm: bool = False
+    local_review_governance_allow_vector_db: bool = False
+    local_review_governance_allow_embedding_api: bool = False
+    local_review_governance_allow_file_modification: bool = False
+    local_review_governance_allow_file_deletion: bool = False
+    local_review_governance_allow_file_move: bool = False
+    local_review_governance_allow_overwrite: bool = False
+    local_review_governance_scan_docs: bool = True
+    local_review_governance_scan_reports: bool = True
+    local_review_governance_scan_data_lake: bool = True
+    local_review_governance_scan_scripts: bool = True
+    local_review_governance_scan_tests: bool = True
+    local_review_governance_scan_generated_docs: bool = True
+    local_review_governance_scan_atlas_outputs: bool = True
+    local_review_governance_scan_continuity_outputs: bool = True
+    local_review_governance_scan_preservation_outputs: bool = True
+    local_review_governance_scan_completion_outputs: bool = True
+    local_review_governance_scan_safety_outputs: bool = True
+    local_review_governance_max_items: int = 750000
+    local_review_governance_max_rows: int = 300000
+    local_review_governance_min_readiness_score: float = 0.40
+    local_review_governance_min_quality_score: float = 0.40
+    local_review_governance_save_reports: bool = True
+
+
+    # Local Documentation Export
+    local_documentation_export_enabled: bool = True
+    default_local_documentation_export_profile: str = "balanced_local_documentation_export"
+    local_documentation_export_default_language: str = "tr"
+    local_documentation_export_dry_run_default: bool = True
+    local_documentation_export_allow_real_static_site_deploy: bool = False
+    local_documentation_export_allow_web_server: bool = False
+    local_documentation_export_allow_web_dashboard: bool = False
+    local_documentation_export_allow_gui_creation: bool = False
+    local_documentation_export_allow_tui_creation: bool = False
+    local_documentation_export_allow_pdf_binary_export: bool = False
+    local_documentation_export_allow_browser_automation: bool = False
+    local_documentation_export_allow_presentation_deck: bool = False
+    local_documentation_export_allow_slides_generation: bool = False
+    local_documentation_export_allow_cloud_docs_service: bool = False
+    local_documentation_export_allow_cloud_hosting: bool = False
+    local_documentation_export_allow_cdn_publish: bool = False
+    local_documentation_export_allow_package_publish: bool = False
+    local_documentation_export_allow_docker_build_push: bool = False
+    local_documentation_export_allow_git_tag: bool = False
+    local_documentation_export_allow_cloud_upload: bool = False
+    local_documentation_export_allow_deployment: bool = False
+    local_documentation_export_allow_official_documentation_release: bool = False
+    local_documentation_export_allow_legal_signoff: bool = False
+    local_documentation_export_allow_compliance_approval: bool = False
+    local_documentation_export_allow_production_approval_claim: bool = False
+    local_documentation_export_allow_official_acceptance_claim: bool = False
+    local_documentation_export_allow_broker_readiness_claim: bool = False
+    local_documentation_export_allow_live_trading_claim: bool = False
+    local_documentation_export_allow_investment_advice: bool = False
+    local_documentation_export_allow_model_deployment_claim: bool = False
+    local_documentation_export_allow_telemetry: bool = False
+    local_documentation_export_allow_external_service: bool = False
+    local_documentation_export_allow_external_llm: bool = False
+    local_documentation_export_allow_vector_db: bool = False
+    local_documentation_export_allow_embedding_api: bool = False
+    local_documentation_export_allow_file_modification: bool = False
+    local_documentation_export_allow_file_deletion: bool = False
+    local_documentation_export_allow_file_move: bool = False
+    local_documentation_export_allow_overwrite: bool = False
+    local_documentation_export_scan_docs: bool = True
+    local_documentation_export_scan_reports: bool = True
+    local_documentation_export_scan_data_lake: bool = True
+    local_documentation_export_scan_scripts: bool = True
+    local_documentation_export_scan_tests: bool = True
+    local_documentation_export_scan_generated_docs: bool = True
+    local_documentation_export_scan_review_outputs: bool = True
+    local_documentation_export_scan_atlas_outputs: bool = True
+    local_documentation_export_scan_continuity_outputs: bool = True
+    local_documentation_export_scan_preservation_outputs: bool = True
+    local_documentation_export_scan_completion_outputs: bool = True
+    local_documentation_export_scan_safety_outputs: bool = True
+    local_documentation_export_max_items: int = 750000
+    local_documentation_export_max_rows: int = 300000
+    local_documentation_export_min_readiness_score: float = 0.40
+    local_documentation_export_min_quality_score: float = 0.40
+    local_documentation_export_save_reports: bool = True
+
+settings = Settings()
+
+
+
+
+# Phase 101 Advanced Continuation Settings
+advanced_continuation_enabled: bool = True
+default_advanced_continuation_profile: str = "balanced_advanced_continuation"
+advanced_continuation_default_language: str = "tr"
+advanced_continuation_dry_run_default: bool = True
+advanced_continuation_target_final_phase: int = 160
+advanced_continuation_current_phase: int = 101
+advanced_continuation_allow_live_trading: bool = False
+advanced_continuation_allow_broker_integration: bool = False
+advanced_continuation_allow_real_order: bool = False
+advanced_continuation_allow_investment_advice: bool = False
+advanced_continuation_allow_model_deployment: bool = False
+advanced_continuation_allow_production_deployment: bool = False
+advanced_continuation_allow_web_server: bool = False
+advanced_continuation_allow_dashboard: bool = False
+advanced_continuation_allow_gui_tui: bool = False
+advanced_continuation_allow_external_llm: bool = False
+advanced_continuation_allow_vector_db: bool = False
+advanced_continuation_allow_embedding_api: bool = False
+advanced_continuation_allow_web_scraping: bool = False
+advanced_continuation_allow_cloud_publish: bool = False
+advanced_continuation_allow_docker_push: bool = False
+advanced_continuation_allow_git_tag: bool = False
+advanced_continuation_allow_archive_creation: bool = False
+advanced_continuation_allow_file_deletion: bool = False
+advanced_continuation_allow_file_move: bool = False
+advanced_continuation_allow_overwrite: bool = False
+advanced_continuation_scan_phase_1_100_outputs: bool = True
+advanced_continuation_scan_docs: bool = True
+advanced_continuation_scan_reports: bool = True
+advanced_continuation_scan_data_lake: bool = True
+advanced_continuation_scan_scripts: bool = True
+advanced_continuation_scan_tests: bool = True
+advanced_continuation_max_items: int = 1000000
+advanced_continuation_max_rows: int = 500000
+advanced_continuation_min_readiness_score: float = 0.40
+advanced_continuation_save_reports: bool = True
+

@@ -1,0 +1,17 @@
+{
+  "total_findings": 2,
+  "finding_types": {
+    "lead_lag_placeholder_only": 1,
+    "news_metadata_boundary_risk": 1
+  },
+  "severities": {
+    "info": 2
+  },
+  "manual_review_count": 2,
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "destructive_action_allowed": false,
+  "auto_fix_allowed": false,
+  "auto_drop_allowed": false,
+  "active_profile": "balanced_local_cross_asset_regime_context"
+}

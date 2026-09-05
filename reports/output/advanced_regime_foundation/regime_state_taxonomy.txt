@@ -1,0 +1,7 @@
+UYARI: Bu rapor Phase 126 Regime Classification and Market Behavior Foundation çıktısıdır. Gerçek veri indirme zorunluluğu, scraping, haber tam metni kullanımı, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, regime state değerini trade sinyali olarak kullanma, strateji/backtest/optimizer/model training/clustering çalıştırma, target/label/prediction üretme, official approval, broker-ready veya production-ready iddiası değildir.
+Total Regime States: 11
+Ready States: 9
+Placeholder States: 2
+Mandatory Prefix 'regime_state_' Verified: True
+Target or Prediction Generation Prohibited: True
+Non-Signal Invariant: True

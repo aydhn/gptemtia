@@ -1,0 +1,5 @@
+alignment_id,commodity_symbol,news_tag,metadata_only,full_text_collected,sentiment_signal_allowed,non_signal,notes
+comnews_wti_crude_tag,WTI_CRUDE_CONTINUOUS_PLACEHOLDER,CRUDE_OIL,True,False,False,True,Ham petrol haber başlığı ve konu metadata etiketi eşlemesi.
+comnews_wti_energy_tag,WTI_CRUDE_CONTINUOUS_PLACEHOLDER,ENERGY,True,False,False,True,Enerji sektörü haber etiketi; makale metni toplanmaz.
+comnews_gold_precious_metals,XAU/USD,PRECIOUS_METALS,True,False,False,True,Kıymetli madenler haber etiketi eşlemesi.
+comnews_ng_energy_tag,NATURAL_GAS_CONTINUOUS_PLACEHOLDER,NATURAL_GAS,True,False,False,True,Doğal gaz depolama/arz haber etiketi eşlemesi.

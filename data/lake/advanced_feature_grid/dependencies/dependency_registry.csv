@@ -1,0 +1,11 @@
+grid_name,primary_input_fields,optional_input_fields,intermediate_computations,target_family
+sma_window_grid,['close'],[],['rolling_mean'],moving_average
+ema_window_grid,['close'],[],['exponential_moving_average'],moving_average
+rsi_window_grid,['close'],[],"['diff', 'gain_loss_rolling_mean']",momentum
+roc_window_grid,['close'],[],"['shift', 'percentage_change']",momentum
+atr_window_grid,"['high', 'low', 'close']",[],"['true_range', 'rolling_mean']",volatility
+bollinger_window_grid,['close'],[],"['rolling_mean', 'rolling_std']",range_channel
+donchian_window_grid,"['high', 'low', 'close']",[],"['rolling_max', 'rolling_min']",range_channel
+rolling_zscore_window_grid,['close'],[],"['rolling_mean', 'rolling_std']",mean_reversion
+realized_volatility_window_grid,['close'],[],"['log_returns', 'rolling_std']",volatility
+return_window_grid,['close'],[],"['shift', 'ratio']",return

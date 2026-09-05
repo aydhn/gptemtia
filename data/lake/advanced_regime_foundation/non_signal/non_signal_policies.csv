@@ -1,0 +1,7 @@
+policy_id,policy_name,statement,enforcement,non_signal
+nsp_01_no_trade_instructions,prohibit_trade_instructions,Regime state outputs shall never generate BUY/SELL orders or long/short recommendations,MANDATORY_INVARIANT,True
+nsp_02_context_only,environmental_context_only,"Regimes represent environmental volatility, trend, and macro conditions, not market entry triggers",MANDATORY_INVARIANT,True
+nsp_03_no_directional_certainty,prohibit_directional_certainty,Taxonomy terms such as bullish/bearish are prohibited in favor of persistent or reverting context,MANDATORY_INVARIANT,True
+nsp_04_no_target_prediction,prohibit_target_and_prediction_generation,"Regime values are descriptive descriptive indicators, never supervised ML target labels or price predictions",MANDATORY_INVARIANT,True
+nsp_05_no_model_training,prohibit_unsupervised_supervised_training,"No model training (HMM, GMM, clustering, SVM) is executed during foundation phase",MANDATORY_INVARIANT,True
+nsp_06_no_strategy_backtest,prohibit_strategy_and_backtest_execution,"Regimes shall not trigger backtesting, strategy execution, or portfolio optimization",MANDATORY_INVARIANT,True

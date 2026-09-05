@@ -1,0 +1,9 @@
+{
+  "total_findings": 2,
+  "blocking_findings_count": 0,
+  "destructive_action_allowed": false,
+  "auto_fix_allowed": false,
+  "auto_drop_allowed": false,
+  "non_signal": true,
+  "active_profile": "balanced_local_market_behavior_diagnostics"
+}

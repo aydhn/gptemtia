@@ -1,0 +1,20 @@
+{
+  "total_alignments": 4,
+  "commodities": [
+    "WTI_CRUDE_CONTINUOUS_PLACEHOLDER",
+    "XAU/USD",
+    "NATURAL_GAS_CONTINUOUS_PLACEHOLDER"
+  ],
+  "news_tags": [
+    "CRUDE_OIL",
+    "ENERGY",
+    "PRECIOUS_METALS",
+    "NATURAL_GAS"
+  ],
+  "all_metadata_only": true,
+  "all_no_full_text": true,
+  "all_non_signal": true,
+  "non_signal": true,
+  "status": "READY",
+  "profile": "balanced_local_cross_asset_alignment"
+}

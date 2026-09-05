@@ -27,7 +27,7 @@ def main():
     parser.parse_args()
     ensure_project_directories()
 
-    data_lake = DataLake(settings)
+    data_lake = DataLake('data/lake')
 
     try:
         df = data_lake.list_validation_runs()

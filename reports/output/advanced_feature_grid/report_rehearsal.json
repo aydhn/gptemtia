@@ -1,0 +1,9 @@
+{
+  "profile": "balanced_local_multi_window_feature_grid",
+  "total_rehearsals": 7,
+  "all_passed": true,
+  "no_mutation_guaranteed": true,
+  "total_features_generated": 60,
+  "non_signal": true,
+  "status": "PASS"
+}

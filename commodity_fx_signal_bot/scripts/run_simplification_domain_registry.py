@@ -20,7 +20,7 @@ def main():
 
     try:
         settings = Settings()
-        data_lake = DataLake(settings)
+        data_lake = DataLake('data/lake')
         profile = get_local_simplification_profile(args.profile)
 
         logger.info(f"Initializing LocalSimplificationPipeline with profile: {profile.name}")

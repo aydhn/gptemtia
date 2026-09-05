@@ -1,0 +1,5 @@
+indicator_name,output_pattern,default_window,family,non_signal
+rolling_high_low_range,rolling_hl_range_{window},20,family_range,True
+rolling_range_pct,rolling_range_pct_{window},20,family_range,True
+average_range,average_range_{window},20,family_range,True
+range_zscore,range_zscore_{window},20,family_range,True

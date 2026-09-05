@@ -1,0 +1,17 @@
+{
+  "total_records": 4,
+  "context_categories": {
+    "calendar_news_topic_context": 1,
+    "calendar_news_asset_tag_context": 1,
+    "calendar_news_event_linkage_context": 1,
+    "calendar_news_freshness_context_placeholder": 1
+  },
+  "mean_readiness_score": 0.865,
+  "all_metadata_only": true,
+  "zero_full_article_text": true,
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "zero_trading_signals": true,
+  "zero_predictions": true,
+  "active_profile": "balanced_local_cross_asset_regime_context"
+}

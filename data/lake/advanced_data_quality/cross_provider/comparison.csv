@@ -1,0 +1,6 @@
+comparison_domain,provider_a,provider_b,metric,comparison_status,notes
+FX Quotes,fx_yahoo_finance_fixture,fx_ecb_public_fixture,Quote Consistency & Spread Sanity,placeholder_ready,Gerçek provider benchmark değildir; Phase 115 Data Provider Benchmark raporuna devredilir.
+Commodities OHLCV,commodity_cbot_fixture,commodity_nymex_fixture,OHLC Bar Geometry & Timestamp Continuity,placeholder_ready,Gerçek provider benchmark değildir; Phase 115 Data Provider Benchmark raporuna devredilir.
+Macro Timeseries,macro_worldbank_fixture,macro_fred_fixture,Indicator Revision & Frequency Uniformity,placeholder_ready,Gerçek provider benchmark değildir; Phase 115 Data Provider Benchmark raporuna devredilir.
+Economic Calendar,calendar_trading_economics_fixture,calendar_investing_com_fixture,Scheduled Time Alignment & Event Normalization,placeholder_ready,Gerçek provider benchmark değildir; Phase 115 Data Provider Benchmark raporuna devredilir.
+News Metadata,news_reuters_fixture,news_bloomberg_fixture,Copyright Safety & Tagging Taxonomy Compliance,placeholder_ready,Gerçek provider benchmark değildir; Phase 115 Data Provider Benchmark raporuna devredilir.

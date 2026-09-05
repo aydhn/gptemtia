@@ -1,0 +1,16 @@
+{
+  "total_contracts": 8,
+  "dataset_types": [
+    "dataset_fx_ohlcv",
+    "dataset_fx_quote",
+    "dataset_commodity_ohlcv",
+    "dataset_commodity_spot",
+    "dataset_macro_timeseries",
+    "dataset_calendar_event",
+    "dataset_release_event",
+    "dataset_news_metadata"
+  ],
+  "all_contracts_registered": true,
+  "manual_review_required_count": 0,
+  "non_signal": true
+}

@@ -1,0 +1,23 @@
+boundary_type,rule_id,name,status,description
+NO_GO,nogo_01,Live Trading Execution,ENFORCED,Canlı emir ve piyasa işlemi yürütülmesi kesinlikle yasaktır.
+NO_GO,nogo_02,Broker API Integration,ENFORCED,Broker veya borsa hesaplarına API bağlantısı yapılamaz.
+NO_GO,nogo_03,Real Orders,ENFORCED,Gerçek sermaye ile alım-satım emri üretilemez.
+NO_GO,nogo_04,Investment Advice,ENFORCED,Yatırım tavsiyesi veya portföy önerisi sunulamaz.
+NO_GO,nogo_05,Acceptance As Signal,ENFORCED,Kabul skoru veya geçit sonucu trade sinyali olarak yorumlanamaz.
+NO_GO,nogo_06,Directional Claims,ENFORCED,Piyasa yönü veya fiyat tahmini iddiasında bulunulamaz.
+NO_GO,nogo_07,Strategy/Backtest/Optimizer,ENFORCED,"Strateji üretimi, backtest ve parametre optimizasyonu yapılamaz."
+NO_GO,nogo_08,Target/Label/Prediction,ENFORCED,Denetimli makine öğrenmesi hedefleri veya tahminler üretilemez.
+NO_GO,nogo_09,Official Approval / Ready Claims,ENFORCED,"Üretim onayı, broker-ready veya canlıya hazır iddiası öne sürülemez."
+NO_GO,nogo_10,Full Article Text Usage,ENFORCED,"Haber gövdesi, tam metin veya telifli içerik depolanamaz."
+NO_GO,nogo_11,Web Scraping,ENFORCED,"Web scraping, tarayıcı otomasyonu veya gizli API kullanımı yasaktır."
+NO_GO,nogo_12,Credential Outputs,ENFORCED,"API anahtarı, şifre veya gizli dizgiler raporlara yazılamaz."
+NO_GO,nogo_13,Source Overwrite / Deletion,ENFORCED,Ham kaynak dosyaları üzerine yazma veya silme yapılamaz.
+NO_GO,nogo_14,Auto-Imputation & Feature Drop,ENFORCED,Otomatik değer doldurma veya kolon silme uygulanamaz.
+NO_GO,nogo_15,Production Deployment,ENFORCED,"Bulut yayını, docker push veya git tag tetiklenemez."
+SAFE_GO,safego_01,Offline Acceptance Reporting,ACTIVE,Yerel ve çevrimdışı blok kabul değerlendirmesi.
+SAFE_GO,safego_02,Inventory & Contract Audit,ACTIVE,"Modül, betik, test ve dokümantasyon sözleşme kontrolü."
+SAFE_GO,safego_03,Non-Signal Invariant Enforcement,ACTIVE,Bütün çıktılarda trade sinyali yokluğunun garanti edilmesi.
+SAFE_GO,safego_04,No-Lookahead Invariant Enforcement,ACTIVE,Zaman serisi sıralaması ve sızıntısız hizalamaların teyidi.
+SAFE_GO,safego_05,News Metadata-Only Boundary,ACTIVE,Sadece kanonik haber başlık metaverilerinin korunması.
+SAFE_GO,safego_06,Source Preservation Guarantee,ACTIVE,Ham verilerin değişmezliğinin ve izlenebilirliğinin korunması.
+SAFE_GO,safego_07,Phase 126 Regime Handoff Preparation,ACTIVE,Rejim sınıflandırması için temiz girdi devir şartnamesi.

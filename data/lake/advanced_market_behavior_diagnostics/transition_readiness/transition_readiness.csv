@@ -1,0 +1,7 @@
+readiness_area,description,is_ready,is_blocking,status,non_signal,current_phase,target_final_phase,next_phase
+transition_candidate_context_availability,Availability of candidate state transition context and boundary contracts.,True,True,behavior_quality_ready,True,129,160,130
+timestamp_continuity_dependency,Monotonic increasing timestamp sequence without temporal gaps or reversals.,True,True,behavior_quality_ready,True,129,160,130
+candidate_state_sequence_placeholder_readiness,Contractual schema readiness to receive state sequences in Phase 130.,True,True,behavior_quality_ready,True,129,160,130
+no_lookahead_transition_dependency,Zero forward shift (no shift(-1)) and strictly past-looking state transition definitions.,True,True,behavior_quality_ready,True,129,160,130
+phase_130_transition_analysis_dependency,Explicit dependency contract establishing handoff boundaries for Phase 130.,True,True,behavior_quality_ready,True,129,160,130
+manual_review_blockers_status,Zero blocking manual review items preventing transition analysis initialization.,True,False,behavior_quality_ready,True,129,160,130

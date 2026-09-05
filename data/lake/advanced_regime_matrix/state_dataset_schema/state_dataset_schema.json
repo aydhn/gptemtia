@@ -1,0 +1,30 @@
+{
+  "total_schema_fields": 11,
+  "field_count": 11,
+  "minimum_columns": [
+    "dataset_key",
+    "entity_type",
+    "entity_id",
+    "timestamp_utc",
+    "regime_family",
+    "regime_state_candidate_context",
+    "source_matrix_ref",
+    "validation_status_ref",
+    "quality_status_ref",
+    "manual_review_required",
+    "non_signal"
+  ],
+  "forbidden_fields_prohibited": [
+    "target",
+    "label",
+    "prediction",
+    "recommendation",
+    "buy",
+    "sell",
+    "long",
+    "short",
+    "position"
+  ],
+  "all_non_signal": true,
+  "status": "matrix_ready"
+}

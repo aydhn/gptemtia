@@ -1,0 +1,10 @@
+prefix,policy_rule,forbidden_terms_enforced,source_phase,non_signal,source_preserved,status
+fx,Canonical namespace must start with 'fx__',19,124,True,True,enforced
+commodity,Canonical namespace must start with 'commodity__',19,124,True,True,enforced
+macro,Canonical namespace must start with 'macro__',19,124,True,True,enforced
+calendar,Canonical namespace must start with 'calendar__',19,124,True,True,enforced
+news,Canonical namespace must start with 'news__',19,124,True,True,enforced
+cross_asset,Canonical namespace must start with 'cross_asset__',19,124,True,True,enforced
+factor,Canonical namespace must start with 'factor__',19,124,True,True,enforced
+quality_drift,Canonical namespace must start with 'quality_drift__',19,124,True,True,enforced
+validation,Canonical namespace must start with 'validation__',19,124,True,True,enforced

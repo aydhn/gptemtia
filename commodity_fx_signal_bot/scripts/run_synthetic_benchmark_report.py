@@ -21,7 +21,7 @@ def main():
 
     args = parser.parse_args()
 
-    data_lake = DataLake(settings)
+    data_lake = DataLake('data/lake')
     profile = get_synthetic_index_profile(args.profile)
     pipeline = SyntheticIndexPipeline(data_lake, settings, profile)
 

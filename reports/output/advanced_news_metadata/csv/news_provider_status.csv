@@ -1,0 +1,13 @@
+component,status
+news_profiles_and_domains,ready
+news_sources_and_schemas,ready
+news_tags_and_linkages,ready
+news_requirements,ready
+news_provider_metadata_and_capabilities,ready
+news_request_response_schemas,ready
+news_contracts,ready
+news_registry_and_resolver,ready
+news_dry_run_fixture,ready
+news_placeholders,ready
+news_health_check,ready
+news_quality_report,ready

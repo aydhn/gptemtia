@@ -1,0 +1,13 @@
+{
+  "total_thresholds": 7,
+  "all_non_signal": true,
+  "threshold_names": [
+    "coverage_warning_below",
+    "coverage_critical_below",
+    "ambiguity_warning_above",
+    "missingness_warning_above",
+    "missingness_critical_above",
+    "manual_review_if_insufficient_data",
+    "manual_review_if_schema_placeholder"
+  ]
+}

@@ -1,0 +1,16 @@
+claim_id,phrase,category,risk,current_phase,next_phase,target_final_phase
+fc_01,kesin al,trade_signal,CRITICAL,128,129,160
+fc_02,kesin sat,trade_signal,CRITICAL,128,129,160
+fc_03,buy signal,trade_signal,CRITICAL,128,129,160
+fc_04,sell signal,trade_signal,CRITICAL,128,129,160
+fc_05,long aç,order_instruction,CRITICAL,128,129,160
+fc_06,short aç,order_instruction,CRITICAL,128,129,160
+fc_07,position aç,order_instruction,CRITICAL,128,129,160
+fc_08,trade signal,signal_claim,CRITICAL,128,129,160
+fc_09,yatırım tavsiyesi,regulatory,CRITICAL,128,129,160
+fc_10,model prediction,unsupported_ml,HIGH,128,129,160
+fc_11,target label,unsupported_supervised,HIGH,128,129,160
+fc_12,supervised label,unsupported_supervised,HIGH,128,129,160
+fc_13,production ready,commercial_claim,HIGH,128,129,160
+fc_14,broker ready,commercial_claim,HIGH,128,129,160
+fc_15,official approval,regulatory,CRITICAL,128,129,160

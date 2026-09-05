@@ -1,0 +1,4 @@
+matrix_identifier,matrix_family,row_states,column_states,is_placeholder_only,is_fitted_markov_model,produces_trade_probabilities,non_signal,description
+volatility_regime_transition_matrix_placeholder,volatility,"vol_compression, vol_normal, vol_expansion","vol_compression, vol_normal, vol_expansion",True,False,False,True,3x3 structural transition placeholder for volatility regimes
+trend_range_transition_matrix_placeholder,trend_range,"bullish_trend, bearish_trend, range_bound","bullish_trend, bearish_trend, range_bound",True,False,False,True,3x3 structural transition placeholder for directional and consolidation states
+macro_reaction_transition_matrix_placeholder,macro_event,"pre_release_dormant, release_active, post_release_absorbed","pre_release_dormant, release_active, post_release_absorbed",True,False,False,True,3x3 structural placeholder for event window regime transitions

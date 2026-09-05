@@ -1,0 +1,5 @@
+normalization_method,description,requires_rolling_window,mutation_allowed,non_signal,current_phase,next_phase,target_final_phase
+min_max_prep_contract,"Transforms features into [0, 1] range preserving zero lookahead by using historical rolling bounds.",True,False,True,128,129,160
+zscore_prep_contract,Standardizes features using rolling mean and rolling standard deviation.,True,False,True,128,129,160
+robust_median_iqr_prep_contract,Normalizes features using rolling median and interquartile range for heavy-tailed returns.,True,False,True,128,129,160
+quantile_prep_contract,Maps arbitrary continuous distributions to uniform or Gaussian quantiles offline.,True,False,True,128,129,160

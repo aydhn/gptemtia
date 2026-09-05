@@ -1,0 +1,35 @@
+domain_index,domain_label,domain_name,current_phase,target_final_phase,non_signal,source_preserved,requires_no_lookahead,official_approval,production_ready,broker_ready
+1,cross_asset_regime_profile_domain,Cross Asset Regime Profile,131,160,True,True,True,False,False,False
+2,cross_asset_regime_domain,Cross Asset Regime,131,160,True,True,True,False,False,False
+3,entity_domain,Entity,131,160,True,True,True,False,False,False
+4,pair_domain,Pair,131,160,True,True,True,False,False,False
+5,relationship_taxonomy_domain,Relationship Taxonomy,131,160,True,True,True,False,False,False
+6,fx_commodity_context_domain,Fx Commodity Context,131,160,True,True,True,False,False,False
+7,fx_macro_context_domain,Fx Macro Context,131,160,True,True,True,False,False,False
+8,commodity_macro_context_domain,Commodity Macro Context,131,160,True,True,True,False,False,False
+9,macro_calendar_context_domain,Macro Calendar Context,131,160,True,True,True,False,False,False
+10,calendar_news_context_domain,Calendar News Context,131,160,True,True,True,False,False,False
+11,transition_alignment_domain,Transition Alignment,131,160,True,True,True,False,False,False
+12,volatility_linkage_domain,Volatility Linkage,131,160,True,True,True,False,False,False
+13,trend_linkage_domain,Trend Linkage,131,160,True,True,True,False,False,False
+14,range_linkage_domain,Range Linkage,131,160,True,True,True,False,False,False
+15,divergence_context_domain,Divergence Context,131,160,True,True,True,False,False,False
+16,convergence_context_domain,Convergence Context,131,160,True,True,True,False,False,False
+17,correlation_placeholder_domain,Correlation Placeholder,131,160,True,True,True,False,False,False
+18,lead_lag_placeholder_domain,Lead Lag Placeholder,131,160,True,True,True,False,False,False
+19,context_contract_domain,Context Contract,131,160,True,True,True,False,False,False
+20,timestamp_policy_domain,Timestamp Policy,131,160,True,True,True,False,False,False
+21,asof_join_policy_domain,Asof Join Policy,131,160,True,True,True,False,False,False
+22,no_lookahead_guard_domain,No Lookahead Guard,131,160,True,True,True,False,False,False
+23,validation_dependency_domain,Validation Dependency,131,160,True,True,True,False,False,False
+24,quality_dependency_domain,Quality Dependency,131,160,True,True,True,False,False,False
+25,source_phase_domain,Source Phase,131,160,True,True,True,False,False,False
+26,manual_review_domain,Manual Review,131,160,True,True,True,False,False,False
+27,finding_domain,Finding,131,160,True,True,True,False,False,False
+28,scoring_domain,Scoring,131,160,True,True,True,False,False,False
+29,manifest_domain,Manifest,131,160,True,True,True,False,False,False
+30,health_domain,Health,131,160,True,True,True,False,False,False
+31,validation_domain,Validation,131,160,True,True,True,False,False,False
+32,safety_domain,Safety,131,160,True,True,True,False,False,False
+33,phase_132_handoff_domain,Phase 132 Handoff,131,160,True,True,True,False,False,False
+34,unknown_cross_asset_regime_domain,Unknown Cross Asset Regime,131,160,True,True,True,False,False,False

@@ -15,7 +15,7 @@ def main():
     parser = argparse.ArgumentParser(description="Check status of paper runs in data lake")
     args = parser.parse_args()
 
-    lake = DataLake(settings)
+    lake = DataLake('data/lake')
 
     print("Checking paper trading runs in data lake...")
     runs_df = lake.list_paper_runs()

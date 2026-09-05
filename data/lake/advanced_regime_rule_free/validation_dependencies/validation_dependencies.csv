@@ -1,0 +1,7 @@
+validation_id,category,description,enforced,is_blocker,current_phase,next_phase,target_final_phase
+val_phase_121_no_lookahead,temporal_validation,Requires zero lookahead bias certification from Phase 121 validation suite.,True,True,128,129,160
+val_forbidden_columns,schema_validation,"Requires zero occurrence of target, label, prediction, buy, sell, or signal column names.",True,True,128,129,160
+val_timestamp_order,temporal_validation,Requires monotonically increasing UTC timestamps and context_ts <= base_ts.,True,True,128,129,160
+val_news_metadata_only,compliance_validation,"Requires zero raw article body, html scraping, or full-text fields in news-derived candidate states.",True,True,128,129,160
+val_source_preservation,data_integrity,"Requires zero source overwriting, deletion, or in-place modification during prep.",True,True,128,129,160
+val_non_signal_compliance,governance_validation,Requires that all candidate and pseudo-state outputs carry explicit non-signal metadata.,True,True,128,129,160

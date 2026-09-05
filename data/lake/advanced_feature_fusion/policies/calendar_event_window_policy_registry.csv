@@ -1,0 +1,4 @@
+policy_name,policy_type,description,future_data_allowed,full_text_allowed,destructive_action_allowed,non_signal,manual_review_required
+pre_event_window_indicator_policy,calendar_window,Planlanan olay zamanından önceki zaman aralığını bayrak olarak temsil eder (yön içermez).,False,False,False,True,False
+post_event_window_indicator_policy,calendar_window,Gerçekleşen olay sonrasındaki zaman aralığını bayrak olarak temsil eder (sadece actual_release_time sonrası).,False,False,False,True,False
+event_window_non_signal_boundary_policy,calendar_window,Olay pencereleri yalnızca volatilite/rejim bağlamı içindir; kesinlikle al/sat veya pozisyon kararı oluşturamaz.,False,False,False,True,False

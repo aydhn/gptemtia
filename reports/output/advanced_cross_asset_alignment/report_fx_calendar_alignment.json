@@ -1,0 +1,18 @@
+{
+  "total_alignments": 5,
+  "fx_pairs": [
+    "EUR/USD",
+    "USD/TRY"
+  ],
+  "calendar_events": [
+    "FOMC_RATE_DECISION",
+    "ECB_RATE_DECISION",
+    "US_NONFARM_PAYROLLS_RELEASE",
+    "CBRT_RATE_DECISION",
+    "TR_CPI_RELEASE"
+  ],
+  "all_non_signal": true,
+  "all_direction_claims_blocked": true,
+  "status": "READY",
+  "profile": "balanced_local_cross_asset_alignment"
+}

@@ -1,0 +1,8 @@
+status_label,description,non_destructive,audit_required,current_phase
+normalization_applied,Kanonikleştirme veya dönüşüm kuralı başarıyla uygulandı.,True,False,113
+normalization_not_applicable,Kayıt veya alan bu normalizasyon kuralı kapsamına girmiyor.,True,False,113
+normalization_manual_review_required,Değer belirsiz veya harici sözlükte yok; manuel inceleme gerekli.,True,True,113
+normalization_blocked_by_safety,Güvenlik veya non-destructive sınırları nedeniyle işlem engellendi.,True,True,113
+normalization_placeholder_only,Alan henüz aktif kurala sahip değil; yer tutucu uygulandı.,True,False,113
+normalization_failed,Normalizasyon kuralı işletilirken hata oluştu.,True,False,113
+normalization_unknown,Durum tespit edilemedi.,True,False,113

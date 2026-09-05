@@ -1,0 +1,16 @@
+{
+  "total_license_records": 7,
+  "providers": [
+    "advanced_fx_providers_engine",
+    "advanced_commodity_providers_engine",
+    "advanced_macro_providers_engine",
+    "advanced_economic_calendar_engine",
+    "advanced_news_metadata_engine",
+    "official_api_provider_placeholder",
+    "licensed_vendor_provider_placeholder"
+  ],
+  "manual_review_count": 2,
+  "zero_unrestricted_redistribution": true,
+  "current_phase": 114,
+  "target_final_phase": 160
+}

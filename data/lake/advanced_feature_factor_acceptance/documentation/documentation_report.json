@@ -1,0 +1,10 @@
+{
+  "total_docs_checked": 9,
+  "present_docs": 9,
+  "missing_docs": 0,
+  "all_present": true,
+  "non_signal": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false
+}

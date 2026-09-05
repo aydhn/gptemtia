@@ -1,0 +1,7 @@
+check_name,is_valid,error_count,errors,status,non_signal
+profile_registry_validation,True,0,None,PASS,True
+family_registry_validation,True,0,None,PASS,True
+contract_registry_validation,True,0,None,PASS,True
+namespace_registry_validation,True,0,None,PASS,True
+output_schema_validation,True,0,None,PASS,True
+manifest_validation,True,0,None,PASS,True

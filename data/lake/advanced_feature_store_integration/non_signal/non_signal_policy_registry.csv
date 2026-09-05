@@ -1,0 +1,4 @@
+policy_id,policy_name,description,status,enforced,non_signal
+NSP_001,feature_store_is_not_signal,Feature store kayıtları salt araştırma metaverisidir; hiçbir şekilde alım satım sinyali olarak yorumlanamaz.,active,True,True
+NSP_002,no_directional_claims,Özellik veya faktör değerlerinden yönsel getiri veya fiyat artış/azalış iddiası üretilemez.,active,True,True
+NSP_003,no_production_approval_claim,"Feature store entegrasyon durumu canlıya geçiş, model dağıtımı veya resmi onay anlamına gelmez.",active,True,True

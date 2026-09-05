@@ -1,0 +1,15 @@
+{
+  "total_mappings": 14,
+  "unique_normalized_events": [
+    "FOMC_RATE_DECISION",
+    "US_CPI_RELEASE",
+    "US_NONFARM_PAYROLLS_RELEASE",
+    "CBRT_RATE_DECISION",
+    "ECB_RATE_DECISION",
+    "BOE_RATE_DECISION",
+    "BOJ_RATE_DECISION",
+    "US_GDP_RELEASE"
+  ],
+  "current_phase": 113,
+  "target_final_phase": 160
+}

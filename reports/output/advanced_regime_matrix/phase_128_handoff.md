@@ -1,0 +1,31 @@
+# Phase 127 -> Phase 128: Regime Rule-Free Labeling & Unsupervised Prep Handoff
+
+> [!WARNING]
+> **ARAŞTIRMA VE SÖZLEŞME YASAL UYARISI (PHASE 127)**:
+> UYARI: Bu çıktı Phase 127 Regime Feature Matrix and State Dataset Contracts raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, regime matrix veya state dataset değerini trade sinyali olarak kullanma, strateji üretimi, backtest, optimizer, model training, clustering execution, unsupervised execution, prediction/target/label üretimi, production-ready/official approval/broker-ready iddiası, haber tam metni kullanımı, production deployment, model deployment, scraping veya gerçek provider API çağrısı değildir.
+
+
+## Devir Özeti
+- **Devir Durumu**: `READY`
+- **Mevcut Faz**: `127`
+- **Hedef Faz**: `128`
+- **Hedef Final Faz**: `160`
+- **Toplam Devir Maddesi**: `12`
+- **Phase 128 Non-Signal İlkesi**: `Devam edecek`
+- **Phase 128 Canlı İşlem Yasağı**: `Devam edecek`
+
+## Devir Maddeleri
+| handoff_id | title | requirement | status | phase_128_impact | source_phase | target_final_phase | next_phase | non_signal | source_preserved |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| handoff_001_rule_free_labeling_prereqs | Rule-Free Labeling Contract Prerequisites | Formal specifications for labeling without hard-coded threshold heuristics. | READY | Serves as foundation for objective regime state candidate grouping. | 127 | 160 | 128 | True | True |
+| handoff_002_unsupervised_prep_prereqs | Unsupervised Preparation Contracts | Normalized candidate feature inputs ready for dimensionality reduction preparation. | READY | Prepares dataset schema for unsupervised pipelines without running model training. | 127 | 160 | 128 | True | True |
+| handoff_003_matrix_schema_prereqs | Feature Matrix Schema Contracts | Standardized canonical columns, snake_case namespace, and source pointers. | READY | Provides uniform input structure across FX, commodities, macro, and events. | 127 | 160 | 128 | True | True |
+| handoff_004_state_candidate_context_prereqs | State Candidate Context Specifications | 10 candidate contexts defining market behavior flags without target labels. | READY | Enables unsupervised clustering preparation without target contamination. | 127 | 160 | 128 | True | True |
+| handoff_005_no_lookahead_constraints | No-Lookahead and Timestamp Constraints | Backward-only temporal joins, zero negative shifts, and release delay checks. | READY | Guarantees zero future leakage into Phase 128 candidate states. | 127 | 160 | 128 | True | True |
+| handoff_006_non_signal_state_requirements | Non-Signal State Dataset Requirements | Prohibition of buy/sell recommendations, target returns, or trade directives. | READY | Guarantees Phase 128 outputs remain strictly descriptive environmental contexts. | 127 | 160 | 128 | True | True |
+| handoff_007_validation_quality_dependencies | Validation and Quality Gating | Dependencies linking Phase 121 validation and Phase 123 quality/drift diagnostics. | READY | Filters out unstable, stale, or high-missingness series before Phase 128 prep. | 127 | 160 | 128 | True | True |
+| handoff_008_metadata_only_news_boundary | Metadata-Only News Boundary | Strict restriction to numerical attention volume and category tags. | READY | Ensures zero scraping, raw HTML, full text, or external LLM sentiment models. | 127 | 160 | 128 | True | True |
+| handoff_009_source_preservation_requirements | Non-Destructive Source Preservation | Raw data lakes and intermediate tables remain immutable and un-overwritten. | READY | Ensures Phase 128 operates solely on non-mutating dataframe copies. | 127 | 160 | 128 | True | True |
+| handoff_010_manual_review_blockers_check | Manual Review Blockers Audit | All critical blockers in Phase 127 manual review queue are monitored. | READY | Prevents downstream propagation of unresolved data anomalies. | 127 | 160 | 128 | True | True |
+| handoff_011_live_execution_boundary | Clear Live Trading and Broker Boundary | Re-affirmation that Phase 128 will NOT execute live trading or broker integration. | READY | Maintains strict non-production research boundary through Phase 128. | 127 | 160 | 128 | True | True |
+| handoff_012_model_execution_boundary | Clustering & Model Training Execution Boundary | Phase 128 focuses on contract specification and prep; model execution is deferred. | READY | Maintains clear separation between dataset contracts and actual model execution. | 127 | 160 | 128 | True | True |

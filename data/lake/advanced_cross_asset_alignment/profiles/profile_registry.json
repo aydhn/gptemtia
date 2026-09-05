@@ -1,0 +1,13 @@
+{
+  "total_profiles": 3,
+  "current_phase": 119,
+  "target_final_phase": 160,
+  "next_phase": 120,
+  "local_only": true,
+  "research_only": true,
+  "non_signal": true,
+  "status": "READY",
+  "active_profile": "balanced_local_cross_asset_alignment",
+  "dry_run": true,
+  "dry_run_default": true
+}

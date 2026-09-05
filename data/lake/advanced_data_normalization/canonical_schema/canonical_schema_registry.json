@@ -1,0 +1,30 @@
+{
+  "total_schemas": 12,
+  "schemas": [
+    "fx_quote_v1",
+    "fx_ohlcv_v1",
+    "commodity_spot_v1",
+    "commodity_ohlcv_v1",
+    "commodity_futures_metadata_v1",
+    "macro_timeseries_v1",
+    "macro_release_metadata_v1",
+    "calendar_event_v1",
+    "release_event_v1",
+    "news_metadata_v1",
+    "news_item_reference_v1",
+    "provider_metadata_v1"
+  ],
+  "dataset_types": [
+    "dataset_fx_quote",
+    "dataset_fx_ohlcv",
+    "dataset_commodity_spot",
+    "dataset_commodity_ohlcv",
+    "dataset_macro_timeseries",
+    "dataset_calendar_event",
+    "dataset_release_event",
+    "dataset_news_metadata",
+    "dataset_provider_metadata"
+  ],
+  "current_phase": 113,
+  "target_final_phase": 160
+}

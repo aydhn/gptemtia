@@ -1,0 +1,6 @@
+policy_id,description,enforced,current_phase,next_phase,target_final_phase
+nsp_candidate_not_signal,Candidate states represent descriptive research taxonomy and must NEVER be presented as trading signals.,True,128,129,160
+nsp_pseudo_state_not_signal,Pseudo-states are exploratory schema placeholders and carry zero trade recommendation capability.,True,128,129,160
+nsp_no_directional_bias,Neither candidate state nor pseudo-state provides directional certainty (long/short).,True,128,129,160
+nsp_no_execution_routing,"System contains zero order routing, broker connection, or automated execution mechanisms.",True,128,129,160
+nsp_mandatory_disclaimer,"All reports, outputs, and dataset exports must include the mandatory non-signal research disclaimer.",True,128,129,160

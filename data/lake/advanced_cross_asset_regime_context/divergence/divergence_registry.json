@@ -1,0 +1,9 @@
+{
+  "total_divergences": 3,
+  "mean_diagnostic_score": 0.8533333333333334,
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "zero_trading_signals": true,
+  "zero_pairs_trading_rules": true,
+  "active_profile": "balanced_local_cross_asset_regime_context"
+}

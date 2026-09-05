@@ -1,0 +1,7 @@
+{
+  "rule_count": 1,
+  "rules": [
+    "check_stale_timestamp"
+  ],
+  "domain": "stale_data"
+}

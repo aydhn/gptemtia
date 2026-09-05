@@ -1,0 +1,11 @@
+field_name,type,required,description
+response_id,string,True,Unique response identifier
+request_id,string,True,Matched request identifier
+provider_name,string,True,Responding provider adapter name
+data_type,string,True,Returned news metadata data type
+status_label,string,True,Execution status outcome
+output_ref,string,True,URI or location reference of output payload
+row_count,integer,True,Number of records processed (can be 0)
+schema_ref,string,True,Schema contract applied
+warnings,list[string],True,Operational warnings
+manual_review_required,boolean,True,Mandatory human review flag (default True)

@@ -1,0 +1,21 @@
+{
+  "total_review_items": 8,
+  "total_items": 8,
+  "pending_items": 8,
+  "finding_types": [
+    "missing_source_phase_input",
+    "unresolved_validation_dependency",
+    "unresolved_quality_dependency",
+    "unresolved_timestamp_alignment",
+    "unresolved_news_metadata_only_boundary",
+    "forbidden_column_risk",
+    "state_dataset_schema_ambiguity",
+    "phase_128_readiness_review"
+  ],
+  "all_destructive_disallowed": true,
+  "all_auto_fix_disallowed": true,
+  "all_auto_drop_disallowed": true,
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "status": "REVIEW_QUEUE_ACTIVE"
+}

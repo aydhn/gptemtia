@@ -1,0 +1,2 @@
+queue_id,finding_id,source_table,feature_column,severity,drift_description,action_guideline,trade_signal_generation_forbidden,strategy_rule_generation_forbidden,non_signal
+dmr_nominal_empty,none,drift_queue,none,drift_info,No blocking drift issues pending manual review.,Queue is currently clear; continue scheduled routine audits,True,True,True

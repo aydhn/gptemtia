@@ -1,0 +1,5 @@
+factor_name,factor_family,input_features,calculation_type,non_signal_usage,status_label,manual_review_required
+factor_mean_reversion_zscore_context,mean_reversion,['mean_reversion__rolling_zscore_20'],standardized_zscore,Measures standard deviations from mean without generating reversal trade.,factor_ready,False
+factor_mean_reversion_distance_to_ma_context,mean_reversion,"['mean_reversion__dist_sma_50', 'mean_reversion__dist_ema_50']",percentage_distance_to_mean,Measures gap from moving average baseline.,factor_ready,False
+factor_mean_reversion_percentile_placeholder,mean_reversion,['mean_reversion__percentile_rank_100'],rolling_percentile_position,Percentile ranking context within lookback distribution.,factor_placeholder_only,True
+factor_mean_reversion_bollinger_context,mean_reversion,"['volatility__bb_upper_20', 'volatility__bb_lower_20', 'close']",bollinger_percent_b,Position within standard deviation envelope.,factor_ready,False

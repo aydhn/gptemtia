@@ -1,0 +1,7 @@
+metric_id,metric_name,source_phase,description,threshold,is_blocking,non_signal,current_phase,target_final_phase,next_phase,source_preserved,status
+qual_validation_status,validation_pass_status,121,Requires VALIDATION_PASS or VALIDATION_WARN before inclusion in matrix.,"status in ['VALIDATION_PASS', 'VALIDATION_WARN']",True,True,127,160,128,True,matrix_ready
+qual_missingness_score,feature_missingness_ratio,123,Maximum permitted fraction of missing points in rolling windows.,missingness <= 0.05,True,True,127,160,128,True,matrix_ready
+qual_drift_score_psi,population_stability_index,123,Population Stability Index monitoring feature distribution shift.,psi <= 0.25,False,True,127,160,128,True,matrix_ready
+qual_staleness_diagnostics,time_since_last_update,123,Detects flatlining or delayed observation updates.,stale_bars <= 5,True,True,127,160,128,True,matrix_ready
+qual_manual_review_blocker,active_manual_review_blockers,124,Ensures no critical blocking findings exist in manual review queue.,blocking_review_count == 0,True,True,127,160,128,True,matrix_ready
+qual_source_preservation_status,source_preservation_verified,125,"Guarantees raw data has not been modified, overwritten, or auto-imputed.",source_preserved == True,True,True,127,160,128,True,matrix_ready

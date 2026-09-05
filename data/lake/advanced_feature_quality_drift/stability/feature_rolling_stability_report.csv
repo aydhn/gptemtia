@@ -1,0 +1,6 @@
+column,total_rows,window,mean_rolling_std,std_of_rolling_mean,stability_score,status,severity,manual_review_required,notes
+feat_rsi_14,150,50,0.9343,0.0916,0.9114,diagnostic_pass,drift_low,False,Stable rolling feature dynamics
+feat_macd_line,150,50,1.0672,0.1056,0.9063,diagnostic_pass,drift_low,False,Stable rolling feature dynamics
+feat_bb_upper_20,150,50,0.9465,0.0523,0.9478,diagnostic_pass,drift_low,False,Stable rolling feature dynamics
+feat_atr_14,150,50,0.9734,0.1072,0.9006,diagnostic_pass,drift_low,False,Stable rolling feature dynamics
+feat_volatility_parkinson_20,150,50,1.0377,0.0703,0.9362,diagnostic_pass,drift_low,False,Stable rolling feature dynamics

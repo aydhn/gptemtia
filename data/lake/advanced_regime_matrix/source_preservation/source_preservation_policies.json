@@ -1,0 +1,13 @@
+{
+  "total_policies": 5,
+  "policy_ids": [
+    "spp_no_source_overwrite",
+    "spp_no_destructive_cleaning",
+    "spp_no_synthetic_imputation",
+    "spp_immutable_input_copies",
+    "spp_non_destructive_feature_quarantine"
+  ],
+  "forbidden_actions_count": 7,
+  "all_enforced": true,
+  "status": "matrix_ready"
+}

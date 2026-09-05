@@ -1,0 +1,22 @@
+{
+  "total_transformations": 12,
+  "transformation_rules": [
+    "fx_symbol_slashing",
+    "commodity_symbol_root_mapping",
+    "macro_indicator_slugification",
+    "calendar_event_name_normalization",
+    "news_topic_tag_normalization",
+    "provider_name_slugification",
+    "schema_version_normalization",
+    "timestamp_utc_iso8601_conversion",
+    "frequency_vocabulary_standardization",
+    "unit_vocabulary_standardization",
+    "region_country_iso_normalization",
+    "duplicate_key_composite_derivation"
+  ],
+  "all_source_preserved": true,
+  "zero_destructive_actions": true,
+  "manual_review_count": 0,
+  "current_phase": 114,
+  "target_final_phase": 160
+}

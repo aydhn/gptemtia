@@ -1,0 +1,6 @@
+check_item,status,detail
+phase_116_feature_engine_present,PASS,advanced_feature_engine exists on filesystem
+technical_indicator_modules_present,PASS,All 28 core modules present
+technical_indicator_scripts_present,PASS,All 10 scripts present
+no_lookahead_guard_active,PASS,Negative shift and future forward return checks active
+non_signal_guarantee_active,PASS,Forbidden column names barred across all indicator entry points

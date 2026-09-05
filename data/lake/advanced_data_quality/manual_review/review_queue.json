@@ -1,0 +1,15 @@
+{
+  "total_items": 6,
+  "critical_priority": 2,
+  "high_priority": 3,
+  "medium_priority": 1,
+  "low_priority": 0,
+  "destructive_action_allowed_any": false,
+  "providers": [
+    "commodity_cbot_fixture",
+    "fx_yahoo_finance_fixture",
+    "news_reuters_fixture"
+  ],
+  "current_phase": 112,
+  "target_final_phase": 160
+}

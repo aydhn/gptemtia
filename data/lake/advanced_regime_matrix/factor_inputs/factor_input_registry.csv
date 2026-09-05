@@ -1,0 +1,9 @@
+factor_family,canonical_name,source_phase,description,quality_drift_phase,quality_status,drift_status,current_phase,target_final_phase,next_phase,non_signal,source_preserved,status
+trend_factor_family,trend_persistence_factor,122,Multi-window directional persistence and moving average slope factors.,123,QUALITY_PASS,LOW_DRIFT,127,160,128,True,True,matrix_ready
+momentum_factor_family,momentum_velocity_factor,122,"RSI, MACD, and rate-of-change normalized momentum metrics.",123,QUALITY_PASS,LOW_DRIFT,127,160,128,True,True,matrix_ready
+volatility_factor_family,volatility_expansion_factor,122,"Realized volatility, Bollinger bandwidth, and ATR ratio factors.",123,QUALITY_PASS,LOW_DRIFT,127,160,128,True,True,matrix_ready
+mean_reversion_factor_family,channel_distance_zscore_factor,122,Normalized distance from moving mean and channel boundaries.,123,QUALITY_PASS,LOW_DRIFT,127,160,128,True,True,matrix_ready
+macro_factor_family,macro_policy_stance_factor,122,Yield curve steepening/flattening and central bank policy proxies.,123,QUALITY_PASS,LOW_DRIFT,127,160,128,True,True,matrix_ready
+event_factor_family,scheduled_event_window_factor,122,Pre/post economic event release time distance factors.,123,QUALITY_PASS,LOW_DRIFT,127,160,128,True,True,matrix_ready
+news_metadata_factor_family,news_volume_frequency_factor,122,Metadata-only news count and asset tag concentration (zero full text).,123,QUALITY_PASS,LOW_DRIFT,127,160,128,True,True,matrix_ready
+cross_asset_factor_family,intermarket_relative_strength_factor,122,Cross-currency/commodity spread and correlation factor metrics.,123,QUALITY_PASS,LOW_DRIFT,127,160,128,True,True,matrix_ready

@@ -1,0 +1,9 @@
+{
+  "total_taxonomy_items": 13,
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "zero_trading_signals_allowed": true,
+  "zero_predictions_allowed": true,
+  "all_require_no_lookahead": true,
+  "active_profile": "balanced_local_cross_asset_regime_context"
+}

@@ -1,0 +1,12 @@
+"""Test issues."""
+from commodity_fx_signal_bot.local_reproducibility_governance.reproducibility_governance_issues import (
+    build_reproducibility_governance_issue_register, build_reproducibility_governance_unresolved_register
+)
+from commodity_fx_signal_bot.local_reproducibility_governance.reproducibility_config import get_default_local_reproducibility_governance_profile
+
+def test_issues():
+    p = get_default_local_reproducibility_governance_profile()
+    df1, s1 = build_reproducibility_governance_issue_register(p)
+    df2, s2 = build_reproducibility_governance_unresolved_register(p)
+    assert not df1.empty
+    assert not df2.empty

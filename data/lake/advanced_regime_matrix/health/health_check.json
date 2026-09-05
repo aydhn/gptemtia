@@ -1,0 +1,13 @@
+{
+  "total_checks": 12,
+  "total_subsystems": 12,
+  "healthy_count": 12,
+  "healthy_subsystems": 12,
+  "degraded_subsystems": 0,
+  "all_healthy": true,
+  "health_status": "HEALTHY",
+  "overall_health": "HEALTHY",
+  "model_training_executed": false,
+  "non_signal": true,
+  "source_preserved": true
+}

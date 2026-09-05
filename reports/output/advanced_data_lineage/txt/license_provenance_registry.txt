@@ -1,0 +1,17 @@
+# License & Copyright Provenance Boundary Report
+> **YASAL UYARI VE FERAGATNAME**
+> Bu çıktı Phase 114 Data Lineage and Provenance raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, lineage/traceability score’u trade sinyali olarak kullanma, official approval, production deployment, model deployment, scraping, haber tam metni toplama, telifli içerik kopyalama, external LLM/API çağrısı, gerçek provider API çağrısı zorunluluğu, source overwrite veya destructive cleaning değildir.
+
+- **Toplam Lisans Kaydı**: 7
+- **Sıfır Serbest Yeniden Dağıtım**: True
+- **Manuel İnceleme Sayısı**: 2
+
+| license_id | provider_name | source_id | license_note | manual_review_required | usage_boundary | redistribution_allowed_placeholder | commercial_use_review_required |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| lic_prov_001 | advanced_fx_providers_engine | prov_src_fx_fixture_provider_fx_dry_run_fixture_source | Internal synthetic/dry-run fixture; non-commercial research use only | False | research_only | False | True |
+| lic_prov_002 | advanced_commodity_providers_engine | prov_src_commodity_fixture_provider_commodity_dry_run_fixture_source | Internal synthetic/dry-run fixture; non-commercial research use only | False | research_only | False | True |
+| lic_prov_003 | advanced_macro_providers_engine | prov_src_macro_fixture_provider_macro_dry_run_fixture_source | Open research baseline metadata; non-commercial research use only | False | research_only | False | True |
+| lic_prov_004 | advanced_economic_calendar_engine | prov_src_calendar_fixture_provider_calendar_dry_run_fixture_source | Event metadata placeholder; zero raw vendor scraping | False | research_only | False | True |
+| lic_prov_005 | advanced_news_metadata_engine | prov_src_news_fixture_provider_news_metadata_dry_run_fixture_source | Metadata-only and headline reference; zero article text copy | False | metadata_only_research | False | True |
+| lic_prov_006 | official_api_provider_placeholder | prov_src_official_api_placeholder_official_api_placeholder_source | Vendor API terms placeholder; contract review required before live keys | True | contract_review_required | False | True |
+| lic_prov_007 | licensed_vendor_provider_placeholder | prov_src_licensed_provider_placeholder_licensed_provider_placeholder_source | Commercial data license placeholder; strict vendor terms apply | True | contract_review_required | False | True |

@@ -1,0 +1,5 @@
+factor_name,factor_family,input_features,downstream_phase_target,non_signal_usage,status_label,manual_review_required
+factor_regime_volatility_prep_placeholder,regime_prep,"['volatility__realized_vol_20', 'volatility__atr_14']",Phase 127 Volatility Regime Classifier,Candidate volatility feature bundle for future regime detection.,factor_placeholder_only,True
+factor_regime_trend_prep_placeholder,regime_prep,"['trend__sma_slope_50', 'trend__donchian_high_20']",Phase 128 Trend Regime Classifier,Candidate trend persistence bundle for future regime models.,factor_placeholder_only,True
+factor_regime_macro_context_prep_placeholder,regime_prep,"['fusion__macro_cpi_rate', 'fusion__macro_policy_rate']",Phase 130 Macro Regime Classifier,Candidate macro cycle state bundle for future regime classifiers.,factor_placeholder_only,True
+factor_regime_event_context_prep_placeholder,regime_prep,"['fusion__event_pre_release_window', 'fusion__event_importance_weight']",Phase 132 Regime Transition Detection,Candidate high-impact event window bundle for transition monitoring.,factor_placeholder_only,True

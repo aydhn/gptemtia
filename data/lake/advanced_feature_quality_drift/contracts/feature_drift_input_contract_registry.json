@@ -1,0 +1,7 @@
+{
+  "active_profile": "balanced_local_feature_quality_drift",
+  "total_contracts": 4,
+  "current_phase": 123,
+  "non_signal": true,
+  "destructive_action_allowed": false
+}

@@ -1,0 +1,19 @@
+{
+  "manifest_name": "cross_asset_regime_context_manifest",
+  "manifest_status": "MANIFEST_VALID",
+  "current_phase": 131,
+  "next_phase": 132,
+  "target_final_phase": 160,
+  "entity_count": 24,
+  "pair_count": 12,
+  "context_score": 0.86,
+  "non_signal": true,
+  "source_preserved": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false,
+  "zero_model_training": true,
+  "zero_clustering": true,
+  "zero_destructive_actions": true,
+  "active_profile": "balanced_local_cross_asset_regime_context"
+}

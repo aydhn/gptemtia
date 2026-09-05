@@ -1,0 +1,11 @@
+family_id,family_name,total_expected_features,available_features,availability_ratio,missing_features_count,readiness_status,phase_124_store_ready,production_ready,official_approval,non_signal
+trend,Trend Factor Family,3,3,1.0,0,diagnostic_pass,True,False,False,True
+momentum,Momentum Factor Family,4,4,1.0,0,diagnostic_pass,True,False,False,True
+volatility,Volatility Factor Family,4,4,1.0,0,diagnostic_pass,True,False,False,True
+mean_reversion,Mean Reversion Factor Family,3,3,1.0,0,diagnostic_pass,True,False,False,True
+returns,Return Factor Family,3,3,1.0,0,diagnostic_pass,True,False,False,True
+quote_microstructure,Quote Microstructure Factor Family,3,3,1.0,0,diagnostic_pass,True,False,False,True
+macro_context,Macro Context Factor Family,3,3,1.0,0,diagnostic_pass,True,False,False,True
+calendar_event,Calendar Event Factor Family,3,3,1.0,0,diagnostic_pass,True,False,False,True
+news_attention,News Attention Factor Family,3,3,1.0,0,diagnostic_pass,True,False,False,True
+cross_asset_context,Cross-Asset Context Factor Family,3,3,1.0,0,diagnostic_pass,True,False,False,True

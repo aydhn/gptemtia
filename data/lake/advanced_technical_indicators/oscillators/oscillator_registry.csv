@@ -1,0 +1,6 @@
+indicator_name,output_pattern,parameters,family,non_signal
+stochastic,"stoch_k, stoch_d","{'k': 14, 'd': 3}",family_oscillator,True
+williams_r,williams_r_{window},{'window': 14},family_oscillator,True
+cci,cci_{window},{'window': 20},family_oscillator,True
+ultimate_oscillator,ultimate_osc,{},family_oscillator,True
+mfi,mfi_{window},{'window': 14},family_oscillator,True

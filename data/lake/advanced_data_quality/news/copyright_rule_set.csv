@@ -1,0 +1,5 @@
+rule_name,rule_domain,severity_label
+no_full_text_storage,news_copyright_quality,quality_critical
+metadata_only_enforcement,news_copyright_quality,quality_critical
+no_external_llm_embeddings,news_copyright_quality,quality_critical
+copyright_status_declared,news_copyright_quality,quality_high

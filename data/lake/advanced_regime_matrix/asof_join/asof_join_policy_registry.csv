@@ -1,0 +1,6 @@
+policy_id,policy_name,description,direction,is_enforced,non_signal,current_phase,target_final_phase,next_phase,source_preserved,status
+asof_policy_backward_only,Strict Backward Direction,pd.merge_asof must strictly use direction='backward' to prevent future observation contamination.,backward,True,True,127,160,128,True,matrix_ready
+asof_policy_non_mutating,Non-Mutating Input Preservation,Input dataframes must never be mutated in-place; copy() is created before joining.,,True,True,127,160,128,True,matrix_ready
+asof_policy_monotonic_order,Strict Monotonic Sort Requirement,Both left and right timestamp indices must be sorted in ascending order prior to join.,,True,True,127,160,128,True,matrix_ready
+asof_policy_no_nearest_or_forward,Prohibit Nearest or Forward Joins,direction='nearest' and direction='forward' are strictly disallowed in all asof operations.,backward,True,True,127,160,128,True,matrix_ready
+asof_policy_entity_partition_alignment,Entity Partition Alignment,Multi-asset joins must partition strictly by canonical entity ID (by parameter).,,True,True,127,160,128,True,matrix_ready

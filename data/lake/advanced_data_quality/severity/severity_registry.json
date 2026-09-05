@@ -1,0 +1,13 @@
+{
+  "total_severities": 5,
+  "severity_labels": [
+    "quality_critical",
+    "quality_high",
+    "quality_medium",
+    "quality_low",
+    "quality_info"
+  ],
+  "max_penalty": 0.4,
+  "current_phase": 112,
+  "target_final_phase": 160
+}

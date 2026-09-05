@@ -1,0 +1,9 @@
+{
+  "total_edges": 15,
+  "total_source_nodes": 10,
+  "total_target_nodes": 12,
+  "graph_type": "tabular_dag_placeholder",
+  "external_database_required": false,
+  "all_non_signal": true,
+  "non_signal": true
+}

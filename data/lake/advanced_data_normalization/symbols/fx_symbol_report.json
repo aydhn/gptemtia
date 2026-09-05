@@ -1,0 +1,16 @@
+{
+  "total_rules": 18,
+  "normalized_pairs": [
+    "EUR/USD",
+    "USD/TRY",
+    "GBP/JPY",
+    "USD/JPY",
+    "GBP/USD",
+    "USD/CHF",
+    "AUD/USD",
+    "USD/CAD",
+    "EUR/TRY"
+  ],
+  "current_phase": 113,
+  "target_final_phase": 160
+}

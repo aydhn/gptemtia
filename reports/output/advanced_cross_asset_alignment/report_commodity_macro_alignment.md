@@ -1,0 +1,17 @@
+# Phase 119: Commodity - Macro Alignment Report
+
+> Bu çıktı Phase 119 Cross-Asset Feature Alignment ve Multi-Domain Feature Matrix Contracts raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, cross-asset hizalanmış feature'ları trade sinyali veya çoklu varlık arbitraj/al-sat kuralı olarak kullanma, strateji üretimi, backtest, optimizer, target/label/prediction üretimi, production deployment, model deployment, scraping, gerçek provider API çağrısı veya official approval sağlamaz.
+
+## Hizalama Özeti
+- **Toplam Hizalama Bağlantısı**: 4
+- **Non-Signal İzolasyonu**: `Doğrulandı`
+- **Durum**: `READY`
+
+## Hizalama Detayları
+
+| alignment_id      | commodity_symbol                   | macro_indicator         | relation_type                    | macro_context_placeholder | non_signal | notes                                                            |
+| ----------------- | ---------------------------------- | ----------------------- | -------------------------------- | ------------------------- | ---------- | ---------------------------------------------------------------- |
+| cma_gold_us10y    | XAU/USD                            | US_10Y_YIELD            | real_rate_inverse_context        | us10y_yield_context       | True       | Altın ve ABD 10Y tahvil faizi; korelasyon trade kuralı değildir. |
+| cma_gold_dxy      | XAU/USD                            | DXY_PLACEHOLDER         | dollar_index_inverse_context     | dxy_gold_context          | True       | Altın ve Dolar endeksi ters yönlü araştırma bağlamı.             |
+| cma_wti_inflation | WTI_CRUDE_CONTINUOUS_PLACEHOLDER   | US_CPI_RELEASE          | energy_input_cost_context        | cpi_energy_context        | True       | Petrol ve manşet enflasyon girdi maliyeti araştırma bağlamı.     |
+| cma_ng_growth     | NATURAL_GAS_CONTINUOUS_PLACEHOLDER | GLOBAL_GROWTH_SENTIMENT | industrial_energy_demand_context | growth_energy_context     | True       | Doğal gaz ve sanayi büyüme göstergeleri bağlamı.                 |

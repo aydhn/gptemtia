@@ -1,0 +1,17 @@
+# Phase 115: Provider Benchmark Findings Registry
+> **UYARI VE SINIRLAR**:
+> Bu çıktı Phase 115 Data Provider Benchmark Report raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, benchmark score’u trade sinyali olarak kullanma, provider official approval, production-ready/broker-ready iddiası, production deployment, model deployment, scraping, haber tam metni toplama, telifli içerik kopyalama, external LLM/API çağrısı, gerçek provider API çağrısı zorunluluğu, source overwrite veya destructive cleaning değildir.
+
+- **Toplam Bulgu Sayısı**: 6
+- **Yüksek Önem Derecesine Sahip Bulgular**: 2
+- **Manuel İnceleme Gerektirenler**: 3
+
+### Bulgu Kayıtları
+| finding_id | provider_name | provider_domain | metric_label | severity_label | status_label | message | recommendation | manual_review_required |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| pb_find::manual_file_provider_adapter::metric_coverage | manual_file_provider_adapter | provider_domain_cross_domain | metric_coverage | severity_medium | benchmark_pass_with_warnings | Manual file coverage varies by uploaded files and requires file schema verification | Verify file headers and field names against canonical schemas before ingestion | True |
+| pb_find::official_api_provider_placeholder::metric_license_provenance | official_api_provider_placeholder | provider_domain_cross_domain | metric_license_provenance | severity_high | benchmark_manual_review_required | Vendor API documentation notes potential rate limit restrictions and commercial terms | Conduct thorough terms-of-service and procurement review before moving beyond dry-run | True |
+| pb_find::licensed_vendor_provider_placeholder::metric_license_provenance | licensed_vendor_provider_placeholder | provider_domain_cross_domain | metric_license_provenance | severity_high | benchmark_manual_review_required | Commercial licensed vendor data requires formal license agreement and boundary audit | Ensure enterprise data license covers local research and algorithmic modeling | True |
+| pb_find::advanced_news_metadata_engine::metric_metadata_only_compliance | advanced_news_metadata_engine | provider_domain_news_metadata | metric_metadata_only_compliance | severity_info | benchmark_pass | News metadata collection adheres 100% to metadata-only policy with zero full text | Maintain current zero-full-text boundary in all downstream feature extraction modules | False |
+| pb_find::advanced_fx_providers_engine::metric_quality | advanced_fx_providers_engine | provider_domain_fx | metric_quality | severity_info | benchmark_pass | FX quote sanity and OHLC consistency validated across all major currency pairs | Ready for canonical indicator and return calculation inputs in Phase 116 | False |
+| pb_find::advanced_commodity_providers_engine::metric_normalization | advanced_commodity_providers_engine | provider_domain_commodity | metric_normalization | severity_info | benchmark_pass | Commodity symbols and units normalized to canonical USD per barrel / USD per oz | Maintain unit metadata alongside price series in Feature Store | False |

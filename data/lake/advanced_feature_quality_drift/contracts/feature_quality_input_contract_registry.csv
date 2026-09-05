@@ -1,0 +1,6 @@
+contract_id,contract_name,description,severity,enforced,non_signal,destructive_action_allowed
+contract_df_immutability,DataFrame Immutability Contract,Diagnostic pipeline must never mutate input DataFrames in place.,quality_critical,True,True,False
+contract_non_destructive,Non-Destructive Handling Contract,"Never automatically drop, filter, or impute rows or columns with missing/infinite values.",quality_critical,True,True,False
+contract_schema_metadata,Schema and Metadata Contract,Input datasets must preserve timestamp ordering and feature column definitions.,quality_high,True,True,False
+contract_forbidden_columns,Forbidden Forward-Looking Column Contract,"Input datasets must contain zero target, prediction, or future return columns.",quality_critical,True,True,False
+contract_news_metadata_only,News Metadata Only Contract,News features must contain metadata-only fields; no full text or embedding vectors.,quality_critical,True,True,False

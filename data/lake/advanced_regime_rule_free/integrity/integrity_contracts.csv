@@ -1,0 +1,9 @@
+contract_rule_id,category,description,is_mandatory,non_signal,current_phase,next_phase,target_final_phase
+rule_no_forbidden_columns,schema_integrity,"Dataset must contain zero forbidden trading columns (target, label, prediction, buy, sell, etc.).",True,True,128,129,160
+rule_no_target_or_prediction,learning_boundary,"Candidate states must strictly be research annotation preparation, not supervised learning targets.",True,True,128,129,160
+rule_no_full_article_text,copyright_boundary,"Zero raw news article bodies, html scrapings, or full texts stored.",True,True,128,129,160
+rule_no_embeddings_vector,dependency_boundary,Zero vector database or embedding generation dependencies.,True,True,128,129,160
+rule_no_clustering_or_model_execution,execution_boundary,"Zero algorithm fit, transform, predict, or clustering operations executed.",True,True,128,129,160
+rule_source_preservation,data_integrity,"Source dataframes must never be mutated, deleted, or overwritten.",True,True,128,129,160
+rule_no_auto_fix_or_drop,quality_governance,"Zero automated destructive cleaning, imputation, or feature dropping.",True,True,128,129,160
+rule_quality_validation_audit,audit_integrity,Candidate states must link to explicit Phase 121 validation and Phase 123 quality audits.,True,True,128,129,160

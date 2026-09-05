@@ -1,0 +1,6 @@
+session_type,description,canonical_behavior,manual_review_required
+fx_market_hours,FX 24/5 işlem seansı (Pazar 22:00 UTC - Cuma 22:00 UTC) hizalaması.,Hafta sonu boşlukları işaretlenir; suni bar doldurma yapılmaz.,False
+commodity_futures_session,Emtia vadeli kontrat seans saatleri ve takas kesintisi uyumu.,Borsa işlem saatlerine göre seans dışı veriler manuel incelemeye alınır.,True
+macro_release_alignment,Makro veri açıklanma saati ile dönem sonu zaman damgasının ayrıştırılması.,"Dönem damgası timestamp'e, açıklanma zamanı release_time'a konur.",False
+calendar_release_session,Ekonomik takvim planlanan vs gerçekleşen saat eşleştirmesi.,Planlanan saat ve gerçekleşen saat ayrı alanlarda tutulur.,False
+news_freshness_alignment,Haber yayın saatinin piyasa fiyat barlarıyla zaman hizalaması.,Yayın saati UTC olarak etiketlenir; geleceğe yönelik veri sızıntısı önlenir.,True

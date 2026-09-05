@@ -1,0 +1,23 @@
+{
+  "total_indicators": 62,
+  "total_families": 12,
+  "families": [
+    "family_candle_anatomy",
+    "family_channel",
+    "family_mean_reversion",
+    "family_momentum",
+    "family_moving_average",
+    "family_oscillator",
+    "family_price_action",
+    "family_quote_microstructure",
+    "family_range",
+    "family_returns",
+    "family_trend",
+    "family_volatility"
+  ],
+  "status": "READY",
+  "non_signal_guaranteed": true,
+  "current_phase": 117,
+  "target_final_phase": 160,
+  "next_phase": 118
+}

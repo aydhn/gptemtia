@@ -1,0 +1,11 @@
+placeholder_name,family,window,column_name,is_placeholder,non_signal,directional_claim
+macro_value_change,macro_placeholder,1,macro_chg_m1,True,True,False
+macro_value_change,macro_placeholder,3,macro_chg_m3,True,True,False
+macro_value_change,macro_placeholder,6,macro_chg_m6,True,True,False
+macro_value_change,macro_placeholder,12,macro_chg_m12,True,True,False
+macro_rolling_change,macro_placeholder,3,macro_rolling_chg_m3,True,True,False
+macro_rolling_change,macro_placeholder,6,macro_rolling_chg_m6,True,True,False
+macro_rolling_change,macro_placeholder,12,macro_rolling_chg_m12,True,True,False
+macro_revision_flag_count,macro_placeholder,3,macro_rev_cnt_m3,True,True,False
+macro_revision_flag_count,macro_placeholder,6,macro_rev_cnt_m6,True,True,False
+macro_revision_flag_count,macro_placeholder,12,macro_rev_cnt_m12,True,True,False

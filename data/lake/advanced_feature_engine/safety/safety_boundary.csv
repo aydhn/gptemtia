@@ -1,0 +1,54 @@
+condition_id,category,description,enforced,phase,permitted
+no_live_trading,NO_GO,Canlı emir gönderimi ve gerçek işlem yürütme.,True,116,
+no_broker_integration,NO_GO,Broker API entegrasyonu ve credential kullanımı.,True,116,
+no_real_order,NO_GO,Gerçek pozisyon açma veya borsa emri iletimi.,True,116,
+no_investment_advice,NO_GO,Yatırım tavsiyesi veya yönlendirici portföy önerisi.,True,116,
+no_feature_as_signal,NO_GO,Feature veya gösterge değerini AL/SAT sinyali olarak sunma.,True,116,
+no_indicator_directional_certainty,NO_GO,RSI düşük -> al veya MACD yukarı -> long gibi kesin kural üretme.,True,116,
+no_strategy_generation,NO_GO,Otomatik strateji veya sinyal kuralı üretimi.,True,116,
+no_backtest_execution,NO_GO,Strateji performans simülasyonu veya backtest çalıştırma.,True,116,
+no_optimizer_execution,NO_GO,Parametre optimizasyonu veya aşırı uyum arama.,True,116,
+no_model_deployment,NO_GO,Makine öğrenmesi model deployment.,True,116,
+no_production_deployment,NO_GO,Üretim ortamına canlı kod veya servis dağıtımı.,True,116,
+no_web_server,NO_GO,Web sunucusu veya harici API servisi başlatma.,True,116,
+no_dashboard,NO_GO,Web dashboard veya analitik arayüz sunucusu.,True,116,
+no_gui_tui,NO_GO,Etkileşimli GUI/TUI başlatma.,True,116,
+no_external_llm,NO_GO,Harici LLM veya inference API çağrısı yapma.,True,116,
+no_vector_db,NO_GO,Vektör veritabanı veya embedding altyapısı kurma.,True,116,
+no_embedding_api,NO_GO,Dış embedding üretme API'si bağlama.,True,116,
+no_web_scraping,NO_GO,Web scraping ve web sitesi veri çekme.,True,116,
+no_html_scraping,NO_GO,HTML içeriği kazıma ve ayrıştırma.,True,116,
+no_news_page_scraping,NO_GO,Haber sitelerinden sayfa scraping yapma.,True,116,
+no_browser_automation,NO_GO,"Selenium, Playwright veya Puppeteer otomasyonu.",True,116,
+no_hidden_api_reverse_engineering,NO_GO,Gizli veya dokümante edilmemiş API tersine mühendisliği.,True,116,
+no_paywall_bypass,NO_GO,Paywall veya kimlik doğrulama baypas etme.,True,116,
+no_rate_limit_abuse,NO_GO,Sağlayıcı hız limitlerini aşma veya kötüye kullanma.,True,116,
+no_required_network_call,NO_GO,Zorunlu ağ çağrısı gerektirme; offline çalışabilirlik esastır.,True,116,
+no_required_paid_api,NO_GO,Ücretli API anahtarı zorunluluğu koyma.,True,116,
+no_credential_output,NO_GO,"API anahtarı, token veya secret loglama/yazdırma.",True,116,
+no_full_article_download,NO_GO,Telifli haber tam metnini indirme veya depolama.,True,116,
+no_copyrighted_article_copy,NO_GO,Telif hakkı korunan içerikleri aynen kopyalama.,True,116,
+no_source_overwrite,NO_GO,Ham veri kaynaklarını veya lake dosyalarını ezme.,True,116,
+no_destructive_cleaning,NO_GO,Yıkıcı veri silme veya satır kaybetme.,True,116,
+no_file_deletion,NO_GO,Proje dosyalarını veya eski faz çıktılarını silme.,True,116,
+no_file_move,NO_GO,Dosya taşıma veya klasör hiyerarşisini kırma.,True,116,
+no_cloud_publish,NO_GO,Bulut ortamına arşiv veya paket gönderme.,True,116,
+no_docker_push,NO_GO,Docker registry'ye container imajı yükleme.,True,116,
+no_git_tag,NO_GO,Git sürüm etiketi veya release oluşturma.,True,116,
+no_archive_creation,NO_GO,Gerçek ZIP veya tar arşivi oluşturma.,True,116,
+no_official_approval_claim,NO_GO,"Resmi onay, mevzuat onayı veya sertifikasyon iddiası.",True,116,
+local_offline_feature_engine,SAFE_GO,Offline ortamda teknik gösterge ve feature tanımları yapma.,,116,True
+canonical_input_contracts,SAFE_GO,"FX, emtia, makro, takvim ve haber için kanonik girdi kontratı oluşturma.",,116,True
+non_destructive_dataframe_copy,SAFE_GO,Her zaman df.copy() ile çalışarak orijinal veriyi koruma.,,116,True
+pure_pandas_numpy_transforms,SAFE_GO,Harici bağımlılık olmadan saf pandas/numpy matematiksel hesaplamaları.,,116,True
+technical_indicator_catalogs,SAFE_GO,"Fiyat, trend, momentum, volatilite ve ortalamaya dönüş katalogları.",,116,True
+quote_feature_catalog,SAFE_GO,Spread ve mid-price hesaplama katalogları.,,116,True
+volume_liquidity_placeholders,SAFE_GO,Hacim ve likidite vekilleri placeholder tanımları.,,116,True
+macro_feature_catalog,SAFE_GO,Makro değer değişimi ve sürpriz özellikleri katalogları.,,116,True
+calendar_event_feature_catalog,SAFE_GO,Takvim olay günü ve pencere bayrakları katalogları.,,116,True
+news_metadata_feature_catalog,SAFE_GO,Yalnızca konu ve varlık etiketleri kullanan haber metadata kataloğu.,,116,True
+feature_metadata_registry,SAFE_GO,Warmup ve lookahead risklerini belgeleyen metadata kayıt defteri.,,116,True
+factor_metadata_registry,SAFE_GO,Faktör ailesi hiyerarşisi ve araştırma sahipliği defteri.,,116,True
+rolling_window_contracts,SAFE_GO,Pozitif tamsayı pencere ve lookahead koruması standartları.,,116,True
+feature_validation_rules,SAFE_GO,Yasaklı sinyal kolonlarını ve lookahead shiftlerini tarayan kurallar.,,116,True
+phase_117_handoff,SAFE_GO,Phase 117 teknik gösterge genişlemesine temiz temel devretme.,,116,True

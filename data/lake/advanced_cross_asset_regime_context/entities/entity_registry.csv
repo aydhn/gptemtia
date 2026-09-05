@@ -1,0 +1,28 @@
+entity_id,entity_name,entity_type,domain,base_currency_or_asset,quote_or_benchmark,source_phase,readiness_status,non_signal,source_preserved,official_approval,production_ready,broker_ready,contains_target_or_prediction,contains_trading_recommendation
+fx_eurusd,EUR/USD Currency Pair,fx_pair,fx,EUR,USD,107,ready,True,True,False,False,False,False,False
+fx_usdjpy,USD/JPY Currency Pair,fx_pair,fx,USD,JPY,107,ready,True,True,False,False,False,False,False
+fx_gbpusd,GBP/USD Currency Pair,fx_pair,fx,GBP,USD,107,ready,True,True,False,False,False,False,False
+fx_audusd,AUD/USD Currency Pair,fx_pair,fx,AUD,USD,107,ready,True,True,False,False,False,False,False
+fx_usdtry,USD/TRY Currency Pair,fx_pair,fx,USD,TRY,107,ready,True,True,False,False,False,False,False
+cmd_xauusd,Gold Spot Commodity,commodity_symbol,commodity,XAU,USD,108,ready,True,True,False,False,False,False,False
+cmd_xagusd,Silver Spot Commodity,commodity_symbol,commodity,XAG,USD,108,ready,True,True,False,False,False,False,False
+cmd_brent,Brent Crude Oil,commodity_symbol,commodity,BRENT,USD,108,ready,True,True,False,False,False,False,False
+cmd_wti,WTI Crude Oil,commodity_symbol,commodity,WTI,USD,108,ready,True,True,False,False,False,False,False
+cmd_copper,Copper Industrial Metal,commodity_symbol,commodity,COPPER,USD,108,ready,True,True,False,False,False,False,False
+macro_us_fedfunds,US Federal Funds Target Rate,macro_indicator,macro,USD,PERCENT,109,ready,True,True,False,False,False,False,False
+macro_us_cpi,US Consumer Price Index YoY,macro_indicator,macro,USD,INDEX,109,ready,True,True,False,False,False,False,False
+macro_us_gdp,US Real GDP Growth QoQ Annualized,macro_indicator,macro,USD,PERCENT,109,ready,True,True,False,False,False,False,False
+macro_eu_hicp,Eurozone Harmonised Index of Consumer Prices,macro_indicator,macro,EUR,INDEX,109,ready,True,True,False,False,False,False,False
+cal_fomc_decision,FOMC Interest Rate Decision Event,calendar_event,calendar,USD,SCHEDULED_RELEASE,110,ready,True,True,False,False,False,False,False
+cal_us_nfp,US Non-Farm Payrolls Release Event,calendar_event,calendar,USD,SCHEDULED_RELEASE,110,ready,True,True,False,False,False,False,False
+cal_ecb_decision,ECB Monetary Policy Decision Event,calendar_event,calendar,EUR,SCHEDULED_RELEASE,110,ready,True,True,False,False,False,False,False
+news_central_bank_rate,Central Bank Interest Rate Topic Tag,news_metadata_tag,news_metadata,GLOBAL,TOPIC_TAG,111,ready,True,True,False,False,False,False,False
+news_geopolitical_tension,Geopolitical Tension Topic Tag,news_metadata_tag,news_metadata,GLOBAL,TOPIC_TAG,111,ready,True,True,False,False,False,False,False
+news_energy_supply,Energy Supply Shock Topic Tag,news_metadata_tag,news_metadata,GLOBAL,TOPIC_TAG,111,ready,True,True,False,False,False,False,False
+regime_volatility_family,Volatility Regime Family,regime_family,regime_foundation,MULTI_ASSET,VOL_STATE,126,ready,True,True,False,False,False,False,False
+regime_trend_family,Trend Regime Family,regime_family,regime_foundation,MULTI_ASSET,TREND_STATE,126,ready,True,True,False,False,False,False,False
+regime_range_family,Range & Consolidation Regime Family,regime_family,regime_foundation,MULTI_ASSET,RANGE_STATE,126,ready,True,True,False,False,False,False,False
+candidate_high_vol,High Volatility Candidate Context,candidate_state_context,candidate_state,MULTI_ASSET,THRESHOLD_CONTEXT,128,ready,True,True,False,False,False,False,False
+candidate_trending,Persistent Trend Candidate Context,candidate_state_context,candidate_state,MULTI_ASSET,DIRECTION_CONTEXT,128,ready,True,True,False,False,False,False,False
+trans_compression_to_expansion,Volatility Compression to Expansion Sequence,transition_context,regime_transition,MULTI_ASSET,TRANSITION_STATE,130,ready,True,True,False,False,False,False,False
+trans_trend_exhaustion,Trend Exhaustion to Range Sequence,transition_context,regime_transition,MULTI_ASSET,TRANSITION_STATE,130,ready,True,True,False,False,False,False,False

@@ -1,0 +1,2 @@
+canonical_key_field,separator,deduplication_mode,records_deleted,policy,current_phase
+canonical_duplicate_key,::,non_destructive_tagging_only,0,Kayıt silinmez; mükerrerlik Phase 115 benchmark veya ileri veri operasyonlarına devredilir.,113

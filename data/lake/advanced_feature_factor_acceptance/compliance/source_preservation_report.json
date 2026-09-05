@@ -1,0 +1,8 @@
+{
+  "compliance_type": "source_preservation",
+  "total_modules_audited": 10,
+  "compliant_modules": 10,
+  "destructive_actions_permitted": false,
+  "non_signal": true,
+  "source_preserved": true
+}

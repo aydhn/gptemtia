@@ -1,0 +1,12 @@
+{
+  "total_findings": 15,
+  "manual_review_required_count": 2,
+  "applied_count": 13,
+  "severities": {
+    "normalization_info": 13,
+    "normalization_medium": 1,
+    "normalization_high": 1
+  },
+  "current_phase": 113,
+  "target_final_phase": 160
+}

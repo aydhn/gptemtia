@@ -1,0 +1,5 @@
+contract_name,fusion_family,source_domains,required_fields,optional_fields,timestamp_field,join_policy
+macro_timeseries_context_contract,fusion_family_macro,"['macro_providers', 'cross_asset_alignment']","['indicator_id', 'value', 'release_timestamp']","['previous_value', 'period_name']",release_timestamp,fusion_join_policy_backward_asof
+macro_release_context_contract,fusion_family_macro,"['macro_providers', 'economic_calendar']","['indicator_id', 'release_lag_days', 'is_preliminary']","['source_organization', 'calendar_linked']",release_timestamp,fusion_join_policy_release_time_only
+macro_revision_context_contract,fusion_family_macro,['macro_providers'],"['indicator_id', 'revised_value', 'revision_timestamp']","['revision_delta', 'revision_count']",revision_timestamp,fusion_join_policy_release_time_only
+macro_frequency_unit_context_contract,fusion_family_macro,['macro_providers'],"['indicator_id', 'frequency', 'unit_of_measure']","['seasonal_adjustment', 'multiplier']",metadata_effective_timestamp,fusion_join_policy_backward_asof

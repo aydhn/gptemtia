@@ -1,0 +1,13 @@
+{
+  "profile_name": "balanced_local_feature_factor_acceptance",
+  "total_items": 5,
+  "pending_items": 1,
+  "resolved_safe_items": 4,
+  "destructive_actions_prevented": true,
+  "auto_imputation_prevented": true,
+  "auto_drop_prevented": true,
+  "non_signal": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false
+}

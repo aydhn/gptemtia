@@ -1,0 +1,8 @@
+rehearsal_name,input_rows,generated_features_count,in_place_mutated,forbidden_columns_count,max_warmup_nan,status
+moving_average_grid,120,6,False,0,19,PASS
+momentum_grid,120,9,False,0,21,PASS
+volatility_grid,120,9,False,0,20,PASS
+bollinger_grid,120,16,False,0,19,PASS
+donchian_grid,120,8,False,0,19,PASS
+mean_reversion_grid,120,6,False,0,19,PASS
+return_grid,120,6,False,0,5,PASS

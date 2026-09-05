@@ -1,0 +1,12 @@
+{
+  "total_safety_rules": 22,
+  "no_go_count": 15,
+  "safe_go_count": 7,
+  "safety_status": "SECURE",
+  "live_trading_prohibited": true,
+  "broker_integration_prohibited": true,
+  "model_training_prohibited": true,
+  "source_mutation_prohibited": true,
+  "non_signal": true,
+  "source_preserved": true
+}

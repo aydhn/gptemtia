@@ -1,0 +1,6 @@
+rule_id,description,enforced,current_phase,next_phase,target_final_phase
+sp_no_source_overwrite,Never overwrite existing raw or lake artifacts. All outputs write to new dedicated Phase 128 paths.,True,128,129,160
+sp_no_file_deletion,Automated file or row deletion is strictly forbidden.,True,128,129,160
+sp_copy_before_transform,"Any DataFrame operation must work on an explicit copy (.copy()), preserving the caller's DataFrame.",True,128,129,160
+sp_no_destructive_imputation,NaN values must not be blindly imputed or overwritten; missingness must be preserved as diagnostics.,True,128,129,160
+sp_no_auto_drop,Low-variance or missing features must never be automatically dropped without researcher manual review.,True,128,129,160

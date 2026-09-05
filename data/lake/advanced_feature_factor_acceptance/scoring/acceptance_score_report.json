@@ -1,0 +1,13 @@
+{
+  "overall_score": 1.0,
+  "score_tier": "EXCELLENT_READINESS",
+  "meets_profile_minimum": true,
+  "min_required_score": 0.45,
+  "total_gates": 16,
+  "passed_gates": 16,
+  "failed_gates": 0,
+  "non_signal": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false
+}

@@ -1,0 +1,11 @@
+metric_name,domain,behavior_family,description,value_type,coverage_ratio,is_ready,non_signal,current_phase,target_final_phase,next_phase
+volatility_behavior_context_coverage,volatility_behavior_domain,volatility,Coverage of high/low/compression/expansion volatility context metrics.,float,1.0,True,True,129,160,130
+trend_behavior_context_coverage,trend_behavior_domain,trend,"Coverage of moving average, momentum, and persistence trend context indicators.",float,1.0,True,True,129,160,130
+range_behavior_context_coverage,range_behavior_domain,range,"Coverage of channel width, z-score deviation, and mean reversion range context.",float,1.0,True,True,129,160,130
+macro_event_context_coverage,macro_event_behavior_domain,macro_event,"Availability of release lag, scheduled event windows, and surprise context.",float,1.0,True,True,129,160,130
+news_metadata_context_coverage,news_metadata_behavior_domain,news_metadata,Metadata-only news topic and asset tag frequency coverage (zero full-text).,float,1.0,True,True,129,160,130
+cross_asset_context_coverage,cross_asset_behavior_domain,cross_asset,"Coverage of cross-asset alignment, currency pairs, and commodity benchmarks.",float,1.0,True,True,129,160,130
+transition_readiness_score,transition_readiness_domain,transition,Score quantifying readiness for Phase 130 state transition sequence analysis.,float,1.0,True,True,129,160,130
+stability_readiness_score,stability_readiness_domain,stability,Score quantifying readiness for Phase 130 rolling stability diagnostic metrics.,float,1.0,True,True,129,160,130
+timestamp_alignment_quality,market_behavior_diagnostics_domain,temporal,Quality score verifying UTC timestamp monotonicity and temporal integrity.,float,1.0,True,True,129,160,130
+no_lookahead_dependency_status,market_behavior_diagnostics_domain,safety,Status verifying zero backward leakage and zero future shift across dependencies.,float,1.0,True,True,129,160,130

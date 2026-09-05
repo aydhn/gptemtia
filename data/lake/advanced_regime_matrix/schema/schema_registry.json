@@ -1,0 +1,24 @@
+{
+  "total_schema_fields": 16,
+  "column_count": 16,
+  "minimum_columns": [
+    "matrix_key",
+    "entity_type",
+    "entity_id",
+    "timestamp_utc",
+    "symbol",
+    "feature_name",
+    "feature_family",
+    "factor_family",
+    "regime_family",
+    "source_phase",
+    "validation_status",
+    "quality_score_ref",
+    "drift_score_ref",
+    "lineage_ref",
+    "manual_review_required",
+    "non_signal"
+  ],
+  "all_non_signal": true,
+  "status": "matrix_ready"
+}

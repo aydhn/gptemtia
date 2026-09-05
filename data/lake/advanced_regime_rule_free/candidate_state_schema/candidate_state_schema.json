@@ -1,0 +1,8 @@
+{
+  "total_schema_fields": 12,
+  "mandatory_fields_count": 12,
+  "all_non_signal": true,
+  "all_not_target_or_prediction": true,
+  "forbidden_terms_guarded": true,
+  "schema_status": "VALID"
+}

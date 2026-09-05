@@ -1,0 +1,15 @@
+placeholder_name,family,window,column_name,is_placeholder,no_full_text,non_signal,directional_claim
+news_topic_count,news_placeholder,1,news_topic_cnt_d1,True,True,True,False
+news_topic_count,news_placeholder,3,news_topic_cnt_d3,True,True,True,False
+news_topic_count,news_placeholder,5,news_topic_cnt_d5,True,True,True,False
+news_topic_count,news_placeholder,10,news_topic_cnt_d10,True,True,True,False
+news_asset_tag_count,news_placeholder,1,news_tag_cnt_d1,True,True,True,False
+news_asset_tag_count,news_placeholder,3,news_tag_cnt_d3,True,True,True,False
+news_asset_tag_count,news_placeholder,5,news_tag_cnt_d5,True,True,True,False
+news_asset_tag_count,news_placeholder,10,news_tag_cnt_d10,True,True,True,False
+news_event_linkage,news_placeholder,3,news_event_link_d3,True,True,True,False
+news_event_linkage,news_placeholder,7,news_event_link_d7,True,True,True,False
+news_event_linkage,news_placeholder,14,news_event_link_d14,True,True,True,False
+news_freshness_decay,news_placeholder,1,news_freshness_d1,True,True,True,False
+news_freshness_decay,news_placeholder,3,news_freshness_d3,True,True,True,False
+news_freshness_decay,news_placeholder,7,news_freshness_d7,True,True,True,False

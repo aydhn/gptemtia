@@ -1,0 +1,9 @@
+{
+  "total_analyzed_states": 6,
+  "mean_persistence_score": 0.7867,
+  "mean_duration_periods": 6.57,
+  "all_non_signal": true,
+  "contains_prediction": false,
+  "contains_trading_signal": false,
+  "active_profile": "balanced_local_regime_transition"
+}

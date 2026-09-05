@@ -1,0 +1,11 @@
+{
+  "active_profile": "balanced_local_factor_metadata",
+  "total_validation_checks": 6,
+  "passed_checks": 6,
+  "failed_checks": 0,
+  "status": "factor_ready",
+  "all_non_signal": true,
+  "zero_forbidden_claims": true,
+  "zero_lookahead": true,
+  "source_preserved": true
+}

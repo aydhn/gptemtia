@@ -1,0 +1,8 @@
+quality_metric_id,metric_name,target_threshold,operator,description,phase_123_drift_relevant,non_signal,status_label
+qual_dep_missingness_threshold,Maximum Feature Missingness Threshold,0.35,<=,Factor input features must not exceed 35% missingness outside warmup.,True,True,factor_ready
+qual_dep_infinite_values,Zero Infinite Values Guard,0.0,==,Zero positive or negative infinite values permitted in feature inputs.,True,True,factor_ready
+qual_dep_duplicate_features,Zero Duplicate Columns Guard,0.0,==,Rejects duplicate column names and perfectly collinear series.,True,True,factor_ready
+qual_dep_feature_availability,Input Feature Availability Ratio,1.0,==,All required input features defined in factor contract must be resolved.,True,True,factor_ready
+qual_dep_source_validation,Upstream Source Validation Status,1.0,==,Upstream Phase 116-121 matrices must hold verified PASS validation status.,True,True,factor_ready
+qual_dep_manual_review_blockers,Manual Review Unresolved Blockers,0.0,==,Unresolved critical manual review items block downstream drift computation.,True,True,factor_ready
+qual_dep_drift_diagnostics_readiness,Phase 123 Drift Diagnostics Baseline,1.0,==,Historical distribution baselines configured for drift tracking.,True,True,factor_ready

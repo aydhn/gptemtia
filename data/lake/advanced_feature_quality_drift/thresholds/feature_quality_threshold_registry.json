@@ -1,0 +1,8 @@
+{
+  "active_profile": "balanced_local_feature_quality_drift",
+  "total_thresholds": 6,
+  "current_phase": 123,
+  "auto_drop_allowed": false,
+  "auto_fix_allowed": false,
+  "non_signal": true
+}

@@ -1,0 +1,10 @@
+review_id,review_domain,reason,source_ref,requires_human_signoff,destructive_action_permitted,auto_fix_permitted,status,current_phase,next_phase,target_final_phase
+rev_001_unresolved_matrix_validation,matrix_validation,Unresolved matrix validation dependency requiring human inspection.,technical_indicator_matrix_contract,True,False,False,QUEUED_FOR_MANUAL_REVIEW,128,129,160
+rev_002_unresolved_quality_dependency,quality_dependency,Elevated feature drift or missingness approaching gating threshold.,quality_drift_factor_family,True,False,False,QUEUED_FOR_MANUAL_REVIEW,128,129,160
+rev_003_insufficient_candidate_context,context_sufficiency,Context observations below minimal threshold for candidate assignment.,candidate_state_uncertain_context,True,False,False,QUEUED_FOR_MANUAL_REVIEW,128,129,160
+rev_004_candidate_state_schema_ambiguity,schema_governance,Unassigned or novel feature tag requiring schema classification confirmation.,candidate_state_schema,True,False,False,QUEUED_FOR_MANUAL_REVIEW,128,129,160
+rev_005_pseudo_state_schema_ambiguity,schema_governance,Ambiguity in pseudo-state mapping note for future unsupervised phases.,pseudo_state_schema,True,False,False,QUEUED_FOR_MANUAL_REVIEW,128,129,160
+rev_006_clustering_input_readiness_review,clustering_prep,Verification of feature scaling and normalization suitability prior to Phase 129.,clustering_input_contracts,True,False,False,QUEUED_FOR_MANUAL_REVIEW,128,129,160
+rev_007_no_lookahead_policy_review,temporal_integrity,Verification of point-in-time timestamp alignment across release event windows.,macro_event_context_matrix_contract,True,False,False,QUEUED_FOR_MANUAL_REVIEW,128,129,160
+rev_008_news_metadata_boundary_review,copyright_boundary,Audit confirming zero full-text news retention across news attention candidate states.,news_metadata_context_matrix_contract,True,False,False,QUEUED_FOR_MANUAL_REVIEW,128,129,160
+rev_009_phase_129_readiness_review,phase_handoff,Verification that all candidate state quality prerequisites are satisfied before Phase 129.,phase_129_handoff,True,False,False,QUEUED_FOR_MANUAL_REVIEW,128,129,160

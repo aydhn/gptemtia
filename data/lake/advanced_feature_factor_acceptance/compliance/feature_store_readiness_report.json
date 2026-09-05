@@ -1,0 +1,8 @@
+{
+  "compliance_type": "feature_store_readiness",
+  "total_modules_audited": 10,
+  "aligned_modules": 10,
+  "production_approval": false,
+  "broker_ready": false,
+  "non_signal": true
+}

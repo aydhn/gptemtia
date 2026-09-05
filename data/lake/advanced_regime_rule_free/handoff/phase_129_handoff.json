@@ -1,0 +1,9 @@
+{
+  "source_phase": 128,
+  "next_phase": 129,
+  "target_final_phase": 160,
+  "total_items": 12,
+  "verified_items": 12,
+  "all_ready": true,
+  "handoff_status": "READY"
+}

@@ -1,0 +1,7 @@
+{
+  "total_prep_contracts": 6,
+  "all_non_signal": true,
+  "all_no_training": true,
+  "all_no_clustering": true,
+  "prep_status": "VALID"
+}

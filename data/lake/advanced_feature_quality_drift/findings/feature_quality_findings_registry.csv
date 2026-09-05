@@ -1,0 +1,2 @@
+finding_id,source_table,feature_column,severity,issue_description,recommended_action,manual_review_required,destructive_action_allowed,non_signal
+fqf_clean_baseline_1,feature_quality_baseline,all_features,quality_info,Baseline feature quality checks completed with zero critical defects.,Maintain scheduled monitoring and metadata inspection,False,False,True

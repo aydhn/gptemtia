@@ -1,0 +1,17 @@
+{
+  "total_records": 8,
+  "context_categories": {
+    "fx_commodity_volatility_context": 2,
+    "fx_commodity_trend_context": 2,
+    "fx_commodity_range_context": 1,
+    "fx_commodity_transition_context": 1,
+    "fx_commodity_divergence_placeholder": 1,
+    "fx_commodity_convergence_placeholder": 1
+  },
+  "mean_readiness_score": 0.8375,
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "zero_trading_signals": true,
+  "zero_predictions": true,
+  "active_profile": "balanced_local_cross_asset_regime_context"
+}

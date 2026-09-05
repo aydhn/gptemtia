@@ -1,0 +1,4 @@
+policy_name,policy_type,description,future_data_allowed,full_text_allowed,destructive_action_allowed,non_signal,manual_review_required
+universal_utc_iso8601_fusion_policy,timestamp_alignment,"Tüm bağlamsal zaman damgaları (fiyat, makro, takvim, haber) UTC ISO-8601 formatına zorunlu hizalanır.",False,False,False,True,False
+monotonic_timestamp_ordering_policy,timestamp_alignment,Zaman serisi artan sırada olmalı ve context zaman damgası ana bar zaman damgasını aşamaz.,False,False,False,True,False
+release_timestamp_precedence_policy,timestamp_alignment,Makro ve takvim olaylarında dönem/referans tarihi değil resmi yayınlanma zaman damgası esas alınır.,False,False,False,True,False

@@ -1,0 +1,9 @@
+score_id,dataset_name,dataset_type,provider_name,score,status_label,row_count,checked_rules,failed_rules,manual_review_required,notes
+dqs_fx_ohlcv_sample_fx_yahoo_finance_fixture,fx_ohlcv_sample,dataset_fx_ohlcv,fx_yahoo_finance_fixture,0.58,quality_pass_with_warnings,100,10,3,True,İç kalite skorudur; AL/SAT veya trade sinyali olarak kullanılamaz.
+dqs_fx_quote_sample_fx_yahoo_finance_fixture,fx_quote_sample,dataset_fx_quote,fx_yahoo_finance_fixture,0.8,quality_pass_with_warnings,50,8,1,True,İç kalite skorudur; AL/SAT veya trade sinyali olarak kullanılamaz.
+dqs_commodity_spot_sample_commodity_cbot_fixture,commodity_spot_sample,dataset_commodity_spot,commodity_cbot_fixture,0.92,quality_pass,80,8,1,True,İç kalite skorudur; AL/SAT veya trade sinyali olarak kullanılamaz.
+dqs_commodity_ohlcv_sample_commodity_cbot_fixture,commodity_ohlcv_sample,dataset_commodity_ohlcv,commodity_cbot_fixture,1.0,quality_pass,120,10,0,False,İç kalite skorudur; AL/SAT veya trade sinyali olarak kullanılamaz.
+dqs_macro_timeseries_sample_macro_worldbank_fixture,macro_timeseries_sample,dataset_macro_timeseries,macro_worldbank_fixture,1.0,quality_pass,60,8,0,False,İç kalite skorudur; AL/SAT veya trade sinyali olarak kullanılamaz.
+dqs_calendar_event_sample_calendar_trading_economics_fixture,calendar_event_sample,dataset_calendar_event,calendar_trading_economics_fixture,1.0,quality_pass,40,8,0,False,İç kalite skorudur; AL/SAT veya trade sinyali olarak kullanılamaz.
+dqs_news_metadata_sample_news_reuters_fixture,news_metadata_sample,dataset_news_metadata,news_reuters_fixture,0.2,quality_fail,50,10,2,True,İç kalite skorudur; AL/SAT veya trade sinyali olarak kullanılamaz.
+dqs_provider_metadata_sample_internal_provider_catalog,provider_metadata_sample,dataset_provider_metadata,internal_provider_catalog,1.0,quality_pass,10,6,0,False,İç kalite skorudur; AL/SAT veya trade sinyali olarak kullanılamaz.

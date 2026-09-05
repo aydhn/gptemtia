@@ -1,0 +1,12 @@
+{
+  "total_manual_review_items": 3,
+  "review_ids": [
+    "rev_lin_001",
+    "rev_lin_002",
+    "rev_lin_003"
+  ],
+  "zero_destructive_actions": true,
+  "all_source_preserved": true,
+  "current_phase": 114,
+  "target_final_phase": 160
+}

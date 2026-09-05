@@ -1,0 +1,6 @@
+Bu rapor Phase 130 Regime Transition and Stability Analysis çıktısıdır. Gerçek veri indirme zorunluluğu, scraping, haber tam metni kullanımı, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, transition veya stability değerini trade sinyali olarak kullanma, strateji/backtest/optimizer/model training/clustering/unsupervised execution çalıştırma, target/label/prediction üretme, official approval, broker-ready veya production-ready iddiası değildir.
+Manifest Name: regime_transition_diagnostics_manifest_v130
+Current Phase: 130
+Next Phase: 131
+Stability Score: 0.8200
+Zero ML / Zero Clustering: True

@@ -1,0 +1,16 @@
+grid_name,indicator_name,family,window,column_name,non_signal,lookahead_free,performance_tier
+rsi_window_grid,rsi,momentum,7,rsi_w7,True,True,light
+rsi_window_grid,rsi,momentum,14,rsi_w14,True,True,light
+rsi_window_grid,rsi,momentum,21,rsi_w21,True,True,light
+rsi_window_grid,rsi,momentum,28,rsi_w28,True,True,light
+roc_window_grid,roc,momentum,5,roc_w5,True,True,light
+roc_window_grid,roc,momentum,10,roc_w10,True,True,light
+roc_window_grid,roc,momentum,20,roc_w20,True,True,light
+roc_window_grid,roc,momentum,30,roc_w30,True,True,light
+momentum_window_grid,momentum,momentum,5,momentum_w5,True,True,light
+momentum_window_grid,momentum,momentum,10,momentum_w10,True,True,light
+momentum_window_grid,momentum,momentum,20,momentum_w20,True,True,light
+momentum_window_grid,momentum,momentum,30,momentum_w30,True,True,light
+cmo_window_grid,cmo,momentum,7,cmo_w7,True,True,light
+cmo_window_grid,cmo,momentum,14,cmo_w14,True,True,light
+cmo_window_grid,cmo,momentum,21,cmo_w21,True,True,light

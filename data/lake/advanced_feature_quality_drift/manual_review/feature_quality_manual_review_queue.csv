@@ -1,0 +1,2 @@
+queue_id,finding_id,source_table,feature_column,severity,issue_description,action_guideline,auto_fix_forbidden,auto_drop_forbidden,production_approval_forbidden,non_signal
+qmr_nominal_empty,none,quality_queue,none,quality_info,No blocking quality issues pending manual review.,Queue is currently clear; continue scheduled routine audits,True,True,True,True

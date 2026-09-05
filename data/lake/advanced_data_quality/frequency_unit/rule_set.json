@@ -1,0 +1,8 @@
+{
+  "rule_count": 2,
+  "rules": [
+    "check_frequency_values",
+    "check_unit_values"
+  ],
+  "domain": "frequency_unit"
+}

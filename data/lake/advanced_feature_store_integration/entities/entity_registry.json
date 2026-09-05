@@ -1,0 +1,15 @@
+{
+  "total_entities": 7,
+  "entity_types": [
+    "entity_commodity_symbol",
+    "entity_cross_asset_context",
+    "entity_macro_indicator",
+    "entity_factor_family",
+    "entity_fx_pair",
+    "entity_calendar_event",
+    "entity_news_metadata"
+  ],
+  "non_signal": true,
+  "source_preserved": true,
+  "destructive_action_allowed": false
+}

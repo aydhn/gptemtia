@@ -1,0 +1,11 @@
+{
+  "active_profile": "balanced_local_multi_window_feature_grid",
+  "total_profiles": 3,
+  "current_phase": 118,
+  "target_final_phase": 160,
+  "next_phase": 119,
+  "local_only": true,
+  "research_only": true,
+  "non_signal": true,
+  "status": "READY"
+}

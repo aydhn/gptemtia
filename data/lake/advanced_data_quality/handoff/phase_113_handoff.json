@@ -1,0 +1,21 @@
+{
+  "total_areas": 11,
+  "target_phase": 113,
+  "target_phase_name": "Data Normalization Layer",
+  "areas": [
+    "FX symbol normalization enforcement",
+    "Commodity symbol normalization enforcement",
+    "Macro indicator/frequency/unit normalization",
+    "Calendar timezone/session normalization",
+    "Calendar release timestamp alignment",
+    "News topic/tag normalization",
+    "Provider metadata canonicalization",
+    "Duplicate key normalization",
+    "Timestamp canonical timezone",
+    "Unit conversion policy placeholder",
+    "Schema version alignment"
+  ],
+  "manual_review_count": 4,
+  "current_phase": 112,
+  "target_final_phase": 160
+}

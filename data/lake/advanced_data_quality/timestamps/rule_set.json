@@ -1,0 +1,8 @@
+{
+  "rule_count": 2,
+  "rules": [
+    "timestamp_parseability",
+    "timestamp_ordering"
+  ],
+  "domain": "timestamp_integrity"
+}

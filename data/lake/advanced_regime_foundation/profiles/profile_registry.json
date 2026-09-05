@@ -1,0 +1,15 @@
+{
+  "active_profile": "balanced_local_regime_foundation",
+  "total_profiles": 3,
+  "current_phase": 126,
+  "target_final_phase": 160,
+  "next_phase": 127,
+  "all_local_only": true,
+  "all_non_production": true,
+  "all_non_signal": true,
+  "all_model_training_disabled": true,
+  "all_clustering_disabled": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false
+}

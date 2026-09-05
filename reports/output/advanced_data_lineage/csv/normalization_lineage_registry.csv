@@ -1,0 +1,10 @@
+lineage_id,dataset_type,canonical_field,phase_113_rule,source_expression,target_expression,lineage_status,source_preserved,destructive_action_allowed,manual_review_required
+norm_lin_fx_pair,dataset_fx_quote,normalized_pair,fx_symbol_normalization_enforcement,"pair.replace('/', '').upper()",base + '/' + quote,lineage_complete,True,False,False
+norm_lin_commodity_symbol,dataset_commodity_spot,normalized_symbol,commodity_symbol_normalization_enforcement,symbol.strip().upper(),"commodity_root_map.get(raw, raw)",lineage_complete,True,False,False
+norm_lin_macro_indicator,dataset_macro_timeseries,normalized_indicator,macro_indicator_normalization_enforcement,indicator.strip(),"macro_vocabulary_map.get(raw, raw)",lineage_complete,True,False,False
+norm_lin_calendar_event,dataset_calendar_event,normalized_event,calendar_event_normalization_enforcement,event.strip(),"event_canonical_map.get(raw, raw)",lineage_complete,True,False,False
+norm_lin_news_tags,dataset_news_metadata,normalized_tags,news_topic_tag_normalization_enforcement,[t.lower() for t in raw_tags],"[canonical_tag_map.get(t, t) for t in raw_tags]",lineage_complete,True,False,False
+norm_lin_timestamp_utc,all,normalized_timestamp,timestamp_timezone_normalization,timestamp_str_or_epoch,iso8601_utc_format,lineage_complete,True,False,False
+norm_lin_frequency,dataset_macro_timeseries,normalized_frequency,frequency_normalization,freq_term.lower(),standard_frequency_code,lineage_complete,True,False,False
+norm_lin_unit,dataset_macro_timeseries,normalized_unit,unit_normalization,unit_term.lower(),standard_unit_slug,lineage_complete,True,False,False
+norm_lin_duplicate_key,all,canonical_duplicate_key,duplicate_key_normalization,tuple(primary_key_fields),hash_or_composite_slug,lineage_complete,True,False,False

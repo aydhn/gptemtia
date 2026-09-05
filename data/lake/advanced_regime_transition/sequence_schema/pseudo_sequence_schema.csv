@@ -1,0 +1,13 @@
+column_name,data_type,is_required,is_entity_key,is_timestamp,description
+pseudo_sequence_key,string,True,True,False,Unique key identifying the pseudo state sequence observation
+entity_type,string,True,True,False,Asset class or instrument domain
+entity_id,string,True,True,False,Symbol or asset identifier
+timestamp_utc,timestamp_utc,True,False,True,UTC timestamp of the observation point
+pseudo_state_context,string,True,False,False,Pseudo-state cluster placeholder identifier
+previous_pseudo_state_context,string,True,False,False,Preceding pseudo-state cluster identifier
+source_pseudo_state_ref,string,True,False,False,Reference pointer to Phase 128 pseudo state record
+model_training_executed,boolean,True,False,False,Invariant flag certifying ML model training was NOT executed (False)
+clustering_executed,boolean,True,False,False,Invariant flag certifying clustering was NOT executed (False)
+unsupervised_execution,boolean,True,False,False,Invariant flag certifying unsupervised algorithm was NOT executed (False)
+manual_review_required,boolean,True,False,False,Flag indicating manual inspection is required
+non_signal,boolean,True,False,False,Invariant flag certifying non-signal nature of this sequence

@@ -1,0 +1,9 @@
+{
+  "rule_count": 3,
+  "rules": [
+    "commodity_spot_integrity",
+    "commodity_ohlcv_integrity",
+    "commodity_futures_metadata"
+  ],
+  "domain": "commodity_quality"
+}

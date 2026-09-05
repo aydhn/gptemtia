@@ -1,0 +1,4 @@
+factor_name,factor_family,input_families,non_signal_usage,status_label,manual_review_required
+factor_composite_technical_context_placeholder,composite,"['trend', 'momentum', 'volatility']",Technical dimensions combination placeholder. No strategy execution.,factor_placeholder_only,True
+factor_composite_macro_event_context_placeholder,composite,"['macro_context', 'calendar_event', 'news_attention']",Macroeconomic and media attention confluence placeholder.,factor_placeholder_only,True
+factor_composite_cross_asset_context_placeholder,composite,"['cross_asset_context', 'volatility', 'macro_context']",Cross-domain multi-asset correlation and volatility matrix placeholder.,factor_placeholder_only,True

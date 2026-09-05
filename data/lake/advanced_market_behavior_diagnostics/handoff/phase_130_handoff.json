@@ -1,0 +1,10 @@
+{
+  "handoff_status": "READY",
+  "source_phase": 129,
+  "next_phase": 130,
+  "target_final_phase": 160,
+  "total_items": 12,
+  "all_ready": true,
+  "non_signal": true,
+  "active_profile": "balanced_local_market_behavior_diagnostics"
+}

@@ -1,0 +1,10 @@
+family,indicator_name,policy,rationale,auto_drop,forward_fill
+moving_average,sma,preserve_warmup_nan,"SMA pencere genişliği kadar (window - 1) başlangıç NaN üretir, silinmez.",False,False
+moving_average,ema,preserve_warmup_nan,"EMA başlangıç ağırlık adaptasyonu gerektirir, ilk satırlar korunur.",False,False
+momentum,rsi,preserve_warmup_nan,RSI ilk pencere boyunca ortalama kazanç/kayıp birikimi gerektirir.,False,False
+volatility,atr,preserve_warmup_nan,ATR true range ortalaması için window kadar geçmiş arar.,False,False
+range_channel,bollinger,preserve_warmup_nan,Bollinger Bands standart sapma hesaplaması için pencere tamamlanmalıdır.,False,False
+range_channel,donchian,preserve_warmup_nan,Donchian channel rolling min/max için window tamamlanmalıdır.,False,False
+mean_reversion,rolling_zscore,preserve_warmup_nan,Rolling z-score rolling mean ve std gerektirir.,False,False
+volatility,realized_volatility,preserve_warmup_nan,Realized volatility getiri standart sapması için pencere gerektirir.,False,False
+return,simple_return,preserve_warmup_nan,Periyodik getiri window kadar başlangıç NaN değeri üretir.,False,False

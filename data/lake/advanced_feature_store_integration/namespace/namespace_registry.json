@@ -1,0 +1,17 @@
+{
+  "total_namespaces": 9,
+  "allowed_prefixes": [
+    "fx",
+    "commodity",
+    "macro",
+    "calendar",
+    "news",
+    "cross_asset",
+    "factor",
+    "quality_drift",
+    "validation"
+  ],
+  "total_forbidden_terms": 19,
+  "non_signal": true,
+  "source_preserved": true
+}

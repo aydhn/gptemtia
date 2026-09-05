@@ -1,0 +1,9 @@
+{
+  "total_components": 9,
+  "healthy_components": 9,
+  "unhealthy_components": 0,
+  "all_healthy": true,
+  "prior_phases_healthy": true,
+  "health_status": "HEALTHY",
+  "profile": "balanced_local_multi_window_feature_grid"
+}

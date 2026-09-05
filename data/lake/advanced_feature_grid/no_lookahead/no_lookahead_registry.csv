@@ -1,0 +1,4 @@
+rule_id,name,description,severity
+guard_no_negative_shift,No Negative Shift Guard,Kaynak kodda shift(-k) veya negatif shift çağrısının kullanımını yasaklar.,CRITICAL
+guard_no_forward_returns,No Forward Return Columns Guard,"DataFrame kolonlarında future_return, forward_return, next_return tespit eder.",CRITICAL
+guard_no_target_label_prediction,No Target/Label/Prediction Columns Guard,"DataFrame kolonlarında target, label, prediction, signal vb. tespit eder.",CRITICAL

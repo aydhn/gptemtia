@@ -1,0 +1,13 @@
+{
+  "block_name": "advanced_feature_factor_engine_block",
+  "phase_start": 116,
+  "phase_end": 125,
+  "target_final_phase": 160,
+  "next_phase": 126,
+  "acceptance_score": 1.0,
+  "non_signal": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false,
+  "source_preserved": true
+}

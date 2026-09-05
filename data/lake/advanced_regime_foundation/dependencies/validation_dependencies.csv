@@ -1,0 +1,9 @@
+validation_id,validation_rule,scope,description,source_phase,enforcement,non_signal,status
+val_dep_01_no_forbidden_cols,no_forbidden_columns,All regime input DataFrames and state schemas,"Prohibits columns: signal, buy, sell, long, short, position, target, label, prediction, recommendation, future_return",121,STRICT_BLOCKING,True,ACTIVE
+val_dep_02_no_lookahead,no_lookahead_guarantee,All time-series feature and factor inputs,"Ensures all rolling calculations use closed past intervals [t-W, t] with zero shift(-1) or future leakage",121,STRICT_BLOCKING,True,ACTIVE
+val_dep_03_no_targets,no_target_or_prediction,"All regime taxonomies, contracts, and outputs","Enforces that regime state values are contextual environments, not predictive targets or ML labels",126,STRICT_BLOCKING,True,ACTIVE
+val_dep_04_timestamp_order,monotonic_timestamp_order,Input series across all asset classes,Requires strictly increasing chronological index without backward jumps or duplicated timestamps,121,STRICT_BLOCKING,True,ACTIVE
+val_dep_05_metadata_only_news,metadata_only_news_context,News inputs used for regime context,"Guarantees zero full article text, scraped HTML, vector embeddings, or NLP sentiment models",111,STRICT_BLOCKING,True,ACTIVE
+val_dep_06_source_preservation,source_preservation_invariant,Data Lake storage and transformations,"Prohibits in-place file mutation, destructive cleaning, auto-imputation, and auto-feature-drop",112,STRICT_BLOCKING,True,ACTIVE
+val_dep_07_non_signal_compliance,non_signal_policy_compliance,"All textual outputs, reports, logs, and docstrings","Scans for and blocks 14+ commercial, execution, and directional certainty claim patterns",126,STRICT_BLOCKING,True,ACTIVE
+val_dep_08_store_validation_status,feature_store_validation_status,Registered feature store entries,Requires VALIDATION_PASS status in Feature Store before permitting feature inclusion in regime matrix,124,STRICT_BLOCKING,True,ACTIVE

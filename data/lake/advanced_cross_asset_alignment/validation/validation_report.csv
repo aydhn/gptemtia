@@ -1,0 +1,7 @@
+check,passed,detail,status
+profile_registry_integrity,True,Tüm profil kayıtları Phase 119 standartlarına uygun.,PASS
+domain_count,True,28 domain eksiksiz kayıtlı (28 domain).,PASS
+domains_strictly_non_signal,True,Tüm domainlerin non_signal bayrağı True.,PASS
+matrix_contracts_integrity,True,Tüm matris sözleşmeleri geriye dönük ve non-signal ilkelerine uygun.,PASS
+matrix_no_lookahead_guard,True,Lookahead veya yasaklı terim sızıntısı yok.,PASS
+matrix_no_forbidden_column_words,True,Yasaklı kelime içeren kolon yok.,PASS

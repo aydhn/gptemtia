@@ -1,0 +1,9 @@
+{
+  "total_handoff_items": 11,
+  "target_phase": 119,
+  "ready_items_count": 9,
+  "forward_contract_count": 2,
+  "non_signal": true,
+  "handoff_status": "READY",
+  "profile": "balanced_local_multi_window_feature_grid"
+}

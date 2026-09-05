@@ -1,0 +1,8 @@
+{
+  "total_handoff_items": 10,
+  "all_items_ready": true,
+  "handoff_status": "READY",
+  "current_phase": 117,
+  "next_phase": 118,
+  "target_final_phase": 160
+}

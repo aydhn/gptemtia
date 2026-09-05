@@ -1,0 +1,7 @@
+mapping_domain,source_phase,source_entity,canonical_entity,normalized_field,related_dataset_types,phase_114_lineage_need,manual_review_required
+fx_to_news_tag,Phase 107,"EUR/USD, USD/TRY","FX_CURRENCY, CENTRAL_BANK",normalized_tags,"['dataset_fx_quote', 'dataset_news_metadata']",FX parite haber bağlantı soy kütüğü.,False
+commodity_to_news_tag,Phase 108,"XAU/USD, BRENT, WTI","PRECIOUS_METALS, CRUDE_OIL",normalized_tags,"['dataset_commodity_spot', 'dataset_news_metadata']",Emtia haber teması dönüşüm izi.,False
+macro_to_calendar_event,Phase 109 & 110,"FED_POLICY_RATE, US_CPI_YOY","FOMC_RATE_DECISION, US_CPI_RELEASE",canonical_event,"['dataset_macro_timeseries', 'dataset_calendar_event']",Makro seri ve takvim olayı ortak kanonik kimlik eşleştirmesi.,False
+calendar_to_news_linkage,Phase 110 & 111,"FOMC_RATE_DECISION, CBRT_RATE_DECISION","CENTRAL_BANK, INTEREST_RATE",event_linkage_id,"['dataset_calendar_event', 'dataset_news_metadata']",Takvim olayı ve haber metadata referans bağlantısı.,True
+region_currency_to_macro_calendar,Phase 109 & 110,"US/USD, TR/TRY, EU/EUR","ISO_REGION_ALPHA2, ISO_CURRENCY_CODE","normalized_region, normalized_currency","['dataset_macro_timeseries', 'dataset_calendar_event']",Bölge ve para birimi standartlaşma soy kütüğü.,False
+provider_name_to_metadata,Phase 106,Provider Display Name,normalized_provider_name (slug),provider,"['dataset_provider_metadata', 'all']",Sağlayıcı takma adından kanonik kimliğe dönüşüm kaydı.,False

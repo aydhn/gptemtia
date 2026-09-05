@@ -1,0 +1,4 @@
+scaling_method,scaling_type,description,execution_allowed,non_signal,current_phase,next_phase,target_final_phase
+standard_scaler_prep,unit_variance,Standard scaling contract specification for cross-sectional and temporal feature normalization.,False,True,128,129,160
+max_abs_scaler_prep,sparse_preserving,Max-abs scaling contract preserving zero centers for sparse event inputs.,False,True,128,129,160
+unit_vector_scaler_prep,norm_normalization,L2 unit-norm scaling contract for directional cosine distance comparison.,False,True,128,129,160

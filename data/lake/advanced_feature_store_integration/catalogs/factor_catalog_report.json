@@ -1,0 +1,14 @@
+{
+  "catalog_type": "factor_catalog",
+  "total_factors": 6,
+  "factor_families": [
+    "cross_asset_context",
+    "macro_context",
+    "momentum",
+    "technical",
+    "trend",
+    "volatility"
+  ],
+  "non_signal": true,
+  "source_preserved": true
+}

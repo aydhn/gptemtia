@@ -1,0 +1,18 @@
+# Phase 119: Macro - Calendar Alignment Report
+
+> Bu çıktı Phase 119 Cross-Asset Feature Alignment ve Multi-Domain Feature Matrix Contracts raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, cross-asset hizalanmış feature'ları trade sinyali veya çoklu varlık arbitraj/al-sat kuralı olarak kullanma, strateji üretimi, backtest, optimizer, target/label/prediction üretimi, production deployment, model deployment, scraping, gerçek provider API çağrısı veya official approval sağlamaz.
+
+## Hizalama Özeti
+- **Toplam Hizalama Bağlantısı**: 5
+- **Non-Signal İzolasyonu**: `Doğrulandı`
+- **Durum**: `READY`
+
+## Hizalama Detayları
+
+| alignment_id           | macro_indicator     | calendar_event              | frequency       | revision_lag_policy         | non_signal | notes                                                              |
+| ---------------------- | ------------------- | --------------------------- | --------------- | --------------------------- | ---------- | ------------------------------------------------------------------ |
+| mcal_fed_rate_fomc     | FED_POLICY_RATE     | FOMC_RATE_DECISION          | ad_hoc_meeting  | immediate_scheduled_release | True       | Fed politika faizi ve FOMC faiz kararı takvim duyurusu eşlemesi.   |
+| mcal_ecb_rate_meeting  | ECB_POLICY_RATE     | ECB_RATE_DECISION           | ad_hoc_meeting  | immediate_scheduled_release | True       | ECB politika faizi ve duyuru takvimi eşlemesi.                     |
+| mcal_cbrt_rate_meeting | CBRT_POLICY_RATE    | CBRT_RATE_DECISION          | monthly_meeting | immediate_scheduled_release | True       | TCMB PPK faiz kararı takvim eşlemesi.                              |
+| mcal_us_cpi_release    | US_CPI_RELEASE      | US_CPI_RELEASE              | monthly         | monthly_scheduled_release   | True       | ABD TÜFE enflasyon göstergesi ve aylık açıklanma takvimi eşlemesi. |
+| mcal_us_nfp_release    | US_NONFARM_PAYROLLS | US_NONFARM_PAYROLLS_RELEASE | monthly         | monthly_scheduled_release   | True       | ABD Tarım Dışı İstihdam verisi ve aylık açıklanma anı eşlemesi.    |

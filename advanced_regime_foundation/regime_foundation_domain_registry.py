@@ -1,0 +1,233 @@
+"""Phase 126: Regime Foundation Domain Registry.
+
+Registers all canonical domains, functional scopes, and non-signal compliance mappings.
+"""
+
+from typing import Any, Dict, List, Optional, Tuple
+import pandas as pd
+
+from advanced_regime_foundation.regime_foundation_config import (
+    RegimeFoundationProfile,
+    get_default_regime_foundation_profile,
+)
+
+REGIME_FOUNDATION_DOMAINS: List[Dict[str, Any]] = [
+    {
+        "domain_id": "domain_01_profile",
+        "domain_name": "Regime Foundation Profiles",
+        "scope": "Operational execution profiles and safety bounds",
+        "canonical_label": "regime_foundation_profile_domain",
+        "non_signal": True,
+        "source_phase": 126,
+        "status": "ACTIVE",
+    },
+    {
+        "domain_id": "domain_02_market_behavior",
+        "domain_name": "Market Behavior Taxonomy",
+        "scope": "12 canonical market behavior modes (trending, ranging, high/low vol, etc.)",
+        "canonical_label": "market_behavior_taxonomy_domain",
+        "non_signal": True,
+        "source_phase": 126,
+        "status": "ACTIVE",
+    },
+    {
+        "domain_id": "domain_03_regime_state",
+        "domain_name": "Regime State Taxonomy",
+        "scope": "Standard non-signal regime state definitions with regime_state_ prefix",
+        "canonical_label": "regime_state_taxonomy_domain",
+        "non_signal": True,
+        "source_phase": 126,
+        "status": "ACTIVE",
+    },
+    {
+        "domain_id": "domain_04_regime_families",
+        "domain_name": "Regime Families",
+        "scope": "Primary family classification grouping indicators and contexts",
+        "canonical_label": "regime_family_domain",
+        "non_signal": True,
+        "source_phase": 126,
+        "status": "ACTIVE",
+    },
+    {
+        "domain_id": "domain_05_volatility_regimes",
+        "domain_name": "Volatility Regime Family",
+        "scope": "Level, expansion, compression, ATR realized vol, Bollinger width context",
+        "canonical_label": "volatility_regime_domain",
+        "non_signal": True,
+        "source_phase": 126,
+        "status": "ACTIVE",
+    },
+    {
+        "domain_id": "domain_06_trend_regimes",
+        "domain_name": "Trend Regime Family",
+        "scope": "MA trend, MACD context, Donchian trend, persistence and transition context",
+        "canonical_label": "trend_regime_domain",
+        "non_signal": True,
+        "source_phase": 126,
+        "status": "ACTIVE",
+    },
+    {
+        "domain_id": "domain_07_range_regimes",
+        "domain_name": "Range Regime Family",
+        "scope": "Range-bound, mean-reversion, zscore, channel position, compression range context",
+        "canonical_label": "range_regime_domain",
+        "non_signal": True,
+        "source_phase": 126,
+        "status": "ACTIVE",
+    },
+    {
+        "domain_id": "domain_08_liquidity_placeholders",
+        "domain_name": "Liquidity Regime Placeholders",
+        "scope": "Quote spread, quote staleness, session liquidity, data availability context",
+        "canonical_label": "liquidity_regime_domain",
+        "non_signal": True,
+        "source_phase": 126,
+        "status": "ACTIVE",
+    },
+    {
+        "domain_id": "domain_09_macro_context",
+        "domain_name": "Macro Regime Context",
+        "scope": "Inflation, rate, growth, revision, release context registries",
+        "canonical_label": "macro_regime_context_domain",
+        "non_signal": True,
+        "source_phase": 126,
+        "status": "ACTIVE",
+    },
+    {
+        "domain_id": "domain_10_event_context",
+        "domain_name": "Event Regime Context",
+        "scope": "Pre-event, post-event, event importance, release delay, event window context",
+        "canonical_label": "event_regime_context_domain",
+        "non_signal": True,
+        "source_phase": 126,
+        "status": "ACTIVE",
+    },
+    {
+        "domain_id": "domain_11_news_metadata_context",
+        "domain_name": "News Metadata Regime Context",
+        "scope": "Metadata-only news attention, asset tag, macro tag, freshness context",
+        "canonical_label": "news_metadata_regime_context_domain",
+        "non_signal": True,
+        "source_phase": 126,
+        "status": "ACTIVE",
+    },
+    {
+        "domain_id": "domain_12_cross_asset_context",
+        "domain_name": "Cross-Asset Regime Context",
+        "scope": "FX-commodity, FX-macro, commodity-macro, macro-calendar, cross-domain context",
+        "canonical_label": "cross_asset_regime_context_domain",
+        "non_signal": True,
+        "source_phase": 126,
+        "status": "ACTIVE",
+    },
+    {
+        "domain_id": "domain_13_input_contracts",
+        "domain_name": "Regime Input Feature Contracts",
+        "scope": "Prerequisite feature/factor input specifications and phase linkages",
+        "canonical_label": "regime_input_contract_domain",
+        "non_signal": True,
+        "source_phase": 126,
+        "status": "ACTIVE",
+    },
+    {
+        "domain_id": "domain_14_factor_dependencies",
+        "domain_name": "Regime Factor Dependencies",
+        "scope": "Factor family mappings from Phase 119-124 to regime families",
+        "canonical_label": "regime_factor_dependency_domain",
+        "non_signal": True,
+        "source_phase": 126,
+        "status": "ACTIVE",
+    },
+    {
+        "domain_id": "domain_15_validation_dependencies",
+        "domain_name": "Regime Validation Dependencies",
+        "scope": "Validation requirements: no lookahead, timestamp order, forbidden column checks",
+        "canonical_label": "regime_validation_dependency_domain",
+        "non_signal": True,
+        "source_phase": 126,
+        "status": "ACTIVE",
+    },
+    {
+        "domain_id": "domain_16_quality_dependencies",
+        "domain_name": "Regime Quality Dependencies",
+        "scope": "Quality scores, drift scores, missingness, staleness, manual review blockers",
+        "canonical_label": "regime_quality_dependency_domain",
+        "non_signal": True,
+        "source_phase": 126,
+        "status": "ACTIVE",
+    },
+    {
+        "domain_id": "domain_17_output_schema",
+        "domain_name": "Regime State Output Schema",
+        "scope": "Field names, types, and schema validation prohibiting trade terms",
+        "canonical_label": "regime_output_schema_domain",
+        "non_signal": True,
+        "source_phase": 126,
+        "status": "ACTIVE",
+    },
+    {
+        "domain_id": "domain_18_namespace",
+        "domain_name": "Regime Namespace Registry",
+        "scope": "Canonical snake_case standard with mandatory regime_state_ prefix",
+        "canonical_label": "regime_namespace_domain",
+        "non_signal": True,
+        "source_phase": 126,
+        "status": "ACTIVE",
+    },
+    {
+        "domain_id": "domain_19_non_signal_policies",
+        "domain_name": "Regime Non-Signal Policies",
+        "scope": "System-level guarantees that states are non-signal context, not execution",
+        "canonical_label": "regime_non_signal_domain",
+        "non_signal": True,
+        "source_phase": 126,
+        "status": "ACTIVE",
+    },
+    {
+        "domain_id": "domain_20_forbidden_claims",
+        "domain_name": "Regime Forbidden Claims",
+        "scope": "Scanning and blocking commercial, trade, prediction, and approval claims",
+        "canonical_label": "regime_forbidden_claim_domain",
+        "non_signal": True,
+        "source_phase": 126,
+        "status": "ACTIVE",
+    },
+    {
+        "domain_id": "domain_21_manifest",
+        "domain_name": "Regime Foundation Manifest",
+        "scope": "Immutable master governance record of Phase 126 completion",
+        "canonical_label": "regime_manifest_domain",
+        "non_signal": True,
+        "source_phase": 126,
+        "status": "ACTIVE",
+    },
+    {
+        "domain_id": "domain_22_phase_127_handoff",
+        "domain_name": "Phase 127 Regime Feature Matrix Handoff",
+        "scope": "Prerequisites and contracts for Phase 127 regime matrix construction",
+        "canonical_label": "phase_127_handoff_domain",
+        "non_signal": True,
+        "source_phase": 126,
+        "status": "ACTIVE",
+    },
+]
+
+
+def build_regime_foundation_domain_registry(
+    profile: Optional[RegimeFoundationProfile] = None,
+) -> Tuple[pd.DataFrame, Dict[str, Any]]:
+    """Build DataFrame and summary for regime foundation domain registry."""
+    active_profile = profile or get_default_regime_foundation_profile()
+    df = pd.DataFrame(REGIME_FOUNDATION_DOMAINS)
+    summary = {
+        "active_profile": active_profile.profile_name,
+        "total_domains": len(df),
+        "all_non_signal": bool((df["non_signal"] == True).all()),
+        "current_phase": active_profile.current_phase,
+        "target_final_phase": active_profile.target_final_phase,
+        "next_phase": active_profile.next_phase,
+        "official_approval": False,
+        "production_ready": False,
+        "broker_ready": False,
+    }
+    return df, summary

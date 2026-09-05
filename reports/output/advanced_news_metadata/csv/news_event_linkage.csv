@@ -1,0 +1,7 @@
+linkage_id,news_topic,linked_calendar_event,linked_macro_indicator,linked_asset_or_commodity,linkage_note,manual_review_required
+link_central_bank_fomc_rate_decision,central_bank,FOMC_RATE_DECISION,FED_POLICY_RATE,USD,Monetary policy statement metadata mapped to FOMC policy rate decision calendar release.,True
+link_inflation_us_cpi_release,inflation,US_CPI_RELEASE,US_CPI_YOY,USD,Consumer inflation headline metadata mapped to US CPI release event and macro time series.,True
+link_labor_us_nonfarm_payrolls_release,labor,US_NONFARM_PAYROLLS_RELEASE,US_NONFARM_PAYROLLS,USD,Labor market employment release metadata mapped to US nonfarm payrolls calendar event.,True
+link_energy_inventory_us_eia_crude_inventory_placeholder,energy,US_EIA_CRUDE_INVENTORY_PLACEHOLDER,WTI_CRUDE,CRUDE_OIL,Energy inventory change metadata mapped to EIA release and WTI benchmark.,True
+link_gold_fomc_rate_decision,metals,FOMC_RATE_DECISION,gold_macro_research,XAU/USD,Bullion safe-haven and real yield metadata mapped to gold macro research profile.,True
+link_oil_opec_meeting_placeholder,energy,OPEC_MEETING_PLACEHOLDER,oil_macro_research,WTI_CRUDE,OPEC ministerial meeting metadata mapped to oil macro research profile.,True

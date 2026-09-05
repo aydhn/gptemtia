@@ -1,0 +1,9 @@
+check,status,passed
+profile_registry_integrity,PASS,True
+entity_pair_registry_integrity,PASS,True
+context_contracts_integrity,PASS,True
+manifest_integrity,PASS,True
+forbidden_claims_profiles,PASS,True
+forbidden_claims_pairs,PASS,True
+forbidden_claims_contracts,PASS,True
+forbidden_claims_manifest,PASS,True

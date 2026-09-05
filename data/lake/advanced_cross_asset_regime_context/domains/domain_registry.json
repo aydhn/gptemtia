@@ -1,0 +1,9 @@
+{
+  "total_domains": 34,
+  "active_profile": "balanced_local_cross_asset_regime_context",
+  "current_phase": 131,
+  "target_final_phase": 160,
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "all_requires_no_lookahead": true
+}

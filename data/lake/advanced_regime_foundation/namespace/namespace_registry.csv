@@ -1,0 +1,9 @@
+namespace_id,pattern,regime_family,example,description,non_signal
+ns_01_trend,^regime_state_trend_[a-z0-9_]+$,regime_family_trend,regime_state_trend_context,Namespace for trend regime state variables,True
+ns_02_range,^regime_state_range_[a-z0-9_]+$,regime_family_range,regime_state_range_context,Namespace for range regime state variables,True
+ns_03_volatility,^regime_state_volatility_[a-z0-9_]+$,regime_family_volatility,regime_state_volatility_high_context,Namespace for volatility regime state variables,True
+ns_04_macro,^regime_state_macro_[a-z0-9_]+$,regime_family_macro_context,regime_state_macro_event_context,Namespace for macro regime context variables,True
+ns_05_news,^regime_state_news_[a-z0-9_]+$,regime_family_news_metadata_context,regime_state_news_attention_context,Namespace for news metadata regime variables,True
+ns_06_cross_asset,^regime_state_cross_asset_[a-z0-9_]+$,regime_family_cross_asset_context,regime_state_cross_asset_context,Namespace for cross-asset regime variables,True
+ns_07_transition,^regime_state_transition_[a-z0-9_]+$,regime_family_composite_placeholder,regime_state_transition_placeholder,Namespace for transition placeholder variables,True
+ns_08_uncertain,^regime_state_uncertain_[a-z0-9_]+$,regime_family_composite_placeholder,regime_state_uncertain_placeholder,Namespace for uncertain diagnosis variables,True

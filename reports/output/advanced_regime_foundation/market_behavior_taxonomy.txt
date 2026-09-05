@@ -1,0 +1,6 @@
+UYARI: Bu rapor Phase 126 Regime Classification and Market Behavior Foundation çıktısıdır. Gerçek veri indirme zorunluluğu, scraping, haber tam metni kullanımı, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, regime state değerini trade sinyali olarak kullanma, strateji/backtest/optimizer/model training/clustering çalıştırma, target/label/prediction üretme, official approval, broker-ready veya production-ready iddiası değildir.
+Total Market Behaviors: 12
+Ready Behaviors: 9
+Placeholder Behaviors: 3
+All Non-Signal: True
+Trading Recommendations Prohibited: True

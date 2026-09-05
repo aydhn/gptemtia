@@ -1,0 +1,7 @@
+{
+  "total_rules": 5,
+  "critical_rules": 3,
+  "all_enforced": true,
+  "status": "READY",
+  "profile": "balanced_local_multi_window_feature_grid"
+}

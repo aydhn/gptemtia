@@ -1,0 +1,32 @@
+{
+  "total_contracts": 7,
+  "ready_contracts": 7,
+  "contract_names": [
+    "regime_technical_feature_matrix_contract",
+    "regime_factor_feature_matrix_contract",
+    "regime_macro_event_context_matrix_contract",
+    "regime_news_metadata_context_matrix_contract",
+    "regime_cross_asset_context_matrix_contract",
+    "regime_quality_drift_context_matrix_contract",
+    "regime_combined_research_matrix_contract"
+  ],
+  "matrix_families": [
+    "technical",
+    "factor",
+    "macro_event",
+    "news_metadata",
+    "cross_asset",
+    "quality_drift",
+    "combined_research"
+  ],
+  "all_validation_required": true,
+  "all_no_lookahead_required": true,
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "any_target_or_prediction": false,
+  "model_training_executed": false,
+  "clustering_executed": false,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false
+}

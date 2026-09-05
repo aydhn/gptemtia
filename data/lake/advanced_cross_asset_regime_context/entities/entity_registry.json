@@ -1,0 +1,28 @@
+{
+  "total_entities": 27,
+  "entity_types": {
+    "fx_pair": 5,
+    "commodity_symbol": 5,
+    "macro_indicator": 4,
+    "calendar_event": 3,
+    "news_metadata_tag": 3,
+    "regime_family": 3,
+    "candidate_state_context": 2,
+    "transition_context": 2
+  },
+  "domains": {
+    "fx": 5,
+    "commodity": 5,
+    "macro": 4,
+    "calendar": 3,
+    "news_metadata": 3,
+    "regime_foundation": 3,
+    "candidate_state": 2,
+    "regime_transition": 2
+  },
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "zero_target_or_prediction": true,
+  "zero_trading_recommendations": true,
+  "active_profile": "balanced_local_cross_asset_regime_context"
+}

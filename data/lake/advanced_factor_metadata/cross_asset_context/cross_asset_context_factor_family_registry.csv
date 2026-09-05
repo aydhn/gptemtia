@@ -1,0 +1,7 @@
+factor_name,factor_family,input_features,calculation_type,non_signal_usage,status_label,manual_review_required
+factor_fx_commodity_context,cross_asset_context,['cross__usd_try_gold_corr_30'],rolling_cross_asset_correlation,Co-movement observation between currency pairs and precious metals.,factor_ready,False
+factor_fx_macro_context,cross_asset_context,['cross__eur_usd_rate_diff_30'],interest_rate_differential_context,Macro interest rate spread context aligned with FX exchange rates.,factor_ready,False
+factor_commodity_macro_context,cross_asset_context,['cross__oil_cpi_beta_60'],energy_inflation_pass_through_context,Energy price correlation with macro consumer inflation.,factor_ready,False
+factor_macro_calendar_context,cross_asset_context,['fusion__macro_calendar_alignment'],economic_surprise_event_intensity,Joint macro data and scheduled calendar event context.,factor_ready,False
+factor_calendar_news_context,cross_asset_context,['fusion__calendar_news_overlap'],event_announcement_media_intensity,News headline volume surrounding scheduled release timestamps.,factor_ready,False
+factor_cross_domain_context_placeholder,cross_asset_context,['fusion__cross_domain_vector'],multi_asset_dispersion_vector,High-dimensional cross-domain observation vector placeholder.,factor_placeholder_only,True

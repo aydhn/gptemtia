@@ -1,0 +1,19 @@
+{
+  "total_source_phases": 10,
+  "phase_numbers": [
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126
+  ],
+  "all_ready": true,
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "status": "matrix_ready"
+}

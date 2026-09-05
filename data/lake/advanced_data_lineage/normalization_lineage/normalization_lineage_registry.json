@@ -1,0 +1,18 @@
+{
+  "total_normalization_lineage_records": 9,
+  "canonical_fields": [
+    "normalized_pair",
+    "normalized_symbol",
+    "normalized_indicator",
+    "normalized_event",
+    "normalized_tags",
+    "normalized_timestamp",
+    "normalized_frequency",
+    "normalized_unit",
+    "canonical_duplicate_key"
+  ],
+  "all_source_preserved": true,
+  "zero_destructive_actions": true,
+  "current_phase": 114,
+  "target_final_phase": 160
+}

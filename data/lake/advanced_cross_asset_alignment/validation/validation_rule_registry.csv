@@ -1,0 +1,9 @@
+rule_id,rule_name,description,severity,is_active,enforced
+rule_forbidden_columns,Forbidden Column Name Rule,"Matriste signal, buy, sell, long, short, target, label, prediction gibi kelimelerin bulunmasını yasaklar.",CRITICAL,True,
+rule_timestamp_order,Timestamp Monotonic Order Rule,Zaman damgasının kronolojik artan sırada olmasını ve geleceğe sıçrama içermemesini denetler.,CRITICAL,True,
+rule_namespace_conformance,Cross-Domain Namespace Conformance Rule,Hizalanmış feature sütunlarının domain ön eki ve geçerli slug kurallarına uymasını denetler.,HIGH,True,
+rule_no_future_leakage,No Future Leakage Rule,Asof veya join işleminde sağ taraf verisinin sol taraf barından sonraki tarihe ait olmamasını sağlar.,CRITICAL,True,
+rule_metadata_only_news,Metadata-Only News Boundary Rule,"Haber verilerinde metin, özet veya telifli içerik bulunmadığını, yalnızca etiket/sayı olduğunu doğrular.",CRITICAL,True,True
+rule_backward_only_asof,Backward-Only Asof Join Rule,Zaman serisi asof birleştirmelerinde yalnızca backward yönüne izin verir; forward veya nearest yasaktır.,CRITICAL,True,True
+rule_non_mutation_guarantee,DataFrame Non-Mutation Guarantee Rule,Hizalama operasyonlarının girdi verilerini mutasyona uğratmadan df.copy() ile çalışmasını sağlar.,CRITICAL,True,True
+rule_dry_run_local_safety,Dry-Run Local Offline Boundary Rule,"Canlı emir, ağ aramaları ve üretim dağıtımı engellerini denetler.",CRITICAL,True,True

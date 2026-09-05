@@ -1,0 +1,27 @@
+rule_type,condition,description
+NO-GO,live_trading,Strictly no connection to live execution brokers or account orders
+NO-GO,broker_integration,"No broker API bindings, authentication, or protocol connections"
+NO-GO,real_orders,"No placement, simulation, or transmission of live financial orders"
+NO-GO,investment_advice,"No financial, investment, or legal trade recommendations"
+NO-GO,transition_as_signal,No presentation of transition diagnostics as trading signals
+NO-GO,stability_as_signal,No interpretation of stability scores as trade entry/exit triggers
+NO-GO,directional_claim,No directional bias or market certainty claims
+NO-GO,strategy_backtest_optimizer,"No strategy generation, portfolio backtest, or parameter optimization"
+NO-GO,model_training_fit_predict,"No model training, fitting, predicting, or ML inference execution"
+NO-GO,clustering_unsupervised,"No KMeans, DBSCAN, GMM, HDBSCAN, SOM, PCA, or UMAP execution"
+NO-GO,target_label_generation,No generation of supervised machine learning target labels
+NO-GO,production_broker_approval,"No claims of official approval, production-ready, or broker-ready status"
+NO-GO,source_overwrite_destruction,No destructive file modifications or overwriting raw source inputs
+NO-GO,auto_imputation_feature_drop,No automated data imputation or silent dropping of features
+NO-GO,full_article_scraping,"No scraping, HTML parsing, or full text article ingestion"
+NO-GO,credentials_exposure,"No credential, API key, token, or secret exposure in outputs"
+NO-GO,deployment_execution,"No production deployment, docker push, git tagging, or cloud publishing"
+NO-GO,lookahead_leakage,"No future returns, forward deltas, or negative shifts (shift(-1))"
+SAFE-GO,local_offline_sequence_contracts,"Local, offline contracts governing candidate/pseudo state sequences"
+SAFE-GO,non_signal_transition_diagnostics,"Purely non-signal transition frequency, rate, and ambiguity diagnostics"
+SAFE-GO,persistence_continuity_stability,"Descriptive persistence run-lengths, continuity, and stability indices"
+SAFE-GO,metadata_only_news_context,"Topic tags, headline metadata frequency, and publication timestamp lags only"
+SAFE-GO,cross_asset_transition_prep,Cross-asset currency/commodity alignment prep for Phase 131
+SAFE-GO,no_lookahead_enforcement,Strict monotonic chronological ordering and historical-only joins
+SAFE-GO,source_preservation_manifest,Immutable source preservation and integrity manifest auditing
+SAFE-GO,phase_131_handoff,Formal handoff report transitioning cleanly to Phase 131 Cross-Asset Context

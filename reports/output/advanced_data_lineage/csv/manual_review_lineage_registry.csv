@@ -1,0 +1,4 @@
+review_id,dataset_type,entity_name,source_reference,issue_description,safe_remediation,destructive_action_allowed,source_preserved,status
+rev_lin_001,dataset_macro_timeseries,unknown_macro_unit,raw_schema://macro/timeseries_raw_v1,Non-standard unit string detected; flagged for analyst dictionary update,Do not delete raw record. Record dictionary alias in normalization layer,False,True,pending_operator_review
+rev_lin_002,dataset_commodity_spot,unmapped_futures_root,raw_schema://commodity/spot_raw_v1,Commodity contract code does not match standard continuous root,Keep original code in place. Register manual root mapping entry,False,True,pending_operator_review
+rev_lin_003,dataset_provider_metadata,licensed_provider_terms,urn:feed:licensed:market_data_v2,Vendor terms require periodic non-commercial re-verification,Verify license policy before Phase 115 benchmark inclusion,False,True,pending_operator_review

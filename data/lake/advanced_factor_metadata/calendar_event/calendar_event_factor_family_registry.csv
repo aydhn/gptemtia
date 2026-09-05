@@ -1,0 +1,5 @@
+factor_name,factor_family,input_features,calculation_type,non_signal_usage,status_label,manual_review_required
+factor_event_pre_release_context,calendar_event,['fusion__event_pre_release_window'],binary_pre_event_window_flag,Blackout window identification prior to major macro release.,factor_ready,False
+factor_event_post_release_context,calendar_event,['fusion__event_post_release_window'],binary_post_event_window_flag,Immediate post-announcement window tracking.,factor_ready,False
+factor_event_importance_context,calendar_event,['fusion__event_importance_weight'],normalized_event_impact_weight,Ordinal importance weight of scheduled calendar release.,factor_ready,False
+factor_event_release_delay_context,calendar_event,['fusion__release_delay_minutes'],actual_minus_scheduled_delay_seconds,Measures data dissemination latency from economic calendar source.,factor_ready,False

@@ -1,0 +1,3 @@
+rule_name,rule_domain,severity_label,description
+check_frequency_values,frequency_unit,quality_medium,"Frekans değerlerinin önceden tanımlanmış sözlükle (daily, monthly vb.) uyumu."
+check_unit_values,frequency_unit,quality_medium,"Birim değerlerinin (index, percent, usd_per_barrel vb.) sözlükle uyumu."

@@ -1,0 +1,9 @@
+{
+  "total_components": 39,
+  "healthy_components": 39,
+  "unhealthy_components": 0,
+  "all_healthy": true,
+  "prior_phases_healthy": true,
+  "health_status": "HEALTHY",
+  "profile": "balanced_local_cross_asset_alignment"
+}

@@ -1,0 +1,13 @@
+subsystem,phase,check_type,path_target,exists,health_status,is_critical,non_signal,source_preserved
+advanced_regime_foundation,126,directory_and_module_presence,advanced_regime_foundation,True,HEALTHY,True,True,True
+advanced_feature_factor_acceptance,125,directory_and_module_presence,advanced_feature_factor_acceptance,True,HEALTHY,True,True,True
+advanced_feature_store_integration,124,directory_and_module_presence,advanced_feature_store_integration,True,HEALTHY,True,True,True
+advanced_feature_quality_drift,123,directory_and_module_presence,advanced_feature_quality_drift,True,HEALTHY,True,True,True
+advanced_factor_metadata,122,directory_and_module_presence,advanced_factor_metadata,True,HEALTHY,True,True,True
+advanced_feature_validation,121,directory_and_module_presence,advanced_feature_validation,True,HEALTHY,True,True,True
+advanced_regime_matrix,127,active_layer_presence,advanced_regime_matrix,True,HEALTHY,True,True,True
+data_lake,127,storage_lake_module,data/storage/data_lake.py,True,HEALTHY,True,True,True
+feature_store,127,ml_feature_store_module,ml/feature_store.py,True,HEALTHY,True,True,True
+scripts_presence,127,executable_cli_directory,scripts,True,HEALTHY,True,True,True
+tests_presence,127,test_suite_directory,tests,True,HEALTHY,True,True,True
+docs_presence,127,documentation_directory,docs,True,HEALTHY,True,True,True

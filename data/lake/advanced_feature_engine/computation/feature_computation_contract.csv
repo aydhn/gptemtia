@@ -1,0 +1,6 @@
+contract_rule,description,enforced
+non_destructive_copy,Girdi dataframe'i mutate edilmez; her zaman df.copy() ile yeni dataframe döner.,True
+no_signal_columns,"signal, buy, sell, long, short, position, target, label üretilmez.",True
+no_lookahead_bias,shift(-1) veya geleceğe dönük veri indeksleme kesinlikle yasaktır.,True
+pure_pandas_numpy,Dış C kütüphanesi veya ta-lib zorunluluğu olmadan saf pandas/numpy dönüşümleri.,True
+graceful_error_handling,Eksik alan durumunda graceful hata veya açıklayıcı istisna fırlatır.,True

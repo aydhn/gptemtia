@@ -1,0 +1,10 @@
+check_name,passed,status,severity,manual_review_required,non_signal
+profile_registry_invariants,True,diagnostic_pass,quality_info,False,True
+quality_metrics_non_signal,True,diagnostic_pass,quality_info,False,True
+drift_metrics_non_signal,True,diagnostic_pass,quality_info,False,True
+manifest_source_preservation,True,diagnostic_pass,quality_info,False,True
+no_forbidden_claims_enforced,True,diagnostic_pass,quality_info,False,True
+no_auto_drop_enforced,True,diagnostic_pass,quality_info,False,True
+no_auto_impute_enforced,True,diagnostic_pass,quality_info,False,True
+no_scraping_enforced,True,diagnostic_pass,quality_info,False,True
+metadata_only_boundary_enforced,True,diagnostic_pass,quality_info,False,True

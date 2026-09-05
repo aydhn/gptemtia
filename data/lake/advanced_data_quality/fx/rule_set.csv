@@ -1,0 +1,4 @@
+rule_name,rule_domain,severity_label
+fx_quote_integrity,fx_quality,quality_high
+fx_ohlcv_integrity,fx_quality,quality_high
+fx_spread_sanity,fx_quality,quality_high

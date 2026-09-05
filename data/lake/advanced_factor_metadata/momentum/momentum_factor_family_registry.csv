@@ -1,0 +1,5 @@
+factor_name,factor_family,input_features,calculation_type,non_signal_usage,status_label,manual_review_required
+factor_momentum_rsi_context,momentum,['momentum__rsi_14'],normalized_oscillator_level,Measures relative strength speed. Zero buy/sell or overbought/oversold signal.,factor_ready,False
+factor_momentum_roc_context,momentum,"['momentum__roc_10', 'momentum__roc_20']",percentage_rate_of_change,Tracks price change velocity across trailing windows.,factor_ready,False
+factor_momentum_stochastic_context,momentum,"['momentum__stoch_k_14_3', 'momentum__stoch_d_14_3']",stochastic_range_position,Normalized high-low range velocity context.,factor_ready,False
+factor_momentum_multi_window_context,momentum,"['momentum__roc_5', 'momentum__roc_10', 'momentum__roc_20', 'momentum__roc_60']",composite_rate_of_change_vector,Multi-horizon momentum acceleration vector observation.,factor_ready,False

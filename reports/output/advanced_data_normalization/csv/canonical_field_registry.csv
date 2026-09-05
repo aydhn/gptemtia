@@ -1,0 +1,41 @@
+field_id,dataset_type,canonical_field_name,field_type,required,nullable,unit_policy,normalization_note,manual_review_required
+cfld_dataset_fx_quote_timestamp,dataset_fx_quote,timestamp,iso8601_utc,True,False,time,UTC ISO8601,False
+cfld_dataset_fx_quote_pair,dataset_fx_quote,pair,string,True,False,symbol,Standard ISO slash (EUR/USD),False
+cfld_dataset_fx_quote_bid,dataset_fx_quote,bid,float,True,False,price,Positive float,False
+cfld_dataset_fx_quote_ask,dataset_fx_quote,ask,float,True,False,price,"Positive float, >= bid",False
+cfld_dataset_fx_quote_provider,dataset_fx_quote,provider,string,True,False,slug,Provider slug,False
+cfld_dataset_fx_ohlcv_timestamp,dataset_fx_ohlcv,timestamp,iso8601_utc,True,False,time,UTC ISO8601,False
+cfld_dataset_fx_ohlcv_pair,dataset_fx_ohlcv,pair,string,True,False,symbol,Standard ISO slash (EUR/USD),False
+cfld_dataset_fx_ohlcv_open,dataset_fx_ohlcv,open,float,True,False,price,Positive float,False
+cfld_dataset_fx_ohlcv_high,dataset_fx_ohlcv,high,float,True,False,price,"Positive float, high >= low",False
+cfld_dataset_fx_ohlcv_low,dataset_fx_ohlcv,low,float,True,False,price,Positive float,False
+cfld_dataset_fx_ohlcv_close,dataset_fx_ohlcv,close,float,True,False,price,Positive float,False
+cfld_dataset_fx_ohlcv_volume,dataset_fx_ohlcv,volume,float,False,True,volume,Non-negative float or null,False
+cfld_dataset_fx_ohlcv_provider,dataset_fx_ohlcv,provider,string,True,False,slug,Provider slug,False
+cfld_dataset_commodity_spot_timestamp,dataset_commodity_spot,timestamp,iso8601_utc,True,False,time,UTC ISO8601,False
+cfld_dataset_commodity_spot_symbol,dataset_commodity_spot,symbol,string,True,False,symbol,"Standard symbol (XAU/USD, BRENT)",False
+cfld_dataset_commodity_spot_price,dataset_commodity_spot,price,float,True,False,price,Positive float,False
+cfld_dataset_commodity_spot_currency,dataset_commodity_spot,currency,string,True,False,iso_curr,ISO-4217 (USD),False
+cfld_dataset_commodity_spot_unit,dataset_commodity_spot,unit,string,True,False,unit_vocab,"Canonical unit (usd_per_oz, usd_per_barrel)",False
+cfld_dataset_commodity_spot_provider,dataset_commodity_spot,provider,string,True,False,slug,Provider slug,False
+cfld_dataset_macro_timeseries_timestamp,dataset_macro_timeseries,timestamp,iso8601_utc,True,False,time,Period start or release UTC,False
+cfld_dataset_macro_timeseries_indicator,dataset_macro_timeseries,indicator,string,True,False,symbol,Canonical code (US_CPI_YOY),False
+cfld_dataset_macro_timeseries_value,dataset_macro_timeseries,value,float,True,False,numeric,Macro metric value,False
+cfld_dataset_macro_timeseries_region,dataset_macro_timeseries,region,string,True,False,iso_region,"ISO alpha-2 (US, TR, EU)",False
+cfld_dataset_macro_timeseries_frequency,dataset_macro_timeseries,frequency,string,True,False,freq_code,"Canonical frequency (1d, 1mo, 1q)",False
+cfld_dataset_macro_timeseries_unit,dataset_macro_timeseries,unit,string,True,False,unit_vocab,"percent, index_points, bps",False
+cfld_dataset_macro_timeseries_provider,dataset_macro_timeseries,provider,string,True,False,slug,Provider slug,False
+cfld_dataset_calendar_event_event_id,dataset_calendar_event,event_id,string,True,False,id,Unique canonical event id,False
+cfld_dataset_calendar_event_canonical_event,dataset_calendar_event,canonical_event,string,True,False,tag,Standard name (FOMC_RATE_DECISION),False
+cfld_dataset_calendar_event_country,dataset_calendar_event,country,string,True,False,iso_region,"ISO alpha-2 (US, TR)",False
+cfld_dataset_calendar_event_currency,dataset_calendar_event,currency,string,True,False,iso_curr,"ISO-4217 (USD, TRY)",False
+cfld_dataset_calendar_event_scheduled_time,dataset_calendar_event,scheduled_time,iso8601_utc,True,False,time,UTC timestamp,False
+cfld_dataset_calendar_event_impact,dataset_calendar_event,impact,string,True,False,category,"high, medium, low",False
+cfld_dataset_calendar_event_provider,dataset_calendar_event,provider,string,True,False,slug,Provider slug,False
+cfld_dataset_news_metadata_news_id,dataset_news_metadata,news_id,string,True,False,id,Unique news identifier,False
+cfld_dataset_news_metadata_headline,dataset_news_metadata,headline,string,True,False,text,Short headline only (no full article),False
+cfld_dataset_news_metadata_source_name,dataset_news_metadata,source_name,string,True,False,slug,Source publisher code,False
+cfld_dataset_news_metadata_published_at,dataset_news_metadata,published_at,iso8601_utc,True,False,time,UTC publish time,False
+cfld_dataset_news_metadata_tags,dataset_news_metadata,tags,list_or_string,False,True,tags,Comma-separated or list of tags,False
+cfld_dataset_news_metadata_sentiment,dataset_news_metadata,sentiment,string,False,True,category,"positive, negative, neutral",False
+cfld_dataset_news_metadata_provider,dataset_news_metadata,provider,string,True,False,slug,Provider slug,False

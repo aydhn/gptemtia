@@ -1,0 +1,19 @@
+{
+  "total_alignments": 4,
+  "fx_pairs": [
+    "EUR/USD",
+    "USD/TRY"
+  ],
+  "news_tags": [
+    "CENTRAL_BANK",
+    "INFLATION",
+    "TURKEY_ECONOMY",
+    "RISK_SENTIMENT"
+  ],
+  "all_metadata_only": true,
+  "all_no_full_text": true,
+  "all_non_signal": true,
+  "non_signal": true,
+  "status": "READY",
+  "profile": "balanced_local_cross_asset_alignment"
+}

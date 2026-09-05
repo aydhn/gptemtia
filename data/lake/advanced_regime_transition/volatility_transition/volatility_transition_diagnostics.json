@@ -1,0 +1,9 @@
+{
+  "total_contexts": 3,
+  "mean_transition_readiness": 0.8867,
+  "all_dependencies_satisfied": true,
+  "all_phase_131_ready": true,
+  "all_non_signal": true,
+  "contains_trading_signal": false,
+  "active_profile": "balanced_local_regime_transition"
+}

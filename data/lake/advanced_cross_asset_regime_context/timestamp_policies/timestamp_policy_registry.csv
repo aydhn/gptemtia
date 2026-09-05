@@ -1,0 +1,5 @@
+policy_id,policy_name,timezone_standard,join_direction,description,enforces_no_future_leakage,non_signal,source_preserved,official_approval,production_ready,broker_ready,contains_target_or_prediction,contains_trading_recommendation
+pol_utc_monotonic,utc_monotonic_timestamp_policy,UTC,backward_only,Enforces strictly monotonic UTC ISO-8601 timestamps without future forward looking.,True,True,True,False,False,False,False,False
+pol_release_lag_guarded,backward_release_lag_asof_policy,UTC,backward_with_release_delay,"Requires observation_ts >= publication_ts, preventing unreleased macro data leakage.",True,True,True,False,False,False,False,False
+pol_event_window,scheduled_event_window_policy,UTC,backward_window_bounded,Restricts event impacts strictly to verified historical scheduled publication windows.,True,True,True,False,False,False,False,False
+pol_metadata_window,metadata_only_window_policy,UTC,backward_metadata_bounded,Guarantees news metadata timestamps do not precede actual publication time.,True,True,True,False,False,False,False,False

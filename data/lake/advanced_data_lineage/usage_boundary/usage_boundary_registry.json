@@ -1,0 +1,18 @@
+{
+  "total_usage_boundaries": 10,
+  "all_enforced": true,
+  "boundary_types": [
+    "research_only",
+    "local_only",
+    "non_production",
+    "no_trading_signal",
+    "no_broker_order",
+    "no_investment_advice",
+    "no_scraping",
+    "no_credential_output",
+    "no_full_article_copy",
+    "no_destructive_action"
+  ],
+  "current_phase": 114,
+  "target_final_phase": 160
+}

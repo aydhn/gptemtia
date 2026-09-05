@@ -1,0 +1,3 @@
+rule_name,rule_domain,severity_label,description
+timestamp_parseability,timestamp_integrity,quality_high,Zaman damgası alanının tarih-saat nesnesine dönüştürülebilir olması.
+timestamp_ordering,timestamp_integrity,quality_medium,Zaman damgalarının zaman serisi akışında monoton artan sırada olması.

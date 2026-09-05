@@ -1,0 +1,5 @@
+algorithm_id,family,description,is_placeholder_only,execution_permitted,model_fit_permitted,non_signal,current_phase,next_phase,target_final_phase
+pca_placeholder,dimensionality_reduction,Placeholder for Principal Component Analysis (PCA) orthogonal projection specification.,True,False,False,True,128,129,160
+umap_placeholder,dimensionality_reduction,Placeholder for Uniform Manifold Approximation and Projection (UMAP) non-linear manifold specification.,True,False,False,True,128,129,160
+tsne_placeholder,dimensionality_reduction,Placeholder for t-Distributed Stochastic Neighbor Embedding (t-SNE) low-dimensional visualization specification.,True,False,False,True,128,129,160
+autoencoder_placeholder,dimensionality_reduction,Placeholder for neural Autoencoder bottleneck representation specification (no model training executed).,True,False,False,True,128,129,160

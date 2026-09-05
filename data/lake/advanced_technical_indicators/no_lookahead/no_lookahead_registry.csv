@@ -1,0 +1,5 @@
+rule_name,description,status
+no_negative_shift,shift(-1) or negative lookahead shifts are strictly forbidden.,ACTIVE
+no_forward_returns,Future or forward-looking returns cannot be added to feature engine.,ACTIVE
+no_target_label_columns,"Target, label, prediction, buy/sell signal columns are barred.",ACTIVE
+immutable_input_guard,All transformations must operate on df.copy() without in-place mutation.,ACTIVE

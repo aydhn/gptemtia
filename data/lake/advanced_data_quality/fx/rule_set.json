@@ -1,0 +1,9 @@
+{
+  "rule_count": 3,
+  "rules": [
+    "fx_quote_integrity",
+    "fx_ohlcv_integrity",
+    "fx_spread_sanity"
+  ],
+  "domain": "fx_quality"
+}

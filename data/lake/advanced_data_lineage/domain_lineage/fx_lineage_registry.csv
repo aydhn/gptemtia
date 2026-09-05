@@ -1,0 +1,4 @@
+lineage_item_id,domain,provider_profile,raw_field,canonical_field,schema_ref,normalization_rule,quality_rule_ref,source_preserved,destructive_action_allowed,notes
+fx_lin_pair_norm,fx_lineage_domain,balanced_no_scraping_fx_provider,pair,normalized_pair,canonical://schema/fx_quote_canonical_v1,fx_symbol_normalization_enforcement,fx_quote_sanity_rule,True,False,Slashing applied (e.g. EURUSD -> EUR/USD); raw column unchanged
+fx_lin_ohlcv_schema,fx_lineage_domain,balanced_no_scraping_fx_provider,"open, high, low, close, volume",normalized_ohlcv,canonical://schema/fx_ohlcv_canonical_v1,numeric_type_normalization,ohlc_geometry_consistency_rule,True,False,Safe float casting; zero auto-deletion on outlier
+fx_lin_quote_spread,fx_lineage_domain,balanced_no_scraping_fx_provider,"bid, ask",canonical_bid_ask_spread,canonical://schema/fx_quote_canonical_v1,quote_spread_consistency_rule,quote_spread_consistency_rule,True,False,Spread non-negativity audit; raw bid/ask preserved

@@ -1,0 +1,10 @@
+{
+  "total_scored_datasets": 7,
+  "mean_score": 1.0,
+  "min_score": 1.0,
+  "max_score": 1.0,
+  "is_trading_signal": false,
+  "is_official_approval": false,
+  "current_phase": 113,
+  "target_final_phase": 160
+}

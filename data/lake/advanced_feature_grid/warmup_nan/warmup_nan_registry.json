@@ -1,0 +1,8 @@
+{
+  "total_policies": 9,
+  "auto_drop_allowed": false,
+  "forward_fill_allowed": false,
+  "policy": "preserve_warmup_nan",
+  "status": "READY",
+  "profile": "balanced_local_multi_window_feature_grid"
+}

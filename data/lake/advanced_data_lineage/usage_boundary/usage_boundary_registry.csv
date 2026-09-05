@@ -1,0 +1,11 @@
+boundary_id,boundary_type,is_enforced,description,status_label
+boundary_research_only,research_only,True,"Veriler yalnızca yerel araştırma, analiz ve simülasyon amacıyla kullanılabilir.",lineage_complete
+boundary_local_only,local_only,True,Veriler yerel dosya sisteminde tutulur; harici ağ sunucularına iletilmez.,lineage_complete
+boundary_non_production,non_production,True,Sistem ve veriler üretim ortamında devreye alınamaz.,lineage_complete
+boundary_no_trading_signal,no_trading_signal,True,Lineage/traceability çıktıları kesin AL/SAT veya yatırım tavsiyesi olarak kullanılamaz.,lineage_complete
+boundary_no_broker_order,no_broker_order,True,"Broker API entegrasyonu, gerçek emir gönderimi veya pozisyon açımı yapılamaz.",lineage_complete
+boundary_no_investment_advice,no_investment_advice,True,Çıktılar sermaye piyasası mevzuatı kapsamında yatırım danışmanlığı teşkil etmez.,lineage_complete
+boundary_no_scraping,no_scraping,True,"Web scraping, HTML parsing veya tarayıcı otomasyonu kesinlikle yasaktır.",lineage_complete
+boundary_no_credential_output,no_credential_output,True,"Kullanıcı API anahtarları, şifreler veya gizli anahtarlar asla loglanamaz/yazdırılamaz.",lineage_complete
+boundary_no_full_article_copy,no_full_article_copy,True,"Telifli haber tam metinleri indirilemez, kopyalanamaz veya saklanamaz.",lineage_complete
+boundary_no_destructive_action,no_destructive_action,True,"Ham veriyi ezme, silme, taşıma veya tahrip edici otomatik temizlik yapılamaz.",lineage_complete

@@ -1,0 +1,7 @@
+{
+  "total_checks": 13,
+  "all_healthy": true,
+  "healthy_count": 13,
+  "non_signal": true,
+  "active_profile": "balanced_local_market_behavior_diagnostics"
+}

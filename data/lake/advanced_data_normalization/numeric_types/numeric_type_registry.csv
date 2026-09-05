@@ -1,0 +1,2 @@
+canonical_numeric_type,null_representation,source_preserved,policy,current_phase
+float64,None / np.nan,True,Orijinal sütun asla silinmez; normalized_<field> alanı eklenir.,113

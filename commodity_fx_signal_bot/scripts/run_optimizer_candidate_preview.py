@@ -43,7 +43,7 @@ def main():
         logger.error(f"Error: {e}")
         return
 
-    data_lake = DataLake(settings)
+    data_lake = DataLake('data/lake')
     pipeline = ValidationPipeline(data_lake, settings, profile)
 
     df, summary = pipeline.run_optimizer_candidate_analysis(spec, args.timeframe, args.backtest_profile, profile, args.save)

@@ -1,0 +1,12 @@
+domain_id,phase,domain_name,package,description,status,non_signal
+dom_phase_116_feature_engine,116,Feature Engine Foundation,advanced_feature_engine,"Temel hesaplama arayüzleri, bağımlılık grafiği, şema kayıtları ve temel özellikler.",ACCEPTED,True
+dom_phase_117_technical_indicators,117,Technical Indicator Expansion,advanced_technical_indicators,"Gelişmiş trend, osilatör, volatilite, hacim ve fiyat hareketi indikatör katalogları.",ACCEPTED,True
+dom_phase_118_feature_grid,118,Multi-Window Feature Grid,advanced_feature_grid,"Çoklu pencere grid yapılandırmaları, varyans ve getiri hesaplama çerçevesi.",ACCEPTED,True
+dom_phase_119_cross_asset,119,Cross-Asset Feature Alignment,advanced_cross_asset_alignment,"Çapraz varlık zaman hizalama, asof join politikaları ve matris sözleşmeleri.",ACCEPTED,True
+dom_phase_120_feature_fusion,120,Macro/Calendar/News Feature Fusion,advanced_feature_fusion,"Makro ekonomik bültenler, takvim olay pencereleri ve metadata-only haber füzyonu.",ACCEPTED,True
+dom_phase_121_feature_validation,121,Feature Validation and No-Lookahead Guard,advanced_feature_validation,"Geleceğe sızıntı (lookahead) denetimleri, yasaklı kolon politikaları ve ısınma kuralları.",ACCEPTED,True
+dom_phase_122_factor_metadata,122,Factor Metadata and Factor Families,advanced_factor_metadata,"12 faktör ailesi, faktör sözleşmeleri ve faktör soybağı kayıtları.",ACCEPTED,True
+dom_phase_123_quality_drift,123,Feature Quality and Drift Diagnostics,advanced_feature_quality_drift,"Eksik veri, sonsuz değer, dağılım kayması (PSI/KS) ve yuvarlanan kararlılık tanıları.",ACCEPTED,True
+dom_phase_124_feature_store,124,Feature Store Integration Expansion,advanced_feature_store_integration,"Doğrulama duyarlı merkezi özellik deposu, kalite/drift metaveri depolama ve kataloglar.",ACCEPTED,True
+dom_phase_125_acceptance,125,Feature/Factor Engine Acceptance Report,advanced_feature_factor_acceptance,"Uçtan uca blok kabul raporu, güvenlik geçitleri ve nihai blok manifestosu.",ACCEPTED,True
+dom_phase_126_regime_handoff,126,Phase 126 Regime Classification Handoff,phase_126_handoff,Rejim sınıflandırması ve piyasa davranış modelleri için girdi devir şartnamesi.,READY,True

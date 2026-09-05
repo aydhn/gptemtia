@@ -1,0 +1,9 @@
+family_name,consistency_score,quality_drift_aligned,validation_aligned,blocker_count,consistency_status,non_signal
+volatility,1.0,True,True,0,behavior_quality_ready,True
+trend,1.0,True,True,0,behavior_quality_ready,True
+range,1.0,True,True,0,behavior_quality_ready,True
+macro_event,1.0,True,True,0,behavior_quality_ready,True
+news_metadata,1.0,True,True,0,behavior_quality_ready,True
+cross_asset,1.0,True,True,0,behavior_quality_ready,True
+transition,0.95,True,True,0,behavior_quality_ready,True
+uncertain,0.9,True,True,0,behavior_quality_ready,True

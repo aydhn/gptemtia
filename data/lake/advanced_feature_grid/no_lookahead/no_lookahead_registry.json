@@ -1,0 +1,7 @@
+{
+  "total_guard_rules": 3,
+  "strictly_backward_looking": true,
+  "lookahead_forbidden": true,
+  "status": "ACTIVE",
+  "profile": "balanced_local_multi_window_feature_grid"
+}

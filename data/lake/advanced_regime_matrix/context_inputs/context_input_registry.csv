@@ -1,0 +1,8 @@
+context_id,context_type,name,description,source_phase,metadata_only,non_signal,current_phase,target_final_phase,next_phase,source_preserved,status
+context_macro_regime,macro_context,Macroeconomic Growth and Rate Context,Macroeconomic backdrop including inflation pressures and yield curve slope.,120,True,True,127,160,128,True,matrix_ready
+context_event_regime,event_context,Economic Calendar Event Window Context,"Temporal distance to high-impact economic releases (pre-event, post-event).",120,True,True,127,160,128,True,matrix_ready
+context_news_metadata_regime,news_metadata_context,News Metadata Attention Context,Numerical attention volume and topic frequency tags (zero full text or NLP sentiment).,120,True,True,127,160,128,True,matrix_ready
+context_cross_asset_regime,cross_asset_context,Cross-Asset Intermarket Coupling Context,"Correlation and spread divergence across commodity, currency, and rates markets.",119,True,True,127,160,128,True,matrix_ready
+context_volatility_regime,volatility_context,Market Volatility State Context,"High vs low volatility state, expansion vs compression phases.",126,True,True,127,160,128,True,matrix_ready
+context_trend_regime,trend_context,Trend Persistence Context,"Moving average alignment, directionality, and momentum slope.",126,True,True,127,160,128,True,matrix_ready
+context_range_regime,range_context,Range and Mean-Reversion Context,Bandwidth compression and price location within historical channels.,126,True,True,127,160,128,True,matrix_ready

@@ -1,0 +1,4 @@
+interface_name,method,signature,description
+BaseFeatureGridComputer,validate_input,"(df: pd.DataFrame, required_fields: list[str]) -> dict",Girdi DataFrame'in boş olmadığını ve gerekli alanları içerdiğini doğrular.
+BaseFeatureGridComputer,compute_grid,"(df: pd.DataFrame, grid_name: str, parameter_grid: list[dict]) -> tuple[pd.DataFrame, FeatureGridComputationResult]",DataFrame'i mutate etmeden kopyası üzerinde çoklu window feature'ları üretir.
+BaseFeatureGridComputer,metadata,() -> dict,Hesaplama motoru kısıtlarını ve metadata bilgilerini döner.

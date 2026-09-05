@@ -1,0 +1,9 @@
+{
+  "overall_quality_score": 0.96,
+  "quality_grade": "READY",
+  "non_signal": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false,
+  "active_profile": "balanced_local_market_behavior_diagnostics"
+}

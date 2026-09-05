@@ -1,0 +1,4 @@
+context_name,description,coverage_ratio,symbol_mapping_dependency_passed,timestamp_alignment_passed,quality_drift_dependency_passed,is_ready,non_signal,contains_target_or_prediction,model_training_executed,clustering_executed,current_phase,target_final_phase,next_phase
+fx_commodity_divergence_context,Divergence between USD benchmark and key commodity index movements.,1.0,True,True,True,True,True,False,False,False,129,160,130
+macro_fx_rate_differential_context,Sovereign yield spread and currency pair alignment context.,1.0,True,True,True,True,True,False,False,False,129,160,130
+energy_metals_correlation_context,"Cross-commodity correlation dynamics between Brent, WTI, Gold, and Copper.",1.0,True,True,True,True,True,False,False,False,129,160,130

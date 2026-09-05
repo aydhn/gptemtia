@@ -1,0 +1,5 @@
+table_name,status,errors
+profiles,pass,[]
+domains,pass,[]
+sources,pass,[]
+metadata_schema,pass,[]

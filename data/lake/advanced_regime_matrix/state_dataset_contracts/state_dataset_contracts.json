@@ -1,0 +1,20 @@
+{
+  "total_dataset_contracts": 4,
+  "total_contracts": 4,
+  "dataset_names": [
+    "regime_state_research_dataset_contract",
+    "regime_state_candidate_context_dataset_contract",
+    "regime_state_taxonomy_mapping_dataset_contract",
+    "regime_state_future_unsupervised_prep_contract"
+  ],
+  "all_no_target_label_prediction": true,
+  "all_model_training_disallowed": true,
+  "all_clustering_disallowed": true,
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "any_target_or_prediction": false,
+  "phase_128_prep_ready": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false
+}

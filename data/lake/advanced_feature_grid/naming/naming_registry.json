@@ -1,0 +1,8 @@
+{
+  "total_rules": 11,
+  "total_families": 6,
+  "forbidden_words_count": 10,
+  "naming_standard": "lowercase_snake_case",
+  "status": "READY",
+  "profile": "balanced_local_multi_window_feature_grid"
+}

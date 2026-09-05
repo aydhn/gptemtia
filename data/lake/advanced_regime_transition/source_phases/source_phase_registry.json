@@ -1,0 +1,15 @@
+{
+  "total_source_phases": 7,
+  "source_phase_numbers": [
+    121,
+    123,
+    124,
+    126,
+    127,
+    128,
+    129
+  ],
+  "all_active": true,
+  "non_signal": true,
+  "active_profile": "balanced_local_regime_transition"
+}

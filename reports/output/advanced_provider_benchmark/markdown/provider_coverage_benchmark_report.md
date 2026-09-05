@@ -1,0 +1,20 @@
+# Phase 115: Provider Coverage Benchmark Report
+> **UYARI VE SINIRLAR**:
+> Bu çıktı Phase 115 Data Provider Benchmark Report raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, benchmark score’u trade sinyali olarak kullanma, provider official approval, production-ready/broker-ready iddiası, production deployment, model deployment, scraping, haber tam metni toplama, telifli içerik kopyalama, external LLM/API çağrısı, gerçek provider API çağrısı zorunluluğu, source overwrite veya destructive cleaning değildir.
+
+- **Değerlendirilen Sağlayıcı Sayısı**: 9
+- **Ortalama Kapsam Puanı**: 0.8189
+- **Manuel İnceleme Sayısı**: 3
+
+### Kapsam Değerlendirme Tablosu
+| record_id | provider_name | provider_domain | metric_label | raw_score | weighted_score | status_label | evidence_ref | limitation_note | manual_review_required |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| pb_rec::advanced_fx_providers_engine::metric_coverage | advanced_fx_providers_engine | provider_domain_fx | metric_coverage | 0.92 | 0.138 | benchmark_pass | EUR/USD, GBP/USD, USD/JPY, USD/TRY coverage verified | Offline local coverage baseline; live availability not guaranteed | False |
+| pb_rec::advanced_commodity_providers_engine::metric_coverage | advanced_commodity_providers_engine | provider_domain_commodity | metric_coverage | 0.88 | 0.132 | benchmark_pass | Gold, Silver, Brent, WTI, Natural Gas, Copper coverage verified | Offline local coverage baseline; live availability not guaranteed | False |
+| pb_rec::advanced_macro_providers_engine::metric_coverage | advanced_macro_providers_engine | provider_domain_macro | metric_coverage | 0.85 | 0.1275 | benchmark_pass | CPI, GDP, Policy Rates, Unemployment for major economies | Offline local coverage baseline; live availability not guaranteed | False |
+| pb_rec::advanced_economic_calendar_engine::metric_coverage | advanced_economic_calendar_engine | provider_domain_calendar | metric_coverage | 0.9 | 0.135 | benchmark_pass | Global tier-1 and tier-2 scheduled economic events | Offline local coverage baseline; live availability not guaranteed | False |
+| pb_rec::advanced_news_metadata_engine::metric_coverage | advanced_news_metadata_engine | provider_domain_news_metadata | metric_coverage | 0.82 | 0.123 | benchmark_pass | Headline and asset taxonomy coverage across FX/Commodities | Offline local coverage baseline; live availability not guaranteed | False |
+| pb_rec::manual_file_provider_adapter::metric_coverage | manual_file_provider_adapter | provider_domain_cross_domain | metric_coverage | 0.6 | 0.09 | benchmark_manual_review_required | User-provided offline files - scope varies by upload | Offline local coverage baseline; live availability not guaranteed | True |
+| pb_rec::local_cache_provider_adapter::metric_coverage | local_cache_provider_adapter | provider_domain_cross_domain | metric_coverage | 0.75 | 0.1125 | benchmark_pass | Historical snapshots present in local cache store | Offline local coverage baseline; live availability not guaranteed | False |
+| pb_rec::official_api_provider_placeholder::metric_coverage | official_api_provider_placeholder | provider_domain_cross_domain | metric_coverage | 0.8 | 0.12 | benchmark_manual_review_required | Vendor official API specification coverage (dry-run) | Offline local coverage baseline; live availability not guaranteed | True |
+| pb_rec::licensed_vendor_provider_placeholder::metric_coverage | licensed_vendor_provider_placeholder | provider_domain_cross_domain | metric_coverage | 0.85 | 0.1275 | benchmark_manual_review_required | Commercial vendor data dictionary coverage (dry-run) | Offline local coverage baseline; live availability not guaranteed | True |

@@ -1,0 +1,7 @@
+indicator_name,output_pattern,default_window,family,non_signal
+true_range,true_range,1,family_volatility,True
+atr,atr_{window},14,family_volatility,True
+rolling_std,rolling_std_{window},20,family_volatility,True
+realized_volatility,realized_vol_{window},20,family_volatility,True
+parkinson_volatility,parkinson_vol_{window},20,family_volatility,True
+garman_klass_volatility,garman_klass_vol_{window},20,family_volatility,True

@@ -1,0 +1,10 @@
+handoff_item,category,description,status,verified
+cross_asset_transition_alignment_prerequisites,alignment_prep,Prerequisite alignment contracts between FX and commodity regime sequence timestamps,READY,True
+fx_commodity_regime_context_dependencies,domain_dependency,Baseline state sequence datasets for major FX pairs and benchmark commodities,READY,True
+macro_cross_asset_state_dependencies,context_dependency,Synchronized macro release window context without lookahead leakage,READY,True
+state_sequence_continuity_contracts,sequence_contract,Chronological continuity and gap-checked candidate sequence schemas,READY,True
+timestamp_alignment_no_lookahead_rules,validation_guard,Strict verification that no future returns or forward joins exist,READY,True
+transition_stability_prerequisites,stability_gate,Stability scores verified above minimum threshold (0.45),READY,True
+metadata_only_news_requirements,compliance_guard,"Guaranteed absence of full article body, scraped content, or sentiment models",READY,True
+source_preservation_and_integrity_manifest,integrity_manifest,Phase 130 integrity manifest certifying zero-signal and zero-execution,READY,True
+phase_131_boundary_charter,safety_boundary,"Explicit charter: Phase 131 expands cross-asset regime context, NEVER trade signals",READY,True

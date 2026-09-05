@@ -1,0 +1,12 @@
+{
+  "total_scores": 1,
+  "context_score": 0.86,
+  "classification": "high_context_integrity",
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "official_approval_claim": false,
+  "production_ready_claim": false,
+  "broker_ready_claim": false,
+  "zero_trading_signals": true,
+  "active_profile": "balanced_local_cross_asset_regime_context"
+}

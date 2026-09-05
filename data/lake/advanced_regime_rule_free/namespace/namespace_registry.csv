@@ -1,0 +1,5 @@
+rule_id,description,enforced,current_phase,next_phase,target_final_phase
+rule_candidate_prefix,All candidate state keys must start with 'candidate_state_' (or 'pseudo_state_' for pseudo-states).,True,128,129,160
+rule_lowercase_snake_case,All candidate state keys must be strictly lowercase snake_case alphanumeric.,True,128,129,160
+rule_no_forbidden_words,"Keys must not contain trading words: buy, sell, long, short, position, target, label, prediction, etc.",True,128,129,160
+rule_entity_family_composite,Canonical key format is 'candidate_state_<entity_type>_<entity_id>_<family>'.,True,128,129,160

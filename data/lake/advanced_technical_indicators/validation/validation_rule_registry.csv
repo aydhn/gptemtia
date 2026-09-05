@@ -1,0 +1,5 @@
+rule_name,description
+no_forbidden_column_names,Output columns must never match signal/target/prediction keywords.
+numeric_sanity_check,Feature outputs must not contain unhandled infinite values.
+non_mutation_check,Functions must not alter original input DataFrame.
+warmup_nan_tolerance,Initial window NaNs are valid and expected; not errors.

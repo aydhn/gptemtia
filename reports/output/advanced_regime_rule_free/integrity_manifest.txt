@@ -1,0 +1,7 @@
+UYARI: Bu rapor Phase 128 Regime Rule-Free Labeling Contracts and Unsupervised Prep çıktısıdır. Gerçek veri indirme zorunluluğu, scraping, haber tam metni kullanımı, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, candidate state veya pseudo-state değerini trade sinyali olarak kullanma, strateji/backtest/optimizer/model training/clustering/unsupervised execution çalıştırma, target/label/prediction üretme, official approval, broker-ready veya production-ready iddiası değildir.
+Manifest Status: MANIFEST_VALID
+Manifest Name: balanced_local_regime_rule_free_prep_integrity_manifest
+Valid: True
+Non-Signal Certified: True
+Source Preserved: True
+Zero Execution Guaranteed: True

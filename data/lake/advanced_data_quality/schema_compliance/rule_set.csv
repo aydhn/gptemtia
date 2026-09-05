@@ -1,0 +1,3 @@
+rule_name,rule_domain,severity_label,description,action_on_failure
+mandatory_columns_presence,schema_compliance,quality_critical,Veri setinde tanımlanmış zorunlu şema alanlarının tam bulunması.,manual_review_queue
+dataframe_not_empty,schema_compliance,quality_high,Veri setinin en az bir kayıt içermesi kontrolü.,manual_review_queue

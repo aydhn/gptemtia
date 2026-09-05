@@ -1,0 +1,52 @@
+{
+  "manifest_id": "matrix_p120_balanced_local_macro_calendar_news_fusion",
+  "matrix_name": "",
+  "source_domains": [
+    "market_base",
+    "macroeconomic",
+    "calendar_events",
+    "news_metadata"
+  ],
+  "row_count": 5,
+  "feature_count": 16,
+  "join_policy": "backward_only",
+  "source_preserved": true,
+  "non_signal": true,
+  "contains_target_or_prediction": false,
+  "contains_full_article_text": false,
+  "manual_review_required": false,
+  "matrix_id": "matrix_p120_balanced_local_macro_calendar_news_fusion",
+  "profile_name": "balanced_local_macro_calendar_news_fusion",
+  "total_rows": 5,
+  "total_columns": 16,
+  "feature_columns": [
+    "asset_id",
+    "price_close",
+    "feature_volatility",
+    "macro_indicator_id",
+    "macro_release_timestamp",
+    "macro_value",
+    "event_id",
+    "calendar_release_timestamp",
+    "actual_value",
+    "forecast_value",
+    "news_id",
+    "news_published_timestamp",
+    "news_topic",
+    "news_asset_tags",
+    "news_macro_tags"
+  ],
+  "domains_included": [
+    "market_base",
+    "macroeconomic",
+    "calendar_events",
+    "news_metadata"
+  ],
+  "start_timestamp": "2025-01-01 10:00:00+00:00",
+  "end_timestamp": "2025-01-01 14:00:00+00:00",
+  "is_monotonic_increasing": true,
+  "no_lookahead_guaranteed": true,
+  "is_strictly_metadata_only": true,
+  "is_non_signal_guaranteed": true,
+  "created_at": "2026-09-04T00:16:05.764743+00:00"
+}

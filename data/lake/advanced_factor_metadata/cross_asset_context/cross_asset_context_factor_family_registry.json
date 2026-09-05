@@ -1,0 +1,10 @@
+{
+  "active_profile": "balanced_local_factor_metadata",
+  "total_factors": 6,
+  "ready_factors": 5,
+  "placeholder_factors": 1,
+  "current_phase": 122,
+  "target_final_phase": 160,
+  "non_signal": true,
+  "status": "factor_ready"
+}

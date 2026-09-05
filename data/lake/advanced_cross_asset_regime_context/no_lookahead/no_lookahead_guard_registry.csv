@@ -1,0 +1,4 @@
+guard_id,rule_name,category,description,enforced,non_signal,source_preserved,official_approval,production_ready,broker_ready,contains_target_or_prediction,contains_trading_recommendation
+guard_negative_shift,no_negative_shift_guard,syntax_inspection,Scans code and logic for shift(-k) or forward index indexing.,True,True,True,False,False,False,False,False
+guard_forbidden_columns,no_forbidden_columns_guard,schema_inspection,"Prevents injection of signal, prediction, target, or raw text columns.",True,True,True,False,False,False,False,False
+guard_future_join_leakage,no_future_join_leakage_guard,temporal_inspection,Verifies context timestamps never exceed observation timestamps in joins.,True,True,True,False,False,False,False,False

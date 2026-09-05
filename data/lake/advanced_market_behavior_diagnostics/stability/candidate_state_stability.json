@@ -1,0 +1,11 @@
+{
+  "total_states": 10,
+  "average_stability_score": 0.867,
+  "phase_130_ready": true,
+  "clustering_executed": false,
+  "model_training_executed": false,
+  "forward_returns_used": false,
+  "shift_negative_used": false,
+  "non_signal": true,
+  "active_profile": "balanced_local_market_behavior_diagnostics"
+}

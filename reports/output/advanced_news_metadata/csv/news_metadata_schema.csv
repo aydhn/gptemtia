@@ -1,0 +1,22 @@
+field_id,field_name,field_type,description,required,privacy_copyright_note,manual_review_required
+fld_item_id,item_id,string,Unique identifier for the news metadata item.,True,Synthetic or provider-supplied identifier; no personal or copyrighted payload.,False
+fld_timestamp,timestamp,datetime_iso8601,UTC timestamp of news publication or release.,True,Temporal metadata only.,False
+fld_source_name,source_name,string,"Originating agency, central bank, or publisher name.",True,Entity name attribution only.,False
+fld_source_category,source_category,string,Category label of the news source from news_source_categories.,True,Categorical taxonomy label.,False
+fld_title_or_summary_ref,title_or_summary_ref,string,Short headline reference or abstract pointer; strictly NOT full article text.,True,Restricted to short public title reference or pointer; copyrighted full text forbidden.,True
+fld_url_or_source_ref,url_or_source_ref,string,Canonical external reference URI or archive identifier.,False,Pointer reference only; automated fetching/scraping prohibited.,False
+fld_region_tags,region_tags,list[string],"Geographic/jurisdiction tags (e.g., US, EU, TR, GLOBAL).",False,Standard region taxonomy tags.,False
+fld_currency_tags,currency_tags,list[string],"Affected currency codes (e.g., USD, EUR, TRY).",False,ISO currency codes.,False
+fld_asset_tags,asset_tags,list[string],"Asset class tags (FX, COMMODITIES, MACRO, RISK_SENTIMENT).",False,Taxonomy classification tags.,False
+fld_macro_tags,macro_tags,list[string],"Macroeconomic factor tags (CENTRAL_BANK, INFLATION, LABOR).",False,Macro domain taxonomy tags.,False
+fld_commodity_tags,commodity_tags,list[string],"Commodity tags (GOLD, CRUDE_OIL, NATURAL_GAS, COPPER).",False,Commodity taxonomy tags.,False
+fld_fx_tags,fx_tags,list[string],"Foreign exchange tags (USD, EUR, TRY, DXY).",False,FX taxonomy tags.,False
+fld_topic_tags,topic_tags,list[string],Detailed topic labels from news_topic_taxonomy.,False,Topic categorization labels.,False
+fld_linked_calendar_event,linked_calendar_event,string,Associated Phase 110 economic calendar event ID or canonical name.,False,Linkage reference only; not a price signal.,True
+fld_linked_macro_indicator,linked_macro_indicator,string,Associated Phase 109 macro provider indicator series ID.,False,Cross-layer linkage reference.,True
+fld_provider_name,provider_name,string,Name of the metadata provider adapter supplying this record.,True,Provider identification metadata.,False
+fld_retrieval_mode,retrieval_mode,string,"Access mode (dry_run, manual_file, local_cache, placeholder).",True,System operational mode.,False
+fld_metadata_only,metadata_only,boolean,Affirms that the item contains only metadata and no raw text payload.,True,Strict invariant: must be True.,False
+fld_copyright_status,copyright_status,string,"Copyright compliance classification (public_domain, safe_metadata_ref, licensed_placeholder).",True,Compliance metadata tracking.,True
+fld_data_quality_status,data_quality_status,string,Preliminary data quality status for handoff to Phase 112.,True,Quality tracking label.,False
+fld_manual_review_required,manual_review_required,boolean,Flag indicating whether human analyst review is required.,True,Governance requirement.,False

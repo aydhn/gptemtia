@@ -1,0 +1,29 @@
+domain_key,domain_name,description,current_phase,target_final_phase,next_phase,non_signal,source_preserved,model_training_allowed,clustering_allowed,manual_review_required
+state_sequence_contracts,State Sequence Contracts,Contracts governing candidate/pseudo state sequences,130,160,131,True,True,False,False,True
+candidate_sequence_schema,Candidate Sequence Schema,Tabular schema definition for candidate state sequences,130,160,131,True,True,False,False,True
+pseudo_sequence_schema,Pseudo Sequence Schema,Tabular schema definition for pseudo state sequences (zero-ML),130,160,131,True,True,False,False,True
+transition_metrics,Transition Metrics,"Specifications of transition frequency, count, rate, and ambiguity",130,160,131,True,True,False,False,True
+stability_metrics,Stability Metrics,"Specifications of state persistence, duration, and stability score",130,160,131,True,True,False,False,True
+transition_thresholds,Transition Thresholds,Configurable bounds for transition ambiguity and stability,130,160,131,True,True,False,False,True
+timestamp_policies,Timestamp Policies,Chronological ordering and monotonic sequence validation,130,160,131,True,True,False,False,True
+no_lookahead_guards,No-Lookahead Guards,Guards preventing forward return leaks and future joins,130,160,131,True,True,False,False,True
+source_phases,Source Phase Lineage,"Lineage to Phases 121, 123, 124, 126, 127, 128, 129",130,160,131,True,True,False,False,True
+persistence_diagnostics,State Persistence Diagnostics,Diagnostic estimation of state persistence and run-lengths,130,160,131,True,True,False,False,True
+transition_frequency,Transition Frequency,Diagnostic frequency metrics across candidate regimes,130,160,131,True,True,False,False,True
+transition_matrix_placeholders,Transition Matrix Placeholders,Structural matrix layout for transition frequencies without Markov fit,130,160,131,True,True,False,False,True
+transition_ambiguity,Transition Ambiguity Diagnostics,Diagnostic ambiguity detection between state transitions,130,160,131,True,True,False,False,True
+transition_continuity,Transition Continuity Diagnostics,Continuity checks and gap diagnostics across timestamps,130,160,131,True,True,False,False,True
+transition_stability,Transition Stability Diagnostics,Rolling stability and transition resistance diagnostics,130,160,131,True,True,False,False,True
+volatility_transition,Volatility Transition Diagnostics,Volatility expansion/compression regime transition context,130,160,131,True,True,False,False,True
+trend_transition,Trend Transition Diagnostics,Trend/range transition context and momentum decay proxies,130,160,131,True,True,False,False,True
+range_transition,Range Transition Diagnostics,Range breakout context and compression/expansion readiness,130,160,131,True,True,False,False,True
+macro_event_transition,Macro Event Transition Context,Transition readiness around macro release event windows,130,160,131,True,True,False,False,True
+news_metadata_transition,News Metadata Transition Context,Metadata-only news transition linkage context,130,160,131,True,True,False,False,True
+cross_asset_transition_prep,Cross-Asset Transition Prep,Readiness preparation for cross-asset state alignment,130,160,131,True,True,False,False,True
+quality_dependencies,Quality Dependencies,Dependencies on Phase 123 quality and Phase 129 behavior metrics,130,160,131,True,True,False,False,True
+validation_dependencies,Validation Dependencies,Dependencies on Phase 121/127/128 validation gates,130,160,131,True,True,False,False,True
+transition_findings,Transition Quality Findings,Observation registry of sequence/transition defects,130,160,131,True,True,False,False,True
+manual_review_queue,Manual Review Queue,Action items requiring manual inspection (no auto-fix),130,160,131,True,True,False,False,True
+stability_scoring,Transition Stability Scoring,Aggregate stability index calculation,130,160,131,True,True,False,False,True
+diagnostics_manifest,Diagnostics Manifest,Integrity manifest certifying zero-signal and zero-execution,130,160,131,True,True,False,False,True
+phase_131_handoff,Phase 131 Handoff,Prerequisites and handoff report for Phase 131 Cross-Asset Context,130,160,131,True,True,False,False,True

@@ -1,0 +1,12 @@
+{
+  "total_manifests": 2,
+  "matrix_names": [
+    "fx_cross_asset_aligned_matrix_v1",
+    "commodity_cross_asset_aligned_matrix_v1"
+  ],
+  "all_source_preserved": true,
+  "all_non_signal": true,
+  "all_no_target_or_prediction": true,
+  "status": "READY",
+  "profile": "balanced_local_cross_asset_alignment"
+}

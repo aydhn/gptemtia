@@ -1,0 +1,13 @@
+{
+  "total_profiles": 3,
+  "profiles": [
+    "balanced_non_destructive_normalization",
+    "strict_non_destructive_normalization_safety",
+    "dry_run_normalization_contract_focus"
+  ],
+  "all_non_destructive": true,
+  "all_dry_run": true,
+  "current_phase": 113,
+  "target_final_phase": 160,
+  "next_phase": 114
+}

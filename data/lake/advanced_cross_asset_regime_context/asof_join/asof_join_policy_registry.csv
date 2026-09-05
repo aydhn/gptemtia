@@ -1,0 +1,3 @@
+asof_policy_id,policy_name,direction,allow_exact_match,allow_forward_join,description,enforces_zero_lookahead,non_signal,source_preserved,official_approval,production_ready,broker_ready,contains_target_or_prediction,contains_trading_recommendation
+asof_backward_exact_or_prior,backward_asof_join_policy,backward,True,False,Matches most recent prior or contemporaneous record (right_ts <= left_ts).,True,True,True,False,False,False,False,False
+asof_backward_release_lag,backward_release_lag_asof_policy,backward,True,False,Enforces publication availability lag before allowing join matching.,True,True,True,False,False,False,False,False

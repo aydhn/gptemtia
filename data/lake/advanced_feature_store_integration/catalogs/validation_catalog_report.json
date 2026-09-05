@@ -1,0 +1,8 @@
+{
+  "catalog_type": "validation_catalog",
+  "total_validations": 5,
+  "pass_count": 2,
+  "review_required_count": 1,
+  "non_signal": true,
+  "source_preserved": true
+}

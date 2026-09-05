@@ -1,0 +1,11 @@
+{
+  "total_lineage_findings": 3,
+  "finding_types": [
+    "missing_quote_diagnostic",
+    "unmapped_futures_code",
+    "vendor_license_verification"
+  ],
+  "manual_review_count": 3,
+  "current_phase": 114,
+  "target_final_phase": 160
+}

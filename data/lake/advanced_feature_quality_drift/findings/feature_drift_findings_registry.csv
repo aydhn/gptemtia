@@ -1,0 +1,2 @@
+finding_id,source_table,feature_column,severity,drift_description,recommended_action,manual_review_required,destructive_action_allowed,non_signal
+fdf_clean_drift_1,feature_drift_baseline,all_features,drift_info,Baseline distribution comparisons indicate stable feature dynamics.,Continue observation in research cycle,False,False,True

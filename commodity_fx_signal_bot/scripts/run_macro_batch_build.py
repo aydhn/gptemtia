@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 
 def main():
-    lake = DataLake(settings)
+    lake = DataLake('data/lake')
     pipeline = MacroPipeline(data_lake=lake, settings=settings)
 
     logger.info("Starting macro batch build...")

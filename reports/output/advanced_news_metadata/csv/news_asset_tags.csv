@@ -1,0 +1,10 @@
+tag_id,tag_label,tag_domain,mapped_entity,description,manual_review_required
+tag_asset_fx,FX,asset,Foreign Exchange Market,News metadata related to currencies and foreign exchange markets.,False
+tag_asset_commodities,COMMODITIES,asset,Broad Commodity Complex,"News metadata related to raw materials, energy, metals, and agricultural products.",False
+tag_asset_precious_metals,PRECIOUS_METALS,asset,"Gold, Silver, Platinum Group","News metadata covering gold, silver, and precious metals.",False
+tag_asset_energy,ENERGY,asset,"Crude Oil, Natural Gas, Refined Products","News metadata covering crude oil, natural gas, and energy supplies.",False
+tag_asset_industrial_metals,INDUSTRIAL_METALS,asset,"Copper, Aluminum, Zinc, Nickel",News metadata covering base/industrial metals and infrastructure demand.,False
+tag_asset_agriculture,AGRICULTURE,asset,"Grains, Softs, Livestock","News metadata covering agricultural commodities, harvests, and supply shocks.",False
+tag_asset_macro,MACRO,asset,Macroeconomic Aggregate Factors,"News metadata covering sovereign macro indicators, GDP, inflation, and rate policy.",False
+tag_asset_risk_sentiment,RISK_SENTIMENT,asset,Market-Wide Risk Appetite,News metadata reflecting broad risk-on / risk-off environment.,False
+tag_asset_cross_asset,CROSS_ASSET,asset,Multi-Asset Intermarket Linkages,News metadata covering systemic cross-asset relationships and correlation shifts.,False

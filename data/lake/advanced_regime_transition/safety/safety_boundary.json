@@ -1,0 +1,10 @@
+{
+  "total_safety_rules": 26,
+  "no_go_count": 18,
+  "safe_go_count": 8,
+  "safety_status": "SECURE",
+  "live_trading_prohibited": true,
+  "zero_model_execution": true,
+  "non_signal_mandate": true,
+  "active_profile": "balanced_local_regime_transition"
+}

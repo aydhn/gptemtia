@@ -1,0 +1,4 @@
+guard_key,description,enforcement,target_type
+guard_no_forbidden_columns,"Block tables containing signals, labels, predictions, or raw scraping text",strict_blocking,dataframe_schema
+guard_no_future_joins,Ensure joined auxiliary datasets do not contain timestamps ahead of base observation,strict_blocking,join_operation
+guard_no_negative_shift,Block usage of shift(-1) or lookahead window operators in transition routines,strict_blocking,code_inspection

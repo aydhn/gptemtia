@@ -1,0 +1,3 @@
+Normalized Views: 3
+Findings: 15
+Manual Review Queue: 2

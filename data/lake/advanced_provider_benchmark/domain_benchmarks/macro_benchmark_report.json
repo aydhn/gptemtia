@@ -1,0 +1,8 @@
+{
+  "domain": "provider_domain_macro",
+  "total_metrics_evaluated": 6,
+  "mean_domain_score": 0.91,
+  "no_scraping_compliant": true,
+  "current_phase": 115,
+  "target_final_phase": 160
+}

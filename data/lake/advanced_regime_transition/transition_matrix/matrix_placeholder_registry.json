@@ -1,0 +1,8 @@
+{
+  "total_matrix_placeholders": 3,
+  "all_placeholder_only": true,
+  "zero_markov_models_fitted": true,
+  "zero_trade_probabilities": true,
+  "non_signal_guaranteed": true,
+  "active_profile": "balanced_local_regime_transition"
+}

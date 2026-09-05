@@ -1,0 +1,29 @@
+# Phase 119: Cross-Domain Aligned Feature Matrix Report
+
+> Bu çıktı Phase 119 Cross-Asset Feature Alignment ve Multi-Domain Feature Matrix Contracts raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, cross-asset hizalanmış feature'ları trade sinyali veya çoklu varlık arbitraj/al-sat kuralı olarak kullanma, strateji üretimi, backtest, optimizer, target/label/prediction üretimi, production deployment, model deployment, scraping, gerçek provider API çağrısı veya official approval sağlamaz.
+
+## Matris Özeti
+- **Toplam Satır**: 10
+- **Toplam Sütun**: 9
+- **Sözleşme Adı**: `cross_domain_research`
+- **Target / Label / Prediction**: `Bulunmuyor (Strictly Non-Signal)`
+- **Geleceğe Bakış (Lookahead Bias)**: `Sıfır (Zero Lookahead)`
+- **Kaynak Korunumu**: `Tam Korunmuş (df.copy used)`
+- **Durum**: `READY`
+
+## Matris Kolonları ve Önizleme
+
+Kolon Sayısı: 9
+
+| normalized_timestamp | canonical_symbol | fx_eur_usd_close   | fx_eur_usd_sma_w20 | commodity_xau_usd_close | commodity_xau_usd_bb_width_w20_std2 | macro_us_10y_yield_yield_diff_1d | calendar_fomc_event_active_window | news_central_bank_mention_count_1d |
+| -------------------- | ---------------- | ------------------ | ------------------ | ----------------------- | ----------------------------------- | -------------------------------- | --------------------------------- | ---------------------------------- |
+| 2026-01-01T00:00:00Z | EUR/USD          | 1.085              | 1.082              | 2050.0                  | 0.025                               | 0.01                             | 0                                 | 2                                  |
+| 2026-01-02T00:00:00Z | EUR/USD          | 1.0859999999999999 | 1.0828             | 2055.0                  | 0.026000000000000002                | -0.01                            | 0                                 | 1                                  |
+| 2026-01-03T00:00:00Z | EUR/USD          | 1.087              | 1.0836000000000001 | 2060.0                  | 0.027000000000000003                | 0.01                             | 0                                 | 3                                  |
+| 2026-01-04T00:00:00Z | EUR/USD          | 1.0879999999999999 | 1.0844             | 2065.0                  | 0.028                               | -0.01                            | 1                                 | 5                                  |
+| 2026-01-05T00:00:00Z | EUR/USD          | 1.089              | 1.0852000000000002 | 2070.0                  | 0.029                               | 0.01                             | 0                                 | 2                                  |
+| 2026-01-06T00:00:00Z | EUR/USD          | 1.0899999999999999 | 1.086              | 2075.0                  | 0.030000000000000002                | -0.01                            | 0                                 | 1                                  |
+| 2026-01-07T00:00:00Z | EUR/USD          | 1.091              | 1.0868             | 2080.0                  | 0.031                               | 0.01                             | 0                                 | 1                                  |
+| 2026-01-08T00:00:00Z | EUR/USD          | 1.0919999999999999 | 1.0876000000000001 | 2085.0                  | 0.032                               | -0.01                            | 0                                 | 2                                  |
+| 2026-01-09T00:00:00Z | EUR/USD          | 1.093              | 1.0884             | 2090.0                  | 0.033                               | 0.01                             | 0                                 | 1                                  |
+| 2026-01-10T00:00:00Z | EUR/USD          | 1.0939999999999999 | 1.0892000000000002 | 2095.0                  | 0.034                               | -0.01                            | 0                                 | 0                                  |

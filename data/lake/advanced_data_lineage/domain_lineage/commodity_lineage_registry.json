@@ -1,0 +1,12 @@
+{
+  "total_commodity_lineage_items": 3,
+  "canonical_fields": [
+    "normalized_symbol",
+    "canonical_futures_root",
+    "canonical_roll_adjustment_requirement"
+  ],
+  "all_source_preserved": true,
+  "zero_destructive_actions": true,
+  "current_phase": 114,
+  "target_final_phase": 160
+}

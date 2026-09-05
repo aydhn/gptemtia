@@ -1,0 +1,13 @@
+{
+  "total_guards": 4,
+  "guard_ids": [
+    "guard_no_negative_shift",
+    "guard_no_forward_asof_join",
+    "guard_no_forbidden_columns",
+    "guard_metadata_only_news_boundary"
+  ],
+  "forbidden_columns_count": 23,
+  "all_active": true,
+  "all_non_signal": true,
+  "status": "matrix_ready"
+}

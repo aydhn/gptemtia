@@ -1,0 +1,11 @@
+{
+  "total_lineage_references": 4,
+  "source_phases": [
+    114,
+    121,
+    122,
+    123
+  ],
+  "non_signal": true,
+  "source_preserved": true
+}

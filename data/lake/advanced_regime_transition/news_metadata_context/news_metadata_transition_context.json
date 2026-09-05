@@ -1,0 +1,10 @@
+{
+  "total_metadata_clusters": 3,
+  "mean_context_relevance": 0.8267,
+  "zero_full_text_guaranteed": true,
+  "zero_raw_content_guaranteed": true,
+  "zero_embeddings_guaranteed": true,
+  "zero_sentiment_models_guaranteed": true,
+  "all_non_signal": true,
+  "active_profile": "balanced_local_regime_transition"
+}

@@ -1,0 +1,19 @@
+{
+  "total_integrity_rules": 8,
+  "total_rules": 8,
+  "rule_ids": [
+    "rule_no_forbidden_columns",
+    "rule_no_target_label_prediction",
+    "rule_no_full_article_text",
+    "rule_no_embeddings_vector",
+    "rule_source_preservation",
+    "rule_no_auto_fix_or_drop",
+    "rule_validation_status_required",
+    "rule_quality_metadata_required"
+  ],
+  "all_enforced": true,
+  "all_critical_rules_enforced": true,
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "status": "matrix_ready"
+}

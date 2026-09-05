@@ -25,7 +25,7 @@ def main():
     args = parser.parse_args()
 
     spec = SymbolSpec(args.symbol, "unknown", "commodity", "metals", "USD")
-    lake = DataLake(settings)
+    lake = DataLake('data/lake')
 
     try:
         profile = get_paper_trading_profile(args.profile)

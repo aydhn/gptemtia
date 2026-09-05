@@ -1,0 +1,13 @@
+field_name,type,required,description
+request_id,string,True,Unique request identifier
+provider_name,string,True,Target provider adapter name
+data_type,string,True,Requested news data type
+topics,list[string],False,Requested news topics
+asset_tags,list[string],False,Requested asset class tags
+region,string,False,Jurisdiction filter
+start,string,False,Start timestamp filter
+end,string,False,End timestamp filter
+dry_run,boolean,True,Dry-run execution mode flag (default True)
+local_only,boolean,True,Local-only execution flag (default True)
+metadata_only,boolean,True,Metadata-only flag (default True)
+metadata,dict,False,Auxiliary request attributes

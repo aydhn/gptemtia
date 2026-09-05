@@ -1,0 +1,17 @@
+# Phase 115: provider_domain_macro Provider Benchmark Report
+> **UYARI VE SINIRLAR**:
+> Bu çıktı Phase 115 Data Provider Benchmark Report raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, benchmark score’u trade sinyali olarak kullanma, provider official approval, production-ready/broker-ready iddiası, production deployment, model deployment, scraping, haber tam metni toplama, telifli içerik kopyalama, external LLM/API çağrısı, gerçek provider API çağrısı zorunluluğu, source overwrite veya destructive cleaning değildir.
+
+- **Domain**: provider_domain_macro
+- **Değerlendirilen Metrik Sayısı**: 6
+- **Ortalama Domain Puanı**: 0.91
+
+### Alan Bazlı Değerlendirme Tablosu
+| record_id | provider_name | provider_domain | metric_label | raw_score | weighted_score | status_label | evidence_ref | limitation_note | manual_review_required |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| pb_rec::advanced_macro_providers_engine::metric_coverage | advanced_macro_providers_engine | provider_domain_macro | metric_coverage | 0.88 | 0.1467 | benchmark_pass | CPI, GDP, Policy Rates, Unemployment across US, EU, UK, JP, TR | Macro benchmark is diagnostic research only; does not provide trading signals | False |
+| pb_rec::advanced_macro_providers_engine::metric_capability | advanced_macro_providers_engine | provider_domain_macro | metric_capability | 0.85 | 0.1417 | benchmark_pass | Monthly/Quarterly release frequency tracking, revision status markers | Macro benchmark is diagnostic research only; does not provide trading signals | False |
+| pb_rec::advanced_macro_providers_engine::metric_quality | advanced_macro_providers_engine | provider_domain_macro | metric_quality | 0.9 | 0.15 | benchmark_pass | Statistical series frequency integrity and timestamp order from Phase 112 | Macro benchmark is diagnostic research only; does not provide trading signals | False |
+| pb_rec::advanced_macro_providers_engine::metric_normalization | advanced_macro_providers_engine | provider_domain_macro | metric_normalization | 0.92 | 0.1533 | benchmark_pass | Standardized indicator keys and unit vocabulary (percent, index_points) from Phase 113 | Macro benchmark is diagnostic research only; does not provide trading signals | False |
+| pb_rec::advanced_macro_providers_engine::metric_traceability | advanced_macro_providers_engine | provider_domain_macro | metric_traceability | 0.91 | 0.1517 | benchmark_pass | Central bank and statistical agency source provenance from Phase 114 | Macro benchmark is diagnostic research only; does not provide trading signals | False |
+| pb_rec::advanced_macro_providers_engine::metric_no_scraping_compliance | advanced_macro_providers_engine | provider_domain_macro | metric_no_scraping_compliance | 1.0 | 0.1667 | benchmark_pass | Strict offline fixtures; zero web page scraping | Macro benchmark is diagnostic research only; does not provide trading signals | False |

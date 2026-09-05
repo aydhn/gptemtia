@@ -1,0 +1,5 @@
+policy_id,description,enforced,current_phase,next_phase,target_final_phase
+policy_strict_utc,All candidate state timestamps must be parsed and recorded in UTC timezone.,True,128,129,160
+policy_context_before_base,Context timestamp must be strictly less than or equal to base candidate timestamp (context_ts <= base_ts).,True,128,129,160
+policy_non_decreasing_order,Candidate state timelines per asset must be monotonically non-decreasing.,True,128,129,160
+policy_nanosecond_precision,"Timestamps use datetime64[ns, UTC] precision to prevent rounding collisions.",True,128,129,160

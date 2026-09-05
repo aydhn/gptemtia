@@ -1,0 +1,7 @@
+indicator_name,output_pattern,parameters,family,non_signal
+macd,"macd_line, macd_smooth, macd_hist","{'fast': 12, 'slow': 26, 'signal': 9}",family_trend,True
+ppo,"ppo_line, ppo_smooth, ppo_hist","{'fast': 12, 'slow': 26, 'signal': 9}",family_trend,True
+donchian_channel,"donchian_upper, donchian_lower, donchian_mid",{'window': 20},family_trend,True
+aroon,"aroon_up, aroon_down, aroon_osc",{'window': 25},family_trend,True
+adx_dmi,"adx_plus_di, adx_minus_di, adx_val",{'window': 14},family_trend,True
+ichimoku,"ichimoku_tenkan, kijun, senkou_a, senkou_b",{},family_trend,True

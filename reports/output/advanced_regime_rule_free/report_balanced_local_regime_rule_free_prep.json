@@ -1,0 +1,10 @@
+{
+  "profile_name": "balanced_local_regime_rule_free_prep",
+  "current_phase": 128,
+  "next_phase": 129,
+  "target_final_phase": 160,
+  "overall_status": "READY",
+  "non_signal": true,
+  "zero_execution": true,
+  "components_count": 12
+}

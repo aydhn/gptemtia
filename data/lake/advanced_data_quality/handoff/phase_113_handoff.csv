@@ -1,0 +1,12 @@
+normalization_area,source_phase,affected_dataset_type,issue_detected_by_quality_rule,normalization_need,suggested_phase_113_module,manual_review_required
+FX symbol normalization enforcement,Phase 107,dataset_fx_ohlcv,fx_quote_integrity,Slash vs unslashed pair canonicalization (e.g. USD/TRY vs USDTRY).,normalization_fx_symbols,False
+Commodity symbol normalization enforcement,Phase 108,dataset_commodity_spot,commodity_spot_sanity,Kanonik emtia sembolleri ve kontrat kök eşleştirmesi.,normalization_commodity_symbols,False
+Macro indicator/frequency/unit normalization,Phase 109,dataset_macro_timeseries,macro_timeseries_sanity,"Yıllık/aylık frekans ve birim (yüzde, endeks) format uyumu.",normalization_macro_indicators,True
+Calendar timezone/session normalization,Phase 110,dataset_calendar_event,calendar_event_sanity,Yerel saat dilimlerini UTC formatına standartlaştırma.,normalization_calendar_timezone,False
+Calendar release timestamp alignment,Phase 110,dataset_release_event,calendar_release_values_sanity,Açıklanma saati ile planlanan saat arasındaki gecikme hizalaması.,normalization_release_timestamps,True
+News topic/tag normalization,Phase 111,dataset_news_metadata,news_metadata_integrity,Haber etiketlerinin küçük harf ve standart liste tipine dönüştürülmesi.,normalization_news_taxonomy,False
+Provider metadata canonicalization,Phase 106,dataset_provider_metadata,provider_policy_presence,Sağlayıcı isim ve tip tanımlarının standartlaştırılması.,normalization_provider_metadata,False
+Duplicate key normalization,Phase 112,all,duplicate_record_keys,Mükerrer anahtarların tekilleştirme stratejisi (son kaydı koruma vb.).,normalization_deduplication,True
+Timestamp canonical timezone,Phase 112,all,timestamp_parseability,Tüm zaman serilerinin ISO8601 UTC formatına çevrilmesi.,normalization_timestamps,False
+Unit conversion policy placeholder,Phase 112,dataset_commodity_spot,unit_vocabulary_check,"Ons, varil, bushel birim çevrim politikası taslağı.",normalization_unit_conversion,True
+Schema version alignment,Phase 112,all,schema_mandatory_fields,Şema sürümlerinin v1.0 sözleşmesine uygunluğunun garantilenmesi.,normalization_schema_alignment,False

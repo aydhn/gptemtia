@@ -1,0 +1,5 @@
+contract_name,fusion_family,source_domains,required_fields,optional_fields,timestamp_field,join_policy
+economic_calendar_event_context_contract,fusion_family_calendar,"['economic_calendar', 'cross_asset_alignment']","['event_id', 'event_name', 'country_code', 'scheduled_time']","['currency', 'period']",scheduled_time,fusion_join_policy_event_window_placeholder
+pre_event_window_context_contract,fusion_family_calendar,['economic_calendar'],"['event_id', 'pre_window_active', 'hours_to_event']",['window_size_hours'],scheduled_time,fusion_join_policy_event_window_placeholder
+post_event_window_context_contract,fusion_family_calendar,['economic_calendar'],"['event_id', 'post_window_active', 'hours_since_release']",['actual_release_time'],actual_release_time,fusion_join_policy_release_time_only
+event_importance_context_contract,fusion_family_calendar,['economic_calendar'],"['event_id', 'importance_tier', 'importance_weight_norm']",['historical_volatility_impact'],scheduled_time,fusion_join_policy_backward_asof

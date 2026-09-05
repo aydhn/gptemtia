@@ -1,0 +1,6 @@
+policy_id,policy_name,description,enforcement
+nsp_01_no_buy_sell_signals,Prohibition of Buy/Sell Signals,"Factors must never be categorized, labeled, or output as buy/sell signals.",STRICT_FILTER
+nsp_02_no_directional_claims,Prohibition of Directional Claims,No factor value shall imply certainty of upward or downward price movement.,TEXT_AUDIT
+nsp_03_no_strategy_rules,Prohibition of Strategy Rule Synthesis,Factors must not be automatically compiled into threshold-based trading rules.,STRUCTURAL_BARRIER
+nsp_04_no_target_label_generation,Prohibition of ML Targets/Labels,Factors must not serve as ground-truth target variables or class labels in this phase.,SCHEMA_VALIDATION
+nsp_05_no_broker_execution,Prohibition of Broker or Order Routing,"Zero integration with execution brokers, live APIs, or order dispatchers.",RUNTIME_ISOLATION

@@ -1,0 +1,5 @@
+alignment_id,calendar_event,news_topic,linkage_type,full_text_collected,sentiment_signal_allowed,non_signal,notes
+calnews_fomc_central_bank,FOMC_RATE_DECISION,CENTRAL_BANK,event_topic_link,False,False,True,FOMC kararı ve merkez bankası haber konusu bağlantısı; makale metni toplanmaz.
+calnews_cpi_inflation,US_CPI_RELEASE,INFLATION,event_topic_link,False,False,True,Enflasyon takvimi ve enflasyon haber konu başlığı eşlemesi.
+calnews_eia_energy,EIA_CRUDE_INVENTORY_RELEASE,CRUDE_OIL,event_topic_link,False,False,True,EIA ham petrol stok duyurusu ve ham petrol haber etiketleri eşlemesi.
+calnews_nfp_labor,US_NONFARM_PAYROLLS_RELEASE,LABOR_MARKET,event_topic_link,False,False,True,Tarım dışı istihdam verisi ve istihdam piyasası haber etiketleri eşlemesi.

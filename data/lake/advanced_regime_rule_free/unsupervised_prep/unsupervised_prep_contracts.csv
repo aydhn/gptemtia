@@ -1,0 +1,7 @@
+contract_name,prep_category,description,fit_transform_allowed,model_training_allowed,clustering_allowed,dimensionality_reduction_allowed,no_lookahead_required,non_signal,status,current_phase,next_phase,target_final_phase
+unsupervised_matrix_readiness_contract,matrix_readiness,"Verifies that Phase 127 regime feature matrix satisfies completeness, schema, and alignment prerequisites.",False,False,False,False,True,True,rule_free_ready,128,129,160
+candidate_state_feature_selection_placeholder_contract,feature_selection,Defines criteria for non-signal candidate feature subsetting for future clustering pipelines.,False,False,False,False,True,True,rule_free_ready,128,129,160
+unsupervised_normalization_prep_contract,normalization_prep,"Specifies scaling parameters (min-max, robust, z-score) required prior to distance computations.",False,False,False,False,True,True,rule_free_ready,128,129,160
+unsupervised_distance_metric_prep_contract,metric_prep,"Specifies geometry and metric requirements (Euclidean, Cosine, Correlation) for candidate state distances.",False,False,False,False,True,True,rule_free_ready,128,129,160
+unsupervised_cluster_validation_prep_contract,cluster_validation_prep,"Defines statistical validation placeholders (silhouette, Davies-Bouldin) for future cluster diagnostics.",False,False,False,False,True,True,rule_free_ready,128,129,160
+unsupervised_manual_review_prep_contract,manual_review_prep,Specifies governance protocols for manual inspection of unsupervised partition boundaries.,False,False,False,False,True,True,rule_free_ready,128,129,160

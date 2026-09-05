@@ -1,0 +1,6 @@
+regime_family,persistence_component,ambiguity_component,continuity_component,stability_score,stability_tier,non_signal
+volatility_regimes,0.82,0.28,0.99,0.84,high_stability,True
+trend_regimes,0.86,0.32,0.99,0.85,high_stability,True
+range_regimes,0.9,0.35,0.99,0.86,high_stability,True
+macro_event_regimes,0.58,0.42,0.98,0.68,moderate_stability,True
+cross_asset_regimes,0.78,0.34,0.99,0.81,high_stability,True

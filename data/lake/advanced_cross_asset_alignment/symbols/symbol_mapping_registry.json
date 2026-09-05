@@ -1,0 +1,18 @@
+{
+  "total_mappings": 8,
+  "unique_source_symbols": 5,
+  "unique_target_domains": [
+    "macro",
+    "calendar",
+    "commodity",
+    "fx"
+  ],
+  "asset_types": [
+    "fx",
+    "commodity"
+  ],
+  "high_confidence_count": 7,
+  "non_signal": true,
+  "status": "READY",
+  "profile": "balanced_local_cross_asset_alignment"
+}

@@ -1,0 +1,20 @@
+# Provider Provenance Registry Report
+> **YASAL UYARI VE FERAGATNAME**
+> Bu çıktı Phase 114 Data Lineage and Provenance raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, lineage/traceability score’u trade sinyali olarak kullanma, official approval, production deployment, model deployment, scraping, haber tam metni toplama, telifli içerik kopyalama, external LLM/API çağrısı, gerçek provider API çağrısı zorunluluğu, source overwrite veya destructive cleaning değildir.
+
+- **Toplam Sağlayıcı Sayısı**: 10
+- **Yüksek Güvenilirlikli Sağlayıcı**: 7
+- **Manuel İnceleme Gereken**: 3
+
+| provenance_id | provider_name | provider_type | source_id | capability_ref | license_note | credential_policy | no_scraping_policy | confidence_label | manual_review_required |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| prov_rec_advanced_data_providers_abstraction | advanced_data_providers_abstraction | data_abstraction | prov_src_public_dataset_placeholder_public_dataset_placeholder_source | capability:multi_provider_router | Open research baseline | No credentials required / offline | Strict no-scraping | provenance_high_confidence | False |
+| prov_rec_advanced_fx_providers_engine | advanced_fx_providers_engine | fx_provider | prov_src_fx_fixture_provider_fx_dry_run_fixture_source | capability:fx_quotes_and_ohlcv | Local dry-run mock | No credentials required / offline | Strict no-scraping | provenance_high_confidence | False |
+| prov_rec_advanced_commodity_providers_engine | advanced_commodity_providers_engine | commodity_provider | prov_src_commodity_fixture_provider_commodity_dry_run_fixture_source | capability:commodity_spot_and_futures | Local dry-run mock | No credentials required / offline | Strict no-scraping | provenance_high_confidence | False |
+| prov_rec_advanced_macro_providers_engine | advanced_macro_providers_engine | macro_provider | prov_src_macro_fixture_provider_macro_dry_run_fixture_source | capability:macro_indicators_and_rates | Local dry-run mock | No credentials required / offline | Strict no-scraping | provenance_high_confidence | False |
+| prov_rec_advanced_economic_calendar_engine | advanced_economic_calendar_engine | calendar_provider | prov_src_calendar_fixture_provider_calendar_dry_run_fixture_source | capability:calendar_events_and_releases | Local dry-run mock | No credentials required / offline | Strict no-scraping | provenance_high_confidence | False |
+| prov_rec_advanced_news_metadata_engine | advanced_news_metadata_engine | news_provider | prov_src_news_fixture_provider_news_metadata_dry_run_fixture_source | capability:news_metadata_and_taxonomies | Local metadata mock - zero full text | No credentials required / offline | Strict no-scraping | provenance_high_confidence | False |
+| prov_rec_manual_file_provider_adapter | manual_file_provider_adapter | file_adapter | prov_src_manual_file_provider_manual_file_placeholder_source | capability:manual_file_dropzone | User-provided files | Local filesystem permissions only | Strict no-scraping | provenance_medium_confidence | True |
+| prov_rec_local_cache_provider_adapter | local_cache_provider_adapter | cache_adapter | prov_src_local_cache_provider_local_cache_placeholder_source | capability:local_cache_reader | Local snapshot data | No external credentials | Strict no-scraping | provenance_high_confidence | False |
+| prov_rec_official_api_provider_placeholder | official_api_provider_placeholder | api_placeholder | prov_src_official_api_placeholder_official_api_placeholder_source | capability:official_api_dry_run | Vendor public terms placeholder | Dry-run only / zero live keys | Strict no-scraping | provenance_medium_confidence | True |
+| prov_rec_licensed_vendor_provider_placeholder | licensed_vendor_provider_placeholder | licensed_placeholder | prov_src_licensed_provider_placeholder_licensed_provider_placeholder_source | capability:licensed_market_data | Commercial license placeholder | Dry-run only / zero live keys | Strict no-scraping | provenance_low_confidence | True |

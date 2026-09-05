@@ -1,0 +1,13 @@
+{
+  "family": "momentum",
+  "total_indicators": 6,
+  "all_non_signal": true,
+  "indicators": [
+    "RSI",
+    "ROC",
+    "momentum",
+    "stochastic_placeholder",
+    "williams_r_placeholder",
+    "CCI_placeholder"
+  ]
+}

@@ -1,0 +1,7 @@
+map_id,domain_pair,primary_entity,normalized_entity,cross_domain_link,link_type,source_preserved,notes
+cd_map_001,fx_to_news,EURUSD,EUR/USD,FX_TAG:EUR_USD,entity_tag_linkage,True,FX pair mapped to news asset tag
+cd_map_002,commodity_to_news,GOLD,XAU/USD,COMMODITY_TAG:GOLD_SPOT,entity_tag_linkage,True,Commodity symbol mapped to news commodity tag
+cd_map_003,macro_to_calendar,US_10Y_YIELD,US10Y,CALENDAR_EVENT:US_TREASURY_AUCTION_10Y,macro_event_linkage,True,Macro timeseries linked to economic calendar auction event
+cd_map_004,calendar_to_macro,US_NONFARM_PAYROLLS_RELEASE,NFP,MACRO_SERIES:US_LABOR_NFP,release_to_series_linkage,True,Economic calendar actual release linked to macro series revision
+cd_map_005,quality_to_lineage,provider_quality_score,0.95,provider_traceability_score:0.95,diagnostic_correlation,True,Quality score and traceability score correlated for Phase 115 benchmark
+cd_map_006,license_to_usage,license_provenance_note,research_only,USAGE_BOUNDARY:NO_TRADING_SIGNAL,compliance_boundary,True,License constraints enforce no-trading-signal safety boundary

@@ -1,0 +1,11 @@
+{
+  "status": "VALIDATION_FAIL",
+  "total_rules": 5,
+  "passed_rules": 1,
+  "failed_rules": 4,
+  "forbidden_claims_detected": 0,
+  "lookahead_violations": 0,
+  "destructive_cleaning_permitted": false,
+  "non_signal": true,
+  "source_preserved": true
+}

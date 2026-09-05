@@ -1,0 +1,9 @@
+roadmap_id,phase_start,phase_end,track_label,title,description,expected_outputs,safety_notes
+ROADMAP-101-105-track_governance_safety,101,105,track_governance_safety,MVP sonrası fonksiyonel yeniden açılış,Phase 101-105,[],"['no scraping', 'no live trading']"
+ROADMAP-106-115-track_data_providers,106,115,track_data_providers,"scraping olmadan veri sağlayıcılar, haber/makro takvim ve veri kalitesi",Phase 106-115,[],['no scraping']
+ROADMAP-116-125-track_feature_engine,116,125,track_feature_engine,feature/indicator/factor engine,Phase 116-125,[],[]
+ROADMAP-126-135-track_regime_engine,126,135,track_regime_engine,rejim sınıflandırma ve piyasa davranışı,Phase 126-135,[],[]
+ROADMAP-136-145-track_ml_gpu,136,145,track_ml_gpu,gelişmiş ML ve GPU hızlandırma,Phase 136-145,[],[]
+ROADMAP-146-152-track_backtest_benchmark,146,152,track_backtest_benchmark,"backtest, benchmark, stress ve Monte Carlo",Phase 146-152,[],[]
+ROADMAP-153-157-track_portfolio_risk,153,157,track_portfolio_risk,portföy optimizasyonu ve risk motoru,Phase 153-157,[],[]
+ROADMAP-158-160-track_final_integration,158,160,track_final_integration,full-system integration ve final advanced delivery,Phase 158-160,[],['no broker approval']

@@ -1,0 +1,12 @@
+{
+  "active_profile": "balanced_local_regime_foundation",
+  "total_fields": 8,
+  "all_non_signal": true,
+  "no_forbidden_fields": true,
+  "current_phase": 126,
+  "target_final_phase": 160,
+  "next_phase": 127,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false
+}

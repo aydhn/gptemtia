@@ -1,0 +1,28 @@
+{
+  "total_providers": 20,
+  "total_mappings": 20,
+  "normalized_providers": [
+    "fx_dry_run_fixture_provider",
+    "commodity_dry_run_fixture_provider",
+    "commodity_dry_run_fixture_provider",
+    "macro_official_api_provider_placeholder",
+    "macro_official_api_provider_placeholder",
+    "calendar_licensed_provider_placeholder",
+    "calendar_licensed_provider_placeholder",
+    "news_public_dataset_provider_placeholder",
+    "news_public_dataset_provider_placeholder",
+    "fx_manual_file_provider",
+    "fx_local_cache_provider",
+    "fx_official_api_provider_placeholder",
+    "commodity_manual_file_provider",
+    "commodity_local_cache_provider",
+    "macro_manual_file_provider",
+    "macro_local_cache_provider",
+    "calendar_manual_file_provider",
+    "calendar_local_cache_provider",
+    "news_manual_file_provider",
+    "news_local_cache_provider"
+  ],
+  "current_phase": 113,
+  "target_final_phase": 160
+}

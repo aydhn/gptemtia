@@ -1,0 +1,7 @@
+component,status,items
+Profiles & Domains,READY,3
+Quality Rules,READY,27
+Consistency Contracts,READY,10
+Findings & Manual Review,ACTIVE,7
+Scoring & Handoff,READY,7
+Health & Safety,PASS,38

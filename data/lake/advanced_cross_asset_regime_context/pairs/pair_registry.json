@@ -1,0 +1,19 @@
+{
+  "total_pairs": 12,
+  "relationship_categories": {
+    "fx_pair_to_commodity_symbol": 3,
+    "commodity_symbol_to_macro_indicator": 2,
+    "fx_pair_to_macro_indicator": 2,
+    "macro_indicator_to_calendar_event": 1,
+    "calendar_event_to_news_metadata_tag": 1,
+    "fx_pair_to_cross_asset_context": 1,
+    "commodity_symbol_to_cross_asset_context": 1,
+    "regime_family_to_transition_context": 1
+  },
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "zero_target_or_prediction": true,
+  "zero_trading_recommendations": true,
+  "zero_arbitrage_claims": true,
+  "active_profile": "balanced_local_cross_asset_regime_context"
+}

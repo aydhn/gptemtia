@@ -1,0 +1,10 @@
+placeholder_name,family,window,column_name,is_placeholder,non_signal,directional_claim
+quote_spread_rolling_mean,quote_microstructure,5,quote_spread_mean_w5,True,True,False
+quote_spread_rolling_mean,quote_microstructure,10,quote_spread_mean_w10,True,True,False
+quote_spread_rolling_mean,quote_microstructure,20,quote_spread_mean_w20,True,True,False
+quote_staleness,quote_microstructure,5,quote_staleness_w5,True,True,False
+quote_staleness,quote_microstructure,10,quote_staleness_w10,True,True,False
+quote_staleness,quote_microstructure,20,quote_staleness_w20,True,True,False
+quote_mid_return,quote_microstructure,1,quote_mid_return_w1,True,True,False
+quote_mid_return,quote_microstructure,5,quote_mid_return_w5,True,True,False
+quote_mid_return,quote_microstructure,10,quote_mid_return_w10,True,True,False

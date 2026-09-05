@@ -1,0 +1,3 @@
+timestamp,symbol,price,currency,unit,provider,normalized_symbol,normalized_unit
+2026-03-01 12:00:00,GOLD,2850.5,USDollar,USD/oz,commodity dry run,XAU/USD,usd_per_oz
+2026-03-01 12:00:00,CL,75.2,USD,USD/barrel,commodity dry run,WTI_CRUDE_CONTINUOUS_PLACEHOLDER,usd_per_barrel

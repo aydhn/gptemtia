@@ -1,0 +1,8 @@
+{
+  "rule_count": 2,
+  "rules": [
+    "provider_credential_hygiene",
+    "provider_policy_presence"
+  ],
+  "domain": "provider_metadata_quality"
+}

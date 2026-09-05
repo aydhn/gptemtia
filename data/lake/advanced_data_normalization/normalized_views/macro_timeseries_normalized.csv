@@ -1,0 +1,3 @@
+timestamp,indicator,value,region,frequency,unit,provider,normalized_indicator,normalized_frequency,normalized_region
+2026-02-01,US10Y,4.25%,United States,daily,%,macro official,US_10Y_YIELD,1d,US
+2026-02-01,CPI_US_YOY,2.8,USA,monthly,percent,macro official,US_CPI_YOY,1mo,US

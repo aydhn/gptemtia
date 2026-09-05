@@ -1,0 +1,47 @@
+boundary_id,category,rule,enforced,allowed
+nogo_live_trading,execution,live trading,True,
+nogo_broker_integration,execution,broker integration,True,
+nogo_real_order,execution,real order,True,
+nogo_buy_sell_instruction,advice,exact buy/sell instruction,True,
+nogo_investment_advice,advice,investment advice,True,
+nogo_directional_claim,signal,news directional certainty claim,True,
+nogo_sentiment_signal,signal,sentiment-as-signal,True,
+nogo_full_article_download,copyright,full article download,True,
+nogo_copyright_copy,copyright,copyrighted article copy,True,
+nogo_model_deployment,deployment,model deployment,True,
+nogo_nlp_deployment,deployment,NLP model deployment,True,
+nogo_production_deployment,deployment,production deployment,True,
+nogo_web_server_dashboard,runtime,web server/dashboard,True,
+nogo_external_llm_vector_embedding,runtime,external LLM/vector/embedding,True,
+nogo_web_scraping,scraping,web scraping,True,
+nogo_news_page_scraping,scraping,news page scraping,True,
+nogo_html_scraping,scraping,HTML scraping,True,
+nogo_browser_automation,scraping,browser automation scraping,True,
+nogo_hidden_api,scraping,hidden API reverse engineering,True,
+nogo_paywall_bypass,scraping,paywall bypass,True,
+nogo_rate_limit_abuse,network,rate limit abuse,True,
+nogo_credential_output,security,credential output,True,
+nogo_paid_api_lockin,commercial,required paid API lock-in,True,
+nogo_cloud_publish,packaging,cloud publish,True,
+nogo_docker_push,packaging,Docker push,True,
+nogo_git_tag,packaging,git tag,True,
+nogo_archive_creation,packaging,archive creation,True,
+nogo_destructive_file,filesystem,destructive file action,True,
+nogo_official_approval,governance,official approval wording,True,
+safego_metadata_abstraction,architecture,local/offline news metadata abstraction,,True
+safego_metadata_only_schema,data,metadata-only schema,,True
+safego_dry_run_fixture,testing,news dry-run fixture,,True
+safego_manual_file_placeholder,storage,news manual file placeholder,,True
+safego_local_cache_placeholder,storage,news local cache placeholder,,True
+safego_official_api_placeholder,adapter,news official API placeholder without network call,,True
+safego_licensed_placeholder,adapter,news licensed provider placeholder without credential,,True
+safego_public_dataset_placeholder,adapter,news public dataset placeholder without network call,,True
+safego_source_registry,registry,news source registry,,True
+safego_item_ref_schema,schema,news item reference schema,,True
+safego_tag_registries,taxonomy,asset/macro/commodity/FX tag registry,,True
+safego_event_linkage,taxonomy,event linkage registry,,True
+safego_sentiment_requirements,requirements,sentiment/impact placeholder requirements,,True
+safego_freshness_requirements,requirements,freshness/dedup requirements,,True
+safego_capability_matching,matching,news capability matching,,True
+safego_manual_review,governance,manual review,,True
+safego_strict_prohibitions,governance,no broker/no live/no advice/no deploy/no scraping/no copyrighted copy,,True

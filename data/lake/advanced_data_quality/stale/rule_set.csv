@@ -1,0 +1,2 @@
+rule_name,rule_domain,severity_label,description
+check_stale_timestamp,stale_data,quality_medium,Veri setindeki en güncel zaman damgasının izin verilen yaş sınırını aşması kontrolü.

@@ -1,0 +1,9 @@
+{
+  "total_conditions": 55,
+  "total_no_go": 31,
+  "total_safe_go": 24,
+  "source_overwrite_forbidden": true,
+  "destructive_cleaning_forbidden": true,
+  "current_phase": 113,
+  "target_final_phase": 160
+}

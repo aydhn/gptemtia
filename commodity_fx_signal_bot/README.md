@@ -1490,3 +1490,120 @@ python -m scripts.run_post_incident_review_templates
 python -m scripts.run_incident_quality_report
 python -m scripts.run_incident_status
 ```
+
+## Local System Closure and Project Completion Dossier
+
+- Final local system closure dossier gerçek project closure değildir.
+- Terminal handoff pack gerçek teslim/onay değildir.
+- Knowledge freeze rehearsal Git tag veya release freeze değildir.
+- Last-mile audit binder official audit değildir.
+- Project completion readiness packet production approval değildir.
+- Completion readiness score official completion approval değildir.
+- Cloud upload, package publish, Docker push, Git tag, deployment, live trading, broker execution ve yatırım tavsiyesi yoktur.
+- Çıktılar data/lake/local_project_completion ve reports/output/local_project_completion altında oluşur.
+
+Komutlar:
+```bash
+python -m scripts.run_completion_domain_registry
+python -m scripts.run_final_system_closure_dossier
+python -m scripts.run_terminal_handoff_pack
+python -m scripts.run_knowledge_freeze_rehearsal
+python -m scripts.run_last_mile_audit_binder
+python -m scripts.run_project_completion_readiness
+python -m scripts.run_completion_quality_report
+python -m scripts.run_completion_status
+```
+
+
+## Local Post-Completion Preservation and Archive Seal Rehearsal
+- Final local archive seal rehearsal packet gerçek archive seal değildir.
+- Immutable-README rehearsal gerçek immutable dosya veya chmod/read-only lock değildir.
+- Evidence vault index legal/audit evidence vault değildir.
+- Final knowledge capsule official knowledge freeze değildir.
+- Post-completion preservation binder official preservation policy değildir.
+- Preservation readiness score official archive approval değildir.
+- Cloud upload, package publish, Docker push, Git tag, deployment, live trading, broker execution ve yatırım tavsiyesi yoktur.
+- Çıktılar data/lake/local_post_completion_preservation ve reports/output/local_post_completion_preservation altında oluşur.
+
+Komutlar:
+```bash
+python -m scripts.run_preservation_domain_registry
+python -m scripts.run_archive_seal_rehearsal
+python -m scripts.run_immutable_readme_rehearsal
+python -m scripts.run_evidence_vault_index
+python -m scripts.run_final_knowledge_capsule
+python -m scripts.run_post_completion_preservation_binder
+python -m scripts.run_preservation_quality_report
+python -m scripts.run_preservation_status
+```
+
+
+## Local Project Atlas and Meta-Index
+Final local meta-index official knowledge index değildir.
+Universal navigation map official SOP değildir.
+Cross-phase lookup engine enterprise search değildir.
+Offline semantic table of contents embedding/vector search değildir.
+Terminal project atlas legal/compliance evidence değildir.
+Meta-index readiness score official approval değildir.
+Cloud index, vector DB, embedding API, external LLM, package publish, Docker push, Git tag, deployment, live trading, broker execution ve yatırım tavsiyesi yoktur.
+Çıktılar data/lake/local_project_atlas ve reports/output/local_project_atlas altında oluşur.
+
+Komutlar:
+```bash
+python -m scripts.run_atlas_domain_registry
+python -m scripts.run_final_meta_index
+python -m scripts.run_universal_navigation_map
+python -m scripts.run_cross_phase_lookup_engine
+python -m scripts.run_offline_semantic_toc
+python -m scripts.run_terminal_project_atlas
+python -m scripts.run_atlas_quality_report
+python -m scripts.run_atlas_status
+```
+
+## Local Human-Review Cockpit and Review Governance
+
+Bu proje, Phase 94 kapsamında **Local Human-Review Cockpit and Review Governance** katmanını içerir.
+ÖNEMLİ UYARI:
+- Final local human-review cockpit web dashboard/GUI/TUI değildir.
+- Manual approval ledger gerçek approval workflow değildir.
+- Expert review workbook official expert sign-off değildir.
+- Offline reviewer console yalnızca offline rapor paketidir.
+- Terminal review governance binder legal/compliance approval değildir.
+- Review readiness score production approval değildir.
+- E-signature, package publish, Docker push, Git tag, cloud upload, deployment, live trading, broker execution ve yatırım tavsiyesi yoktur.
+- Tüm çıktılar local ve offline olarak `data/lake/local_review_governance` ve `reports/output/local_review_governance` altında oluşturulur.
+
+Komutlar:
+```bash
+python -m scripts.run_review_domain_registry
+python -m scripts.run_human_review_cockpit
+python -m scripts.run_manual_approval_ledger
+python -m scripts.run_expert_review_workbook
+python -m scripts.run_offline_reviewer_console
+python -m scripts.run_terminal_review_governance
+python -m scripts.run_review_quality_report
+python -m scripts.run_review_status
+```
+
+## Local Distribution Bundle, Portable Docs and Packaging Governance
+
+- Final local distribution bundle rehearsal gercek release package degildir.
+- Portable docs bundle official handover degildir.
+- Offline release folder manifest gercek release degildir.
+- Terminal handover ZIP-map gercek ZIP/archive uretmez.
+- Final packaging governance binder official packaging approval degildir.
+- Packaging readiness score release approval degildir.
+- ZIP/TAR/RAR/7z, binary artifact, installer, package publish, Docker push, Git tag, cloud upload, deployment, live trading, broker execution ve yatirim tavsiyesi yoktur.
+- Ciktilar data/lake/local_distribution_packaging ve reports/output/local_distribution_packaging altinda olusur.
+
+Komutlar:
+```bash
+python -m scripts.run_packaging_domain_registry
+python -m scripts.run_distribution_bundle_rehearsal
+python -m scripts.run_portable_docs_bundle
+python -m scripts.run_offline_release_folder_manifest
+python -m scripts.run_terminal_handover_zip_map
+python -m scripts.run_final_packaging_governance
+python -m scripts.run_packaging_quality_report
+python -m scripts.run_packaging_status
+```

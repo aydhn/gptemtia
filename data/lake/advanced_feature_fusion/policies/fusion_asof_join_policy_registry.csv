@@ -1,0 +1,4 @@
+policy_name,policy_type,description,future_data_allowed,full_text_allowed,destructive_action_allowed,non_signal,manual_review_required
+strict_backward_asof_direction_policy,asof_join,Asof join yönü kesinlikle 'backward' olmalıdır; 'forward' veya 'nearest' kesinlikle yasaktır.,False,False,False,True,False
+non_mutating_dataframe_policy,asof_join,"Join işlemleri girdi DataFrame'lerini in-place mutate etmez, daima kopya üzerinde çalışır.",False,False,False,True,False
+deterministic_sorted_timestamp_policy,asof_join,Join öncesinde hem sol hem sağ DataFrame deterministik olarak zaman damgasına göre sıralanır.,False,False,False,True,False

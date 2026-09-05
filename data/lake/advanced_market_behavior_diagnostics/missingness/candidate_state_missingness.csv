@@ -1,0 +1,11 @@
+candidate_state_name,candidate_state_family,missing_fields_count,missingness_ratio,unresolved_reference_count,has_blocking_missingness,non_signal,missingness_status
+candidate_state_volatility_expansion,volatility,0,0.0,0,False,True,behavior_quality_ready
+candidate_state_volatility_compression,volatility,0,0.0,0,False,True,behavior_quality_ready
+candidate_state_trend_continuation,trend,0,0.0,0,False,True,behavior_quality_ready
+candidate_state_trend_exhaustion,trend,0,0.0,0,False,True,behavior_quality_ready
+candidate_state_range_bound_oscillation,range,0,0.0,0,False,True,behavior_quality_ready
+candidate_state_range_breakout_transition,range,0,0.0,0,False,True,behavior_quality_ready
+candidate_state_macro_event_shock,macro_event,0,0.0,0,False,True,behavior_quality_ready
+candidate_state_news_attention_surge,news_metadata,0,0.0,0,False,True,behavior_quality_ready
+candidate_state_cross_asset_divergence,cross_asset,0,0.0,0,False,True,behavior_quality_ready
+candidate_state_uncertain_regime,uncertain,0,0.0,0,False,True,behavior_quality_ready

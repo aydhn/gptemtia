@@ -1,0 +1,19 @@
+{
+  "total_handoff_items": 9,
+  "benchmark_areas": [
+    "Provider capability benchmark inputs",
+    "Provider coverage benchmark inputs",
+    "Quality score benchmark inputs",
+    "Normalization score benchmark inputs",
+    "Traceability score benchmark inputs",
+    "License/provenance benchmark inputs",
+    "Metadata-only compliance benchmark inputs",
+    "Cross-domain provider comparison inputs",
+    "Dry-run provider benchmark rehearsal"
+  ],
+  "manual_review_count": 1,
+  "current_phase": 114,
+  "target_phase": 115,
+  "target_phase_name": "Data Provider Benchmark Report",
+  "target_final_phase": 160
+}

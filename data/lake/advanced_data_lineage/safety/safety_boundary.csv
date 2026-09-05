@@ -1,0 +1,48 @@
+condition_id,rule_name,description,status,enforced
+nogo_001,live_trading,Canlı piyasada gerçek işlem yapılması,BLOCKED_NO_GO,True
+nogo_002,broker_integration,Broker API veya emir iletim köprüsü bağlanması,BLOCKED_NO_GO,True
+nogo_003,real_order,Gerçek pozisyon açılması veya portföy işlemi yapılması,BLOCKED_NO_GO,True
+nogo_004,exact_buy_sell_instruction,Kullanıcıya kesin AL/SAT talimatı verilmesi,BLOCKED_NO_GO,True
+nogo_005,investment_advice,Yatırım tavsiyesi veya sermaye piyasası danışmanlığı verilmesi,BLOCKED_NO_GO,True
+nogo_006,lineage_score_as_trading_signal,Lineage skorunun işlem sinyali olarak sunulması,BLOCKED_NO_GO,True
+nogo_007,traceability_score_as_official_approval,İzlenebilirlik skorunun resmi sağlayıcı onayı gibi sunulması,BLOCKED_NO_GO,True
+nogo_008,production_approval_claim,Sistemin production ready olduğu iddiası,BLOCKED_NO_GO,True
+nogo_009,model_deployment,Makine öğrenmesi veya sinyal modeli deployment,BLOCKED_NO_GO,True
+nogo_010,production_deployment,Canlı ortama sunucu veya servis kurulması,BLOCKED_NO_GO,True
+nogo_011,web_server_dashboard,"Web sunucusu, dashboard, GUI veya TUI başlatılması",BLOCKED_NO_GO,True
+nogo_012,external_llm_vector_embedding,"Harici LLM, vector database veya embedding API çağrısı",BLOCKED_NO_GO,True
+nogo_013,graph_database_creation,Gerçek graph database veya harici graph motoru kurulması,BLOCKED_NO_GO,True
+nogo_014,web_scraping,Web scraping veya veri çekme,BLOCKED_NO_GO,True
+nogo_015,html_scraping,HTML kaynak kodunun kazınması,BLOCKED_NO_GO,True
+nogo_016,news_page_scraping,Haber sitelerinin taranması,BLOCKED_NO_GO,True
+nogo_017,browser_automation_scraping,"Selenium, Playwright veya tarayıcı otomasyonu",BLOCKED_NO_GO,True
+nogo_018,hidden_api_reverse_engineering,Tersine mühendislik ile gizli API bulunması,BLOCKED_NO_GO,True
+nogo_019,paywall_bypass,Ödeme duvarlarının aşılması,BLOCKED_NO_GO,True
+nogo_020,rate_limit_abuse,Sağlayıcı istek limitlerinin kötüye kullanılması,BLOCKED_NO_GO,True
+nogo_021,credential_output,API anahtarları veya parolaların loglanması/çıktılanması,BLOCKED_NO_GO,True
+nogo_022,full_article_download,Haber tam metinlerinin indirilmesi,BLOCKED_NO_GO,True
+nogo_023,copyrighted_article_copy,Telifli haber veya makale metinlerinin kopyalanması,BLOCKED_NO_GO,True
+nogo_024,required_paid_api_lockin,Ücretli API'lere zorunlu bağımlılık yaratılması,BLOCKED_NO_GO,True
+nogo_025,source_overwrite,Kaynak veri dosyalarının üzerine yazılması,BLOCKED_NO_GO,True
+nogo_026,destructive_cleaning,Verilerin otomatik veya geri dönülemez şekilde silinmesi,BLOCKED_NO_GO,True
+nogo_027,file_deletion_move_overwrite,"Dosya silme, taşıma veya zorunlu ezme eylemleri",BLOCKED_NO_GO,True
+nogo_028,cloud_publish,Bulut ortamlarına veri yüklenmesi,BLOCKED_NO_GO,True
+nogo_029,docker_push,Konteyner depolarına imaj yüklenmesi,BLOCKED_NO_GO,True
+nogo_030,git_tag_release,Sürüm veya git release tag'i atılması,BLOCKED_NO_GO,True
+nogo_031,archive_creation,"Gerçek ZIP, TAR veya 7z arşiv dosyası üretilmesi",BLOCKED_NO_GO,True
+nogo_032,official_approval_wording,Resmi onay veya regulator compliance iddiası,BLOCKED_NO_GO,True
+safego_001,local_offline_lineage_registry,Tamamen yerel ve çevrimdışı soy kütüğü kayıt defteri,ALLOWED_SAFE_GO,True
+safego_002,dry_run_fixture_provenance,Sentetik ve sözleşme fikstürleri üzerinde izlenebilirlik,ALLOWED_SAFE_GO,True
+safego_003,provider_provenance_registry,Sağlayıcı lisans ve kimlik soy kütüğü kaydı,ALLOWED_SAFE_GO,True
+safego_004,dataset_provenance_registry,Veri seti düzeyinde kaynak ve normalizasyon eşlemesi,ALLOWED_SAFE_GO,True
+safego_005,schema_provenance_registry,Kaynak ve kanonik şema sürümlerinin izlenmesi,ALLOWED_SAFE_GO,True
+safego_006,transformation_provenance_registry,Dönüşüm kurallarının alan seviyesi kaydı,ALLOWED_SAFE_GO,True
+safego_007,normalization_lineage_registry,Phase 113 normalizasyon kurallarının izlenebilirliği,ALLOWED_SAFE_GO,True
+safego_008,quality_manual_review_lineage,Kalite bulguları ve manuel inceleme kuyruğu soy kütüğü,ALLOWED_SAFE_GO,True
+safego_009,normalized_output_lineage,Orijinal ve normalize görünüm manifest bağlarının tutulması,ALLOWED_SAFE_GO,True
+safego_010,license_copyright_metadata_only,Telif sınırları ve sıfır tam metin garantisi,ALLOWED_SAFE_GO,True
+safego_011,audit_trail_placeholder,Değişmez denetim izi olay kayıtları,ALLOWED_SAFE_GO,True
+safego_012,traceability_score_diagnostic,Yalnızca iç teşhis amaçlı izlenebilirlik skoru,ALLOWED_SAFE_GO,True
+safego_013,cross_domain_provenance_map,Varlık sınıfları arası çapraz soy kütüğü haritası,ALLOWED_SAFE_GO,True
+safego_014,phase_115_benchmark_handoff,Phase 115 benchmark karşılaştırmaları için girdi hazırlığı,ALLOWED_SAFE_GO,True
+safego_015,non_destructive_preservation,Tüm ham verilerin değiştirilmeden korunması (`source_preserved: True`),ALLOWED_SAFE_GO,True

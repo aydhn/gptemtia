@@ -1,0 +1,19 @@
+{
+  "total_alignments": 4,
+  "calendar_events": [
+    "FOMC_RATE_DECISION",
+    "US_CPI_RELEASE",
+    "EIA_CRUDE_INVENTORY_RELEASE",
+    "US_NONFARM_PAYROLLS_RELEASE"
+  ],
+  "news_topics": [
+    "CENTRAL_BANK",
+    "INFLATION",
+    "CRUDE_OIL",
+    "LABOR_MARKET"
+  ],
+  "all_no_full_text": true,
+  "all_non_signal": true,
+  "status": "READY",
+  "profile": "balanced_local_cross_asset_alignment"
+}

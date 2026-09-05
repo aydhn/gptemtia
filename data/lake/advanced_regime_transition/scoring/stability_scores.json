@@ -1,0 +1,9 @@
+{
+  "stability_score": 0.82,
+  "classification": "high_stability",
+  "non_signal_guaranteed": true,
+  "zero_official_approval": true,
+  "zero_production_ready": true,
+  "zero_broker_ready": true,
+  "active_profile": "balanced_local_regime_transition"
+}

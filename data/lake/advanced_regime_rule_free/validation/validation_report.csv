@@ -1,0 +1,7 @@
+check_name,passed,violations_count,details
+profile_registry_validation,True,0,OK
+labeling_contracts_validation,True,0,OK
+candidate_state_schema_validation,True,0,OK
+unsupervised_prep_validation,True,0,OK
+integrity_manifest_validation,True,0,OK
+global_forbidden_claims_validation,True,0,OK

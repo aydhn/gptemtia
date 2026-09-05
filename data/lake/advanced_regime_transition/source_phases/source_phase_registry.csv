@@ -1,0 +1,8 @@
+source_phase,phase_name,provided_artifacts,dependency_type,status
+121,Phase 121 Feature Validation and Guardrails,"no_lookahead_validation, timestamp_order, numeric_sanity",validation_gate,active_dependency
+123,Phase 123 Feature Quality and Drift Diagnostics,"missingness_metrics, drift_scores, quality_findings",quality_gate,active_dependency
+124,Phase 124 Feature Store Integration Expansion,"feature_metadata_catalogs, entity_registries",metadata_catalog,active_dependency
+126,Phase 126 Regime Classification Foundation,"regime_taxonomies, regime_family_registries",domain_foundation,active_dependency
+127,Phase 127 Regime Feature Matrix and State Datasets,"matrix_contracts, state_dataset_contracts",dataset_contract,active_dependency
+128,Phase 128 Regime Rule-Free Labeling Contracts,"candidate_states, pseudo_states_contracts",candidate_state_schema,active_dependency
+129,Phase 129 Market Behavior Diagnostics and Regime Quality,"behavior_diagnostics, candidate_quality_scores, handoff",behavior_diagnostics,active_dependency

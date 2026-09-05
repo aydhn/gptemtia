@@ -1,0 +1,8 @@
+{
+  "total_findings": 2,
+  "manual_review_count": 2,
+  "all_non_signal": true,
+  "zero_destructive_actions": true,
+  "zero_auto_fix_allowed": true,
+  "active_profile": "balanced_local_regime_transition"
+}

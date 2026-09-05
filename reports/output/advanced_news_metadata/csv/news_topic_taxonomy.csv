@@ -1,0 +1,15 @@
+topic_id,topic_name,parent_topic,description,manual_review_required
+top_central_bank,central_bank,macro,"Monetary policy decisions, minutes, communications, policy rate adjustments.",False
+top_inflation,inflation,macro,"CPI, PPI, core inflation measures, price indices, inflationary expectations.",False
+top_growth,growth,macro,"GDP, industrial production, composite output, retail trade activity.",False
+top_labor,labor,macro,"Employment, unemployment rate, nonfarm payrolls, job openings, wage growth.",False
+top_geopolitics,geopolitics,macro,"Sovereign conflict, international sanctions, trade policy, diplomatic friction.",False
+top_energy,energy,commodity,"Crude oil, petroleum products, natural gas storage, pipeline flows, OPEC.",False
+top_metals,metals,commodity,"Precious metals (gold, silver) and base metals (copper, aluminum, zinc).",False
+top_agriculture,agriculture,commodity,"Grains, oilseeds, soft commodities, agricultural weather shocks.",False
+top_fx,fx,fx,"Currency pairs, central bank currency interventions, exchange rate volatility.",False
+top_risk_sentiment,risk_sentiment,cross_asset,"Broad market risk appetite, VIX spikes, flight-to-safety, systemic liquidity.",False
+top_liquidity,liquidity,macro,"Interbank liquidity, repo facilities, central bank balance sheet contraction/expansion.",False
+top_calendar_event,calendar_event,economic_calendar,Scheduled release announcements and economic calendar linkages.,False
+top_official_statement,official_statement,governance,Formal regulatory and sovereign statements.,False
+top_licensed_news_placeholder,licensed_news_placeholder,external_feed,Contract placeholder for licensed institutional news feeds.,True

@@ -1,0 +1,12 @@
+{
+  "total_policies": 4,
+  "policy_names": [
+    "strict_monotonic_timestamp_order",
+    "no_future_context_timestamp",
+    "transition_lag_alignment",
+    "macro_release_lag_guard"
+  ],
+  "all_blocking": true,
+  "all_require_utc": true,
+  "active_profile": "balanced_local_regime_transition"
+}

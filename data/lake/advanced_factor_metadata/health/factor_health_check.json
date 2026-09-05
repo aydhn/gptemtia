@@ -1,0 +1,11 @@
+{
+  "active_profile": "balanced_local_factor_metadata",
+  "health_status": "HEALTHY",
+  "total_checks": 10,
+  "passed_checks": 10,
+  "failed_checks": 0,
+  "prerequisites_ready": true,
+  "current_phase": 122,
+  "target_final_phase": 160,
+  "non_signal": true
+}

@@ -1,0 +1,15 @@
+{
+  "total_policies": 6,
+  "policy_ids": [
+    "nsp_no_buy_sell_signals",
+    "nsp_no_directional_claims",
+    "nsp_no_model_predictions",
+    "nsp_no_broker_order_execution",
+    "nsp_no_position_sizing",
+    "nsp_no_unsupervised_label_assignment"
+  ],
+  "all_active": true,
+  "all_enforced": true,
+  "all_non_signal": true,
+  "status": "matrix_ready"
+}

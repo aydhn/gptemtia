@@ -1,0 +1,7 @@
+{
+  "compliance_type": "non_signal",
+  "total_modules_audited": 10,
+  "compliant_modules": 10,
+  "non_signal": true,
+  "contains_trading_recommendation": false
+}

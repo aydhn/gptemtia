@@ -1,0 +1,10 @@
+{
+  "validation_status": "VALID",
+  "total_checks": 11,
+  "passed_checks": 11,
+  "forbidden_claims_found": false,
+  "current_phase": 116,
+  "target_final_phase": 160,
+  "next_phase": 117,
+  "non_signal": true
+}

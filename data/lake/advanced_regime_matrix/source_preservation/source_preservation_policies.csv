@@ -1,0 +1,6 @@
+policy_id,name,description,is_enforced,non_signal,current_phase,target_final_phase,next_phase,source_preserved,status
+spp_no_source_overwrite,Zero Source Overwrite,Never overwrite existing files in upstream data lakes or raw directories.,True,True,127,160,128,True,matrix_ready
+spp_no_destructive_cleaning,Zero Destructive Cleaning,Never purge rows or drop columns silently; quarantine via manual review queue.,True,True,127,160,128,True,matrix_ready
+spp_no_synthetic_imputation,Zero Auto-Imputation,Missing values must remain explicit NaNs or flagged with indicators rather than synthesized.,True,True,127,160,128,True,matrix_ready
+spp_immutable_input_copies,Immutable Input DataFrame Protection,All transform functions must create df.copy() before processing.,True,True,127,160,128,True,matrix_ready
+spp_non_destructive_feature_quarantine,Non-Destructive Feature Quarantine,"Anomalous or degraded features must be isolated via manual review queue, never deleted.",True,True,127,160,128,True,matrix_ready

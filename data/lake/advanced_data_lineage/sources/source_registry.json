@@ -1,0 +1,27 @@
+{
+  "total_sources": 10,
+  "source_names": [
+    "fx_dry_run_fixture_source",
+    "commodity_dry_run_fixture_source",
+    "macro_dry_run_fixture_source",
+    "calendar_dry_run_fixture_source",
+    "news_metadata_dry_run_fixture_source",
+    "manual_file_placeholder_source",
+    "local_cache_placeholder_source",
+    "official_api_placeholder_source",
+    "licensed_provider_placeholder_source",
+    "public_dataset_placeholder_source"
+  ],
+  "source_types": [
+    "dry_run_fixture",
+    "manual_file",
+    "local_cache",
+    "official_api",
+    "licensed_provider",
+    "public_dataset"
+  ],
+  "manual_review_count": 3,
+  "all_no_scraping": true,
+  "current_phase": 114,
+  "target_final_phase": 160
+}

@@ -1,0 +1,6 @@
+indicator_name,output_field,family,non_signal
+candle_body_size,candle_body_size,family_candle_anatomy,True
+candle_body_pct,candle_body_pct,family_candle_anatomy,True
+upper_wick_size,upper_wick_size,family_candle_anatomy,True
+lower_wick_size,lower_wick_size,family_candle_anatomy,True
+wick_balance,wick_balance,family_candle_anatomy,True

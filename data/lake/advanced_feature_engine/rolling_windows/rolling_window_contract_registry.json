@@ -1,0 +1,16 @@
+{
+  "total_standard_windows": 7,
+  "windows": [
+    5,
+    10,
+    14,
+    20,
+    50,
+    100,
+    200
+  ],
+  "min_window": 5,
+  "max_window": 200,
+  "all_lookahead_guarded": true,
+  "non_signal": true
+}

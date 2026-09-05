@@ -1,0 +1,7 @@
+{
+  "total_features_registered": 17,
+  "all_guarded_against_lookahead": true,
+  "all_non_signal": true,
+  "max_warmup_required": 26,
+  "non_signal": true
+}

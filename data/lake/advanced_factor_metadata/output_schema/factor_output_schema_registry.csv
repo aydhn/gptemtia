@@ -1,0 +1,13 @@
+schema_ref,factor_family,value_dtype,nullable,column_count,standard_columns,description,non_signal,status_label
+schema_factor_trend_float64,trend,float64,True,3,"['timestamp', 'symbol', 'factor_trend_multi_window_context']",Continuous trend slope and channel position metric schema.,True,factor_ready
+schema_factor_momentum_float64,momentum,float64,True,3,"['timestamp', 'symbol', 'factor_momentum_rsi_roc_context']",Continuous normalized momentum velocity schema.,True,factor_ready
+schema_factor_volatility_float64,volatility,float64,True,3,"['timestamp', 'symbol', 'factor_volatility_atr_realized_context']",Continuous non-negative volatility dispersion metric schema.,True,factor_ready
+schema_factor_mean_reversion_float64,mean_reversion,float64,True,3,"['timestamp', 'symbol', 'factor_mean_reversion_zscore_context']",Standard score z-score distance-to-mean schema.,True,factor_ready
+schema_factor_return_float64,return,float64,True,3,"['timestamp', 'symbol', 'factor_return_multi_horizon_context']",Historical trailing returns metric schema.,True,factor_ready
+schema_factor_quote_float64,quote_microstructure,float64,True,3,"['timestamp', 'symbol', 'factor_quote_spread_context_placeholder']",Microstructure spread and order book hygiene placeholder schema.,True,factor_ready
+schema_factor_macro_float64,macro_context,float64,True,3,"['timestamp', 'symbol', 'factor_macro_inflation_rate_context']",Macroeconomic point-in-time rate schema.,True,factor_ready
+schema_factor_event_float64,calendar_event,float64,True,3,"['timestamp', 'symbol', 'factor_event_release_context']",Scheduled release proximity context schema.,True,factor_ready
+schema_factor_news_float64,news_attention,float64,True,3,"['timestamp', 'symbol', 'factor_news_attention_context']",Metadata-only entity frequency count schema.,True,factor_ready
+schema_factor_cross_asset_float64,cross_asset_context,float64,True,3,"['timestamp', 'symbol', 'factor_cross_asset_context']",Aligned multi-domain correlation observation schema.,True,factor_ready
+schema_factor_regime_prep_float64,regime_prep,float64,True,3,"['timestamp', 'symbol', 'factor_regime_prep_placeholder']",Candidate feature aggregate placeholder schema for Phase 126+.,True,factor_ready
+schema_factor_composite_float64,composite,float64,True,3,"['timestamp', 'symbol', 'factor_composite_context_placeholder']",Multi-family feature aggregation placeholder schema.,True,factor_ready

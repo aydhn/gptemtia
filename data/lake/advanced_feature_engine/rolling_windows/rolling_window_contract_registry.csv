@@ -1,0 +1,8 @@
+window_size,description,minimum_allowed,lookahead_bias_guarded,warmup_nan_count,non_signal,policy_note
+5,Kısa vadeli mikro pencere (1 hafta yaklaşık),2,True,4,True,Yalnızca geçmiş ve mevcut barları kullanır ([t - window + 1 : t]); shift(-1) kesinlikle yasaktır.
+10,İki haftalık kısa vadeli momentum/volatilite penceresi,2,True,9,True,Yalnızca geçmiş ve mevcut barları kullanır ([t - window + 1 : t]); shift(-1) kesinlikle yasaktır.
+14,RSI ve ATR standart salınım penceresi,2,True,13,True,Yalnızca geçmiş ve mevcut barları kullanır ([t - window + 1 : t]); shift(-1) kesinlikle yasaktır.
+20,Bir aylık standart trend ve Bollinger bandı penceresi,2,True,19,True,Yalnızca geçmiş ve mevcut barları kullanır ([t - window + 1 : t]); shift(-1) kesinlikle yasaktır.
+50,Orta vadeli çeyreklik trend referans penceresi,2,True,49,True,Yalnızca geçmiş ve mevcut barları kullanır ([t - window + 1 : t]); shift(-1) kesinlikle yasaktır.
+100,Uzun vadeli altı aylık rejim referans penceresi,2,True,99,True,Yalnızca geçmiş ve mevcut barları kullanır ([t - window + 1 : t]); shift(-1) kesinlikle yasaktır.
+200,Makro ve uzun vadeli yıllık trend referans penceresi,2,True,199,True,Yalnızca geçmiş ve mevcut barları kullanır ([t - window + 1 : t]); shift(-1) kesinlikle yasaktır.

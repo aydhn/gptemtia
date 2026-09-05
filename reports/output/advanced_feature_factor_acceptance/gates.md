@@ -1,0 +1,32 @@
+# Phase 125 Feature Engine Block Acceptance Gate Registry
+
+> [!WARNING]
+> **YASAL UYARI VE NON-SIGNAL GÜVENCESİ**:
+> Bu çıktı Phase 125 Feature/Factor Engine Acceptance Report raporudur. > Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, acceptance score’u trade sinyali olarak kullanma, > strateji üretimi, backtest, optimizer, model training, prediction/target/label üretimi, > production-ready/official approval/broker-ready iddiası, otomatik feature silme/düzeltme, > haber tam metni kullanımı, production deployment, model deployment, scraping veya gerçek provider API çağrısı değildir.
+
+
+## Summary
+- **Total Gates**: 16
+- **Passed Gates**: 16
+- **Failed Gates**: 0
+- **All Passed**: True
+
+## Gate Evaluations Table
+| gate_id | gate_name | category | description | status | score_weight | passed | details | non_signal | official_approval | production_ready | broker_ready |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| gate_01_module_import | Module Import Gate | functional | Phase 116-125 modüllerinin eksiksiz import edilebilirliği. | PASSED | 1.0 | True | Tüm paketler sözdizimi ve import hatası olmadan yüklenebilmektedir. | True | False | False | False |
+| gate_02_script_contract | Script Contract Gate | contracts | Phase 116-125 çalıştırılabilir operasyonel betik sözleşmeleri. | PASSED | 1.0 | True | Tüm CLI betikleri main() fonksiyonuna ve standart argümanlara sahiptir. | True | False | False | False |
+| gate_03_test_contract | Test Contract Gate | contracts | Phase 116-125 test paketlerinin mevcudiyeti ve bütünlüğü. | PASSED | 1.0 | True | Her faz için sözleşme ve fonksiyonel test dosyaları tanımlıdır. | True | False | False | False |
+| gate_04_datalake_contract | DataLake Contract Gate | storage | DataLake kayıt ve yükleme metodlarının eksiksizliği. | PASSED | 1.0 | True | DataLake save/load operasyonları dry-run ve yerel modda doğrulanmıştır. | True | False | False | False |
+| gate_05_feature_store_contract | Feature Store Contract Gate | storage | FeatureStore arayüzünün Phase 116-125 metaverilerini barındırması. | PASSED | 1.0 | True | Kataloglar, şemalar, varlıklar ve kalite skorları FeatureStore ile entegredir. | True | False | False | False |
+| gate_06_documentation | Documentation Gate | governance | README, ROADMAP, PHASE_LOG ve tüm rehber dokümanların güncelliği. | PASSED | 1.0 | True | 9 temel dokümantasyon dosyası Phase 125 standartlarına uygun güncellenmiştir. | True | False | False | False |
+| gate_07_non_signal | Non-Signal Invariant Gate | safety | Çıktıların AL/SAT sinyali veya trade tavsiyesi içermemesi garantisi. | PASSED | 1.5 | True | Hiçbir çıktı trade sinyali, hedef veya yönlü tahmin üretmemektedir. | True | False | False | False |
+| gate_08_no_lookahead | No-Lookahead Compliance Gate | safety | Zaman damgası sıralaması ve geleceğe bilgi sızıntısı olmaması. | PASSED | 1.5 | True | Backward asof join ve strictly increasing zaman damgaları korunmaktadır. | True | False | False | False |
+| gate_09_forbidden_column | Forbidden Column Gate | safety | signal, target, prediction, buy, sell vb. kolonların bloklanması. | PASSED | 1.5 | True | Yasaklı kolon taraması yapılmış ve kolon adlarında sızıntı saptanmamıştır. | True | False | False | False |
+| gate_10_news_metadata_only | News Metadata-Only Gate | safety | Haber verisinde tam metin, scraping, gömme (embedding) olmaması. | PASSED | 1.2 | True | Sadece başlık uzunluğu, frekans ve kanonik etiket metaverileri tutulmaktadır. | True | False | False | False |
+| gate_11_source_preservation | Source Preservation Gate | governance | Ham kaynak dosyaların korunması, otomatik silme ve ezmenin yasaklanması. | PASSED | 1.2 | True | Kaynak dosyalar immutable tutulmakta, yıkıcı temizlik yapılmamaktadır. | True | False | False | False |
+| gate_12_no_broker_live | No Broker / Live Trading Gate | safety | Canlı emir, broker API entegrasyonu ve portföy execution yasağı. | PASSED | 1.5 | True | Broker entegrasyonu ve canlı emir gönderme kodları tamamen devre dışıdır. | True | False | False | False |
+| gate_13_no_model_training | No Model Training Gate | governance | Model eğitimi, ağırlık optimizasyonu veya backtest çalıştırılmaması. | PASSED | 1.0 | True | Phase 125 salt kabul fazıdır; model fit/train/tune yapılmamaktadır. | True | False | False | False |
+| gate_14_no_deployment | No Deployment Gate | governance | Canlıya alma, docker push, bulut yayını veya git tag yasağı. | PASSED | 1.0 | True | Yalnızca yerel ve çevrimdışı çalışma alanında kabul manifestosu üretilir. | True | False | False | False |
+| gate_15_manual_review | Manual Review Queue Gate | governance | İnceleme gereken istisnaların silinmeden kuyruğa kaydedilmesi. | PASSED | 1.0 | True | İnceleme kuyrukları yıkıcı olmayan bayraklarla yönetilmektedir. | True | False | False | False |
+| gate_16_phase_126_handoff | Phase 126 Handoff Gate | handoff | Phase 126 Rejim Sınıflandırması için girdi devir şartnamesi. | PASSED | 1.0 | True | Rejim öncüsü faktörler ve kısıtlar devir raporunda belgelenmiştir. | True | False | False | False |

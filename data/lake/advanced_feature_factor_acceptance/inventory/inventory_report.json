@@ -1,0 +1,14 @@
+{
+  "profile_name": "balanced_local_feature_factor_acceptance",
+  "total_modules": 10,
+  "phase_range": "116-125",
+  "all_passed": true,
+  "total_expected_scripts": 93,
+  "total_expected_tests": 193,
+  "manual_review_needed": 0,
+  "non_signal": true,
+  "source_preserved": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false
+}

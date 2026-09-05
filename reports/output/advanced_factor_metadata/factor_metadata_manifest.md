@@ -1,0 +1,27 @@
+# Phase 122: Factor Metadata Manifest Report
+
+> **Yasal Uyarı**: Bu çıktı Phase 122 Factor Metadata and Factor Families raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, factor değerini trade sinyali olarak kullanma, strateji üretimi, backtest, optimizer, model training, prediction/target/label üretimi, sentiment model output, haber tam metni kullanımı, production-ready/official approval iddiası, production deployment, model deployment, scraping veya gerçek provider API çağrısı değildir.
+
+## Manifest Invariants
+- **Total Factor Items**: 12
+- **All Non-Signal Verified**: True
+- **Zero Predictions/Targets**: True
+- **Zero Trading Recommendations**: True
+- **Source Preserved**: True
+- **Status**: `factor_ready`
+
+## Manifest Entries
+| manifest_id | factor_name | factor_family | input_feature_count | dependency_count | validation_dependency_count | quality_dependency_count | non_signal | contains_target_or_prediction | contains_trading_recommendation | source_preserved | manual_review_required |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| manf_factor_trend_multi_window_context_6f75118c | factor_trend_multi_window_context | factor_family_trend | 3 | 2 | 9 | 7 | True | False | False | True | False |
+| manf_factor_momentum_rsi_roc_context_062e74ce | factor_momentum_rsi_roc_context | factor_family_momentum | 2 | 2 | 9 | 7 | True | False | False | True | False |
+| manf_factor_volatility_atr_realized_context_d6221e6f | factor_volatility_atr_realized_context | factor_family_volatility | 2 | 2 | 9 | 7 | True | False | False | True | False |
+| manf_factor_mean_reversion_zscore_context_4c26ce6b | factor_mean_reversion_zscore_context | factor_family_mean_reversion | 2 | 1 | 9 | 7 | True | False | False | True | False |
+| manf_factor_return_multi_horizon_context_fa9e0639 | factor_return_multi_horizon_context | factor_family_return | 3 | 1 | 9 | 7 | True | False | False | True | False |
+| manf_factor_quote_spread_context_placeholder_dc9e8585 | factor_quote_spread_context_placeholder | factor_family_quote_microstructure | 2 | 1 | 9 | 7 | True | False | False | True | True |
+| manf_factor_macro_inflation_rate_context_f300ea17 | factor_macro_inflation_rate_context | factor_family_macro_context | 2 | 2 | 9 | 7 | True | False | False | True | False |
+| manf_factor_event_release_context_b00959fe | factor_event_release_context | factor_family_calendar_event | 2 | 1 | 9 | 7 | True | False | False | True | False |
+| manf_factor_news_attention_context_63f0ad55 | factor_news_attention_context | factor_family_news_attention | 2 | 2 | 9 | 7 | True | False | False | True | False |
+| manf_factor_cross_asset_context_b5657525 | factor_cross_asset_context | factor_family_cross_asset_context | 2 | 1 | 9 | 7 | True | False | False | True | False |
+| manf_factor_regime_prep_placeholder_90bd4d11 | factor_regime_prep_placeholder | factor_family_regime_prep | 2 | 1 | 9 | 7 | True | False | False | True | True |
+| manf_factor_composite_context_placeholder_ff5bd178 | factor_composite_context_placeholder | factor_family_composite | 2 | 1 | 9 | 7 | True | False | False | True | True |

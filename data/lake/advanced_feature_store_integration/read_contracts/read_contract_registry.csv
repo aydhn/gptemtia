@@ -1,0 +1,3 @@
+contract_id,contract_name,allowed_sources,prohibited_actions,non_signal_enforced,status,allowed_sources_str,prohibited_actions_str
+RCON_001,local_offline_read_contract,"['local_disk', 'data_lake', 'feature_store_parquet_csv']","['network_call', 'provider_api_call', 'scraping', 'broker_call']",True,enforced,"local_disk,data_lake,feature_store_parquet_csv","network_call,provider_api_call,scraping,broker_call"
+RCON_002,no_prediction_query_contract,"['feature_registry', 'factor_registry', 'catalog_reports']","['target_query', 'label_query', 'prediction_query', 'signal_query']",True,enforced,"feature_registry,factor_registry,catalog_reports","target_query,label_query,prediction_query,signal_query"

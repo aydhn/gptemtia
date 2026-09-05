@@ -1,0 +1,12 @@
+handoff_topic,description,target_phase,status,dependency
+symbol_mapping_manual_review,Farklı sağlayıcılardan gelen yeni sembollerin ve ticker kodlarının manuel inceleme prosedürü.,119,READY,asset_symbol_mapping
+timestamp_alignment_manual_review,Ayrıştırılamayan veya zaman dilimi bilgisi eksik olan seriler için inceleme süreci.,119,READY,timestamp_alignment_contracts
+session_mismatch_policy,24/5 FX seansı ile emtia işlem pencereleri arasındaki seans uyuşmazlığı politikası.,119,READY,session_calendar_alignment
+future_leakage_risk_mitigation,Backward-only asof join ve negatif shift yasaklarının operasyonel denetimi.,121,READY,no_lookahead_alignment_guard
+duplicate_feature_namespace_resolution,Cross-domain birleşiminde aynı ada sahip feature çakışmalarının engellenmesi.,119,READY,cross_domain_feature_namespace
+macro_release_lag_policy,Makro duyurularının gerçekleşme zamanı ve veri revizyon politikası aktarımı.,120,READY,macro_calendar_alignment
+event_window_policy,Ekonomik takvim olay öncesi ve sonrası pencere etiketleme kuralı.,120,READY,fx_calendar_alignment
+news_metadata_only_boundary,Haber tarafında yalnızca etiket/sayı kullanılması ve sıfır tam metin kuralının devri.,120,READY,news_metadata_alignment
+phase_120_fusion_dependency,Phase 120 Macro/Calendar/News Feature Fusion için ortak veri matrisi devir arayüzü.,120,READY,cross_domain_feature_matrix
+phase_121_no_lookahead_dependency,Phase 121 Sıkı No-Lookahead ve Feature Validasyon denetimine girdi sözleşmesi.,121,FORWARD_CONTRACT,no_lookahead_alignment_guard
+phase_124_feature_store_integration_dependency,Hizalanmış matrislerin FeatureStore kayıt şemasına uyumlu aktarım sözleşmesi.,124,FORWARD_CONTRACT,aligned_feature_matrix_manifest

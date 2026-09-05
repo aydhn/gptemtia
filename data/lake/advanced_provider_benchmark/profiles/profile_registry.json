@@ -1,0 +1,12 @@
+{
+  "total_profiles": 3,
+  "profile_names": [
+    "balanced_local_provider_benchmark",
+    "strict_provider_benchmark_safety",
+    "dry_run_provider_benchmark_focus"
+  ],
+  "all_local_only": true,
+  "all_non_production": true,
+  "current_phase": 115,
+  "target_final_phase": 160
+}

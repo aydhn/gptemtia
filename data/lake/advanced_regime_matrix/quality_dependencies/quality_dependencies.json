@@ -1,0 +1,14 @@
+{
+  "total_quality_dependencies": 4,
+  "total_dependencies": 4,
+  "dependency_ids": [
+    "qual_dep_missingness_threshold",
+    "qual_dep_drift_psi_threshold",
+    "qual_dep_staleness_limit",
+    "qual_dep_zero_manual_blockers"
+  ],
+  "blocking_dependencies_count": 3,
+  "all_verified": true,
+  "all_non_signal": true,
+  "status": "matrix_ready"
+}

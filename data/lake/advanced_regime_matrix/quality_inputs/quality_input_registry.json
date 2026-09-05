@@ -1,0 +1,15 @@
+{
+  "total_quality_inputs": 6,
+  "metric_ids": [
+    "qual_validation_status",
+    "qual_missingness_score",
+    "qual_drift_score_psi",
+    "qual_staleness_diagnostics",
+    "qual_manual_review_blocker",
+    "qual_source_preservation_status"
+  ],
+  "blocking_metrics_count": 5,
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "status": "matrix_ready"
+}

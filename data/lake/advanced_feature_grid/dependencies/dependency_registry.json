@@ -1,0 +1,11 @@
+{
+  "total_dependencies": 10,
+  "total_families": 6,
+  "input_types": [
+    "price_fields",
+    "volume_fields"
+  ],
+  "no_forward_dependencies": true,
+  "status": "READY",
+  "profile": "balanced_local_multi_window_feature_grid"
+}

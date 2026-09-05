@@ -1,0 +1,18 @@
+{
+  "total_rules": 8,
+  "rule_ids": [
+    "rule_forbidden_columns",
+    "rule_timestamp_order",
+    "rule_namespace_conformance",
+    "rule_no_future_leakage",
+    "rule_metadata_only_news",
+    "rule_backward_only_asof",
+    "rule_non_mutation_guarantee",
+    "rule_dry_run_local_safety"
+  ],
+  "all_rules_active": true,
+  "all_enforced": true,
+  "non_signal": true,
+  "status": "READY",
+  "profile": "balanced_local_cross_asset_alignment"
+}

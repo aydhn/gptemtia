@@ -1,0 +1,8 @@
+{
+  "total_checks": 5,
+  "passed_checks": 5,
+  "failed_checks": 0,
+  "validation_status": "VALIDATION_PASS",
+  "forbidden_claims_clean": true,
+  "active_profile": "balanced_local_regime_transition"
+}

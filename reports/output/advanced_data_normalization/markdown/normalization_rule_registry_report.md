@@ -1,0 +1,36 @@
+# Phase 113 — Normalization Rule Registry Report
+
+> [!IMPORTANT]
+> **YASAL UYARI VE GÜVENLİK SINIRI**:
+> Bu çıktı Phase 113 Data Normalization Layer raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, normalized data’yı trade sinyali olarak kullanma, official approval, production deployment, model deployment, scraping, haber tam metni toplama, telifli içerik kopyalama, external LLM/API çağrısı, gerçek provider API çağrısı zorunluluğu, source overwrite veya destructive cleaning değildir.
+
+
+## Kural Kataloğu Özeti
+- **Toplam Kural Sayısı**: 20
+- **Kapsanan Alanlar**: canonical_schema, canonical_field, schema_version, provider_name, fx_symbol, commodity_symbol, macro_indicator, calendar_event, news_topic_tag, region_currency, timestamp_timezone, session_alignment, frequency, unit, numeric_type, string_case_slug, duplicate_key, normalized_view, phase_114_handoff
+- **Manuel İnceleme Gerektiren Kural Sayısı**: 2
+- **Non-Destructive Garanti**: True
+
+## Kurallar Listesi
+| rule_id | rule_name | rule_domain | dataset_types | action_label | description | source_field | target_field | non_destructive | future_phase_owner | manual_review_required | warnings |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| norm_rule_canonical_schema_canonical_schema_enforcement | canonical_schema_enforcement | canonical_schema | ['all'] | action_canonicalize_schema_version | Veri setinin kanonik şema yapısına uygunluğunu denetler. | schema_id | canonical_schema_id | True | Phase 114 | False | [] |
+| norm_rule_canonical_field_canonical_field_mapping | canonical_field_mapping | canonical_field | ['all'] | action_create_normalized_view | Kaynak alan adlarını kanonik alan kataloğuyla eşler. | field_name | canonical_field_name | True | Phase 114 | False | [] |
+| norm_rule_schema_version_schema_version_standardization | schema_version_standardization | schema_version | ['all'] | action_canonicalize_schema_version | Şema sürümlerini 'vX.Y' standart etiketine dönüştürür. | version | normalized_schema_version | True | Phase 114 | False | [] |
+| norm_rule_provider_name_provider_name_canonicalization | provider_name_canonicalization | provider_name | ['dataset_provider_metadata', 'all'] | action_canonicalize_provider | Sağlayıcı isimlerini standart küçük harf slug formatına dönüştürür. | provider_name | normalized_provider_name | True | Phase 114 | False | [] |
+| norm_rule_fx_symbol_fx_symbol_slashed_standard | fx_symbol_slashed_standard | fx_symbol | ['dataset_fx_ohlcv', 'dataset_fx_quote'] | action_canonicalize_symbol | FX sembollerini standart ISO 'BASE/QUOTE' (örn. EUR/USD) formatına dönüştürür. | pair | normalized_pair | True | Phase 114 | False | [] |
+| norm_rule_commodity_symbol_commodity_symbol_root_standard | commodity_symbol_root_standard | commodity_symbol | ['dataset_commodity_spot', 'dataset_commodity_ohlcv'] | action_canonicalize_symbol | Emtia sembollerini kanonik kodlara ve sürekli vadeli yer tutucularına dönüştürür. | symbol | normalized_symbol | True | Phase 114 | False | [] |
+| norm_rule_macro_indicator_macro_indicator_code_standard | macro_indicator_code_standard | macro_indicator | ['dataset_macro_timeseries'] | action_canonicalize_symbol | Makroekonomik gösterge adlarını merkezi taksonomi kodlarına dönüştürür. | indicator | normalized_indicator | True | Phase 114 | False | [] |
+| norm_rule_calendar_event_calendar_event_name_standard | calendar_event_name_standard | calendar_event | ['dataset_calendar_event', 'dataset_release_event'] | action_canonicalize_tag | Ekonomik takvim olay isimlerini kanonik olay kimliklerine dönüştürür. | canonical_event | normalized_event | True | Phase 114 | False | [] |
+| norm_rule_news_topic_tag_news_topic_tag_standard | news_topic_tag_standard | news_topic_tag | ['dataset_news_metadata'] | action_canonicalize_tag | Haber konu ve etiketlerini büyük harf ve standart kategori kodlarına dönüştürür. | tags | normalized_tags | True | Phase 114 | False | [] |
+| norm_rule_region_currency_region_iso_standard | region_iso_standard | region_currency | ['all'] | action_canonicalize_region | Ülke ve bölge adlarını ISO alpha-2 veya kanonik bölge koduna çevirir. | region | normalized_region | True | Phase 114 | False | [] |
+| norm_rule_region_currency_currency_iso_standard | currency_iso_standard | region_currency | ['all'] | action_canonicalize_region | Para birimi adlarını standart 3 harfli ISO kodlarına çevirir. | currency | normalized_currency | True | Phase 114 | False | [] |
+| norm_rule_timestamp_timezone_timestamp_utc_iso_standard | timestamp_utc_iso_standard | timestamp_timezone | ['all'] | action_canonicalize_timestamp | Zaman damgalarını ISO 8601 UTC formatına standartlaştırır, orijinali korur. | timestamp | normalized_timestamp | True | Phase 114 | False | [] |
+| norm_rule_session_alignment_session_alignment_policy | session_alignment_policy | session_alignment | ['dataset_fx_ohlcv', 'dataset_commodity_ohlcv', 'dataset_calendar_event'] | action_manual_review_only | Piyasa seans saatleri ve açıklanma gecikmelerini hizalama gereksinimlerini belirler. | session_meta | session_alignment_status | True | Phase 114 | True | [] |
+| norm_rule_frequency_frequency_canonical_standard | frequency_canonical_standard | frequency | ['dataset_macro_timeseries', 'dataset_fx_ohlcv', 'dataset_commodity_ohlcv'] | action_canonicalize_frequency | Periyot ifadelerini standart kanonik frekanslara ('1d', '1w', '1mo', vb.) çevirir. | frequency | normalized_frequency | True | Phase 114 | False | [] |
+| norm_rule_unit_unit_vocabulary_standard | unit_vocabulary_standard | unit | ['dataset_macro_timeseries', 'dataset_commodity_spot'] | action_canonicalize_unit | Ölçü birimi ifadelerini standart kanonik sözlüğe uyarlar (değer dönüştürmeden). | unit | normalized_unit | True | Phase 114 | False | [] |
+| norm_rule_numeric_type_numeric_type_safe_cast | numeric_type_safe_cast | numeric_type | ['all'] | action_create_normalized_view | Sayısal değerleri güvenli float'a çevirir, geçersizleri koruyup izole eder. | value | normalized_value | True | Phase 114 | False | [] |
+| norm_rule_string_case_slug_string_case_slug_standard | string_case_slug_standard | string_case_slug | ['all'] | action_create_normalized_view | Metin alanlarını slug veya büyük harf token formatına dönüştürür. | name | normalized_name | True | Phase 114 | False | [] |
+| norm_rule_duplicate_key_duplicate_key_generation | duplicate_key_generation | duplicate_key | ['all'] | action_create_normalized_view | Mükerrerlik tespiti için birleşik kanonik anahtar üretir (kayıt silmeden). | primary_keys | canonical_duplicate_key | True | Phase 114 | False | [] |
+| norm_rule_normalized_view_normalized_view_generation | normalized_view_generation | normalized_view | ['all'] | action_create_normalized_view | Orijinal tabloyu koruyarak ayrı kanonik görünüm tablosu oluşturur. | raw_dataframe | normalized_dataframe | True | Phase 114 | False | [] |
+| norm_rule_phase_114_handoff_phase_114_lineage_handoff_prep | phase_114_lineage_handoff_prep | phase_114_handoff | ['all'] | action_manual_review_only | Tüm alan eşlemeleri ve dönüşüm kararlarını Phase 114 köken izleme için kaydeder. | transformation_rule | lineage_record | True | Phase 114 | True | [] |

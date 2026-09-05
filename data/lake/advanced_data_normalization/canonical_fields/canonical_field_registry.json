@@ -1,0 +1,14 @@
+{
+  "total_canonical_fields": 40,
+  "dataset_types": [
+    "dataset_fx_quote",
+    "dataset_fx_ohlcv",
+    "dataset_commodity_spot",
+    "dataset_macro_timeseries",
+    "dataset_calendar_event",
+    "dataset_news_metadata"
+  ],
+  "required_fields_count": 37,
+  "current_phase": 113,
+  "target_final_phase": 160
+}

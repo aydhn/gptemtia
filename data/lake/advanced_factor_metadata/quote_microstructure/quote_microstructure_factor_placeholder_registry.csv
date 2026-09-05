@@ -1,0 +1,4 @@
+factor_name,factor_family,input_features,calculation_type,non_signal_usage,status_label,manual_review_required
+factor_quote_spread_context_placeholder,quote_microstructure,['quote__spread_bps'],normalized_spread_basis_points,Liquidity cost and spread width placeholder.,factor_placeholder_only,True
+factor_quote_mid_change_context_placeholder,quote_microstructure,['quote__mid_change_1m'],high_frequency_midpoint_delta,Short-horizon quote revision rate placeholder.,factor_placeholder_only,True
+factor_quote_staleness_context_placeholder,quote_microstructure,['quote__staleness_seconds'],quote_update_latency_seconds,Data freshness and tick latency assessment placeholder.,factor_placeholder_only,True

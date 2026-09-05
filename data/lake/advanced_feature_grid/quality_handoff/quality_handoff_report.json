@@ -1,0 +1,9 @@
+{
+  "total_handoff_items": 10,
+  "phase_119_items": 4,
+  "phase_121_items": 4,
+  "phase_124_items": 2,
+  "non_signal": true,
+  "status": "READY",
+  "profile": "balanced_local_multi_window_feature_grid"
+}

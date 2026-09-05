@@ -1,0 +1,6 @@
+indicator_name,output_pattern,default_window,family,non_signal
+rolling_zscore,rolling_zscore_{window},20,family_mean_reversion,True
+distance_to_sma,dist_to_sma_{window},20,family_mean_reversion,True
+distance_to_ema,dist_to_ema_{window},20,family_mean_reversion,True
+rolling_percentile_rank,rolling_percentile_rank_{window},100,family_mean_reversion,True
+rolling_deviation_ratio,rolling_deviation_ratio_{window},20,family_mean_reversion,True

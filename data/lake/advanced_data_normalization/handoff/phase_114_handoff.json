@@ -1,0 +1,22 @@
+{
+  "total_handoff_items": 11,
+  "target_phase": 114,
+  "target_phase_name": "Data Lineage and Provenance",
+  "lineage_areas": [
+    "Source-to-normalized field lineage",
+    "Symbol mapping provenance",
+    "Timestamp timezone provenance",
+    "Unit/frequency mapping provenance",
+    "Provider name canonicalization provenance",
+    "News metadata-only provenance",
+    "Calendar release event provenance",
+    "Macro revision/frequency provenance",
+    "Commodity futures metadata provenance",
+    "Duplicate key derivation provenance",
+    "Normalized view manifest provenance"
+  ],
+  "manual_review_count": 3,
+  "destructive_actions": false,
+  "current_phase": 113,
+  "target_final_phase": 160
+}

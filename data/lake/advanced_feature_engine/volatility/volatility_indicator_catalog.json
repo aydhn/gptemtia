@@ -1,0 +1,14 @@
+{
+  "family": "volatility",
+  "total_indicators": 7,
+  "all_non_signal": true,
+  "indicators": [
+    "rolling_std",
+    "ATR",
+    "true_range",
+    "bollinger_band_width_placeholder",
+    "parkinson_volatility_placeholder",
+    "garman_klass_volatility_placeholder",
+    "realized_volatility_placeholder"
+  ]
+}

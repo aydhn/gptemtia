@@ -1,0 +1,10 @@
+{
+  "total_items": 10,
+  "total_missing_fields": 0,
+  "average_missingness_ratio": 0.0,
+  "blocking_items_count": 0,
+  "auto_imputation_allowed": false,
+  "auto_drop_allowed": false,
+  "non_signal": true,
+  "active_profile": "balanced_local_market_behavior_diagnostics"
+}

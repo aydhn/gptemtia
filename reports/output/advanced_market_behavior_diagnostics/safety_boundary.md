@@ -1,0 +1,43 @@
+# Phase 129 Market Behavior Diagnostics Safety Boundary
+
+> [!NOTE]
+> UYARI: Bu çıktı Phase 129 Market Behavior Diagnostics and Regime Quality raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, behavior quality veya candidate state quality değerini trade sinyali olarak kullanma, strateji üretimi, backtest, optimizer, model training, clustering execution, unsupervised execution, dimensionality reduction execution, prediction/target/label üretimi, production-ready/official approval/broker-ready iddiası, haber tam metni kullanımı, production deployment, model deployment, scraping veya gerçek provider API çağrısı değildir.
+
+## Özet Bilgiler
+- **Güvenlik Durumu**: `SECURE`
+- **NO-GO Kuralları Sayısı**: `21`
+- **SAFE-GO Prensipleri Sayısı**: `8`
+
+## Güvenlik Kuralları Tablosu
+| rule_name | rule_type | description | is_active | non_signal |
+| --- | --- | --- | --- | --- |
+| no_live_trading | NO_GO | Live order placement or direct market execution is strictly prohibited. | True | True |
+| no_broker_integration | NO_GO | Broker API connection or exchange credential usage is strictly prohibited. | True | True |
+| no_real_order | NO_GO | Real position opening or financial commitment is forbidden. | True | True |
+| no_investment_advice | NO_GO | Generation of financial or investment advice is strictly prohibited. | True | True |
+| no_quality_as_signal | NO_GO | Using behavior quality metrics as trading or execution signals is forbidden. | True | True |
+| no_behavior_as_signal | NO_GO | Using market behavior diagnostics as trade directional triggers is forbidden. | True | True |
+| no_candidate_state_as_signal | NO_GO | Using candidate states or pseudo-states as strategy rules is forbidden. | True | True |
+| no_directional_certainty | NO_GO | Generating directional claims such as bullish, bearish, long, or short is forbidden. | True | True |
+| no_strategy_backtest_optimizer | NO_GO | Executing backtesting engines, strategy routers, or optimizers is forbidden. | True | True |
+| no_model_training_fit_predict | NO_GO | Executing model fit, train, predict, or transform is strictly prohibited. | True | True |
+| no_clustering_execution | NO_GO | Running KMeans, DBSCAN, GMM, HDBSCAN, or SOM algorithms is forbidden. | True | True |
+| no_dimensionality_reduction | NO_GO | Executing PCA, UMAP, or t-SNE algorithms is forbidden. | True | True |
+| no_target_label_generation | NO_GO | Creating supervised target variables or forward labels is forbidden. | True | True |
+| no_official_approval_claim | NO_GO | Claiming official accreditation or regulatory endorsement is forbidden. | True | True |
+| no_production_ready_claim | NO_GO | Claiming production readiness or live deployment eligibility is forbidden. | True | True |
+| no_broker_ready_claim | NO_GO | Claiming broker readiness or platform certification is forbidden. | True | True |
+| no_source_overwrite_or_deletion | NO_GO | Overwriting or deleting raw/source tables or logs is strictly forbidden. | True | True |
+| no_auto_imputation_or_feature_drop | NO_GO | Destructive cleaning, automatic imputation, or column dropping is forbidden. | True | True |
+| no_full_article_scraping | NO_GO | Downloading or storing copyrighted news body text or scraping is forbidden. | True | True |
+| no_credential_leakage | NO_GO | Logging or writing API keys, tokens, or credentials is forbidden. | True | True |
+| no_deployment | NO_GO | Production deployment, cloud publishing, or docker pushing is forbidden. | True | True |
+| local_offline_diagnostics | SAFE_GO | Conduct local, offline, dry-run compliant behavior quality diagnostics. | True | True |
+| non_signal_quality_reports | SAFE_GO | Produce non-signal candidate state quality and pseudo-state completeness reports. | True | True |
+| candidate_diagnostics | SAFE_GO | Evaluate candidate coverage, consistency, ambiguity, and stability diagnostically. | True | True |
+| regime_family_diagnostics | SAFE_GO | Assess regime family quality, coverage, and factor dependency health. | True | True |
+| multi_domain_diagnostics | SAFE_GO | Generate volatility, trend, range, macro, news, and cross-asset behavior diagnostics. | True | True |
+| metadata_only_news_diagnostics | SAFE_GO | Inspect news attention and event linkages strictly at headline/topic metadata level. | True | True |
+| source_preserved_manifest | SAFE_GO | Record immutable audit manifests maintaining full source preservation. | True | True |
+| phase_130_transition_handoff | SAFE_GO | Deliver clean, validation-aware prerequisites for Phase 130 transition analysis. | True | True |
+

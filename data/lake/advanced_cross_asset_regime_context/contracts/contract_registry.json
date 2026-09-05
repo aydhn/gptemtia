@@ -1,0 +1,10 @@
+{
+  "total_contracts": 6,
+  "all_non_signal_required": true,
+  "all_no_lookahead_required": true,
+  "all_metadata_only_news_required": true,
+  "all_source_preserved": true,
+  "zero_trading_signals": true,
+  "zero_predictions": true,
+  "active_profile": "balanced_local_cross_asset_regime_context"
+}

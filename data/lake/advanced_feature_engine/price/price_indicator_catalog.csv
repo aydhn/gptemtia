@@ -1,0 +1,10 @@
+indicator_id,indicator_name,indicator_family,feature_type,dataset_types,required_fields,default_windows,formula_note,non_signal_usage_note,manual_review_required
+ind_price_close_return,close_return,price,feature_type_price,"['dataset_fx_ohlcv', 'dataset_commodity_ohlcv']",['close'],"[1, 5, 20]",close.pct_change(window),Fiyat getiri yüzdesi; trade sinyali veya tavsiye değildir.,False
+ind_price_log_return,log_return,price,feature_type_price,"['dataset_fx_ohlcv', 'dataset_commodity_ohlcv']",['close'],"[1, 5]",np.log(close / close.shift(window)),Logaritmik getiri; simetrik getiri analiz metriğidir.,False
+ind_price_high_low_range,high_low_range,price,feature_type_price,"['dataset_fx_ohlcv', 'dataset_commodity_ohlcv']","['high', 'low']",[1],(high - low) / close,Normalleştirilmiş çubuk aralığı; yön bilgisi içermez.,False
+ind_price_close_to_open_return,close_to_open_return,price,feature_type_price,"['dataset_fx_ohlcv', 'dataset_commodity_ohlcv']","['open', 'close']",[1],(close - open) / open,Seans içi getiri metriği; sinyal değildir.,False
+ind_price_gap_placeholder,gap_placeholder,price,feature_type_price,"['dataset_fx_ohlcv', 'dataset_commodity_ohlcv']","['open', 'close']",[1],(open - close.shift(1)) / close.shift(1),Açılış boşluğu büyüklüğü; yönlü tahmin iddiası içermez.,False
+ind_price_rolling_mean,rolling_mean,price,feature_type_price,"['dataset_fx_ohlcv', 'dataset_commodity_ohlcv']",['close'],"[10, 20, 50]",close.rolling(window).mean(),Fiyat seviyesi hareketli ortalaması; sinyal değildir.,False
+ind_price_rolling_median,rolling_median,price,feature_type_price,"['dataset_fx_ohlcv', 'dataset_commodity_ohlcv']",['close'],"[10, 20]",close.rolling(window).median(),Dayanıklı merkezi eğilim ölçüsü; sinyal değildir.,False
+ind_price_rolling_min,rolling_min,price,feature_type_price,"['dataset_fx_ohlcv', 'dataset_commodity_ohlcv']",['low'],"[10, 20]",low.rolling(window).min(),Pencere içi en düşük değer referansı; sinyal değildir.,False
+ind_price_rolling_max,rolling_max,price,feature_type_price,"['dataset_fx_ohlcv', 'dataset_commodity_ohlcv']",['high'],"[10, 20]",high.rolling(window).max(),Pencere içi en yüksek değer referansı; sinyal değildir.,False

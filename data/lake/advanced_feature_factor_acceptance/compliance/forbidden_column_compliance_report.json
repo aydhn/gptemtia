@@ -1,0 +1,7 @@
+{
+  "compliance_type": "forbidden_column",
+  "total_modules_audited": 10,
+  "compliant_modules": 10,
+  "forbidden_columns_detected": 0,
+  "non_signal": true
+}

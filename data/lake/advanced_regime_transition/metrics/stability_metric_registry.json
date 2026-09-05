@@ -1,0 +1,17 @@
+{
+  "total_metrics": 8,
+  "metric_names": [
+    "state_persistence_score_placeholder",
+    "average_state_duration_placeholder",
+    "stability_score_placeholder",
+    "rolling_stability_placeholder",
+    "regime_family_stability_placeholder",
+    "pseudo_state_stability_placeholder",
+    "state_sequence_completeness_score",
+    "source_quality_dependency_score"
+  ],
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "all_requires_no_lookahead": true,
+  "active_profile": "balanced_local_regime_transition"
+}

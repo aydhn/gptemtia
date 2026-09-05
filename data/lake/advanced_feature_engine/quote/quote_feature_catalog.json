@@ -1,0 +1,12 @@
+{
+  "catalog": "quote_features",
+  "total_features": 5,
+  "all_non_signal": true,
+  "features": [
+    "bid_ask_spread",
+    "bid_ask_spread_pct",
+    "mid_price",
+    "quote_imbalance_placeholder",
+    "quote_staleness_flag_placeholder"
+  ]
+}

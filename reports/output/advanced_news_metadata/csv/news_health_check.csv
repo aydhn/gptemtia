@@ -1,0 +1,34 @@
+component,status
+config importable,pass
+labels importable,pass
+models importable,pass
+News provider interfaces available,pass
+News provider registry available,pass
+News dry-run fixture available,pass
+News manual placeholder available,pass
+News local cache placeholder available,pass
+News official API placeholder available,pass
+News licensed placeholder available,pass
+News public dataset placeholder available,pass
+News source registry available,pass
+News source categories available,pass
+News metadata schema available,pass
+News item reference schema available,pass
+News asset/macro/commodity/FX tags available,pass
+News event linkage available,pass
+News topic taxonomy available,pass
+Sentiment placeholder requirements available,pass
+Impact placeholder requirements available,pass
+Freshness requirements available,pass
+Deduplication requirements available,pass
+News safety boundary available,pass
+Phase 106 advanced_data_providers available,pass
+Phase 107 advanced_fx_providers available,pass
+Phase 108 advanced_commodity_providers available,pass
+Phase 109 advanced_macro_providers available,pass
+Phase 110 advanced_economic_calendar available,pass
+DataLake integration available,pass
+FeatureStore integration available,pass
+scripts present,pass
+tests present,pass
+docs present,pass

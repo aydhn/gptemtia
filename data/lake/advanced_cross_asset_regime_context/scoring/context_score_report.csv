@@ -1,0 +1,2 @@
+score_id,context_score,classification,active_profile,entity_count,pair_count,contract_count,findings_count,manual_review_count,non_signal,source_preserved,official_approval,production_ready,broker_ready,contains_target_or_prediction,contains_trading_recommendation
+score_264c7566,0.86,high_context_integrity,balanced_local_cross_asset_regime_context,24,12,6,2,7,True,True,False,False,False,False,False

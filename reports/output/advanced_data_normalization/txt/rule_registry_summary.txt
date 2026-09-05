@@ -1,0 +1,3 @@
+Normalization Rules: 20
+Canonical Schemas: 12
+Canonical Fields: 40

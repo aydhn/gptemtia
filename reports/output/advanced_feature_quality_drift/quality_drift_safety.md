@@ -1,0 +1,33 @@
+# Phase 123: Feature Quality & Drift Safety Boundary Report
+
+> **UYARI VE BİLGİLENDİRME:** Bu çıktı Phase 123 Feature Quality and Drift Diagnostics raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, quality/drift score’u trade sinyali olarak kullanma, strateji üretimi, backtest, optimizer, model training, prediction/target/label üretimi, production-ready/official approval iddiası, otomatik feature silme/düzeltme, haber tam metni kullanımı, production deployment, model deployment, scraping veya gerçek provider API çağrısı değildir.
+
+- **Safety Status:** SECURE
+- **Enforced NO-GO Rules:** 13
+- **Active SAFE-GO Principles:** 7
+- **Destructive Action Allowed:** False
+- **Non-Signal Mandate Enforced:** True
+
+## Safety Rules Ledger
+| rule_id | type | description | status |
+| --- | --- | --- | --- |
+| no_live_trading | NO_GO | No live trading or real orders. | ENFORCED |
+| no_broker_integration | NO_GO | No broker API connections or credentials. | ENFORCED |
+| no_investment_advice | NO_GO | No investment recommendations or financial advice. | ENFORCED |
+| no_quality_drift_as_signal | NO_GO | Quality and drift metrics must never be treated as trading signals. | ENFORCED |
+| no_directional_claims | NO_GO | No long/short or directional assertions derived from drift. | ENFORCED |
+| no_strategy_backtest_training | NO_GO | No strategy rule generation, backtesting, optimizer, or model training. | ENFORCED |
+| no_target_prediction_columns | NO_GO | No target, label, forecast, or future return columns. | ENFORCED |
+| no_auto_imputation | NO_GO | No automated imputation or overwriting of missing/infinite values. | ENFORCED |
+| no_auto_feature_drop | NO_GO | No automated dropping of columns or features upon drift/quality defect. | ENFORCED |
+| no_source_overwrite | NO_GO | No in-place destructive mutation or overwrite of raw data files. | ENFORCED |
+| no_full_article_news | NO_GO | No raw article bodies, scraped HTML, or copyrighted text. | ENFORCED |
+| no_scraping_browser_automation | NO_GO | No web scraping, hidden API bypass, or browser automation. | ENFORCED |
+| no_production_readiness_claims | NO_GO | No production approval, sign-off, or deployment readiness claims. | ENFORCED |
+| safe_local_offline_diagnostics | SAFE_GO | Run strictly local, offline, read-only quality diagnostics. | ACTIVE |
+| safe_missing_inf_detection | SAFE_GO | Detect missingness, inf, all-NaN, zero variance, and duplicates. | ACTIVE |
+| safe_distribution_drift_monitoring | SAFE_GO | Compute baseline vs current distribution shifts non-destructively. | ACTIVE |
+| safe_rolling_stability_monitoring | SAFE_GO | Track rolling statistics without generating trading recommendations. | ACTIVE |
+| safe_factor_family_aggregation | SAFE_GO | Audit input availability across all 10 factor families. | ACTIVE |
+| safe_manual_review_queue | SAFE_GO | Route diagnostic defects to human analyst queue instead of auto-fixing. | ACTIVE |
+| safe_phase_124_handoff | SAFE_GO | Generate immutable metadata and manifests for Phase 124 Feature Store integration. | ACTIVE |

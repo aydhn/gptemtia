@@ -1,0 +1,4 @@
+schema_name,entity_type,required_fields,field_count,timestamp_field,version_tag,source_phase,non_signal,source_preserved
+canonical_feature_store_schema,"entity_fx_pair,entity_commodity_symbol","store_key,entity_type,entity_id,timestamp_field,feature_name,feature_family,source_phase,validation_status,quality_score_ref,drift_score_ref,lineage_ref,manual_review_required,non_signal",13,timestamp,v1.0.0,124,True,True
+factor_metadata_store_schema,entity_factor_family,"factor_name,factor_family,entity_type,source_phase,input_feature_set_ref,validation_dependency_ref,quality_dependency_ref,non_signal",8,timestamp,v1.0.0,124,True,True
+quality_drift_store_schema,"entity_fx_pair,entity_commodity_symbol","score_id,feature_name,quality_score,drift_score,passed,non_signal",6,timestamp,v1.0.0,124,True,True

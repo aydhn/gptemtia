@@ -1,0 +1,8 @@
+{
+  "rule_count": 2,
+  "rules": [
+    "calendar_event_schema",
+    "calendar_release_values"
+  ],
+  "domain": "calendar_quality"
+}

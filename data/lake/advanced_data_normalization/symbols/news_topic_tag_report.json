@@ -1,0 +1,14 @@
+{
+  "total_mappings": 17,
+  "unique_normalized_topics": [
+    "CENTRAL_BANK",
+    "INFLATION",
+    "CRUDE_OIL",
+    "PRECIOUS_METALS",
+    "INTEREST_RATE",
+    "RISK_SENTIMENT",
+    "FX_CURRENCY"
+  ],
+  "current_phase": 113,
+  "target_final_phase": 160
+}

@@ -1,0 +1,6 @@
+UYARI: Bu rapor Phase 126 Regime Classification and Market Behavior Foundation çıktısıdır. Gerçek veri indirme zorunluluğu, scraping, haber tam metni kullanımı, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, regime state değerini trade sinyali olarak kullanma, strateji/backtest/optimizer/model training/clustering çalıştırma, target/label/prediction üretme, official approval, broker-ready veya production-ready iddiası değildir.
+Safety Boundary Status: SECURE
+NO-GO Rules Enforced: 15
+SAFE-GO Principles Active: 8
+Non-Signal Mandate: True
+Live Trading Prohibited: True

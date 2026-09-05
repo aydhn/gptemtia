@@ -1,0 +1,16 @@
+# License & Copyright Provenance Boundary Report
+> **YASAL UYARI VE FERAGATNAME**
+> Bu çıktı Phase 114 Data Lineage and Provenance raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, lineage/traceability score’u trade sinyali olarak kullanma, official approval, production deployment, model deployment, scraping, haber tam metni toplama, telifli içerik kopyalama, external LLM/API çağrısı, gerçek provider API çağrısı zorunluluğu, source overwrite veya destructive cleaning değildir.
+
+- **Toplam Lisans Kaydı**: 0
+- **Sıfır Serbest Yeniden Dağıtım**: True
+- **Manuel İnceleme Sayısı**: 0
+
+| check_id | dataset_type | contains_full_text | contains_article_body | contains_scraped_html | copyrighted_article_copy | metadata_only | no_full_text_policy | status_label |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| fx_data_copyright_check | dataset_fx_quote | False | False | False | False | True | Strict no full text / raw market quotes only | lineage_complete |
+| commodity_data_copyright_check | dataset_commodity_spot | False | False | False | False | True | Strict no full text / spot & futures quotes only | lineage_complete |
+| macro_data_copyright_check | dataset_macro_timeseries | False | False | False | False | True | Strict no full text / numerical indicators only | lineage_complete |
+| calendar_data_copyright_check | dataset_calendar_event | False | False | False | False | True | Strict no full text / event release timestamps only | lineage_complete |
+| news_metadata_copyright_check | dataset_news_metadata | False | False | False | False | True | Metadata only: zero article body, zero scraped HTML | lineage_complete |
+| provider_metadata_copyright_check | dataset_provider_metadata | False | False | False | False | True | Capability identifiers only: zero proprietary text | lineage_complete |

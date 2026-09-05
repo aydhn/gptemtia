@@ -1,0 +1,8 @@
+{
+  "total_schemas": 6,
+  "all_numeric": true,
+  "all_nullable": true,
+  "warmup_nan_expected": true,
+  "status": "READY",
+  "profile": "balanced_local_multi_window_feature_grid"
+}

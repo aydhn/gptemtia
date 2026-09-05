@@ -1,0 +1,9 @@
+{
+  "total_contracts": 11,
+  "total_families": 6,
+  "avg_windows_per_contract": 4.363636363636363,
+  "all_strictly_backward_looking": true,
+  "non_signal": true,
+  "status": "READY",
+  "profile": "balanced_local_multi_window_feature_grid"
+}

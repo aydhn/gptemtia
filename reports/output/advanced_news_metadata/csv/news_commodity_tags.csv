@@ -1,0 +1,10 @@
+tag_id,tag_label,tag_domain,mapped_entity,description,manual_review_required
+tag_commodity_gold,GOLD,commodity,Gold (XAU),"Gold spot, futures, central bank bullion purchases, and safe-haven flows.",False
+tag_commodity_silver,SILVER,commodity,Silver (XAG),"Silver spot, industrial demand, solar/green technology use, and dual-nature dynamics.",False
+tag_commodity_crude_oil,CRUDE_OIL,commodity,Crude Petroleum Complex,"Global petroleum market headlines, refinery utilization, and global supply/demand.",False
+tag_commodity_brent,BRENT,commodity,Brent Crude Oil Benchmark,"North Sea Brent crude pricing, OPEC+ production policies, seaborne oil freight.",False
+tag_commodity_wti,WTI,commodity,West Texas Intermediate Crude Oil,"US domestic crude production, Cushing hub storage levels, and pipeline infrastructure.",False
+tag_commodity_natural_gas,NATURAL_GAS,commodity,Natural Gas (Henry Hub / TTF),"Natural gas storage, LNG trade flows, weather forecast impact on heating/cooling demand.",False
+tag_commodity_copper,COPPER,commodity,Copper (High Grade / LME),"Doctor Copper macroeconomic indicator, mining supply disruptions, industrial electrification.",False
+tag_commodity_agriculture,AGRICULTURE,commodity,"Grains & Oilseeds (Corn, Wheat, Soybeans)","Crop condition reports, WASDE data, weather extremes, export restrictions.",False
+tag_commodity_energy_inventory,ENERGY_INVENTORY,commodity,Crude & Petroleum Product Inventories,"EIA weekly petroleum status, API estimates, strategic petroleum reserve releases.",False

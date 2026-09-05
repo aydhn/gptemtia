@@ -1,0 +1,9 @@
+{
+  "safety_status": "SECURE",
+  "total_conditions": 24,
+  "no_go_count": 16,
+  "safe_go_count": 8,
+  "non_signal": true,
+  "source_preserved": true,
+  "destructive_action_allowed": false
+}

@@ -1,0 +1,12 @@
+{
+  "total_items": 9,
+  "ready_items": 9,
+  "all_ready": true,
+  "handoff_status": "READY",
+  "source_phase": 130,
+  "next_phase": 131,
+  "target_final_phase": 160,
+  "non_signal": true,
+  "cross_asset_prep_clean": true,
+  "active_profile": "balanced_local_regime_transition"
+}

@@ -1,0 +1,4 @@
+rule_name,rule_domain,severity_label
+release_timing_consistency,event_release_consistency,quality_medium
+revision_status_presence,event_release_consistency,quality_medium
+surprise_calculation_notice,event_release_consistency,quality_info

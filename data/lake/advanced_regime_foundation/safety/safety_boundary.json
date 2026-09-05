@@ -1,0 +1,14 @@
+{
+  "active_profile": "balanced_local_regime_foundation",
+  "total_rules": 23,
+  "no_go_count": 15,
+  "safe_go_count": 8,
+  "safety_status": "SECURE",
+  "non_signal": true,
+  "current_phase": 126,
+  "target_final_phase": 160,
+  "next_phase": 127,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false
+}

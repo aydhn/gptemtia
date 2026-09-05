@@ -1,0 +1,19 @@
+{
+  "total_metrics": 11,
+  "metric_labels": [
+    "metric_coverage",
+    "metric_capability",
+    "metric_quality",
+    "metric_normalization",
+    "metric_traceability",
+    "metric_license_provenance",
+    "metric_no_scraping_compliance",
+    "metric_metadata_only_compliance",
+    "metric_manual_review_load",
+    "metric_cross_domain_consistency",
+    "metric_unknown"
+  ],
+  "manual_review_metrics_count": 3,
+  "current_phase": 115,
+  "target_final_phase": 160
+}

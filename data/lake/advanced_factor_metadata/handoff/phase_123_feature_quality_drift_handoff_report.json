@@ -1,0 +1,11 @@
+{
+  "active_profile": "balanced_local_factor_metadata",
+  "source_phase": 122,
+  "next_phase": 123,
+  "next_phase_name": "Feature Quality and Drift Diagnostics",
+  "target_final_phase": 160,
+  "total_items": 11,
+  "ready_items": 11,
+  "handoff_status": "READY",
+  "non_signal": true
+}

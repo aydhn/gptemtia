@@ -1,0 +1,35 @@
+{
+  "total_schemas": 17,
+  "feature_names": [
+    "close_return_1",
+    "close_return_5",
+    "log_return_1",
+    "rolling_mean_20",
+    "rolling_std_20",
+    "sma_20",
+    "ema_20",
+    "rsi_14",
+    "macd_line_placeholder",
+    "atr_14",
+    "bollinger_zscore_20",
+    "donchian_position_20",
+    "quote_spread",
+    "quote_mid",
+    "macro_value_change",
+    "calendar_event_flag_placeholder",
+    "news_topic_flag_placeholder"
+  ],
+  "feature_types": [
+    "feature_type_price",
+    "feature_type_volatility",
+    "feature_type_trend",
+    "feature_type_momentum",
+    "feature_type_mean_reversion",
+    "feature_type_quote",
+    "feature_type_macro",
+    "feature_type_calendar",
+    "feature_type_news_metadata"
+  ],
+  "all_non_signal": true,
+  "non_signal": true
+}

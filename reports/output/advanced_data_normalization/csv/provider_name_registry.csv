@@ -1,0 +1,21 @@
+raw_provider_name,normalized_provider_name,is_fixture_or_placeholder,no_credentials_contained,current_phase
+fx dry run fixture provider,fx_dry_run_fixture_provider,True,True,113
+commodity dry run,commodity_dry_run_fixture_provider,True,True,113
+commodity dry run fixture provider,commodity_dry_run_fixture_provider,True,True,113
+macro official placeholder,macro_official_api_provider_placeholder,True,True,113
+macro official api provider placeholder,macro_official_api_provider_placeholder,True,True,113
+calendar licensed placeholder,calendar_licensed_provider_placeholder,True,True,113
+calendar licensed provider placeholder,calendar_licensed_provider_placeholder,True,True,113
+news public dataset,news_public_dataset_provider_placeholder,True,True,113
+news public dataset provider placeholder,news_public_dataset_provider_placeholder,True,True,113
+fx manual file provider,fx_manual_file_provider,False,True,113
+fx local cache provider,fx_local_cache_provider,False,True,113
+fx official api provider placeholder,fx_official_api_provider_placeholder,True,True,113
+commodity manual file provider,commodity_manual_file_provider,False,True,113
+commodity local cache provider,commodity_local_cache_provider,False,True,113
+macro manual file provider,macro_manual_file_provider,False,True,113
+macro local cache provider,macro_local_cache_provider,False,True,113
+calendar manual file provider,calendar_manual_file_provider,False,True,113
+calendar local cache provider,calendar_local_cache_provider,False,True,113
+news manual file provider,news_manual_file_provider,False,True,113
+news local cache provider,news_local_cache_provider,False,True,113

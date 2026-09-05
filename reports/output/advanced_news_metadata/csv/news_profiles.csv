@@ -1,0 +1,4 @@
+profile_id,profile_name,current_phase,target_final_phase,next_phase,local_only,non_production,research_only,no_scraping,metadata_only,status_label,warnings
+prof_balanced_no_scraping_news_metadata_provider,balanced_no_scraping_news_metadata_provider,111,160,112,True,True,True,True,True,news_provider_ready,[]
+prof_strict_news_metadata_safety,strict_news_metadata_safety,111,160,112,True,True,True,True,True,news_provider_ready,[]
+prof_news_metadata_dry_run_fixture_focus,news_metadata_dry_run_fixture_focus,111,160,112,True,True,True,True,True,news_provider_ready,[]

@@ -1,0 +1,6 @@
+Bu rapor Phase 129 Market Behavior Diagnostics and Regime Quality çıktısıdır. Gerçek veri indirme zorunluluğu, scraping, haber tam metni kullanımı, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, candidate state / rejim kalitesini trade sinyali olarak kullanma, clustering/model fitting/predicting çalıştırma, target/label üretme, otomatik feature silme/düzeltme, official approval, broker-ready veya production-ready iddiası değildir.
+Total Domains: 6
+Domains: volatility, trend, range, macro_event, news_metadata, cross_asset
+Overall Readiness Mean: 1.0000
+Zero Full Text Guaranteed: True
+Zero Future Leak Guaranteed: True

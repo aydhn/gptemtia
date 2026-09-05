@@ -1,0 +1,14 @@
+{
+  "total_schema_columns": 12,
+  "required_columns_count": 12,
+  "entity_key_columns": [
+    "sequence_key",
+    "entity_type",
+    "entity_id"
+  ],
+  "timestamp_columns": [
+    "timestamp_utc"
+  ],
+  "non_signal_certified": true,
+  "active_profile": "balanced_local_regime_transition"
+}

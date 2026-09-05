@@ -1,0 +1,4 @@
+rule_name,rule_domain,severity_label
+news_metadata_schema_integrity,news_metadata_quality,quality_high
+news_copyright_safe_boundary,news_metadata_quality,quality_critical
+news_sentiment_non_signal,news_metadata_quality,quality_info

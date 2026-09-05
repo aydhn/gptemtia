@@ -1,0 +1,11 @@
+mapping_id,region,currency,description,manual_review_required
+reg_us_usd,US,USD,United States to US Dollar,False
+reg_eu_eur,EU,EUR,Eurozone to Euro,False
+reg_uk_gbp,UK,GBP,United Kingdom to British Pound,False
+reg_jp_jpy,JP,JPY,Japan to Japanese Yen,False
+reg_tr_try,TR,TRY,Turkey to Turkish Lira,False
+reg_cn_cnh,CN,CNH/CNY,China to Chinese Yuan,False
+reg_ca_cad,CA,CAD,Canada to Canadian Dollar,False
+reg_au_aud,AU,AUD,Australia to Australian Dollar,False
+reg_nz_nzd,NZ,NZD,New Zealand to New Zealand Dollar,False
+reg_ch_chf,CH,CHF,Switzerland to Swiss Franc,False

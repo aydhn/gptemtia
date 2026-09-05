@@ -1,0 +1,3 @@
+manifest_id,matrix_name,base_domain,aligned_domains,row_count,feature_count,join_policy,source_preserved,non_signal,contains_target_or_prediction,manual_review_required
+afmm_fx_cross_asset_aligned_matrix_v1,fx_cross_asset_aligned_matrix_v1,fx,"['commodity', 'macro', 'calendar', 'news']",1000,28,join_policy_asof_backward,True,True,False,False
+afmm_commodity_cross_asset_aligned_matrix_v1,commodity_cross_asset_aligned_matrix_v1,commodity,"['fx', 'macro', 'calendar', 'news']",1000,32,join_policy_asof_backward,True,True,False,False

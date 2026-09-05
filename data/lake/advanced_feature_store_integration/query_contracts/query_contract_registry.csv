@@ -1,0 +1,3 @@
+contract_id,contract_name,allowed_filters,prohibited_filters,non_signal_guaranteed,source_preserved
+QCON_001,metadata_catalog_query_contract,"entity_type,feature_family,source_phase,validation_status,manual_review_required,non_signal","signal,target,label,prediction,recommendation,entry_exit",True,True
+QCON_002,time_series_feature_query_contract,"symbol,timestamp_range,feature_names,entity_id","future_return,forward_return,predicted_price",True,True

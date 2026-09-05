@@ -1,0 +1,22 @@
+domain_id,domain_name,domain_category,description,non_signal,is_executable,current_phase,next_phase,target_final_phase
+rule_free_labeling_contracts,Rule-Free Labeling Contracts,labeling_contracts,Candidate state annotation preparation contracts without supervised target labels.,True,False,128,129,160
+candidate_state_assignment_policies,Candidate State Assignment Policies,assignment_policies,Contextual assignment policies without algorithmic execution or trade signals.,True,False,128,129,160
+candidate_state_schema,Candidate State Schema,schema,Standard schema for candidate state records strictly prohibiting trade/target words.,True,False,128,129,160
+pseudo_state_schema,Pseudo-State Schema,schema,Schema contracts for non-signal pseudo-state preparation.,True,False,128,129,160
+unsupervised_prep_contracts,Unsupervised Preparation Contracts,unsupervised_prep,Readiness contracts for future unsupervised regime discovery without model fitting.,True,False,128,129,160
+clustering_input_contracts,Clustering Input Contracts,clustering_inputs,Matrix schema specifications for clustering without actual clustering execution.,True,False,128,129,160
+clustering_algorithm_placeholders,Clustering Algorithm Placeholders,algorithm_placeholders,"Non-executable metadata placeholders for KMeans, DBSCAN, GMM, HDBSCAN, SOM.",True,False,128,129,160
+distance_metric_placeholders,Distance Metric Placeholders,distance_metrics,"Metadata placeholders for Euclidean, Cosine, Manhattan, Correlation distance, DTW.",True,False,128,129,160
+normalization_scaling_prep,Normalization and Scaling Prep,normalization_scaling,"Preparation contracts for min-max, z-score, robust normalization and scaling.",True,False,128,129,160
+dimensionality_reduction_placeholders,Dimensionality Reduction Placeholders,dimensionality_reduction,"Metadata placeholders for PCA, UMAP, t-SNE without vector/embedding generation.",True,False,128,129,160
+candidate_feature_sets,Candidate Feature Sets,features,"Feature sets mapped from Phase 127 matrix inputs, Phase 122 factor families, Phase 123 quality.",True,False,128,129,160
+candidate_state_context_metadata,Candidate State Context and Metadata,context_metadata,Context and metadata records for candidate state families.,True,False,128,129,160
+candidate_state_namespace,Candidate State Namespace,namespace,Naming conventions enforcing candidate_state_ prefix and lowercase snake_case.,True,False,128,129,160
+candidate_state_integrity_manifest,Candidate State Integrity Manifest,integrity,"Master governance manifest verifying zero lookahead, zero clustering, zero trading.",True,False,128,129,160
+no_lookahead_guard,No-Lookahead Guard,temporal_guard,"Verification preventing future joins, negative shift usage, and lead functions.",True,False,128,129,160
+timestamp_policy,Timestamp Policy,temporal_policy,UTC timestamp validation and ordering rules context_ts <= base_ts.,True,False,128,129,160
+quality_validation_dependencies,Quality and Validation Dependencies,dependencies,Linkages to Phase 123 quality/drift scores and Phase 121 no-lookahead validations.,True,False,128,129,160
+candidate_state_manual_review,Candidate State Manual Review,governance,Offline manual review queue for candidate state contracts and ambiguity items.,True,False,128,129,160
+non_signal_forbidden_claim_policies,Non-Signal and Forbidden Claim Policies,policies,"Strict policies prohibiting trade recommendations, buy/sell claims, or directional certainty.",True,False,128,129,160
+source_preservation_policies,Source Preservation Policies,policies,"Policies strictly forbidding file deletion, source overwriting, and in-place dataframe mutation.",True,False,128,129,160
+phase_129_handoff,Phase 129 Market Behavior Diagnostics Handoff,handoff,Preconditions and readiness deliverables for Phase 129 Market Behavior Diagnostics.,True,False,128,129,160

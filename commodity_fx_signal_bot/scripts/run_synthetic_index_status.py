@@ -9,7 +9,7 @@ logger = logging.getLogger("run_synthetic_index_status")
 
 def main():
     logger.info("Checking synthetic index status...")
-    data_lake = DataLake(settings)
+    data_lake = DataLake('data/lake')
 
     reports_df = data_lake.list_synthetic_index_reports()
 

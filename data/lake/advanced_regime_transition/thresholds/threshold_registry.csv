@@ -1,0 +1,9 @@
+threshold_key,threshold_value,comparator,severity,description,manual_review_triggered
+sequence_missingness_warning_above,0.25,>,transition_medium,Trigger warning if candidate sequence missingness exceeds 25%,True
+sequence_missingness_critical_above,0.5,>,transition_critical,Trigger critical alert if candidate sequence missingness exceeds 50%,True
+transition_ambiguity_warning_above,0.5,>,transition_high,Trigger alert if transition ambiguity between candidate states exceeds 0.50,True
+continuity_warning_below,0.5,<,transition_high,Trigger warning if timestamp continuity falls below 0.50,True
+stability_warning_below,0.45,<,transition_high,Trigger review if aggregate transition stability falls below 0.45,True
+manual_review_if_insufficient_sequence,True,==,transition_critical,Require manual review if sequence history is shorter than minimum window,True
+manual_review_if_timestamp_gap,True,==,transition_medium,Require manual review if irregular timestamp gap is identified,True
+manual_review_if_future_timestamp_risk,True,==,transition_critical,Block transition analysis if context timestamp exceeds observation timestamp,True

@@ -1,0 +1,2 @@
+profile_name,stability_score,classification,finding_count,manual_review_count,non_signal,source_preserved,official_approval,production_ready,broker_ready
+balanced_local_regime_transition,0.82,high_stability,2,2,True,True,False,False,False

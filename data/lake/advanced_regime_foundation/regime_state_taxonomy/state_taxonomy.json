@@ -1,0 +1,16 @@
+{
+  "active_profile": "balanced_local_regime_foundation",
+  "total_states": 11,
+  "all_prefixed_correctly": true,
+  "all_non_signal": true,
+  "no_targets_or_predictions": true,
+  "no_trading_recommendations": true,
+  "ready_states": 9,
+  "placeholder_states": 2,
+  "current_phase": 126,
+  "target_final_phase": 160,
+  "next_phase": 127,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false
+}

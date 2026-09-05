@@ -1,0 +1,4 @@
+metadata_topic_cluster,transition_context_relevance,freshness_lag_seconds,event_linkage_status,full_text_used,raw_content_used,embedding_used,sentiment_model_used,non_signal,description
+monetary_policy_headline_flow,0.86,180,linked,False,False,False,False,True,Central bank policy keyword/topic tag metadata frequency context
+energy_supply_disruption_metadata,0.82,240,linked,False,False,False,False,True,Commodity supply news metadata tags and headline counts
+macro_fiscal_geopolitical_tags,0.8,300,linked,False,False,False,False,True,Cross-asset metadata category tags without textual extraction

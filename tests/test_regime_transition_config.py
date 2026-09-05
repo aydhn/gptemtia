@@ -1,0 +1,53 @@
+"""Tests for Regime Transition Configuration."""
+
+import pytest
+from advanced_regime_transition.regime_transition_config import (
+    REGIME_TRANSITION_PROFILES,
+    get_regime_transition_profile,
+    get_default_regime_transition_profile,
+    list_regime_transition_profiles,
+    validate_regime_transition_profiles,
+)
+
+
+def test_regime_transition_config_profiles_exist():
+    profiles = list_regime_transition_profiles()
+    assert len(profiles) >= 3
+    assert "balanced_local_regime_transition" in profiles
+    assert "strict_non_signal_transition_safety" in profiles
+    assert "dry_run_transition_diagnostics_focus" in profiles
+
+
+def test_regime_transition_config_invariants():
+    default_p = get_default_regime_transition_profile()
+    assert default_p.current_phase == 130
+    assert default_p.target_final_phase == 160
+    assert default_p.next_phase == 131
+    assert default_p.dry_run_default is True
+    assert default_p.local_only is True
+    assert default_p.non_production is True
+    assert default_p.research_only is True
+    assert default_p.allow_live_trading is False
+    assert default_p.allow_broker_integration is False
+    assert default_p.allow_transition_as_signal is False
+    assert default_p.allow_stability_as_signal is False
+    assert default_p.allow_directional_claim is False
+    assert default_p.allow_clustering_execution is False
+    assert default_p.allow_model_training is False
+    assert default_p.allow_model_fit is False
+    assert default_p.allow_model_predict is False
+    assert default_p.allow_unsupervised_execution is False
+    assert default_p.allow_target_label_generation is False
+    assert default_p.allow_prediction_generation is False
+    assert default_p.allow_source_overwrite is False
+    assert default_p.allow_auto_imputation is False
+    assert default_p.allow_auto_feature_drop is False
+
+
+def test_validate_regime_transition_profiles():
+    assert validate_regime_transition_profiles() is True
+
+
+def test_unknown_profile_raises_key_error():
+    with pytest.raises(KeyError):
+        get_regime_transition_profile("non_existent_profile")

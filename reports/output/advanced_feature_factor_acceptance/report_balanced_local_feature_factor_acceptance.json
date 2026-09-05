@@ -1,0 +1,14 @@
+{
+  "profile": "balanced_local_feature_factor_acceptance",
+  "overall_status": "ACCEPTANCE_PASS",
+  "acceptance_score": 1.0,
+  "total_modules": 10,
+  "total_gates": 16,
+  "health_status": "HEALTHY",
+  "validation_status": "VALIDATION_PASS",
+  "handoff_status": "READY",
+  "non_signal": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false
+}

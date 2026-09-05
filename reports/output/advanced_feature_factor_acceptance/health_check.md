@@ -1,0 +1,31 @@
+# Phase 125 Feature Factor Acceptance Health Report
+
+> [!WARNING]
+> **YASAL UYARI VE NON-SIGNAL GÜVENCESİ**:
+> Bu çıktı Phase 125 Feature/Factor Engine Acceptance Report raporudur. > Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, acceptance score’u trade sinyali olarak kullanma, > strateji üretimi, backtest, optimizer, model training, prediction/target/label üretimi, > production-ready/official approval/broker-ready iddiası, otomatik feature silme/düzeltme, > haber tam metni kullanımı, production deployment, model deployment, scraping veya gerçek provider API çağrısı değildir.
+
+
+## Summary
+- **Health Status**: HEALTHY
+- **Total Checks**: 15
+- **Passed Checks**: 15
+- **Non-Signal**: True
+
+## Health Checks Table
+| check_id | target | type | status | passed | details | non_signal |
+| --- | --- | --- | --- | --- | --- | --- |
+| health_phase_116 | advanced_feature_engine | module_import | HEALTHY | True | Check passed | True |
+| health_phase_117 | advanced_technical_indicators | module_import | HEALTHY | True | Check passed | True |
+| health_phase_118 | advanced_feature_grid | module_import | HEALTHY | True | Check passed | True |
+| health_phase_119 | advanced_cross_asset_alignment | module_import | HEALTHY | True | Check passed | True |
+| health_phase_120 | advanced_feature_fusion | module_import | HEALTHY | True | Check passed | True |
+| health_phase_121 | advanced_feature_validation | module_import | HEALTHY | True | Check passed | True |
+| health_phase_122 | advanced_factor_metadata | module_import | HEALTHY | True | Check passed | True |
+| health_phase_123 | advanced_feature_quality_drift | module_import | HEALTHY | True | Check passed | True |
+| health_phase_124 | advanced_feature_store_integration | module_import | HEALTHY | True | Check passed | True |
+| health_phase_125 | advanced_feature_factor_acceptance | module_import | HEALTHY | True | Check passed | True |
+| health_datalake | data.storage.data_lake | storage_import | HEALTHY | True | Check passed | True |
+| health_feature_store | ml.feature_store | storage_import | HEALTHY | True | Check passed | True |
+| health_scripts | scripts | directory_exists | HEALTHY | True | Check passed | True |
+| health_tests | tests | directory_exists | HEALTHY | True | Check passed | True |
+| health_docs | docs | directory_exists | HEALTHY | True | Check passed | True |

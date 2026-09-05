@@ -1,0 +1,4 @@
+rule_name,rule_domain,severity_label
+commodity_spot_integrity,commodity_quality,quality_high
+commodity_ohlcv_integrity,commodity_quality,quality_high
+commodity_futures_metadata,commodity_quality,quality_medium

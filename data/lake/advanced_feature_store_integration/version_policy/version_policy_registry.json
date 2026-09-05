@@ -1,0 +1,7 @@
+{
+  "total_version_policies": 3,
+  "destructive_overwrite_forbidden": true,
+  "production_release_tag_forbidden": true,
+  "non_signal": true,
+  "source_preserved": true
+}

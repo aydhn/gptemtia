@@ -1,0 +1,20 @@
+{
+  "total_alignments": 5,
+  "macro_indicators": [
+    "FED_POLICY_RATE",
+    "ECB_POLICY_RATE",
+    "CBRT_POLICY_RATE",
+    "US_CPI_RELEASE",
+    "US_NONFARM_PAYROLLS"
+  ],
+  "calendar_events": [
+    "FOMC_RATE_DECISION",
+    "ECB_RATE_DECISION",
+    "CBRT_RATE_DECISION",
+    "US_CPI_RELEASE",
+    "US_NONFARM_PAYROLLS_RELEASE"
+  ],
+  "all_non_signal": true,
+  "status": "READY",
+  "profile": "balanced_local_cross_asset_alignment"
+}

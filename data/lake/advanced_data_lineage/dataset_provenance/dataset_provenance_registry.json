@@ -1,0 +1,31 @@
+{
+  "total_datasets": 10,
+  "dataset_names": [
+    "fx_quote_contract_dataset",
+    "fx_ohlcv_contract_dataset",
+    "commodity_spot_contract_dataset",
+    "commodity_ohlcv_contract_dataset",
+    "macro_timeseries_contract_dataset",
+    "calendar_event_contract_dataset",
+    "release_event_contract_dataset",
+    "news_metadata_contract_dataset",
+    "provider_metadata_contract_dataset",
+    "normalized_view_manifest_dataset"
+  ],
+  "dataset_types": [
+    "dataset_fx_quote",
+    "dataset_fx_ohlcv",
+    "dataset_commodity_spot",
+    "dataset_commodity_ohlcv",
+    "dataset_macro_timeseries",
+    "dataset_calendar_event",
+    "dataset_release_event",
+    "dataset_news_metadata",
+    "dataset_provider_metadata",
+    "dataset_unknown"
+  ],
+  "all_source_preserved": true,
+  "manual_review_count": 0,
+  "current_phase": 114,
+  "target_final_phase": 160
+}

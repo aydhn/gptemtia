@@ -1,0 +1,5 @@
+dependency_id,name,source_phase,description,max_threshold,is_blocking,non_signal,current_phase,target_final_phase,next_phase,source_preserved,status
+qual_dep_missingness_threshold,Missingness Ratio <= 0.05,123,Excludes columns exceeding 5% missing points across rolling evaluation windows.,0.05,True,True,127,160,128,True,matrix_ready
+qual_dep_drift_psi_threshold,Population Stability Index <= 0.25,123,"Monitors feature distribution stability, warning on PSI > 0.25.",0.25,False,True,127,160,128,True,matrix_ready
+qual_dep_staleness_limit,Staleness Diagnostic <= 5 bars,123,Flags features that do not update over 5 consecutive business day bars.,5.0,True,True,127,160,128,True,matrix_ready
+qual_dep_zero_manual_blockers,Zero Critical Manual Review Blockers,124,Requires that no unresolved blocking finding resides in the manual review queue.,0.0,True,True,127,160,128,True,matrix_ready

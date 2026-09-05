@@ -1,0 +1,16 @@
+{
+  "total_thresholds": 8,
+  "threshold_keys": [
+    "sequence_missingness_warning_above",
+    "sequence_missingness_critical_above",
+    "transition_ambiguity_warning_above",
+    "continuity_warning_below",
+    "stability_warning_below",
+    "manual_review_if_insufficient_sequence",
+    "manual_review_if_timestamp_gap",
+    "manual_review_if_future_timestamp_risk"
+  ],
+  "manual_review_enforced": true,
+  "non_signal": true,
+  "active_profile": "balanced_local_regime_transition"
+}

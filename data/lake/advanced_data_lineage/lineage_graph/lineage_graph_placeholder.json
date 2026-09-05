@@ -1,0 +1,16 @@
+{
+  "total_edges": 15,
+  "unique_source_nodes": 12,
+  "unique_target_nodes": 15,
+  "relationships": [
+    "provided_by",
+    "produces_dataset",
+    "conforms_to_schema",
+    "transformed_by",
+    "yields_normalized_output"
+  ],
+  "is_vector_db": false,
+  "is_graph_db": false,
+  "current_phase": 114,
+  "target_final_phase": 160
+}

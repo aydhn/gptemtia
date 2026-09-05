@@ -1,0 +1,13 @@
+{
+  "profile_name": "balanced_local_feature_factor_acceptance",
+  "total_rules": 22,
+  "no_go_count": 15,
+  "safe_go_count": 7,
+  "all_no_go_enforced": true,
+  "all_safe_go_active": true,
+  "non_signal": true,
+  "source_preserved": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false
+}

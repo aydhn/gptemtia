@@ -1,0 +1,2 @@
+canonical_timezone,iso_format,local_note_timezone,policy,source_preserved,current_phase
+UTC,%Y-%m-%dT%H:%M:%SZ,Europe/Istanbul,Her zaman UTC kanonik saklanır; yerel saatler yalnızca rapor gösterimi içindir.,True,113

@@ -16,7 +16,7 @@ def main():
     args = parser.parse_args()
 
     settings = Settings()
-    data_lake = DataLake(settings)
+    data_lake = DataLake('data/lake')
     report_builder = ReportBuilder(data_lake, None, settings) # type: ignore
     project_root = Path.cwd()
     

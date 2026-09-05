@@ -1,0 +1,5 @@
+alignment_id,fx_pair,news_tag,metadata_only,full_text_collected,sentiment_signal_allowed,non_signal,notes
+fxnews_eur_usd_central_bank,EUR/USD,CENTRAL_BANK,True,False,False,True,"Merkez bankası haber başlığı konusu; tam metin indirilmez, sentiment trade sinyali olamaz."
+fxnews_eur_usd_inflation,EUR/USD,INFLATION,True,False,False,True,Enflasyon haber metadata etiketi eşlemesi.
+fxnews_usd_try_turkey,USD/TRY,TURKEY_ECONOMY,True,False,False,True,Türkiye ekonomisi haber metadata konusu bağlantısı.
+fxnews_global_risk,EUR/USD,RISK_SENTIMENT,True,False,False,True,Küresel risk iştahı başlık etiketi; telifli içerik kopyalanmaz.

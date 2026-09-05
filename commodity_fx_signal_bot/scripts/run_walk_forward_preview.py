@@ -48,7 +48,7 @@ def main():
         logger.error(f"Invalid profile: {e}")
         return
 
-    data_lake = DataLake(settings)
+    data_lake = DataLake('data/lake')
     pipeline = ValidationPipeline(data_lake, settings, profile)
 
     logger.info(f"Running walk-forward validation preview for {args.symbol} {args.timeframe}...")

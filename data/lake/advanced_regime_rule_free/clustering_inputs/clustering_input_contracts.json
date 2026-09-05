@@ -1,0 +1,7 @@
+{
+  "total_clustering_input_contracts": 5,
+  "all_non_signal": true,
+  "all_no_clustering": true,
+  "all_no_training": true,
+  "contracts_status": "VALID"
+}

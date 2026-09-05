@@ -1,0 +1,4 @@
+factor_name,factor_family,input_features,calculation_type,non_signal_usage,status_label,manual_review_required
+factor_return_short_window_context,return,"['return__simple_1d', 'return__simple_3d', 'return__simple_5d']",trailing_simple_return,Short-term historical performance observation without forward return.,factor_ready,False
+factor_return_medium_window_context,return,"['return__simple_10d', 'return__simple_20d']",trailing_compound_return,Medium-term trailing price performance metric.,factor_ready,False
+factor_return_multi_horizon_context,return,"['return__simple_1d', 'return__simple_5d', 'return__simple_20d', 'return__simple_60d']",multi_horizon_return_vector,Multi-horizon trailing return vector. Strictly zero lookahead or future shifts.,factor_ready,False

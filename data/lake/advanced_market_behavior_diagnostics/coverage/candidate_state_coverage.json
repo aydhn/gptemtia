@@ -1,0 +1,8 @@
+{
+  "total_families": 7,
+  "total_candidate_states": 10,
+  "average_family_completeness": 1.0,
+  "all_families_covered": true,
+  "non_signal": true,
+  "active_profile": "balanced_local_market_behavior_diagnostics"
+}

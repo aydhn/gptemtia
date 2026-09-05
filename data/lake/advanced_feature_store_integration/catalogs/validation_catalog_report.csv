@@ -1,0 +1,6 @@
+status_id,entity_id,feature_name,status_label,severity,issues_detected,description,non_signal,source_preserved
+VAL_STAT_001,eurusd,sma_20,validation_pass,info,0,Tüm no-lookahead ve veri tipi validasyonlarından başarıyla geçti.,True,True
+VAL_STAT_002,brent,atr_14,validation_pass,info,0,Zaman damgası sıralaması ve aykırı değer kontrolleri tam uyumlu.,True,True
+VAL_STAT_003,cross_asset,brent_eurusd_corr_30,validation_pass_with_warnings,warning,1,Asof join backward tolerans sınırında uyarı; no-lookahead korundu.,True,True
+VAL_STAT_004,macro_news,energy_event_attention_score,validation_manual_review_required,high,1,Haber metaveri etiket dağılımı insan incelemesi gerektiriyor; silme yapılmadı.,True,True
+VAL_STAT_005,placeholder_series,future_window_test_placeholder,validation_placeholder_only,info,0,Simülasyon amaçlı yer tutucu kaydı; üretimde kullanılmaz.,True,True

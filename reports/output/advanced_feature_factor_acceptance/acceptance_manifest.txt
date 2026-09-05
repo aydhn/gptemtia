@@ -1,0 +1,12 @@
+UYARI: Bu rapor Phase 125 Feature/Factor Engine Acceptance Report çıktısıdır. Gerçek veri indirme zorunluluğu, scraping, haber tam metni kullanımı, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, acceptance score’u trade sinyali olarak kullanma, strateji/backtest/optimizer/model training çalıştırma, target/label/prediction üretme, official approval, broker-ready veya production-ready iddiası değildir.
+Block Name: advanced_feature_factor_engine_block
+Phase Start: 116
+Phase End: 125
+Target Final Phase: 160
+Next Phase: 126
+Acceptance Score: 1.0
+Official Approval: False
+Production Ready: False
+Broker Ready: False
+Source Preserved: True
+Non-Signal Invariant: True

@@ -1,0 +1,5 @@
+transition_boundary,boundary_type,sample_points,mean_ambiguity_score,high_ambiguity_fraction,is_acceptable,non_signal
+vol_compression -> vol_expansion,volatility,35,0.28,0.14,True,True
+bullish_trend -> range_bound,trend_range,45,0.36,0.2,True,True
+bearish_trend -> range_bound,trend_range,40,0.34,0.18,True,True
+range_bound -> breakout_context,breakout_context,25,0.44,0.32,True,True

@@ -1,0 +1,28 @@
+# Phase 116-125 Feature Engine Block Inventory Report
+
+> [!WARNING]
+> **YASAL UYARI VE NON-SIGNAL GÜVENCESİ**:
+> Bu çıktı Phase 125 Feature/Factor Engine Acceptance Report raporudur. > Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, acceptance score’u trade sinyali olarak kullanma, > strateji üretimi, backtest, optimizer, model training, prediction/target/label üretimi, > production-ready/official approval/broker-ready iddiası, otomatik feature silme/düzeltme, > haber tam metni kullanımı, production deployment, model deployment, scraping veya gerçek provider API çağrısı değildir.
+
+
+## Summary
+- **Total Modules**: 10
+- **Phase Range**: 116-125
+- **All Modules Passed**: True
+- **Total Expected Scripts**: 93
+- **Total Expected Tests**: 193
+- **Manual Reviews Needed**: 0
+
+## Inventory Table
+| phase_number | module_name | package_name | description | expected_scripts | expected_tests | expected_reports | expected_datalake_outputs | expected_docs | status_label | manual_review_required | non_signal | source_preserved | official_approval | production_ready | broker_ready |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 116 | advanced_feature_engine | advanced_feature_engine | Feature Engine Foundation: hesaplama arayüzleri, bağımlılık grafikleri, temel özellikler. | 9 | 15 | 6 | 8 | 8 | acceptance_pass | False | True | True | False | False | False |
+| 117 | advanced_technical_indicators | advanced_technical_indicators | Technical Indicator Expansion: trend, osilatör, volatilite, hacim, fiyat hareketleri. | 9 | 16 | 6 | 8 | 8 | acceptance_pass | False | True | True | False | False | False |
+| 118 | advanced_feature_grid | advanced_feature_grid | Multi-Window Feature Grid: çoklu pencere varyans, getiri, kanal ve hacim ızgaraları. | 9 | 15 | 6 | 8 | 8 | acceptance_pass | False | True | True | False | False | False |
+| 119 | advanced_cross_asset_alignment | advanced_cross_asset_alignment | Cross-Asset Feature Alignment: çoklu varlık zaman uyumu, backward asof join politikaları. | 9 | 15 | 6 | 8 | 8 | acceptance_pass | False | True | True | False | False | False |
+| 120 | advanced_feature_fusion | advanced_feature_fusion | Macro/Calendar/News Fusion: makro seriler, takvim olay pencereleri, metadata-only haberler. | 9 | 18 | 6 | 10 | 8 | acceptance_pass | False | True | True | False | False | False |
+| 121 | advanced_feature_validation | advanced_feature_validation | Feature Validation & No-Lookahead: sızıntı denetimi, yasaklı kolon ve veri bütünlüğü. | 9 | 17 | 6 | 8 | 8 | acceptance_pass | False | True | True | False | False | False |
+| 122 | advanced_factor_metadata | advanced_factor_metadata | Factor Metadata & Families: 12 faktör ailesi, faktör şemaları, girdi sözleşmeleri. | 10 | 20 | 6 | 12 | 8 | acceptance_pass | False | True | True | False | False | False |
+| 123 | advanced_feature_quality_drift | advanced_feature_quality_drift | Feature Quality & Drift Diagnostics: missingness, inf, all-nan, PSI/KS drift, rolling stability. | 10 | 22 | 6 | 12 | 8 | acceptance_pass | False | True | True | False | False | False |
+| 124 | advanced_feature_store_integration | advanced_feature_store_integration | Feature Store Integration: merkezi feature store, kataloglar, kalite/drift metaveri kayıtları. | 10 | 32 | 6 | 14 | 8 | acceptance_pass | False | True | True | False | False | False |
+| 125 | advanced_feature_factor_acceptance | advanced_feature_factor_acceptance | Feature/Factor Engine Acceptance Report: uçtan uca kabul, güvenlik kapıları, manifest ve handoff. | 9 | 23 | 8 | 14 | 8 | acceptance_pass | False | True | True | False | False | False |

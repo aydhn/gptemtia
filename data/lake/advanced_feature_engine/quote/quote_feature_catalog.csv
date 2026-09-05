@@ -1,0 +1,6 @@
+schema_id,feature_name,feature_type,dataset_type,output_field,value_type,lookback_window,required_input_fields,non_signal,manual_review_required,formula_note,description
+fs_fx_quote_bid_ask_spread,bid_ask_spread,feature_type_quote,dataset_fx_quote,bid_ask_spread,float,,"['bid', 'ask']",True,False,ask - bid,"Kote alış-satış mutlak farkı; likidite maliyeti araştırması içindir, sinyal değildir."
+fs_fx_quote_bid_ask_spread_pct,bid_ask_spread_pct,feature_type_quote,dataset_fx_quote,bid_ask_spread_pct,float,,"['bid', 'ask']",True,False,(ask - bid) / ((bid + ask) / 2),Yüzdesel spread oranı; işlem maliyeti filtresi metriğidir.
+fs_fx_quote_mid_price,mid_price,feature_type_quote,dataset_fx_quote,mid_price,float,,"['bid', 'ask']",True,False,(bid + ask) / 2,"Kote orta fiyatı; referans fiyat seviyesidir, sinyal değildir."
+fs_fx_quote_quote_imbalance_placeholder,quote_imbalance_placeholder,feature_type_quote,dataset_fx_quote,quote_imbalance_placeholder,float,,"['bid', 'ask']",True,False,Kote dengesizlik oranı placeholder'ı,Teklif dengesizliği placeholder'ı; kesin yön tahmini içermez.
+fs_fx_quote_quote_staleness_flag_placeholder,quote_staleness_flag_placeholder,feature_type_quote,dataset_fx_quote,quote_staleness_flag_placeholder,int,,['timestamp'],True,False,"Bayat veri tespit bayrağı (1=bayat, 0=güncel)",Fiyat tazelik kalite bayrağı; filtreleme amaçlıdır.

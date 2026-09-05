@@ -1,0 +1,7 @@
+schema_id,grid_name,output_field_pattern,value_type,nullable,warmup_nan_expected,forbidden_aliases,non_signal,manual_review_required
+fgos_moving_average_grid_ma_type_w_window,moving_average_grid,{ma_type}_w{window},float64,True,True,"['signal', 'buy', 'sell', 'long', 'short', 'position', 'target', 'label', 'prediction', 'recommendation']",True,False
+fgos_momentum_grid_momentum_type_w_window,momentum_grid,{momentum_type}_w{window},float64,True,True,"['signal', 'buy', 'sell', 'long', 'short', 'position', 'target', 'label', 'prediction', 'recommendation']",True,False
+fgos_volatility_grid_vol_type_w_window,volatility_grid,{vol_type}_w{window},float64,True,True,"['signal', 'buy', 'sell', 'long', 'short', 'position', 'target', 'label', 'prediction', 'recommendation']",True,False
+fgos_range_channel_grid_channel_type_part_w_window,range_channel_grid,{channel_type}_{part}_w{window},float64,True,True,"['signal', 'buy', 'sell', 'long', 'short', 'position', 'target', 'label', 'prediction', 'recommendation']",True,False
+fgos_mean_reversion_grid_mr_type_w_window,mean_reversion_grid,{mr_type}_w{window},float64,True,True,"['signal', 'buy', 'sell', 'long', 'short', 'position', 'target', 'label', 'prediction', 'recommendation']",True,False
+fgos_return_grid_return_w_window,return_grid,return_w{window},float64,True,True,"['signal', 'buy', 'sell', 'long', 'short', 'position', 'target', 'label', 'prediction', 'recommendation']",True,False

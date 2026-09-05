@@ -1,0 +1,5 @@
+contract_id,contract_name,description,severity,enforced,non_signal,destructive_action_allowed
+contract_baseline_alignment,Baseline Feature Alignment Contract,Baseline and current comparison windows must share identical feature column sets.,drift_high,True,True,False
+contract_min_sample_size,Minimum Sample Size Contract,Comparison window requires minimum number of observations (>= 30) for valid statistical tests.,drift_medium,True,True,False
+contract_temporal_precedence,Temporal Precedence Contract,Baseline window timestamps must precede or establish historical reference for comparison window.,drift_critical,True,True,False
+contract_non_signal_drift,Non-Signal Drift Utilization Contract,Drift output must strictly remain diagnostic; no automated trade signals or parameter adjustments.,drift_critical,True,True,False

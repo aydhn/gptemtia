@@ -1,0 +1,7 @@
+quality_dep_id,dependency_name,source_phase,quality_metric,min_required_score,observed_score,satisfied,non_signal,source_preserved,official_approval,production_ready,broker_ready,contains_target_or_prediction,contains_trading_recommendation
+qual_dep_p123_quality_drift,Phase 123 Feature Quality & Drift Gate,123,data_quality_drift_score,0.45,0.88,True,True,True,False,False,False,False,False
+qual_dep_p124_feature_store,Phase 124 Feature Store Metadata Gate,124,metadata_completeness_ratio,0.45,0.9,True,True,True,False,False,False,False,False
+qual_dep_p129_behavior_diagnostics,Phase 129 Behavior Diagnostics Quality Gate,129,behavior_diagnostic_quality_score,0.45,0.86,True,True,True,False,False,False,False,False
+qual_dep_p130_transition_stability,Phase 130 Transition Stability Diagnostics Gate,130,transition_stability_score,0.45,0.82,True,True,True,False,False,False,False,False
+qual_dep_p119_cross_asset_alignment,Phase 119 Cross-Asset Alignment Quality Gate,119,alignment_synchronization_score,0.45,0.89,True,True,True,False,False,False,False,False
+qual_dep_review_queue_blockers,Manual Review Blocker Inspection Gate,131,zero_blocking_manual_reviews,1.0,1.0,True,True,True,False,False,False,False,False

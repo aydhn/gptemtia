@@ -1,0 +1,11 @@
+{
+  "no_go_count": 18,
+  "safe_go_count": 8,
+  "all_no_go_enforced": true,
+  "safety_status": "SECURE",
+  "live_trading_allowed": false,
+  "model_execution_allowed": false,
+  "non_signal": true,
+  "source_preserved": true,
+  "active_profile": "balanced_local_cross_asset_regime_context"
+}

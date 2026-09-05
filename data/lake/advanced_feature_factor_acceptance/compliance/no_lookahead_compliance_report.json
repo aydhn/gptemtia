@@ -1,0 +1,7 @@
+{
+  "compliance_type": "no_lookahead",
+  "total_modules_audited": 10,
+  "compliant_modules": 10,
+  "lookahead_detected": false,
+  "non_signal": true
+}

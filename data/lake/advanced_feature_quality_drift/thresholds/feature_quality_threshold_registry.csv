@@ -1,0 +1,7 @@
+threshold_id,metric_id,warning_threshold,critical_threshold,unit,description,auto_drop_allowed,auto_fix_allowed,non_signal
+thresh_quality_missingness_ratio,missingness_ratio,0.25,0.5,ratio,"Warning if missingness > 25%, critical if > 50%.",False,False,True
+thresh_quality_infinite_value_ratio,infinite_value_ratio,0.0001,0.0001,ratio,Critical if any infinite values are present (> 0).,False,False,True
+thresh_quality_all_nan_flag,all_nan_flag,1.0,1.0,flag,Critical if feature column contains all NaN values.,False,False,True
+thresh_quality_zero_variance_flag,zero_variance_flag,1.0,1.0,flag,Warning if column variance is zero (constant feature).,False,False,True
+thresh_quality_duplicate_value_ratio,duplicate_value_ratio,0.9,0.99,ratio,Warning if single value constitutes > 90% of rows.,False,False,True
+thresh_quality_staleness_max_unchanged_bars,staleness_max_unchanged_bars,30.0,60.0,count,Warning if feature remains unchanged for > 30 consecutive bars.,False,False,True

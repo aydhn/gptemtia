@@ -1,0 +1,8 @@
+entity_type,entity_id,description,identifier_field,source_phase,namespace_prefix,sample_keys,non_signal,source_preserved,current_phase,target_final_phase
+entity_fx_pair,fx_pair,"Döviz çiftleri varlık tanımlayıcısı (EURUSD, GBPUSD, USDJPY, USDTRY).",symbol,107,fx,"EURUSD,GBPUSD,USDJPY,USDTRY",True,True,124,160
+entity_commodity_symbol,commodity_symbol,"Emtia sembolleri varlık tanımlayıcısı (BRENT, WTI, XAUUSD, XAGUSD).",symbol,108,commodity,"BRENT,WTI,XAUUSD,XAGUSD",True,True,124,160
+entity_macro_indicator,macro_indicator,"Makroekonomik indikatör serisi tanımlayıcısı (US10Y, DXY, FEDFUNDS).",indicator_id,109,macro,"US10Y,DXY,FEDFUNDS,US_CPI",True,True,124,160
+entity_calendar_event,calendar_event,"Ekonomik takvim olay tanımlayıcısı (FOMC, NFP, CPI).",event_id,110,calendar,"FOMC_RATE_DECISION,US_NFP,US_CPI_RELEASE",True,True,124,160
+entity_news_metadata,news_metadata_tag,Haber metaveri etiket tanımlayıcısı (tam metin içermeyen başlık/etiket).,tag_id,111,news,"ENERGY_SUPPLY_EVENT,CENTRAL_BANK_SPEECH",True,True,124,160
+entity_cross_asset_context,cross_asset_context,Çapraz varlık bağlam tanımlayıcısı (döviz-emtia-makro korelasyonu).,context_id,119,cross_asset,"COMMODITY_FX_CONTEXT,MACRO_COMMODITY_CONTEXT",True,True,124,160
+entity_factor_family,factor_family,Faktör ailesi tanımlayıcısı (Phase 122 kanonik faktör taksonomisi).,family_name,122,factor,"technical,trend,momentum,volatility,macro_context",True,True,124,160

@@ -1,0 +1,12 @@
+{
+  "active_profile": "balanced_local_regime_matrix_contracts",
+  "total_profiles": 3,
+  "current_phase": 127,
+  "next_phase": 128,
+  "target_final_phase": 160,
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "official_approval_guarantee": false,
+  "production_ready_guarantee": false,
+  "broker_ready_guarantee": false
+}

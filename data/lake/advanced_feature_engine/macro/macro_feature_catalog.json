@@ -1,0 +1,12 @@
+{
+  "catalog": "macro_features",
+  "total_features": 5,
+  "all_non_signal": true,
+  "features": [
+    "macro_value_change",
+    "macro_rolling_change_placeholder",
+    "macro_surprise_placeholder",
+    "macro_revision_flag_placeholder",
+    "macro_frequency_flag_placeholder"
+  ]
+}

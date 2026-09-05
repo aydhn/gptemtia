@@ -1,0 +1,2 @@
+rule_name,rule_domain,severity_label,description
+check_duplicate_records,duplicate_data,quality_medium,Verilen birincil anahtar sütunları üzerinde mükerrer satırların tespiti.

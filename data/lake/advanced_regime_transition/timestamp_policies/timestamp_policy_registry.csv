@@ -1,0 +1,5 @@
+policy_name,description,enforcement_level,allows_ties,requires_utc
+strict_monotonic_timestamp_order,Ensure observation timestamps are strictly increasing (t > t-1),blocking,False,True
+no_future_context_timestamp,Context feature timestamps must be less than or equal to base observation timestamp,blocking,True,True
+transition_lag_alignment,Transition point state t must depend only on information available at or before t,blocking,True,True
+macro_release_lag_guard,Macro event window joins must respect official publication timestamp lag,blocking,False,True

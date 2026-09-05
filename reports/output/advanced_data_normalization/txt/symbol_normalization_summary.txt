@@ -1,0 +1,4 @@
+FX Symbol Rules: 18
+Commodity Symbol Rules: 16
+Macro Indicators: 15
+Calendar Events: 14

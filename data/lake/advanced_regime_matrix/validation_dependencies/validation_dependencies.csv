@@ -1,0 +1,6 @@
+dependency_id,name,source_phase,description,is_mandatory,non_signal,current_phase,target_final_phase,next_phase,source_preserved,status
+val_dep_no_lookahead_ts_order,Timestamp Monotonicity and No Lookahead,121,Requires timestamp ordering check to pass before incorporating feature in matrix.,True,True,127,160,128,True,matrix_ready
+val_dep_forbidden_column_block,Forbidden Column Blockage,121,Zero forbidden columns permitted in input or output matrices.,True,True,127,160,128,True,matrix_ready
+val_dep_news_metadata_boundary,Strict Metadata-Only News Verification,121,Audits news inputs to verify no full text or scraping content is present.,True,True,127,160,128,True,matrix_ready
+val_dep_warmup_nan_boundary,Warmup NaN Accounting,121,Separates indicator warmup periods from corrupt or missing data.,True,True,127,160,128,True,matrix_ready
+val_dep_source_preservation,Source Preservation Guarantee,125,Ensures raw feature inputs remain untouched and un-mutated.,True,True,127,160,128,True,matrix_ready

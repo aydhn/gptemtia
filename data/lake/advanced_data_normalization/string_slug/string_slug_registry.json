@@ -1,0 +1,9 @@
+{
+  "formats_count": 2,
+  "formats": [
+    "snake_case_slug",
+    "upper_token"
+  ],
+  "current_phase": 113,
+  "target_final_phase": 160
+}

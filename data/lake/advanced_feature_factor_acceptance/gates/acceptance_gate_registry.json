@@ -1,0 +1,11 @@
+{
+  "profile_name": "balanced_local_feature_factor_acceptance",
+  "total_gates": 16,
+  "passed_gates": 16,
+  "failed_gates": 0,
+  "all_passed": true,
+  "non_signal": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false
+}

@@ -1,0 +1,4 @@
+profile_name,description,current_phase,target_final_phase,next_phase,is_active,dry_run_default,local_only,non_production,research_only,non_signal,source_preserved,clustering_allowed,model_training_allowed,min_readiness_score
+balanced_local_regime_rule_free_prep,Standard balanced local offline regime rule-free candidate state labeling and unsupervised prep profile.,128,160,129,True,True,True,True,True,True,True,False,False,0.45
+strict_non_signal_rule_free_safety,Strict safety profile enforcing zero-tolerance non-signal candidate state boundaries and heightened readiness thresholds.,128,160,129,False,True,True,True,True,True,True,False,False,0.6
+dry_run_unsupervised_prep_contract_focus,"Dry-run focused profile prioritizing unsupervised preparation contracts, clustering inputs, and non-executable placeholders.",128,160,129,False,True,True,True,True,True,True,False,False,0.45

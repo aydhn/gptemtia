@@ -1,0 +1,3 @@
+finding_id,finding_type,behavior_family,severity,message,recommendation,manual_review_required,destructive_action_allowed,auto_fix_allowed,auto_drop_allowed,non_signal
+finding_p129_001,candidate_state_ambiguity_warning,transition,behavior_low,Candidate state breakout transition exhibits expected boundary overlap with continuation.,Inspect candidate state ambiguity without modifying source schemas.,False,False,False,False,True
+finding_p129_002,news_metadata_boundary_risk,news_metadata,behavior_info,News metadata boundary strictly enforced: zero full-text and zero scraping validated.,Maintain metadata-only news boundary across all diagnostics pipelines.,False,False,False,False,True

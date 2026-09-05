@@ -44,7 +44,7 @@ def main():
 
     args = parser.parse_args()
 
-    lake = DataLake(settings)
+    lake = DataLake('data/lake')
 
     try:
         profile = get_paper_trading_profile(args.profile)

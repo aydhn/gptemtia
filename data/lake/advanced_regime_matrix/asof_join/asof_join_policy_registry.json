@@ -1,0 +1,14 @@
+{
+  "total_policies": 5,
+  "policy_ids": [
+    "asof_policy_backward_only",
+    "asof_policy_non_mutating",
+    "asof_policy_monotonic_order",
+    "asof_policy_no_nearest_or_forward",
+    "asof_policy_entity_partition_alignment"
+  ],
+  "mandatory_direction": "backward",
+  "all_enforced": true,
+  "all_non_signal": true,
+  "status": "matrix_ready"
+}

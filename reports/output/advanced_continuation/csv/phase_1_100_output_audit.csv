@@ -1,0 +1,17 @@
+audit_id,phase_range,output_area,expected_presence,current_status,gap_note,manual_review_required
+AUDIT-1-100-CORE_ARCHITECTURE,1-100,core architecture,present,present,,False
+AUDIT-1-100-CONFIG/PATHS/SETTINGS,1-100,config/paths/settings,present,present,,False
+AUDIT-1-100-DATALAKE,1-100,DataLake,present,present,,False
+AUDIT-1-100-FEATURESTORE,1-100,FeatureStore,present,present,,False
+AUDIT-1-100-REPORTING,1-100,reporting,present,present,,False
+AUDIT-1-100-ML_SCAFFOLD,1-100,ML scaffold,present,present,,False
+AUDIT-1-100-BACKTEST_SCAFFOLD,1-100,backtest scaffold,present,present,,False
+AUDIT-1-100-RESEARCH_REPORTS,1-100,research reports,present,present,,False
+AUDIT-1-100-GOVERNANCE/SAFETY,1-100,governance/safety,present,present,,False
+AUDIT-1-100-REDTEAM/INCIDENT,1-100,redteam/incident,present,present,,False
+AUDIT-1-100-DOCUMENTATION/EXPORT,1-100,documentation/export,present,present,,False
+AUDIT-1-100-PACKAGING,1-100,packaging,present,present,,False
+AUDIT-1-100-REPRODUCIBILITY,1-100,reproducibility,present,present,,False
+AUDIT-1-100-COMPLETION,1-100,completion,present,present,,False
+AUDIT-1-100-TERMINAL_CLOSEOUT,1-100,terminal closeout,present,present,,False
+AUDIT-1-100-FINAL_CLOSING,1-100,final closing,present,present,,False

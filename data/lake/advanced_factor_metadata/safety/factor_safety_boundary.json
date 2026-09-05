@@ -1,0 +1,11 @@
+{
+  "active_profile": "balanced_local_factor_metadata",
+  "safety_status": "SECURE",
+  "no_go_count": 20,
+  "safe_go_count": 11,
+  "total_rules": 31,
+  "destructive_action_allowed": false,
+  "non_signal": true,
+  "current_phase": 122,
+  "target_final_phase": 160
+}

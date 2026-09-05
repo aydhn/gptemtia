@@ -1,0 +1,44 @@
+mapping_type,raw_value,normalized_code,current_phase
+region,UNITED STATES,US,113
+region,USA,US,113
+region,U.S.,US,113
+region,US,US,113
+region,EUROZONE,EU,113
+region,EUROPE,EU,113
+region,TÜRKİYE,TR,113
+region,TÜRKIYE,TR,113
+region,TURKEY,TR,113
+region,TURKIYE,TR,113
+region,TR,TR,113
+region,UNITED KINGDOM,GB,113
+region,UK,GB,113
+region,GREAT BRITAIN,GB,113
+region,GB,GB,113
+region,JAPAN,JP,113
+region,JP,JP,113
+region,GERMANY,DE,113
+region,DE,DE,113
+region,CHINA,CN,113
+region,CN,CN,113
+currency,USDOLLAR,USD,113
+currency,USD,USD,113
+currency,DOLLAR,USD,113
+currency,TURKISH LIRA,TRY,113
+currency,TURKISH LIRASI,TRY,113
+currency,TRY,TRY,113
+currency,TL,TRY,113
+currency,EURO,EUR,113
+currency,EUR,EUR,113
+currency,BRITISH POUND,GBP,113
+currency,POUND,GBP,113
+currency,STERLING,GBP,113
+currency,GBP,GBP,113
+currency,JAPANESE YEN,JPY,113
+currency,YEN,JPY,113
+currency,JPY,JPY,113
+currency,SWISS FRANC,CHF,113
+currency,CHF,CHF,113
+currency,CANADIAN DOLLAR,CAD,113
+currency,CAD,CAD,113
+currency,AUSTRALIAN DOLLAR,AUD,113
+currency,AUD,AUD,113

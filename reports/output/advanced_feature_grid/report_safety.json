@@ -1,0 +1,8 @@
+{
+  "total_conditions": 24,
+  "total_no_go": 16,
+  "total_safe_go": 8,
+  "strict_boundaries_enforced": true,
+  "safety_status": "ACTIVE",
+  "profile": "balanced_local_multi_window_feature_grid"
+}

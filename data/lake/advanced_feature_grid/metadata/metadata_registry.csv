@@ -1,0 +1,11 @@
+grid_name,indicator_family,source_indicator,parameter_set,output_field,warmup_nan_expected,no_lookahead_checked,non_signal,phase_119_alignment_ready,manual_review_required
+sma_window_grid,moving_average,sma,"window=[5, 10, 20, 50, 100, 200]",sma_w{window},True,True,True,True,False
+ema_window_grid,moving_average,ema,"window=[5, 10, 20, 50, 100, 200]",ema_w{window},True,True,True,True,False
+rsi_window_grid,momentum,rsi,"window=[7, 14, 21, 28]",rsi_w{window},True,True,True,True,False
+roc_window_grid,momentum,roc,"window=[5, 10, 20, 30]",roc_w{window},True,True,True,True,False
+atr_window_grid,volatility,atr,"window=[7, 14, 20, 30]",atr_w{window},True,True,True,True,False
+bollinger_window_grid,range_channel,bollinger,"window=[10, 20, 30], num_std=[1.5, 2.0, 2.5]",bb_{comp}_w{window}_std{std},True,True,True,True,False
+donchian_window_grid,range_channel,donchian,"window=[10, 20, 55]",donchian_{comp}_w{window},True,True,True,True,False
+rolling_zscore_window_grid,mean_reversion,rolling_zscore,"window=[10, 20, 50, 100]",zscore_w{window},True,True,True,True,False
+realized_volatility_window_grid,volatility,realized_volatility,"window=[5, 10, 20, 30, 60]",realized_vol_w{window},True,True,True,True,False
+return_window_grid,return,simple_return,"window=[1, 3, 5, 10, 20]",return_w{window},True,True,True,True,False

@@ -1,0 +1,15 @@
+{
+  "total_linkages": 4,
+  "linkage_categories": {
+    "cross_asset_range_context": 1,
+    "range_persistence_alignment_placeholder": 1,
+    "range_transition_alignment_placeholder": 1,
+    "compression_expansion_alignment_placeholder": 1
+  },
+  "mean_linkage_score": 0.855,
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "zero_trading_signals": true,
+  "zero_predictions": true,
+  "active_profile": "balanced_local_cross_asset_regime_context"
+}

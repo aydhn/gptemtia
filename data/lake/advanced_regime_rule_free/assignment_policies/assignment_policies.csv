@@ -1,0 +1,9 @@
+policy_name,policy_type,description,candidate_state_family,execution_allowed,generates_trade_signal,non_signal,requires_validation,manual_review_required,status,current_phase,next_phase,target_final_phase
+threshold_free_context_assignment_placeholder,context_heuristics,Placeholder defining qualitative context assignment without rigid hardcoded trading thresholds.,general_context,False,False,True,True,True,rule_free_placeholder_only,128,129,160
+percentile_context_assignment_placeholder,percentile_boundary,Placeholder for rolling percentile ranking assignment in future research phases.,volatility_trend,False,False,True,True,True,rule_free_placeholder_only,128,129,160
+rank_context_assignment_placeholder,relative_rank,Placeholder for cross-sectional relative rank assignment across assets.,cross_asset,False,False,True,True,True,rule_free_placeholder_only,128,129,160
+distance_to_centroid_placeholder,distance_metric,Placeholder for distance-to-centroid assignment specification (no centroids calculated in Phase 128).,cluster_prep,False,False,True,True,True,rule_free_placeholder_only,128,129,160
+cluster_membership_placeholder,cluster_membership,Placeholder for future unsupervised cluster membership mapping (no clustering executed).,cluster_prep,False,False,True,True,True,rule_free_placeholder_only,128,129,160
+transition_context_placeholder,transition_dynamics,Placeholder for state change and transition dynamics assignment.,transition,False,False,True,True,True,rule_free_placeholder_only,128,129,160
+uncertainty_context_placeholder,uncertainty_filter,Placeholder for assigning uncertain context when data quality or drift violates thresholds.,uncertain,False,False,True,True,True,rule_free_placeholder_only,128,129,160
+manual_review_assignment_placeholder,manual_override,Placeholder routing ambiguous state candidates to human researcher review queue.,manual_review,False,False,True,True,True,rule_free_placeholder_only,128,129,160

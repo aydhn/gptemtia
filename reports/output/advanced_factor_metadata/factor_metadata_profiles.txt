@@ -1,0 +1,7 @@
+Bu rapor Phase 122 Factor Metadata and Factor Families çıktısıdır. Gerçek veri indirme zorunluluğu, scraping, haber tam metni kullanımı, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, factor değerini trade sinyali olarak kullanma, strateji/backtest/optimizer/model training çalıştırma, target/label/prediction üretme, official approval veya production-ready iddiası değildir.
+Factor Metadata Profile: balanced_local_factor_metadata
+Total Profiles: 3
+Current Phase: 122
+Target Final Phase: 160
+Non-Signal Mandate: True
+Status: factor_ready

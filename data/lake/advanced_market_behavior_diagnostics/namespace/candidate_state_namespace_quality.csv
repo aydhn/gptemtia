@@ -1,0 +1,11 @@
+candidate_state_name,has_correct_prefix,is_snake_case,has_forbidden_terms,forbidden_terms,namespace_status,namespace_valid,non_signal
+candidate_state_volatility_expansion,True,True,False,none,behavior_quality_ready,True,True
+candidate_state_volatility_compression,True,True,False,none,behavior_quality_ready,True,True
+candidate_state_trend_continuation,True,True,False,none,behavior_quality_ready,True,True
+candidate_state_trend_exhaustion,True,True,False,none,behavior_quality_ready,True,True
+candidate_state_range_bound_oscillation,True,True,False,none,behavior_quality_ready,True,True
+candidate_state_range_breakout_transition,True,True,False,none,behavior_quality_ready,True,True
+candidate_state_macro_event_shock,True,True,False,none,behavior_quality_ready,True,True
+candidate_state_news_attention_surge,True,True,False,none,behavior_quality_ready,True,True
+candidate_state_cross_asset_divergence,True,True,False,none,behavior_quality_ready,True,True
+candidate_state_uncertain_regime,True,True,False,none,behavior_quality_ready,True,True

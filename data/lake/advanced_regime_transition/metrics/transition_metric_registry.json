@@ -1,0 +1,18 @@
+{
+  "total_metrics": 9,
+  "metric_names": [
+    "transition_frequency_placeholder",
+    "transition_count_placeholder",
+    "transition_rate_placeholder",
+    "state_switch_ratio_placeholder",
+    "transition_ambiguity_score_placeholder",
+    "transition_continuity_score_placeholder",
+    "transition_readiness_score",
+    "timestamp_continuity_score",
+    "manual_review_blocker_count"
+  ],
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "all_requires_no_lookahead": true,
+  "active_profile": "balanced_local_regime_transition"
+}

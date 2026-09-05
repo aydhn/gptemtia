@@ -1,0 +1,5 @@
+review_id,target_component,issue_description,recommended_inspection,blocking_status,manual_review_required,auto_fix_forbidden
+REV-130-001,state_sequence_continuity,Validate sequence continuity across holiday session boundaries,inspect state sequence continuity and ensure no unintended temporal gaps,review_pending,True,True
+REV-130-002,transition_ambiguity,Verify transition ambiguity remains below warning threshold during volatility shifts,inspect transition ambiguity and verify candidate state assignment sharpness,review_pending,True,True
+REV-130-003,news_metadata_boundary,Audit news context feeds to certify metadata-only usage without article body text,inspect news metadata-only boundary and confirm zero raw content or embeddings,review_pending,True,True
+REV-130-004,cross_asset_transition_prep,Examine cross-asset timestamp alignment between commodity and currency regimes,inspect cross-asset transition readiness and Phase 131 prerequisites,review_pending,True,True

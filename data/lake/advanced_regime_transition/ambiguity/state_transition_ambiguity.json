@@ -1,0 +1,9 @@
+{
+  "total_boundaries_analyzed": 4,
+  "overall_mean_ambiguity": 0.355,
+  "all_acceptable": true,
+  "all_non_signal": true,
+  "contains_prediction": false,
+  "contains_trading_signal": false,
+  "active_profile": "balanced_local_regime_transition"
+}

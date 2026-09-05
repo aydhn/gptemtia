@@ -1,0 +1,237 @@
+"""Phase 127: Regime Feature Matrix Domain Registry.
+
+Defines canonical functional domains governing Phase 127.
+"""
+
+from typing import Any, Dict, Optional, Tuple
+import pandas as pd
+
+from advanced_regime_matrix.regime_matrix_config import (
+    RegimeMatrixProfile,
+    get_default_regime_matrix_profile,
+)
+
+
+def build_regime_matrix_domain_registry(
+    profile: Optional[RegimeMatrixProfile] = None,
+) -> Tuple[pd.DataFrame, Dict[str, Any]]:
+    """Build canonical domain registry for Phase 127."""
+    p = profile or get_default_regime_matrix_profile()
+
+    domains = [
+        {
+            "domain_id": "technical_volatility",
+            "domain_name": "technical_volatility",
+            "name": "Technical Volatility Domain",
+            "description": "Contracts governing technical, volatility, and range feature matrices.",
+            "source_phase": 127,
+            "status": "matrix_ready",
+            "non_signal": True,
+            "source_preserved": True,
+        },
+        {
+            "domain_id": "factor_trend",
+            "domain_name": "factor_trend",
+            "name": "Factor Trend Domain",
+            "description": "Contracts governing trend factors and persistence metrics.",
+            "source_phase": 127,
+            "status": "matrix_ready",
+            "non_signal": True,
+            "source_preserved": True,
+        },
+        {
+            "domain_id": "cross_asset",
+            "domain_name": "cross_asset",
+            "name": "Cross-Asset Domain",
+            "description": "Contracts governing cross-asset coupling, correlation, and relative spread.",
+            "source_phase": 127,
+            "status": "matrix_ready",
+            "non_signal": True,
+            "source_preserved": True,
+        },
+        {
+            "domain_id": "regime_feature_matrix_contracts",
+            "domain_name": "regime_feature_matrix_contracts",
+            "name": "Feature Matrix Contracts",
+            "description": "Contracts governing technical, factor, context, and quality matrix schemas.",
+            "source_phase": 127,
+            "status": "matrix_ready",
+            "non_signal": True,
+            "source_preserved": True,
+        },
+        {
+            "domain_id": "regime_state_dataset_contracts",
+            "domain_name": "regime_state_dataset_contracts",
+            "name": "State Dataset Contracts",
+            "description": "Non-signal dataset contracts preparing for Phase 128 unsupervised learning and labeling.",
+            "source_phase": 127,
+            "status": "matrix_ready",
+            "non_signal": True,
+            "source_preserved": True,
+        },
+        {
+            "domain_id": "regime_matrix_entities",
+            "domain_name": "regime_matrix_entities",
+            "name": "Entity Registry",
+            "description": "Canonical entity mapping for FX, commodities, macro, calendar, news, and cross-asset components.",
+            "source_phase": 127,
+            "status": "matrix_ready",
+            "non_signal": True,
+            "source_preserved": True,
+        },
+        {
+            "domain_id": "regime_matrix_namespace_schema",
+            "domain_name": "regime_matrix_namespace_schema",
+            "name": "Namespace and Schema",
+            "description": "Standard snake_case prefixing, canonical keys, and column schema validation.",
+            "source_phase": 127,
+            "status": "matrix_ready",
+            "non_signal": True,
+            "source_preserved": True,
+        },
+        {
+            "domain_id": "regime_matrix_input_features",
+            "name": "Input Features Registry",
+            "description": "Feature inputs sourced from Phase 117-124 pipelines.",
+            "source_phase": 127,
+            "status": "matrix_ready",
+            "non_signal": True,
+            "source_preserved": True,
+        },
+        {
+            "domain_id": "regime_matrix_factor_inputs",
+            "name": "Factor Inputs Registry",
+            "description": "Factor inputs sourced from Phase 122 factor metadata and Phase 123 diagnostics.",
+            "source_phase": 127,
+            "status": "matrix_ready",
+            "non_signal": True,
+            "source_preserved": True,
+        },
+        {
+            "domain_id": "regime_matrix_context_inputs",
+            "name": "Context Inputs Registry",
+            "description": "Macro, event, news metadata (strictly metadata-only), and cross-asset context features.",
+            "source_phase": 127,
+            "status": "matrix_ready",
+            "non_signal": True,
+            "source_preserved": True,
+        },
+        {
+            "domain_id": "regime_matrix_quality_inputs",
+            "name": "Quality Inputs Registry",
+            "description": "Missingness, drift, staleness, and validation blocker diagnostic inputs.",
+            "source_phase": 127,
+            "status": "matrix_ready",
+            "non_signal": True,
+            "source_preserved": True,
+        },
+        {
+            "domain_id": "regime_matrix_timestamp_alignment",
+            "name": "Timestamp Alignment",
+            "description": "UTC timestamp normalization and strict release lag order verification.",
+            "source_phase": 127,
+            "status": "matrix_ready",
+            "non_signal": True,
+            "source_preserved": True,
+        },
+        {
+            "domain_id": "regime_matrix_asof_join_policy",
+            "name": "Asof Join Policy",
+            "description": "Backward-only merge rules prohibiting nearest or forward matching.",
+            "source_phase": 127,
+            "status": "matrix_ready",
+            "non_signal": True,
+            "source_preserved": True,
+        },
+        {
+            "domain_id": "regime_matrix_no_lookahead_guard",
+            "name": "No-Lookahead Guard",
+            "description": "Strict detection and blocking of shift(-1), forward returns, and future timestamps.",
+            "source_phase": 127,
+            "status": "matrix_ready",
+            "non_signal": True,
+            "source_preserved": True,
+        },
+        {
+            "domain_id": "regime_state_dataset_schema",
+            "name": "State Dataset Schema",
+            "description": "Standard schema for state dataset rows prohibiting label/target/prediction fields.",
+            "source_phase": 127,
+            "status": "matrix_ready",
+            "non_signal": True,
+            "source_preserved": True,
+        },
+        {
+            "domain_id": "regime_state_candidate_context",
+            "name": "Candidate Context Registry",
+            "description": "Research context candidates (volatility, trend, range, macro, etc.) without labels.",
+            "source_phase": 127,
+            "status": "matrix_ready",
+            "non_signal": True,
+            "source_preserved": True,
+        },
+        {
+            "domain_id": "regime_matrix_integrity_manifest",
+            "name": "Matrix Integrity Manifest",
+            "description": "Phase 127 immutable governance manifest verifying integrity invariants.",
+            "source_phase": 127,
+            "status": "matrix_ready",
+            "non_signal": True,
+            "source_preserved": True,
+        },
+        {
+            "domain_id": "regime_matrix_source_phases",
+            "name": "Source Phases Registry",
+            "description": "Upstream provenance mapping spanning Phases 117 through 126.",
+            "source_phase": 127,
+            "status": "matrix_ready",
+            "non_signal": True,
+            "source_preserved": True,
+        },
+        {
+            "domain_id": "regime_matrix_validation_quality_dependencies",
+            "name": "Validation & Quality Dependencies",
+            "description": "Dependency contracts linking validation passes and quality thresholds to matrix rows.",
+            "source_phase": 127,
+            "status": "matrix_ready",
+            "non_signal": True,
+            "source_preserved": True,
+        },
+        {
+            "domain_id": "regime_matrix_non_signal_policies",
+            "name": "Non-Signal Policies",
+            "description": "Zero-tolerance policies preventing trade recommendations and directional claims.",
+            "source_phase": 127,
+            "status": "matrix_ready",
+            "non_signal": True,
+            "source_preserved": True,
+        },
+        {
+            "domain_id": "regime_matrix_source_preservation",
+            "name": "Source Preservation Policies",
+            "description": "Non-destructive governance strictly banning raw data overwrites or file deletions.",
+            "source_phase": 127,
+            "status": "matrix_ready",
+            "non_signal": True,
+            "source_preserved": True,
+        },
+        {
+            "domain_id": "phase_128_handoff",
+            "name": "Phase 128 Handoff",
+            "description": "Structured prerequisites for Phase 128 Rule-Free Labeling Contracts and Unsupervised Prep.",
+            "source_phase": 127,
+            "status": "matrix_ready",
+            "non_signal": True,
+            "source_preserved": True,
+        },
+    ]
+
+    df = pd.DataFrame(domains)
+    summary = {
+        "profile": p.profile_name,
+        "total_domains": len(df),
+        "all_non_signal": bool(df["non_signal"].all()),
+        "all_source_preserved": bool(df["source_preserved"].all()),
+        "status": "matrix_ready",
+    }
+    return df, summary

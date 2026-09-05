@@ -1,0 +1,6 @@
+rule_id,rule_name,severity,description,enforced
+fvr_01_no_signal_columns,No Signal Column Names Enforcement,CRITICAL,"signal, buy, sell, long, short, position, target, label isimli kolonlar kesinlikle yasaktır.",True
+fvr_02_no_lookahead_shifts,No Forward Lookahead Shift Enforcement,CRITICAL,shift(-1) ve geleceğe dönük veri sızıntısı kesinlikle engellenir.,True
+fvr_03_non_destructive_transform,Non-destructive Copy Transform Enforcement,HIGH,Girdi veri çerçevesi in-place değiştirilemez; df.copy() ile yeni dataframe döner.,True
+fvr_04_window_warmup_policy,Warmup NaN Preservation Policy,MEDIUM,Pencere ısınma periyodundaki NaN değerler sessizce sentetik veriyle doldurulamaz.,True
+fvr_05_input_contract_field_check,Input Contract Schema Compliance,HIGH,Feature hesaplaması öncesi zorunlu girdi alanlarının varlığı kontrol edilir.,True

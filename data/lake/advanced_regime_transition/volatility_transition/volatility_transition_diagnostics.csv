@@ -1,0 +1,4 @@
+volatility_context,transition_readiness,context_continuity,persistence_placeholder,quality_dependency_status,phase_131_cross_asset_prep,non_signal,description
+compression_to_expansion,0.88,0.99,0.72,satisfied,ready,True,Volatility compression into expansion transition readiness proxy
+expansion_to_exhaustion,0.84,0.98,0.68,satisfied,ready,True,High volatility expansion towards calm/exhaustion transition context
+baseline_calm_regime,0.94,1.0,0.91,satisfied,ready,True,Persistent baseline volatility regime stability

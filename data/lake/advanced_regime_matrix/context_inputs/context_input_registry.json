@@ -1,0 +1,18 @@
+{
+  "total_context_inputs": 7,
+  "total_contexts": 7,
+  "context_types": [
+    "macro_context",
+    "event_context",
+    "news_metadata_context",
+    "cross_asset_context",
+    "volatility_context",
+    "trend_context",
+    "range_context"
+  ],
+  "all_metadata_only": true,
+  "no_article_text_guaranteed": true,
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "status": "matrix_ready"
+}

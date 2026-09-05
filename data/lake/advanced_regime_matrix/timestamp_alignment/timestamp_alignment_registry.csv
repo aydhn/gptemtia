@@ -1,0 +1,6 @@
+rule_id,rule_name,description,is_enforced,non_signal,current_phase,target_final_phase,next_phase,source_preserved,status
+ts_rule_utc_canonical,UTC Canonical Storage,All regime matrix timestamps must be strictly stored in UTC timezone.,True,True,127,160,128,True,matrix_ready
+ts_rule_backward_only_context,Backward-Only Environmental Context Alignment,Context timestamp must be less than or equal to the base asset observation timestamp.,True,True,127,160,128,True,matrix_ready
+ts_rule_macro_release_lag,Macro Release Lag Enforcement,Macro data points cannot be matched prior to their published release timestamp.,True,True,127,160,128,True,matrix_ready
+ts_rule_zero_negative_shift,Prohibition of Negative Shifts,Any occurrence of shift(-1) or future returns produces an immediate blocking leak violation.,True,True,127,160,128,True,matrix_ready
+ts_rule_news_metadata_timestamp_order,News Metadata Timestamp Order,News publication timestamp must precede observation cutoff timestamp.,True,True,127,160,128,True,matrix_ready

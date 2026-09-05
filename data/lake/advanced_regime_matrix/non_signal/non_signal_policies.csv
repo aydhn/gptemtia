@@ -1,0 +1,7 @@
+policy_id,name,description,is_active,non_signal,current_phase,target_final_phase,next_phase,source_preserved,status
+nsp_no_buy_sell_signals,Zero Buy/Sell Signals,Regime feature matrices and candidate datasets must never generate or imply buy/sell triggers.,True,True,127,160,128,True,matrix_ready
+nsp_no_directional_claims,Zero Directional Certainty,"Observations describe structural market volatility or trend, never a directional investment guarantee.",True,True,127,160,128,True,matrix_ready
+nsp_no_model_predictions,Zero Target or Prediction Modeling,"Candidate states are structural research descriptors, not machine learning labels or forecasts.",True,True,127,160,128,True,matrix_ready
+nsp_no_broker_order_execution,Zero Broker Order Execution,"System prohibits automated broker connections, execution adapters, and real order dispatch.",True,True,127,160,128,True,matrix_ready
+nsp_no_position_sizing,Zero Position Sizing Recommendations,"Prohibits portfolio allocation, position sizing, leverage calculation, or risk exposure advice.",True,True,127,160,128,True,matrix_ready
+nsp_no_unsupervised_label_assignment,Zero Label/Target Assignment to States,"Candidate context states remain unlabelled structural indicators, not ground-truth targets.",True,True,127,160,128,True,matrix_ready

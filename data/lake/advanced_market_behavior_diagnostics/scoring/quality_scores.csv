@@ -1,0 +1,2 @@
+score_name,overall_quality_score,candidate_state_quality_score,regime_family_quality_score,behavior_context_quality_score,transition_readiness_score,stability_readiness_score,quality_grade,current_phase,target_final_phase,next_phase,non_signal,official_approval,production_ready,broker_ready
+market_behavior_quality_score,0.96,0.98,0.97,0.95,0.95,0.95,READY,129,160,130,True,False,False,False

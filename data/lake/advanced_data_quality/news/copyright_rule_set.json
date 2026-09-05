@@ -1,0 +1,10 @@
+{
+  "rule_count": 4,
+  "rules": [
+    "no_full_text_storage",
+    "metadata_only_enforcement",
+    "no_external_llm_embeddings",
+    "copyright_status_declared"
+  ],
+  "domain": "news_copyright_quality"
+}

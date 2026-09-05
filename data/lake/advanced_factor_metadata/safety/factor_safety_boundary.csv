@@ -1,0 +1,32 @@
+rule_id,rule_type,name,description,enforcement,non_signal
+NG-122-01,NO_GO,No Live Trading,Strictly no execution of live market orders or connections.,STRICT_BARRIER,True
+NG-122-02,NO_GO,No Broker Integration,Zero integration with broker APIs or accounts.,STRICT_BARRIER,True
+NG-122-03,NO_GO,No Real Orders,Never route real capital or simulated live positions.,STRICT_BARRIER,True
+NG-122-04,NO_GO,No Investment Advice,Factors never constitute financial or trading recommendations.,STRICT_BARRIER,True
+NG-122-05,NO_GO,No Factor as Signal,Factor values must not be presented or used as buy/sell signals.,STRICT_BARRIER,True
+NG-122-06,NO_GO,No Directional Claims,No claims that high/low factor scores ensure directional movement.,STRICT_BARRIER,True
+NG-122-07,NO_GO,No Strategy Rule Generation,No automated compilation of strategy execution rules.,STRICT_BARRIER,True
+NG-122-08,NO_GO,No Backtest Execution,Backtesting of factor strategies is prohibited in Phase 122.,STRICT_BARRIER,True
+NG-122-09,NO_GO,No Optimizer Execution,No portfolio optimization or parameter curve fitting.,STRICT_BARRIER,True
+NG-122-10,NO_GO,No Model Training,Zero ML model training or weight fitting in this phase.,STRICT_BARRIER,True
+NG-122-11,NO_GO,No Target or Label Generation,"Zero forward returns, labels, or prediction target synthesis.",STRICT_BARRIER,True
+NG-122-12,NO_GO,No Sentiment Model Output,No NLP sentiment classification outputs or vector embeddings.,STRICT_BARRIER,True
+NG-122-13,NO_GO,No Full Article Usage,Zero ingestion or storage of copyrighted raw article texts.,STRICT_BARRIER,True
+NG-122-14,NO_GO,No Web Scraping,"Zero web scraping, HTML parsing, or browser automation.",STRICT_BARRIER,True
+NG-122-15,NO_GO,No Paywall/Rate Limit Bypass,Strict prohibition of rate abuse or reverse engineering.,STRICT_BARRIER,True
+NG-122-16,NO_GO,No Credential Output,"Never print, write, or export API keys or credentials.",STRICT_BARRIER,True
+NG-122-17,NO_GO,No Source Overwrite,Never overwrite or destructively mutate original data sources.,STRICT_BARRIER,True
+NG-122-18,NO_GO,No Destructive Cleaning,Never silently delete or drop anomalous records.,STRICT_BARRIER,True
+NG-122-19,NO_GO,No Production Approval Claim,Zero claims of production readiness or official compliance signoff.,STRICT_BARRIER,True
+NG-122-20,NO_GO,No Deployment,"Zero cloud publishing, docker pushes, or git release tags.",STRICT_BARRIER,True
+SG-122-01,SAFE_GO,Local Research Metadata,Compile structured offline factor metadata and descriptions.,MANDATORY_PRACTICE,True
+SG-122-02,SAFE_GO,Factor Family Taxonomy,"Classify factors into trend, momentum, volatility, macro, event, news, cross-asset.",MANDATORY_PRACTICE,True
+SG-122-03,SAFE_GO,Factor Contracts,Establish formal contract schemas linking required features and validations.,MANDATORY_PRACTICE,True
+SG-122-04,SAFE_GO,Namespace Registry,Enforce lowercase snake_case standard with mandatory factor_ prefix.,MANDATORY_PRACTICE,True
+SG-122-05,SAFE_GO,Dependency Tracking,"Map upstream indicator, grid, alignment, and fusion dependencies.",MANDATORY_PRACTICE,True
+SG-122-06,SAFE_GO,Validation Dependency Mapping,"Require no-lookahead, forbidden column, and causality check prerequisites.",MANDATORY_PRACTICE,True
+SG-122-07,SAFE_GO,Quality Dependency Mapping,"Require missingness, infinite value, and drift readiness prerequisites.",MANDATORY_PRACTICE,True
+SG-122-08,SAFE_GO,Metadata-Only News Factors,"Use solely frequency counts, tags, and category metadata for news.",MANDATORY_PRACTICE,True
+SG-122-09,SAFE_GO,Regime Prep Placeholders,Structure candidate feature groups as research inputs for Phase 126+.,MANDATORY_PRACTICE,True
+SG-122-10,SAFE_GO,Non-Destructive Manual Review,Queue anomalies and placeholders for human review without data loss.,MANDATORY_PRACTICE,True
+SG-122-11,SAFE_GO,Phase 123 Drift Handoff,Provide complete factor inventory ready for drift and quality diagnostics.,MANDATORY_PRACTICE,True

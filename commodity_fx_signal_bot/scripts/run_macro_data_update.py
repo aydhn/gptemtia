@@ -18,7 +18,7 @@ def parse_args():
 
 def main():
     args = parse_args()
-    lake = DataLake(settings)
+    lake = DataLake('data/lake')
     profile = get_macro_profile(args.profile)
     pipeline = MacroPipeline(data_lake=lake, settings=settings, profile=profile)
 

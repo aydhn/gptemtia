@@ -1,0 +1,3 @@
+rule_name,rule_domain,severity_label
+calendar_event_schema,calendar_quality,quality_high
+calendar_release_values,calendar_quality,quality_medium

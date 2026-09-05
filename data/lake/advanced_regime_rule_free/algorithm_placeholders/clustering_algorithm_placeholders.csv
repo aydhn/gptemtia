@@ -1,0 +1,7 @@
+algorithm_id,family,description,is_placeholder_only,execution_permitted,model_fit_permitted,non_signal,current_phase,next_phase,target_final_phase
+kmeans_placeholder,clustering,Placeholder for K-Means partition algorithm specification. Zero execution in Phase 128.,True,False,False,True,128,129,160
+dbscan_placeholder,clustering,Placeholder for density-based spatial clustering (DBSCAN) specification.,True,False,False,True,128,129,160
+gaussian_mixture_placeholder,clustering,Placeholder for Gaussian Mixture Model (GMM) probabilistic state assignment specification.,True,False,False,True,128,129,160
+hdbscan_placeholder,clustering,Placeholder for Hierarchical DBSCAN varying density discovery specification.,True,False,False,True,128,129,160
+hierarchical_placeholder,clustering,Placeholder for agglomerative hierarchical clustering specification.,True,False,False,True,128,129,160
+self_organizing_map_placeholder,clustering,Placeholder for Kohonen Self-Organizing Maps (SOM) topological clustering specification.,True,False,False,True,128,129,160

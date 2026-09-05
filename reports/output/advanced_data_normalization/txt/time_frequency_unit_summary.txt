@@ -1,0 +1,3 @@
+Region/Currency Mappings: 43
+Frequencies: 25
+Units: 21

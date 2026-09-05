@@ -1,0 +1,14 @@
+{
+  "total_handoff_items": 11,
+  "ready_items_count": 9,
+  "forward_contract_count": 2,
+  "target_phases": [
+    "119",
+    "121",
+    "120",
+    "124"
+  ],
+  "non_signal": true,
+  "status": "READY",
+  "profile": "balanced_local_cross_asset_alignment"
+}

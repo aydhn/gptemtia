@@ -1,0 +1,3 @@
+requirement_id,duplicate_key_placeholder,title_similarity_placeholder,source_priority_placeholder,timestamp_window_placeholder,future_phase_owner,manual_review_required
+dedup_req_exact_hash,item_id_or_content_hash,exact_match_threshold_1_0,official_statement > licensed_newswire > manual_note,24h,Phase 112 Data Quality Engine / Phase 113 Normalization,False
+dedup_req_topic_cluster,topic_event_date_key,token_jaccard_placeholder_0_8,primary_regulatory_source_first,6h,Phase 112 Data Quality Engine / Phase 113 Normalization,True

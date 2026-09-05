@@ -1,0 +1,6 @@
+Bu rapor Phase 129 Market Behavior Diagnostics and Regime Quality çıktısıdır. Gerçek veri indirme zorunluluğu, scraping, haber tam metni kullanımı, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, candidate state / rejim kalitesini trade sinyali olarak kullanma, clustering/model fitting/predicting çalıştırma, target/label üretme, otomatik feature silme/düzeltme, official approval, broker-ready veya production-ready iddiası değildir.
+Validation Status: VALIDATION_PASS
+Total Checks: 21
+Passed Checks: 21
+Forbidden Claims Clean: True
+Lookahead Guard Clean: True

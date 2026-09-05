@@ -1,0 +1,11 @@
+category,item_name,description,status,target_phase
+row_count_sufficiency,insufficient_rows_for_large_windows,200+ gibi büyük pencereler için en az 250+ satır geçmiş veri zorunluluğu uyarısı.,MONITORED,119
+warmup_policy,warmup_nan_policy,Başlangıç NaN değerlerinin otomatik silinmeyip Phase 121'e kadar korunması politikası.,ENFORCED,121
+duplicate_check,duplicate_feature_names,Mükerrer feature isimlerinin tespit edilip Phase 121/124 çözümüne bayraklanması.,FLAGGED,121
+performance,high_feature_count_warning,Çoklu window matrisinin bellek ve işlem maliyetini sınırlamak için kademeli provizyon.,OPTIMIZED,124
+input_integrity,missing_input_fields_guard,OHLCV ve quote girdi alanlarının eksikliği durumunda erken validasyon hatası üretimi.,ENFORCED,119
+input_integrity,non_numeric_input_guard,Sayısal olmayan girdilerin reddedilmesi ve float64 tip dönüşümünün güvenceye alınması.,ENFORCED,119
+lookahead_guard,no_lookahead_dependency,Geleceğe bakan hiçbir getiri veya negatif shift içermeyen geriye dönük hesaplama garantisi.,VERIFIED,121
+alignment_readiness,phase_119_cross_asset_alignment_readiness,Varlıklar arası zaman ve sembol hizalaması için feature grid şemalarının hazır olması.,READY,119
+validation_dependency,phase_121_validation_dependency,Feature doğrulama ve drift tespit katmanı için gerekli sözleşmelerin aktarılması.,READY,121
+storage_dependency,phase_124_feature_store_integration_dependency,Offline FeatureStore entegrasyonu ve partition tasarımı için hazır bulunuşluk.,READY,124

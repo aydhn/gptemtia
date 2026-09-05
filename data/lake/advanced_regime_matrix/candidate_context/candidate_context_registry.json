@@ -1,0 +1,34 @@
+{
+  "total_candidate_contexts": 10,
+  "candidate_names": [
+    "volatility_expansion_context",
+    "trend_strong_bull_context",
+    "range_tight_compression_context",
+    "liquidity_stress_context",
+    "volatility_low_context_candidate",
+    "macro_event_context_candidate",
+    "news_attention_context_candidate",
+    "cross_asset_context_candidate",
+    "transition_context_candidate",
+    "uncertain_context_candidate"
+  ],
+  "context_names": [
+    "volatility_expansion_context",
+    "trend_strong_bull_context",
+    "range_tight_compression_context",
+    "liquidity_stress_context",
+    "volatility_low_context_candidate",
+    "macro_event_context_candidate",
+    "news_attention_context_candidate",
+    "cross_asset_context_candidate",
+    "transition_context_candidate",
+    "uncertain_context_candidate"
+  ],
+  "candidate_contexts_as_targets": false,
+  "all_research_only": true,
+  "all_zero_target_or_label": true,
+  "all_zero_prediction": true,
+  "all_zero_trade_signal": true,
+  "all_non_signal": true,
+  "status": "matrix_ready"
+}

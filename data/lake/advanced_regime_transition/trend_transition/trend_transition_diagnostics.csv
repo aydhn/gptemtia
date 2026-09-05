@@ -1,0 +1,4 @@
+trend_context,transition_readiness,trend_persistence_placeholder,momentum_dependency_status,phase_131_cross_asset_prep,non_signal,description
+bullish_trend_to_consolidation,0.86,0.85,satisfied,ready,True,Bullish trend weakening into consolidation context proxy
+bearish_trend_to_consolidation,0.84,0.83,satisfied,ready,True,Bearish trend weakening into consolidation context proxy
+range_to_directional_initiation,0.8,0.76,satisfied,ready,True,Consolidation regime emerging towards directional trend context

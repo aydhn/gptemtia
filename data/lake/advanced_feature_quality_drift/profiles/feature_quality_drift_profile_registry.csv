@@ -1,0 +1,4 @@
+profile_name,description,current_phase,target_final_phase,next_phase,dry_run_default,local_only,non_production,research_only,non_signal,official_approval,production_ready,enabled
+balanced_local_feature_quality_drift,Dengeli yerel özellik kalite ve drift teşhis profili.,123,160,124,True,True,True,True,True,False,False,True
+strict_non_signal_quality_drift_safety,Katı sinyalsiz ve güvenlik odaklı özellik kalite/drift profili.,123,160,124,True,True,True,True,True,False,False,True
+dry_run_quality_drift_diagnostics_focus,Hızlı dry-run özellik kalite ve stabilite teşhis profili.,123,160,124,True,True,True,True,True,False,False,True

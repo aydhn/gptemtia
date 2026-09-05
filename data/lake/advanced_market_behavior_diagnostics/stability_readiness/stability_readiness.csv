@@ -1,0 +1,7 @@
+readiness_area,description,is_ready,is_blocking,status,non_signal,current_phase,target_final_phase,next_phase
+candidate_state_stability_placeholder_readiness,Availability of candidate state stability assessment framework.,True,True,behavior_quality_ready,True,129,160,130
+regime_family_stability_dependency,Regime family baseline persistence and stability contract definitions.,True,True,behavior_quality_ready,True,129,160,130
+rolling_stability_metric_dependency,Rolling window variance and stability metric contracts from Phase 123.,True,True,behavior_quality_ready,True,129,160,130
+quality_drift_dependency_status,Feature and factor drift diagnostic health passed without unhandled PSI drift.,True,True,behavior_quality_ready,True,129,160,130
+phase_130_stability_analysis_dependency,Explicit dependency contract establishing stability handoff boundaries for Phase 130.,True,True,behavior_quality_ready,True,129,160,130
+manual_review_blockers_status,Zero blocking manual review items preventing stability analysis initialization.,True,False,behavior_quality_ready,True,129,160,130

@@ -1,0 +1,8 @@
+{
+  "total_grids": 11,
+  "total_families": 6,
+  "total_expected_features": 54,
+  "non_signal": true,
+  "status": "READY",
+  "profile": "balanced_local_multi_window_feature_grid"
+}

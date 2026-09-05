@@ -1,0 +1,4 @@
+requirement_id,timestamp_field,freshness_window_placeholder,stale_threshold_placeholder,timezone_policy,future_phase_owner,manual_review_required
+fresh_req_breaking,timestamp,1h,24h,UTC_iso8601_strict,Phase 112 Data Quality Engine,False
+fresh_req_daily_summary,timestamp,24h,72h,UTC_iso8601_strict,Phase 112 Data Quality Engine,False
+fresh_req_weekly_macro,timestamp,7d,30d,UTC_iso8601_strict,Phase 112 Data Quality Engine,False

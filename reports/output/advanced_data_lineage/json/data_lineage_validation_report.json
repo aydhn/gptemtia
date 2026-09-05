@@ -1,0 +1,8 @@
+{
+  "total_rules": 14,
+  "passed_rules": 14,
+  "validation_status": "PASS",
+  "forbidden_claims_found": 0,
+  "current_phase": 114,
+  "target_final_phase": 160
+}

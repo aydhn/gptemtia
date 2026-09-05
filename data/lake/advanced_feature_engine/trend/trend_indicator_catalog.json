@@ -1,0 +1,15 @@
+{
+  "family": "trend",
+  "total_indicators": 8,
+  "all_non_signal": true,
+  "indicators": [
+    "SMA",
+    "EMA",
+    "WMA_placeholder",
+    "MACD_placeholder",
+    "ADX_placeholder",
+    "Ichimoku_placeholder",
+    "Donchian_channel_placeholder",
+    "Keltner_channel_placeholder"
+  ]
+}

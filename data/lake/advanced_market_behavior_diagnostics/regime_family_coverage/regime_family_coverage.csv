@@ -1,0 +1,9 @@
+family_name,features_coverage_ratio,factors_coverage_ratio,context_coverage_ratio,overall_family_coverage,coverage_status,non_signal
+volatility,1.0,1.0,1.0,1.0,behavior_quality_ready,True
+trend,1.0,1.0,1.0,1.0,behavior_quality_ready,True
+range,1.0,1.0,1.0,1.0,behavior_quality_ready,True
+macro_event,1.0,1.0,1.0,1.0,behavior_quality_ready,True
+news_metadata,1.0,1.0,1.0,1.0,behavior_quality_ready,True
+cross_asset,1.0,1.0,1.0,1.0,behavior_quality_ready,True
+transition,1.0,1.0,1.0,1.0,behavior_quality_ready,True
+uncertain,1.0,1.0,1.0,1.0,behavior_quality_ready,True

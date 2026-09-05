@@ -1,0 +1,15 @@
+{
+  "total_categories": 6,
+  "total_forbidden_column_types": 6,
+  "categories": [
+    "trading_signal",
+    "supervised_target_label",
+    "lookahead_future_return",
+    "copyrighted_scraping_content",
+    "dense_vectors",
+    "broker_execution_directives"
+  ],
+  "all_blocking": true,
+  "all_non_signal": true,
+  "status": "matrix_ready"
+}

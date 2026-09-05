@@ -1,0 +1,3 @@
+Total Validations: 10
+All Passed: True
+Forbidden Claims: 0

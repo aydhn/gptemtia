@@ -1,0 +1,25 @@
+rule_id,name,detail,boundary_type,enforced,enabled
+no_go_01,Live Trading Prohibition,"Canlı emir gönderme, broker API veya socket bağlantısı yasaktır.",NO_GO,True,
+no_go_02,Broker Integration Prohibition,"Broker credential, hesap bağlama veya pozisyon açma kesinlikle yasaktır.",NO_GO,True,
+no_go_03,Exact Buy/Sell Sinyal Yasağı,Kesin AL/SAT veya alım-satım talimatı üretilemez.,NO_GO,True,
+no_go_04,Investment Advice Prohibition,"Yatırım tavsiyesi, portföy önerisi veya getiri vaadi sunulamaz.",NO_GO,True,
+no_go_05,Feature-Grid-as-Signal Yasağı,Feature grid değerleri trade sinyali olarak kullanılamaz veya yorumlanamaz.,NO_GO,True,
+no_go_06,Directional Claim Yasağı,EMA/RSI grid yukarı yönlü kesin hareket gösteriyor gibi yönlü iddia üretilemez.,NO_GO,True,
+no_go_07,Strategy Generation Prohibition,Al-sat kuralları veya otomatik strateji şablonları üretilemez.,NO_GO,True,
+no_go_08,Backtest Execution Prohibition,Tarihsel getiri simülasyonu veya backtest çalıştırılamaz.,NO_GO,True,
+no_go_09,Optimizer Execution Prohibition,"Parametre optimizasyonu, curve-fitting veya grid search optimizer çalıştırılamaz.",NO_GO,True,
+no_go_10,Target/Label/Prediction Yasağı,"Target, label, classification veya regression prediction üretilemez.",NO_GO,True,
+no_go_11,Model/Production Deployment Yasağı,"Model serving, microservice, Docker push veya production deployment yapılamaz.",NO_GO,True,
+no_go_12,Scraping & Browser Automation Yasağı,"Web scraping, HTML parsing, haber sitesi scraping veya browser automation yasaktır.",NO_GO,True,
+no_go_13,Hidden API & Paywall Bypass Yasağı,"Reverse engineering, paywall aşma veya rate limit suiistimali yasaktır.",NO_GO,True,
+no_go_14,Credential Leakage Prohibition,"API key, token, secret veya şifrelerin loglara veya raporlara yazdırılması yasaktır.",NO_GO,True,
+no_go_15,Destructive File Modification Yasağı,"Kaynak dosyaların üzerine yazma (source overwrite), silme veya taşıma yasaktır.",NO_GO,True,
+no_go_16,Official Compliance Claim Yasağı,"Resmi uyumluluk, hukuki onay veya lisanslı kurum onayı iddiası üretilemez.",NO_GO,True,
+safe_go_01,Local/Offline Feature Grid,Ağ çağrısı gerektirmeyen tamamen yerel ve çevrimdışı feature grid mimarisi.,SAFE_GO,,True
+safe_go_02,Non-Signal Research Features,Sadece araştırma amaçlı parametrik feature üretimi; sinyal üretimi yok.,SAFE_GO,,True
+safe_go_03,Copy-Based Data Transformations,Girdi DataFrame'ini mutate etmeyen güvenli df.copy() hesaplamaları.,SAFE_GO,,True
+safe_go_04,No-Lookahead Guard Enforced,shift(-1) ve geleceğe bakan kolonların engellendiği geriye dönük yapı.,SAFE_GO,,True
+safe_go_05,Duplicate Feature Detection,Mükerrer feature hesaplamalarını tespit eden ve raporlayan denetim.,SAFE_GO,,True
+safe_go_06,Warmup NaN Policy,Rolling pencerelerin doğal başlangıç NaN değerlerini silmeden koruyan politika.,SAFE_GO,,True
+safe_go_07,Output Schema Validation,Sayısal tip ve yasaklı alias kontrolü sağlayan çıktı şeması doğrulayıcısı.,SAFE_GO,,True
+safe_go_08,Phase 119 Alignment Handoff,Varlıklar arası zaman ve sembol hizalaması için hazır feature sözleşmeleri.,SAFE_GO,,True

@@ -1,0 +1,3 @@
+check_name,description,action,auto_delete
+name_duplicate_check,Grid feature isimlerinde birebir aynı stringlerin bulunmasını tespit eder.,flag_for_manual_review,False
+column_series_identical_check,DataFrame içinde tamamen özdeş değerlere sahip farklı isimli kolonları tespit eder.,flag_for_manual_review,False

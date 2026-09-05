@@ -1,0 +1,7 @@
+dependency_id,category,description,threshold,is_blocker,non_signal,current_phase,next_phase,target_final_phase
+dep_phase_123_quality_score,feature_quality,Requires Phase 123 feature quality score >= 0.70 for candidate state inclusion.,0.7,True,True,128,129,160
+dep_phase_123_drift_score,drift_stability,Requires Phase 123 PSI drift score < 0.25 to prevent assigning states on unstable distributions.,0.25,True,True,128,129,160
+dep_feature_availability,completeness,Requires candidate feature availability >= 95% over the rolling assessment window.,0.95,True,True,128,129,160
+dep_staleness_diagnostics,freshness,Requires feature staleness to remain within designated market session bounds.,0.0,True,True,128,129,160
+dep_namespace_quality,naming_governance,Requires 100% compliance with candidate_state_ naming conventions and zero forbidden terms.,1.0,True,True,128,129,160
+dep_manual_review_blocker_status,human_governance,Unresolved manual review queue items block automatic candidate state promotion.,0.0,True,True,128,129,160

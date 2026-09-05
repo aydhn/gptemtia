@@ -1,0 +1,13 @@
+{
+  "active_profile": "balanced_local_regime_foundation",
+  "total_placeholders": 4,
+  "regime_family": "regime_family_liquidity_placeholder",
+  "all_non_signal": true,
+  "no_trading_recommendations": true,
+  "current_phase": 126,
+  "target_final_phase": 160,
+  "next_phase": 127,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false
+}

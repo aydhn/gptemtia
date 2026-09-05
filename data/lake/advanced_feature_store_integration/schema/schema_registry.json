@@ -1,0 +1,20 @@
+{
+  "total_schemas": 3,
+  "minimum_fields_required": [
+    "store_key",
+    "entity_type",
+    "entity_id",
+    "timestamp_field",
+    "feature_name",
+    "feature_family",
+    "source_phase",
+    "validation_status",
+    "quality_score_ref",
+    "drift_score_ref",
+    "lineage_ref",
+    "manual_review_required",
+    "non_signal"
+  ],
+  "non_signal": true,
+  "source_preserved": true
+}

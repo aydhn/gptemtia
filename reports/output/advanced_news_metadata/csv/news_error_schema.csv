@@ -1,0 +1,15 @@
+error_type,description,retryable,blocked_by_safety
+news_provider_not_found,Requested news provider is not registered.,False,False
+unsupported_news_topic,Requested news topic is not supported.,False,False
+unsupported_news_data_type,Data type is not supported by the provider.,False,False
+unsupported_region,Region is outside provider coverage.,False,False
+unsupported_time_range,Specified time range is invalid or out of bounds.,False,False
+blocked_by_no_scraping_boundary,"Operation attempted web or HTML scraping, which is strictly prohibited.",False,True
+blocked_by_copyright_boundary,"Operation attempted full-text article copying, violating copyright boundaries.",False,True
+full_article_download_blocked,Full article download requested but disabled.,False,True
+credential_not_available,Provider credentials are not stored or available.,False,False
+network_disabled,Live network access disabled; offline dry-run only.,False,False
+schema_mismatch,Input or output schema does not conform to contract.,False,False
+sentiment_not_available,Live NLP sentiment model is disabled and not available as a signal.,False,False
+impact_placeholder_not_available,Impact placeholder calculation cannot be generated.,False,False
+manual_review_required,Provider response requires manual compliance review.,False,False

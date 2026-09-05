@@ -1,0 +1,10 @@
+tag_id,tag_label,tag_domain,mapped_entity,description,manual_review_required
+tag_macro_central_bank,CENTRAL_BANK,macro,Monetary Policy & Rates,"Central bank rate decisions, statements, minutes, and forward guidance.",False
+tag_macro_inflation,INFLATION,macro,"CPI, PPI, PCE Price Indices","Consumer and producer inflation prints, wage growth, and price dynamics.",False
+tag_macro_growth,GROWTH,macro,GDP & Economic Activity,"Gross domestic product, industrial production, and composite economic activity.",False
+tag_macro_labor,LABOR,macro,Employment & Labor Market,"Payroll employment, unemployment rate, claims, and labor tightness.",False
+tag_macro_yield_curve,YIELD_CURVE,macro,Sovereign Bond Yields & Term Structure,"Sovereign curve steepening/inversion, benchmark 2Y/10Y yield developments.",False
+tag_macro_liquidity,LIQUIDITY,macro,Financial Conditions & Balance Sheet Policy,"Central bank asset purchases/QT, bank reserves, money supply, interbank funding.",False
+tag_macro_risk_sentiment,RISK_SENTIMENT,macro,Systemic Risk Appetite,"Macro risk aversion, volatility spikes, flight-to-safety episodes.",False
+tag_macro_geopolitics,GEOPOLITICS,macro,Geopolitical Conflicts & Trade Friction,"International trade sanctions, diplomatic tensions, supply disruptions.",False
+tag_macro_trade_balance,TRADE_BALANCE,macro,Current Account & Trade Data,"Export/import balances, current account deficits/surpluses, terms of trade.",False

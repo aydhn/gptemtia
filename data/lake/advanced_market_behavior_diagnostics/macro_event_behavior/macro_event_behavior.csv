@@ -1,0 +1,4 @@
+context_name,description,coverage_ratio,release_lag_verified,event_window_context_available,timestamp_dependency_passed,macro_event_dependency_passed,metadata_only_boundary_enforced,is_ready,non_signal,contains_target_or_prediction,model_training_executed,clustering_executed,current_phase,target_final_phase,next_phase
+macro_release_lag_context,Macro economic release time alignment and verification of release lag safety.,1.0,True,True,True,True,True,True,True,False,False,False,129,160,130
+scheduled_event_window_context,Pre-event and post-event window indicators for major central bank decisions.,1.0,True,True,True,True,True,True,True,False,False,False,129,160,130
+macro_event_shock_context,Macroeconomic surprise cluster and high-impact calendar event context.,1.0,True,True,True,True,True,True,True,False,False,False,129,160,130

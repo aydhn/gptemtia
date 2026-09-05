@@ -1,0 +1,4 @@
+cross_asset_pair,alignment_readiness,timestamp_alignment_status,macro_linkage_status,phase_131_readiness,manual_review_blocker_count,non_signal,description
+EURUSD_vs_BRENT,0.92,aligned,synchronized,ready,0,True,EUR/USD and Brent crude cross-asset transition linkage alignment
+USDTRY_vs_GOLD,0.9,aligned,synchronized,ready,0,True,USD/TRY and Gold ounce cross-asset transition linkage alignment
+DXY_vs_COMMODITY_COMPOSITE,0.88,aligned,synchronized,ready,0,True,Dollar index composite and commodity benchmark transition context

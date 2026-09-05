@@ -1,0 +1,8 @@
+{
+  "rule_count": 2,
+  "rules": [
+    "mandatory_columns_presence",
+    "dataframe_not_empty"
+  ],
+  "domain": "schema_compliance"
+}

@@ -1,0 +1,6 @@
+rule_id,name,description,severity
+rule_fg_01_no_forbidden_columns,No Forbidden Columns Rule,Grid çıktılarında sinyal/hedef/etiket/tahmin içeren kolon bulunamaz.,CRITICAL
+rule_fg_02_numeric_sanity,Numeric Sanity Rule,"Grid feature kolonları sayısal tipte olmalı, sonsuz (inf) değer içermemelidir.",HIGH
+rule_fg_03_min_output_count,Minimum Output Count Rule,Grid hesaplaması en az beklenen minimum sayıda feature üretmelidir.,MEDIUM
+rule_fg_04_no_in_place_mutation,No In-Place Mutation Rule,Girdi DataFrame kolonları veya index'i hesaplama esnasında mutate edilmemelidir.,CRITICAL
+rule_fg_05_no_lookahead_negative_shift,No Negative Shift Rule,Hesaplama motoru geleceğe bakan negatif shift çağrısı içeremez.,CRITICAL

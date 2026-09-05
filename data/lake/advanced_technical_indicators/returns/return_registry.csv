@@ -1,0 +1,6 @@
+indicator_name,output_pattern,default_window,family,non_signal
+simple_return,simple_return_{window},1,family_returns,True
+log_return,log_return_{window},1,family_returns,True
+cumulative_return,cumulative_return_{window},20,family_returns,True
+rolling_return_sum,rolling_return_sum_{window},20,family_returns,True
+return_volatility_ratio,return_vol_ratio_{window},20,family_returns,True

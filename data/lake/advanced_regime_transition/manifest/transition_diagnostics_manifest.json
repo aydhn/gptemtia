@@ -1,0 +1,17 @@
+{
+  "manifest_name": "regime_transition_diagnostics_manifest_v130",
+  "current_phase": 130,
+  "target_final_phase": 160,
+  "next_phase": 131,
+  "stability_score": 0.82,
+  "non_signal": true,
+  "source_preserved": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false,
+  "model_training_executed": false,
+  "clustering_executed": false,
+  "unsupervised_execution": false,
+  "is_valid": true,
+  "active_profile": "balanced_local_regime_transition"
+}

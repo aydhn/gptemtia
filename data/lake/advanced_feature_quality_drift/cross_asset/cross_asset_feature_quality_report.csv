@@ -1,0 +1,6 @@
+check_id,domain,description,passed,severity,status,manual_review_required,notes,non_signal
+cross_asset_namespace_consistency,cross_asset_quality_domain,"Ensure clear asset domain prefixing (e.g. fx_, comm_, macro_) without collisions.",True,quality_info,diagnostic_pass,False,Cross-asset quality checks satisfied,True
+symbol_mapping_availability,cross_asset_quality_domain,Verify comprehensive symbol mapping across base and cross-asset pairs.,True,quality_info,diagnostic_pass,False,Cross-asset quality checks satisfied,True
+cross_domain_timestamp_alignment,cross_asset_quality_domain,Verify asof join backward-only temporal alignment with non-null key timestamps.,True,quality_info,diagnostic_pass,False,Cross-asset quality checks satisfied,True
+no_lookahead_join_dependency,cross_asset_quality_domain,Enforce strict backward matching (direction='backward') to prevent future leakage.,True,quality_info,diagnostic_pass,False,Cross-asset quality checks satisfied,True
+zero_prediction_target_columns,cross_asset_quality_domain,"Verify absolute absence of target, label, prediction, or future return columns.",True,quality_info,diagnostic_pass,False,Cross-asset quality checks satisfied,True

@@ -1,0 +1,11 @@
+field_id,field_name,field_type,description,required,no_full_text_policy,manual_review_required
+ref_fld_item_id,item_id,string,Unique identifier for item reference.,True,strictly_enforced_no_raw_text,False
+ref_fld_source_name,source_name,string,Originating publisher or agency name.,True,strictly_enforced_no_raw_text,False
+ref_fld_timestamp,timestamp,datetime_iso8601,Publication timestamp.,True,strictly_enforced_no_raw_text,False
+ref_fld_title_or_summary_ref,title_or_summary_ref,string,Short headline reference or pointer; never full article text.,True,strictly_enforced_no_raw_text,True
+ref_fld_canonical_reference,canonical_reference,string,Canonical external URI or catalog citation; not raw article body.,False,strictly_enforced_no_raw_text,False
+ref_fld_content_hash_placeholder,content_hash_placeholder,string,Cryptographic hash placeholder for deduplication verification in Phase 112.,False,strictly_enforced_no_raw_text,False
+ref_fld_provider_item_id_placeholder,provider_item_id_placeholder,string,External provider unique reference ID placeholder.,False,strictly_enforced_no_raw_text,False
+ref_fld_license_note,license_note,string,Legal licensing and attribution requirement note.,True,strictly_enforced_no_raw_text,True
+ref_fld_no_full_text_policy,no_full_text_policy,string,Formal policy declaring that full text ingestion is disabled.,True,strictly_enforced_no_raw_text,False
+ref_fld_manual_review_required,manual_review_required,boolean,Indicates whether this reference entry requires compliance verification.,True,strictly_enforced_no_raw_text,False

@@ -1,0 +1,10 @@
+{
+  "total_checks": 14,
+  "passed_checks": 14,
+  "failed_checks": 0,
+  "health_status": "HEALTHY",
+  "is_healthy": true,
+  "non_signal": true,
+  "zero_execution_clean": true,
+  "active_profile": "balanced_local_regime_transition"
+}

@@ -1,0 +1,5 @@
+guard_id,description,enforced,current_phase,next_phase,target_final_phase
+guard_no_negative_shift,"Code and pipeline must never call shift(-1), lead(), or forward window slices.",True,128,129,160
+guard_point_in_time_join,Any context or candidate state join must enforce right_ts <= left_ts.,True,128,129,160
+guard_no_future_columns,Dataframes must not contain any future-referencing return or target column.,True,128,129,160
+guard_utc_monotonicity,Timestamps must be parsed as UTC and monotonically non-decreasing per entity.,True,128,129,160

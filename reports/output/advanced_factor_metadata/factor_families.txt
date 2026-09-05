@@ -1,0 +1,6 @@
+Bu rapor Phase 122 Factor Metadata and Factor Families çıktısıdır. Gerçek veri indirme zorunluluğu, scraping, haber tam metni kullanımı, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, factor değerini trade sinyali olarak kullanma, strateji/backtest/optimizer/model training çalıştırma, target/label/prediction üretme, official approval veya production-ready iddiası değildir.
+Factor Families Total: 12
+Ready Families: 9
+Placeholder Families: 3
+Non-Signal Mandate: True
+Status: factor_ready

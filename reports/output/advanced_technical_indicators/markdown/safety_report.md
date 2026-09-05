@@ -1,0 +1,38 @@
+# Phase 117 Technical Indicator Safety Boundary Report
+
+> **Yasal Uyarı / Sınır:** Bu çıktı Phase 117 Technical Indicator Expansion raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, indicator/feature değerini trade sinyali olarak kullanma, strateji üretimi, backtest, optimizer, prediction/target/label üretimi, production deployment, model deployment, scraping, gerçek provider API çağrısı veya official approval değildir.
+
+- **Güvenlik Durumu:** `ACTIVE`
+- **No-Go Kuralları:** 18
+- **Safe-Go Kuralları:** 9
+
+## Güvenlik Sınırları Tablosu
+| rule_id | name                                | desc                                                         | status   |
+| ------- | ----------------------------------- | ------------------------------------------------------------ | -------- |
+| NG_01   | no_live_trading                     | Canlı emir gönderilemez.                                     | ENFORCED |
+| NG_02   | no_broker_integration               | Broker API veya aracı kurum entegrasyonu kurulamaz.          | ENFORCED |
+| NG_03   | no_real_order                       | Gerçek pozisyon açılamaz.                                    | ENFORCED |
+| NG_04   | no_exact_buy_sell                   | Kesin AL/SAT talimatı verilemez.                             | ENFORCED |
+| NG_05   | no_investment_advice                | Yatırım tavsiyesi verilemez.                                 | ENFORCED |
+| NG_06   | no_indicator_as_signal              | İndikatörler alım/satım sinyali olarak sunulamaz.            | ENFORCED |
+| NG_07   | no_directional_certainty            | Gelecek yön kesinliği iddia edilemez.                        | ENFORCED |
+| NG_08   | no_strategy_generation              | Al/sat kuralları veya trade stratejisi üretilemez.           | ENFORCED |
+| NG_09   | no_backtest_execution               | Backtest simülasyonu çalıştırılamaz.                         | ENFORCED |
+| NG_10   | no_optimizer_execution              | Strateji parametre optimizasyonu yapılamaz.                  | ENFORCED |
+| NG_11   | no_target_label_columns             | Target, label, prediction kolonları üretilemez.              | ENFORCED |
+| NG_12   | no_model_deployment                 | Model deployment veya production servisi başlatılamaz.       | ENFORCED |
+| NG_13   | no_web_scraping                     | Web / HTML scraping veya browser otomasyonu yapılamaz.       | ENFORCED |
+| NG_14   | no_hidden_api_reverse_engineering   | Tersine mühendislik veya paywall bypass yapılamaz.           | ENFORCED |
+| NG_15   | no_credential_output                | API anahtarı veya gizli kimlik basılamaz.                    | ENFORCED |
+| NG_16   | no_source_overwrite                 | Kaynak veriler üzerine yazma veya yıkıcı temizlik yapılamaz. | ENFORCED |
+| NG_17   | no_future_lookahead                 | shift(-1) veya ileri vadeli getiri feature'ı üretilemez.     | ENFORCED |
+| NG_18   | no_official_approval_claim          | Resmi regülasyon veya provider onayı iddia edilemez.         | ENFORCED |
+| SG_01   | local_offline_indicator_registry    | Local ve offline teknik indikatör kayıt defteri.             | ALLOWED  |
+| SG_02   | non_signal_computation              | AL/SAT üretmeyen saf matematiksel indikatör hesaplaması.     | ALLOWED  |
+| SG_03   | immutable_dataframe_transform       | Girdi dataframe'ini koruyan df.copy() dönüşümleri.           | ALLOWED  |
+| SG_04   | pure_python_numpy_pandas            | TA-Lib zorunluluğu olmaksızın çalışan bağımsız hesaplama.    | ALLOWED  |
+| SG_05   | no_lookahead_verification           | Sadece geçmiş barları kullanan zaman serisi güvenliği.       | ALLOWED  |
+| SG_06   | warmup_nan_policy                   | Başlangıç pencerelerindeki NaN değerleri koruma politikası.  | ALLOWED  |
+| SG_07   | indicator_output_schema             | Yasaklı kolon filtrelemeli çıktı şemaları.                   | ALLOWED  |
+| SG_08   | synthetic_rehearsal_suite           | Sentetik verilerle doğrulama ve prova motoru.                | ALLOWED  |
+| SG_09   | phase_118_multi_window_grid_handoff | Phase 118 çoklu pencere grid altyapısına hazır devir.        | ALLOWED  |

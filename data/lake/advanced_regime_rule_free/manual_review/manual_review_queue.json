@@ -1,0 +1,19 @@
+{
+  "total_queued_items": 9,
+  "all_require_human_signoff": true,
+  "all_destructive_blocked": true,
+  "all_autofix_blocked": true,
+  "forbidden_automated_actions": [
+    "auto_delete",
+    "auto_overwrite",
+    "auto_impute",
+    "enable_scraping",
+    "generate_signal",
+    "run_clustering",
+    "train_model",
+    "run_dimensionality_reduction",
+    "approve_production",
+    "approve_broker_readiness"
+  ],
+  "queue_status": "ACTIVE_NON_DESTRUCTIVE"
+}

@@ -1,0 +1,4 @@
+event_window_context,transition_readiness,release_lag_dependency_status,pre_post_continuity,no_lookahead_verified,non_signal,description
+pre_release_anticipation,0.85,satisfied,0.99,True,True,Observation interval leading up to official macroeconomic data release
+immediate_release_window,0.78,satisfied,0.98,True,True,Active window immediately following timestamp of scheduled release
+post_release_absorption,0.88,satisfied,0.99,True,True,Post-event price action consolidation and regime re-stabilization

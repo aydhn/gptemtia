@@ -1,0 +1,24 @@
+# Phase 113 — Normalization Score Report
+
+> [!IMPORTANT]
+> **YASAL UYARI VE GÜVENLİK SINIRI**:
+> Bu çıktı Phase 113 Data Normalization Layer raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, normalized data’yı trade sinyali olarak kullanma, official approval, production deployment, model deployment, scraping, haber tam metni toplama, telifli içerik kopyalama, external LLM/API çağrısı, gerçek provider API çağrısı zorunluluğu, source overwrite veya destructive cleaning değildir.
+
+
+## Skor Özeti
+- **Puanlanan Veri Seti**: 7
+- **Ortalama Normalizasyon Skoru**: 1.0
+- **Min / Max**: 1.0 / 1.0
+- **Ticaret Sinyali Mi?**: HAYIR (False)
+- **Resmi Onay Mı?**: HAYIR (False)
+
+## Skor Detayları
+| score_id | dataset_name | dataset_type | provider_name | score | status_label | applied_rules | manual_review_count | blocked_count | notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| nscore_fx_quote_contract_fx_dry_run_fixture_provider | fx_quote_contract | dataset_fx_quote | fx_dry_run_fixture_provider | 1.0 | normalization_excellent | 0 | 0 | 0 | İç kalite metriğidir; kesinlikle AL/SAT sinyali veya resmi onay değildir. |
+| nscore_fx_ohlcv_contract_fx_dry_run_fixture_provider | fx_ohlcv_contract | dataset_fx_ohlcv | fx_dry_run_fixture_provider | 1.0 | normalization_excellent | 0 | 0 | 0 | İç kalite metriğidir; kesinlikle AL/SAT sinyali veya resmi onay değildir. |
+| nscore_commodity_spot_contract_commodity_dry_run_fixture_provider | commodity_spot_contract | dataset_commodity_spot | commodity_dry_run_fixture_provider | 1.0 | normalization_excellent | 0 | 0 | 0 | İç kalite metriğidir; kesinlikle AL/SAT sinyali veya resmi onay değildir. |
+| nscore_commodity_ohlcv_contract_commodity_dry_run_fixture_provider | commodity_ohlcv_contract | dataset_commodity_ohlcv | commodity_dry_run_fixture_provider | 1.0 | normalization_excellent | 0 | 0 | 0 | İç kalite metriğidir; kesinlikle AL/SAT sinyali veya resmi onay değildir. |
+| nscore_macro_timeseries_contract_macro_official_api_provider_placeholder | macro_timeseries_contract | dataset_macro_timeseries | macro_official_api_provider_placeholder | 1.0 | normalization_excellent | 0 | 0 | 0 | İç kalite metriğidir; kesinlikle AL/SAT sinyali veya resmi onay değildir. |
+| nscore_calendar_event_contract_calendar_licensed_provider_placeholder | calendar_event_contract | dataset_calendar_event | calendar_licensed_provider_placeholder | 1.0 | normalization_excellent | 0 | 0 | 0 | İç kalite metriğidir; kesinlikle AL/SAT sinyali veya resmi onay değildir. |
+| nscore_news_metadata_contract_news_public_dataset_provider_placeholder | news_metadata_contract | dataset_news_metadata | news_public_dataset_provider_placeholder | 1.0 | normalization_excellent | 0 | 0 | 0 | İç kalite metriğidir; kesinlikle AL/SAT sinyali veya resmi onay değildir. |

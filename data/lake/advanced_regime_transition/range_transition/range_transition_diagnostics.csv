@@ -1,0 +1,4 @@
+range_context,persistence_placeholder,breakout_context_placeholder,compression_expansion_readiness,mean_reversion_dependency_status,phase_131_cross_asset_prep,non_signal,description
+tight_range_consolidation,0.92,0.18,0.89,satisfied,ready,True,High persistence tight range channel consolidation
+wide_channel_oscillation,0.88,0.28,0.85,satisfied,ready,True,Wide band range oscillations between support and resistance boundaries
+boundary_testing_phase,0.74,0.46,0.82,satisfied,ready,True,Range boundary test diagnostic context (NOT an order breakout signal)

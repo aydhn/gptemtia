@@ -1,0 +1,10 @@
+item,handling,status
+missing_input_field,Raise explicit ValueError with missing field name,READY
+warmup_nan_policy,Preserve initial rolling NaNs; do not fill or discard in Phase 117,READY
+divide_by_zero_risk,Safe division replacing denominator 0 with np.nan,READY
+insufficient_rows,Calculations return NaNs gracefully if rows < window,READY
+non_numeric_input,Automatic float casting or ValueError on non-numeric series,READY
+immutable_input_guarantee,Strict df.copy() on every entry point; zero mutation,READY
+no_lookahead_guarantee,Only past shifts (shift >= 1); zero shift(-1) or future returns,READY
+multi_window_readiness,Parameterized window signatures ready for Phase 118 grid,READY
+non_signal_guarantee,Output columns never contain signal/target/prediction keywords,READY

@@ -1,0 +1,9 @@
+pseudo_state_name,source_candidate_state,regime_family,schema_completeness,is_executable,quality_status,manual_review_required,model_training_executed,clustering_executed,unsupervised_execution,non_signal,contains_target_or_prediction,current_phase,target_final_phase,next_phase
+pseudo_state_volatility_high,candidate_state_volatility_expansion,volatility,1.0,False,behavior_quality_ready,False,False,False,False,True,False,129,160,130
+pseudo_state_volatility_low,candidate_state_volatility_compression,volatility,1.0,False,behavior_quality_ready,False,False,False,False,True,False,129,160,130
+pseudo_state_trend_directional,candidate_state_trend_continuation,trend,1.0,False,behavior_quality_ready,False,False,False,False,True,False,129,160,130
+pseudo_state_trend_fading,candidate_state_trend_exhaustion,trend,1.0,False,behavior_quality_ready,False,False,False,False,True,False,129,160,130
+pseudo_state_range_reverting,candidate_state_range_bound_oscillation,range,1.0,False,behavior_quality_ready,False,False,False,False,True,False,129,160,130
+pseudo_state_macro_event_shock,candidate_state_macro_event_shock,macro_event,1.0,False,behavior_quality_ready,False,False,False,False,True,False,129,160,130
+pseudo_state_news_attention_spike,candidate_state_news_attention_surge,news_metadata,1.0,False,behavior_quality_ready,False,False,False,False,True,False,129,160,130
+pseudo_state_cross_asset_divergent,candidate_state_cross_asset_divergence,cross_asset,1.0,False,behavior_quality_ready,False,False,False,False,True,False,129,160,130

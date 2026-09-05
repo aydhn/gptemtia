@@ -1,0 +1,11 @@
+metric_name,domain,description,value_type,min_value,max_value,target_direction,is_blocking,default_value,non_signal,current_phase,target_final_phase,next_phase
+candidate_state_coverage_ratio,candidate_state_coverage_domain,Ratio of required candidate state families covered in the contract registry.,float,0.0,1.0,higher_is_better,True,1.0,True,129,160,130
+candidate_state_missingness_ratio,candidate_state_missingness_domain,Ratio of missing attributes or unresolved references in candidate state schemas.,float,0.0,1.0,lower_is_better,False,0.0,True,129,160,130
+candidate_state_consistency_score,candidate_state_consistency_domain,Schema and assignment contract cross-referencing consistency score.,float,0.0,1.0,higher_is_better,False,1.0,True,129,160,130
+candidate_state_ambiguity_score,candidate_state_ambiguity_domain,Diagnostic metric quantifying candidate state overlap or boundary ambiguity.,float,0.0,1.0,lower_is_better,False,0.15,True,129,160,130
+candidate_state_stability_score,candidate_state_stability_domain,Baseline temporal persistence and stability assessment score across candidate states.,float,0.0,1.0,higher_is_better,False,0.85,True,129,160,130
+pseudo_state_schema_completeness,pseudo_state_quality_domain,Completeness score of pseudo-state definitions and non-signal constraints.,float,0.0,1.0,higher_is_better,True,1.0,True,129,160,130
+regime_family_coverage_ratio,regime_family_coverage_domain,Proportion of recognized regime families provided with active diagnostics.,float,0.0,1.0,higher_is_better,True,1.0,True,129,160,130
+regime_family_consistency_score,regime_family_consistency_domain,"Consistency score between underlying factors, contexts, and regime family definitions.",float,0.0,1.0,higher_is_better,False,0.95,True,129,160,130
+behavior_context_availability,market_behavior_diagnostics_domain,"Availability of market behavior contexts across volatility, trend, range, macro, and news.",float,0.0,1.0,higher_is_better,True,1.0,True,129,160,130
+manual_review_blocker_count,manual_review_domain,Total count of active blocking items requiring human review before Phase 130.,int,0.0,1000.0,lower_is_better,True,0.0,True,129,160,130

@@ -13,7 +13,7 @@ def main():
     args = parser.parse_args()
     
     settings = Settings()
-    dl = DataLake(settings)
+    dl = DataLake('data/lake')
     try:
         from local_dr.dr_pipeline import LocalDRPipeline
         pipeline = LocalDRPipeline(dl, settings, Path("."), profile=get_local_dr_profile(args.profile))

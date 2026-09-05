@@ -1,0 +1,43 @@
+{
+  "report_id": "REP-VAL-121-default",
+  "profile_name": "default",
+  "current_phase": 121,
+  "target_final_phase": 160,
+  "next_phase": 122,
+  "status": "PASS",
+  "scores": {
+    "overall_score": 1.0,
+    "lookahead_score": 1.0,
+    "forbidden_column_score": 1.0,
+    "integrity_score": 1.0,
+    "numeric_sanity_score": 1.0,
+    "completeness_score": 1.0,
+    "is_passing": true,
+    "current_phase": 121
+  },
+  "findings": [
+    "FeatureValidationFinding(finding_id='FIND-001-RULE-VAL-001', rule_id='RULE-VAL-001', finding_type='VALIDATION_CHECK', feature_or_matrix_name='sample_feature', severity_label='validation_info', status_label='validation_manual_review_required', message='Feature validation baseline check initialized successfully.', recommendation='', column_name='sample_feature', severity='HIGH', current_phase=121, destructive_action_allowed=False, manual_review_required=True)"
+  ],
+  "manifest": {
+    "manifest_id": "mani_matrix_default_b54f9dde",
+    "matrix_name": "matrix_default",
+    "total_rows": 10,
+    "row_count": 10,
+    "total_columns": 4,
+    "feature_count": 3,
+    "current_phase": 121,
+    "checksum": "9b6c915384b80f83",
+    "forbidden_column_count": 0,
+    "duplicate_feature_count": 0,
+    "future_leakage_risk_count": 0,
+    "missingness_warning_count": 0,
+    "non_signal": true,
+    "contains_target_or_prediction": false,
+    "contains_full_article_text": false,
+    "source_preserved": true,
+    "manual_review_required": true
+  },
+  "disclaimer": "Bu çıktı Phase 121 Feature Validation and No-Lookahead Guard raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, validation score’u trade sinyali olarak kullanma, strateji üretimi, backtest, optimizer, model training, prediction/target/label üretimi, production-ready/official approval iddiası, haber tam metni kullanımı, production deployment, model deployment, scraping veya gerçek provider API çağrısı değildir.",
+  "destructive_action_allowed": false,
+  "non_signal": true
+}

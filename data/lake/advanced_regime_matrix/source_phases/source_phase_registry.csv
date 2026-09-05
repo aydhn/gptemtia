@@ -1,0 +1,11 @@
+phase_number,phase_name,module_name,contribution,status,non_signal,current_phase,target_final_phase,next_phase,source_preserved
+117,Technical Indicator Expansion,advanced_technical_indicators,"Core technical indicators across trend, momentum, volatility, and range.",READY,True,127,160,128,True
+118,Multi-Window Feature Grid,advanced_feature_grid,Multi-timeframe rolling windows and standardized returns.,READY,True,127,160,128,True
+119,Cross-Asset Feature Alignment,advanced_cross_asset_alignment,Intermarket coupling and synchronized multi-asset observations.,READY,True,127,160,128,True
+120,Macro/Calendar/News Feature Fusion,advanced_feature_fusion,"Macroeconomic time series, release windows, and metadata-only news tags.",READY,True,127,160,128,True
+121,Feature Validation and No-Lookahead Guard,advanced_feature_validation,"Audit rules, forbidden column quarantine, and leakage prevention.",READY,True,127,160,128,True
+122,Factor Metadata and Factor Families,advanced_factor_metadata,Canonical factor family classifications and factor namespace.,READY,True,127,160,128,True
+123,Feature Quality and Drift Diagnostics,advanced_feature_quality_drift,"Missingness ratios, KS/PSI drift diagnostics, and staleness checks.",READY,True,127,160,128,True
+124,Feature Store Integration Expansion,advanced_feature_store_integration,"Central metadata store, partition policies, and lineage references.",READY,True,127,160,128,True
+125,Feature Store Acceptance & Factor Governance,advanced_feature_factor_acceptance,"Acceptance criteria, factor governance, and pipeline verification.",READY,True,127,160,128,True
+126,Regime Classification and Market Behavior Foundation,advanced_regime_foundation,"Market behavior taxonomy, regime state taxonomy, and regime family definitions.",READY,True,127,160,128,True

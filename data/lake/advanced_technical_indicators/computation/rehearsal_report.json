@@ -1,0 +1,9 @@
+{
+  "total_rehearsals": 62,
+  "all_passed": true,
+  "no_mutation_guaranteed": true,
+  "no_forbidden_columns_guaranteed": true,
+  "non_signal": true,
+  "status": "PASS",
+  "current_phase": 117
+}

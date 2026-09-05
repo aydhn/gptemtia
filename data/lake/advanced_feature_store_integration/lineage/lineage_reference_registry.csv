@@ -1,0 +1,5 @@
+lineage_ref_id,source_phase,module_origin,target_entity,lineage_hash,description,non_signal,source_preserved
+LIN_REF_114_PROVENANCE,114,advanced_data_lineage,fx_and_commodity_raw,sha256:114_provenance_hash,Phase 114 veri kökeni ve kaynak izlenebilirlik referansı.,True,True
+LIN_REF_121_VALIDATION,121,advanced_feature_validation,feature_matrix,sha256:121_validation_hash,Phase 121 no-lookahead ve sızıntı denetim onay referansı.,True,True
+LIN_REF_122_FACTOR_METADATA,122,advanced_factor_metadata,factor_families,sha256:122_factor_metadata_hash,Phase 122 faktör ailesi taksonomisi ve bağımlılık referansı.,True,True
+LIN_REF_123_QUALITY_DRIFT,123,advanced_feature_quality_drift,feature_quality_diagnostics,sha256:123_quality_drift_hash,Phase 123 özellik kalite ve drift skorlama referansı.,True,True

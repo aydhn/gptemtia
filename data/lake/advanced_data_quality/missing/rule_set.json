@@ -1,0 +1,8 @@
+{
+  "rule_count": 2,
+  "rules": [
+    "check_missing_required_fields",
+    "check_missing_values"
+  ],
+  "domain": "missing_data"
+}
