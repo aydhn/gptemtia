@@ -1,0 +1,7 @@
+check_name,passed,status_label,non_signal,source_preserved,details
+profile_registry_valid,True,runtime_ready,True,True,Profile registry phase and non-signal constraints validated.
+gpu_capability_valid,True,runtime_ready,True,True,GPU capability inspection integrity confirmed.
+safety_contracts_enforced,True,runtime_ready,True,True,All 12 safety contracts are strictly enforced.
+input_contracts_valid,True,runtime_ready,True,True,"Input contracts enforce non-signal, no-lookahead, and source preservation."
+manifest_invariants_valid,True,runtime_ready,True,True,Manifest reflects Phase 136 invariants and non-signal compliance.
+zero_forbidden_claims,True,runtime_ready,True,True,Zero trading signals or unauthorized approval claims detected.

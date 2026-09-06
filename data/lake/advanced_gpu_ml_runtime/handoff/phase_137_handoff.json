@@ -1,0 +1,17 @@
+{
+  "domain": "phase_137_handoff_domain",
+  "active_profile": "balanced_local_gpu_ml_runtime_foundation",
+  "source_phase": 136,
+  "next_phase": 137,
+  "next_phase_title": "Advanced ML Dataset Contracts and Experiment Registry",
+  "target_final_phase": 160,
+  "total_prerequisites": 12,
+  "satisfied_prerequisites": 12,
+  "all_satisfied": true,
+  "status": "READY",
+  "non_signal": true,
+  "source_preserved": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false
+}

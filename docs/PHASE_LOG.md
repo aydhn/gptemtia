@@ -1002,6 +1002,198 @@ Local completion governance framework appended.
 - 48 birim ve entegrasyon test dosyası (115 test) eklendi ve 100% başarıyla geçti.
 - Mevcut faz: 132, Sıradaki faz: 133 (Regime Validation and No-Lookahead Acceptance), Hedef final faz: 160.
 
+## Phase 133: Regime Validation and No-Lookahead Acceptance, Regime Safety Gate, Metadata-Only Acceptance ve Phase 134 Handoff
+- Regime Validation and No-Lookahead Acceptance mimarisi kuruldu (`advanced_regime_validation_acceptance/`).
+- 34 modülden oluşan kapsamlı paket eklendi:
+    * Konfigürasyon, Etiketler ve Modeller:
+        - `regime_validation_acceptance_config.py`: 3 operasyonel profil (`balanced_local_regime_validation_acceptance`, `strict_no_lookahead_regime_safety`, `dry_run_regime_acceptance_focus`).
+        - `regime_validation_acceptance_labels.py`: Etiketler, tablo adları ve yasal feragatname sözleşmeleri.
+        - `regime_validation_acceptance_models.py`: 12 dataclass veri modeli (RegimeValidationProfileItem, Domain, GateResult, ComponentAcceptanceItem, Finding, Score, Manifest vb.).
+    * Profiller, Alanlar ve 19 Kanonik Kabul Geçidi:
+        - `regime_validation_acceptance_profile_registry.py`: 3 profil kaydı.
+        - `regime_validation_acceptance_domain_registry.py`: 44 rejim kabul alanı kaydı.
+        - `regime_validation_gates.py`: 19 kanonik kabul geçidi (no-lookahead, backward asof, timestamp order, forbidden columns, metadata-only news, source preservation, non-signal, target absence, model execution absence, matrix, candidate state, pseudo-state, transition, cross-asset, macro/event/news, validation dependencies, quality dependencies, manual review, scoring).
+    * Temel Güvenlik ve No-Lookahead Kabul Modülleri:
+        - `regime_no_lookahead_acceptance.py`: `context_ts <= base_ts`, negatif shift (`shift(-1)`), `lead()`, `future_return` denetimi.
+        - `regime_timestamp_order_acceptance.py`: Kesin artan UTC zaman damgası sıralama kabulü.
+        - `regime_backward_asof_acceptance.py`: Geriye dönük asof join (`direction='backward'`) kabulü.
+        - `regime_forbidden_column_acceptance.py`: Yasaklı kolon adı tarama ve blokajı.
+        - `regime_metadata_only_news_acceptance.py`: Yalnızca metaveri haber kabulü (tam metin, HTML, NLP duygu modeli, embedding yasağı).
+        - `regime_source_preservation_acceptance.py`: Kaynak veri dokunulmazlığı (`df.copy()`, zero overwrite, zero auto-drop, zero auto-impute).
+        - `regime_non_signal_acceptance.py`: Rejim ve kabul çıktılarının sinyal olmadığını garanti eden kabul denetimi.
+        - `regime_target_label_prediction_absence.py`: Hedef değişken, sınıf etiketi veya model tahmini yokluğu güvencesi.
+        - `regime_model_execution_absence.py`: HMM, GMM, KMeans veya herhangi bir model eğitimi/kümeleme yürütülmeme güvencesi.
+    * Bileşen ve Bağımlılık Kabul Modülleri:
+        - `regime_matrix_validation_acceptance.py`: Phase 127 rejim matrisi kabulü.
+        - `candidate_state_validation_acceptance.py`: Phase 128 aday durum hazırlık kabulü.
+        - `pseudo_state_validation_acceptance.py`: Phase 128 pseudo-durum kabulü.
+        - `transition_validation_acceptance.py`: Phase 130 rejim geçiş kabulü.
+        - `cross_asset_regime_validation_acceptance.py`: Phase 131 çapraz varlık bağlam kabulü.
+        - `macro_event_news_validation_acceptance.py`: Phase 132 makro, olay ve haber bağlam kabulü.
+        - `regime_validation_dependency_acceptance.py`: Phase 126-132 doğrulama bağımlılıkları kabulü.
+        - `regime_quality_dependency_acceptance.py`: Phase 126-132 kalite bağımlılıkları kabulü.
+    * Bulgular, Manuel İnceleme, Skorlama ve Manifest:
+        - `regime_validation_findings.py`: 3 tanı bulgusu (auto-fix forbidden).
+        - `regime_manual_review_acceptance.py`: 8 maddelik tahribatsız manuel inceleme kuyruğu kabulü.
+        - `regime_acceptance_scoring.py`: 1.0 kabul skoru (`high_acceptance_integrity`).
+        - `regime_validation_acceptance_manifest.py`: Master denetim manifestosu (`MANIFEST_VALID`).
+    * Raporlama, Sağlık, Doğrulama, Güvenlik ve Handoff:
+        - `regime_validation_acceptance_report_builder.py`: Bağımsız Markdown tablo ve rapor oluşturucu.
+        - `regime_validation_acceptance_pipeline.py`: Master orkestrasyon hattı ve durum raporu.
+        - `regime_validation_acceptance_health.py`: 20 alt sistem sağlık denetimi (HEALTHY).
+        - `regime_validation_acceptance_validation.py`: 6 doğrulama denetimi (VALIDATION_PASS).
+        - `regime_validation_acceptance_safety_boundary.py`: 22 NO-GO ve 10 SAFE-GO kuralı (SECURE).
+        - `phase_134_handoff.py`: 14 maddelik devir paketi (status=READY).
+- DataLake (`data/storage/data_lake.py`) Phase 133 kayıt ve yükleme metotları ile genişletildi (42 veri seti + raporlar).
+- FeatureStore (`ml/feature_store.py`) Phase 133 salt-okunur erişimcileri ile güncellendi.
+- ReportBuilder (`reports/report_builder.py`) Phase 133 metin raporu fonksiyonları ile genişletildi.
+- 10 CLI operasyonel betiği (`scripts/run_regime_validation_*.py`, `scripts/run_regime_no_lookahead_*.py`, `scripts/run_regime_metadata_only_*.py`, `scripts/run_regime_component_*.py`) eklendi ve başarıyla çalıştırıldı.
+- 34 birim ve entegrasyon test dosyası eklendi ve 100% başarıyla geçti (35/35).
+- Mevcut faz: 133, Sıradaki faz: 134 (Regime FeatureStore Integration), Hedef final faz: 160.
+
+## Phase 134: Regime FeatureStore Integration, Validation-Aware Regime Store Contracts, Non-Signal Regime Metadata Catalog ve Phase 135 Handoff
+- Phase 126-135 "rejim sınıflandırma ve piyasa davranışı" bloğunun dokuzuncu fazı `advanced_regime_featurestore_integration/` paketi altında 36 modül ile tamamlandı:
+    * Konfigürasyon, Modeller, Profil ve Domain Kayıtları:
+        - `regime_featurestore_config.py`: 3 profil (`research`, `conservative`, `audit`), değişmez denetleyicisi.
+        - `regime_featurestore_labels.py`: Kanonik etiketler, durumlar ve domain sabitleri.
+        - `regime_featurestore_models.py`: 9 temel veri sınıfı.
+        - `regime_featurestore_profile_registry.py`: 3 profil kayıt defteri.
+        - `regime_featurestore_domain_registry.py`: 33 rejim depolama domain kaydı.
+    * Sözleşmeler, Varlıklar, İsim Alanı ve Şemalar:
+        - `regime_featurestore_contracts.py`: 10 kanonik FeatureStore sözleşmesi.
+        - `regime_featurestore_entities.py`: 10 kanonik FeatureStore varlığı.
+        - `regime_featurestore_namespace.py`: `regime_store_` snake_case isim standardı ve anahtar üreticisi.
+        - `regime_featurestore_schema.py`: 16 alanlık minimum çekirdek şema.
+        - `regime_featurestore_version_policies.py`: 3 sürümleme politikası (snapshot, append, audit ledger).
+        - `regime_featurestore_partition_policies.py`: 6 bölümleme politikası (domain, phase, year, month vb.).
+    * 8 Bileşen Deposu Kataloğu:
+        - `regime_taxonomy_store_catalog.py`: Phase 126 taksonomi kataloğu (4 aile).
+        - `regime_matrix_store_catalog.py`: Phase 127 matris kataloğu (3 çözünürlük).
+        - `candidate_state_store_catalog.py`: Phase 128 aday durum kataloğu (3 varlık sınıfı).
+        - `pseudo_state_store_catalog.py`: Phase 128 pseudo-durum kataloğu (3 durum).
+        - `transition_store_catalog.py`: Phase 130 geçiş kataloğu (2 periyot).
+        - `cross_asset_regime_store_catalog.py`: Phase 131 çapraz varlık kataloğu (3 senaryo).
+        - `macro_event_news_regime_store_catalog.py`: Phase 132 makro/olay/haber kataloğu (3 alt bağlam).
+        - `regime_validation_acceptance_store_catalog.py`: Phase 133 doğrulama kabul kataloğu (4 kabul kapısı).
+    * Kabul Edilmiş Referanslar, Bağımlılıklar, Soykütüğü ve Engelleyiciler:
+        - `regime_accepted_reference_registries.py`: 21 kabul edilmiş referans (6 no-lookahead, 5 metadata-only news, 5 source preservation, 5 non-signal).
+        - `regime_quality_dependency_store.py`: 6 kalite bağımlılık kaydı.
+        - `regime_validation_dependency_store.py`: 6 doğrulama bağımlılık kaydı.
+        - `regime_lineage_references.py`: 9 uçtan uca soykütüğü referans adımı (Phase 126-134).
+        - `regime_manual_review_blocker_store.py`: 9 manuel inceleme engelleyici denetim kaydı (0 aktif engelleyici).
+    * Okuma/Yazma/Sorgu Sözleşmeleri, Politikalar ve Manifest:
+        - `regime_featurestore_read_contracts.py`: 2 okuma sözleşmesi.
+        - `regime_featurestore_write_contracts.py`: 2 yazma sözleşmesi.
+        - `regime_featurestore_query_contracts.py`: 8 izinli sorgu filtresi, 12 yasaklı terim karantinası.
+        - `regime_featurestore_forbidden_column_policies.py`: 23 yasaklı kolon tarama politikası.
+        - `regime_featurestore_non_signal_policies.py`: 14 yasaklı iddia deseni politikası.
+        - `regime_featurestore_source_preservation_policies.py`: 7 yasaklı kaynak tahribat eylemi.
+        - `regime_featurestore_metadata_manifest.py`: Master FeatureStore metadata manifestosu (readiness_score: 1.0).
+    * Raporlama, Pipeline, Sağlık, Doğrulama, Güvenlik ve Handoff:
+        - `regime_featurestore_report_builder.py`: Harici kütüphane bağımlılığı olmayan Markdown tablo ve rapor oluşturucu.
+        - `regime_featurestore_pipeline.py`: Master pipeline orkestrasyonu ve end-to-end durum sentezi.
+        - `regime_featurestore_health.py`: 16 alt sistem sağlık kontrolü (16/16 HEALTHY).
+        - `regime_featurestore_validation.py`: 6 doğrulama kontrolü (VALIDATION_PASS).
+        - `regime_featurestore_safety_boundary.py`: 21 NO-GO ve 8 SAFE-GO kuralı (SECURE).
+        - `phase_135_handoff.py`: Phase 135 (Regime Classification Acceptance Report) için 14 maddelik devir paketi (status=READY).
+- DataLake (`data/storage/data_lake.py`) Phase 134 kayıt ve yükleme metotları ile genişletildi (34 veri seti + raporlar).
+- FeatureStore (`ml/feature_store.py`) Phase 134 salt-okunur rejim deposu sorgu ve katalog arayüzleri ile güncellendi.
+- ReportBuilder (`reports/report_builder.py`) Phase 134 metin raporlama fonksiyonları ve sorumluluk reddi metinleriyle genişletildi.
+- 9 CLI operasyonel betiği (`scripts/run_regime_featurestore_*.py`, `scripts/run_regime_component_store_catalogs.py`, `scripts/run_regime_accepted_reference_registries.py`) eklendi ve başarıyla çalıştırıldı.
+- 34 birim ve entegrasyon test dosyası (toplam 79 test) başarıyla geçti (%100 PASS).
+- Mevcut faz: 134, Sıradaki faz: 135 (Regime Classification Acceptance Report), Hedef final faz: 160.
+
+## Phase 135: Regime Classification Acceptance Report, Phase 126-135 Regime Block Final Acceptance, Non-Signal Manifest ve Phase 136 Handoff
+- Phase 126-135 "rejim sınıflandırma ve piyasa davranışı" bloğunun kapanış fazı `advanced_regime_acceptance/` paketi altında 24 modül ile tamamlandı:
+    * Konfigürasyon, Profil ve Domain Kayıtları:
+        - `regime_acceptance_config.py`: 3 kabul profili (`balanced_local_regime_acceptance`, `strict_non_signal_regime_block_acceptance`, `dry_run_regime_manifest_focus`), güvenlik değişmezleri ve doğrulayıcılar.
+        - `regime_acceptance_labels.py`: 22 domain etiketi, 7 durum etiketi ve doğrulayıcılar.
+        - `regime_acceptance_models.py`: 9 temel veri sınıfı (envanter, bağımlılık, geçit, skor, inceleme, uyumluluk, durum ve manifesto).
+        - `regime_acceptance_profile_registry.py`: 3 profil kayıt defteri.
+        - `regime_acceptance_domain_registry.py`: Phase 126-136 arası 11 domain kaydı.
+    * Envanter, Bağımlılıklar, Geçitler, Skorlama ve İnceleme:
+        - `regime_block_inventory.py`: 10 rejim modülünün envanter raporu (86 script, 168 test, 85 rapor, 117 DataLake çıktısı).
+        - `regime_block_dependencies.py`: 10 adımlı deterministik bağımlılık akışı (`126 -> 127 -> ... -> 136`).
+        - `regime_block_acceptance_gates.py`: 17 kanonik kabul geçidi (mimari, otomasyon, test, DataLake, FeatureStore, dokümantasyon, non-signal, no-lookahead, metadata-only haber, yasaklı kolon, kaynak koruma, model yokluğu, broker yokluğu, deployment yokluğu, manuel inceleme, handoff).
+        - `regime_block_acceptance_scoring.py`: 1.0 kompozit kabul skoru hesabı ve sınıflandırması (sinyal, resmi onay veya production onayı değildir).
+        - `regime_block_manual_review.py`: Tahribatsız manuel inceleme kuyruğu ve yasaklı öneriler denetimi.
+    * Güvenlik Sınırı ve Uyumluluk Denetimleri:
+        - `regime_block_safety_boundary.py`: 19 NO-GO kuralı ve 8 SAFE-GO ilkesi.
+        - `regime_block_compliance.py`: Non-signal, no-lookahead, metadata-only news, forbidden column, source preservation ve FeatureStore readiness uyumluluk raporları.
+        - `regime_block_component_acceptance.py`: Phase 126-134 arasındaki 10 ana bileşenin kabul raporu.
+    * Sözleşmeler, Durum, Manifesto, Handoff, Pipeline, Sağlık ve Raporlama:
+        - `regime_block_documentation.py`: 9 dokümantasyon dosyasının varlık ve boyut denetimi.
+        - `regime_block_script_contracts.py`: 20 temsilci runner script'inin varlık ve sözleşme denetimi.
+        - `regime_block_test_contracts.py`: 10 temsilci test dosyasının varlık ve sözleşme denetimi.
+        - `regime_block_status.py`: Bloğun genel durum raporu (`overall_status: acceptance_pass`).
+        - `phase_126_135_acceptance_manifest.py`: Master kabul manifestosu (`acceptance_score: 1.0`, `non_signal: True`, `official_approval: False`).
+        - `regime_acceptance_report_builder.py`: Sorumluluk reddi metinli Markdown ve metin rapor oluşturucu.
+        - `regime_acceptance_pipeline.py`: 7 aşamalı master pipeline orkestrasyonu.
+        - `regime_acceptance_health.py`: 15 alt sistem sağlık kontrolü (15/15 HEALTHY).
+        - `regime_acceptance_validation.py`: 5 ana doğrulama kontrolü (VALIDATED).
+        - `phase_136_handoff.py`: Phase 136 (GPU Acceleration and Advanced ML Runtime Foundation) için 14 maddelik devir paketi (status=READY).
+- DataLake (`data/storage/data_lake.py`) Phase 135 kayıt ve yükleme metotları ile genişletildi (23 veri seti + raporlar).
+- FeatureStore (`ml/feature_store.py`) Phase 135 kabul ve metadata yükleme metotları ile güncellendi.
+- ReportBuilder (`reports/report_builder.py`) Phase 135 metin raporlama fonksiyonları ve sorumluluk reddi metinleriyle genişletildi.
+- 10 CLI operasyonel betiği (`scripts/run_regime_acceptance_*.py`, `scripts/run_regime_block_*.py`, `scripts/run_phase_126_135_acceptance_manifest.py`) eklendi ve başarıyla çalıştırıldı.
+- 24 birim ve entegrasyon test dosyası (toplam 38 test) başarıyla geçti (%100 PASS).
+- Mevcut faz: 135, Sıradaki faz: 136 (GPU Acceleration and Advanced ML Runtime Foundation), Hedef final faz: 160.
+
+## Phase 136: GPU Acceleration and Advanced ML Runtime Foundation, Local Hardware Discovery, ML Experiment Safety Contracts ve Phase 137 Handoff
+- Phase 136-145 "GPU hızlandırma, gelişmiş ML, ensemble, calibration, model drift, explainability ve governance" bloğunun ilk temel fazı `advanced_gpu_ml_runtime/` paketi altında 37 modül ile tamamlandı:
+    * Konfigürasyon, Profil ve Domain Kayıtları:
+        - `gpu_ml_runtime_config.py`: 3 temel ML çalışma zamanı profili (`balanced_local_gpu_ml_runtime_foundation`, `strict_no_training_gpu_runtime_safety`, `dry_run_ml_capability_discovery_focus`), güvenlik bayrakları ve doğrulayıcılar.
+        - `gpu_ml_runtime_labels.py`: 23 domain etiketi, 6 durum etiketi, 8 hızlandırıcı backend etiketi ve doğrulayıcılar.
+        - `gpu_ml_runtime_models.py`: 11 veri sınıfı (donanım, GPU, CPU, bellek, bağımlılık, backend, güvenlik sözleşmesi, izin politikası, girdi sözleşmesi, bulgu, hazırlık skoru).
+        - `gpu_ml_runtime_profile_registry.py`: 3 profil kayıt defteri.
+        - `gpu_ml_runtime_domain_registry.py`: 23 ML çalışma zamanı domain tanımı.
+    * Donanım ve Hızlandırıcı Keşif Modülleri:
+        - `local_hardware_discovery.py`: Güvenli ve gizli bilgi sızdırmayan işletim sistemi, CPU mimarisi ve Python çalışma ortamı keşfi.
+        - `gpu_capability_registry.py`: NVIDIA GPU ve CUDA tespiti, zarif CPU fallback mekanizması.
+        - `cpu_capability_registry.py`: Fiziksel ve mantıksal CPU çekirdekleri sorgulaması.
+        - `memory_capability_registry.py`: RAM ve takas alanı sınırları analizi.
+        - `cuda_availability.py`: CUDA sürücü ve çalışma zamanı denetimi.
+        - `accelerator_backend_registry.py`: Aktif backend ve yer tutucu hızlandırıcı haritası.
+        - `ml_runtime_environment_snapshot.py`: Hassas bilgi barındırmayan operasyonel çalışma ortamı anlık görüntüsü.
+    * ML Bağımlılık İnceleme Modülleri:
+        - `torch_runtime_capability.py`: PyTorch varlığı ve CUDA desteği (tensor tahsisi yapılmadan).
+        - `sklearn_runtime_capability.py`: Scikit-Learn varlığı (estimator eğitilmeden).
+        - `numpy_pandas_runtime_capability.py`: Çekirdek dizi ve veri çerçevesi kütüphaneleri denetimi.
+        - `optional_ml_dependency_registry.py`: 11 opsiyonel ML kütüphanesinin (XGBoost, LightGBM, CatBoost, Optuna, SHAP, ONNX, skl2onnx, joblib, MLflow, Polars, PyArrow) durumu.
+    * Güvenlik Sözleşmeleri ve İzin Politikaları:
+        - `ml_runtime_safety_contracts.py`: 12 uygulanabilir güvenlik sözleşmesi (canlı işlem, broker, emir, sinyal, yönsel iddia, model eğitimi, model çıkarımı, hedef/etiket üretimi, kümeleme, duygu analizi, haber tam metni, onay iddiası yasakları).
+        - `ml_experiment_permission_policies.py`: Açıkça izinli keşifler (`allowed_now`) ve engelli operasyonlar (`blocked_now`).
+        - `ml_training_disabled_policies.py`: Model eğitimi (`fit`, `train`, `backward`, `optimizer_step`) kesin engellemesi.
+        - `ml_inference_disabled_policies.py`: Model çıkarımı (`predict`, `transform`, `forward`) kesin engellemesi.
+        - `ml_target_label_disabled_policies.py`: Hedef ve etiket üretimi (`future_return`, `shift(-1)`, `buy`, `sell`) kesin engellemesi.
+        - `ml_artifact_governance_placeholders.py`: Model kartı, artifact manifesti, drift ve explainability yer tutucu şemaları.
+    * Girdi Sözleşmeleri (Input Contracts):
+        - `regime_metadata_ml_input_contracts.py`: Phase 126-135 rejim metadata girdi sözleşmeleri.
+        - `featurestore_ml_input_contracts.py`: FeatureStore katalog girdi sözleşmeleri.
+        - `no_lookahead_ml_input_contracts.py`: Kronolojik asof ve geriye dönük zaman damgası kısıtlamaları.
+        - `metadata_only_news_ml_input_contracts.py`: Sıfır haber tam metni, sıfır kazınmış HTML ve sıfır duygu analizi garantisi.
+        - `source_preservation_ml_input_contracts.py`: Sıfır üzerine yazma, sıfır silme ve sıfır otomatik veri tahribatı kısıtları.
+    * Bulgular, Manuel İnceleme, Puanlama, Manifesto ve Raporlama:
+        - `ml_runtime_findings.py`: 4 tespit edilmiş çalışma ortamı bulgusu ve önerileri.
+        - `ml_runtime_manual_review.py`: Tahribatsız manuel inceleme kuyruğu.
+        - `ml_runtime_readiness_scoring.py`: 0.0-1.0 aralığında ML çalışma ortamı hazırlık puanlaması (sinyal veya model eğitimi onayı değildir).
+        - `gpu_ml_runtime_manifest.py`: Master Phase 136 değişmez manifestosu.
+        - `gpu_ml_runtime_report_builder.py`: Tabulate bağımlılığı gerektirmeyen esnek Markdown ve metin raporlama.
+        - `gpu_ml_runtime_pipeline.py`: 7 adımlı uçtan uca pipeline orkestrasyonu.
+        - `gpu_ml_runtime_health.py`: 11 bileşenli sağlık kontrolü (11/11 HEALTHY).
+        - `gpu_ml_runtime_validation.py`: 6 değişmez kural doğrulaması (VALIDATED).
+        - `gpu_ml_runtime_safety_boundary.py`: 20 NO-GO kuralı ve 11 SAFE-GO ilkesi.
+        - `phase_137_handoff.py`: Phase 137 (Advanced ML Dataset Contracts and Experiment Registry) için 14 maddelik devir paketi (status=READY).
+- DataLake (`data/storage/data_lake.py`) Phase 136 kayıt ve yükleme metotları ile genişletildi (34 veri seti + kompozit JSON ve Markdown raporlar).
+- FeatureStore (`ml/feature_store.py`) Phase 136 salt-okunur donanım, bağımlılık, güvenlik ve girdi sözleşmesi arayüzleri ile güncellendi.
+- ReportBuilder (`reports/report_builder.py`) Phase 136 metin raporlama fonksiyonları ve sorumluluk reddi metinleriyle genişletildi.
+- 9 CLI operasyonel betiği (`scripts/run_gpu_ml_runtime_*.py`, `scripts/run_local_hardware_discovery.py`, vb.) eklendi ve başarıyla çalıştırıldı.
+- 38 test dosyası (toplam 53 test) %100 başarıyla geçti (%100 PASS).
+- Mevcut faz: 136, Sıradaki faz: 137 (Advanced ML Dataset Contracts and Experiment Registry), Hedef final faz: 160.
+
+
+
+
 
 
 

@@ -1,0 +1,11 @@
+{
+  "total_packages": 2,
+  "all_installed": true,
+  "non_signal": true,
+  "source_preserved": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false,
+  "domain": "numpy_pandas_capability_domain",
+  "active_profile": "balanced_local_gpu_ml_runtime_foundation"
+}

@@ -1,0 +1,12 @@
+phase,domain_id,title,description,source_module,non_signal,status_label
+126,regime_foundation,Regime Classification and Market Behavior Foundation,"Foundational taxonomy, regime definitions, families, and baseline policies.",advanced_regime_foundation,True,acceptance_pass
+127,regime_matrix,Regime Feature Matrix and State Dataset Contracts,"Multi-timeframe feature matrix contracts, state dataset schema, and backward asof alignment.",advanced_regime_matrix,True,acceptance_pass
+128,regime_rule_free,Regime Rule-Free Labeling Contracts and Unsupervised Prep,"Rule-free candidate states, pseudo-state contracts, and clustering input prep without directional labels.",advanced_regime_rule_free,True,acceptance_pass
+129,market_behavior_diagnostics,Market Behavior Diagnostics and Regime Quality,"Behavioral diagnostics, separation metrics, silhouette checks, and regime quality scores.",advanced_market_behavior_diagnostics,True,acceptance_pass
+130,regime_transition,Regime Transition and Stability Analysis,"Markovian transition matrices, state persistence, jump frequencies, and stability metrics.",advanced_regime_transition,True,acceptance_pass
+131,cross_asset_regime_context,Cross-Asset Regime Context Expansion,"Multi-asset regime alignment, cross-market divergence, and spillover context contracts.",advanced_cross_asset_regime_context,True,acceptance_pass
+132,macro_event_news_regime,Macro/Event/News Regime Context Expansion,"Macro indicator releases, calendar event windows, and metadata-only news context without full articles.",advanced_macro_event_news_regime,True,acceptance_pass
+133,regime_validation_acceptance,Regime Validation and No-Lookahead Acceptance,"Acceptance gates, no-lookahead audit, backward-asof verification, and non-signal compliance.",advanced_regime_validation_acceptance,True,acceptance_pass
+134,regime_featurestore_integration,Regime FeatureStore Integration,"FeatureStore namespaces, entities, catalogs, lineage references, and read/write/query contracts.",advanced_regime_featurestore_integration,True,acceptance_pass
+135,regime_acceptance,Regime Classification Block Final Acceptance,"Phase 126-135 block final acceptance, inventory, dependencies, compliance, and manifest.",advanced_regime_acceptance,True,acceptance_pass
+136,advanced_ml_gpu_handoff,Advanced ML and GPU Runtime Handoff,Formal handoff to Phase 136 GPU acceleration and advanced ML runtime foundation.,advanced_ml_gpu_foundation,True,acceptance_pass

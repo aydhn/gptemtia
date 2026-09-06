@@ -1,0 +1,9 @@
+{
+  "domain": "regime_block_test_contract_domain",
+  "active_profile": "balanced_local_regime_acceptance",
+  "total_test_suites_checked": 10,
+  "present_test_suites": 10,
+  "all_present": true,
+  "non_signal": true,
+  "status": "READY"
+}

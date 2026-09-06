@@ -1,0 +1,7 @@
+check_id,check_name,forbidden_concept,description,passed,status,metadata_only_certified,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+NEWS_01_NO_FULL_TEXT,reject_article_full_text,full_text,Prohibits copyrighted and bulky full news articles.,True,acceptance_pass,True,balanced_local_regime_validation_acceptance,True,True,False,False,False
+NEWS_02_NO_ARTICLE_BODY,reject_article_body,article_body,Prohibits article body storage in DataLake and FeatureStore.,True,acceptance_pass,True,balanced_local_regime_validation_acceptance,True,True,False,False,False
+NEWS_03_NO_SCRAPED_HTML,reject_scraped_html,scraped_html,Prohibits raw or scraped HTML page content.,True,acceptance_pass,True,balanced_local_regime_validation_acceptance,True,True,False,False,False
+NEWS_04_NO_SENTIMENT_SCORES,reject_sentiment_output,sentiment_score,Prohibits predictive or subjective sentiment outputs in regime feature space.,True,acceptance_pass,True,balanced_local_regime_validation_acceptance,True,True,False,False,False
+NEWS_05_NO_EMBEDDINGS,reject_text_embeddings,embedding,Prohibits vector embeddings and vector DB storage.,True,acceptance_pass,True,balanced_local_regime_validation_acceptance,True,True,False,False,False
+NEWS_06_METADATA_ONLY_ALLOWED,allow_news_metadata_only,none,"Permits only topic_id, asset_tag, macro_tag, event_id, source_id, and published_at.",True,acceptance_pass,True,balanced_local_regime_validation_acceptance,True,True,False,False,False

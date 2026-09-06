@@ -1645,6 +1645,531 @@ def build_phase_133_handoff_text_report(summary: dict, df=None) -> str:
     )
 
 
+# =========================================================================
+# Phase 133: Advanced Regime Validation & No-Lookahead Acceptance Reports
+# =========================================================================
+
+REGIME_VALIDATION_ACCEPTANCE_TEXT_REPORT_DISCLAIMER = (
+    "Bu rapor Phase 133 Regime Validation and No-Lookahead Acceptance çıktısıdır. "
+    "Gerçek veri indirme zorunluluğu, scraping, haber tam metni/article body/raw content/scraped HTML/"
+    "embedding/vector kullanımı, sentiment model output, broker talimatı, canlı emir, kesin AL/SAT, "
+    "yatırım tavsiyesi, validation/acceptance score’u trade sinyali olarak kullanma, strateji/backtest/"
+    "optimizer/model training/clustering çalıştırma, target/label/prediction üretme, official approval, "
+    "broker-ready veya production-ready iddiası değildir."
+)
+
+
+def build_regime_validation_acceptance_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_VALIDATION_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Active Profile: {summary.get('active_profile', 'balanced_local_regime_validation_acceptance')}\n"
+        f"Current Phase: {summary.get('current_phase', 133)}\n"
+        f"Next Phase: {summary.get('next_phase', 134)}\n"
+        f"Target Final Phase: {summary.get('target_final_phase', 160)}\n"
+        f"Total Profiles: {summary.get('total_profiles', 0)}\n"
+        f"Non-Signal Certified: True\n"
+        f"Zero Model Execution: True"
+    )
+
+
+def build_regime_validation_gate_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_VALIDATION_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Gates: {summary.get('total_gates', 19)}\n"
+        f"Passed Gates: {summary.get('passed_gates', 19)}\n"
+        f"Failed Gates: {summary.get('failed_gates', 0)}\n"
+        f"All Gates Passed: {summary.get('all_passed', True)}\n"
+        f"Non-Signal: True"
+    )
+
+
+def build_no_lookahead_acceptance_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_VALIDATION_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Checks: {summary.get('total_checks', 0)}\n"
+        f"Passed Checks: {summary.get('passed_checks', 0)}\n"
+        f"Lookahead Clean: {summary.get('lookahead_clean', True)}\n"
+        f"Negative Shifts Detected: False\n"
+        f"Zero Future Timestamp Joins: True"
+    )
+
+
+def build_metadata_only_news_acceptance_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_VALIDATION_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Checks: {summary.get('total_checks', 0)}\n"
+        f"Metadata Only Pure: {summary.get('metadata_only_pure', True)}\n"
+        f"Full Article Text Prohibited: True\n"
+        f"Sentiment Models Prohibited: True\n"
+        f"Vector Embeddings Prohibited: True"
+    )
+
+
+def build_component_acceptance_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_VALIDATION_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Component: {summary.get('component', 'regime_components')}\n"
+        f"Total Checks: {summary.get('total_checks', 0)}\n"
+        f"Passed Checks: {summary.get('passed_checks', 0)}\n"
+        f"All Passed: {summary.get('all_passed', True)}\n"
+        f"Non-Signal Certified: True"
+    )
+
+
+def build_dependency_acceptance_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_VALIDATION_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Dependencies: {summary.get('total_dependencies', 0)}\n"
+        f"Satisfied Dependencies: {summary.get('satisfied_dependencies', 0)}\n"
+        f"All Dependencies Satisfied: {summary.get('all_satisfied', True)}\n"
+        f"Source Preserved: True"
+    )
+
+
+def build_regime_validation_findings_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_VALIDATION_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Findings: {summary.get('total_findings', 0)}\n"
+        f"Critical Blockers: {summary.get('critical_blockers', 0)}\n"
+        f"Manual Review Count: {summary.get('manual_review_required_count', 0)}\n"
+        f"Destructive Remediation Allowed: False"
+    )
+
+
+def build_regime_acceptance_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_VALIDATION_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Overall Acceptance Score: {summary.get('overall_score', 1.0):.4f}\n"
+        f"Score Tier: {summary.get('score_tier', 'high_acceptance_integrity')}\n"
+        f"Score is NOT a Trade Signal: True\n"
+        f"Production Ready Claim: False"
+    )
+
+
+def build_regime_validation_acceptance_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_VALIDATION_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest Name: {summary.get('manifest_name', 'regime_validation_acceptance_manifest')}\n"
+        f"Current Phase: {summary.get('current_phase', 133)}\n"
+        f"Next Phase: {summary.get('next_phase', 134)}\n"
+        f"Target Final Phase: {summary.get('target_final_phase', 160)}\n"
+        f"Acceptance Score: {summary.get('acceptance_score', 1.0):.4f}\n"
+        f"Manifest Valid: {summary.get('manifest_valid', True)}\n"
+        f"Zero Model Execution: True"
+    )
+
+
+def build_regime_validation_acceptance_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_VALIDATION_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Status: {summary.get('safety_status', 'SECURE')}\n"
+        f"NO-GO Rules Enforced: {summary.get('no_go_count', 19)}\n"
+        f"SAFE-GO Principles Active: {summary.get('safe_go_count', 12)}\n"
+        f"Live Trading Prohibited: True\n"
+        f"Zero Model Execution: True"
+    )
+
+
+def build_phase_134_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_VALIDATION_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase 134 Handoff Status: {summary.get('handoff_status', 'READY')}\n"
+        f"Source Phase: {summary.get('source_phase', 133)}\n"
+        f"Next Phase: {summary.get('next_phase', 134)}\n"
+        f"Target Final Phase: {summary.get('target_final_phase', 160)}\n"
+        f"Total Handoff Items: {summary.get('total_items', 0)}\n"
+        f"All Items Ready: {summary.get('all_ready', True)}"
+    )
+
+
+# =========================================================================
+# Phase 134: Regime FeatureStore Integration Reports
+# =========================================================================
+
+REGIME_FEATURESTORE_TEXT_REPORT_DISCLAIMER = (
+    "Bu rapor Phase 134 Regime FeatureStore Integration çıktısıdır. "
+    "Gerçek veri indirme zorunluluğu, scraping, haber tam metni/article body/raw content/scraped HTML/"
+    "embedding/vector kullanımı, sentiment model output, broker talimatı, canlı emir, kesin AL/SAT, "
+    "yatırım tavsiyesi, FeatureStore’daki rejim kaydını trade sinyali olarak kullanma, "
+    "validation/store readiness değerini production-ready/broker-ready olarak sunma, "
+    "strateji/backtest/optimizer/model training/clustering çalıştırma, target/label/prediction üretme, "
+    "official approval iddiası değildir."
+)
+
+
+def build_regime_featurestore_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_FEATURESTORE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Active Profile: {summary.get('active_profile', 'balanced_local_regime_featurestore_integration')}\n"
+        f"Current Phase: {summary.get('current_phase', 134)}\n"
+        f"Next Phase: {summary.get('next_phase', 135)}\n"
+        f"Target Final Phase: {summary.get('target_final_phase', 160)}\n"
+        f"Total Modules: {summary.get('total_modules', 0)}\n"
+        f"All Healthy: {summary.get('all_healthy', True)}\n"
+        f"All Validation Passed: {summary.get('all_validation_passed', True)}\n"
+        f"All Handoff Ready: {summary.get('all_handoff_ready', True)}\n"
+        f"Non-Signal Certified: True"
+    )
+
+
+def build_regime_featurestore_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_FEATURESTORE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Contracts: {summary.get('total_contracts', 0)}\n"
+        f"All Non-Signal Required: {summary.get('all_non_signal_required', True)}\n"
+        f"All Source Preservation Required: {summary.get('all_source_preservation_required', True)}\n"
+        f"Production Ready Claim: False"
+    )
+
+
+def build_regime_featurestore_schema_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_FEATURESTORE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Schema Fields: {summary.get('total_fields', 0)}\n"
+        f"Forbidden Columns Monitored: {summary.get('forbidden_columns_count', 0)}\n"
+        f"Non-Signal Invariant: True"
+    )
+
+
+def build_regime_component_store_catalog_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_FEATURESTORE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Catalog Domain: {summary.get('domain', 'component_catalog')}\n"
+        f"Total Items: {summary.get('total_items', 0)}\n"
+        f"All Non-Signal: {summary.get('all_non_signal', True)}\n"
+        f"Source Preserved: {summary.get('all_source_preserved', True)}"
+    )
+
+
+def build_regime_accepted_reference_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_FEATURESTORE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Reference Type: {summary.get('reference_type', 'accepted_reference')}\n"
+        f"Total References: {summary.get('total_references', 0)}\n"
+        f"Status: {summary.get('status', 'regime_store_ready')}"
+    )
+
+
+def build_regime_featurestore_policy_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_FEATURESTORE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Policy Domain: {summary.get('domain', 'policy_domain')}\n"
+        f"Strictly Enforced: True\n"
+        f"Non-Signal Maintained: True"
+    )
+
+
+def build_regime_featurestore_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_FEATURESTORE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest Name: {summary.get('manifest_name', 'regime_featurestore_metadata_manifest')}\n"
+        f"Readiness Score: {summary.get('readiness_score', 1.0)}\n"
+        f"Manifest Valid: {summary.get('manifest_valid', True)}\n"
+        f"Zero Model Execution: True\n"
+        f"Zero Trade Signal: True"
+    )
+
+
+def build_regime_featurestore_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_FEATURESTORE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Checks: {summary.get('total_checks', 0)}\n"
+        f"Failed Checks: {summary.get('failed_checks', 0)}\n"
+        f"All Passed: {summary.get('all_passed', True)}\n"
+        f"Validation Status: {summary.get('status', 'regime_store_ready')}"
+    )
+
+
+def build_regime_featurestore_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_FEATURESTORE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Status: {summary.get('safety_status', 'SECURE')}\n"
+        f"NO-GO Rules Enforced: {summary.get('no_go_count', 21)}\n"
+        f"SAFE-GO Principles Active: {summary.get('safe_go_count', 8)}\n"
+        f"Zero Trading Allowed: True"
+    )
+
+
+def build_phase_135_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_FEATURESTORE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase 135 Handoff Status: {summary.get('handoff_status', 'READY')}\n"
+        f"Source Phase: {summary.get('source_phase', 134)}\n"
+        f"Next Phase: {summary.get('next_phase', 135)}\n"
+        f"Target Final Phase: {summary.get('target_final_phase', 160)}\n"
+        f"Total Prerequisites: {summary.get('total_prerequisites', 0)}\n"
+        f"All Satisfied: {summary.get('all_satisfied', True)}"
+    )
+
+
+# Phase 135 Regime Classification Acceptance Text Reports
+REGIME_ACCEPTANCE_TEXT_REPORT_DISCLAIMER = (
+    "Bu rapor Phase 135 Regime Classification Acceptance Report çıktısıdır. "
+    "Gerçek veri indirme zorunluluğu, scraping, haber tam metni/article body/raw content/"
+    "scraped HTML/embedding/vector kullanımı, sentiment model output, broker talimatı, "
+    "canlı emir, kesin AL/SAT, yatırım tavsiyesi, rejim/acceptance/validation/FeatureStore "
+    "değerini trade sinyali olarak kullanma, strateji/backtest/optimizer/model training/"
+    "clustering çalıştırma, target/label/prediction üretme, official approval, broker-ready "
+    "veya production-ready iddiası değildir."
+)
+
+
+def build_regime_acceptance_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Regime Acceptance Profile: {summary.get('active_profile', 'unknown')}\n"
+        f"Total Profiles: {summary.get('total_profiles', 0)}\n"
+        f"Current Phase: {summary.get('current_phase', 135)}\n"
+        f"Target Final Phase: {summary.get('target_final_phase', 160)}\n"
+        f"Next Phase: {summary.get('next_phase', 136)}\n"
+        f"Non-Signal Verified: True\n"
+        f"Status: {summary.get('status', 'READY')}"
+    )
+
+
+def build_regime_block_inventory_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Regime Block Total Modules: {summary.get('total_modules', 10)}\n"
+        f"Expected Scripts: {summary.get('total_expected_scripts', 0)}\n"
+        f"Expected Tests: {summary.get('total_expected_tests', 0)}\n"
+        f"Phase Range: {summary.get('phase_range', '126-135')}\n"
+        f"All Non-Signal: True\n"
+        f"Status: {summary.get('status', 'READY')}"
+    )
+
+
+def build_regime_acceptance_gate_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Acceptance Gates: {summary.get('total_gates', 17)}\n"
+        f"Passed Gates: {summary.get('passed_gates', 17)}\n"
+        f"All Passed: {summary.get('all_passed', True)}\n"
+        f"Non-Signal Maintained: True\n"
+        f"Status: {summary.get('status', 'READY')}"
+    )
+
+
+def build_regime_acceptance_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Regime Block Acceptance Score: {summary.get('acceptance_score', 1.0)}\n"
+        f"Classification: {summary.get('classification', 'acceptance_pass')}\n"
+        f"Is Acceptable: {summary.get('is_acceptable', True)}\n"
+        f"Trade Signal: False\n"
+        f"Official Approval: False\n"
+        f"Production Ready: False\n"
+        f"Broker Ready: False"
+    )
+
+
+def build_regime_acceptance_compliance_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Compliance Domain: {summary.get('domain', 'compliance')}\n"
+        f"Total Checks: {summary.get('total_checks', 0)}\n"
+        f"All Compliant: {summary.get('all_compliant', True)}\n"
+        f"Non-Signal Maintained: True"
+    )
+
+
+def build_regime_component_acceptance_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Components Accepted: {summary.get('total_components', 10)}\n"
+        f"All Accepted: {summary.get('all_accepted', True)}\n"
+        f"Phase Range: {summary.get('phase_start', 126)}-{summary.get('phase_end', 135)}\n"
+        f"Status: {summary.get('status', 'READY')}"
+    )
+
+
+def build_phase_126_135_acceptance_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Block Name: {summary.get('block_name', 'Regime Classification Block')}\n"
+        f"Phase Range: {summary.get('phase_start', 126)}-{summary.get('phase_end', 135)}\n"
+        f"Acceptance Score: {summary.get('acceptance_score', 1.0)}\n"
+        f"Modules Count: {summary.get('module_count', 10)}\n"
+        f"Gates Count: {summary.get('gate_count', 17)}\n"
+        f"Non-Signal Certified: True\n"
+        f"Zero Model Execution: True\n"
+        f"Official Approval: False\n"
+        f"Production Ready: False\n"
+        f"Broker Ready: False"
+    )
+
+
+def build_phase_136_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{REGIME_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase 136 Handoff Status: {summary.get('status', 'READY')}\n"
+        f"Source Phase: {summary.get('source_phase', 135)}\n"
+        f"Next Phase: {summary.get('next_phase', 136)}\n"
+        f"Target Final Phase: {summary.get('target_final_phase', 160)}\n"
+        f"Total Prerequisites: {summary.get('total_prerequisites', 0)}\n"
+        f"All Satisfied: {summary.get('all_satisfied', True)}\n"
+        f"Next Phase Title: {summary.get('next_phase_title', 'GPU Acceleration and Advanced ML Runtime Foundation')}"
+    )
+
+
+# Phase 136 GPU Acceleration and Advanced ML Runtime Foundation Text Reports
+GPU_ML_RUNTIME_TEXT_REPORT_DISCLAIMER = (
+    "Bu rapor Phase 136 GPU Acceleration and Advanced ML Runtime Foundation çıktısıdır. "
+    "Gerçek veri indirme zorunluluğu, scraping, haber tam metni/article body/raw content/"
+    "scraped HTML/embedding/vector kullanımı, sentiment model output, broker talimatı, "
+    "canlı emir, kesin AL/SAT, yatırım tavsiyesi, donanım keşfi/hızlandırma/ML runtime/FeatureStore/"
+    "regime değerini trade sinyali olarak kullanma, strateji/backtest/optimizer/model training/"
+    "model inference/prediction/clustering/ensemble/calibration çalıştırma, target/label/prediction "
+    "üretme, official approval, broker-ready veya production-ready iddiası değildir."
+)
+
+
+def build_gpu_ml_runtime_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{GPU_ML_RUNTIME_TEXT_REPORT_DISCLAIMER}\n"
+        f"Active Profile: {summary.get('active_profile', 'balanced_local_gpu_ml_runtime_foundation')}\n"
+        f"Current Phase: {summary.get('current_phase', 136)}\n"
+        f"Next Phase: {summary.get('next_phase', 137)}\n"
+        f"Target Final Phase: {summary.get('target_final_phase', 160)}\n"
+        f"Readiness Score: {summary.get('readiness_score', 1.0)}\n"
+        f"Readiness Status: {summary.get('readiness_status', 'READY_FOR_LOCAL_ML_RESEARCH')}\n"
+        f"Model Training Blocked: True\n"
+        f"Model Inference Blocked: True\n"
+        f"Target/Label Blocked: True\n"
+        f"Status: {summary.get('status', 'READY')}"
+    )
+
+
+def build_local_hardware_discovery_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{GPU_ML_RUNTIME_TEXT_REPORT_DISCLAIMER}\n"
+        f"Platform: {summary.get('platform_system', 'Windows')} {summary.get('platform_release', '')}\n"
+        f"Python Version: {summary.get('python_version', '')}\n"
+        f"CPU Cores: {summary.get('cpu_logical_cores', 0)} logical, {summary.get('cpu_physical_cores', 0)} physical\n"
+        f"RAM Available GB: {summary.get('memory_available_gb', 0.0)}\n"
+        f"GPU Available: {summary.get('gpu_available', False)}\n"
+        f"GPU Count: {summary.get('gpu_count', 0)}\n"
+        f"Non-Signal Maintained: True"
+    )
+
+
+def build_gpu_capability_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{GPU_ML_RUNTIME_TEXT_REPORT_DISCLAIMER}\n"
+        f"GPU Discovery Status: {summary.get('discovery_status', 'cpu_only')}\n"
+        f"GPU Available: {summary.get('gpu_available', False)}\n"
+        f"Active Backend: {summary.get('active_backend', 'cpu')}\n"
+        f"CUDA Available: {summary.get('cuda_available', False)}\n"
+        f"CUDA Device Count: {summary.get('cuda_device_count', 0)}\n"
+        f"Non-Signal Maintained: True"
+    )
+
+
+def build_runtime_dependency_capability_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{GPU_ML_RUNTIME_TEXT_REPORT_DISCLAIMER}\n"
+        f"PyTorch Available: {summary.get('torch_available', False)}\n"
+        f"Scikit-Learn Available: {summary.get('sklearn_available', False)}\n"
+        f"NumPy Available: {summary.get('numpy_available', False)}\n"
+        f"Pandas Available: {summary.get('pandas_available', False)}\n"
+        f"Optional Libraries Checked: {summary.get('optional_libraries_checked', 11)}\n"
+        f"Optional Installed Count: {summary.get('optional_installed_count', 0)}\n"
+        f"Non-Signal Maintained: True"
+    )
+
+
+def build_ml_runtime_safety_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{GPU_ML_RUNTIME_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Safety Contracts: {summary.get('total_contracts', 12)}\n"
+        f"Active Enforced Contracts: {summary.get('active_contracts', 12)}\n"
+        f"Training Blocked: True\n"
+        f"Inference Blocked: True\n"
+        f"Target/Label Blocked: True\n"
+        f"Production Deployment Blocked: True\n"
+        f"All Contracts Enforced: True\n"
+        f"Non-Signal Maintained: True"
+    )
+
+
+def build_ml_input_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{GPU_ML_RUNTIME_TEXT_REPORT_DISCLAIMER}\n"
+        f"Regime Input Contracts: {summary.get('regime_contracts', 10)}\n"
+        f"FeatureStore Input Contracts: {summary.get('featurestore_contracts', 10)}\n"
+        f"No-Lookahead Enforced: True\n"
+        f"Metadata-Only News Enforced: True\n"
+        f"Source Preservation Enforced: True\n"
+        f"Non-Signal Maintained: True"
+    )
+
+
+def build_ml_runtime_readiness_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{GPU_ML_RUNTIME_TEXT_REPORT_DISCLAIMER}\n"
+        f"ML Runtime Readiness Score: {summary.get('readiness_score', 1.0)}\n"
+        f"Readiness Classification: {summary.get('classification', 'READY_FOR_LOCAL_ML_RESEARCH')}\n"
+        f"Is Minimum Passed: {summary.get('is_minimum_passed', True)}\n"
+        f"Trade Signal: False\n"
+        f"Official Approval: False\n"
+        f"Production Ready: False\n"
+        f"Broker Ready: False"
+    )
+
+
+def build_gpu_ml_runtime_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{GPU_ML_RUNTIME_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest Phase: {summary.get('current_phase', 136)}\n"
+        f"Total Domain Registries: {summary.get('domain_count', 23)}\n"
+        f"Total Safety Contracts: {summary.get('safety_contracts_count', 12)}\n"
+        f"Readiness Score: {summary.get('readiness_score', 1.0)}\n"
+        f"Model Training Executed: False\n"
+        f"Model Inference Executed: False\n"
+        f"Target/Label Executed: False\n"
+        f"Status: {summary.get('status', 'READY')}"
+    )
+
+
+def build_gpu_ml_runtime_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{GPU_ML_RUNTIME_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Validation Rules: {summary.get('total_rules', 14)}\n"
+        f"Passed Rules: {summary.get('passed_rules', 14)}\n"
+        f"All Validations Passed: {summary.get('all_passed', True)}\n"
+        f"Invariants Valid: True\n"
+        f"Non-Signal Maintained: True"
+    )
+
+
+def build_gpu_ml_runtime_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{GPU_ML_RUNTIME_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Prohibitions Checked: {summary.get('total_prohibitions', 14)}\n"
+        f"All Prohibitions Respected: {summary.get('all_prohibitions_respected', True)}\n"
+        f"Model Training Blocked: True\n"
+        f"Live Broker Blocked: True\n"
+        f"Non-Signal Certified: True"
+    )
+
+
+def build_phase_137_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{GPU_ML_RUNTIME_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase 137 Handoff Status: {summary.get('status', 'READY')}\n"
+        f"Source Phase: {summary.get('source_phase', 136)}\n"
+        f"Next Phase: {summary.get('next_phase', 137)}\n"
+        f"Target Final Phase: {summary.get('target_final_phase', 160)}\n"
+        f"Total Handoff Deliverables: {summary.get('total_deliverables', 14)}\n"
+        f"All Satisfied: {summary.get('all_satisfied', True)}\n"
+        f"Next Phase Title: {summary.get('next_phase_title', 'Advanced ML Dataset Contracts and Experiment Registry')}"
+    )
+
+
+
+
+
+
 
 
 

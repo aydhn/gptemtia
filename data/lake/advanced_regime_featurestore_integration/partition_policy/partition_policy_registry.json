@@ -1,0 +1,10 @@
+{
+  "domain": "regime_featurestore_partition_policy_domain",
+  "total_policies": 8,
+  "active_profile": "balanced_local_regime_featurestore_integration",
+  "current_phase": 134,
+  "target_final_phase": 160,
+  "next_phase": 135,
+  "status": "regime_store_ready",
+  "non_signal": true
+}

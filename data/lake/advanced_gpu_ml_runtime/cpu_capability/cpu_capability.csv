@@ -1,0 +1,2 @@
+cpu_id,architecture,physical_cores,logical_cores,cpu_freq_mhz,capability_status,status_label,manual_review_required,non_signal,source_preserved,details
+cpu_host_primary,AMD64,6,12,0.0,backend_cpu,runtime_ready,False,True,True,Local host CPU: 6 phys / 12 log cores (AMD64).

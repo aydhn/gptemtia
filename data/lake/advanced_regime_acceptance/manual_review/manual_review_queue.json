@@ -1,0 +1,9 @@
+{
+  "domain": "regime_block_manual_review_domain",
+  "active_profile": "balanced_local_regime_acceptance",
+  "total_review_items": 1,
+  "forbidden_recommendations_enforced": true,
+  "auto_destructive_allowed": false,
+  "non_signal": true,
+  "status": "READY"
+}

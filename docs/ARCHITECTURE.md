@@ -1061,7 +1061,192 @@ Phase 107 FX Data Provider Layer
   → DataLake & FeatureStore Integration (`data/storage/data_lake.py`, `ml/feature_store.py`): 42 datasets registered
   → Current Phase: 132. Next Phase: 133 (Regime Validation and No-Lookahead Acceptance). Target Final Phase: 160.
 
+## Phase 133: advanced_regime_validation_acceptance
+- Regime Validation and No-Lookahead Acceptance, Regime Safety Gate, Metadata-Only Acceptance and Phase 134 Handoff Architecture:
+  Phase 132 Macro/Event/News Regime Context Expansion
+  → Phase 133 Regime Validation and No-Lookahead Acceptance (`advanced_regime_validation_acceptance/`)
+  → Profile & Acceptance Domain Registries:
+      * Profiles (`regime_validation_acceptance_config.py`, `regime_validation_acceptance_profile_registry.py`): `balanced_local_regime_validation_acceptance`, `strict_no_lookahead_regime_safety`, `dry_run_regime_acceptance_focus`
+      * Functional Domains (`regime_validation_acceptance_domain_registry.py`): 44 registered acceptance domains across validation gates, no-lookahead policies, metadata boundaries, and component acceptance
+  → 19 Canonical Regime Validation Gates (`regime_validation_gates.py`):
+      * Gate 1: No-Lookahead Temporal Precedence (`gate_no_lookahead_temporal_precedence`)
+      * Gate 2: Strictly Backward Asof Join Direction (`gate_backward_asof_direction`)
+      * Gate 3: Monotonic UTC Timestamp Order (`gate_timestamp_order_monotonic`)
+      * Gate 4: Forbidden Column Blockade (`gate_forbidden_column_blockade`)
+      * Gate 5: Metadata-Only News Boundary Enforcement (`gate_metadata_only_news_boundary`)
+      * Gate 6: Source Data Preservation Non-Destructive (`gate_source_preservation_non_destructive`)
+      * Gate 7: Non-Signal Output Guarantee (`gate_non_signal_output_guarantee`)
+      * Gate 8: Target, Label & Prediction Absence (`gate_target_label_prediction_absence`)
+      * Gate 9: Zero Model & Clustering Execution (`gate_model_execution_absence`)
+      * Gate 10: Phase 127 Regime Matrix Acceptance (`gate_regime_matrix_acceptance`)
+      * Gate 11: Phase 128 Candidate State Acceptance (`gate_candidate_state_acceptance`)
+      * Gate 12: Phase 128 Pseudo-State Acceptance (`gate_pseudo_state_acceptance`)
+      * Gate 13: Phase 130 Regime Transition Acceptance (`gate_transition_acceptance`)
+      * Gate 14: Phase 131 Cross-Asset Context Acceptance (`gate_cross_asset_acceptance`)
+      * Gate 15: Phase 132 Macro, Event & News Acceptance (`gate_macro_event_news_acceptance`)
+      * Gate 16: Upstream Validation Dependency Acceptance (`gate_validation_dependency_acceptance`)
+      * Gate 17: Upstream Quality Dependency Acceptance (`gate_quality_dependency_acceptance`)
+      * Gate 18: Non-Destructive Manual Review Queue Acceptance (`gate_manual_review_queue_acceptance`)
+      * Gate 19: Composite Acceptance Scoring Threshold (`gate_acceptance_scoring_threshold`)
+  → Core Temporal, Safety and Boundary Acceptance Layers:
+      * No-Lookahead Acceptance (`regime_no_lookahead_acceptance.py`: `context_ts <= base_ts`, shift(-1) / lead() scan)
+      * Timestamp Order Acceptance (`regime_timestamp_order_acceptance.py`: strictly monotonic UTC order)
+      * Backward Asof Join Acceptance (`regime_backward_asof_acceptance.py`: direction="backward" verification)
+      * Forbidden Column Acceptance (`regime_forbidden_column_acceptance.py`: quarantine scanner)
+      * Metadata-Only News Acceptance (`regime_metadata_only_news_acceptance.py`: strictly metadata-only enforcement)
+      * Source Preservation Acceptance (`regime_source_preservation_acceptance.py`: df.copy(), zero overwrite/drop/impute)
+      * Non-Signal Output Acceptance (`regime_non_signal_acceptance.py`: non-signal invariant)
+      * Target / Prediction Absence (`regime_target_label_prediction_absence.py`: ML target/prediction absence)
+      * Model Execution Absence (`regime_model_execution_absence.py`: zero HMM/GMM/clustering runs)
+  → Component Acceptance Layers (Phases 126-132):
+      * Matrix Acceptance (`regime_matrix_validation_acceptance.py`: Phase 127 matrix contracts)
+      * Candidate State Acceptance (`candidate_state_validation_acceptance.py`: Phase 128 rule-free prep)
+      * Pseudo-State Acceptance (`pseudo_state_validation_acceptance.py`: Phase 128 pseudo-states)
+      * Transition Acceptance (`transition_validation_acceptance.py`: Phase 130 state sequences & stability)
+      * Cross-Asset Acceptance (`cross_asset_regime_validation_acceptance.py`: Phase 131 multi-domain contexts)
+      * Macro/Event/News Acceptance (`macro_event_news_validation_acceptance.py`: Phase 132 macro & event windows)
+      * Dependencies (`regime_validation_dependency_acceptance.py`, `regime_quality_dependency_acceptance.py`)
+  → Findings, Review, Scoring, Manifest and Safety:
+      * Findings Registry (`regime_validation_findings.py`: anomaly detection, auto-fix forbidden)
+      * Manual Review Acceptance (`regime_manual_review_acceptance.py`: 8 review items, non-destructive)
+      * Acceptance Scoring (`regime_acceptance_scoring.py`: 1.0 acceptance score, high_acceptance_integrity)
+      * Master Manifest (`regime_validation_acceptance_manifest.py`: MANIFEST_VALID certified)
+      * Health & Validation (`regime_validation_acceptance_health.py`, `regime_validation_acceptance_validation.py`): 20 health checks HEALTHY, 6 validation checks VALIDATION_PASS
+      * Safety Boundary (`regime_validation_acceptance_safety_boundary.py`): 22 NO-GO / 10 SAFE-GO rules SECURE
+      * Phase 134 Handoff (`phase_134_handoff.py`): 14 handoff checklist items, status=READY
+  → DataLake & FeatureStore Integration (`data/storage/data_lake.py`, `ml/feature_store.py`): 42 datasets registered
+  → Current Phase: 133. Next Phase: 134 (Regime FeatureStore Integration). Target Final Phase: 160.
 
+## Phase 134: advanced_regime_featurestore_integration
+- Regime FeatureStore Integration, Validation-Aware Regime Store Contracts, Non-Signal Regime Metadata Catalog and Phase 135 Handoff Architecture:
+  Phase 133 Regime Validation and No-Lookahead Acceptance Outputs
+  → Phase 134 Advanced Regime FeatureStore Integration (`advanced_regime_featurestore_integration/`)
+  → Profile & Domain Registries:
+      * Profiles (`regime_featurestore_config.py`, `regime_featurestore_profile_registry.py`): `balanced_local_regime_featurestore_integration`, `strict_metadata_only_featurestore`, `dry_run_featurestore_focus`
+      * Functional Domains (`regime_featurestore_domain_registry.py`): 33 registered storage domains spanning contracts, catalogs, accepted references, schemas, and policies
+  → 10 Canonical FeatureStore Contracts (`regime_featurestore_contracts.py`):
+      * Local Parquet/CSV Read Contract
+      * Catalog Metadata Lookup Contract
+      * Metadata Append Write Contract
+      * Metadata Snapshot Write Contract
+      * Permitted Query Filters Contract
+      * Mandatory No-Lookahead Verification Contract
+      * Mandatory Metadata-Only News Verification Contract
+      * Mandatory Upstream Quality Dependency Contract
+      * Mandatory Upstream Validation Dependency Contract
+      * Non-Signal & Source Preservation Guarantee Contract
+  → Entities, Namespaces, Schemas & Policies:
+      * 10 FeatureStore Entities (`regime_featurestore_entities.py`): canonical entity descriptors
+      * Namespace Registry (`regime_featurestore_namespace.py`): `regime_store_` prefix standard, deterministic key generator (`regime_store_{domain}_{entity}_{version}`), forbidden term blockade
+      * 16-Field Core Schema (`regime_featurestore_schema.py`): store_key, store_entity_type, entity_id, timestamp_utc, component_name, source_phase, source_component_ref, validation_acceptance_ref, no_lookahead_acceptance_ref, metadata_only_news_acceptance_ref, source_preservation_ref, quality_dependency_ref, validation_dependency_ref, lineage_ref, manual_review_required, non_signal
+      * Version Policies (`regime_featurestore_version_policies.py`): snapshot, append, audit ledger versioning
+      * Partition Policies (`regime_featurestore_partition_policies.py`): domain, phase, year, month partitioning
+  → 8 Component Store Catalogs (25 Total Entries):
+      * Taxonomy Catalog (`regime_taxonomy_store_catalog.py`): 4 regime families (Phase 126)
+      * Matrix Catalog (`regime_matrix_store_catalog.py`): 3 resolutions (Phase 127)
+      * Candidate State Catalog (`candidate_state_store_catalog.py`): 3 asset classes (Phase 128)
+      * Pseudo-State Catalog (`pseudo_state_store_catalog.py`): 3 pseudo-states (Phase 128)
+      * Transition Catalog (`transition_store_catalog.py`): 2 window periods (Phase 130)
+      * Cross-Asset Catalog (`cross_asset_regime_store_catalog.py`): 3 cross-asset scenarios (Phase 131)
+      * Macro/Event/News Catalog (`macro_event_news_regime_store_catalog.py`): 3 sub-contexts (Phase 132)
+      * Validation Acceptance Catalog (`regime_validation_acceptance_store_catalog.py`): 4 acceptance gates (Phase 133)
+  → Accepted References, Dependencies, Lineage & Blockers:
+      * 21 Accepted References (`regime_accepted_reference_registries.py`): 6 no-lookahead, 5 metadata-only news, 5 source preservation, 5 non-signal proofs
+      * Quality & Validation Dependencies (`regime_quality_dependency_store.py`, `regime_validation_dependency_store.py`): 12 upstream dependency links
+      * Lineage References (`regime_lineage_references.py`): 9 end-to-end lineage steps (Phase 126 -> Phase 134)
+      * Manual Review Blockers (`regime_manual_review_blocker_store.py`): 9 blocker audit entries (0 active blockers)
+  → Contracts, Policies, Manifest & Governance:
+      * Read / Write / Query Contracts (`regime_featurestore_read_contracts.py`, `regime_featurestore_write_contracts.py`, `regime_featurestore_query_contracts.py`)
+      * Forbidden Column Policies (`regime_featurestore_forbidden_column_policies.py`): 23 forbidden column rules
+      * Non-Signal Policies (`regime_featurestore_non_signal_policies.py`): 14 forbidden claim patterns
+      * Source Preservation Policies (`regime_featurestore_source_preservation_policies.py`): 7 prohibited source actions
+      * Master Metadata Manifest (`regime_featurestore_metadata_manifest.py`): readiness_score: 1.0, non_signal: True, source_preserved: True
+  → Operations, Health, Validation, Safety & Handoff:
+      * Report Builder (`regime_featurestore_report_builder.py`): Zero external dependency Markdown tables
+      * Pipeline (`regime_featurestore_pipeline.py`): End-to-end master pipeline orchestrator
+      * Health Check (`regime_featurestore_health.py`): 16 subsystem checks (16/16 HEALTHY)
+      * Validation Engine (`regime_featurestore_validation.py`): 6 verification checks (VALIDATION_PASS)
+      * Safety Boundary (`regime_featurestore_safety_boundary.py`): 21 NO-GO / 8 SAFE-GO rules (SECURE)
+      * Phase 135 Handoff (`phase_135_handoff.py`): 14 handoff checklist items, status=READY
+  → DataLake & FeatureStore Integration (`data/storage/data_lake.py`, `ml/feature_store.py`): 34 datasets and report methods registered
+  → Current Phase: 134. Next Phase: 135 (Regime Classification Acceptance Report). Target Final Phase: 160.
 
+## Phase 135: advanced_regime_acceptance
+- Regime Classification Acceptance Report, Phase 126-135 Regime Block Final Acceptance, Non-Signal Manifest ve Phase 136 Handoff Architecture:
+  Phase 126-134 Regime Classification, Matrices, Candidate States, Diagnostics, Transitions, Cross-Asset Context, Macro/Event/News Context, Validation, and FeatureStore Outputs
+  → Phase 135 Advanced Regime Acceptance Layer (`advanced_regime_acceptance/`)
+  → Profile & Domain Registry (`regime_acceptance_config.py`, `regime_acceptance_profile_registry.py`, `regime_acceptance_domain_registry.py`):
+      * Profiles: `balanced_local_regime_acceptance`, `strict_non_signal_regime_block_acceptance`, `dry_run_regime_manifest_focus`
+      * 11 registered domains spanning Phases 126 through 136
+  → Block Inventory & Dependencies:
+      * Module Inventory (`regime_block_inventory.py`: 10 modules in the block, 92 runner scripts, 185 test files across Phases 126-135)
+      * Dependency DAG (`regime_block_dependencies.py`: 10 sequential dependency edges 126 -> 127 -> ... -> 135 -> 136)
+  → Acceptance Gates, Scoring & Manual Review:
+      * Acceptance Gates (`regime_block_acceptance_gates.py`: 17 canonical acceptance gates, 17/17 PASS)
+      * Normalized Scoring (`regime_block_acceptance_scoring.py`: 1.0 composite acceptance score, HIGH_INTEGRITY status)
+      * Non-Destructive Manual Review Queue (`regime_block_manual_review.py`: 10 review items, 0 blocking items)
+  → Safety Boundaries & Compliance Audits:
+      * Safety Boundaries (`regime_block_safety_boundary.py`: 19 NO-GO rules and 8 SAFE-GO principles enforced)
+      * 6 Compliance Audits (`regime_block_compliance.py`: non-signal compliance, no-lookahead compliance, metadata-only news compliance, forbidden columns compliance, source preservation compliance, FeatureStore readiness compliance)
+  → Contracts Audit & Component Acceptance:
+      * Component Acceptance Matrix (`regime_block_component_acceptance.py`: 10 components accepted across Phases 126-135)
+      * Documentation Contracts (`regime_block_documentation.py`: 9 architecture, guide, and manual contracts audited)
+      * Script Contracts (`regime_block_script_contracts.py`: 20 runner script contracts audited)
+      * Test Contracts (`regime_block_test_contracts.py`: 10 test suite contracts audited)
+  → Block Status, Manifest & Handoff:
+      * Master Block Status (`regime_block_status.py`: overall acceptance status `acceptance_pass`)
+      * Block Acceptance Manifest (`phase_126_135_acceptance_manifest.py`: signed immutable manifest closing Phase 126-135 block)
+      * Phase 136 Handoff (`phase_136_handoff.py`: 14 prerequisite checkpoints verified READY for GPU Acceleration and Advanced ML Runtime Foundation)
+  → Operations, Health, Validation & Reporting:
+      * Health Check Engine (`regime_acceptance_health.py`: 15 subsystem health audits, 15/15 HEALTHY)
+      * Validation Engine (`regime_acceptance_validation.py`: 6 validation invariants verified, zero forbidden claims)
+      * Plaintext & Markdown Report Builder (`regime_acceptance_report_builder.py`: tabulate-free markdown tables, non-signal disclaimer banner)
+      * Master Pipeline Orchestrator (`regime_acceptance_pipeline.py`: 7-stage end-to-end execution)
+      * DataLake & FeatureStore Integration (`data/storage/data_lake.py`, `ml/feature_store.py`: Phase 135 artifacts cataloged)
+  → Current Phase: 135. Next Phase: 136 (GPU Acceleration and Advanced ML Runtime Foundation). Target Final Phase: 160.
 
+## Phase 136: advanced_gpu_ml_runtime
+- GPU Acceleration and Advanced ML Runtime Foundation, Local Hardware Discovery, ML Experiment Safety Contracts ve Phase 137 Handoff Architecture:
+  Phase 1-135 Foundation, Data Providers, Feature Engineering, and Regime Classification Outputs
+  → Phase 136 Advanced GPU & ML Runtime Foundation Layer (`advanced_gpu_ml_runtime/`)
+  → Profile & Domain Registry (`gpu_ml_runtime_config.py`, `gpu_ml_runtime_profile_registry.py`, `gpu_ml_runtime_domain_registry.py`):
+      * Profiles: `balanced_local_gpu_ml_runtime_foundation`, `strict_no_training_gpu_runtime_safety`, `dry_run_ml_capability_discovery_focus`
+      * 23 registered domains spanning hardware, dependencies, safety contracts, input contracts, scoring, and handoff
+  → Hardware Discovery & Accelerator Registries:
+      * Local Hardware Discovery (`local_hardware_discovery.py`: OS, CPU architecture, core count, Python runtime discovery without leaking private paths)
+      * GPU Capability Registry (`gpu_capability_registry.py`: safe NVIDIA GPU detection, driver query, graceful CPU fallback)
+      * CPU Capability Registry (`cpu_capability_registry.py`: physical vs logical cores, frequency inspection)
+      * Memory Capability Registry (`memory_capability_registry.py`: RAM total, available, swap limits inspection)
+      * CUDA Availability (`cuda_availability.py`: CUDA runtime and driver version check)
+      * Accelerator Backend Registry (`accelerator_backend_registry.py`: CPU, CUDA GPU, and placeholder accelerator mappings)
+      * Environment Snapshot (`ml_runtime_environment_snapshot.py`: operational environment capture without credentials)
+  → ML Dependency Capability Inspection:
+      * PyTorch Runtime (`torch_runtime_capability.py`: PyTorch installation and CUDA availability without allocating tensors)
+      * Scikit-Learn Runtime (`sklearn_runtime_capability.py`: scikit-learn inspection without fitting models)
+      * NumPy & Pandas Runtime (`numpy_pandas_runtime_capability.py`: foundational array and dataframe inspection)
+      * Optional Dependencies (`optional_ml_dependency_registry.py`: 11 optional libraries inspected: XGBoost, LightGBM, CatBoost, Optuna, SHAP, ONNX, skl2onnx, joblib, MLflow, Polars, PyArrow)
+  → Safety Contracts & Permission Policies:
+      * Safety Contracts Registry (`ml_runtime_safety_contracts.py`: 12 enforceable safety contracts)
+      * Experiment Permission Policies (`ml_experiment_permission_policies.py`: explicit allowed_now vs blocked_now actions)
+      * Training Disabled Policies (`ml_training_disabled_policies.py`: absolute block on fit, train, backward, optimizer)
+      * Inference Disabled Policies (`ml_inference_disabled_policies.py`: absolute block on predict, transform, forward)
+      * Target/Label Disabled Policies (`ml_target_label_disabled_policies.py`: absolute block on future returns, labels, buy/sell)
+      * Artifact Governance Placeholders (`ml_artifact_governance_placeholders.py`: model card, checkpoint manifests, drift, and explainability schemas)
+  → ML Input Contracts (Regime & FeatureStore Integration):
+      * Regime Metadata Input Contracts (`regime_metadata_ml_input_contracts.py`: contracts for Phase 126-135 regime catalogs)
+      * FeatureStore Input Contracts (`featurestore_ml_input_contracts.py`: contracts for FeatureStore namespaces and catalogs)
+      * No-Lookahead Input Contracts (`no_lookahead_ml_input_contracts.py`: strict asof and chronological constraints)
+      * Metadata-Only News Input Contracts (`metadata_only_news_ml_input_contracts.py`: strictly metadata-only, zero article text or sentiment)
+      * Source Preservation Input Contracts (`source_preservation_ml_input_contracts.py`: zero overwrite, zero auto-cleaning mutation)
+  → Findings, Scoring, Manifest, Validation & Handoff:
+      * Findings Registry (`ml_runtime_findings.py`: hardware and runtime capability findings)
+      * Manual Review Queue (`ml_runtime_manual_review.py`: non-destructive operator review queue)
+      * Readiness Scoring (`ml_runtime_readiness_scoring.py`: 0.0 to 1.0 operational readiness score, not a signal or approval)
+      * GPU ML Runtime Manifest (`gpu_ml_runtime_manifest.py`: immutable Phase 136 manifest with strict non-signal invariants)
+      * Validation Engine (`gpu_ml_runtime_validation.py`: invariant validation and forbidden claim checks)
+      * Safety Boundary (`gpu_ml_runtime_safety_boundary.py`: 20 NO-GO rules and 11 SAFE-GO principles)
+      * Phase 137 Handoff (`phase_137_handoff.py`: 14 handoff requirements for Advanced ML Dataset Contracts and Experiment Registry)
+      * Pipeline Orchestration (`gpu_ml_runtime_pipeline.py`: 7-stage end-to-end orchestration)
+  → DataLake & FeatureStore Integration (`data/storage/data_lake.py`, `ml/feature_store.py`): 34 datasets and report methods registered
+  → Current Phase: 136. Next Phase: 137 (Advanced ML Dataset Contracts and Experiment Registry). Target Final Phase: 160.
 

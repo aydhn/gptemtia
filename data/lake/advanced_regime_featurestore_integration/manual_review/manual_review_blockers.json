@@ -1,0 +1,12 @@
+{
+  "domain": "manual_review_blocker_domain",
+  "total_blocker_types": 9,
+  "active_blockers_count": 0,
+  "active_profile": "balanced_local_regime_featurestore_integration",
+  "current_phase": 134,
+  "target_final_phase": 160,
+  "next_phase": 135,
+  "auto_fix_strictly_forbidden": true,
+  "status": "regime_store_ready",
+  "non_signal": true
+}

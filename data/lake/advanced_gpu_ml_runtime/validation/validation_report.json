@@ -1,0 +1,13 @@
+{
+  "domain": "validation_domain",
+  "active_profile": "balanced_local_gpu_ml_runtime_foundation",
+  "total_checks": 6,
+  "passed_checks": 6,
+  "all_passed": true,
+  "status": "runtime_ready",
+  "non_signal": true,
+  "source_preserved": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false
+}

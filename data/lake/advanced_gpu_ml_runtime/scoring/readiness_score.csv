@@ -1,0 +1,2 @@
+metric_name,metric_value,score_label,is_ready,min_required_score,hardware_discovery_count,gpu_capability_count,cpu_capability_count,memory_capability_count,dependency_count,safety_contract_count,permission_policy_count,input_contract_count,finding_count,manual_review_count,non_signal,source_preserved,official_approval,production_ready,broker_ready
+readiness_score,0.55,runtime_ready_with_warnings,True,0.45,7,1,1,1,11,12,10,10,4,6,True,True,False,False,False

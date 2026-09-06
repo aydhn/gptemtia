@@ -1,0 +1,15 @@
+claim_pattern,category,risk_level
+kesin al,trade_signal,CRITICAL
+kesin sat,trade_signal,CRITICAL
+buy signal,trade_signal,CRITICAL
+sell signal,trade_signal,CRITICAL
+long aç,trade_signal,CRITICAL
+short aç,trade_signal,CRITICAL
+pozisyon aç,trade_signal,CRITICAL
+trade signal,trade_signal,CRITICAL
+yatırım tavsiyesi,advisory,CRITICAL
+model prediction,prediction,HIGH
+production ready,production_claim,HIGH
+broker ready,broker_claim,HIGH
+official approval,approval_claim,HIGH
+live ready,live_claim,HIGH

@@ -1,0 +1,9 @@
+{
+  "domain": "regime_block_documentation_domain",
+  "active_profile": "balanced_local_regime_acceptance",
+  "total_docs": 9,
+  "docs_existing": 9,
+  "all_exist": true,
+  "non_signal": true,
+  "status": "READY"
+}

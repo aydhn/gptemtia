@@ -1205,6 +1205,123 @@ python -m scripts.run_macro_event_news_regime_validation_report
 python -m scripts.run_macro_event_news_regime_status
 ```
 
+## Phase 133 Regime Validation and No-Lookahead Acceptance, Regime Safety Gate, Metadata-Only Acceptance ve Phase 134 Handoff
+
+- Phase 133, Phase 126-135 "rejim sınıflandırma ve piyasa davranışı" bloğunun sekizinci fazıdır (`advanced_regime_validation_acceptance/`).
+- Phase 126 Regime Foundation, Phase 127 Regime Feature Matrix, Phase 128 Rule-Free Labeling & Unsupervised Prep, Phase 129 Market Behavior Diagnostics, Phase 130 Regime Transition, Phase 131 Cross-Asset Context ve Phase 132 Macro/Event/News Context çıktılarını merkezi doğrulama ve no-lookahead acceptance katmanında birleştirir:
+  - **19 Kanonik Kabul Geçidi (Regime Validation Gates)**: No-lookahead, geriye dönük asof birleştirme, artan UTC zaman damgası sırası, yasaklı kolon karantinası, haber metaveri sınır koruması, kaynak koruma (`source_preserved: True`), non-signal teminatı, hedef/etiket/tahmin yokluğu, model eğitimi/kümeleme yürütülmeme garantisi, rejim matris kabulü, aday durum kabulü, pseudo-durum kabulü, geçiş kabulü, çapraz varlık kabulü, makro/olay/haber kabulü, doğrulama bağımlılıkları, kalite bağımlılıkları, manuel inceleme kabulü ve kabul skoru geçitleri.
+  - **No-Lookahead ve Zaman Damgası Kabulü**: `context_ts <= base_ts` temporal sıralaması, negatif shift (`shift(-1)`), `lead()`, `future_return`, `forward_return` ve geleceğe referans veren etiketlerin kesin tespiti ve engellenmesi.
+  - **Strictly Metadata-Only Haber Kabulü**: Haber bileşeninde yalnızca metaveri etiketleri (konular, varlık etiketleri, makro tematikler, olay bağlantıları, zaman damgaları ve kaynak referansları) kabul edilir. Haber tam metni, makale gövdesi (`article_body`), ham içerik (`raw_content`), kazınmış HTML (`scraped_html`), NLP duygu modeli çıktıları (`sentiment_score`), gömmeler (`embedding`) veya vektör veri tabanları (`vector`) kesinlikle yasaktır ve boundary guard ile engellenir.
+  - **Sıfır Model Eğitimi ve Sıfır Kümeleme Yürütmesi**: Bu fazda hiçbir model eğitimi (HMM, GMM, KMeans, DBSCAN, SOM vb.), kümeleme algoritması yürütmesi, makine öğrenmesi tahmini (`predict`), backtest veya optimizasyon çalıştırılmaz.
+  - **Kesin Non-Signal Güvencesi**: Kabul raporları ve skorları ([0.0, 1.0]) asla al/sat sinyali, pozisyon tavsiyesi veya getiri garantisi olarak yorumlanamaz (`non_signal: True`, `allow_acceptance_as_signal: False`).
+  - **Kaynak Koruma Değişmezi**: Orijinal veri çerçeveleri in-place değiştirilmez (`df.copy()` zorunludur). Kaynak tablolar silinmez, üzerine yazılmaz (`allow_source_overwrite: False`), otomatik veri doldurma (`auto_imputation: False`) veya otomatik özellik atma (`auto_feature_drop: False`) yasaktır (`destructive_action_allowed: False`, `source_preserved: True`).
+  - **Bütünlük Manifestosu ve Phase 134 Devri**: 22 NO-GO ve 10 SAFE-GO güvenlik kuralı, 1.0 kabul skoru (`high_acceptance_integrity`), VALIDATION_PASS doğrulaması ve Phase 134 (Regime FeatureStore Integration) için 14 maddelik devir paketi.
+- Çıktılar `data/lake/advanced_regime_validation_acceptance/` ve `reports/output/advanced_regime_validation_acceptance/` altında saklanır.
+- Mevcut faz: 133, Bir sonraki faz: 134 (Regime FeatureStore Integration), Nihai hedef: Phase 160.
+
+Komutlar:
+```bash
+python -m scripts.run_regime_validation_acceptance_profile_registry
+python -m scripts.run_regime_validation_gates
+python -m scripts.run_regime_no_lookahead_acceptance
+python -m scripts.run_regime_metadata_only_acceptance
+python -m scripts.run_regime_component_acceptance_reports
+python -m scripts.run_regime_validation_findings
+python -m scripts.run_regime_validation_acceptance_manifest
+python -m scripts.run_regime_validation_acceptance_health_check
+python -m scripts.run_regime_validation_acceptance_validation_report
+python -m scripts.run_regime_validation_acceptance_status
+```
+
+## Phase 134 Regime FeatureStore Integration, Validation-Aware Regime Store Contracts, Non-Signal Regime Metadata Catalog ve Phase 135 Handoff
+
+- Phase 134, Phase 126-135 "rejim sınıflandırma ve piyasa davranışı" bloğunun dokuzuncu fazıdır (`advanced_regime_featurestore_integration/`).
+- Phase 126-133 arasında üretilen rejim taxonomy, regime matrix, candidate-state, pseudo-state, transition/stability, cross-asset context, macro/event/news metadata context ve validation/no-lookahead acceptance çıktılarını FeatureStore/DataLake tarafına validation-aware ve non-signal şekilde bağlar:
+  - **10 Kanonik FeatureStore Sözleşmesi (Regime FeatureStore Contracts)**: Local parquet/csv metadata okuma, catalog metadata arama, metadata append yazma, snapshot yazma, izinli filtreli sorgulama, no-lookahead zorunluluğu, strictly metadata-only haber zorunluluğu, kalite bağımlılığı zorunluluğu, doğrulama bağımlılığı zorunluluğu ve kesin non-signal/kaynak koruma sözleşmeleri.
+  - **10 Kanonik FeatureStore Varlığı (Entities) ve İsim Alanı (Namespace)**: `regime_store_` önekiyle snake_case isim standardı, deterministik store key oluşturucu (`regime_store_{domain}_{entity}_{version}`) ve yasaklı ticaret/tahmin terimi karantinası.
+  - **16 Alanlık Çekirdek Şema ve Bölümleme/Sürüm Politikaları**: `store_key`, `store_entity_type`, `entity_id`, `timestamp_utc`, `component_name`, `source_phase`, `source_component_ref`, `validation_acceptance_ref`, `no_lookahead_acceptance_ref`, `metadata_only_news_acceptance_ref`, `source_preservation_ref`, `quality_dependency_ref`, `validation_dependency_ref`, `lineage_ref`, `manual_review_required`, `non_signal` zorunlu alanları; snapshot, append ve audit ledger sürümleme kuralları; domain/phase/year/month bölümleme kuralları.
+  - **8 Bileşen Deposu Kataloğu (25 Toplam Kayıt)**: Taxonomy (Phase 126, 4 aile), Matrix (Phase 127, 3 çözünürlük), Candidate States (Phase 128, 3 varlık sınıfı), Pseudo States (Phase 128, 3 durum), Transition (Phase 130, 2 periyot), Cross-Asset (Phase 131, 3 rejim senaryosu), Macro/Event/News (Phase 132, 3 alt bağlam), Validation Acceptance (Phase 133, 4 kabul kapısı).
+  - **21 Kabul Edilmiş Referans (Accepted Reference Registries)**: 6 No-Lookahead geriye dönük asof referansı, 5 Strictly Metadata-Only haber referansı, 5 Kaynak Koruma referansı, 5 Kesin Non-Signal referansı.
+  - **Bağımlılık ve Soykütüğü Depoları (Lineage & Dependency Stores)**: 6 Kalite bağımlılığı, 6 Doğrulama bağımlılığı, 9 Uçtan uca soykütüğü adımı (Phase 126 -> Phase 134), 9 Manuel inceleme denetim engelleyicisi (0 aktif engelleyici).
+  - **23 Yasaklı Kolon ve 14 Yasaklı İddia Politikası**: AL/SAT, long/short, sinyal, hedef/etiket/tahmin (`target`, `label`, `prediction`, `recommendation`), ileri getiri (`future_return`, `forward_return`), haber tam metni (`full_text`, `article_body`, `raw_content`), kazınmış HTML (`scraped_html`), vektör/gömme (`embedding`, `vector`) ve NLP duygu modelleri (`sentiment_score`) kesinlikle engellenir.
+  - **Bütünlük Manifestosu ve Phase 135 Devri**: 21 NO-GO ve 8 SAFE-GO güvenlik kuralı, 1.0 hazır bulunuşluk skoru (`readiness_score: 1.0`), VALIDATION_PASS doğrulaması ve Phase 135 (Regime Classification Acceptance Report) için 14 maddelik devir paketi.
+- Çıktılar `data/lake/advanced_regime_featurestore_integration/` ve `reports/output/advanced_regime_featurestore_integration/` altında saklanır.
+- Mevcut faz: 134, Bir sonraki faz: 135 (Regime Classification Acceptance Report), Nihai hedef: Phase 160.
+
+Komutlar:
+```bash
+python -m scripts.run_regime_featurestore_profile_registry
+python -m scripts.run_regime_featurestore_contracts
+python -m scripts.run_regime_featurestore_schema_catalogs
+python -m scripts.run_regime_component_store_catalogs
+python -m scripts.run_regime_accepted_reference_registries
+python -m scripts.run_regime_featurestore_policies_manifest
+python -m scripts.run_regime_featurestore_health_check
+python -m scripts.run_regime_featurestore_validation_report
+python -m scripts.run_regime_featurestore_status
+```
+
+## Phase 135 Regime Classification Acceptance Report, Phase 126-135 Regime Block Final Acceptance, Non-Signal Manifest ve Phase 136 Handoff
+
+- Phase 135, Phase 126-134 arasında kurulan rejim sınıflandırma ve piyasa davranışı bloğunun final kapanış ve kabul raporu fazıdır (`advanced_regime_acceptance/`).
+- Phase 126 Regime Foundation, Phase 127 Regime Feature Matrix, Phase 128 Rule-Free Labeling & Unsupervised Prep, Phase 129 Market Behavior Diagnostics, Phase 130 Regime Transition, Phase 131 Cross-Asset Context, Phase 132 Macro/Event/News Context, Phase 133 Validation Acceptance ve Phase 134 FeatureStore Integration çıktılarını tek bir acceptance report, manifest, compliance, safety boundary ve Phase 136 handoff altında toplar:
+  - **Rejim Bloğu Envanteri ve Bağımlılık Haritası**: 10 modülün (`advanced_regime_*`) script, test, rapor, DataLake çıktıları ve dokümantasyon sözleşmeleri doğrulanmıştır. 10 adımlı deterministik bağımlılık akışı (`126 -> 127 -> 128 -> 129 -> 130 -> 131 -> 132 -> 133 -> 134 -> 135 -> 136`) denetlenmiştir.
+  - **17 Kanonik Kabul Geçidi ve Kabul Skoru (Acceptance Gates & Scoring)**: Mimari, otomasyon, doğrulama, depolama, FeatureStore, dokümantasyon, non-signal güvencesi, no-lookahead, metadata-only haber, yasaklı kolon karantinası, kaynak koruma, hedef/etiket/tahmin yokluğu, model eğitimi yokluğu, broker/canlı işlem yokluğu, deployment yokluğu, manuel inceleme ve Phase 136 handoff geçitleri 1.0 skorla tamamlanmıştır.
+  - **Kabul Skoru Sinyal Değildir**: Üretilen kabul skoru (`acceptance_score: 1.0`) ve durum etiketleri kesinlikle al/sat sinyali, model eğitimi onayı, production-ready onayı, broker-ready veya resmi onay değildir.
+  - **Güvenlik Sınırı (Safety Boundary)**: 19 NO-GO kuralı ve 8 SAFE-GO ilkesi ile canlı emir, broker API entegrasyonu, gerçek pozisyon, yatırım tavsiyesi, strateji üretimi, backtest, optimizasyon, model eğitimi/fitting/tahmin, kümeleme algoritması yürütmesi, duygu analizi, haber tam metni kullanımı, web kazıma ve deployment kesinlikle yasaklanmıştır.
+  - **Uyumluluk Raporları (Compliance Reports)**: Non-signal, no-lookahead (zaman damgası sıralaması ve geriye dönük asof), strictly metadata-only haber (sıfır makale tam metni, kazınmış HTML veya vektör), yasaklı kolon ve kaynak koruma (sıfır üzerine yazma, sıfır otomatik doldurma veya kolon düşürme) denetimleri %100 uyumlulukla onaylanmıştır.
+  - **Bileşen Kabulü ve Sözleşme Denetimleri**: Phase 126-134 arasındaki 10 ana bileşenin kabul referansları ve 9 dokümantasyon dosyası, 20 temsilci runner script'i ve 10 test sözleşmesi doğrulanmıştır.
+  - **Phase 126-135 Kabul Manifestosu**: Bloğun nihai kabulünü, sıfır model yürütmesini ve non-signal teminatını onaylayan değişmez manifesto kaydı.
+  - **Phase 136 ML/GPU Devir Paketi (Handoff)**: Phase 136 "GPU Acceleration and Advanced ML Runtime Foundation" için 14 maddelik donanım kabiliyet keşfi, model araştırma sınırları ve deney sözleşmeleri hazırlığı tamamlanmıştır.
+- Çıktılar `data/lake/advanced_regime_acceptance/` ve `reports/output/advanced_regime_acceptance/` altında saklanır.
+- Mevcut faz: 135, Bir sonraki faz: 136 (GPU Acceleration and Advanced ML Runtime Foundation), Nihai hedef: Phase 160.
+
+Komutlar:
+```bash
+python -m scripts.run_regime_acceptance_profile_registry
+python -m scripts.run_regime_block_inventory
+python -m scripts.run_regime_block_acceptance_gates
+python -m scripts.run_regime_block_compliance
+python -m scripts.run_regime_block_component_acceptance
+python -m scripts.run_regime_block_contracts
+python -m scripts.run_phase_126_135_acceptance_manifest
+python -m scripts.run_regime_acceptance_health_check
+python -m scripts.run_regime_acceptance_validation_report
+python -m scripts.run_regime_acceptance_status
+```
+
+## Phase 136 GPU Acceleration and Advanced ML Runtime Foundation, Local Hardware Discovery, ML Experiment Safety Contracts ve Phase 137 Handoff
+
+- Phase 136, Phase 136-145 “GPU hızlandırma, gelişmiş ML, ensemble, calibration, model drift, explainability ve governance” bloğunun ilk temel fazıdır (`advanced_gpu_ml_runtime/`).
+- Phase 1-135 offline araştırma ve sinyal botu altyapısını bozmadan yerel donanım keşfi, bağımlılık denetimi ve güvenli ML deney sözleşmeleri katmanını kurar:
+  - **Yerel Donanım Keşfi (Local Hardware Discovery)**: İşletim sistemi, CPU mimarisi, çekirdek sayısı, RAM ve takas alanı sınırları güvenli ve gizli bilgi sızdırmadan tespit edilir.
+  - **GPU ve Hızlandırıcı Kabiliyet Kaydı (GPU & Accelerator Capability)**: NVIDIA GPU, CUDA çalışma zamanı ve sürücü sürümleri denetlenir; CUDA olmadığında zarif CPU fallback mekanizması devreye girer.
+  - **ML Çalışma Zamanı Bağımlılık Denetimi (ML Dependency Inspection)**: PyTorch (CUDA tensor tahsisi yapılmadan), Scikit-Learn (model fit edilmeden), NumPy/Pandas ve 11 opsiyonel ML kütüphanesi (XGBoost, LightGBM, CatBoost, Optuna, SHAP, ONNX, skl2onnx, joblib, MLflow, Polars, PyArrow) incelenir.
+  - **12 Uygulanabilir Güvenlik Sözleşmesi (12 Enforceable Safety Contracts)**: Canlı işlem, broker entegrasyonu, gerçek emir, yatırım tavsiyesi, sinyal üretimi, yönsel iddia, model eğitimi (`fit`/`train`), model çıkarımı (`predict`/`transform`), hedef/etiket üretimi (`future_return`, `shift(-1)`), kümeleme, duygu analizi ve haber tam metni kullanımı kesin olarak engellenir.
+  - **ML Deney İzin Politikaları (Allowed vs Blocked Policies)**: Keşif, katalog okuma, donanım denetimi ve sözleşme doğrulaması açıkça izinli (`allowed_now`), model eğitimi ve canlı işlem kesin olarak engellidir (`blocked_now`).
+  - **Girdi Sözleşmeleri (Input Contracts)**: Phase 126-135 rejim metadata, FeatureStore katalogları, no-lookahead (kronolojik asof), strictly metadata-only haber ve kaynak koruma (sıfır üzerine yazma, sıfır kolon silme) sözleşmeleri bağlanmıştır.
+  - **Hazırlık Puanlama ve Manuel İnceleme (Readiness Scoring & Manual Review)**: Donanım ve ortam hazırlık skoru (0.0-1.0) hesaplanır; bu skor kesinlikle bir al/sat sinyali veya model eğitimi onayı değildir.
+  - **Phase 136 Değişmez Manifestosu (Manifest Invariants)**: `model_training_executed=False`, `model_predict_executed=False`, `clustering_executed=False`, `artifact_persisted=False` ve `non_signal=True` teminatları değişmez olarak kaydedilir.
+  - **Phase 137 Devir Paketi (Phase 137 Handoff)**: "Advanced ML Dataset Contracts and Experiment Registry" fazı için 14 maddelik devir gereksinimleri eksiksiz hazırlanmıştır.
+- Çıktılar `data/lake/advanced_gpu_ml_runtime/`, `reports/output/advanced_gpu_ml_runtime/` ve `docs/generated/advanced_gpu_ml_runtime/` altında saklanır.
+- Mevcut faz: 136, Bir sonraki faz: 137 (Advanced ML Dataset Contracts and Experiment Registry), Nihai hedef: Phase 160.
+
+Komutlar:
+```bash
+python -m scripts.run_gpu_ml_runtime_profile_registry
+python -m scripts.run_local_hardware_discovery
+python -m scripts.run_ml_dependency_capability_reports
+python -m scripts.run_ml_runtime_safety_contracts
+python -m scripts.run_ml_input_contracts
+python -m scripts.run_gpu_ml_runtime_findings_manifest
+python -m scripts.run_gpu_ml_runtime_health_check
+python -m scripts.run_gpu_ml_runtime_validation_report
+python -m scripts.run_gpu_ml_runtime_status
+```
+
+
+
+
 
 
 

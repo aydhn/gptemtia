@@ -1,0 +1,11 @@
+entity_name,store_entity_type,primary_key,description,source_phase,source_component,non_signal,production_ready,broker_ready
+regime_taxonomy_entity,store_entity_regime_taxonomy,taxonomy_id,Canonical 4-family macro/behavioral regime taxonomy specifications.,126,advanced_regime_foundation,True,False,False
+regime_matrix_entity,store_entity_regime_matrix,matrix_id,Standardized multi-timeframe feature matrix and state dataset contracts.,127,advanced_regime_matrix,True,False,False
+candidate_state_entity,store_entity_candidate_state,candidate_state_id,Rule-free unsupervised candidate feature sets and state preparation metadata.,128,advanced_regime_rule_free,True,False,False
+pseudo_state_entity,store_entity_pseudo_state,pseudo_state_id,Non-directional pseudo-state heuristic labeling contracts.,128,advanced_regime_rule_free,True,False,False
+transition_context_entity,store_entity_transition,transition_id,"Regime sequence transitions, persistence diagnostics, and stability metrics.",130,advanced_regime_transition,True,False,False
+cross_asset_regime_context_entity,store_entity_cross_asset_context,cross_asset_id,Cross-asset multi-market regime alignment and divergence context.,131,advanced_cross_asset_regime_context,True,False,False
+macro_event_news_context_entity,store_entity_macro_event_news_context,macro_context_id,"Macro indicator releases, economic calendar events, and news metadata context.",132,advanced_macro_event_news_regime,True,False,False
+validation_acceptance_entity,store_entity_validation_acceptance,acceptance_id,"Verification gates, no-lookahead proofs, and acceptance findings metadata.",133,advanced_regime_validation_acceptance,True,False,False
+acceptance_manifest_entity,acceptance_manifest_entity,manifest_id,Master audit manifest verifying acceptance gate proofs.,133,advanced_regime_validation_acceptance,True,False,False
+manual_review_blocker_entity,manual_review_blocker_entity,blocker_id,Safety blockers and manual review requirement items in the FeatureStore.,134,advanced_regime_featurestore_integration,True,False,False

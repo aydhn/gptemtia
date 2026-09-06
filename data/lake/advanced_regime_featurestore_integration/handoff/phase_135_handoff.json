@@ -1,0 +1,14 @@
+{
+  "domain": "phase_135_handoff_domain",
+  "total_prerequisites": 14,
+  "all_satisfied": true,
+  "active_profile": "balanced_local_regime_featurestore_integration",
+  "source_phase": 134,
+  "current_phase": 134,
+  "target_final_phase": 160,
+  "next_phase": 135,
+  "handoff_target": "phase_135_regime_classification_acceptance_report",
+  "handoff_status": "READY",
+  "status": "regime_store_ready",
+  "non_signal": true
+}

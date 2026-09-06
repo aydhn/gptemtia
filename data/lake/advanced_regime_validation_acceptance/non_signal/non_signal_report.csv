@@ -1,0 +1,14 @@
+forbidden_claim,category,status,is_prohibited,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+broker ready,production_claim,acceptance_pass,True,balanced_local_regime_validation_acceptance,True,True,False,False,False
+buy signal,trade_direction,acceptance_pass,True,balanced_local_regime_validation_acceptance,True,True,False,False,False
+kesin al,trade_direction,acceptance_pass,True,balanced_local_regime_validation_acceptance,True,True,False,False,False
+kesin sat,trade_direction,acceptance_pass,True,balanced_local_regime_validation_acceptance,True,True,False,False,False
+long aç,trade_direction,acceptance_pass,True,balanced_local_regime_validation_acceptance,True,True,False,False,False
+model prediction,predictive_claim,acceptance_pass,True,balanced_local_regime_validation_acceptance,True,True,False,False,False
+official approval,trade_direction,acceptance_pass,True,balanced_local_regime_validation_acceptance,True,True,False,False,False
+pozisyon aç,trade_direction,acceptance_pass,True,balanced_local_regime_validation_acceptance,True,True,False,False,False
+production ready,production_claim,acceptance_pass,True,balanced_local_regime_validation_acceptance,True,True,False,False,False
+sell signal,trade_direction,acceptance_pass,True,balanced_local_regime_validation_acceptance,True,True,False,False,False
+short aç,trade_direction,acceptance_pass,True,balanced_local_regime_validation_acceptance,True,True,False,False,False
+trade signal,trade_direction,acceptance_pass,True,balanced_local_regime_validation_acceptance,True,True,False,False,False
+yatırım tavsiyesi,investment_advice,acceptance_pass,True,balanced_local_regime_validation_acceptance,True,True,False,False,False

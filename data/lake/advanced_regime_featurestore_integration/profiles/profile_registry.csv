@@ -1,0 +1,4 @@
+profile_name,description,current_phase,target_final_phase,next_phase,min_readiness_score,dry_run_default,local_only,non_production,research_only,non_signal,source_preserved,official_approval,production_ready,broker_ready,is_active,status
+balanced_local_regime_featurestore_integration,Standard balanced local profile connecting Phase 126-133 regime outputs to FeatureStore metadata catalogs.,134,160,135,0.45,True,True,True,True,True,True,False,False,False,True,regime_store_ready
+strict_non_signal_regime_featurestore_safety,"Strict safety profile enforcing zero-signal claims, metadata-only news purity, and source preservation.",134,160,135,0.6,True,True,True,True,True,True,False,False,False,False,regime_store_ready
+dry_run_regime_store_catalog_focus,"Dry-run audit profile for contract validation, schema checks, and simulated catalog lookups.",134,160,135,0.4,True,True,True,True,True,True,False,False,False,False,regime_store_ready

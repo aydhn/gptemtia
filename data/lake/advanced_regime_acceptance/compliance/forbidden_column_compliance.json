@@ -1,0 +1,8 @@
+{
+  "domain": "regime_block_forbidden_column_compliance_domain",
+  "active_profile": "balanced_local_regime_acceptance",
+  "total_checks": 3,
+  "all_compliant": true,
+  "non_signal": true,
+  "status": "READY"
+}

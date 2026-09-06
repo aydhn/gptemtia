@@ -1,0 +1,2 @@
+block_name,phase_start,phase_end,target_final_phase,next_phase,overall_status,acceptance_score,total_modules,total_gates,manual_review_count,non_signal,source_preserved,official_approval,production_ready,broker_ready
+Regime Classification and Market Behavior Block,126,135,160,136,acceptance_pass,1.0,10,17,1,True,True,False,False,False

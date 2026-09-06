@@ -1,0 +1,13 @@
+{
+  "domain": "phase_136_handoff_domain",
+  "active_profile": "balanced_local_regime_acceptance",
+  "source_phase": 135,
+  "next_phase": 136,
+  "target_final_phase": 160,
+  "total_prerequisites": 14,
+  "satisfied_prerequisites": 14,
+  "all_satisfied": true,
+  "next_phase_title": "GPU Acceleration and Advanced ML Runtime Foundation",
+  "non_signal": true,
+  "status": "READY"
+}

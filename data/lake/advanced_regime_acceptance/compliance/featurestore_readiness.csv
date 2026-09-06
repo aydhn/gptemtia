@@ -1,0 +1,4 @@
+check_id,check_name,compliant,description,status_label
+fs_01,Regime Namespace & Schemas,True,FeatureStore namespaces and catalogs for all 8 regime domains registered.,acceptance_pass
+fs_02,Query / Read / Write Contracts,True,Standardized contract interfaces exist without live trading hooks.,acceptance_pass
+fs_03,Non-Production Certification,True,"Readiness is certified strictly for offline research, not production deployment.",acceptance_pass

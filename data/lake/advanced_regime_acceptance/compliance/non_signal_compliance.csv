@@ -1,0 +1,4 @@
+check_id,check_name,compliant,description,status_label
+non_sig_01,Zero Buy/Sell Signals,True,No regime component emits directional trade recommendations.,acceptance_pass
+non_sig_02,Zero Position Sizing,True,No portfolio weights or leverage amounts are computed.,acceptance_pass
+non_sig_03,Non-Signal Manifest,True,All manifests explicitly declare non_signal=True.,acceptance_pass

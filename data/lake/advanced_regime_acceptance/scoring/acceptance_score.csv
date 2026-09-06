@@ -1,0 +1,2 @@
+score_id,total_gates,passed_gates,acceptance_score,classification,min_required_score,is_acceptable,non_signal,official_approval,production_ready,broker_ready,model_training_ready
+regime_block_acceptance_score,17,17,1.0,acceptance_pass,0.45,True,True,False,False,False,False

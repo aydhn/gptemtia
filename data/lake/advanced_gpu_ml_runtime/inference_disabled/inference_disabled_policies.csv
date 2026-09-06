@@ -1,0 +1,4 @@
+policy_id,target_routine,enforced,status_label,details,non_signal,source_preserved,official_approval,production_ready,broker_ready
+policy_no_predict,estimator.predict() / model.forward(),True,runtime_blocked_by_safety,Model prediction and scoring on datasets are prohibited.,True,True,False,False,False
+policy_no_predict_proba,estimator.predict_proba(),True,runtime_blocked_by_safety,Probability output calculation is prohibited.,True,True,False,False,False
+policy_no_transform,transformer.transform(),True,runtime_blocked_by_safety,Data transformation via fitted models is prohibited.,True,True,False,False,False

@@ -1,0 +1,4 @@
+profile_name,description,current_phase,target_final_phase,next_phase,dry_run_default,local_only,non_production,research_only,min_acceptance_score,is_active,non_signal,source_preserved,official_approval,production_ready,broker_ready
+balanced_local_regime_validation_acceptance,Standard balanced acceptance profile evaluating all Phase 126-132 regime outputs locally.,133,160,134,True,True,True,True,0.45,True,True,True,False,False,False
+strict_no_lookahead_metadata_only_acceptance,"Strict profile placing maximal emphasis on backward-only asof join, no-lookahead, and news metadata purity.",133,160,134,True,True,True,True,0.6,False,True,True,False,False,False
+dry_run_regime_acceptance_focus,Dry-run verification profile for zero file-write checks and fast synthetic acceptance testing.,133,160,134,True,True,True,True,0.4,False,True,True,False,False,False

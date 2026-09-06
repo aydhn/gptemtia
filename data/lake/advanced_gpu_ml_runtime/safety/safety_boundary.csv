@@ -1,0 +1,32 @@
+condition_type,condition_name,enforced,status_label,non_signal,source_preserved,official_approval,production_ready,broker_ready,active
+NO-GO,live trading,True,runtime_ready,True,True,False,False,False,
+NO-GO,broker integration,True,runtime_ready,True,True,False,False,False,
+NO-GO,real order,True,runtime_ready,True,True,False,False,False,
+NO-GO,investment advice,True,runtime_ready,True,True,False,False,False,
+NO-GO,signal generation,True,runtime_ready,True,True,False,False,False,
+NO-GO,directional certainty,True,runtime_ready,True,True,False,False,False,
+NO-GO,strategy/backtest/optimizer execution,True,runtime_ready,True,True,False,False,False,
+NO-GO,model training/model fit/model predict/model inference/model transform,True,runtime_ready,True,True,False,False,False,
+NO-GO,clustering/unsupervised/ensemble/calibration execution,True,runtime_ready,True,True,False,False,False,
+NO-GO,target/label/prediction,True,runtime_ready,True,True,False,False,False,
+NO-GO,sentiment model output,True,runtime_ready,True,True,False,False,False,
+NO-GO,full article/article body/raw content/scraped HTML usage,True,runtime_ready,True,True,False,False,False,
+NO-GO,embedding/vector generation,True,runtime_ready,True,True,False,False,False,
+NO-GO,artifact persistence/model registry write,True,runtime_ready,True,True,False,False,False,
+NO-GO,official approval/production-ready/broker-ready,True,runtime_ready,True,True,False,False,False,
+NO-GO,source overwrite/destructive cleaning,True,runtime_ready,True,True,False,False,False,
+NO-GO,auto-imputation/auto-feature-drop,True,runtime_ready,True,True,False,False,False,
+NO-GO,scraping,True,runtime_ready,True,True,False,False,False,
+NO-GO,credential output,True,runtime_ready,True,True,False,False,False,
+NO-GO,deployment,True,runtime_ready,True,True,False,False,False,
+SAFE-GO,local/offline hardware capability discovery,,runtime_ready,True,True,False,False,False,True
+SAFE-GO,GPU/CPU/memory capability metadata,,runtime_ready,True,True,False,False,False,True
+SAFE-GO,dependency availability metadata,,runtime_ready,True,True,False,False,False,True
+SAFE-GO,ML runtime environment snapshot without secrets,,runtime_ready,True,True,False,False,False,True
+SAFE-GO,safety contract generation,,runtime_ready,True,True,False,False,False,True
+SAFE-GO,experiment permission registry,,runtime_ready,True,True,False,False,False,True
+SAFE-GO,ML input contract generation,,runtime_ready,True,True,False,False,False,True
+SAFE-GO,no-lookahead accepted reference mapping,,runtime_ready,True,True,False,False,False,True
+SAFE-GO,metadata-only news accepted reference mapping,,runtime_ready,True,True,False,False,False,True
+SAFE-GO,source-preserved input contract mapping,,runtime_ready,True,True,False,False,False,True
+SAFE-GO,Phase 137 dataset/experiment handoff,,runtime_ready,True,True,False,False,False,True

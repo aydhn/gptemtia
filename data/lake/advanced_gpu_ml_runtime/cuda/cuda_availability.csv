@@ -1,0 +1,4 @@
+check_id,metric_name,metric_value,backend_label,status_label,manual_review_required,non_signal,source_preserved,details
+cuda_is_available,CUDA Available,False,backend_cuda_gpu_unavailable,runtime_ready_with_warnings,True,True,True,Indicates whether CUDA-capable device and driver are accessible to Python.
+cuda_version,CUDA Runtime Version,none,backend_cuda_gpu_unavailable,runtime_ready_with_warnings,False,True,True,Linked CUDA toolkit version string.
+cuda_device_count,CUDA Device Count,0,backend_cuda_gpu_unavailable,runtime_ready_with_warnings,False,True,True,Number of recognized CUDA compute devices.

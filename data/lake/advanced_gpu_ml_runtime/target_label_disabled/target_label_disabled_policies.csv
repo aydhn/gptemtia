@@ -1,0 +1,4 @@
+policy_id,forbidden_concept,enforced,status_label,details,non_signal,source_preserved,official_approval,production_ready,broker_ready
+policy_no_future_returns,future_return / forward_return,True,runtime_blocked_by_safety,Calculating future price changes or forward returns is prohibited.,True,True,False,False,False
+policy_no_negative_shift,shift(-1) / forward lookahead,True,runtime_blocked_by_safety,Negative shift on time-series leads to lookahead and is strictly blocked.,True,True,False,False,False
+policy_no_trade_labels,buy/sell/long/short labels,True,runtime_blocked_by_safety,Directional trade recommendations or labels are prohibited.,True,True,False,False,False

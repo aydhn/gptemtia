@@ -1,0 +1,15 @@
+prerequisite_id,phase_origin,title,status,validation_status,non_signal,description
+prereq_p126_taxonomy_catalog,126,Regime Taxonomy Catalog & Specification,READY,ACCEPTED,True,4 canonical regime families integrated into FeatureStore catalog.
+prereq_p127_matrix_contracts,127,Regime Feature Matrix & State Dataset Contracts,READY,ACCEPTED,True,Daily/weekly/hourly aligned matrix contracts cataloged without forward return fields.
+prereq_p128_candidate_pseudo_states,128,Candidate States & Pseudo-State Labeling Contracts,READY,ACCEPTED,True,Unsupervised candidate feature sets and non-directional pseudo-state contracts verified.
+prereq_p129_behavior_diagnostics,129,Market Behavior Diagnostics & Quality Scores,READY,ACCEPTED,True,Behavioral diagnostics and cluster quality metrics satisfied.
+prereq_p130_transition_stability,130,Regime Transition & Stability Analysis Catalogs,READY,ACCEPTED,True,Transition frequency matrices and persistence scores stored without signal implications.
+prereq_p131_cross_asset_context,131,Cross-Asset Regime Alignment & Divergence Context,READY,ACCEPTED,True,Multi-market alignment and divergence context registered in FeatureStore.
+prereq_p132_macro_event_news,132,"Macro, Event, and News Metadata Context",READY,ACCEPTED,True,Economic releases and calendar events cataloged with strict metadata-only news purity.
+prereq_p133_validation_acceptance,133,Regime Validation & No-Lookahead Acceptance Gates,READY,ACCEPTED,True,19 canonical acceptance gates verified with 1.0 acceptance score.
+prereq_p134_featurestore_integration,134,Regime FeatureStore Integration & Read/Write/Query Contracts,READY,ACCEPTED,True,"FeatureStore contracts, namespaces, schemas, and catalogs established."
+prereq_no_lookahead_references,134,No-Lookahead Accepted References,READY,ACCEPTED,True,Backward-asof temporal integrity verified for all store entries.
+prereq_metadata_only_news_references,134,Metadata-Only News Accepted References,READY,ACCEPTED,True,"Full text, HTML, and sentiment model outputs verified absent."
+prereq_source_preservation_references,134,Source Preservation Accepted References,READY,ACCEPTED,True,"Zero source file overwrites, deletions, or destructive mutations guaranteed."
+prereq_manual_review_blocker_audit,134,Manual Review Blocker Audit Ledger,READY,ACCEPTED,True,Zero active blockers preventing Phase 135 acceptance report generation.
+prereq_non_signal_boundary_affirmation,134,Non-Signal Invariant Affirmation for Phase 135,READY,ACCEPTED,True,Phase 135 closes the regime block acceptance; it does not produce trade signals.

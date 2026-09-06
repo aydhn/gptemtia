@@ -1,0 +1,4 @@
+check_id,check_name,compliant,description,status_label
+col_01,Target / Forward Return Columns,True,"Columns matching target_*, future_*, next_* return are absent.",acceptance_pass
+col_02,Signal / Trade Recommendation Columns,True,"Columns matching signal_*, buy_*, sell_*, action_* are absent.",acceptance_pass
+col_03,Raw Text / Scraped Body Columns,True,"Columns matching article_body, raw_content, scraped_html are absent.",acceptance_pass

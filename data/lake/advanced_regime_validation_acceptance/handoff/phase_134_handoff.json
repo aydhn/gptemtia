@@ -1,0 +1,12 @@
+{
+  "total_items": 12,
+  "ready_items": 12,
+  "all_ready": true,
+  "handoff_status": "READY",
+  "source_phase": 133,
+  "next_phase": 134,
+  "target_final_phase": 160,
+  "profile_name": "balanced_local_regime_validation_acceptance",
+  "non_signal": true,
+  "source_preserved": true
+}

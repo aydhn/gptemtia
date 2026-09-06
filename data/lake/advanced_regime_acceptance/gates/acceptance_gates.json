@@ -1,0 +1,9 @@
+{
+  "domain": "regime_block_acceptance_gate_domain",
+  "active_profile": "balanced_local_regime_acceptance",
+  "total_gates": 17,
+  "passed_gates": 17,
+  "all_passed": true,
+  "non_signal": true,
+  "status": "READY"
+}

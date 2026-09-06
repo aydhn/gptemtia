@@ -1,0 +1,8 @@
+{
+  "domain": "regime_block_metadata_only_news_compliance_domain",
+  "active_profile": "balanced_local_regime_acceptance",
+  "total_checks": 4,
+  "all_compliant": true,
+  "non_signal": true,
+  "status": "READY"
+}

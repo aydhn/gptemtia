@@ -1,0 +1,2 @@
+gpu_id,gpu_name,cuda_available,device_count,memory_total_mb,capability_status,status_label,manual_review_required,non_signal,source_preserved,details
+gpu_none,No CUDA GPU Detected / CPU Fallback,False,0,0.0,backend_cuda_gpu_unavailable,runtime_ready_with_warnings,True,True,True,GPU acceleration not present; CPU runtime fallback active.

@@ -1,0 +1,30 @@
+boundary_type,rule_id,rule,status,non_signal
+NO_GO,no_go_live_trading,Canlı emir gönderme,ENFORCED,True
+NO_GO,no_go_broker_api,Broker API bağlama,ENFORCED,True
+NO_GO,no_go_real_order,Gerçek pozisyon açma,ENFORCED,True
+NO_GO,no_go_signals,"AL/SAT, long/short sinyali üretme",ENFORCED,True
+NO_GO,no_go_store_as_signal,FeatureStore kaydını trade sinyali olarak sunma,ENFORCED,True
+NO_GO,no_go_readiness_as_live,Regime store ready durumunu canlı işlem hazır olarak iddia etme,ENFORCED,True
+NO_GO,no_go_validation_as_production,Validation accepted durumunu production-ready olarak iddia etme,ENFORCED,True
+NO_GO,no_go_directional_claim,Rejim durumlarını işlem yönü olarak yorumlama,ENFORCED,True
+NO_GO,no_go_model_training,Gerçek model eğitimi veya fitting çalıştırma,ENFORCED,True
+NO_GO,no_go_clustering,Gerçek clustering execution veya unsupervised segmentation çalıştırma,ENFORCED,True
+NO_GO,no_go_prediction,Supervised/unsupervised model prediction üretme,ENFORCED,True
+NO_GO,no_go_target_label,Hedef/etiket/tahmin üretimi,ENFORCED,True
+NO_GO,no_go_sentiment,"Sentiment model output, embedding veya vector üretme",ENFORCED,True
+NO_GO,no_go_raw_news,"Haber tam metni, article_body, raw_content, scraped_html kullanma",ENFORCED,True
+NO_GO,no_go_lookahead,"Future return, forward return, next return veya shift(-1) kullanma",ENFORCED,True
+NO_GO,no_go_future_timestamp,Gelecek timestamp'i geçmiş rejim kaydına bağlama,ENFORCED,True
+NO_GO,no_go_scraping,"Gerçek provider API çağrısı, scraping, browser automation yapma",ENFORCED,True
+NO_GO,no_go_credentials,"Provider credential, API key, token veya secret yazdırma",ENFORCED,True
+NO_GO,no_go_source_overwrite,"Kaynak veriyi silme, üzerine yazma veya taşıma",ENFORCED,True
+NO_GO,no_go_destructive_clean,"Tahribatlı temizlik, auto-imputation veya auto-feature-drop yapma",ENFORCED,True
+NO_GO,no_go_deployment,"Model deployment, production deployment, docker push, git tag yapma",ENFORCED,True
+SAFE_GO,safe_go_local_storage,Local/offline rejim metaveri depolama,ACTIVE,True
+SAFE_GO,safe_go_validation_catalog,Doğrulama kabulü referanslı rejim kataloğu,ACTIVE,True
+SAFE_GO,safe_go_no_lookahead_refs,No-lookahead doğrulanmış geriye dönük asof referansları,ACTIVE,True
+SAFE_GO,safe_go_metadata_only_news,Yalnızca metaveri haber bağlamı referansları,ACTIVE,True
+SAFE_GO,safe_go_source_preservation,Kaynak korumalı FeatureStore sözleşmeleri,ACTIVE,True
+SAFE_GO,safe_go_non_signal_queries,Sinyal ve tahmin içermeyen salt metaveri sorguları,ACTIVE,True
+SAFE_GO,safe_go_read_write_contracts,"Okuma, yazma ve sorgulama sözleşme disiplini",ACTIVE,True
+SAFE_GO,safe_go_phase_135_handoff,Phase 135 rejim kabul raporu için devir paketi,ACTIVE,True

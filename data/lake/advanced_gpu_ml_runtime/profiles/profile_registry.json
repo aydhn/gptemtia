@@ -1,0 +1,10 @@
+{
+  "domain": "gpu_ml_runtime_profile_domain",
+  "active_profile": "balanced_local_gpu_ml_runtime_foundation",
+  "current_phase": 136,
+  "target_final_phase": 160,
+  "next_phase": 137,
+  "total_profiles": 3,
+  "non_signal": true,
+  "status": "runtime_ready"
+}

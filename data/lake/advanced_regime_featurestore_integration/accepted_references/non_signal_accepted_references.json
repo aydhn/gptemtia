@@ -1,0 +1,11 @@
+{
+  "domain": "accepted_reference_domain",
+  "reference_type": "non_signal_accepted_reference",
+  "total_references": 9,
+  "active_profile": "balanced_local_regime_featurestore_integration",
+  "current_phase": 134,
+  "target_final_phase": 160,
+  "next_phase": 135,
+  "status": "regime_store_ready",
+  "non_signal": true
+}

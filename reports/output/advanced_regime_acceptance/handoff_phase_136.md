@@ -1,0 +1,36 @@
+# Phase 135: Phase 136 Advanced ML and GPU Runtime Handoff Report
+
+> [!CAUTION]
+> **PHASE 135 YÖNETİŞİM VE NON-SIGNAL UYARISI**
+> Bu çıktı Phase 135 Regime Classification Acceptance Report raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, rejim/validation/acceptance/FeatureStore değerini trade sinyali olarak kullanma, strateji üretimi, backtest, optimizer, model training, clustering execution, prediction/target/label üretimi, sentiment model output, haber tam metni/article body/raw content/scraped HTML/embedding/vector kullanımı, production-ready/official approval/broker-ready iddiası, production deployment, model deployment, scraping veya gerçek provider API çağrısı değildir.
+
+## Handoff Overview
+- **Source Phase**: 135
+- **Next Phase**: 136 (GPU Acceleration and Advanced ML Runtime Foundation)
+- **Target Final Phase**: 160
+- **Prerequisites Total**: 14
+- **Prerequisites Satisfied**: 14
+- **Status**: READY
+
+### Phase 136 Transition Notes
+- Phase 136 will establish GPU acceleration discovery and advanced ML runtime foundation.
+- Experiments, tensors, and models prepared in Phase 136 will remain strictly non-signal research artifacts.
+- Zero live orders, broker connections, or capital risks will be permitted.
+
+## Prerequisite Checklist
+| prerequisite_id | topic | requirement | satisfied | non_signal | details | status_label |
+| --- | --- | --- | --- | --- | --- | --- |
+| prereq_gpu_discovery | Local GPU Capability Discovery | Hardware inspection contracts for detecting CUDA/ROCm/MPS or falling back gracefully to CPU. | True | True | Ready for Phase 136 device query contract initialization. | acceptance_pass |
+| prereq_ml_runtime_env | Advanced ML/GPU Runtime Prerequisites | Clean Python runtime environment contracts with isolated tensor/array memory boundaries. | True | True | PyTorch / hardware accelerator isolation boundaries defined. | acceptance_pass |
+| prereq_training_safety | Model Training Safety Boundary | Absolute prohibition on connecting trained models to live trading, order routers, or automated execution. | True | True | Safety boundary carries forward unconditionally into Phase 136. | acceptance_pass |
+| prereq_experiment_contracts | ML Experiment Contract Prerequisites | Experiment logging, deterministic seed contracts, reproducibility hashes, and parameter manifests. | True | True | Experiment schema contracts designed for Phase 136 foundation. | acceptance_pass |
+| prereq_research_boundary | No-Live-Trading Model Research Boundary | All upcoming ML models remain offline research artifacts with zero live capital exposure. | True | True | Strict research-only governance affirmed. | acceptance_pass |
+| prereq_regime_metadata_inputs | Regime Metadata Inputs for ML | Cataloged regime families, state schemas, and transition matrices ready as non-directional feature contexts. | True | True | Phases 126-134 catalogs accepted and ready in FeatureStore. | acceptance_pass |
+| prereq_featurestore_inputs | FeatureStore Metadata Inputs for ML | Standardized namespaces and entity read contracts for multi-domain feature matrices. | True | True | FeatureStore namespace and query contracts verified in Phase 134. | acceptance_pass |
+| prereq_validation_no_lookahead | Validation & No-Lookahead References | Accepted chronological timestamp orders and backward asof joins mandatory for future train/val splits. | True | True | Phase 133 acceptance gates satisfied. | acceptance_pass |
+| prereq_metadata_only_news | Metadata-Only News Acceptance | Zero full article bodies or unvetted text dumps permitted into ML input tensors. | True | True | Purity policy locked and confirmed. | acceptance_pass |
+| prereq_source_preservation | Source Preservation Acceptance | ML pipelines must never mutate or overwrite data lake source records. | True | True | DataLake source immutability policy verified. | acceptance_pass |
+| prereq_quality_drift | Quality & Drift Dependency Requirements | Input features must be monitored for missingness, infinite values, and distribution drift. | True | True | Integrated with Phase 123 quality drift foundation. | acceptance_pass |
+| prereq_model_governance | Model Artifact Governance Prerequisites | Checkpoint storage, model card schemas, and lifecycle manifests before any training loop runs. | True | True | Model artifact governance specifications ready. | acceptance_pass |
+| prereq_manual_review_blockers | Manual Review Blockers Resolution | Zero unresolved blockers that would prevent transition to Phase 136. | True | True | Manual review queue verified free of critical blockers. | acceptance_pass |
+| prereq_clear_boundary | Clear Phase 136 Execution Boundary | Phase 136 prepares GPU acceleration and runtime foundations, but still does NOT generate trading signals or broker orders. | True | True | Phase 136 boundary formally defined; final target remains Phase 160. | acceptance_pass |

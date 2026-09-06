@@ -1,0 +1,13 @@
+{
+  "domain": "safety_domain",
+  "total_rules": 29,
+  "no_go_count": 21,
+  "safe_go_count": 8,
+  "active_profile": "balanced_local_regime_featurestore_integration",
+  "current_phase": 134,
+  "target_final_phase": 160,
+  "next_phase": 135,
+  "safety_status": "SECURE",
+  "status": "regime_store_ready",
+  "non_signal": true
+}

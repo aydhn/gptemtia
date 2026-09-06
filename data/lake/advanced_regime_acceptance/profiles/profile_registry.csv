@@ -1,0 +1,4 @@
+profile_name,description,current_phase,target_final_phase,next_phase,dry_run_default,local_only,non_production,research_only,min_score,is_active,non_signal,status_label
+balanced_local_regime_acceptance,Dengeli yerel rejim siniflandirma blogu kabul ve yonetisim profili.,135,160,136,True,True,True,True,0.45,True,True,acceptance_pass
+strict_non_signal_regime_block_acceptance,"Siki non-signal, no-lookahead ve kaynak koruma odakli kabul guvenlik profili.",135,160,136,True,True,True,True,0.6,False,True,acceptance_pass
+dry_run_regime_manifest_focus,"Dry-run uyumlu, manifest ve Phase 136 ileri ML/GPU devri odakli kabul profili.",135,160,136,True,True,True,True,0.4,False,True,acceptance_pass

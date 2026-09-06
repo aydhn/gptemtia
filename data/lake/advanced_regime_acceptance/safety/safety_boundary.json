@@ -1,0 +1,10 @@
+{
+  "domain": "regime_block_safety_boundary_domain",
+  "active_profile": "balanced_local_regime_acceptance",
+  "no_go_rules_count": 19,
+  "safe_go_principles_count": 8,
+  "total_boundaries": 27,
+  "all_enforced": true,
+  "non_signal": true,
+  "status": "READY"
+}

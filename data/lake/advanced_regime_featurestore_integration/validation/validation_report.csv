@@ -1,0 +1,7 @@
+check_name,passed,error_count,errors,non_signal
+profile_registry_validation,True,0,None,True
+contract_registry_validation,True,0,None,True
+schema_registry_validation,True,0,None,True
+component_catalogs_validation,True,0,None,True
+metadata_manifest_validation,True,0,None,True
+forbidden_claims_validation,True,0,None,True

@@ -1,0 +1,14 @@
+{
+  "current_phase": 134,
+  "target_final_phase": 160,
+  "next_phase": 135,
+  "active_profile": "balanced_local_regime_featurestore_integration",
+  "total_modules": 12,
+  "all_healthy": true,
+  "all_validation_passed": true,
+  "all_handoff_ready": true,
+  "overall_status": "regime_store_ready",
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false
+}

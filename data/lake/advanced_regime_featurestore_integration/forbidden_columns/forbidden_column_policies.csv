@@ -1,0 +1,24 @@
+column_name,category,reason
+signal,trading_signal,Trading directive prohibited
+buy,trading_signal,Trade action prohibited
+sell,trading_signal,Trade action prohibited
+long,trading_signal,Position stance prohibited
+short,trading_signal,Position stance prohibited
+position,trading_signal,Positioning prohibited
+target,machine_learning,Supervised target prohibited
+label,machine_learning,Prediction label prohibited
+prediction,machine_learning,Model forecast prohibited
+recommendation,advisory,Investment recommendation prohibited
+future_return,lookahead,Lookahead data leakage prohibited
+forward_return,lookahead,Lookahead data leakage prohibited
+next_return,lookahead,Lookahead data leakage prohibited
+full_text,unstructured_content,Raw news text prohibited
+article_body,unstructured_content,Raw news text prohibited
+raw_content,unstructured_content,Uncurated raw content prohibited
+scraped_html,unstructured_content,Scraped HTML prohibited
+page_html,unstructured_content,Scraped HTML prohibited
+html,unstructured_content,HTML markup prohibited
+embedding,vector_data,Vector embeddings prohibited
+vector,vector_data,Vector embeddings prohibited
+sentiment,nlp_sentiment,NLP sentiment model output prohibited
+sentiment_score,nlp_sentiment,NLP sentiment score prohibited

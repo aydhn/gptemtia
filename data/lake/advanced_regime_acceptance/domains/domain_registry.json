@@ -1,0 +1,10 @@
+{
+  "domain": "regime_acceptance_domain",
+  "active_profile": "balanced_local_regime_acceptance",
+  "total_domains": 11,
+  "phase_start": 126,
+  "phase_end": 135,
+  "handoff_phase": 136,
+  "non_signal": true,
+  "status": "READY"
+}

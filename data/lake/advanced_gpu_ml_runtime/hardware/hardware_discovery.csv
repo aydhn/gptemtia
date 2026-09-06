@@ -1,0 +1,8 @@
+item_id,category,property_name,property_value,status_label,non_signal,source_preserved,manual_review_required,details
+hw_os_system,operating_system,system,Windows,runtime_ready,True,True,False,Operating system family safely discovered.
+hw_os_release,operating_system,release,11,runtime_ready,True,True,False,OS release version.
+hw_cpu_arch,cpu_hardware,machine_arch,AMD64,runtime_ready,True,True,False,Machine instruction architecture.
+hw_cpu_proc,cpu_hardware,processor,"Intel64 Family 6 Model 186 Stepping 2, GenuineInte",runtime_ready,True,True,False,Processor identification string.
+hw_py_version,python_runtime,python_version,3.12.10,runtime_ready,True,True,False,Python runtime version.
+hw_py_impl,python_runtime,python_implementation,CPython,runtime_ready,True,True,False,Python implementation type.
+hw_cpu_cores,cpu_hardware,logical_cores,12,runtime_ready,True,True,False,Logical CPU core count available.

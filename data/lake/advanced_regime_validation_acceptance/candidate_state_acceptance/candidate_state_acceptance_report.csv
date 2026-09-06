@@ -1,0 +1,6 @@
+check_id,check_name,description,passed,status,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+CS_01_CONTRACTS_PRESENT,candidate_state_contracts_present,Verifies Phase 128 candidate-state assignment policies and schemas exist.,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+CS_02_NO_LOOKAHEAD,candidate_state_no_lookahead_accepted,Verifies candidate states are derived strictly using past and current bar information.,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+CS_03_NOT_TRADE_SIGNAL,candidate_state_non_signal,"Certifies candidate state IDs are structural descriptions, not buy/sell recommendations.",True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+CS_04_NOT_TARGET_PREDICTION,candidate_state_not_target_or_prediction,Certifies candidate states do not act as supervised labels or model predictions.,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+CS_05_NO_CLUSTERING_EXECUTION,candidate_state_clustering_execution_absent,Certifies zero clustering algorithms (K-Means/GMM/HMM) were executed in prep contracts.,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False

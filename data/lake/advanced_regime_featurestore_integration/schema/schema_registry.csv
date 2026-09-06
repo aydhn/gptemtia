@@ -1,0 +1,17 @@
+field_name,field_type,required,description
+store_key,string,True,Unique canonical store key
+store_entity_type,string,True,Entity category type
+entity_id,string,True,Unique identifier of the entity
+timestamp_utc,string,True,UTC timestamp in ISO format
+component_name,string,True,Originating regime subsystem
+source_phase,integer,True,Phase index (126-134)
+source_component_ref,string,True,Component reference URI
+validation_acceptance_ref,string,True,Phase 133 acceptance verification ref
+no_lookahead_acceptance_ref,string,True,Proof of backward-only asof join
+metadata_only_news_acceptance_ref,string,True,Proof of news metadata-only purity
+source_preservation_ref,string,True,Proof of zero source overwrites
+quality_dependency_ref,string,True,Reference to quality checks
+validation_dependency_ref,string,True,Reference to validation dependencies
+lineage_ref,string,True,End-to-end lineage pointer
+manual_review_required,boolean,True,Flag indicating manual audit need
+non_signal,boolean,True,Mandatory non-signal invariant assertion

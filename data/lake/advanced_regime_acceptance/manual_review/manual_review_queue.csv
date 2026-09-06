@@ -1,0 +1,2 @@
+item_id,phase_number,module_name,category,issue_description,manual_review_required,auto_destructive_action_allowed,recommendation,non_signal
+review_p136_gpu_readiness,135,advanced_regime_acceptance,Phase 136 handoff review,Verify local GPU device capability and PyTorch/CUDA environment before starting Phase 136 runtime tasks.,True,False,Review hardware and local acceleration availability manually; do not attempt automatic driver or package installation.,True

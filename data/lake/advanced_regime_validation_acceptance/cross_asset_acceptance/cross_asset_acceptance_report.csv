@@ -1,0 +1,6 @@
+check_id,check_name,description,passed,status,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+CA_01_CONTEXT_PRESENT,cross_asset_context_present,"Verifies Phase 131 cross-asset entity pairs, linkages, and context datasets exist.",True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+CA_02_NOT_TRADE_SIGNAL,cross_asset_placeholders_non_signal,"Confirms correlation, divergence, and lead-lag placeholders are non-signal descriptive metrics.",True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+CA_03_NO_LOOKAHEAD,cross_asset_no_lookahead_accepted,Verifies pairwise cross-asset alignment uses backward-asof join with zero lookahead.,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+CA_04_SOURCE_PRESERVED,cross_asset_source_preserved,Confirms underlying FX and Commodity price series remain immutable.,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+CA_05_NO_PREDICTION,cross_asset_prediction_absent,Confirms zero directional pair trades or predictive arbitrage signals exist.,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False

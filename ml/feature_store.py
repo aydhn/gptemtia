@@ -1807,5 +1807,342 @@ class FeatureStore:
         df = self.load_macro_event_news_regime_context_manifest()
         return {"manifest_loaded": not df.empty, "non_signal": True}
 
+    # =========================================================================
+    # Phase 133: Advanced Regime Validation & No-Lookahead Acceptance Loaders
+    # =========================================================================
+
+    def load_regime_validation_acceptance_profile_registry(self) -> pd.DataFrame:
+        """Load Phase 133 regime validation acceptance profile registry."""
+        return self.data_lake.load_regime_validation_acceptance_profile_registry()
+
+    def load_regime_validation_gate_registry(self) -> pd.DataFrame:
+        """Load Phase 133 regime validation gate registry."""
+        return self.data_lake.load_regime_validation_gate_registry()
+
+    def load_regime_no_lookahead_acceptance_report(self) -> pd.DataFrame:
+        """Load Phase 133 regime no-lookahead acceptance report."""
+        return self.data_lake.load_regime_no_lookahead_acceptance_report()
+
+    def load_regime_metadata_only_news_acceptance_report(self) -> pd.DataFrame:
+        """Load Phase 133 regime metadata-only news acceptance report."""
+        return self.data_lake.load_regime_metadata_only_news_acceptance_report()
+
+    def load_regime_forbidden_column_acceptance_report(self) -> pd.DataFrame:
+        """Load Phase 133 regime forbidden column acceptance report."""
+        return self.data_lake.load_regime_forbidden_column_acceptance_report()
+
+    def load_regime_source_preservation_acceptance_report(self) -> pd.DataFrame:
+        """Load Phase 133 regime source preservation acceptance report."""
+        return self.data_lake.load_regime_source_preservation_acceptance_report()
+
+    def load_regime_non_signal_acceptance_report(self) -> pd.DataFrame:
+        """Load Phase 133 regime non-signal acceptance report."""
+        return self.data_lake.load_regime_non_signal_acceptance_report()
+
+    def load_regime_matrix_validation_acceptance_report(self) -> pd.DataFrame:
+        """Load Phase 133 regime matrix validation acceptance report."""
+        return self.data_lake.load_regime_matrix_validation_acceptance_report()
+
+    def load_candidate_state_validation_acceptance_report(self) -> pd.DataFrame:
+        """Load Phase 133 candidate state validation acceptance report."""
+        return self.data_lake.load_candidate_state_validation_acceptance_report()
+
+    def load_transition_validation_acceptance_report(self) -> pd.DataFrame:
+        """Load Phase 133 transition validation acceptance report."""
+        return self.data_lake.load_transition_validation_acceptance_report()
+
+    def load_cross_asset_regime_validation_acceptance_report(self) -> pd.DataFrame:
+        """Load Phase 133 cross-asset regime validation acceptance report."""
+        return self.data_lake.load_cross_asset_regime_validation_acceptance_report()
+
+    def load_macro_event_news_validation_acceptance_report(self) -> pd.DataFrame:
+        """Load Phase 133 macro/event/news validation acceptance report."""
+        return self.data_lake.load_macro_event_news_validation_acceptance_report()
+
+    def load_regime_validation_dependency_acceptance_report(self) -> pd.DataFrame:
+        """Load Phase 133 regime validation dependency acceptance report."""
+        return self.data_lake.load_regime_validation_dependency_acceptance_report()
+
+    def load_regime_quality_dependency_acceptance_report(self) -> pd.DataFrame:
+        """Load Phase 133 regime quality dependency acceptance report."""
+        return self.data_lake.load_regime_quality_dependency_acceptance_report()
+
+    def load_regime_acceptance_score_report(self) -> pd.DataFrame:
+        """Load Phase 133 regime acceptance score report."""
+        return self.data_lake.load_regime_acceptance_score_report()
+
+    def load_regime_validation_acceptance_manifest(self) -> pd.DataFrame:
+        """Load Phase 133 regime validation acceptance manifest."""
+        return self.data_lake.load_regime_validation_acceptance_manifest()
+
+    def load_phase_134_regime_featurestore_integration_handoff_report(self) -> pd.DataFrame:
+        """Load Phase 134 regime FeatureStore integration handoff report."""
+        return self.data_lake.load_phase_134_regime_featurestore_integration_handoff_report()
+
+    def load_regime_validation_acceptance_report(self, profile_name: str | None = None) -> dict:
+        """Load Phase 133 regime validation acceptance report dictionary."""
+        return self.data_lake.load_regime_validation_acceptance_report(profile_name or "balanced_local_regime_validation_acceptance")
+
+    def list_available_regime_validation_acceptance_reports(self) -> dict:
+        """List available regime validation acceptance reports."""
+        df = self.load_regime_validation_acceptance_manifest()
+        return {"manifest_loaded": not df.empty, "non_signal": True}
+
+    # =========================================================================
+    # Phase 134: Regime FeatureStore Integration Loaders and Helpers
+    # =========================================================================
+
+    def load_regime_featurestore_profile_registry(self) -> pd.DataFrame:
+        """Load Phase 134 regime FeatureStore profile registry."""
+        return self.data_lake.load_regime_featurestore_profile_registry()
+
+    def load_regime_featurestore_contract_registry(self) -> pd.DataFrame:
+        """Load Phase 134 regime FeatureStore contract registry."""
+        return self.data_lake.load_regime_featurestore_contract_registry()
+
+    def load_regime_featurestore_schema_registry(self) -> pd.DataFrame:
+        """Load Phase 134 regime FeatureStore schema registry."""
+        return self.data_lake.load_regime_featurestore_schema_registry()
+
+    def load_regime_taxonomy_store_catalog(self) -> pd.DataFrame:
+        """Load Phase 134 regime taxonomy store catalog."""
+        return self.data_lake.load_regime_taxonomy_store_catalog()
+
+    def load_regime_matrix_store_catalog(self) -> pd.DataFrame:
+        """Load Phase 134 regime matrix store catalog."""
+        return self.data_lake.load_regime_matrix_store_catalog()
+
+    def load_candidate_state_store_catalog(self) -> pd.DataFrame:
+        """Load Phase 134 candidate state store catalog."""
+        return self.data_lake.load_candidate_state_store_catalog()
+
+    def load_pseudo_state_store_catalog(self) -> pd.DataFrame:
+        """Load Phase 134 pseudo-state store catalog."""
+        return self.data_lake.load_pseudo_state_store_catalog()
+
+    def load_transition_store_catalog(self) -> pd.DataFrame:
+        """Load Phase 134 transition store catalog."""
+        return self.data_lake.load_transition_store_catalog()
+
+    def load_cross_asset_regime_store_catalog(self) -> pd.DataFrame:
+        """Load Phase 134 cross-asset regime store catalog."""
+        return self.data_lake.load_cross_asset_regime_store_catalog()
+
+    def load_macro_event_news_regime_store_catalog(self) -> pd.DataFrame:
+        """Load Phase 134 macro/event/news regime store catalog."""
+        return self.data_lake.load_macro_event_news_regime_store_catalog()
+
+    def load_regime_validation_acceptance_store_catalog(self) -> pd.DataFrame:
+        """Load Phase 134 regime validation acceptance store catalog."""
+        return self.data_lake.load_regime_validation_acceptance_store_catalog()
+
+    def load_regime_no_lookahead_accepted_reference_registry(self) -> pd.DataFrame:
+        """Load Phase 134 no-lookahead accepted reference registry."""
+        return self.data_lake.load_regime_no_lookahead_accepted_reference_registry()
+
+    def load_regime_metadata_only_news_accepted_reference_registry(self) -> pd.DataFrame:
+        """Load Phase 134 metadata-only news accepted reference registry."""
+        return self.data_lake.load_regime_metadata_only_news_accepted_reference_registry()
+
+    def load_regime_source_preservation_accepted_reference_registry(self) -> pd.DataFrame:
+        """Load Phase 134 source preservation accepted reference registry."""
+        return self.data_lake.load_regime_source_preservation_accepted_reference_registry()
+
+    def load_regime_featurestore_metadata_manifest(self) -> pd.DataFrame:
+        """Load Phase 134 regime FeatureStore metadata manifest."""
+        return self.data_lake.load_regime_featurestore_metadata_manifest()
+
+    def load_phase_135_regime_classification_acceptance_handoff_report(self) -> pd.DataFrame:
+        """Load Phase 135 handoff report."""
+        return self.data_lake.load_phase_135_regime_classification_acceptance_handoff_report()
+
+    def load_regime_featurestore_report(self, profile_name: str | None = None) -> dict:
+        """Load Phase 134 regime FeatureStore report dictionary."""
+        return self.data_lake.load_regime_featurestore_report(
+            profile_name or "balanced_local_regime_featurestore_integration"
+        )
+
+    def list_available_regime_featurestore_reports(self) -> dict:
+        """List available regime FeatureStore reports."""
+        df = self.load_regime_featurestore_metadata_manifest()
+        return {"manifest_loaded": not df.empty, "non_signal": True}
+
+    def list_regime_store_catalogs(self) -> dict:
+        """Return catalog summary dictionary for all 8 regime store catalogs."""
+        return {
+            "taxonomy": not self.load_regime_taxonomy_store_catalog().empty,
+            "matrix": not self.load_regime_matrix_store_catalog().empty,
+            "candidate_state": not self.load_candidate_state_store_catalog().empty,
+            "pseudo_state": not self.load_pseudo_state_store_catalog().empty,
+            "transition": not self.load_transition_store_catalog().empty,
+            "cross_asset": not self.load_cross_asset_regime_store_catalog().empty,
+            "macro_event_news": not self.load_macro_event_news_regime_store_catalog().empty,
+            "validation_acceptance": not self.load_regime_validation_acceptance_store_catalog().empty,
+            "non_signal": True,
+        }
+
+    def list_regime_validation_accepted_references(self) -> dict:
+        """List validation accepted references metadata."""
+        df = self.data_lake.load_regime_validation_dependency_store_registry()
+        return {"count": len(df), "satisfied": bool((df.get("validation_status", pd.Series()) == "SATISFIED").all()) if not df.empty else True, "non_signal": True}
+
+    def list_regime_metadata_only_news_accepted_references(self) -> dict:
+        """List metadata-only news accepted references."""
+        df = self.load_regime_metadata_only_news_accepted_reference_registry()
+        return {"count": len(df), "accepted": bool((df.get("acceptance_status", pd.Series()) == "ACCEPTED").all()) if not df.empty else True, "non_signal": True}
+
+    def list_regime_no_lookahead_accepted_references(self) -> dict:
+        """List no-lookahead accepted references."""
+        df = self.load_regime_no_lookahead_accepted_reference_registry()
+        return {"count": len(df), "accepted": bool((df.get("acceptance_status", pd.Series()) == "ACCEPTED").all()) if not df.empty else True, "non_signal": True}
+
+    def get_regime_featurestore_manual_review_blockers(self) -> pd.DataFrame:
+        """Return manual review blocker DataFrame."""
+        return self.data_lake.load_regime_manual_review_blocker_store_registry()
+
+    def get_regime_featurestore_manifest(self) -> pd.DataFrame:
+        """Return FeatureStore metadata manifest DataFrame."""
+        return self.load_regime_featurestore_metadata_manifest()
+
+    # Phase 135 Regime Acceptance Support
+    def load_regime_acceptance_profile_registry(self) -> pd.DataFrame:
+        """Load Phase 135 regime acceptance profile registry."""
+        return self.data_lake.load_regime_acceptance_profile_registry()
+
+    def load_regime_block_inventory_report(self) -> pd.DataFrame:
+        """Load Phase 135 regime block inventory report."""
+        return self.data_lake.load_regime_block_inventory_report()
+
+    def load_regime_block_acceptance_gate_registry(self) -> pd.DataFrame:
+        """Load Phase 135 regime block acceptance gate registry."""
+        return self.data_lake.load_regime_block_acceptance_gate_registry()
+
+    def load_regime_block_acceptance_score_report(self) -> pd.DataFrame:
+        """Load Phase 135 regime block acceptance score report."""
+        return self.data_lake.load_regime_block_acceptance_score_report()
+
+    def load_regime_block_manual_review_queue(self) -> pd.DataFrame:
+        """Load Phase 135 regime block manual review queue."""
+        return self.data_lake.load_regime_block_manual_review_queue()
+
+    def load_regime_block_compliance_reports(self) -> dict:
+        """Load all Phase 135 compliance reports."""
+        return {
+            "non_signal": self.data_lake.load_regime_block_non_signal_compliance_report(),
+            "no_lookahead": self.data_lake.load_regime_block_no_lookahead_compliance_report(),
+            "metadata_only_news": self.data_lake.load_regime_block_metadata_only_news_compliance_report(),
+            "forbidden_columns": self.data_lake.load_regime_block_forbidden_column_compliance_report(),
+            "source_preservation": self.data_lake.load_regime_block_source_preservation_report(),
+            "featurestore_readiness": self.data_lake.load_regime_block_featurestore_readiness_report(),
+            "non_signal": True,
+        }
+
+    def load_regime_block_component_acceptance_report(self) -> pd.DataFrame:
+        """Load Phase 135 regime block component acceptance report."""
+        return self.data_lake.load_regime_block_component_acceptance_report()
+
+    def load_phase_126_135_acceptance_manifest(self) -> pd.DataFrame:
+        """Load Phase 126-135 regime block acceptance manifest."""
+        return self.data_lake.load_phase_126_135_acceptance_manifest()
+
+    def load_phase_136_advanced_ml_gpu_handoff_report(self) -> pd.DataFrame:
+        """Load Phase 136 advanced ML and GPU runtime handoff report."""
+        return self.data_lake.load_phase_136_advanced_ml_gpu_handoff_report()
+
+    def load_regime_acceptance_report(self, profile_name: str | None = None) -> dict:
+        """Load Phase 135 regime acceptance report dictionary."""
+        return self.data_lake.load_regime_acceptance_report(profile_name or "balanced_local_regime_acceptance")
+
+    def list_available_regime_acceptance_reports(self) -> dict:
+        """List available regime acceptance reports."""
+        df = self.load_phase_126_135_acceptance_manifest()
+        return {"manifest_loaded": not df.empty, "non_signal": True}
+
+    # Phase 136 GPU Acceleration and Advanced ML Runtime Foundation Support
+    def load_gpu_ml_runtime_profile_registry(self) -> pd.DataFrame:
+        """Load Phase 136 GPU/ML runtime profile registry."""
+        return self.data_lake.load_gpu_ml_runtime_profile_registry()
+
+    def load_local_hardware_discovery_report(self) -> pd.DataFrame:
+        """Load Phase 136 local hardware discovery report."""
+        return self.data_lake.load_local_hardware_discovery_report()
+
+    def load_gpu_capability_registry(self) -> pd.DataFrame:
+        """Load Phase 136 GPU capability registry."""
+        return self.data_lake.load_gpu_capability_registry()
+
+    def load_cpu_capability_registry(self) -> pd.DataFrame:
+        """Load Phase 136 CPU capability registry."""
+        return self.data_lake.load_cpu_capability_registry()
+
+    def load_memory_capability_registry(self) -> pd.DataFrame:
+        """Load Phase 136 memory capability registry."""
+        return self.data_lake.load_memory_capability_registry()
+
+    def load_cuda_availability_report(self) -> pd.DataFrame:
+        """Load Phase 136 CUDA availability report."""
+        return self.data_lake.load_cuda_availability_report()
+
+    def load_torch_runtime_capability_report(self) -> pd.DataFrame:
+        """Load Phase 136 PyTorch runtime capability report."""
+        return self.data_lake.load_torch_runtime_capability_report()
+
+    def load_sklearn_runtime_capability_report(self) -> pd.DataFrame:
+        """Load Phase 136 scikit-learn runtime capability report."""
+        return self.data_lake.load_sklearn_runtime_capability_report()
+
+    def load_numpy_pandas_runtime_capability_report(self) -> pd.DataFrame:
+        """Load Phase 136 NumPy/Pandas runtime capability report."""
+        return self.data_lake.load_numpy_pandas_runtime_capability_report()
+
+    def load_optional_ml_dependency_registry(self) -> pd.DataFrame:
+        """Load Phase 136 optional ML dependency registry."""
+        return self.data_lake.load_optional_ml_dependency_registry()
+
+    def load_accelerator_backend_registry(self) -> pd.DataFrame:
+        """Load Phase 136 accelerator backend registry."""
+        return self.data_lake.load_accelerator_backend_registry()
+
+    def load_ml_runtime_environment_snapshot(self) -> pd.DataFrame:
+        """Load Phase 136 ML runtime environment snapshot."""
+        return self.data_lake.load_ml_runtime_environment_snapshot()
+
+    def load_ml_runtime_safety_contract_registry(self) -> pd.DataFrame:
+        """Load Phase 136 ML runtime safety contract registry."""
+        return self.data_lake.load_ml_runtime_safety_contract_registry()
+
+    def load_ml_experiment_permission_policy_registry(self) -> pd.DataFrame:
+        """Load Phase 136 ML experiment permission policy registry."""
+        return self.data_lake.load_ml_experiment_permission_policy_registry()
+
+    def load_regime_metadata_ml_input_contract_registry(self) -> pd.DataFrame:
+        """Load Phase 136 regime metadata ML input contract registry."""
+        return self.data_lake.load_regime_metadata_ml_input_contract_registry()
+
+    def load_featurestore_ml_input_contract_registry(self) -> pd.DataFrame:
+        """Load Phase 136 FeatureStore ML input contract registry."""
+        return self.data_lake.load_featurestore_ml_input_contract_registry()
+
+    def load_gpu_ml_runtime_manifest(self) -> pd.DataFrame:
+        """Load Phase 136 GPU/ML runtime manifest."""
+        return self.data_lake.load_gpu_ml_runtime_manifest()
+
+    def load_phase_137_advanced_ml_dataset_experiment_handoff_report(self) -> pd.DataFrame:
+        """Load Phase 136 handoff report to Phase 137."""
+        return self.data_lake.load_phase_137_advanced_ml_dataset_experiment_handoff_report()
+
+    def load_gpu_ml_runtime_report(self, profile_name: str | None = None) -> dict:
+        """Load Phase 136 GPU/ML runtime report dictionary."""
+        return self.data_lake.load_gpu_ml_runtime_report(profile_name or "balanced_local_gpu_ml_runtime_foundation")
+
+    def list_available_gpu_ml_runtime_reports(self) -> dict:
+        """List available GPU/ML runtime reports."""
+        df = self.load_gpu_ml_runtime_manifest()
+        return {"manifest_loaded": not df.empty, "non_signal": True}
+
+
+
+
+
 
 

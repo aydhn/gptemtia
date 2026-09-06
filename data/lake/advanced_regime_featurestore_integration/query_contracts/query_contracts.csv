@@ -1,0 +1,9 @@
+filter_name,permitted,description
+store_entity_type,True,Filter by canonical entity type
+source_phase,True,Filter by originating phase index
+component_name,True,Filter by subsystem name
+validation_acceptance_status,True,Filter by acceptance verification status
+no_lookahead_status,True,Filter by no-lookahead status
+metadata_only_news_status,True,Filter by metadata-only news status
+manual_review_required,True,Filter by manual review flag
+non_signal,True,Filter verifying non_signal=True

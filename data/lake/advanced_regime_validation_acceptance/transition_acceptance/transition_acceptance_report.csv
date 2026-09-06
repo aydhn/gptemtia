@@ -1,0 +1,6 @@
+check_id,check_name,description,passed,status,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+TR_01_SEQUENCE_CONTRACTS_PRESENT,transition_sequence_contracts_present,Verifies Phase 130 transition sequence contracts and metrics exist.,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+TR_02_NOT_TRADE_SIGNAL,transition_metrics_non_signal,"Confirms transition probabilities and persistence values are descriptive diagnostics, not trade signals.",True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+TR_03_NO_LOOKAHEAD,transition_no_lookahead_accepted,Ensures transition matrices are computed using rolling historical windows without future bars.,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+TR_04_NO_MODEL_EXECUTION,transition_model_execution_absent,Confirms zero predictive Markov decision processes or ML transition modeling executed.,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+TR_05_SOURCE_PRESERVED,transition_source_preserved,Confirms transition logs and matrices preserve immutable underlying inputs.,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False

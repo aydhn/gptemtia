@@ -1,0 +1,3 @@
+read_contract_name,allow_local_disk_read,allow_network_calls,allow_credentials_in_query,allow_broker_integration,allow_signal_queries,allow_target_prediction_queries,allow_production_approval_queries,description,non_signal
+local_parquet_csv_read_contract,True,False,False,False,False,False,False,Permits local read of structured CSV and JSON metadata from DataLake storage.,True
+catalog_metadata_lookup_contract,True,False,False,False,False,False,False,Permits in-memory lookup of catalog items by entity type and component name.,True

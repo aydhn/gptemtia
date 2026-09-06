@@ -1,0 +1,9 @@
+{
+  "total_findings": 3,
+  "critical_blockers": 0,
+  "manual_review_required_count": 0,
+  "destructive_action_allowed": false,
+  "profile_name": "balanced_local_regime_validation_acceptance",
+  "non_signal": true,
+  "source_preserved": true
+}

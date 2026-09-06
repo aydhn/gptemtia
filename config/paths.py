@@ -1285,6 +1285,182 @@ phase_132_paths = [
 for p in phase_132_paths:
     Path(p).mkdir(parents=True, exist_ok=True)
 
+phase_133_paths = [
+    "data/lake/advanced_regime_validation_acceptance/",
+    "data/lake/advanced_regime_validation_acceptance/profiles/",
+    "data/lake/advanced_regime_validation_acceptance/domains/",
+    "data/lake/advanced_regime_validation_acceptance/gates/",
+    "data/lake/advanced_regime_validation_acceptance/no_lookahead/",
+    "data/lake/advanced_regime_validation_acceptance/timestamp_order/",
+    "data/lake/advanced_regime_validation_acceptance/backward_asof/",
+    "data/lake/advanced_regime_validation_acceptance/forbidden_columns/",
+    "data/lake/advanced_regime_validation_acceptance/metadata_only_news/",
+    "data/lake/advanced_regime_validation_acceptance/source_preservation/",
+    "data/lake/advanced_regime_validation_acceptance/non_signal/",
+    "data/lake/advanced_regime_validation_acceptance/target_label_prediction_absence/",
+    "data/lake/advanced_regime_validation_acceptance/model_execution_absence/",
+    "data/lake/advanced_regime_validation_acceptance/matrix_acceptance/",
+    "data/lake/advanced_regime_validation_acceptance/candidate_state_acceptance/",
+    "data/lake/advanced_regime_validation_acceptance/pseudo_state_acceptance/",
+    "data/lake/advanced_regime_validation_acceptance/transition_acceptance/",
+    "data/lake/advanced_regime_validation_acceptance/cross_asset_acceptance/",
+    "data/lake/advanced_regime_validation_acceptance/macro_event_news_acceptance/",
+    "data/lake/advanced_regime_validation_acceptance/validation_dependencies/",
+    "data/lake/advanced_regime_validation_acceptance/quality_dependencies/",
+    "data/lake/advanced_regime_validation_acceptance/findings/",
+    "data/lake/advanced_regime_validation_acceptance/manual_review/",
+    "data/lake/advanced_regime_validation_acceptance/scoring/",
+    "data/lake/advanced_regime_validation_acceptance/manifest/",
+    "data/lake/advanced_regime_validation_acceptance/health/",
+    "data/lake/advanced_regime_validation_acceptance/validation/",
+    "data/lake/advanced_regime_validation_acceptance/safety/",
+    "data/lake/advanced_regime_validation_acceptance/handoff/",
+    "reports/output/advanced_regime_validation_acceptance/",
+    "reports/output/advanced_regime_validation_acceptance/csv/",
+    "reports/output/advanced_regime_validation_acceptance/markdown/",
+    "reports/output/advanced_regime_validation_acceptance/txt/",
+    "reports/output/advanced_regime_validation_acceptance/json/",
+    "docs/generated/advanced_regime_validation_acceptance/",
+    "docs/generated/advanced_regime_validation_acceptance/gates/",
+    "docs/generated/advanced_regime_validation_acceptance/acceptance/",
+    "docs/generated/advanced_regime_validation_acceptance/findings/",
+    "docs/generated/advanced_regime_validation_acceptance/manifest/",
+    "docs/generated/advanced_regime_validation_acceptance/handoff/",
+]
+for p in phase_133_paths:
+    Path(p).mkdir(parents=True, exist_ok=True)
+
+phase_134_paths = [
+    "data/lake/advanced_regime_featurestore_integration/",
+    "data/lake/advanced_regime_featurestore_integration/profiles/",
+    "data/lake/advanced_regime_featurestore_integration/domains/",
+    "data/lake/advanced_regime_featurestore_integration/contracts/",
+    "data/lake/advanced_regime_featurestore_integration/entities/",
+    "data/lake/advanced_regime_featurestore_integration/namespace/",
+    "data/lake/advanced_regime_featurestore_integration/schema/",
+    "data/lake/advanced_regime_featurestore_integration/version_policy/",
+    "data/lake/advanced_regime_featurestore_integration/partition_policy/",
+    "data/lake/advanced_regime_featurestore_integration/taxonomy_catalog/",
+    "data/lake/advanced_regime_featurestore_integration/matrix_catalog/",
+    "data/lake/advanced_regime_featurestore_integration/candidate_state_catalog/",
+    "data/lake/advanced_regime_featurestore_integration/pseudo_state_catalog/",
+    "data/lake/advanced_regime_featurestore_integration/transition_catalog/",
+    "data/lake/advanced_regime_featurestore_integration/cross_asset_catalog/",
+    "data/lake/advanced_regime_featurestore_integration/macro_event_news_catalog/",
+    "data/lake/advanced_regime_featurestore_integration/validation_acceptance_catalog/",
+    "data/lake/advanced_regime_featurestore_integration/accepted_references/",
+    "data/lake/advanced_regime_featurestore_integration/quality_dependencies/",
+    "data/lake/advanced_regime_featurestore_integration/validation_dependencies/",
+    "data/lake/advanced_regime_featurestore_integration/lineage/",
+    "data/lake/advanced_regime_featurestore_integration/manual_review/",
+    "data/lake/advanced_regime_featurestore_integration/manifest/",
+    "data/lake/advanced_regime_featurestore_integration/read_contracts/",
+    "data/lake/advanced_regime_featurestore_integration/write_contracts/",
+    "data/lake/advanced_regime_featurestore_integration/query_contracts/",
+    "data/lake/advanced_regime_featurestore_integration/forbidden_columns/",
+    "data/lake/advanced_regime_featurestore_integration/non_signal/",
+    "data/lake/advanced_regime_featurestore_integration/source_preservation/",
+    "data/lake/advanced_regime_featurestore_integration/health/",
+    "data/lake/advanced_regime_featurestore_integration/validation/",
+    "data/lake/advanced_regime_featurestore_integration/safety/",
+    "data/lake/advanced_regime_featurestore_integration/handoff/",
+    "reports/output/advanced_regime_featurestore_integration/",
+    "reports/output/advanced_regime_featurestore_integration/csv/",
+    "reports/output/advanced_regime_featurestore_integration/markdown/",
+    "reports/output/advanced_regime_featurestore_integration/txt/",
+    "reports/output/advanced_regime_featurestore_integration/json/",
+    "docs/generated/advanced_regime_featurestore_integration/",
+    "docs/generated/advanced_regime_featurestore_integration/contracts/",
+    "docs/generated/advanced_regime_featurestore_integration/catalogs/",
+    "docs/generated/advanced_regime_featurestore_integration/manifest/",
+    "docs/generated/advanced_regime_featurestore_integration/handoff/",
+]
+for p in phase_134_paths:
+    Path(p).mkdir(parents=True, exist_ok=True)
+
+phase_135_paths = [
+    "data/lake/advanced_regime_acceptance/",
+    "data/lake/advanced_regime_acceptance/profiles/",
+    "data/lake/advanced_regime_acceptance/domains/",
+    "data/lake/advanced_regime_acceptance/inventory/",
+    "data/lake/advanced_regime_acceptance/dependencies/",
+    "data/lake/advanced_regime_acceptance/gates/",
+    "data/lake/advanced_regime_acceptance/scoring/",
+    "data/lake/advanced_regime_acceptance/manual_review/",
+    "data/lake/advanced_regime_acceptance/safety/",
+    "data/lake/advanced_regime_acceptance/compliance/",
+    "data/lake/advanced_regime_acceptance/component_acceptance/",
+    "data/lake/advanced_regime_acceptance/documentation/",
+    "data/lake/advanced_regime_acceptance/scripts/",
+    "data/lake/advanced_regime_acceptance/tests/",
+    "data/lake/advanced_regime_acceptance/status/",
+    "data/lake/advanced_regime_acceptance/manifest/",
+    "data/lake/advanced_regime_acceptance/health/",
+    "data/lake/advanced_regime_acceptance/validation/",
+    "data/lake/advanced_regime_acceptance/handoff/",
+    "reports/output/advanced_regime_acceptance/",
+    "reports/output/advanced_regime_acceptance/csv/",
+    "reports/output/advanced_regime_acceptance/markdown/",
+    "reports/output/advanced_regime_acceptance/txt/",
+    "reports/output/advanced_regime_acceptance/json/",
+    "docs/generated/advanced_regime_acceptance/",
+    "docs/generated/advanced_regime_acceptance/inventory/",
+    "docs/generated/advanced_regime_acceptance/gates/",
+    "docs/generated/advanced_regime_acceptance/compliance/",
+    "docs/generated/advanced_regime_acceptance/manifest/",
+    "docs/generated/advanced_regime_acceptance/handoff/",
+]
+for p in phase_135_paths:
+    Path(p).mkdir(parents=True, exist_ok=True)
+
+phase_136_paths = [
+    "data/lake/advanced_gpu_ml_runtime/",
+    "data/lake/advanced_gpu_ml_runtime/profiles/",
+    "data/lake/advanced_gpu_ml_runtime/domains/",
+    "data/lake/advanced_gpu_ml_runtime/hardware/",
+    "data/lake/advanced_gpu_ml_runtime/gpu_capability/",
+    "data/lake/advanced_gpu_ml_runtime/cpu_capability/",
+    "data/lake/advanced_gpu_ml_runtime/memory_capability/",
+    "data/lake/advanced_gpu_ml_runtime/cuda/",
+    "data/lake/advanced_gpu_ml_runtime/torch/",
+    "data/lake/advanced_gpu_ml_runtime/sklearn/",
+    "data/lake/advanced_gpu_ml_runtime/numpy_pandas/",
+    "data/lake/advanced_gpu_ml_runtime/dependencies/",
+    "data/lake/advanced_gpu_ml_runtime/accelerators/",
+    "data/lake/advanced_gpu_ml_runtime/environment/",
+    "data/lake/advanced_gpu_ml_runtime/safety_contracts/",
+    "data/lake/advanced_gpu_ml_runtime/permission_policies/",
+    "data/lake/advanced_gpu_ml_runtime/training_disabled/",
+    "data/lake/advanced_gpu_ml_runtime/inference_disabled/",
+    "data/lake/advanced_gpu_ml_runtime/target_label_disabled/",
+    "data/lake/advanced_gpu_ml_runtime/artifact_governance/",
+    "data/lake/advanced_gpu_ml_runtime/ml_input_contracts/",
+    "data/lake/advanced_gpu_ml_runtime/no_lookahead_input_contracts/",
+    "data/lake/advanced_gpu_ml_runtime/metadata_only_news_input_contracts/",
+    "data/lake/advanced_gpu_ml_runtime/source_preservation_input_contracts/",
+    "data/lake/advanced_gpu_ml_runtime/manual_review/",
+    "data/lake/advanced_gpu_ml_runtime/findings/",
+    "data/lake/advanced_gpu_ml_runtime/scoring/",
+    "data/lake/advanced_gpu_ml_runtime/manifest/",
+    "data/lake/advanced_gpu_ml_runtime/health/",
+    "data/lake/advanced_gpu_ml_runtime/validation/",
+    "data/lake/advanced_gpu_ml_runtime/safety/",
+    "data/lake/advanced_gpu_ml_runtime/handoff/",
+    "reports/output/advanced_gpu_ml_runtime/",
+    "reports/output/advanced_gpu_ml_runtime/csv/",
+    "reports/output/advanced_gpu_ml_runtime/markdown/",
+    "reports/output/advanced_gpu_ml_runtime/txt/",
+    "reports/output/advanced_gpu_ml_runtime/json/",
+    "docs/generated/advanced_gpu_ml_runtime/",
+    "docs/generated/advanced_gpu_ml_runtime/hardware/",
+    "docs/generated/advanced_gpu_ml_runtime/capability/",
+    "docs/generated/advanced_gpu_ml_runtime/contracts/",
+    "docs/generated/advanced_gpu_ml_runtime/manifest/",
+    "docs/generated/advanced_gpu_ml_runtime/handoff/",
+]
+for p in phase_136_paths:
+    Path(p).mkdir(parents=True, exist_ok=True)
+
 def ensure_project_directories():
     for p in (
         phase_110_paths
@@ -1310,8 +1486,14 @@ def ensure_project_directories():
         + phase_130_paths
         + phase_131_paths
         + phase_132_paths
+        + phase_133_paths
+        + phase_134_paths
+        + phase_135_paths
+        + phase_136_paths
     ):
         Path(p).mkdir(parents=True, exist_ok=True)
+
+
 
     # data/lake/advanced_economic_calendar/schemas
     # data/lake/advanced_economic_calendar/surprise

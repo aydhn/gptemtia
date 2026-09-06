@@ -1,0 +1,5 @@
+contract_id,rule_name,enforced,status_label,details,non_signal,source_preserved,official_approval,production_ready,broker_ready
+news_contract_no_article_body,Prohibit Article Body and Full Text,True,runtime_ready,Zero full article copies or unvetted text allowed into input matrices.,True,True,False,False,False
+news_contract_no_html,Prohibit Scraped HTML and DOM Content,True,runtime_ready,Zero scraped page HTML or DOM structures permitted in ML pipelines.,True,True,False,False,False
+news_contract_no_embeddings,Prohibit Text Embeddings and Vectors,True,runtime_ready,Zero vector database or embedding generation allowed in ML inputs.,True,True,False,False,False
+news_contract_metadata_only,Permit Structured Metadata Attributes Only,True,runtime_ready,"Only structured categorical metadata (source_name, event_topic, timestamp) permitted.",True,True,False,False,False

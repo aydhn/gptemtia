@@ -1,0 +1,13 @@
+{
+  "domain": "regime_block_acceptance_score_domain",
+  "active_profile": "balanced_local_regime_acceptance",
+  "acceptance_score": 1.0,
+  "classification": "acceptance_pass",
+  "is_acceptable": true,
+  "non_signal": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false,
+  "model_training_ready": false,
+  "status": "READY"
+}

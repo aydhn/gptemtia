@@ -1,0 +1,7 @@
+{
+  "total_rules": 7,
+  "source_preservation_enforced": true,
+  "profile_name": "balanced_local_regime_validation_acceptance",
+  "non_signal": true,
+  "source_preserved": true
+}

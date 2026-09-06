@@ -1,0 +1,5 @@
+check_id,check_name,description,passed,status,enforced_direction,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+ASOF_01_DIRECTION_BACKWARD,direction_backward_enforcement,Verifies that all pandas.merge_asof calls specify direction='backward'.,True,acceptance_pass,backward,balanced_local_regime_validation_acceptance,True,True,False,False,False
+ASOF_02_REJECT_FORWARD,reject_forward_asof_direction,Prohibits direction='forward' which leaks future state observations into historical bars.,True,acceptance_pass,backward,balanced_local_regime_validation_acceptance,True,True,False,False,False
+ASOF_03_REJECT_NEAREST,reject_nearest_asof_direction,Prohibits direction='nearest' which can bind post-bar observations.,True,acceptance_pass,backward,balanced_local_regime_validation_acceptance,True,True,False,False,False
+ASOF_04_INPUT_IMMUTABILITY,immutable_input_dataframe_guarantee,Guarantees that merge_asof operations produce a copy and never mutate input series in-place.,True,acceptance_pass,backward,balanced_local_regime_validation_acceptance,True,True,False,False,False

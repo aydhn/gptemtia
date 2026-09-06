@@ -1,0 +1,31 @@
+# Phase 135: Regime Block Acceptance Gate Evaluation Report
+
+> [!CAUTION]
+> **PHASE 135 YÖNETİŞİM VE NON-SIGNAL UYARISI**
+> Bu çıktı Phase 135 Regime Classification Acceptance Report raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, rejim/validation/acceptance/FeatureStore değerini trade sinyali olarak kullanma, strateji üretimi, backtest, optimizer, model training, clustering execution, prediction/target/label üretimi, sentiment model output, haber tam metni/article body/raw content/scraped HTML/embedding/vector kullanımı, production-ready/official approval/broker-ready iddiası, production deployment, model deployment, scraping veya gerçek provider API çağrısı değildir.
+
+## Summary
+- **Total Gates**: 17
+- **Passed Gates**: 17
+- **All Passed**: True
+
+## Gate Evaluations
+| gate_id | gate_name | category | description | passed | status_label | details |
+| --- | --- | --- | --- | --- | --- | --- |
+| module_import_gate | Module Import Gate | architecture | All 10 modules in the regime block (Phases 126-135) can be cleanly imported without syntax or dependency errors. | True | acceptance_pass | Import verified for all advanced_regime_* modules. |
+| script_contract_gate | Script Contract Gate | automation | All runner scripts for Phases 126-135 exist and follow standardized CLI / non-signal execution contracts. | True | acceptance_pass | Verified 10 runner scripts per phase. |
+| test_contract_gate | Test Contract Gate | verification | Comprehensive pytest suites exist for all Phase 126-135 modules and assert zero-leakage invariants. | True | acceptance_pass | All unit and contract test files verified. |
+| datalake_contract_gate | DataLake Contract Gate | storage | DataLake persistence methods exist for saving/loading all regime registries, reports, and manifests. | True | acceptance_pass | DataLake save/load contracts verified. |
+| featurestore_contract_gate | FeatureStore Contract Gate | feature_store | FeatureStore exposes access to regime catalogs, namespaces, schemas, and accepted references. | True | acceptance_pass | FeatureStore integration contracts satisfied. |
+| documentation_gate | Documentation Gate | governance | All project manuals, architecture specs, roadmap, and safe usage guides are updated with Phase 126-135 specs. | True | acceptance_pass | Core markdown documentation audited. |
+| non_signal_gate | Non-Signal Enforcement Gate | safety | No module produces buy/sell signals, directional stances, position sizes, or trade recommendations. | True | acceptance_pass | Strict non-signal compliance verified across all regime outputs. |
+| no_lookahead_gate | No-Lookahead Leakage Gate | safety | Strict timestamp ordering and backward asof joins prevent any future data contamination or shift(-1) leakage. | True | acceptance_pass | Zero forward-looking return or leakage detected. |
+| metadata_only_news_gate | Metadata-Only News Gate | safety | News ingestion is strictly metadata-only; zero full articles, scraped HTML, sentiment outputs, or embeddings. | True | acceptance_pass | Full text, web scraping, and NLP embedding generation strictly blocked. |
+| forbidden_column_gate | Forbidden Column Gate | safety | All datasets and FeatureStore entities are clean of forbidden target, label, return, or signal column names. | True | acceptance_pass | Forbidden column policies verified across all catalogs. |
+| source_preservation_gate | Source Preservation Gate | data_integrity | Raw source data remains pristine with zero overwrites, destructive cleaning, or auto-imputation. | True | acceptance_pass | Source preservation policies strictly active. |
+| target_label_prediction_absence_gate | Target/Label/Prediction Absence Gate | safety | No supervised targets, pseudo-labels with directional bias, or model predictions exist in the outputs. | True | acceptance_pass | Absence of predictive outputs verified. |
+| model_execution_absence_gate | Model Execution Absence Gate | safety | Zero model training, fitting, clustering execution, or unsupervised learning occurred in the regime block. | True | acceptance_pass | Only schema, preparation contracts, and diagnostics were computed. |
+| no_broker_live_gate | No Broker / No Live Trading Gate | safety | Zero broker API connections, credentials, order execution engines, or trading interfaces are active. | True | acceptance_pass | Live trading flags strictly False. |
+| no_deployment_gate | No Deployment Gate | safety | Zero cloud deployments, production pushes, Docker containers, or web servers deployed. | True | acceptance_pass | Local/offline research constraints fully preserved. |
+| manual_review_gate | Manual Review Gate | governance | All manual review items are cataloged without destructive auto-resolution suggestions. | True | acceptance_pass | Manual review ledger validated. |
+| phase_136_handoff_gate | Phase 136 ML/GPU Handoff Gate | handoff | Accepted contracts and governance baseline establish a clean handoff to Phase 136 GPU/ML runtime. | True | acceptance_pass | Phase 136 handoff report generated and verified. |

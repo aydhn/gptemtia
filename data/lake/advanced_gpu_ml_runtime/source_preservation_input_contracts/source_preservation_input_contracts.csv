@@ -1,0 +1,4 @@
+contract_id,rule_name,enforced,status_label,details,non_signal,source_preserved,official_approval,production_ready,broker_ready
+sp_immutable_data_lake,DataLake Read-Only Access for ML,True,runtime_ready,ML feature matrices and datasets must never overwrite raw historical DataLake records.,True,True,False,False,False
+sp_no_auto_drop,Prohibit Silent Auto-Drop of Features,True,runtime_ready,Columns and records must not be discarded silently without explicit governance tracking.,True,True,False,False,False
+sp_no_auto_impute,Prohibit Synthetic Auto-Imputation,True,runtime_ready,Missing values must be flagged explicitly rather than filled with heuristic guesses.,True,True,False,False,False

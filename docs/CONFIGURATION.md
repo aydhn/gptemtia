@@ -1017,6 +1017,166 @@ Phase 109 Macro Provider Configuration
 ### 4. Phase 133 Handoff
 - Phase 132, 42 kayıt defteri ve veri seti, makro ve takvim olay pencereleri, yalnızca metaveri haber etiketleri, çapraz varlık duyarlılığı, no-lookahead korumaları, MANIFEST_VALID bütünlük manifestosu ve Phase 133 (Regime Validation and No-Lookahead Acceptance) için doğrulanmış 13 devir maddesini teslim eder (`phase_133_handoff.py`).
 
+## Phase 133 Regime Validation and No-Lookahead Acceptance Configuration
+### 1. Çalışma Profilleri
+- `DEFAULT_REGIME_VALIDATION_ACCEPTANCE_PROFILE`: Çalışma profilini belirler (`balanced_local_regime_validation_acceptance`, `strict_no_lookahead_regime_safety`, `dry_run_regime_acceptance_focus`).
+  - `balanced_local_regime_validation_acceptance`: Varsayılan dengeli yerel araştırma profili. 19 kanonik kabul geçidi, no-lookahead ve zaman damgası doğrulaması, yalnızca metaveri haber denetimi, 6 bileşen kabulü ve 1.0 bileşik kabul skoru.
+  - `strict_no_lookahead_regime_safety`: Sıkı no-lookahead, sıfır tolerans, geriye dönük asof birleştirme (`direction='backward'`), yasaklı kolon karantinası ve sıfır-sinyal öncelikli güvenlik profili.
+  - `dry_run_regime_acceptance_focus`: Sentetik şemalar, fikstürler ve sözleşme doğrulaması odaklı kuru koşum profili.
+
+### 2. Güvenlik, Non-Signal ve Sözleşme Ayarları
+- `ADVANCED_REGIME_VALIDATION_ACCEPTANCE_ENABLED=true`: Phase 133 katmanının aktifliği.
+- `REGIME_VALIDATION_ACCEPTANCE_CURRENT_PHASE=133`: Mevcut operasyonel faz.
+- `REGIME_VALIDATION_ACCEPTANCE_TARGET_FINAL_PHASE=160`: Nihai mimari hedefi.
+- `REGIME_VALIDATION_ACCEPTANCE_NEXT_PHASE=134`: Sıradaki faz (Regime FeatureStore Integration).
+- `REGIME_VALIDATION_ACCEPTANCE_DRY_RUN_DEFAULT=true`: Varsayılan kuru koşum modu.
+- `REGIME_VALIDATION_ACCEPTANCE_LOCAL_ONLY=true`: Yalnızca yerel çevrimdışı ortamda çalışma kısıtı.
+- `REGIME_VALIDATION_ACCEPTANCE_RESEARCH_ONLY=true`: Yalnızca araştırma ve rejim kabul amaçlı çalışma.
+- `REGIME_VALIDATION_ACCEPTANCE_ALLOW_LIVE_TRADING=false`: Canlı ticaret kesinlikle yasaktır.
+- `REGIME_VALIDATION_ACCEPTANCE_ALLOW_BROKER_INTEGRATION=false`: Broker entegrasyonu kesinlikle yasaktır.
+- `REGIME_VALIDATION_ACCEPTANCE_ALLOW_INVESTMENT_ADVICE=false`: Yatırım tavsiyesi kesinlikle yasaktır.
+- `REGIME_VALIDATION_ACCEPTANCE_ALLOW_ACCEPTANCE_AS_SIGNAL=false`: Kabul sonuçlarının trade sinyali olarak kullanımı yasaktır.
+- `REGIME_VALIDATION_ACCEPTANCE_ALLOW_MODEL_TRAINING=false`: Model eğitimi veya fit operasyonu yasaktır.
+- `REGIME_VALIDATION_ACCEPTANCE_ALLOW_CLUSTERING_EXECUTION=false`: Kümeleme algoritmaları çalıştırılamaz.
+- `REGIME_VALIDATION_ACCEPTANCE_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `REGIME_VALIDATION_ACCEPTANCE_ALLOW_NLP_SENTIMENT_MODEL=false`: NLP duygu modelleri kullanımı yasaktır.
+- `REGIME_VALIDATION_ACCEPTANCE_ALLOW_LOOKAHEAD=false`: Geleceğe bakış sızıntısı yasaktır.
+- `REGIME_VALIDATION_ACCEPTANCE_ALLOW_SOURCE_OVERWRITE=false`: Kaynak tablolar ezilemez (`source_preserved: True`).
+- `REGIME_VALIDATION_ACCEPTANCE_ALLOW_AUTO_IMPUTATION=false`: Otomatik veri doldurma yasaktır.
+- `REGIME_VALIDATION_ACCEPTANCE_ALLOW_AUTO_FEATURE_DROP=false`: Otomatik özellik silme yasaktır.
+
+### 3. Kabul Eşikleri ve Parametreleri
+- `REGIME_VALIDATION_ACCEPTANCE_MIN_SCORE=0.80`: Minimum kabul edilebilir genel blok skoru.
+- `REGIME_VALIDATION_ACCEPTANCE_REQUIRE_ALL_GATES_PASS=true`: Tüm 19 kabul geçidinin başarıyla geçme zorunluluğu.
+- `REGIME_VALIDATION_ACCEPTANCE_TIMEZONE="UTC"`: Standart zaman dilimi.
+
+### 4. Phase 134 Handoff
+- Phase 133, 19 kanonik kabul geçidini, no-lookahead ve geriye dönük asof doğrulamalarını, haber metaveri sınır belgelerini, bileşen kabul raporlarını, MANIFEST_VALID bütünlük manifestosunu ve Phase 134 (Regime FeatureStore Integration) için doğrulanmış 14 devir maddesini teslim eder (`phase_134_handoff.py`).
+
+## Phase 134 Regime FeatureStore Integration Configuration
+### 1. Çalışma Profilleri
+- `DEFAULT_REGIME_FEATURESTORE_PROFILE`: Çalışma profilini belirler (`balanced_local_regime_featurestore_integration`, `strict_metadata_only_featurestore`, `dry_run_featurestore_focus`).
+  - `balanced_local_regime_featurestore_integration`: Varsayılan dengeli yerel FeatureStore profili. 10 kanonik sözleşme, 10 varlık, 16 alanlık şema, 8 bileşen kataloğu, 21 kabul edilmiş referans ve 1.0 hazır bulunuşluk skoru.
+  - `strict_metadata_only_featurestore`: Sıkı metaveri odaklı, sıfır-tam-metin, sıfır-duygu-modeli ve sıfır-vektör güvenlik profili.
+  - `dry_run_featurestore_focus`: Kuru koşum ve sözleşme bütünlüğü odaklı profil.
+
+### 2. Güvenlik, Non-Signal ve Sözleşme Ayarları
+- `ADVANCED_REGIME_FEATURESTORE_INTEGRATION_ENABLED=true`: Phase 134 katmanının aktifliği.
+- `REGIME_FEATURESTORE_CURRENT_PHASE=134`: Mevcut operasyonel faz.
+- `REGIME_FEATURESTORE_TARGET_FINAL_PHASE=160`: Nihai mimari hedefi.
+- `REGIME_FEATURESTORE_NEXT_PHASE=135`: Sıradaki faz (Regime Classification Acceptance Report).
+- `REGIME_FEATURESTORE_DRY_RUN_DEFAULT=true`: Varsayılan kuru koşum modu.
+- `REGIME_FEATURESTORE_LOCAL_ONLY=true`: Yalnızca yerel çevrimdışı ortamda çalışma kısıtı.
+- `REGIME_FEATURESTORE_RESEARCH_ONLY=true`: Yalnızca araştırma ve rejim depolama amaçlı çalışma.
+- `REGIME_FEATURESTORE_ALLOW_LIVE_TRADING=false`: Canlı ticaret kesinlikle yasaktır.
+- `REGIME_FEATURESTORE_ALLOW_BROKER_INTEGRATION=false`: Broker entegrasyonu kesinlikle yasaktır.
+- `REGIME_FEATURESTORE_ALLOW_INVESTMENT_ADVICE=false`: Yatırım tavsiyesi kesinlikle yasaktır.
+- `REGIME_FEATURESTORE_ALLOW_STORE_AS_SIGNAL=false`: FeatureStore kayıtlarının trade sinyali olarak kullanımı yasaktır.
+- `REGIME_FEATURESTORE_ALLOW_MODEL_TRAINING=false`: Model eğitimi veya fit operasyonu yasaktır.
+- `REGIME_FEATURESTORE_ALLOW_CLUSTERING_EXECUTION=false`: Kümeleme algoritmaları çalıştırılamaz.
+- `REGIME_FEATURESTORE_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `REGIME_FEATURESTORE_ALLOW_NLP_SENTIMENT_MODEL=false`: NLP duygu modelleri kullanımı yasaktır.
+- `REGIME_FEATURESTORE_ALLOW_LOOKAHEAD=false`: Geleceğe bakış sızıntısı yasaktır.
+- `REGIME_FEATURESTORE_ALLOW_SOURCE_OVERWRITE=false`: Kaynak tablolar ezilemez (`source_preserved: True`).
+- `REGIME_FEATURESTORE_ALLOW_AUTO_IMPUTATION=false`: Otomatik veri doldurma yasaktır.
+- `REGIME_FEATURESTORE_ALLOW_AUTO_FEATURE_DROP=false`: Otomatik özellik silme yasaktır.
+
+### 3. Depolama ve Sorgu Parametreleri
+- `REGIME_FEATURESTORE_READINESS_MIN_SCORE=0.80`: Minimum kabul edilebilir hazır bulunuşluk skoru.
+- `REGIME_FEATURESTORE_TIMEZONE="UTC"`: Standart zaman dilimi.
+- `REGIME_FEATURESTORE_ENFORCE_NON_SIGNAL=true`: Tüm kayıt ve sözleşmelerde non-signal zorunluluğu.
+- `REGIME_FEATURESTORE_ENFORCE_SOURCE_PRESERVATION=true`: Kaynak dokunulmazlığı zorunluluğu.
+
+### 4. Phase 135 Handoff
+- Phase 134, 10 kanonik FeatureStore sözleşmesini, 10 varlığı, 16 alanlık şemayı, 8 bileşen kataloğunu, 21 kabul edilmiş referansı, 12 bağımlılığı, 9 soykütüğü adımını, 0 aktif engelleyiciyi, MANIFEST_VALID manifestosunu ve Phase 135 (Regime Classification Acceptance Report) için doğrulanmış 14 devir maddesini teslim eder (`phase_135_handoff.py`).
+
+## Phase 135 Regime Classification Acceptance Report Configuration
+### 1. Çalışma Profilleri
+- `DEFAULT_REGIME_ACCEPTANCE_PROFILE`: Çalışma profilini belirler (`balanced_local_regime_acceptance`, `strict_non_signal_regime_block_acceptance`, `dry_run_regime_manifest_focus`).
+  - `balanced_local_regime_acceptance`: Varsayılan dengeli yerel blok kabul profili. 17 kanonik kabul geçidi, 10 bileşen envanteri, 6 uyumluluk denetimi, 10 inceleme kuyruğu ve 1.0 kompozit skor.
+  - `strict_non_signal_regime_block_acceptance`: Sıkı non-signal ve model eğitilmeme denetimlerini en üst düzeyde tutan profil.
+  - `dry_run_regime_manifest_focus`: Kuru koşum ve imzalı blok manifestosu odaklı profil.
+
+### 2. Güvenlik, Non-Signal ve Blok Kabul Ayarları
+- `ADVANCED_REGIME_ACCEPTANCE_ENABLED=true`: Phase 135 katmanının aktifliği.
+- `REGIME_ACCEPTANCE_CURRENT_PHASE=135`: Mevcut operasyonel faz.
+- `REGIME_ACCEPTANCE_TARGET_FINAL_PHASE=160`: Nihai mimari hedefi.
+- `REGIME_ACCEPTANCE_NEXT_PHASE=136`: Sıradaki faz (GPU Acceleration and Advanced ML Runtime Foundation).
+- `REGIME_ACCEPTANCE_DRY_RUN_DEFAULT=true`: Varsayılan kuru koşum modu.
+- `REGIME_ACCEPTANCE_LOCAL_ONLY=true`: Yalnızca yerel çevrimdışı ortamda çalışma kısıtı.
+- `REGIME_ACCEPTANCE_RESEARCH_ONLY=true`: Yalnızca araştırma ve blok kabul amaçlı çalışma.
+- `REGIME_ACCEPTANCE_ALLOW_LIVE_TRADING=false`: Canlı ticaret kesinlikle yasaktır.
+- `REGIME_ACCEPTANCE_ALLOW_BROKER_INTEGRATION=false`: Broker entegrasyonu kesinlikle yasaktır.
+- `REGIME_ACCEPTANCE_ALLOW_INVESTMENT_ADVICE=false`: Yatırım tavsiyesi kesinlikle yasaktır.
+- `REGIME_ACCEPTANCE_ALLOW_ACCEPTANCE_AS_SIGNAL=false`: Kabul çıktılarının veya skorlarının trade sinyali olarak kullanımı yasaktır.
+- `REGIME_ACCEPTANCE_ALLOW_MODEL_TRAINING=false`: Model eğitimi veya fit operasyonu yasaktır.
+- `REGIME_ACCEPTANCE_ALLOW_CLUSTERING_EXECUTION=false`: Kümeleme algoritmaları çalıştırılamaz.
+- `REGIME_ACCEPTANCE_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `REGIME_ACCEPTANCE_ALLOW_NLP_SENTIMENT_MODEL=false`: NLP duygu modelleri kullanımı yasaktır.
+- `REGIME_ACCEPTANCE_ALLOW_LOOKAHEAD=false`: Geleceğe bakış sızıntısı yasaktır.
+- `REGIME_ACCEPTANCE_ALLOW_SOURCE_OVERWRITE=false`: Kaynak tablolar ezilemez (`source_preserved: True`).
+- `REGIME_ACCEPTANCE_ALLOW_AUTO_IMPUTATION=false`: Otomatik veri doldurma yasaktır.
+- `REGIME_ACCEPTANCE_ALLOW_AUTO_FEATURE_DROP=false`: Otomatik özellik silme yasaktır.
+- `REGIME_ACCEPTANCE_ALLOW_OFFICIAL_APPROVAL_CLAIM=false`: Resmi onay iddiası yasaktır.
+- `REGIME_ACCEPTANCE_ALLOW_PRODUCTION_READY_CLAIM=false`: Canlıya/üretime hazır olma iddiası yasaktır.
+
+### 3. Kabul ve Eşik Parametreleri
+- `REGIME_ACCEPTANCE_MIN_COMPOSITE_SCORE=0.85`: Minimum kabul edilebilir bileşik skor eşiği.
+- `REGIME_ACCEPTANCE_REQUIRE_ALL_GATES_PASS=true`: Tüm 17 kabul geçidinin başarıyla geçme zorunluluğu.
+- `REGIME_ACCEPTANCE_TIMEZONE="UTC"`: Standart zaman dilimi.
+- `REGIME_ACCEPTANCE_ENFORCE_NON_SIGNAL=true`: Tüm rapor ve manifestolarda non-signal zorunluluğu.
+- `REGIME_ACCEPTANCE_ENFORCE_SOURCE_PRESERVATION=true`: Kaynak dokunulmazlığı zorunluluğu.
+
+### 4. Phase 136 Handoff
+- Phase 135, Phase 126-135 rejim ve piyasa davranışı bloğunu nihai kabul raporuna ve imzalı manifestoya bağlar, 17 kabul geçidini, 10 bileşen kabulünü, 6 uyumluluk raporunu ve Phase 136 (GPU Acceleration and Advanced ML Runtime Foundation) için 14 doğrulanmış devir önkoşulunu teslim eder (`phase_136_handoff.py`).
+
+## Phase 136 GPU Acceleration and Advanced ML Runtime Foundation Configuration
+### 1. Çalışma Profilleri
+- `DEFAULT_GPU_ML_RUNTIME_PROFILE`: Çalışma profilini belirler (`cpu_only_safe_baseline`, `balanced_local_ml_runtime`, `gpu_accelerated_research_ready`).
+  - `cpu_only_safe_baseline`: CPU tabanlı güvenli temel profil. GPU hızlandırıcı kullanılmaz veya mevcut değilse güvenli geri çekilme sağlar.
+  - `balanced_local_ml_runtime`: Varsayılan dengeli yerel ML runtime profili. CPU/GPU donanım keşfi, Torch/Sklearn/Numpy bağımlılık denetimleri, 12 güvenlik sözleşmesi ve 1.0 hazır bulunuşluk skoru.
+  - `gpu_accelerated_research_ready`: GPU yeteneklerinin aktif olarak incelendiği ve doğrulanmış donanım hızlandırma önkoşullarının araştırıldığı profil.
+
+### 2. Güvenlik, Non-Signal ve Sözleşme Ayarları
+- `ADVANCED_GPU_ML_RUNTIME_ENABLED=true`: Phase 136 katmanının aktifliği.
+- `GPU_ML_RUNTIME_CURRENT_PHASE=136`: Mevcut operasyonel faz.
+- `GPU_ML_RUNTIME_TARGET_FINAL_PHASE=160`: Nihai mimari hedefi.
+- `GPU_ML_RUNTIME_NEXT_PHASE=137`: Sıradaki faz (Advanced Feature Transformation, Normalization & Scaling for ML).
+- `GPU_ML_RUNTIME_DRY_RUN_DEFAULT=true`: Varsayılan kuru koşum modu.
+- `GPU_ML_RUNTIME_LOCAL_ONLY=true`: Yalnızca yerel çevrimdışı ortamda çalışma kısıtı.
+- `GPU_ML_RUNTIME_RESEARCH_ONLY=true`: Yalnızca araştırma ve ML altyapı hazırlığı amaçlı çalışma.
+- `GPU_ML_RUNTIME_ALLOW_LIVE_TRADING=false`: Canlı ticaret kesinlikle yasaktır.
+- `GPU_ML_RUNTIME_ALLOW_BROKER_INTEGRATION=false`: Broker entegrasyonu kesinlikle yasaktır.
+- `GPU_ML_RUNTIME_ALLOW_INVESTMENT_ADVICE=false`: Yatırım tavsiyesi kesinlikle yasaktır.
+- `GPU_ML_RUNTIME_ALLOW_RUNTIME_AS_SIGNAL=false`: Donanım ve runtime çıktılarının trade sinyali olarak kullanımı yasaktır.
+- `GPU_ML_RUNTIME_ALLOW_MODEL_TRAINING=false`: Model eğitimi veya fit operasyonu yasaktır.
+- `GPU_ML_RUNTIME_ALLOW_INFERENCE_EXECUTION=false`: Model tahmini veya predict operasyonu yasaktır.
+- `GPU_ML_RUNTIME_ALLOW_TARGET_LABEL_GENERATION=false`: Hedef etiket türetimi yasaktır.
+- `GPU_ML_RUNTIME_ALLOW_CLUSTERING_EXECUTION=false`: Kümeleme algoritmaları çalıştırılamaz.
+- `GPU_ML_RUNTIME_ALLOW_ENSEMBLE_EXECUTION=false`: Ansambl modeller çalıştırılamaz.
+- `GPU_ML_RUNTIME_ALLOW_CALIBRATION_EXECUTION=false`: Olasılık kalibrasyonu çalıştırılamaz.
+- `GPU_ML_RUNTIME_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `GPU_ML_RUNTIME_ALLOW_NLP_SENTIMENT_MODEL=false`: NLP duygu modelleri kullanımı yasaktır.
+- `GPU_ML_RUNTIME_ALLOW_LOOKAHEAD=false`: Geleceğe bakış sızıntısı yasaktır.
+- `GPU_ML_RUNTIME_ALLOW_SOURCE_OVERWRITE=false`: Kaynak tablolar ezilemez (`source_preserved: True`).
+- `GPU_ML_RUNTIME_ALLOW_AUTO_IMPUTATION=false`: Otomatik veri doldurma yasaktır.
+- `GPU_ML_RUNTIME_ALLOW_AUTO_FEATURE_DROP=false`: Otomatik özellik silme yasaktır.
+
+### 3. Donanım ve Hızlandırıcı Eşik Parametreleri
+- `GPU_ML_RUNTIME_PREFER_GPU=true`: GPU mevcut olduğunda hızlandırma profili tercih edilir.
+- `GPU_ML_RUNTIME_FALLBACK_TO_CPU=true`: GPU yoksa sorunsuz CPU geri çekilmesi sağlanır.
+- `GPU_ML_RUNTIME_MIN_GPU_VRAM_GB=4.0`: Araştırma GPU'su için önerilen asgari VRAM.
+- `GPU_ML_RUNTIME_MIN_CPU_CORES=2`: Asgari CPU çekirdek sayısı.
+- `GPU_ML_RUNTIME_MIN_RAM_GB=8.0`: Asgari sistem RAM boyutu.
+- `GPU_ML_RUNTIME_MIN_READINESS_SCORE=0.85`: Minimum kabul edilebilir hazır bulunuşluk skoru.
+- `GPU_ML_RUNTIME_TIMEZONE="UTC"`: Standart zaman dilimi.
+
+### 4. Phase 137 Handoff
+- Phase 136, yerel donanım ve hızlandırıcı keşfini, PyTorch/CUDA ve Scikit-learn/Numpy yeteneklerini, 12 ML güvenlik sözleşmesini, rejim/FeatureStore/no-lookahead girdi sözleşmelerini, MANIFEST_VALID manifestosunu ve Phase 137 (Advanced Feature Transformation, Normalization & Scaling for ML) için 14 doğrulanmış devir önkoşulunu teslim eder (`phase_137_handoff.py`).
+
+
+
+
 
 
 

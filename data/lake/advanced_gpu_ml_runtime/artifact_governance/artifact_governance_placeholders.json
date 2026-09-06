@@ -1,0 +1,13 @@
+{
+  "total_placeholders": 7,
+  "status_label": "runtime_placeholder_only",
+  "zero_artifact_persisted": true,
+  "zero_registry_written": true,
+  "non_signal": true,
+  "source_preserved": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false,
+  "domain": "artifact_governance_placeholder_domain",
+  "active_profile": "balanced_local_gpu_ml_runtime_foundation"
+}

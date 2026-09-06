@@ -1,0 +1,9 @@
+{
+  "total_subsystems": 16,
+  "healthy_subsystems": 16,
+  "all_healthy": true,
+  "health_status": "HEALTHY",
+  "profile_name": "balanced_local_regime_validation_acceptance",
+  "non_signal": true,
+  "source_preserved": true
+}

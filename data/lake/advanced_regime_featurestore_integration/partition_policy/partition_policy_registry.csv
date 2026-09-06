@@ -1,0 +1,9 @@
+partition_type,partition_key,description,non_signal
+by_source_phase,source_phase,Partition metadata by originating lifecycle phase index (e.g. 126..134).,True
+by_store_entity_type,store_entity_type,"Partition by canonical regime entity type (taxonomy, matrix, candidate_state, etc.).",True
+by_component_name,component_name,Partition by originating subsystem package name.,True
+by_validation_acceptance_status,validation_acceptance_status,Partition records by acceptance verification outcome.,True
+by_no_lookahead_status,no_lookahead_accepted,Partition records verifying backward temporal integrity.,True
+by_metadata_only_news_status,metadata_only_news_accepted,Partition news records verifying strict metadata-only purity.,True
+by_manual_review_required,manual_review_required,Partition records isolating items requiring human auditor review.,True
+by_timestamp_bucket_placeholder,timestamp_bucket,Non-directional UTC monthly/quarterly partitioning placeholder.,True

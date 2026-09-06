@@ -1,0 +1,10 @@
+{
+  "total_checks": 7,
+  "passed_checks": 7,
+  "failed_checks": 0,
+  "all_passed": true,
+  "component": "phase_132_macro_event_news",
+  "profile_name": "balanced_local_regime_validation_acceptance",
+  "non_signal": true,
+  "source_preserved": true
+}

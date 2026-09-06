@@ -1,0 +1,5 @@
+Bu rapor Phase 135 Regime Classification Acceptance Report çıktısıdır. Gerçek veri indirme zorunluluğu, scraping, haber tam metni/article body/raw content/scraped HTML/embedding/vector kullanımı, sentiment model output, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, rejim/acceptance/validation/FeatureStore değerini trade sinyali olarak kullanma, strateji/backtest/optimizer/model training/clustering çalıştırma, target/label/prediction üretme, official approval, broker-ready veya production-ready iddiası değildir.
+Compliance Domain: regime_block_non_signal_compliance_domain
+Total Checks: 3
+All Compliant: True
+Non-Signal Maintained: True

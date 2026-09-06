@@ -334,6 +334,89 @@ Local completion governance framework appended.
 - **Phase 133 Handoff**:
   - Phase 133 (Regime Validation and No-Lookahead Acceptance) fazına 13 doğrulanmış devir maddesi ile tam uyumlu aktarım sağlanmıştır.
 
+## Phase 133 Regime Validation and No-Lookahead Acceptance: Analist ve Araştırmacı Rehberi
+- **Rejim Doğrulama ve Kabul Bloğu**: Phase 133, Phase 126-132 arasındaki rejim feature matrisi, aday durumlar, pseudo-durumlar, geçişler, çapraz varlık bağlamları ve makro/olay/haber girdilerini merkezi 19 kabul geçidi altında birleştirir ve doğrular.
+- **19 Kanonik Kabul Geçidi**:
+  - *No-Lookahead ve Zamansal Öncelik*: `context_timestamp <= base_timestamp` temporal sırası garanti edilir. Negatif kaydırma (`shift(-1)`), `lead()` ve geleceğe referans veren etiketler kesinlikle engellenir.
+  - *Geriye Dönük Asof Birleştirme*: Çoklu alan birleştirmelerinde yalnızca backward asof join (`direction='backward'`) kabul edilir. İleriye bakan birleştirmeler geçidi kilitler.
+  - *Artan UTC Zaman Damgası*: Zaman damgalarının kesin artan sırada (strictly monotonic) olması zorunludur.
+  - *Yasaklı Kolon Blokajı*: Matris ve tablolarda `buy`, `sell`, `signal`, `target`, `label`, `prediction`, `recommendation`, `future_return`, `full_text`, `article_body`, `scraped_html` gibi 20 yasaklı kolon taranır ve karantinaya alınır.
+  - *Haber Metaveri Sınırı (Yalnızca Metaveri)*: Haber verileri strictly metadata-only (konu, varlık etiketi, makro tema, olay bağlantısı, zaman damgası) kalmalıdır. Haber tam metni, makale gövdesi, taranmış HTML, NLP duygu modelleri (`sentiment_score`) ve embedding/vektör veri tabanı kullanımı kesinlikle yasaktır.
+  - *Kaynak Koruma (Non-Destructive)*: Girdi DataFrameleri in-place değiştirilmez (`df.copy()` zorunludur). Kaynak tablolar ezilemez, silinemez, otomatik doldurulamaz (`auto-imputation`) veya otomatik silinemez (`auto-drop`).
+  - *Non-Signal Çıktı Güvencesi*: Kabul geçitleri, rejim tanıları ve kabul skorları kesinlikle trade sinyali veya pozisyon tavsiyesi değildir.
+  - *Hedef, Etiket ve Tahmin Yokluğu*: Makine öğrenmesi supervised target, label veya model tahmini (prediction) üretilmediği teyit edilir.
+  - *Sıfır Model Eğitimi ve Sıfır Kümeleme Yürütmesi*: HMM, GMM, KMeans veya herhangi bir kümeleme algoritması eğitilmez, çalıştırılmaz veya tahmin üretmez.
+  - *Bileşen Kabulleri (Phase 127-132)*: Rejim matrisi, aday durumlar, pseudo-durumlar, geçiş analizleri, çapraz varlık bağlamları ve makro/olay/haber girdileri kabul sözleşmeleriyle onaylanır.
+  - *Bağımlılık ve Kalite Kabulleri*: Phase 126-132 arasındaki tüm upstream doğrulama ve kalite bağımlılıkları eksiksiz doğrulanır.
+  - *Manuel İnceleme ve Skorlama Eşiği*: 8 maddelik manuel inceleme kuyruğu ve 1.0 bileşik kabul skoru (`high_acceptance_integrity`) teyit edilir.
+- **Kabul Skoru Analizi**:
+  - Skor [0.0, 1.0] aralığında ceza ağırlıklı iç teşhis ve kabul metriğidir (harf notu A).
+  - Skorun 1.0 olması kârlılık, finansal getiri veya canlıya geçiş onayı (`official_approval: False`, `production_ready: False`, `broker_ready: False`) anlamına kesinlikle gelmez.
+- **Phase 134 Handoff**:
+  - Phase 134 (Regime FeatureStore Integration) için 14 yapılandırılmış devir maddesi ile tam uyumlu aktarım sağlanmıştır.
+
+## Phase 134 Regime FeatureStore Integration: Analist ve Araştırmacı Rehberi
+- **Rejim FeatureStore Entegrasyon Katmanı**: Phase 134, Phase 126-133 arasında geliştirilen rejim taksonomisi, rejim matrisi, aday durumlar, pseudo-durumlar, geçiş dinamikleri, çapraz varlık bağlamları, makro/olay/haber metaveri bağlamları ve doğrulama kabul çıktılarını FeatureStore/DataLake ekosistemine validation-aware ve non-signal sözleşmelerle entegre eder.
+- **10 Kanonik FeatureStore Sözleşmesi**:
+  - *Okuma Sözleşmeleri*: Yalnızca yerel dosya sistemi (parquet, csv, json) üzerinden yerel okuma yapılır. Dış ağ çağrısı, kimlik bilgisi (credential), canlı emir veya tahmin sorguları kesinlikle yasaktır.
+  - *Yazma Sözleşmeleri*: Yalnızca metaveri ekleme (`metadata_append`) ve zaman damgalı anlık görüntü (`metadata_snapshot`) izinlidir. Kaynak veri ezme, silme, tahribatlı temizlik, otomatik doldurma (`auto_imputation`) ve otomatik özellik düşürme (`auto_feature_drop`) kesinlikle yasaktır.
+  - *Sorgu Sözleşmeleri*: Yalnızca izinli metaveri filtreleri (`store_entity_type`, `source_phase`, `component_name`, `validation_acceptance_status`, `no_lookahead_status`, `metadata_only_news_status`, `manual_review_required`, `non_signal`) kullanılabilir. `buy`, `sell`, `signal`, `target`, `prediction`, `recommendation`, `production_approval` gibi 12 yasaklı terim sorgulanamaz.
+  - *Zorunlu Doğrulama Bağımlılıkları*: Her yazma ve saklama işleminde Phase 133 doğrulama kabulü, no-lookahead güvencesi ve haber metaveri saflığı referansları aranır.
+- **8 Bileşen Deposu Kataloğu**:
+  - *Taxonomy*: Phase 126 taksonomik rejim aileleri (Low Vol, High Vol, Trend, Mean Reversion).
+  - *Matrix*: Phase 127 çoklu zaman dilimli (Daily, Weekly, Hourly) rejim matris sözleşmeleri.
+  - *Candidate States*: Phase 128 aday özellik grupları (FX, Emtia, Makro).
+  - *Pseudo States*: Phase 128 kural tabansız pseudo-durumlar (Quiet, Normal, Distressed).
+  - *Transition*: Phase 130 ampirik rejim geçiş sıklıkları ve kalıcılık metrikleri.
+  - *Cross-Asset*: Phase 131 çoklu pazar uyum ve ıraksama rejim bağlamları.
+  - *Macro/Event/News*: Phase 132 ekonomik takvim ve strictly metadata-only haber bağlamları.
+  - *Validation Acceptance*: Phase 133 merkezi kabul kapıları ve onay referansları.
+- **Kabul Edilmiş Referanslar ve Soykütüğü**:
+  - 21 kabul edilmiş referans (6 no-lookahead, 5 strictly metadata-only haber, 5 kaynak koruma, 5 kesin non-signal).
+  - 9 uçtan uca soykütüğü adımı (Phase 126 -> Phase 134) ile FeatureStore kayıtlarının hangi girdi ve kabul aşamalarından geçtiği açıkça izlenir.
+- **Yasaklı Kolon ve İddia Politikaları**:
+  - 23 yasaklı kolon ve 14 yasaklı iddia deseni taranır. FeatureStore tablolarında al/sat sinyali, pozisyon açma yönü, model tahmini veya getiri projeksiyonu bulunamaz.
+- **Hazır Bulunuşluk Skoru ve Bütünlük**:
+  - `readiness_score: 1.0` olup tüm bileşenlerin depolama sözleşmelerine tam uyumlu olduğunu gösterir. Bu skor bir yatırım tavsiyesi, kârlılık metriği veya canlı işlem onayı (`production_ready: False`, `broker_ready: False`) değildir.
+- **Phase 135 Handoff**:
+  - Phase 135 (Regime Classification Acceptance Report) için 14 yapılandırılmış devir maddesi ile tam uyumlu aktarım sağlanmıştır.
+
+## Phase 135 Regime Classification Acceptance Report and Block Finalization: Analist ve Araştırmacı Rehberi
+- **Rejim ve Piyasa Davranışı Bloğu Nihai Kabulü**: Phase 135, Phase 126-134 arasındaki 10 fazlık rejim sınıflandırma ve piyasa davranışı bloğunu tek bir kabul raporu, blok envanteri, bağımlılık DAG'ı, 17 kabul kapısı, 1.0 kompozit skor, 6 boyutlu uyumluluk denetimi ve imzalı blok manifestosu ile kapatır.
+- **17 Kanonik Blok Kabul Geçidi**:
+  - Phase 126-134 fazlarının tamamlanması, no-lookahead uyumu, strictly metadata-only haber doğrulaması, kaynak veri korunumu, non-signal teminatı, FeatureStore entegrasyonu, dokümantasyon, betik ve test sözleşmeleri tamlığı.
+- **1.0 Kompozit Kabul Skoru ve Yorumu**:
+  - `composite_acceptance_score = 1.0`, `acceptance_tier = HIGH_INTEGRITY`.
+  - Bu skor, 10 fazlık rejim bloğunun mimari, sözleşmesel ve teknik bütünlük standardını gösterir.
+  - Kesinlikle getiri beklentisi, kârlılık garantisi, resmi onay veya canlı işlem izni (`official_approval: False`, `production_ready: False`, `broker_ready: False`) değildir.
+- **Non-Signal ve Model Eğitimi Yokluğu Manifestosu**:
+  - Rejim etiketleri, geçiş analizleri ve çevresel bağlamlar alım-satım kararları veya ticaret sinyalleri için kullanılamaz.
+  - Bu blokta hiçbir denetimli/denetimsiz model (HMM, GMM, KMeans vb.) eğitilmemiştir, uydurulmamıştır (fit) veya tahmin üretmemiştir.
+- **Sıfır Yıkıcı Eylem ve Kaynak Veri Korunumu**:
+  - Ham kaynak verilerin ezilmesi, silinmesi, otomatik doldurma (`auto_imputation`) ve otomatik özellik düşürme (`auto_feature_drop`) yasaklanmıştır.
+  - 10 maddelik tahribatsız manuel inceleme kuyruğu ile 0 aktif engelleyici tespit edilmiştir.
+- **Phase 136 Handoff (GPU Acceleration and Advanced ML Runtime Foundation)**:
+  - Phase 136'ya devir için 14 önkoşul maddesi (rejim matrisleri, FeatureStore katalogları, no-lookahead referansları, donanım/bellek sınırları, soykütüğü) eksiksiz doğrulanmış ve durum READY olarak işaretlenmiştir.
+
+## Phase 136 GPU Acceleration and Advanced ML Runtime Foundation: Analist ve Araştırmacı Rehberi
+- **Yerel Donanım ve Hızlandırıcı Temeli**: Phase 136, Phase 136-145 bloğunun (GPU hızlandırma, ML, ensemble, kalibrasyon, drift, explainability) ilk fazı olarak local/offline donanım keşfi ve ML bağımlılık denetimi sağlar.
+- **GPU ve CUDA Destek Sınırları**:
+  - NVIDIA GPU ve CUDA ortamı güvenli biçimde taranır. CUDA bulunamadığında sistem otomatik ve kesintisiz olarak CPU fallback modunda çalışır.
+  - PyTorch ve Scikit-Learn varlığı denetlenir ancak hiçbir tensör tahsisi yapılmaz, hiçbir model eğitilmez veya çalıştırılmaz.
+- **12 Uygulanabilir Güvenlik Sözleşmesi ve İzin Politikaları**:
+  - Model eğitimi (`fit`, `train`, `backward`), model çıkarımı (`predict`, `transform`), hedef ve etiket üretimi (`future_return`, `shift(-1)`, `buy`, `sell`), kümeleme ve duygu analizi kesinlikle engellenmiştir.
+  - Keşif, katalog inceleme ve sözleşme doğrulaması izinlidir (`allowed_now`), model eğitimi ve canlı işlem yasaktır (`blocked_now`).
+- **Girdi Sözleşmeleri ve Veri Bütünlüğü**:
+  - Phase 126-135 rejim metadata, FeatureStore katalogları, strictly metadata-only haber, no-lookahead ve kaynak veri dokunulmazlığı sözleşmeleri ile gelecekteki ML araştırmaları için güvenli veri akışı tanımlanmıştır.
+- **Hazırlık Skoru (Readiness Score) Yorumu**:
+  - `readiness_score` (0.0-1.0 aralığı), donanım ve kütüphane altyapısının yerel ML araştırması için yeterliliğini gösterir.
+  - Kesinlikle bir al/sat sinyali, getiri vaadi, resmi onay veya model eğitimi izni (`official_approval: False`, `production_ready: False`, `broker_ready: False`) değildir.
+- **Phase 137 Handoff**:
+  - "Advanced ML Dataset Contracts and Experiment Registry" fazı için 14 devir maddesi eksiksiz hazırlanmıştır.
+
+
+
+
 
 
 

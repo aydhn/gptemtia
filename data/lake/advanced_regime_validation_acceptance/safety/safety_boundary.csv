@@ -1,0 +1,32 @@
+boundary_type,item_name,description,status
+NO_GO,live trading,Prohibits live order submission or real exchange connections.,ENFORCED
+NO_GO,broker integration,Prohibits broker API credentials or execution hooks.,ENFORCED
+NO_GO,real order,Prohibits execution of actual capital orders.,ENFORCED
+NO_GO,investment advice,Prohibits financial or investment advice generation.,ENFORCED
+NO_GO,validation as signal,Prohibits treating validation pass/fail as a trade signal.,ENFORCED
+NO_GO,acceptance as signal,Prohibits treating acceptance score as a trade signal.,ENFORCED
+NO_GO,directional certainty,Prohibits asserting bullish/bearish market directional claims.,ENFORCED
+NO_GO,model training / fit / predict,"Prohibits ML model training, fitting, or predictive inference.",ENFORCED
+NO_GO,clustering execution,"Prohibits unsupervised clustering execution (KMeans, GMM, HMM).",ENFORCED
+NO_GO,target / label / prediction,Prohibits generating supervised target or label series.,ENFORCED
+NO_GO,sentiment model output,Prohibits sentiment model scoring or sentiment features.,ENFORCED
+NO_GO,full article / raw content,"Prohibits copyrighted article bodies, raw text, or scraped HTML.",ENFORCED
+NO_GO,embedding / vector generation,Prohibits embedding generation and vector DB deployment.,ENFORCED
+NO_GO,official approval claim,Prohibits claiming official regulator or exchange approval.,ENFORCED
+NO_GO,production-ready / broker-ready claim,Prohibits claiming production or broker readiness.,ENFORCED
+NO_GO,source overwrite / destructive clean,"Prohibits overwriting, modifying, or deleting source records.",ENFORCED
+NO_GO,auto-imputation / auto-feature-drop,Prohibits automatic dropping or imputing of features.,ENFORCED
+NO_GO,scraping / rate limit abuse,Prohibits active web scraping or paywall bypass.,ENFORCED
+NO_GO,model / production deployment,"Prohibits cloud deployment, docker push, or release tagging.",ENFORCED
+SAFE_GO,local/offline validation acceptance,Permits offline local verification of regime datasets.,ACTIVE
+SAFE_GO,no-lookahead acceptance,Enforces backward timestamp checks and negative shift detection.,ACTIVE
+SAFE_GO,timestamp order acceptance,Verifies monotonic ordering and point-in-time constraints.,ACTIVE
+SAFE_GO,backward-asof acceptance,Enforces strictly backward direction for time-series joins.,ACTIVE
+SAFE_GO,forbidden column acceptance,"Rejects columns representing signals, targets, or raw text.",ACTIVE
+SAFE_GO,metadata-only news acceptance,"Restricts news to tags, topics, source IDs, and published_at.",ACTIVE
+SAFE_GO,source preservation acceptance,Guarantees raw data and lake immutability.,ACTIVE
+SAFE_GO,non-signal acceptance,Ensures all outputs remain purely structural and descriptive.,ACTIVE
+SAFE_GO,component acceptance,Validates Phases 127-132 regime components locally.,ACTIVE
+SAFE_GO,dependency acceptance,Validates upstream validation and quality prerequisites.,ACTIVE
+SAFE_GO,source-preserved acceptance manifest,Emits structured audit manifest certifying boundaries.,ACTIVE
+SAFE_GO,Phase 134 FeatureStore integration handoff,"Delivers clean, verified metadata to Phase 134.",ACTIVE

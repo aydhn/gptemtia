@@ -1,0 +1,16 @@
+{
+  "domain": "regime_block_status_domain",
+  "active_profile": "balanced_local_regime_acceptance",
+  "phase_start": 126,
+  "phase_end": 135,
+  "target_final_phase": 160,
+  "next_phase": 136,
+  "overall_status": "acceptance_pass",
+  "acceptance_score": 1.0,
+  "total_modules": 10,
+  "non_signal": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false,
+  "status": "READY"
+}

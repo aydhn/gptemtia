@@ -1,0 +1,17 @@
+subsystem,relative_path,kind,present,status,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+Phase 132 Macro/Event/News Regime,advanced_macro_event_news_regime,package,True,HEALTHY,balanced_local_regime_validation_acceptance,True,True,False,False,False
+Phase 131 Cross-Asset Regime Context,advanced_cross_asset_regime_context,package,True,HEALTHY,balanced_local_regime_validation_acceptance,True,True,False,False,False
+Phase 130 Regime Transition,advanced_regime_transition,package,True,HEALTHY,balanced_local_regime_validation_acceptance,True,True,False,False,False
+Phase 129 Market Behavior Diagnostics,advanced_market_behavior_diagnostics,package,True,HEALTHY,balanced_local_regime_validation_acceptance,True,True,False,False,False
+Phase 128 Regime Rule-Free Labeling,advanced_regime_rule_free,package,True,HEALTHY,balanced_local_regime_validation_acceptance,True,True,False,False,False
+Phase 127 Regime Feature Matrix,advanced_regime_matrix,package,True,HEALTHY,balanced_local_regime_validation_acceptance,True,True,False,False,False
+Phase 126 Regime Foundation,advanced_regime_foundation,package,True,HEALTHY,balanced_local_regime_validation_acceptance,True,True,False,False,False
+Phase 124 Feature Store Integration,advanced_feature_store_integration,package,True,HEALTHY,balanced_local_regime_validation_acceptance,True,True,False,False,False
+Phase 123 Feature Quality Drift,advanced_feature_quality_drift,package,True,HEALTHY,balanced_local_regime_validation_acceptance,True,True,False,False,False
+Phase 121 Feature Validation,advanced_feature_validation,package,True,HEALTHY,balanced_local_regime_validation_acceptance,True,True,False,False,False
+Phase 133 Regime Validation Acceptance,advanced_regime_validation_acceptance,package,True,HEALTHY,balanced_local_regime_validation_acceptance,True,True,False,False,False
+DataLake Storage,data/storage/data_lake.py,file,True,HEALTHY,balanced_local_regime_validation_acceptance,True,True,False,False,False
+FeatureStore ML,ml/feature_store.py,file,True,HEALTHY,balanced_local_regime_validation_acceptance,True,True,False,False,False
+Scripts Directory,scripts,directory,True,HEALTHY,balanced_local_regime_validation_acceptance,True,True,False,False,False
+Tests Directory,tests,directory,True,HEALTHY,balanced_local_regime_validation_acceptance,True,True,False,False,False
+Docs Directory,docs,directory,True,HEALTHY,balanced_local_regime_validation_acceptance,True,True,False,False,False

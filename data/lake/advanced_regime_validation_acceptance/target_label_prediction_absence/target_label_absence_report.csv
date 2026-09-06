@@ -1,0 +1,12 @@
+prohibited_term,verified_absent,status,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+cluster_prediction,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+forecast,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+ground_truth,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+label,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+pred,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+prediction,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+regime_pred,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+target,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+target_regime,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+y_pred,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+y_true,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False

@@ -1,0 +1,11 @@
+{
+  "domain": "regime_featurestore_entity_domain",
+  "total_entities": 10,
+  "active_profile": "balanced_local_regime_featurestore_integration",
+  "current_phase": 134,
+  "target_final_phase": 160,
+  "next_phase": 135,
+  "all_non_signal": true,
+  "all_production_false": true,
+  "status": "regime_store_ready"
+}

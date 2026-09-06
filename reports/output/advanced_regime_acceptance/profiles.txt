@@ -1,0 +1,8 @@
+Bu rapor Phase 135 Regime Classification Acceptance Report çıktısıdır. Gerçek veri indirme zorunluluğu, scraping, haber tam metni/article body/raw content/scraped HTML/embedding/vector kullanımı, sentiment model output, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, rejim/acceptance/validation/FeatureStore değerini trade sinyali olarak kullanma, strateji/backtest/optimizer/model training/clustering çalıştırma, target/label/prediction üretme, official approval, broker-ready veya production-ready iddiası değildir.
+Regime Acceptance Profile: balanced_local_regime_acceptance
+Total Profiles: 3
+Current Phase: 135
+Target Final Phase: 160
+Next Phase: 136
+Non-Signal Verified: True
+Status: READY

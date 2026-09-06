@@ -1,0 +1,11 @@
+policy_id,action_name,permission_state,reason,status_label,non_signal,source_preserved,official_approval,production_ready,broker_ready
+perm_runtime_capability_detection,runtime capability detection,allowed_now,"Safe local query of CPU, GPU, memory, and package availability.",runtime_ready,True,True,False,False,False
+perm_contract_generation,contract generation,allowed_now,"Safe schema, boundary, and input specification modeling.",runtime_ready,True,True,False,False,False
+perm_model_training,model training,blocked_now,Model training is prohibited in Phase 136 foundation.,runtime_blocked_by_safety,True,True,False,False,False
+perm_model_prediction,model prediction,blocked_now,Inference and model prediction are prohibited in Phase 136.,runtime_blocked_by_safety,True,True,False,False,False
+perm_target_label_generation,target label generation,blocked_now,Target and label synthesis is strictly blocked.,runtime_blocked_by_safety,True,True,False,False,False
+perm_clustering_execution,clustering execution,blocked_now,Clustering execution is prohibited.,runtime_blocked_by_safety,True,True,False,False,False
+perm_ensemble_execution,ensemble execution,blocked_now,Ensemble evaluation is prohibited.,runtime_blocked_by_safety,True,True,False,False,False
+perm_calibration_execution,calibration execution,blocked_now,Probability calibration routines are prohibited.,runtime_blocked_by_safety,True,True,False,False,False
+perm_artifact_persistence,artifact persistence,blocked_now,Serializing model artifacts or registry writes is blocked.,runtime_blocked_by_safety,True,True,False,False,False
+perm_broker_live_integration,broker/live integration,blocked_now,Live trading and broker integration are permanently prohibited.,runtime_blocked_by_safety,True,True,False,False,False

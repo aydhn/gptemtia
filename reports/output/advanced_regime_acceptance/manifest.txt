@@ -1,0 +1,11 @@
+Bu rapor Phase 135 Regime Classification Acceptance Report çıktısıdır. Gerçek veri indirme zorunluluğu, scraping, haber tam metni/article body/raw content/scraped HTML/embedding/vector kullanımı, sentiment model output, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, rejim/acceptance/validation/FeatureStore değerini trade sinyali olarak kullanma, strateji/backtest/optimizer/model training/clustering çalıştırma, target/label/prediction üretme, official approval, broker-ready veya production-ready iddiası değildir.
+Block Name: Regime Classification and Market Behavior Block
+Phase Range: 126-135
+Acceptance Score: 1.0
+Modules Count: 10
+Gates Count: 17
+Non-Signal Certified: True
+Zero Model Execution: True
+Official Approval: False
+Production Ready: False
+Broker Ready: False

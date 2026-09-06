@@ -1,0 +1,9 @@
+{
+  "safety_status": "SECURE",
+  "no_go_count": 19,
+  "safe_go_count": 12,
+  "total_boundaries": 31,
+  "profile_name": "balanced_local_regime_validation_acceptance",
+  "non_signal": true,
+  "source_preserved": true
+}

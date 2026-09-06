@@ -1,0 +1,4 @@
+profile_name,description,current_phase,target_final_phase,next_phase,dry_run_default,local_only,non_production,research_only,allow_live_trading,allow_model_training,allow_model_predict,allow_target_label_generation,min_readiness_score,enabled,status_label,non_signal
+balanced_local_gpu_ml_runtime_foundation,Dengeli yerel GPU hizlandirma ve ML calisma zamani temel profili.,136,160,137,True,True,True,True,False,False,False,False,0.45,True,runtime_ready,True
+strict_no_training_gpu_runtime_safety,Siki model egitimi/tahmin yasakli GPU/ML calisma zamani guvenlik profili.,136,160,137,True,True,True,True,False,False,False,False,0.6,True,runtime_ready,True
+dry_run_ml_capability_discovery_focus,Dry-run uyumlu donanim ve bagimlilik kesfi odakli calisma zamani profili.,136,160,137,True,True,True,True,False,False,False,False,0.4,True,runtime_ready,True

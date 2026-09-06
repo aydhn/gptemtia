@@ -1,0 +1,12 @@
+{
+  "readiness_score": 0.55,
+  "is_ready": true,
+  "classification": "runtime_ready_with_warnings",
+  "non_signal": true,
+  "source_preserved": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false,
+  "domain": "readiness_score_domain",
+  "active_profile": "balanced_local_gpu_ml_runtime_foundation"
+}

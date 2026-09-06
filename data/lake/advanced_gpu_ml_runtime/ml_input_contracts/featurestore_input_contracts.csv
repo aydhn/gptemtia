@@ -1,0 +1,9 @@
+contract_id,source_store_catalog,source_phase,accepted_reference_required,no_lookahead_accepted_required,metadata_only_news_accepted_required,source_preserved_required,non_signal_required,target_label_forbidden,prediction_forbidden,model_training_allowed,status_label,manual_review_required,non_signal,source_preserved,details
+fs_input_price_technicals,technical_indicators_catalog,117,True,True,True,True,True,True,True,False,runtime_ready,False,True,True,"Technical features across RSI, MACD, Moving Averages without future shifts."
+fs_input_feature_grid,multi_window_feature_grid_catalog,118,True,True,True,True,True,True,True,False,runtime_ready,False,True,True,Multi-window standardized rolling indicator grid matrices.
+fs_input_macro_indicators,macro_indicator_catalog,119,True,True,True,True,True,True,True,False,runtime_ready,False,True,True,Macroeconomic release time-series with publication lag alignment.
+fs_input_economic_calendar,economic_calendar_catalog,120,True,True,True,True,True,True,True,False,runtime_ready,False,True,True,Calendar surprise metrics and event windows.
+fs_input_news_metadata,news_metadata_catalog,120,True,True,True,True,True,True,True,False,runtime_ready,False,True,True,Topic flags and sentiment metadata strictly excluding raw text and HTML.
+fs_input_cross_asset,cross_asset_regime_catalog,134,True,True,True,True,True,True,True,False,runtime_ready,False,True,True,"Cross-asset correlation, divergence, and linkage metrics."
+fs_input_regime_matrix,regime_matrix_store_catalog,134,True,True,True,True,True,True,True,False,runtime_ready,False,True,True,Regime feature matrices cataloged in FeatureStore.
+fs_input_regime_validation,regime_validation_store_catalog,134,True,True,True,True,True,True,True,False,runtime_ready,False,True,True,Validation-accepted asof join references and quality metadata.

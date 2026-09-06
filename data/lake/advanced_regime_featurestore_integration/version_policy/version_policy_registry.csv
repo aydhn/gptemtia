@@ -1,0 +1,4 @@
+policy_name,versioning_mode,allow_append,allow_overwrite,allow_production_release_tag,allow_broker_readiness_tag,description,non_signal
+metadata_snapshot_policy,snapshot,False,False,False,False,Immutable time-stamped snapshot of regime metadata states.,True
+metadata_append_policy,append_only,True,False,False,False,Strict append-only logging of regime catalog entries without altering historical records.,True
+audit_ledger_version_policy,append_only,True,False,False,False,Tamper-evident audit ledger tracking changes and manual review queue additions.,True

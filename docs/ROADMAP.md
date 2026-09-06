@@ -259,10 +259,17 @@
 - 131 completed/Cross-Asset Regime Context Expansion ready
 ## Completed: Phase 132 Macro/Event/News Regime Context Expansion, Metadata-Only Event Regime Layer, Non-Signal Macro Context Contracts ve Phase 133 Handoff
 - 132 completed/Macro/Event/News Regime Context Expansion ready
-- 133 Regime Validation and No-Lookahead Acceptance sıradaki faz
-- 134 Regime FeatureStore Integration
-- 135 Regime Classification Acceptance Report
+## Completed: Phase 133 Regime Validation and No-Lookahead Acceptance, Regime Safety Gate, Metadata-Only Acceptance ve Phase 134 Handoff
+- 133 completed/Regime Validation and No-Lookahead Acceptance ready
+## Completed: Phase 134 Regime FeatureStore Integration, Validation-Aware Regime Store Contracts, Non-Signal Regime Metadata Catalog ve Phase 135 Handoff
+- 134 completed/Regime FeatureStore Integration and Validation-Aware Contracts ready
+## Completed: Phase 135 Regime Classification Acceptance Report, Phase 126-135 Regime Block Final Acceptance, Non-Signal Manifest ve Phase 136 Handoff
+- 135 completed/Regime Classification Acceptance Report ready
+## Completed: Phase 136 GPU Acceleration and Advanced ML Runtime Foundation, Local Hardware Discovery, ML Experiment Safety Contracts ve Phase 137 Handoff
+- 136 completed/GPU Acceleration and Advanced ML Runtime Foundation ready
+- 137 Advanced ML Dataset Contracts and Experiment Registry sıradaki faz
 ## Target Final Phase: 160
+
 
 
 

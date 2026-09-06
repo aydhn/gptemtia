@@ -1,0 +1,10 @@
+{
+  "domain": "regime_block_dependency_domain",
+  "active_profile": "balanced_local_regime_acceptance",
+  "total_dependency_steps": 10,
+  "all_satisfied": true,
+  "all_non_signal": true,
+  "flow": "126 -> 127 -> 128 -> 129 -> 130 -> 131 -> 132 -> 133 -> 134 -> 135 -> 136",
+  "non_signal": true,
+  "status": "READY"
+}

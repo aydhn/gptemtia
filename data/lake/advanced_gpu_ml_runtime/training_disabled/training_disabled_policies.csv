@@ -1,0 +1,4 @@
+policy_id,target_routine,enforced,status_label,details,non_signal,source_preserved,official_approval,production_ready,broker_ready
+policy_no_fit,estimator.fit(),True,runtime_blocked_by_safety,Direct fitting on feature matrices is strictly prohibited.,True,True,False,False,False
+policy_no_train,model.train() / training loop,True,runtime_blocked_by_safety,Running gradient descent or training epochs is prohibited.,True,True,False,False,False
+policy_no_optimizer_step,optimizer.step(),True,runtime_blocked_by_safety,Weight updates and gradient optimization are prohibited.,True,True,False,False,False

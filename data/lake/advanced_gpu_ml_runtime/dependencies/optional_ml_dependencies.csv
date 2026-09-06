@@ -1,0 +1,12 @@
+dependency_id,package_name,installed,version,backend_label,status_label,manual_review_required,non_signal,source_preserved,details
+opt_xgboost,xgboost,False,not_installed,backend_optional_dependency_missing,runtime_placeholder_only,True,True,True,Optional advanced ML component: xgboost (not_installed).
+opt_lightgbm,lightgbm,False,not_installed,backend_optional_dependency_missing,runtime_placeholder_only,True,True,True,Optional advanced ML component: lightgbm (not_installed).
+opt_catboost,catboost,False,not_installed,backend_optional_dependency_missing,runtime_placeholder_only,True,True,True,Optional advanced ML component: catboost (not_installed).
+opt_optuna,optuna,False,not_installed,backend_optional_dependency_missing,runtime_placeholder_only,True,True,True,Optional advanced ML component: optuna (not_installed).
+opt_shap,shap,False,not_installed,backend_optional_dependency_missing,runtime_placeholder_only,True,True,True,Optional advanced ML component: shap (not_installed).
+opt_onnx,onnx,False,not_installed,backend_optional_dependency_missing,runtime_placeholder_only,True,True,True,Optional advanced ML component: onnx (not_installed).
+opt_skl2onnx,skl2onnx,False,not_installed,backend_optional_dependency_missing,runtime_placeholder_only,True,True,True,Optional advanced ML component: skl2onnx (not_installed).
+opt_joblib,joblib,False,not_installed,backend_optional_dependency_missing,runtime_placeholder_only,True,True,True,Optional advanced ML component: joblib (not_installed).
+opt_mlflow,mlflow,False,not_installed,backend_optional_dependency_missing,runtime_placeholder_only,True,True,True,Optional advanced ML component: mlflow (not_installed).
+opt_polars,polars,False,not_installed,backend_optional_dependency_missing,runtime_placeholder_only,True,True,True,Optional advanced ML component: polars (not_installed).
+opt_pyarrow,pyarrow,False,not_installed,backend_optional_dependency_missing,runtime_placeholder_only,True,True,True,Optional advanced ML component: pyarrow (not_installed).

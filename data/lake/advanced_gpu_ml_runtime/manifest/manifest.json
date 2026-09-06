@@ -1,0 +1,19 @@
+{
+  "manifest_name": "gpu_ml_runtime_manifest",
+  "current_phase": 136,
+  "next_phase": 137,
+  "target_final_phase": 160,
+  "readiness_score": 0.55,
+  "manifest_valid": true,
+  "model_training_executed": false,
+  "model_predict_executed": false,
+  "clustering_executed": false,
+  "artifact_persisted": false,
+  "non_signal": true,
+  "source_preserved": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false,
+  "domain": "manifest_domain",
+  "active_profile": "balanced_local_gpu_ml_runtime_foundation"
+}

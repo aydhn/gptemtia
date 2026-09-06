@@ -1,0 +1,12 @@
+{
+  "domain": "regime_block_component_acceptance_domain",
+  "active_profile": "balanced_local_regime_acceptance",
+  "total_components": 10,
+  "all_accepted": true,
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "phase_start": 126,
+  "phase_end": 135,
+  "non_signal": true,
+  "status": "READY"
+}

@@ -1,0 +1,5 @@
+check_name,passed,status,message,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+profile_registry_integrity,True,VALIDATION_PASS,Profile registry structure is valid.,balanced_local_regime_validation_acceptance,True,True,False,False,False
+gate_registry_integrity,True,VALIDATION_PASS,Gate registry structure is valid.,balanced_local_regime_validation_acceptance,True,True,False,False,False
+manifest_integrity,True,VALIDATION_PASS,Manifest is fully valid.,balanced_local_regime_validation_acceptance,True,True,False,False,False
+forbidden_claims_clean,True,VALIDATION_PASS,Zero forbidden claims detected.,balanced_local_regime_validation_acceptance,True,True,False,False,False

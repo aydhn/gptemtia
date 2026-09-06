@@ -1,0 +1,6 @@
+validation_id,name,passed,status_label
+val_profiles,Profile Registry Validation,True,acceptance_pass
+val_inventory,Block Inventory Validation,True,acceptance_pass
+val_gates,Acceptance Gates Validation,True,acceptance_pass
+val_manifest,Block Manifest Validation,True,acceptance_pass
+val_claims,Forbidden Claims Check,True,acceptance_pass

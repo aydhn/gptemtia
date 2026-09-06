@@ -1,0 +1,5 @@
+check_id,check_name,compliant,description,status_label
+news_meta_01,Zero Full Article Ingestion,True,"Full article bodies, text dumps, and raw paragraphs are blocked.",acceptance_pass
+news_meta_02,Zero Web Scraping / Crawling,True,"No live web scraping, HTML parsers, or headless browsers used.",acceptance_pass
+news_meta_03,Zero Sentiment Model Outputs,True,No NLP polarity or sentiment prediction models are executed.,acceptance_pass
+news_meta_04,Zero Embeddings / Vectors,True,No vector generation or vector DB connections exist.,acceptance_pass

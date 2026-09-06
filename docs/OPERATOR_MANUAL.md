@@ -287,6 +287,55 @@ Local completion governance framework appended.
 - **Validasyon ve Güvenlik**: `python -m scripts.run_macro_event_news_regime_validation_report` ile 5 kuralın VALIDATION_PASS olduğu ve 20 NO-GO / 9 SAFE-GO kuralının SECURE durumda olduğu doğrulanır.
 - **Genel Durum**: `python -m scripts.run_macro_event_news_regime_status` ile tüm Phase 132 alt sistemlerinin yeşil ve Phase 133 için hazır olduğu teyit edilir.
 
+## Phase 133 Regime Validation and No-Lookahead Acceptance Operations
+- **Profil ve Kabul Alan Defterleri**: `python -m scripts.run_regime_validation_acceptance_profile_registry` ile 3 operasyonel profil (`balanced_local_regime_validation_acceptance`, `strict_no_lookahead_regime_safety`, `dry_run_regime_acceptance_focus`) ve 44 fonksiyonel kabul alanı doğrulanır.
+- **19 Kanonik Kabul Geçidi**: `python -m scripts.run_regime_validation_gates` ile 19 kabul geçidi (no-lookahead, backward asof, monotonic UTC timestamps, yasaklı kolon karantinası, haber metaveri sınır koruması, kaynak koruma, non-signal teminatı, hedef/etiket yokluğu, model eğitilmeme güvencesi, 6 bileşen kabulü, 2 bağımlılık kabulü, manuel inceleme ve skor eşiği) denetlenir.
+- **No-Lookahead ve Zaman Damgası Kabulü**: `python -m scripts.run_regime_no_lookahead_acceptance` ile `context_ts <= base_ts`, kesin artan UTC zaman damgası sıralaması, backward-only asof join ve negatif shift yasağı doğrulanır.
+- **Metadata-Only Haber Kabulü**: `python -m scripts.run_regime_metadata_only_acceptance` ile haber girdilerinde haber tam metni, makale gövdesi, ham içerik, kazınmış HTML, NLP duygu modeli çıktıları ve embedding/vektör veri tabanı bulunmadığı teyit edilir.
+- **Bileşen Kabul Raporları**: `python -m scripts.run_regime_component_acceptance_reports` ile Phase 127 rejim matrisi, Phase 128 aday durum ve pseudo-durum, Phase 130 geçiş, Phase 131 çapraz varlık ve Phase 132 makro/olay/haber bileşenlerinin kabul raporları üretilir.
+- **Bulgular, Manuel İnceleme ve Skorlama**: `python -m scripts.run_regime_validation_findings` ile 3 tanı bulgusu, 8 maddelik tahribatsız manuel inceleme kuyruğu ve 1.0 kabul skoru (`high_acceptance_integrity`) doğrulanır.
+- **Kabul Manifestosu ve Phase 134 Devri**: `python -m scripts.run_regime_validation_acceptance_manifest` ile master kabul manifestosu (MANIFEST_VALID) ve Phase 134 (Regime FeatureStore Integration) için 14 devir maddesi onaylanır.
+- **Sistem Sağlık Kontrolü**: `python -m scripts.run_regime_validation_acceptance_health_check` ile 20 alt sistem kontrolünün tümünün HEALTHY olduğu doğrulanır.
+- **Validasyon ve Güvenlik**: `python -m scripts.run_regime_validation_acceptance_validation_report` ile 6 validasyon kuralının VALIDATION_PASS olduğu ve 22 NO-GO / 10 SAFE-GO kuralının SECURE durumda olduğu doğrulanır.
+- **Genel Durum**: `python -m scripts.run_regime_validation_acceptance_status` ile tüm Phase 133 alt sistemlerinin yeşil ve Phase 134 için hazır olduğu teyit edilir.
+
+## Phase 134 Regime FeatureStore Integration Operations
+- **Profil ve Depolama Alan Defterleri**: `python -m scripts.run_regime_featurestore_profile_registry` ile 3 profil (`balanced_local_regime_featurestore_integration`, `strict_metadata_only_featurestore`, `dry_run_featurestore_focus`) ve 33 fonksiyonel depolama alanı doğrulanır.
+- **Sözleşmeler ve Varlıklar**: `python -m scripts.run_regime_featurestore_contracts` ile 10 FeatureStore sözleşmesi, 10 kanonik varlık, sürüm ve bölümleme politikaları denetlenir.
+- **Şema, İsim Alanı ve Okuma/Yazma/Sorgu**: `python -m scripts.run_regime_featurestore_schema_catalogs` ile 16 alanlık minimum çekirdek şema, `regime_store_` ad alanı, 2 okuma, 2 yazma ve 8 sorgu kuralı incelenir.
+- **8 Bileşen Deposu Kataloğu**: `python -m scripts.run_regime_component_store_catalogs` ile Taxonomy (Phase 126), Matrix (Phase 127), Candidate States (Phase 128), Pseudo States (Phase 128), Transition (Phase 130), Cross-Asset (Phase 131), Macro/Event/News (Phase 132) ve Validation Acceptance (Phase 133) katalogları üretilir (toplam 25 kayıt).
+- **Kabul Edilmiş Referanslar ve Bağımlılıklar**: `python -m scripts.run_regime_accepted_reference_registries` ile 21 kabul edilmiş referans (no-lookahead, metadata-only news, source preservation, non-signal), 6 kalite bağımlılığı, 6 doğrulama bağımlılığı ve 9 soykütüğü adımı denetlenir.
+- **Politikalar, Manifest ve Phase 135 Devri**: `python -m scripts.run_regime_featurestore_policies_manifest` ile 9 engelleyici denetimi, 23 yasaklı kolon, 14 yasaklı iddia, 7 yasaklı eylem, master manifest (`readiness_score: 1.0`) ve Phase 135 (Regime Classification Acceptance Report) için 14 devir maddesi onaylanır.
+- **Sistem Sağlık Kontrolü**: `python -m scripts.run_regime_featurestore_health_check` ile 16 alt sistem kontrolünün tümünün HEALTHY olduğu doğrulanır.
+- **Validasyon ve Güvenlik**: `python -m scripts.run_regime_featurestore_validation_report` ile 6 validasyon denetiminin VALIDATION_PASS olduğu ve 21 NO-GO / 8 SAFE-GO kuralının SECURE durumda olduğu doğrulanır.
+- **Genel Durum**: `python -m scripts.run_regime_featurestore_status` ile tüm Phase 134 bileşenlerinin `regime_store_ready` durumunda olduğu ve Phase 135 devrine hazır olduğu teyit edilir.
+
+## Phase 135 Regime Classification Acceptance Report and Block Finalization Operations
+- **Profil ve Alan Defterleri**: `python -m scripts.run_regime_acceptance_profile_registry` ile 3 operasyonel profil (`balanced_local_regime_acceptance`, `strict_non_signal_regime_block_acceptance`, `dry_run_regime_manifest_focus`) ve Phase 126-136 arasındaki 11 fonksiyonel kabul alanı doğrulanır.
+- **Blok Envanteri ve Bağımlılık Çizgesi**: `python -m scripts.run_regime_block_inventory` ile 10 fazlık rejim bloğunun (Phase 126-135) modül envanteri (10 modül, 92 runner betiği, 185 test dosyası) ve ardışık bağımlılık DAG'ı (126 -> 127 -> ... -> 135 -> 136) denetlenir.
+- **17 Kanonik Kabul Geçidi**: `python -m scripts.run_regime_block_acceptance_gates` ile blok kabulü için 17 kabul geçidi (10 fazın tamamlanması, no-lookahead uyumu, metadata-only haber doğrulaması, kaynak veri korunumu, non-signal teminatı, FeatureStore entegrasyonu, 1.0 skor vb.) çalıştırılır ve 17/17 PASS olduğu doğrulanır.
+- **6 Boyutlu Uyumluluk Denetimi**: `python -m scripts.run_regime_block_compliance` ile non-signal, no-lookahead, metadata-only haber, yasaklı kolon karantinası, kaynak veri dokunulmazlığı ve FeatureStore hazırlık uyumluluk raporları üretilir.
+- **Bileşen Kabul Matrisi**: `python -m scripts.run_regime_block_component_acceptance` ile Phase 126'dan 135'e kadar 10 bileşenin tamamının kabul edildiği (`component_accepted: True`) teyit edilir.
+- **Sözleşmeler Denetimi**: `python -m scripts.run_regime_block_contracts` ile 9 dokümantasyon sözleşmesi, 20 temsilci runner betik sözleşmesi ve 10 temsilci test paketi sözleşmesi denetlenir.
+- **Blok Kabul Manifestosu ve Phase 136 Devri**: `python -m scripts.run_phase_126_135_acceptance_manifest` ile imzalı master blok kabul manifestosu (MANIFEST_VALID), 1.0 kompozit skor (`HIGH_INTEGRITY`) ve Phase 136 (GPU Acceleration and Advanced ML Runtime Foundation) için 14 devir önkoşulu doğrulanır.
+- **Sistem Sağlık Kontrolü**: `python -m scripts.run_regime_acceptance_health_check` ile 15 alt sistem denetiminin tümünün HEALTHY olduğu doğrulanır.
+- **Validasyon ve Güvenlik**: `python -m scripts.run_regime_acceptance_validation_report` ile 6 validasyon kuralının VALIDATION_PASS olduğu, sıfır yasaklı iddia tespit edildiği ve 19 NO-GO / 8 SAFE-GO kuralının SECURE durumda olduğu doğrulanır.
+- **Genel Durum**: `python -m scripts.run_regime_acceptance_status` ile Phase 126-135 rejim bloğu genel kabul durumunun `acceptance_pass` olduğu ve Phase 136 devrine hazır olduğu teyit edilir.
+
+## Phase 136 GPU Acceleration and Advanced ML Runtime Foundation Operations
+- **Profil ve Alan Defterleri**: `python -m scripts.run_gpu_ml_runtime_profile_registry` ile 3 temel profil (`balanced_local_gpu_ml_runtime_foundation`, `strict_no_training_gpu_runtime_safety`, `dry_run_ml_capability_discovery_focus`) ve 23 çalışma zamanı alanı doğrulanır.
+- **Yerel Donanım ve Hızlandırıcı Keşfi**: `python -m scripts.run_local_hardware_discovery` ile OS, CPU mimarisi, çekirdek sayısı, RAM, takas alanı, NVIDIA GPU varlığı, CUDA desteği ve çalışma ortamı anlık görüntüsü güvenli biçimde çıkarılır.
+- **ML Bağımlılık İncelemesi**: `python -m scripts.run_ml_dependency_capability_reports` ile PyTorch, Scikit-Learn, NumPy, Pandas ve 11 opsiyonel ML kütüphanesi (XGBoost, LightGBM, CatBoost, Optuna, SHAP, ONNX vb.) model fit edilmeden ve tensor tahsis edilmeden incelenir.
+- **Güvenlik Sözleşmeleri ve İzin Politikaları**: `python -m scripts.run_ml_runtime_safety_contracts` ile 12 uygulanabilir güvenlik sözleşmesi, izinli keşifler, engellenmiş model eğitimi/çıkarımı/etiket üretimi ve yönetişim yer tutucuları denetlenir.
+- **Girdi Sözleşmeleri**: `python -m scripts.run_ml_input_contracts` ile Phase 126-135 rejim metadata, FeatureStore katalogları, no-lookahead (kronolojik asof), metadata-only haber ve kaynak koruma sözleşmeleri doğrulanır.
+- **Bulgular, Puanlama ve Manifest**: `python -m scripts.run_gpu_ml_runtime_findings_manifest` ile ortam bulguları, manuel inceleme kuyruğu, hazırlık skoru (0.0-1.0), master manifest ve Phase 137 devir raporu üretilir.
+- **Sistem Sağlık Kontrolü**: `python -m scripts.run_gpu_ml_runtime_health_check` ile 11 alt sistem denetiminin tümünün HEALTHY olduğu doğrulanır.
+- **Validasyon ve Güvenlik Sınırı**: `python -m scripts.run_gpu_ml_runtime_validation_report` ile 6 validasyon kuralının tümünün geçtiği ve 20 NO-GO / 11 SAFE-GO kuralının SECURE durumda olduğu doğrulanır.
+- **Genel Durum**: `python -m scripts.run_gpu_ml_runtime_status` ile tam pipeline çalıştırılarak tüm Phase 136 bileşenlerinin READY olduğu ve Phase 137 devrine hazır olduğu teyit edilir.
+
+
+
+
 
 
 

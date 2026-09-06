@@ -1,0 +1,5 @@
+check_id,check_name,description,passed,status,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+PS_01_SCHEMA_PRESENT,pseudo_state_schema_present,Verifies Phase 128 pseudo-state schema registry is populated and readable.,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+PS_02_DESCRIPTIVE_ONLY,pseudo_state_descriptive_non_signal,Confirms pseudo-state labels are strictly descriptive (e.g. high_vol_trending) and non-signal.,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+PS_03_NO_LOOKAHEAD,pseudo_state_no_lookahead,Ensures pseudo-state evaluation logic is bounded strictly by current and historical bars.,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+PS_04_NO_MODEL_PREDICTION,pseudo_state_zero_model_prediction,Confirms pseudo-states are not derived from fitted ML models or cluster predictions.,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False

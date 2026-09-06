@@ -1,0 +1,4 @@
+check_id,property_name,property_value,backend_label,status_label,manual_review_required,non_signal,source_preserved,details
+torch_installed,PyTorch Installed,False,backend_torch_unavailable,runtime_ready_with_warnings,True,True,True,Checks if PyTorch package is present in active environment.
+torch_version,PyTorch Version,not_installed,backend_torch_unavailable,runtime_ready_with_warnings,False,True,True,Installed PyTorch release version string.
+torch_cuda_linked,PyTorch CUDA Support,False,backend_torch_unavailable,runtime_ready_with_warnings,False,True,True,PyTorch CUDA accelerator device linkage status.

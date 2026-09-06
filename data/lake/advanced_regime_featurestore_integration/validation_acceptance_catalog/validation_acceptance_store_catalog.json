@@ -1,0 +1,14 @@
+{
+  "domain": "validation_acceptance_store_catalog_domain",
+  "total_items": 3,
+  "active_profile": "balanced_local_regime_featurestore_integration",
+  "source_phase": 133,
+  "current_phase": 134,
+  "target_final_phase": 160,
+  "next_phase": 135,
+  "all_non_signal": true,
+  "all_source_preserved": true,
+  "production_ready": false,
+  "broker_ready": false,
+  "status": "regime_store_ready"
+}

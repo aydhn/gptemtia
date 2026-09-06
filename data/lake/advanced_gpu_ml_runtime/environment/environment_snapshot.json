@@ -1,0 +1,11 @@
+{
+  "total_properties": 12,
+  "status_label": "runtime_ready",
+  "non_signal": true,
+  "source_preserved": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false,
+  "domain": "environment_snapshot_domain",
+  "active_profile": "balanced_local_gpu_ml_runtime_foundation"
+}

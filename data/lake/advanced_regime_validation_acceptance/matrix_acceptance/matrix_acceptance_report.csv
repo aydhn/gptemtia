@@ -1,0 +1,7 @@
+check_id,check_name,description,passed,status,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+MAT_01_CONTRACTS_PRESENT,phase_127_matrix_contracts_present,Verifies that Phase 127 regime feature matrix contracts are properly defined.,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+MAT_02_SCHEMA_NO_FORBIDDEN,matrix_schema_no_forbidden_columns,"Verifies matrix columns contain zero trading signal, target, or return columns.",True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+MAT_03_NO_LOOKAHEAD,matrix_no_lookahead_accepted,Verifies matrix rolling features use strictly backward time windows.,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+MAT_04_SOURCE_PRESERVED,matrix_source_preserved,Verifies raw source matrices are immutable with zero destructive cleanups.,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+MAT_05_NON_SIGNAL,matrix_non_signal_certified,"Confirms matrix values represent descriptive regime features, never trade signals.",True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False
+MAT_06_PREDICTION_ABSENCE,matrix_target_label_prediction_absent,Confirms complete absence of supervised targets or predictions in matrix space.,True,acceptance_pass,balanced_local_regime_validation_acceptance,True,True,False,False,False

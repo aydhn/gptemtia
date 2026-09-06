@@ -1,0 +1,12 @@
+{
+  "total_optional_packages": 11,
+  "installed_count": 0,
+  "missing_count": 11,
+  "non_signal": true,
+  "source_preserved": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false,
+  "domain": "optional_dependency_domain",
+  "active_profile": "balanced_local_gpu_ml_runtime_foundation"
+}

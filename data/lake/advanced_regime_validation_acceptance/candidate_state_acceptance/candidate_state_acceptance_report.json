@@ -1,0 +1,10 @@
+{
+  "total_checks": 5,
+  "passed_checks": 5,
+  "failed_checks": 0,
+  "all_passed": true,
+  "component": "phase_128_candidate_state",
+  "profile_name": "balanced_local_regime_validation_acceptance",
+  "non_signal": true,
+  "source_preserved": true
+}

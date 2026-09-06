@@ -1,0 +1,9 @@
+{
+  "status": "VALIDATION_PASS",
+  "total_checks": 4,
+  "passed_checks": 4,
+  "forbidden_claims_clean": true,
+  "profile_name": "balanced_local_regime_validation_acceptance",
+  "non_signal": true,
+  "source_preserved": true
+}

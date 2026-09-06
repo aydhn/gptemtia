@@ -1,0 +1,13 @@
+{
+  "total_records": 1,
+  "cuda_gpu_detected": false,
+  "non_signal": true,
+  "source_preserved": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false,
+  "domain": "gpu_capability_domain",
+  "active_profile": "balanced_local_gpu_ml_runtime_foundation",
+  "cuda_available": false,
+  "device_count": 0
+}

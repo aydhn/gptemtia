@@ -1,0 +1,12 @@
+component_name,component_type,target_path,exists,status_label,manual_review_required,non_signal,source_preserved,details
+advanced_regime_acceptance,module,advanced_regime_acceptance,True,runtime_ready,False,True,True,advanced_regime_acceptance is available.
+advanced_regime_featurestore_integration,module,advanced_regime_featurestore_integration,True,runtime_ready,False,True,True,advanced_regime_featurestore_integration is available.
+advanced_regime_validation_acceptance,module,advanced_regime_validation_acceptance,True,runtime_ready,False,True,True,advanced_regime_validation_acceptance is available.
+advanced_feature_store_integration,module,advanced_feature_store_integration,True,runtime_ready,False,True,True,advanced_feature_store_integration is available.
+feature_store,file,ml/feature_store.py,True,runtime_ready,False,True,True,feature_store is available.
+data_lake,file,data/storage/data_lake.py,True,runtime_ready,False,True,True,data_lake is available.
+advanced_gpu_ml_runtime,module,advanced_gpu_ml_runtime,True,runtime_ready,False,True,True,advanced_gpu_ml_runtime is available.
+scripts,directory,scripts,True,runtime_ready,False,True,True,scripts is available.
+tests,directory,tests,True,runtime_ready,False,True,True,tests is available.
+docs,directory,docs,True,runtime_ready,False,True,True,docs is available.
+config,directory,config,True,runtime_ready,False,True,True,config is available.

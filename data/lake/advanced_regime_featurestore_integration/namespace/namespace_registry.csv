@@ -1,0 +1,9 @@
+namespace_name,entity_type,prefix,pattern,non_signal
+regime_store_taxonomy_namespace,store_entity_regime_taxonomy,regime_store_taxonomy,^regime_store_taxonomy_[a-z0-9_]+$,True
+regime_store_matrix_namespace,store_entity_regime_matrix,regime_store_matrix,^regime_store_matrix_[a-z0-9_]+$,True
+regime_store_candidate_state_namespace,store_entity_candidate_state,regime_store_candidate_state,^regime_store_candidate_state_[a-z0-9_]+$,True
+regime_store_pseudo_state_namespace,store_entity_pseudo_state,regime_store_pseudo_state,^regime_store_pseudo_state_[a-z0-9_]+$,True
+regime_store_transition_namespace,store_entity_transition,regime_store_transition,^regime_store_transition_[a-z0-9_]+$,True
+regime_store_cross_asset_namespace,store_entity_cross_asset_context,regime_store_cross_asset,^regime_store_cross_asset_[a-z0-9_]+$,True
+regime_store_macro_news_namespace,store_entity_macro_event_news_context,regime_store_macro_news,^regime_store_macro_news_[a-z0-9_]+$,True
+regime_store_validation_namespace,store_entity_validation_acceptance,regime_store_validation,^regime_store_validation_[a-z0-9_]+$,True

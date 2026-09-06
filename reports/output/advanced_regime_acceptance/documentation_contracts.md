@@ -1,0 +1,22 @@
+# Phase 135: Regime Block Contract Audit Report
+
+> [!CAUTION]
+> **PHASE 135 YÖNETİŞİM VE NON-SIGNAL UYARISI**
+> Bu çıktı Phase 135 Regime Classification Acceptance Report raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, rejim/validation/acceptance/FeatureStore değerini trade sinyali olarak kullanma, strateji üretimi, backtest, optimizer, model training, clustering execution, prediction/target/label üretimi, sentiment model output, haber tam metni/article body/raw content/scraped HTML/embedding/vector kullanımı, production-ready/official approval/broker-ready iddiası, production deployment, model deployment, scraping veya gerçek provider API çağrısı değildir.
+
+## Summary
+- **Domain**: regime_block_documentation_domain
+- **Status**: READY
+
+## Contract Audit Ledger
+| doc_path | exists | size_bytes | non_signal | status_label |
+| --- | --- | --- | --- | --- |
+| README.md | True | 101041 | True | acceptance_pass |
+| docs/ARCHITECTURE.md | True | 98794 | True | acceptance_pass |
+| docs/PHASE_LOG.md | True | 109967 | True | acceptance_pass |
+| docs/ROADMAP.md | True | 10087 | True | acceptance_pass |
+| docs/SAFE_USAGE_GUIDE.md | True | 66445 | True | acceptance_pass |
+| docs/CONFIGURATION.md | True | 93944 | True | acceptance_pass |
+| docs/OPERATOR_MANUAL.md | True | 54990 | True | acceptance_pass |
+| docs/ANALYST_HANDBOOK.md | True | 53518 | True | acceptance_pass |
+| docs/CODEX_AGENT_GUIDE.md | True | 48411 | True | acceptance_pass |

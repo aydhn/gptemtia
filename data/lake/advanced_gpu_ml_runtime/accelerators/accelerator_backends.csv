@@ -1,0 +1,8 @@
+backend_id,backend_name,backend_type,available,priority_order,status_label,non_signal,source_preserved,details
+backend_cpu,CPU Host Execution Backend,cpu,True,1,runtime_ready,True,True,Standard CPU host execution with numpy/scipy/pandas.
+backend_cuda,NVIDIA CUDA Accelerator Backend,cuda,False,2,runtime_placeholder_only,True,True,CUDA backend unavailable in local host.
+backend_torch,PyTorch Compute Backend,framework,False,3,runtime_placeholder_only,True,True,PyTorch tensor framework (not_installed).
+backend_sklearn,Scikit-Learn Backend,framework,False,4,runtime_placeholder_only,True,True,Scikit-learn classical ML foundation (not_installed).
+optional_gradient_boosting_backend_placeholder,Gradient Boosting Backend Placeholder,placeholder,False,5,runtime_placeholder_only,True,True,Placeholder for upcoming LightGBM/XGBoost/CatBoost accelerators.
+future_gpu_dataframe_backend_placeholder,GPU DataFrame (cuDF/Polars) Backend Placeholder,placeholder,False,6,runtime_placeholder_only,True,True,Placeholder for accelerated GPU-memory dataframe joins.
+future_onnx_runtime_placeholder,ONNX Runtime Acceleration Placeholder,placeholder,False,7,runtime_placeholder_only,True,True,Placeholder for cross-platform model graph evaluation.

@@ -1,0 +1,3 @@
+check_id,property_name,property_value,backend_label,status_label,manual_review_required,non_signal,source_preserved,details
+sklearn_installed,Scikit-Learn Installed,False,backend_optional_dependency_missing,runtime_ready_with_warnings,True,True,True,Checks if scikit-learn is present in environment.
+sklearn_version,Scikit-Learn Version,not_installed,backend_optional_dependency_missing,runtime_ready_with_warnings,False,True,True,Installed scikit-learn release version string.

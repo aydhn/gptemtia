@@ -1,0 +1,4 @@
+check_id,check_name,compliant,description,status_label
+lookahead_01,Strict Chronological Order,True,Timestamps are strictly ascending with no forward references.,acceptance_pass
+lookahead_02,Backward Asof Joins,True,Context and macro features joined using direction='backward' only.,acceptance_pass
+lookahead_03,Zero Shift(-1) Forward Return,True,Forward returns and next-bar targets are absent from matrix contracts.,acceptance_pass

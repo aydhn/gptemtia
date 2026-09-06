@@ -1,0 +1,12 @@
+{
+  "domain": "regime_block_inventory_domain",
+  "active_profile": "balanced_local_regime_acceptance",
+  "total_modules": 10,
+  "total_expected_scripts": 86,
+  "total_expected_tests": 168,
+  "total_expected_reports": 89,
+  "total_expected_datalake_outputs": 125,
+  "phase_range": "126-135",
+  "non_signal": true,
+  "status": "READY"
+}

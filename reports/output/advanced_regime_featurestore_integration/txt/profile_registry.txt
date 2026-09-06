@@ -1,0 +1,10 @@
+Bu rapor Phase 134 Regime FeatureStore Integration çıktısıdır. Gerçek veri indirme zorunluluğu, scraping, haber tam metni/article body/raw content/scraped HTML/embedding/vector kullanımı, sentiment model output, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, FeatureStore’daki rejim kaydını trade sinyali olarak kullanma, validation/store readiness değerini production-ready/broker-ready olarak sunma, strateji/backtest/optimizer/model training/clustering çalıştırma, target/label/prediction üretme, official approval iddiası değildir.
+Active Profile: balanced_local_regime_featurestore_integration
+Current Phase: 134
+Next Phase: 135
+Target Final Phase: 160
+Total Modules: 0
+All Healthy: True
+All Validation Passed: True
+All Handoff Ready: True
+Non-Signal Certified: True

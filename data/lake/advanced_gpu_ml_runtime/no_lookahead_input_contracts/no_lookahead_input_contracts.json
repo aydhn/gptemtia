@@ -1,0 +1,12 @@
+{
+  "total_contracts": 3,
+  "all_enforced": true,
+  "no_lookahead_guaranteed": true,
+  "non_signal": true,
+  "source_preserved": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false,
+  "domain": "no_lookahead_input_contract_domain",
+  "active_profile": "balanced_local_gpu_ml_runtime_foundation"
+}

@@ -1,0 +1,3 @@
+write_contract_name,allow_append,allow_source_overwrite,allow_destructive_clean,allow_file_deletion,allow_auto_imputation,allow_auto_feature_drop,validation_acceptance_required,no_lookahead_acceptance_required,metadata_only_news_acceptance_required,non_signal_required,description
+metadata_append_write_contract,True,False,False,False,False,False,True,True,True,True,Appends new verified regime catalog metadata without mutating prior versions.
+metadata_snapshot_write_contract,False,False,False,False,False,False,True,True,True,True,Writes distinct timestamped snapshot files preserving historical data intact.

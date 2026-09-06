@@ -1,0 +1,2 @@
+memory_id,total_ram_gb,available_ram_gb,swap_total_gb,capability_status,status_label,manual_review_required,non_signal,source_preserved,details
+mem_system_ram,8.0,4.0,0.0,sufficient,runtime_ready,False,True,True,"Total RAM: 8.0 GB, Available: 4.0 GB, Swap: 0.0 GB."

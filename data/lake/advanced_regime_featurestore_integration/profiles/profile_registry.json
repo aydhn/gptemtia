@@ -1,0 +1,11 @@
+{
+  "domain": "regime_featurestore_profile_domain",
+  "total_profiles": 3,
+  "active_profile": "balanced_local_regime_featurestore_integration",
+  "current_phase": 134,
+  "target_final_phase": 160,
+  "next_phase": 135,
+  "status": "regime_store_ready",
+  "non_signal": true,
+  "production_ready": false
+}

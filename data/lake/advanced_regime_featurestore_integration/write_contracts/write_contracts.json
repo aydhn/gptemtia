@@ -1,0 +1,13 @@
+{
+  "domain": "write_contract_domain",
+  "total_write_contracts": 2,
+  "active_profile": "balanced_local_regime_featurestore_integration",
+  "current_phase": 134,
+  "target_final_phase": 160,
+  "next_phase": 135,
+  "all_source_overwrites_forbidden": true,
+  "all_destructive_cleans_forbidden": true,
+  "all_non_signal_required": true,
+  "status": "regime_store_ready",
+  "non_signal": true
+}

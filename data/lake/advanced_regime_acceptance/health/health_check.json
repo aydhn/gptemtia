@@ -1,0 +1,8 @@
+{
+  "active_profile": "balanced_local_regime_acceptance",
+  "total_checks": 15,
+  "healthy_count": 15,
+  "all_healthy": true,
+  "non_signal": true,
+  "status": "HEALTHY"
+}

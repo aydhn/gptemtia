@@ -1,0 +1,11 @@
+component_name,phase_number,source_module,expected_acceptance_refs,non_signal,no_lookahead_required,metadata_only_news_required,source_preserved,featurestore_ready,manual_review_required,status_label
+Phase 126 Regime Foundation Acceptance,126,advanced_regime_foundation,4,True,True,False,True,True,False,acceptance_pass
+Phase 127 Regime Matrix Acceptance,127,advanced_regime_matrix,6,True,True,False,True,True,False,acceptance_pass
+Phase 128 Rule-Free Prep Acceptance,128,advanced_regime_rule_free,5,True,True,False,True,True,False,acceptance_pass
+Phase 129 Behavior Diagnostics Acceptance,129,advanced_market_behavior_diagnostics,5,True,True,False,True,True,False,acceptance_pass
+Phase 130 Transition/Stability Acceptance,130,advanced_regime_transition,5,True,True,False,True,True,False,acceptance_pass
+Phase 131 Cross-Asset Context Acceptance,131,advanced_cross_asset_regime_context,5,True,True,False,True,True,False,acceptance_pass
+Phase 132 Macro/Event/News Context Acceptance,132,advanced_macro_event_news_regime,6,True,True,True,True,True,False,acceptance_pass
+Phase 133 Regime Validation Acceptance,133,advanced_regime_validation_acceptance,8,True,True,True,True,True,False,acceptance_pass
+Phase 134 FeatureStore Integration Acceptance,134,advanced_regime_featurestore_integration,8,True,True,True,True,True,False,acceptance_pass
+Phase 135 Final Regime Block Acceptance,135,advanced_regime_acceptance,10,True,True,True,True,True,False,acceptance_pass

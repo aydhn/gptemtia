@@ -1,0 +1,8 @@
+Bu rapor Phase 135 Regime Classification Acceptance Report çıktısıdır. Gerçek veri indirme zorunluluğu, scraping, haber tam metni/article body/raw content/scraped HTML/embedding/vector kullanımı, sentiment model output, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, rejim/acceptance/validation/FeatureStore değerini trade sinyali olarak kullanma, strateji/backtest/optimizer/model training/clustering çalıştırma, target/label/prediction üretme, official approval, broker-ready veya production-ready iddiası değildir.
+Regime Block Acceptance Score: 1.0
+Classification: acceptance_pass
+Is Acceptable: True
+Trade Signal: False
+Official Approval: False
+Production Ready: False
+Broker Ready: False

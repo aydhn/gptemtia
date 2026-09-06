@@ -1,0 +1,8 @@
+action_name,description
+overwrite_source,Modifying or overwriting existing upstream files
+delete_source,Deleting historical regime files
+move_source,Relocating existing dataset paths
+destructive_clean,Pruning or truncating existing records permanently
+auto_impute_overwrite,Replacing missing values in source datasets automatically
+auto_drop_feature,Dropping columns from source dataframes automatically
+mutate_input_dataframe,In-place mutation of input DataFrames

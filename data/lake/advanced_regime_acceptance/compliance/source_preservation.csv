@@ -1,0 +1,4 @@
+check_id,check_name,compliant,description,status_label
+src_01,Zero Raw Overwrite,True,Source files in data/lake/ are never overwritten destructively.,acceptance_pass
+src_02,Zero Silent Auto-Imputation,True,Missing values are never silently replaced or filled in raw sources.,acceptance_pass
+src_03,Zero Auto Feature Drop,True,Columns are not automatically dropped without governance contracts.,acceptance_pass

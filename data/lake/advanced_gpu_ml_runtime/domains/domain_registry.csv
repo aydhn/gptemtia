@@ -1,0 +1,24 @@
+domain,topic,scope,status_label,non_signal,source_preserved
+local_hardware_domain,Local Hardware Discovery,Platform and architecture discovery,runtime_ready,True,True
+gpu_capability_domain,GPU Capability Registry,Local GPU and CUDA query metadata,runtime_ready,True,True
+cpu_capability_domain,CPU Capability Registry,CPU cores and architecture query,runtime_ready,True,True
+memory_capability_domain,Memory Capability Registry,System RAM and swap limits,runtime_ready,True,True
+cuda_capability_domain,CUDA Availability Report,CUDA runtime driver and version check,runtime_ready,True,True
+torch_capability_domain,PyTorch Runtime Capability,Torch import and CUDA linkage without tensors,runtime_ready,True,True
+sklearn_capability_domain,Scikit-Learn Runtime Capability,sklearn availability without fitting,runtime_ready,True,True
+numpy_pandas_capability_domain,NumPy/Pandas Runtime Capability,Core array and dataframe foundation,runtime_ready,True,True
+optional_dependency_domain,Optional ML Dependencies,LightGBM/XGBoost/CatBoost/ONNX/Optuna/SHAP status,runtime_ready,True,True
+accelerator_backend_domain,Accelerator Backend Registry,"CPU, CUDA, and future acceleration backends",runtime_ready,True,True
+environment_snapshot_domain,ML Runtime Environment Snapshot,Non-sensitive runtime operational snapshot,runtime_ready,True,True
+runtime_safety_contract_domain,ML Runtime Safety Contracts,"Non-signal, no-broker, no-order safety guarantees",runtime_ready,True,True
+experiment_permission_domain,Experiment Permission Policies,"Allowed discovery, blocked training/predict policies",runtime_ready,True,True
+training_disabled_domain,Training Disabled Policies,Enforced block on model fit and training routines,runtime_ready,True,True
+inference_disabled_domain,Inference Disabled Policies,Enforced block on prediction and inference,runtime_ready,True,True
+target_label_disabled_domain,Target/Label Disabled Policies,Enforced block on future returns and labels,runtime_ready,True,True
+artifact_governance_placeholder_domain,Artifact Governance Placeholders,"Model card, artifact manifest schemas",runtime_ready,True,True
+regime_metadata_input_contract_domain,Regime Metadata ML Input Contracts,Phase 126-135 regime context contracts,runtime_ready,True,True
+featurestore_input_contract_domain,FeatureStore ML Input Contracts,FeatureStore namespace and query contracts,runtime_ready,True,True
+no_lookahead_input_contract_domain,No-Lookahead ML Input Contracts,Enforced chronological asof boundaries,runtime_ready,True,True
+metadata_only_news_input_contract_domain,Metadata-Only News ML Input Contracts,Zero raw text or scraped HTML in inputs,runtime_ready,True,True
+source_preservation_input_contract_domain,Source Preservation ML Input Contracts,Zero source mutation or destructive actions,runtime_ready,True,True
+phase_137_handoff_domain,Phase 137 ML Dataset Handoff,Specifications for dataset contracts & experiment registry,runtime_ready,True,True

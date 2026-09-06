@@ -1,0 +1,28 @@
+boundary_id,boundary_type,name,specification,compliant,status_label
+nogo_01,NO_GO,No Live Trading,"Submitting live orders, routing orders, or interacting with broker exchange endpoints.",True,acceptance_pass
+nogo_02,NO_GO,No Broker Integration,"Authenticating or connecting with broker accounts, APIs, or trading gateways.",True,acceptance_pass
+nogo_03,NO_GO,No Real Orders,Generating real orders or trade tickets for execution.,True,acceptance_pass
+nogo_04,NO_GO,No Investment Advice,"Presenting regime states, transitions, or scores as financial or trading advice.",True,acceptance_pass
+nogo_05,NO_GO,No Signal Interpretation,"Treating regime taxonomy, matrices, candidates, or validation acceptance as trade signals.",True,acceptance_pass
+nogo_06,NO_GO,No Directional Claims,"Claiming bull/bear certainty, target prices, or directional buy/sell superiority.",True,acceptance_pass
+nogo_07,NO_GO,No Strategy / Backtest / Optimizer,"Simulating strategies, calculating PnL, running backtests, or parameter optimization.",True,acceptance_pass
+nogo_08,NO_GO,No Model Training / Fitting / Prediction,"Executing model fit, train loops, or forward prediction generation.",True,acceptance_pass
+nogo_09,NO_GO,No Clustering Execution,"Running unsupervised k-means, GMM, or clustering algorithms (schema prep only).",True,acceptance_pass
+nogo_10,NO_GO,No Target / Label Generation,"Creating supervised target returns, directional labels, or forward classes.",True,acceptance_pass
+nogo_11,NO_GO,No Sentiment Model Outputs,Running NLP sentiment models or deriving subjective sentiment polarity scores.,True,acceptance_pass
+nogo_12,NO_GO,No Full Article / Scraped HTML,"Downloading, storing, or processing full article text, raw content, or scraped web HTML.",True,acceptance_pass
+nogo_13,NO_GO,No Embeddings / Vector Databases,Creating vector embeddings or connecting vector search databases.,True,acceptance_pass
+nogo_14,NO_GO,No Production / Broker Approval Claims,Claiming that acceptance reports constitute production-ready or broker-approved certification.,True,acceptance_pass
+nogo_15,NO_GO,No Source Overwrite / Destructive Actions,"Modifying, overwriting, deleting, or truncating raw source files.",True,acceptance_pass
+nogo_16,NO_GO,No Auto-Imputation / Auto-Drop,Silently imputing missing values or automatically dropping columns.,True,acceptance_pass
+nogo_17,NO_GO,No Web Scraping,Executing real-time HTTP scraping or crawling news/financial websites.,True,acceptance_pass
+nogo_18,NO_GO,No Credential Leaks,"Exposing, printing, or recording API keys, secrets, tokens, or credentials.",True,acceptance_pass
+nogo_19,NO_GO,No Cloud Deployment,"Pushing containers, deploying cloud functions, or creating remote resources.",True,acceptance_pass
+safego_01,SAFE_GO,Local & Offline Governance,"Running acceptance reporting, gate audits, and inventory verification locally without network access.",True,acceptance_pass
+safego_02,SAFE_GO,Inventory & Dependency Validation,Ensuring all required phase modules (126-135) and sequential dependency graphs are formally verified.,True,acceptance_pass
+safego_03,SAFE_GO,"Script, Test, & Docs Contracts","Confirming existence and contract compliance of runner scripts, test suites, and documentation.",True,acceptance_pass
+safego_04,SAFE_GO,Non-Signal & No-Lookahead Compliance,"Verifying that all regime matrices, candidates, and catalogs strictly enforce backward-asof joins and zero signals.",True,acceptance_pass
+safego_05,SAFE_GO,Metadata-Only News Ingestion,"Validating that economic calendar and news context rely strictly on timestamps, titles, and release metadata.",True,acceptance_pass
+safego_06,SAFE_GO,Source Preservation,Guaranteeing zero modifications to underlying raw lake datasets.,True,acceptance_pass
+safego_07,SAFE_GO,FeatureStore Metadata Readiness,"Providing standardized namespaces, schemas, and catalog access for research query contracts.",True,acceptance_pass
+safego_08,SAFE_GO,Phase 136 ML/GPU Handoff,Preparing clean architectural foundations and prerequisite checklists for Phase 136 GPU acceleration.,True,acceptance_pass

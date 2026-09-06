@@ -1,0 +1,18 @@
+{
+  "domain": "phase_126_135_manifest_domain",
+  "active_profile": "balanced_local_regime_acceptance",
+  "block_name": "Regime Classification and Market Behavior Block",
+  "phase_start": 126,
+  "phase_end": 135,
+  "target_final_phase": 160,
+  "next_phase": 136,
+  "module_count": 10,
+  "gate_count": 17,
+  "acceptance_score": 1.0,
+  "non_signal": true,
+  "source_preserved": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false,
+  "status": "READY"
+}

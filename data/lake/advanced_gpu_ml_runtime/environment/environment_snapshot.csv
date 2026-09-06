@@ -1,0 +1,13 @@
+property,value,category,status_label,non_signal,source_preserved
+python_version,3.12.10,runtime,runtime_ready,True,True
+platform_safe_name,Windows AMD64,platform,runtime_ready,True,True
+cuda_available,False,accelerator,runtime_ready,True,True
+gpu_available,False,accelerator,runtime_ready,True,True
+torch_available,False,dependency,runtime_ready,True,True
+sklearn_available,False,dependency,runtime_ready,True,True
+numpy_available,True,dependency,runtime_ready,True,True
+pandas_available,True,dependency,runtime_ready,True,True
+non_production,True,boundary,runtime_ready,True,True
+local_only,True,boundary,runtime_ready,True,True
+dry_run,True,boundary,runtime_ready,True,True
+non_signal,True,boundary,runtime_ready,True,True

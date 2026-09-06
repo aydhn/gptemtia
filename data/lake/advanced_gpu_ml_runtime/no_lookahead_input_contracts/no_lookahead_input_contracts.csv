@@ -1,0 +1,4 @@
+contract_id,rule_name,enforced,status_label,details,non_signal,source_preserved,official_approval,production_ready,broker_ready
+nl_backward_asof_only,Backward Asof Join Invariant,True,runtime_ready,All feature joins must strictly align on or before the reference event timestamp.,True,True,False,False,False
+nl_chronological_split,Strict Chronological Train/Val Partitioning,True,runtime_ready,Random k-fold shuffling forbidden on time series; strictly chronological splits.,True,True,False,False,False
+nl_zero_negative_shifts,Prohibition of Forward Shift,True,runtime_ready,Negative shift operations such as df.shift(-1) are strictly blocked.,True,True,False,False,False

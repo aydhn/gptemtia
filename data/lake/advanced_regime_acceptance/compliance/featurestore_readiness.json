@@ -1,0 +1,11 @@
+{
+  "domain": "regime_block_featurestore_readiness_domain",
+  "active_profile": "balanced_local_regime_acceptance",
+  "total_checks": 3,
+  "all_compliant": true,
+  "non_signal": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false,
+  "status": "READY"
+}
