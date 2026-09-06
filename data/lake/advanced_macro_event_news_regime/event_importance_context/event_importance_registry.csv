@@ -1,0 +1,5 @@
+importance_tier,description,weight_rank,requires_pre_buffer,requires_post_buffer,min_buffer_mins,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+critical,Systemic central bank policy rate decisions and major geopolitical emergency statements.,4,True,True,120,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+high,"Primary economic indicators (CPI, NFP, GDP, key PMIs) driving major asset repricing.",3,True,True,60,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+medium,"Secondary tier macro data (Retail Sales, PPI, Consumer Sentiment surveys).",2,False,True,30,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+low,Tertiary economic indicators and routine statistical releases.,1,False,False,0,balanced_local_macro_event_news_regime_context,True,True,False,False,False

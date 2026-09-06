@@ -1,0 +1,23 @@
+{
+  "total_event_entities": 10,
+  "entity_types": [
+    "calendar_event",
+    "scheduled_release",
+    "actual_release",
+    "event_window",
+    "pre_event_window",
+    "post_event_window",
+    "release_lag",
+    "event_importance",
+    "event_country",
+    "event_currency"
+  ],
+  "importance_levels": [
+    "critical",
+    "high",
+    "medium",
+    "info"
+  ],
+  "all_non_signal": true,
+  "all_source_preserved": true
+}

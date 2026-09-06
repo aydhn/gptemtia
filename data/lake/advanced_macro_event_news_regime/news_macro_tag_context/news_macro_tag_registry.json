@@ -1,0 +1,10 @@
+{
+  "total_macro_tag_contexts": 2,
+  "macro_themes": [
+    "monetary_policy_cycle",
+    "inflation_regime_persistence"
+  ],
+  "strictly_metadata_only": true,
+  "all_non_signal": true,
+  "all_source_preserved": true
+}

@@ -1,0 +1,21 @@
+# Phase 132: Macro/Event/News Regime Context Manifest
+
+> **YASAL UYARI & SINIRLAR**
+> Bu çıktı Phase 132 Macro/Event/News Regime Context Expansion raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, macro/event/news context değerini trade sinyali olarak kullanma, strateji üretimi, backtest, optimizer, model training, clustering execution, prediction/target/label üretimi, sentiment model output, haber tam metni/article body/raw content/scraped HTML/embedding/vector kullanımı, production-ready/official approval/broker-ready iddiası, production deployment, model deployment, scraping veya gerçek provider API çağrısı değildir.
+
+## Manifest Invariants
+- **Manifest Name**: `macro_event_news_regime_context_manifest`
+- **Current Phase**: `132`
+- **Next Phase**: `133`
+- **Context Score**: `1.0000`
+- **Zero Raw Text / Scraped HTML**: `True`
+- **Zero Sentiment Models**: `True`
+- **Zero Embeddings / Vectors**: `True`
+- **Zero Model Training / Fit / Predict**: `True`
+- **Zero Clustering Execution**: `True`
+- **Source Preservation Enforced**: `True`
+
+## Manifest Content
+| manifest_name | current_phase | target_final_phase | next_phase | macro_entity_count | event_entity_count | news_metadata_entity_count | context_report_count | finding_count | manual_review_count | context_score | manual_review_required | non_signal | source_preserved | official_approval | production_ready | broker_ready | contains_target_or_prediction | contains_trading_recommendation | contains_full_article_text | contains_article_body | contains_raw_content | contains_scraped_html | contains_embedding | contains_vector | sentiment_model_output | model_training_executed | model_fit_executed | model_predict_executed | clustering_executed | unsupervised_execution | destructive_action_allowed | auto_fix_allowed | auto_drop_allowed | created_at |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| macro_event_news_regime_context_manifest | 132 | 160 | 133 | 10 | 10 | 11 | 20 | 3 | 8 | 1.0 | False | True | True | False | False | False | False | False | False | False | False | False | False | False | False | False | False | False | False | False | False | False | False | 2026-09-06T00:20:10.402183+00:00 |

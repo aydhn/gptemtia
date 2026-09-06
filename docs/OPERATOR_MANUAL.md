@@ -275,6 +275,19 @@ Local completion governance framework appended.
 - **Validasyon ve Güvenlik**: `python -m scripts.run_cross_asset_regime_validation_report` ile 8 kuralın tümünün PASS olduğu ve 18 NO-GO / 8 SAFE-GO kuralının SECURE durumda olduğu doğrulanır.
 - **Genel Durum**: `python -m scripts.run_cross_asset_regime_status` ile tüm Phase 131 alt sistemlerinin yeşil ve Phase 132 için hazır olduğu teyit edilir.
 
+## Phase 132 Macro/Event/News Regime Context Expansion Operations
+- **Profil ve Alan Defterleri**: `python -m scripts.run_macro_event_news_regime_profile_registry` ile 3 profil (`balanced_local_macro_event_news_regime_context`, `strict_metadata_only_news_regime_safety`, `dry_run_macro_event_context_focus`) ve 43 makro, olay ve haber alanı doğrulanır.
+- **Varlıklar ve Taksonomiler**: `python -m scripts.run_macro_event_news_regime_entities` ile 10 makro varlık, 10 takvim olay varlığı, 11 haber metaveri varlığı ve 26 taksonomi kuralı denetlenir.
+- **Makro Gösterge ve Yayın Bağlamları**: `python -m scripts.run_macro_regime_contexts` ile göstergeler, resmi yayın takvimleri, revizyon döngüleri ve deskriptif sürpriz yer tutucuları incelenir.
+- **Takvim Olayı ve Olay Pencereleri**: `python -m scripts.run_event_regime_contexts` ile FOMC, CPI, NFP, ECB olay pencereleri, pre-event ve post-event tampon süreleri, önem dereceleri, yayın gecikmesi ve planlanan vs. gerçekleşen yayın zamanlaması denetlenir.
+- **Haber Metaveri Katmanı (Yalnızca Metaveri)**: `python -m scripts.run_news_metadata_regime_contexts` ile haber konuları, varlık etiketleri, makro tematik etiketler, olay bağlantıları, tazelik yarı-ömrü ve 14 yasaklı alan için sınır kuralları doğrulanır (tam metin, HTML, duygu modelleri ve embeddingler kesinlikle yasaktır).
+- **Çapraz Varlık, Sözleşmeler ve No-Lookahead Korumaları**: `python -m scripts.run_macro_event_news_alignment_guards` ile 7 duyarlılık kanalı, 6 geçiş bağlamı, 3 bağlam sözleşmesi, geriye dönük zaman damgası ve asof birleştirme kuralları (`direction='backward'`) ve negatif shift yasakları denetlenir.
+- **Bulgular, Manifest ve Phase 133 Devri**: `python -m scripts.run_macro_event_news_findings_manifest` ile 3 tanı bulgusu, 8 maddelik tahribatsız manuel inceleme kuyruğu, 1.0 bağlam skoru, MANIFEST_VALID manifestosu ve Phase 133 için 13 maddelik devir paketi üretilir.
+- **Sistem Sağlık Kontrolü**: `python -m scripts.run_macro_event_news_regime_health_check` ile 16 alt sistem denetiminin tümünün HEALTHY olduğu doğrulanır.
+- **Validasyon ve Güvenlik**: `python -m scripts.run_macro_event_news_regime_validation_report` ile 5 kuralın VALIDATION_PASS olduğu ve 20 NO-GO / 9 SAFE-GO kuralının SECURE durumda olduğu doğrulanır.
+- **Genel Durum**: `python -m scripts.run_macro_event_news_regime_status` ile tüm Phase 132 alt sistemlerinin yeşil ve Phase 133 için hazır olduğu teyit edilir.
+
+
 
 
 

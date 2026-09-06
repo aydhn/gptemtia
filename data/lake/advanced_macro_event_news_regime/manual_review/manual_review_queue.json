@@ -1,0 +1,16 @@
+{
+  "total_review_items": 8,
+  "categories": [
+    "timestamp_verification",
+    "lookahead_verification",
+    "lag_verification",
+    "window_verification",
+    "news_safety_verification",
+    "news_field_audit",
+    "cross_asset_verification",
+    "handoff_verification"
+  ],
+  "prohibited_actions_enforced": true,
+  "all_non_signal": true,
+  "all_source_preserved": true
+}

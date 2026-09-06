@@ -1,0 +1,11 @@
+event_id,event_name,entity_type,country_code,currency_code,importance_level,pre_event_window_minutes,post_event_window_minutes,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+event_fomc_rate_decision,FOMC Rate Decision & Statement,calendar_event,US,USD,critical,120,240,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+event_us_cpi_release,US CPI Scheduled Release,scheduled_release,US,USD,high,60,120,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+event_us_nfp_actual,US NFP Actual Publication Timestamp,actual_release,US,USD,high,60,120,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+event_ecb_monetary_policy,ECB Monetary Policy Decision,event_window,EU,EUR,critical,90,180,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+event_pre_fomc_quiet_window,Pre-FOMC Blackout Regime Window,pre_event_window,US,USD,medium,1440,0,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+event_post_cpi_absorption_window,Post-CPI Market Digestion Window,post_event_window,US,USD,medium,0,360,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+event_gdp_quarterly_lag_tracker,Quarterly GDP Release Lag Entity,release_lag,US,USD,medium,0,0,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+event_importance_tier_classification,Economic Calendar Importance Tier Hierarchy,event_importance,GLOBAL,MULTI,info,0,0,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+event_jurisdiction_country_map,Macro Economic Jurisdiction Country Registry,event_country,GLOBAL,MULTI,info,0,0,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+event_currency_exposure_map,Major FX Pair Economic Currency Registry,event_currency,GLOBAL,MULTI,info,0,0,balanced_local_macro_event_news_regime_context,True,True,False,False,False

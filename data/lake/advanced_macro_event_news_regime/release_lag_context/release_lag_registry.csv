@@ -1,0 +1,5 @@
+lag_id,indicator_id,reference_period,nominal_lag_days,max_tolerated_lag_days,lag_category,requires_asof_backward_guard,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+lag_us_gdp,macro_us_real_gdp_qoq,quarterly,30,60,high_lag_context,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+lag_us_cpi,macro_us_cpi_yoy,monthly,14,25,medium_lag_context,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+lag_us_nfp,macro_us_nfp,monthly,7,15,low_lag_context,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+lag_cn_pmi,macro_cn_manufacturing_pmi,monthly,1,5,minimal_lag_context,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False

@@ -1,0 +1,17 @@
+{
+  "total_source_phases": 10,
+  "phases": [
+    120,
+    121,
+    123,
+    124,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131
+  ],
+  "all_non_signal": true,
+  "all_source_preserved": true
+}

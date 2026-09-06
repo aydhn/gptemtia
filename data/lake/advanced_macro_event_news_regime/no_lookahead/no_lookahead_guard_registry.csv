@@ -1,0 +1,5 @@
+guard_id,guard_type,description,enforced,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+guard_no_negative_shift,code_inspection,Prevents shift(-1) or negative shift future indexing.,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+guard_no_future_return,column_inspection,Prevents forward return or target labels.,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+guard_metadata_only_news,news_boundary_inspection,Prevents raw article text or sentiment model outputs.,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+guard_backward_asof_only,join_inspection,Ensures all time-series context joins strictly look backward.,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False

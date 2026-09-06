@@ -938,6 +938,71 @@ Local completion governance framework appended.
 - 39 birim ve entegrasyon test dosyası eklendi.
 - Mevcut faz: 131, Sıradaki faz: 132 (Macro, Event & News Regime Context Expansion), Hedef final faz: 160.
 
+## Phase 132: Macro/Event/News Regime Context Expansion, Metadata-Only Event Regime Layer, Non-Signal Macro Context Contracts ve Phase 133 Handoff
+- Macro/Event/News Regime Context Expansion mimarisi kuruldu (`advanced_macro_event_news_regime/`).
+- 45 modülden oluşan kapsamlı paket eklendi:
+    * Konfigürasyon, Etiketler ve Modeller:
+        - `macro_event_news_regime_config.py`: 3 operasyonel profil (`balanced_local_macro_event_news_regime_context`, `strict_metadata_only_news_regime_safety`, `dry_run_macro_event_context_focus`).
+        - `macro_event_news_regime_labels.py`: Etiketler, tablo adları ve yasal feragatname sözleşmeleri.
+        - `macro_event_news_regime_models.py`: 12 dataclass veri modeli (MacroEventNewsRegimeProfileItem, Domain, Entity, Context, Finding, Score, Manifest vb.).
+    * Profiller, Alanlar, Varlıklar ve Taksonomiler:
+        - `macro_event_news_regime_profile_registry.py`: 3 profil kaydı.
+        - `macro_event_news_regime_domain_registry.py`: 43 rejim alanı kaydı.
+        - `macro_regime_entities.py`: 10 makro rejim varlığı (`macro_us_cpi_yoy`, `macro_us_nfp`, `macro_us_fed_funds_rate` vb.).
+        - `event_regime_entities.py`: 10 olay rejim varlığı (FOMC, CPI, NFP, ECB, BOE vb.).
+        - `news_metadata_regime_entities.py`: 11 haber metaveri varlığı (enflasyon, merkez bankaları, enerji, jeopolitik vb.).
+        - `macro_regime_context_taxonomy.py`: 9 makro taksonomi kaydı.
+        - `event_regime_context_taxonomy.py`: 9 takvim olay taksonomisi kaydı.
+        - `news_metadata_regime_context_taxonomy.py`: 8 haber metaveri taksonomisi kaydı.
+    * Makro Gösterge, Yayın, Revizyon ve Sürpriz Bağlamları:
+        - `macro_indicator_regime_context.py`: 7 gösterge bağlamı kaydı.
+        - `macro_release_regime_context.py`: 5 makro yayın bağlamı kaydı.
+        - `macro_revision_regime_context.py`: 5 revizyon döngüsü bağlamı kaydı.
+        - `macro_surprise_placeholders.py`: 3 sürpriz yer tutucusu (kesinlikle sinyalsiz, deskriptif uzlaşı farkı).
+    * Ekonomik Takvim ve Olay Pencereleri:
+        - `calendar_event_regime_context.py`: 4 takvim olay kaydı.
+        - `event_window_regime_context.py`: 4 olay penceresi kaydı (pre-buffer ve post-buffer).
+        - `pre_event_regime_context.py`: 3 olay öncesi sıkışma/beklenti bağlamı kaydı.
+        - `post_event_regime_context.py`: 3 olay sonrası sindirme/genişleme bağlamı kaydı.
+        - `event_importance_regime_context.py`: 4 önem derecesi (critical, high, medium, low).
+        - `release_lag_regime_context.py`: 4 yayın gecikmesi kaydı.
+        - `scheduled_actual_release_alignment.py`: Planlanan vs gerçekleşen zamanlama denetimi ve sıfır-erken-sızıntı doğrulaması.
+    * Haber Metaveri Katmanı ve Sınır Koruması (Yalnızca Metaveri):
+        - `news_topic_regime_context.py`: 3 konu bağlamı kaydı.
+        - `news_asset_tag_regime_context.py`: 3 varlık etiketi kaydı.
+        - `news_macro_tag_regime_context.py`: 2 makro tematik etiket kaydı.
+        - `news_event_linkage_regime_context.py`: 2 haber-olay bağlantı kaydı.
+        - `news_freshness_regime_context_placeholders.py`: 2 tazelik/yarı-ömür yer tutucusu kaydı.
+        - `metadata_only_news_boundary.py`: 14 yasaklı alan için sınır kuralları (tam metin, HTML, duygu analizi, embedding engeli).
+    * Çapraz Varlık, Geçiş, Sözleşmeler ve No-Lookahead Güvenliği:
+        - `macro_event_news_cross_asset_context.py`: 7 çapraz varlık duyarlılık kanalı.
+        - `macro_event_news_transition_context.py`: 6 olay güdümlü geçiş bağlamı.
+        - `macro_event_news_regime_context_contracts.py`: 3 master bağlam sözleşmesi.
+        - `macro_event_news_timestamp_policies.py`: 3 geriye dönük zaman damgası politikası.
+        - `macro_event_news_asof_join_policies.py`: Geriye dönük asof birleştirme (`direction='backward'`).
+        - `macro_event_news_no_lookahead_guard.py`: Negatif shift ve gelecek sızıntısı denetim kuralları.
+        - `macro_event_news_validation_dependencies.py`: 9 doğrulama bağımlılığı.
+        - `macro_event_news_quality_dependencies.py`: 9 kalite bağımlılığı.
+        - `macro_event_news_source_phases.py`: 10 kaynak faz bağlantısı (Phase 120-131).
+        - `macro_event_news_manual_review.py`: 8 maddelik tahribatsız manuel inceleme kuyruğu.
+        - `macro_event_news_context_findings.py`: 3 tanı bulgusu.
+        - `macro_event_news_context_scoring.py`: 1.0 bağlam skoru (`high_context_integrity`).
+        - `macro_event_news_regime_context_manifest.py`: Master denetim manifestosu (`MANIFEST_VALID`).
+    * Raporlama, Sağlık, Doğrulama, Güvenlik ve Handoff:
+        - `macro_event_news_regime_report_builder.py`: Bağımsız Markdown tablo ve rapor oluşturucu.
+        - `macro_event_news_regime_health.py`: 16 alt sistem sağlık denetimi (HEALTHY).
+        - `macro_event_news_regime_validation.py`: 5 doğrulama denetimi (VALIDATION_PASS).
+        - `macro_event_news_regime_safety_boundary.py`: 20 NO-GO ve 9 SAFE-GO kuralı (SECURE).
+        - `phase_133_handoff.py`: 13 maddelik devir paketi (status=READY).
+        - `macro_event_news_regime_pipeline.py`: Master orkestrasyon hattı ve durum raporu.
+- DataLake (`data/storage/data_lake.py`) Phase 132 kayıt ve yükleme metotları ile genişletildi (42 veri seti + raporlar).
+- FeatureStore (`ml/feature_store.py`) Phase 132 salt-okunur erişimcileri ile güncellendi.
+- ReportBuilder (`reports/report_builder.py`) Phase 132 metin raporu fonksiyonları ile genişletildi.
+- 10 CLI operasyonel betiği (`scripts/run_macro_event_news_*.py`, `scripts/run_macro_regime_*.py`, `scripts/run_event_regime_*.py`, `scripts/run_news_metadata_*.py`) eklendi ve başarıyla çalıştırıldı.
+- 48 birim ve entegrasyon test dosyası (115 test) eklendi ve 100% başarıyla geçti.
+- Mevcut faz: 132, Sıradaki faz: 133 (Regime Validation and No-Lookahead Acceptance), Hedef final faz: 160.
+
+
 
 
 

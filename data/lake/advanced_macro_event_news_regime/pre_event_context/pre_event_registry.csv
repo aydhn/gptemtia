@@ -1,0 +1,4 @@
+pre_event_id,event_id,buffer_minutes,anticipation_tier,liquidity_adjustment_flag,description,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+pre_fomc_anticipation,event_fomc_rate_decision,120,heightened_uncertainty_context,True,Pre-FOMC window where price discovery regime typically exhibits compression.,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+pre_cpi_anticipation,event_us_cpi_release,60,data_sensitive_context,True,Pre-CPI data release regime window.,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+pre_nfp_anticipation,event_us_nfp_actual,60,data_sensitive_context,True,Pre-NFP employment release window.,balanced_local_macro_event_news_regime_context,True,True,False,False,False

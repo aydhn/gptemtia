@@ -1,0 +1,11 @@
+{
+  "total_importance_tiers": 4,
+  "tiers": [
+    "critical",
+    "high",
+    "medium",
+    "low"
+  ],
+  "all_non_signal": true,
+  "all_source_preserved": true
+}

@@ -2000,6 +2000,71 @@ class Settings(BaseSettings):
     cross_asset_regime_min_context_score: float = 0.45
     cross_asset_regime_save_reports: bool = True
 
+    # Phase 132 Macro/Event/News Regime Context Expansion Settings
+    advanced_macro_event_news_regime_enabled: bool = True
+    default_macro_event_news_regime_profile: str = "balanced_local_macro_event_news_regime_context"
+    macro_event_news_regime_current_phase: int = 132
+    macro_event_news_regime_target_final_phase: int = 160
+    macro_event_news_regime_next_phase: int = 133
+    macro_event_news_regime_default_language: str = "tr"
+    macro_event_news_regime_dry_run_default: bool = True
+    macro_event_news_regime_local_only: bool = True
+    macro_event_news_regime_non_production: bool = True
+    macro_event_news_regime_research_only: bool = True
+    macro_event_news_regime_allow_live_trading: bool = False
+    macro_event_news_regime_allow_broker_integration: bool = False
+    macro_event_news_regime_allow_real_order: bool = False
+    macro_event_news_regime_allow_investment_advice: bool = False
+    macro_event_news_regime_allow_macro_context_as_signal: bool = False
+    macro_event_news_regime_allow_event_context_as_signal: bool = False
+    macro_event_news_regime_allow_news_context_as_signal: bool = False
+    macro_event_news_regime_allow_directional_claim: bool = False
+    macro_event_news_regime_allow_strategy_generation: bool = False
+    macro_event_news_regime_allow_backtest_execution: bool = False
+    macro_event_news_regime_allow_optimizer_execution: bool = False
+    macro_event_news_regime_allow_model_training: bool = False
+    macro_event_news_regime_allow_model_fit: bool = False
+    macro_event_news_regime_allow_model_predict: bool = False
+    macro_event_news_regime_allow_clustering_execution: bool = False
+    macro_event_news_regime_allow_unsupervised_execution: bool = False
+    macro_event_news_regime_allow_target_label_generation: bool = False
+    macro_event_news_regime_allow_prediction_generation: bool = False
+    macro_event_news_regime_allow_sentiment_model_output: bool = False
+    macro_event_news_regime_allow_full_article_usage: bool = False
+    macro_event_news_regime_allow_article_body_usage: bool = False
+    macro_event_news_regime_allow_raw_content_usage: bool = False
+    macro_event_news_regime_allow_scraped_html_usage: bool = False
+    macro_event_news_regime_allow_embedding_generation: bool = False
+    macro_event_news_regime_allow_vector_db: bool = False
+    macro_event_news_regime_allow_official_approval_claim: bool = False
+    macro_event_news_regime_allow_production_ready_claim: bool = False
+    macro_event_news_regime_allow_broker_ready_claim: bool = False
+    macro_event_news_regime_allow_model_deployment: bool = False
+    macro_event_news_regime_allow_production_deployment: bool = False
+    macro_event_news_regime_allow_web_scraping: bool = False
+    macro_event_news_regime_allow_credential_output: bool = False
+    macro_event_news_regime_allow_source_overwrite: bool = False
+    macro_event_news_regime_allow_auto_destructive_cleaning: bool = False
+    macro_event_news_regime_allow_file_deletion: bool = False
+    macro_event_news_regime_allow_overwrite: bool = False
+    macro_event_news_regime_allow_auto_imputation: bool = False
+    macro_event_news_regime_allow_auto_feature_drop: bool = False
+    macro_event_news_regime_enable_entity_registry: bool = True
+    macro_event_news_regime_enable_context_taxonomy: bool = True
+    macro_event_news_regime_enable_macro_context: bool = True
+    macro_event_news_regime_enable_event_context: bool = True
+    macro_event_news_regime_enable_news_metadata_context: bool = True
+    macro_event_news_regime_enable_release_alignment: bool = True
+    macro_event_news_regime_enable_metadata_only_boundary: bool = True
+    macro_event_news_regime_enable_cross_asset_context: bool = True
+    macro_event_news_regime_enable_transition_context: bool = True
+    macro_event_news_regime_enable_no_lookahead_guard: bool = True
+    macro_event_news_regime_enable_findings: bool = True
+    macro_event_news_regime_enable_manifest: bool = True
+    macro_event_news_regime_enable_phase_133_handoff: bool = True
+    macro_event_news_regime_min_context_score: float = 0.45
+    macro_event_news_regime_save_reports: bool = True
+
 
 def get_settings() -> Settings:
     """Return a Settings instance."""

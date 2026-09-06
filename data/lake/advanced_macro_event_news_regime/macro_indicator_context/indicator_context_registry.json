@@ -1,0 +1,14 @@
+{
+  "total_macro_contexts": 7,
+  "context_names": [
+    "inflation_regime_context",
+    "rate_regime_context",
+    "growth_regime_context",
+    "employment_regime_context",
+    "macro_policy_sensitivity_context",
+    "fx_sensitive_macro_context",
+    "commodity_sensitive_macro_context"
+  ],
+  "all_non_signal": true,
+  "all_source_preserved": true
+}

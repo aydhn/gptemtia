@@ -1,0 +1,4 @@
+post_event_id,event_id,buffer_minutes,absorption_tier,volatility_expansion_flag,description,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+post_fomc_digestion,event_fomc_rate_decision,240,extended_digestion_context,True,Post-FOMC statement and press conference market absorption window.,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+post_cpi_digestion,event_us_cpi_release,120,rapid_absorption_context,True,Post-CPI inflation data digestion window.,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+post_nfp_digestion,event_us_nfp_actual,120,rapid_absorption_context,True,Post-NFP employment release digestion window.,balanced_local_macro_event_news_regime_context,True,True,False,False,False

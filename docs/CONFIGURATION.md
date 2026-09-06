@@ -979,7 +979,44 @@ Phase 109 Macro Provider Configuration
 - `CROSS_ASSET_REGIME_TIMEZONE="UTC"`: Standart zaman dilimi.
 
 ### 4. Phase 132 Handoff
-- Phase 131, varlık ve profil kayıt defterlerini, sözleşmeleri, FX-Emtia rejim bağlantı raporunu, co-movement, ayrışma/yakınsama, geçiş uyumu, volatilite/trend/range bağlantılarını, makro duyarlılık ve haber metadata bağlamlarını, kalite bulguları ve manuel inceleme kuyruğunu, MANIFEST_VALID bütünlük belgesini ve Phase 132 (Multi-Asset Regime Synchronization and Macro Driver Attribution) için doğrulanmış 10 devir maddesini teslim eder (`phase_132_handoff.py`).
+- Phase 131, varlık ve profil kayıt defterlerini, sözleşmeleri, FX-Emtia rejim bağlantı raporunu, co-movement, ayrışma/yakınsama, geçiş uyumu, volatilite/trend/range bağlantılarını, makro duyarlılık ve haber metadata bağlamlarını, kalite bulguları ve manuel inceleme kuyruğunu, MANIFEST_VALID bütünlük belgesini ve Phase 132 (Macro, Event & News Regime Context Expansion) için doğrulanmış 10 devir maddesini teslim eder (`phase_132_handoff.py`).
+
+## Phase 132 Macro/Event/News Regime Context Expansion Configuration
+### 1. Çalışma Profilleri
+- `DEFAULT_MACRO_EVENT_NEWS_REGIME_PROFILE`: Çalışma profilini belirler (`balanced_local_macro_event_news_regime_context`, `strict_metadata_only_news_regime_safety`, `dry_run_macro_event_context_focus`).
+  - `balanced_local_macro_event_news_regime_context`: Varsayılan dengeli yerel araştırma profili. Makro göstergeler, revizyonlar, ekonomik takvim pencereleri, yalnızca metaveri haber etiketleri ve çapraz varlık duyarlılık kanalları.
+  - `strict_metadata_only_news_regime_safety`: Sıkı metaveri-yalnızca haber güvenliği, tam metin/HTML/duygu modeli/vektör blokajı, sıfır lookahead ve sıfır sinyal denetimini en üst seviyede tutan güvenlik profili.
+  - `dry_run_macro_event_context_focus`: Sentetik şemalar, yer tutucular ve sözleşme doğrulaması odaklı kuru koşum profili.
+
+### 2. Güvenlik, Non-Signal ve Sözleşme Ayarları
+- `ADVANCED_MACRO_EVENT_NEWS_REGIME_ENABLED=true`: Phase 132 katmanının aktifliği.
+- `MACRO_EVENT_NEWS_REGIME_CURRENT_PHASE=132`: Mevcut operasyonel faz.
+- `MACRO_EVENT_NEWS_REGIME_TARGET_FINAL_PHASE=160`: Nihai mimari hedefi.
+- `MACRO_EVENT_NEWS_REGIME_NEXT_PHASE=133`: Sıradaki faz (Regime Validation and No-Lookahead Acceptance).
+- `MACRO_EVENT_NEWS_REGIME_DRY_RUN_DEFAULT=true`: Varsayılan kuru koşum modu.
+- `MACRO_EVENT_NEWS_REGIME_LOCAL_ONLY=true`: Yalnızca yerel çevrimdışı ortamda çalışma kısıtı.
+- `MACRO_EVENT_NEWS_REGIME_RESEARCH_ONLY=true`: Yalnızca araştırma ve rejim bağlamı amaçlı çalışma.
+- `MACRO_EVENT_NEWS_REGIME_ALLOW_LIVE_TRADING=false`: Canlı ticaret kesinlikle yasaktır.
+- `MACRO_EVENT_NEWS_REGIME_ALLOW_BROKER_INTEGRATION=false`: Broker entegrasyonu kesinlikle yasaktır.
+- `MACRO_EVENT_NEWS_REGIME_ALLOW_INVESTMENT_ADVICE=false`: Yatırım tavsiyesi kesinlikle yasaktır.
+- `MACRO_EVENT_NEWS_REGIME_ALLOW_CONTEXT_AS_SIGNAL=false`: Rejim bağlam değerlerinin trade sinyali olarak kullanımı yasaktır.
+- `MACRO_EVENT_NEWS_REGIME_ALLOW_MODEL_TRAINING=false`: Model eğitimi veya fit operasyonu yasaktır.
+- `MACRO_EVENT_NEWS_REGIME_ALLOW_CLUSTERING_EXECUTION=false`: Kümeleme algoritmaları çalıştırılamaz.
+- `MACRO_EVENT_NEWS_REGIME_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni veya makale gövdesi kullanımı yasaktır (`strictly_metadata_only: True`).
+- `MACRO_EVENT_NEWS_REGIME_ALLOW_NLP_SENTIMENT_MODEL=false`: NLP duygu modelleri veya embedding kullanımı yasaktır.
+- `MACRO_EVENT_NEWS_REGIME_ALLOW_LOOKAHEAD=false`: Geleceğe bakış sızıntısı yasaktır.
+- `MACRO_EVENT_NEWS_REGIME_ALLOW_SOURCE_OVERWRITE=false`: Kaynak tablolar ezilemez (`source_preserved: True`).
+- `MACRO_EVENT_NEWS_REGIME_ALLOW_AUTO_IMPUTATION=false`: Otomatik veri doldurma yasaktır.
+- `MACRO_EVENT_NEWS_REGIME_ALLOW_AUTO_FEATURE_DROP=false`: Otomatik özellik silme yasaktır.
+
+### 3. Tanı Eşikleri ve Bağlam Parametreleri
+- `MACRO_EVENT_NEWS_REGIME_MIN_CONTEXT_SCORE=0.45`: Minimum kabul edilebilir bağlam bütünlüğü skoru.
+- `MACRO_EVENT_NEWS_REGIME_MAX_RELEASE_LAG_DAYS=60`: Maksimum tolere edilebilir makro yayın gecikmesi.
+- `MACRO_EVENT_NEWS_REGIME_TIMEZONE="UTC"`: Standart zaman dilimi.
+
+### 4. Phase 133 Handoff
+- Phase 132, 42 kayıt defteri ve veri seti, makro ve takvim olay pencereleri, yalnızca metaveri haber etiketleri, çapraz varlık duyarlılığı, no-lookahead korumaları, MANIFEST_VALID bütünlük manifestosu ve Phase 133 (Regime Validation and No-Lookahead Acceptance) için doğrulanmış 13 devir maddesini teslim eder (`phase_133_handoff.py`).
+
 
 
 

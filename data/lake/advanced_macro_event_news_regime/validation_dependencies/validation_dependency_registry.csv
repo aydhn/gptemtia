@@ -1,0 +1,10 @@
+dependency_id,source_phase,description,status,is_blocking,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+val_dep_phase_120_fusion,Phase 120,Macro/Calendar/News Feature Fusion integrity dependency.,active,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+val_dep_phase_121_validation,Phase 121,Feature Validation and Matrix Integrity no-lookahead dependency.,active,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+val_dep_phase_127_matrix,Phase 127,Regime Feature Matrix and State Dataset Contracts dependency.,active,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+val_dep_phase_128_rule_free,Phase 128,Candidate state contract no-lookahead dependency.,active,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+val_dep_phase_129_behavior,Phase 129,Market behavior diagnostics validation dependency.,active,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+val_dep_phase_130_transition,Phase 130,Regime transition stability and sequence validation dependency.,active,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+val_dep_phase_131_cross_asset,Phase 131,Cross-asset regime context no-lookahead dependency.,active,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+val_dep_metadata_only_boundary,Phase 132,Strict metadata-only news boundary compliance dependency.,active,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+val_dep_source_preservation,All,Strict zero-overwrite and non-destructive cleaning dependency.,active,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False

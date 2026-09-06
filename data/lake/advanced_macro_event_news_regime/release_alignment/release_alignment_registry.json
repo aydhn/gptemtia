@@ -1,0 +1,8 @@
+{
+  "total_alignments": 3,
+  "alignment_statuses": [
+    "aligned_lookahead_free"
+  ],
+  "all_non_signal": true,
+  "all_source_preserved": true
+}

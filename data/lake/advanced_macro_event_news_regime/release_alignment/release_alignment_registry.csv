@@ -1,0 +1,4 @@
+alignment_id,indicator_id,scheduled_time_utc,actual_observed_lag_secs,max_tolerated_drift_secs,alignment_status,requires_backward_asof,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+align_us_cpi,macro_us_cpi_yoy,13:30:00,2,60,aligned_lookahead_free,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+align_us_nfp,macro_us_nfp,13:30:00,1,60,aligned_lookahead_free,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+align_fomc_decision,macro_us_fed_funds_rate,19:00:00,5,120,aligned_lookahead_free,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False

@@ -257,8 +257,9 @@
 - 130 completed/Regime Transition and Stability Analysis ready
 ## Completed: Phase 131 Cross-Asset Regime Context Expansion, FX/Commodity Regime Linkage, Non-Signal Cross-Asset Context Contracts ve Phase 132 Handoff
 - 131 completed/Cross-Asset Regime Context Expansion ready
-- 132 Macro/Event/News Regime Context Expansion sıradaki faz
-- 133 Regime Validation and No-Lookahead Acceptance
+## Completed: Phase 132 Macro/Event/News Regime Context Expansion, Metadata-Only Event Regime Layer, Non-Signal Macro Context Contracts ve Phase 133 Handoff
+- 132 completed/Macro/Event/News Regime Context Expansion ready
+- 133 Regime Validation and No-Lookahead Acceptance sıradaki faz
 - 134 Regime FeatureStore Integration
 - 135 Regime Classification Acceptance Report
 ## Target Final Phase: 160

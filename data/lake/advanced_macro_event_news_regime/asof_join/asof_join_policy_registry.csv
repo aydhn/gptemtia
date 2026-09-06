@@ -1,0 +1,2 @@
+asof_policy_id,direction,allow_forward,allow_nearest,allow_exact_match,description,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+asof_backward_join_policy,backward,False,False,True,Strictly merges right-side context on <= left-side timestamp to eliminate lookahead.,balanced_local_macro_event_news_regime_context,True,True,False,False,False

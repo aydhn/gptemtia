@@ -1,0 +1,5 @@
+window_id,event_id,pre_window_mins,post_window_mins,total_window_mins,window_state,description,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+win_fomc_complete_regime,event_fomc_rate_decision,120,240,360,active_window_context,FOMC rate announcement buffer window.,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+win_cpi_complete_regime,event_us_cpi_release,60,120,180,active_window_context,US CPI release buffer window.,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+win_nfp_complete_regime,event_us_nfp_actual,60,120,180,active_window_context,US NFP release buffer window.,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+win_ecb_complete_regime,event_ecb_monetary_policy,90,180,270,active_window_context,ECB policy decision buffer window.,balanced_local_macro_event_news_regime_context,True,True,False,False,False

@@ -1,0 +1,10 @@
+dependency_id,source_phase,description,status,min_score,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+qual_dep_phase_123_quality,Phase 123,"Feature Quality, Drift & Stationarity Diagnostics dependency.",active,0.45,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+qual_dep_phase_124_store,Phase 124,Advanced FeatureStore Integration catalog quality dependency.,active,0.45,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+qual_dep_phase_129_behavior,Phase 129,Market behavior regime diagnostics quality dependency.,active,0.45,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+qual_dep_phase_130_stability,Phase 130,Regime transition stability score quality dependency.,active,0.45,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+qual_dep_phase_131_cross_asset,Phase 131,Cross-asset regime context score dependency.,active,0.45,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+qual_dep_macro_timestamp_quality,Phase 132,Macro release timestamp quality and non-null rate.,active,0.5,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+qual_dep_calendar_completeness,Phase 132,Economic calendar event importance and timing completeness.,active,0.5,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+qual_dep_news_meta_coverage,Phase 132,News metadata tagging completeness and provenance verification.,active,0.5,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+qual_dep_manual_review_blockers,Phase 132,Resolution of all blocking manual review items prior to Phase 133.,active,0.5,balanced_local_macro_event_news_regime_context,True,True,False,False,False

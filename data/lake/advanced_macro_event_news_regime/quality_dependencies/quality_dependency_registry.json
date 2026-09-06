@@ -1,0 +1,13 @@
+{
+  "total_quality_dependencies": 9,
+  "source_phases": [
+    "Phase 123",
+    "Phase 124",
+    "Phase 129",
+    "Phase 130",
+    "Phase 131",
+    "Phase 132"
+  ],
+  "all_non_signal": true,
+  "all_source_preserved": true
+}

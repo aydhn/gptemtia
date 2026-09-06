@@ -1,0 +1,7 @@
+{
+  "context_score": 1.0,
+  "classification": "high_context_integrity",
+  "meets_threshold": true,
+  "all_non_signal": true,
+  "all_source_preserved": true
+}

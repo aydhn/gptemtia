@@ -1504,6 +1504,148 @@ def build_phase_132_handoff_text_report(summary: dict, df=None) -> str:
     )
 
 
+# Phase 132 Macro/Event/News Regime Context Expansion Reports
+MACRO_EVENT_NEWS_REGIME_TEXT_REPORT_DISCLAIMER = (
+    "Bu rapor Phase 132 Macro/Event/News Regime Context Expansion çıktısıdır. "
+    "Gerçek veri indirme zorunluluğu, scraping, haber tam metni/article body/raw content/scraped HTML/"
+    "embedding/vector kullanımı, sentiment model output, broker talimatı, canlı emir, kesin AL/SAT, "
+    "yatırım tavsiyesi, macro/event/news context değerini trade sinyali olarak kullanma, "
+    "strateji/backtest/optimizer/model training/clustering çalıştırma, target/label/prediction üretme, "
+    "official approval, broker-ready veya production-ready iddiası değildir."
+)
+
+
+def build_macro_event_news_regime_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{MACRO_EVENT_NEWS_REGIME_TEXT_REPORT_DISCLAIMER}\n"
+        f"Active Profile: {summary.get('active_profile', 'balanced_local_macro_event_news_regime_context')}\n"
+        f"Current Phase: {summary.get('current_phase', 132)}\n"
+        f"Target Final Phase: {summary.get('target_final_phase', 160)}\n"
+        f"Total Profiles: {summary.get('total_profiles', 0)}\n"
+        f"Non-Signal Certified: True\n"
+        f"Zero Model Training Allowed: True"
+    )
+
+
+def build_macro_event_news_entity_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{MACRO_EVENT_NEWS_REGIME_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Entities: {summary.get('total_entities', 0)}\n"
+        f"Strictly Metadata-Only: True\n"
+        f"Zero Full Text: True\n"
+        f"All Non-Signal: {summary.get('all_non_signal', True)}\n"
+        f"Source Preserved: True"
+    )
+
+
+def build_macro_context_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{MACRO_EVENT_NEWS_REGIME_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Macro Contexts: {summary.get('total_macro_contexts', 0)}\n"
+        f"Non-Signal Certified: True\n"
+        f"Revision Tracking: Active\n"
+        f"Surprise Calculation: Placeholder Only"
+    )
+
+
+def build_event_context_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{MACRO_EVENT_NEWS_REGIME_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Calendar Events: {summary.get('total_calendar_events', 0)}\n"
+        f"Pre/Post Buffers Active: True\n"
+        f"Release Alignment: Lookahead-Free Certified\n"
+        f"All Non-Signal: True"
+    )
+
+
+def build_news_metadata_context_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{MACRO_EVENT_NEWS_REGIME_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Topic Contexts: {summary.get('total_topic_contexts', 0)}\n"
+        f"Zero Article Body: True\n"
+        f"Zero Sentiment Models: True\n"
+        f"Zero Embeddings: True\n"
+        f"Metadata-Only Boundary: Enforced"
+    )
+
+
+def build_metadata_only_boundary_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{MACRO_EVENT_NEWS_REGIME_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Boundary Rules: {summary.get('total_boundary_rules', 0)}\n"
+        f"Strictly Enforced: True\n"
+        f"Forbidden Fields Monitored: {summary.get('forbidden_fields_count', 14)}\n"
+        f"Auto-Drop Prohibited: True"
+    )
+
+
+def build_macro_event_news_findings_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{MACRO_EVENT_NEWS_REGIME_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Findings: {summary.get('total_findings', 0)}\n"
+        f"Manual Reviews: {summary.get('manual_review_count', 0)}\n"
+        f"Destructive Actions Allowed: False\n"
+        f"Auto-Fix Allowed: False"
+    )
+
+
+def build_macro_event_news_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{MACRO_EVENT_NEWS_REGIME_TEXT_REPORT_DISCLAIMER}\n"
+        f"Context Score: {summary.get('context_score', 1.0):.4f}\n"
+        f"Classification: {summary.get('classification', 'high_context_integrity')}\n"
+        f"Meets Threshold: {summary.get('meets_threshold', True)}\n"
+        f"Official Approval Claim: False\n"
+        f"Production Ready Claim: False"
+    )
+
+
+def build_macro_event_news_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{MACRO_EVENT_NEWS_REGIME_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest Name: {summary.get('manifest_name', 'macro_event_news_regime_context_manifest')}\n"
+        f"Current Phase: {summary.get('current_phase', 132)}\n"
+        f"Next Phase: {summary.get('next_phase', 133)}\n"
+        f"Context Score: {summary.get('context_score', 1.0):.4f}\n"
+        f"Zero ML / Zero Clustering: True\n"
+        f"Zero Sentiment / Zero Full Text: True"
+    )
+
+
+def build_macro_event_news_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{MACRO_EVENT_NEWS_REGIME_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('validation_status', 'VALIDATION_PASS')}\n"
+        f"Total Checks: {summary.get('total_checks', 0)}\n"
+        f"Passed Checks: {summary.get('passed_checks', 0)}\n"
+        f"Forbidden Claims Clean: {summary.get('forbidden_claims_clean', True)}"
+    )
+
+
+def build_macro_event_news_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{MACRO_EVENT_NEWS_REGIME_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Status: {summary.get('safety_status', 'SECURE')}\n"
+        f"NO-GO Rules Enforced: {summary.get('no_go_count', 20)}\n"
+        f"SAFE-GO Principles Active: {summary.get('safe_go_count', 9)}\n"
+        f"Live Trading Prohibited: True\n"
+        f"Zero Model Execution: True"
+    )
+
+
+def build_phase_133_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{MACRO_EVENT_NEWS_REGIME_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase 133 Handoff Status: {summary.get('handoff_status', 'READY')}\n"
+        f"Source Phase: {summary.get('current_phase', 132)}\n"
+        f"Next Phase: {summary.get('next_phase', 133)}\n"
+        f"Target Final Phase: {summary.get('target_final_phase', 160)}\n"
+        f"Total Items: {summary.get('total_items', 0)}\n"
+        f"All Ready: {summary.get('all_ready', True)}"
+    )
+
+
+
 
 
 

@@ -243,8 +243,19 @@ Local completion governance framework appended.
 - **Source Preservation & Zero Auto-Destructive Modification**: Girdi veri çerçeveleri in-place değiştirilemez (`df.copy()` zorunludur). Ham kaynak dosyalar üzerine yazılamaz (`allow_source_overwrite: False`), otomatik veri doldurma (`auto_imputation: False`) ve otomatik özellik silme (`auto_feature_drop: False`) kesinlikle yasaktır (`destructive_action_allowed: False`, `source_preserved: True`).
 - **Strict News Metadata-Only Boundary**: Haber etki alanı bağlamında kesinlikle haber tam metni, `article_body`, web scraping, NLP duygu modeli veya embedding kullanılamaz; salt başlık frekansı, varlık etiketleri ve tazelik gecikmesi ile sınırlıdır (`full_text_used: False`, `scraping_executed: False`, `sentiment_model_used: False`).
 - **Forbidden Claims & Commercial Exclusions**: `official_approval`, `production_ready`, `broker_ready`, kârlılık veya yatırım getirisi iddiaları kesinlikle yasaktır (`validate_no_forbidden_cross_asset_claims`).
-- **Phase 132 Handoff Invariant**: Phase 131 çıktıları, 10 devir kalemi ile Phase 132 (Multi-Asset Regime Synchronization and Macro Driver Attribution) fazına eksiksiz devredilir (`phase_132_handoff.py`).
-- **Current Phase: 131, Next Phase: 132 (Multi-Asset Regime Synchronization and Macro Driver Attribution), Target Final Phase: 160**.
+- **Phase 132 Handoff Invariant**: Phase 131 çıktıları, 10 devir kalemi ile Phase 132 (Macro, Event & News Regime Context Expansion) fazına eksiksiz devredilir (`phase_132_handoff.py`).
+- **Current Phase: 131, Next Phase: 132 (Macro, Event & News Regime Context Expansion), Target Final Phase: 160**.
+
+## Phase 132 Macro/Event/News Regime Context Expansion Agent Constraints
+- **Strict Non-Signal & Environmental Context Invariant**: Agent, makro, takvim ve haber rejim bağlamı katmanında kesinlikle AL/SAT sinyali, alım-satım tavsiyesi, long/short pozisyonlama, hedef değişken (`target`), model tahmini (`prediction`) veya yönlü iddia üretemez (`non_signal: True`, `allow_context_as_signal: False`).
+- **Strictly Metadata-Only News Boundary**: Haber tarafı kesinlikle ve yalnızca metaveri (konu etiketleri, varlık etiketleri, makro tematik etiketler, olay bağlantıları, zaman damgaları ve kaynak kimlikleri) ile sınırlıdır. Haber tam metni, makale gövdesi (`article_body`), ham içerik (`raw_content`), taranmış HTML (`scraped_html`), duygu analizi model çıktıları (`sentiment_score`), gömmeler (`embedding`) veya vektör veri tabanları (`vector`) kesinlikle yasaktır ve boundary guard ile engellenir.
+- **Zero-Execution & Model Training Prohibition**: Bu fazda kümeleme (KMeans, DBSCAN, GMM vb.), denetimsiz algoritma yürütme, model eğitimi (`fit`, `predict`), backtest veya optimizasyon kesinlikle çalıştırılamaz (`model_training_executed: False`, `clustering_executed: False`, `unsupervised_execution: False`).
+- **Strict No-Lookahead & Scheduled/Actual Alignment**: Makro veri yayınları ve takvim olaylarında zaman damgaları geriye dönük (`direction='backward'`) asof join ile bağlanmalıdır. Planlanan yayın saati ile fiili yayın saati denetlenmeli; verinin erken sızdırılması (`actual < scheduled`) veya geleceğe kaydırma (`shift(-1)`, `future_return`) kesinlikle engellenmelidir.
+- **Source Preservation & Non-Destructive Invariant**: Girdi veri çerçeveleri in-place değiştirilemez (`df.copy()` zorunludur). Ham kaynak dosyalar üzerine yazılamaz, otomatik veri doldurma (`auto_imputation: False`) ve otomatik özellik silme (`auto_drop: False`) kesinlikle yasaktır (`destructive_action_allowed: False`, `source_preserved: True`).
+- **Forbidden Claims & Commercial Exclusions**: `official_approval`, `production_ready`, `broker_ready`, kârlılık veya yatırım tavsiyesi iddiaları kesinlikle yasaktır (`validate_no_forbidden_macro_event_news_claims`).
+- **Phase 133 Handoff Invariant**: Phase 132 çıktıları, 13 devir kalemi ile Phase 133 (Regime Validation and No-Lookahead Acceptance) fazına eksiksiz devredilir (`phase_133_handoff.py`).
+- **Current Phase: 132, Next Phase: 133 (Regime Validation and No-Lookahead Acceptance), Target Final Phase: 160**.
+
 
 
 

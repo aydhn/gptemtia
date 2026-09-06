@@ -314,6 +314,27 @@ Local completion governance framework appended.
 - **Phase 132 Handoff**:
   - Phase 131 çıktıları, Phase 132 (Macro, Event & News Regime Context Expansion) için 10 yapılandırılmış devir maddesi ile teslim edilmiştir.
 
+## Phase 132 Macro/Event/News Regime Context Expansion: Analist ve Araştırmacı Rehberi
+- **Makro, Takvim ve Haber Rejim Bağlamı Bloğu**: Phase 132, makroekonomik göstergeleri, ekonomik takvim olaylarını ve haber metaverisini rejim seviyesinde deskriptif ve non-signal olarak modeller.
+- **Makro Göstergeler, Revizyon ve Sürpriz Tanımları**:
+  - *Gösterge Evreni*: US CPI, US NFP, Fed Funds Rate, US Real GDP, Eurozone HICP, China PMI vb.
+  - *Revizyon Takibi*: İlk açıklanan değer (`first_release`), revize değer (`revised_value`) ve benchmark revizyonları kayıt altına alınır.
+  - *Sürpriz Yer Tutucuları*: Anket uzlaşısı vs. gerçekleşen değer farkı deskriptif olarak tutulur. Bu farklar asla yönsel AL/SAT sinyali veya fiyat projeksiyonu olarak kullanılamaz (`is_trade_signal: False`, `is_predictive: False`).
+- **Ekonomik Takvim ve Olay Pencereleri**:
+  - *Olay Pencereleri*: FOMC, CPI, NFP ve ECB gibi kritik olaylar için olay öncesi (`pre-event`) sıkışma ve olay sonrası (`post-event`) sindirme/oynaklık genişlemesi pencereleri tanımlanır.
+  - *Zamanlama Uyumu (Scheduled vs Actual Alignment)*: Verinin planlanan yayın saati ile fiili gözlemlenme zamanı karşılaştırılır; verinin erken sızdırılması veya geleceğe bakış sızıntısı (`lookahead bias`) strictly backward asof join ile engellenir.
+  - *Yayın Gecikmesi (Release Lag)*: Çeyreklik veya aylık verilerin açıklanma gecikme süreleri hesaba katılarak rejim veri setlerine geriye dönük eklenir.
+- **Haber Metaveri Rejim Katmanı (Yalnızca Metaveri - Strictly Metadata-Only)**:
+  - *Haber Temaları ve Varlık Etiketleri*: Enflasyon, merkez bankaları, enerji piyasaları temaları ve XAUUSD, BRENT, EURUSD varlık etiketleri takip edilir.
+  - *Sıfır Metin, Sıfır NLP Duygu Modeli, Sıfır Vektör*: Haber tam metni, makale gövdesi, ham HTML, duygu analizi skorları, embeddingler ve vektör veri tabanları kesinlikle yasaktır ve boundary guard ile engellenir.
+- **Çapraz Varlık Makro Duyarlılığı ve Geçiş Dinamikleri**:
+  - Makro-FX ve Makro-Emtia duyarlılık kanalları tanımlanır; olay pencerelerinde rejim geçişleri deskriptif olarak kaydedilir.
+- **Veri Bütünlüğü ve Tahribatsız İnceleme**:
+  - Kaynak veriler korunur (`source_preserved: True`), otomatik doldurma veya silme yapılmaz. 8 maddelik manuel inceleme kuyruğu ile şeffaf denetim sağlanır.
+- **Phase 133 Handoff**:
+  - Phase 133 (Regime Validation and No-Lookahead Acceptance) fazına 13 doğrulanmış devir maddesi ile tam uyumlu aktarım sağlanmıştır.
+
+
 
 
 

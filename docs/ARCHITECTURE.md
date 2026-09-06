@@ -1026,6 +1026,42 @@ Phase 107 FX Data Provider Layer
   → DataLake & FeatureStore Integration (`data/storage/data_lake.py`, `ml/feature_store.py`)
   → Current Phase: 131. Next Phase: 132 (Macro, Event & News Regime Context Expansion). Target Final Phase: 160.
 
+## Phase 132: advanced_macro_event_news_regime
+- Macro/Event/News Regime Context Expansion, Metadata-Only Event Regime Layer, Non-Signal Macro Context Contracts and Phase 133 Handoff Architecture:
+  Phase 131 Cross-Asset Regime Context Expansion
+  → Phase 132 Macro/Event/News Regime Context Expansion (`advanced_macro_event_news_regime/`)
+  → Profile, Domain & Entity Registries:
+      * Profiles (`macro_event_news_regime_config.py`, `macro_event_news_regime_profile_registry.py`): `balanced_local_macro_event_news_regime_context`, `strict_metadata_only_news_regime_safety`, `dry_run_macro_event_context_focus`
+      * Functional Domains (`macro_event_news_regime_domain_registry.py`): 43 registered domains across macro, calendar event, news metadata, cross-asset sensitivity, and governance
+      * Entities & Taxonomies (`macro_regime_entities.py`, `event_regime_entities.py`, `news_metadata_regime_entities.py`, `macro_regime_context_taxonomy.py`, `event_regime_context_taxonomy.py`, `news_metadata_regime_context_taxonomy.py`): 31 canonical entities and 26 taxonomy rules
+  → Macro Context Layer:
+      * Indicators & Releases (`macro_indicator_regime_context.py`, `macro_release_regime_context.py`): indicator universe, release frequency, scheduled timestamps
+      * Revisions & Surprises (`macro_revision_regime_context.py`, `macro_surprise_placeholders.py`): revision cycle tracking, non-signal consensus vs. actual delta placeholders
+  → Calendar Event & Event Window Layer:
+      * Calendar Events (`calendar_event_regime_context.py`): FOMC, CPI, NFP, ECB schedules
+      * Event Windows & Buffers (`event_window_regime_context.py`, `pre_event_regime_context.py`, `post_event_regime_context.py`): pre-event compression, post-event volatility digestion
+      * Importance Tiers & Timing Alignment (`event_importance_regime_context.py`, `release_lag_regime_context.py`, `scheduled_actual_release_alignment.py`): release lag bounds, scheduled vs. actual publication alignment, zero premature leakage verification
+  → News Metadata Regime Layer (Strictly Metadata-Only):
+      * Topics & Tags (`news_topic_regime_context.py`, `news_asset_tag_regime_context.py`, `news_macro_tag_regime_context.py`): metadata topic attention, asset mapping, thematic tagging
+      * Event Linkage & Freshness (`news_event_linkage_regime_context.py`, `news_freshness_regime_context_placeholders.py`): calendar linkage, half-life decay placeholders
+      * Metadata Boundary Guard (`metadata_only_news_boundary.py`): 14 forbidden fields strictly rejected (zero full text, zero article body, zero scraped HTML, zero sentiment model outputs, zero embeddings/vectors)
+  → Cross-Asset Sensitivity, Transitions & Governance:
+      * Cross-Asset Sensitivity (`macro_event_news_cross_asset_context.py`): FX and commodity transmission channels
+      * Transition Context (`macro_event_news_transition_context.py`): event-driven state transition observations without predictive jumps
+      * Contracts & Temporal Alignment (`macro_event_news_regime_context_contracts.py`, `macro_event_news_timestamp_policies.py`, `macro_event_news_asof_join_policies.py`): backward-only asof join policies, monotonic UTC timestamps
+      * No-Lookahead Guards (`macro_event_news_no_lookahead_guard.py`): negative shift rejection, future return prohibition
+  → Quality Gates, Review, Scoring & Handoff:
+      * Validation & Quality Dependencies (`macro_event_news_validation_dependencies.py`, `macro_event_news_quality_dependencies.py`, `macro_event_news_source_phases.py`): upstream links to Phases 120–131
+      * Manual Review Queue (`macro_event_news_manual_review.py`): 8 review items, zero auto-destructive actions allowed
+      * Diagnostic Findings & Scoring (`macro_event_news_context_findings.py`, `macro_event_news_context_scoring.py`): 1.0 integrity score (`high_context_integrity`)
+      * Master Manifest (`macro_event_news_regime_context_manifest.py`): MANIFEST_VALID certified
+      * Health & Validation (`macro_event_news_regime_health.py`, `macro_event_news_regime_validation.py`): 16 health checks HEALTHY, 5 validation checks VALIDATION_PASS
+      * Safety Boundary (`macro_event_news_regime_safety_boundary.py`): 20 NO-GO / 9 SAFE-GO rules SECURE
+      * Phase 133 Handoff (`phase_133_handoff.py`): 13 handoff checklist items, status=READY
+  → DataLake & FeatureStore Integration (`data/storage/data_lake.py`, `ml/feature_store.py`): 42 datasets registered
+  → Current Phase: 132. Next Phase: 133 (Regime Validation and No-Lookahead Acceptance). Target Final Phase: 160.
+
+
 
 
 

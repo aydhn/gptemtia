@@ -1,0 +1,17 @@
+{
+  "total_macro_entities": 10,
+  "entity_types": [
+    "inflation_indicator",
+    "rate_indicator",
+    "growth_indicator",
+    "employment_indicator",
+    "fx_sensitive_macro_indicator",
+    "commodity_sensitive_macro_indicator",
+    "macro_indicator",
+    "macro_release",
+    "macro_revision",
+    "macro_surprise_placeholder"
+  ],
+  "all_non_signal": true,
+  "all_source_preserved": true
+}

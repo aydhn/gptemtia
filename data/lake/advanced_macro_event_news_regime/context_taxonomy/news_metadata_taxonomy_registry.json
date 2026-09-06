@@ -1,0 +1,11 @@
+{
+  "total_news_taxonomies": 8,
+  "domains": [
+    "news_metadata_context_taxonomy_domain"
+  ],
+  "strictly_metadata_only": true,
+  "zero_article_text": true,
+  "zero_sentiment": true,
+  "all_non_signal": true,
+  "all_source_preserved": true
+}

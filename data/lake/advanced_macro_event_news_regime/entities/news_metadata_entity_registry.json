@@ -1,0 +1,19 @@
+{
+  "total_news_metadata_entities": 11,
+  "entity_types": [
+    "news_topic_tag",
+    "news_asset_tag",
+    "news_macro_tag",
+    "news_event_reference",
+    "news_source_metadata",
+    "news_timestamp_metadata",
+    "news_freshness_placeholder",
+    "news_language_metadata"
+  ],
+  "strictly_metadata_only": true,
+  "zero_article_text": true,
+  "zero_sentiment": true,
+  "zero_embeddings": true,
+  "all_non_signal": true,
+  "all_source_preserved": true
+}

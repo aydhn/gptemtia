@@ -1,0 +1,12 @@
+{
+  "total_revision_contexts": 5,
+  "revision_cycles": [
+    "first_revision",
+    "annual_benchmark",
+    "seasonal_adjustment",
+    "subsequent_revision",
+    "final_validation"
+  ],
+  "all_non_signal": true,
+  "all_source_preserved": true
+}

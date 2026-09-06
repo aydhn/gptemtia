@@ -1,0 +1,16 @@
+{
+  "total_validation_dependencies": 9,
+  "source_phases": [
+    "Phase 120",
+    "Phase 121",
+    "Phase 127",
+    "Phase 128",
+    "Phase 129",
+    "Phase 130",
+    "Phase 131",
+    "Phase 132",
+    "All"
+  ],
+  "all_non_signal": true,
+  "all_source_preserved": true
+}

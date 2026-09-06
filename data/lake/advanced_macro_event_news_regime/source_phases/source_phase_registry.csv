@@ -1,0 +1,11 @@
+phase_number,phase_name,contribution,status,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+120,Phase 120: Macro/Calendar/News Feature Fusion,"Fused multi-source raw feature foundation for macro, calendar, and news.",integrated,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+121,Phase 121: Feature Validation and Matrix Integrity,"Lookahead rejection rules, NaN thresholds, and numerical sanity checks.",integrated,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+123,Phase 123: Feature Quality and Drift Diagnostics,Stationarity and quality metrics for macroeconomic factors.,integrated,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+124,Phase 124: FeatureStore Integration,Feature catalog and feature store metadata persistence contracts.,integrated,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+126,Phase 126: Regime Classification Foundation,Baseline market regime definitions and taxonomy.,integrated,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+127,Phase 127: Regime Feature Matrix Contracts,Contracts and schema validation for regime datasets.,integrated,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+128,Phase 128: Regime Rule-Free Labeling & Unsupervised Prep,Non-directional candidate state preparation.,integrated,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+129,Phase 129: Market Behavior Diagnostics & Regime Quality,"Behavior metrics across volatility, trend, and range states.",integrated,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+130,Phase 130: Regime Transition & Stability Analysis,Transition matrices and state sequence persistence contracts.,integrated,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+131,Phase 131: Cross-Asset Regime Context Expansion,"Multi-asset regime context alignment across FX, Commodities, and Macro.",integrated,balanced_local_macro_event_news_regime_context,True,True,False,False,False

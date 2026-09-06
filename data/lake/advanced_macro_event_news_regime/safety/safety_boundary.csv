@@ -1,0 +1,30 @@
+rule_id,name,desc,category,is_enforced,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready,is_active
+nogo_01,live_trading,Live execution or automated order transmission prohibited.,NO_GO,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False,
+nogo_02,broker_integration,Broker API connection or account routing prohibited.,NO_GO,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False,
+nogo_03,real_orders,Placing real money capital at risk prohibited.,NO_GO,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False,
+nogo_04,investment_advice,Offering buy/sell/hold investment recommendations prohibited.,NO_GO,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False,
+nogo_05,macro_context_as_signal,Using macro levels or changes directly as trade signals prohibited.,NO_GO,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False,
+nogo_06,event_context_as_signal,Using calendar releases or event windows as trade triggers prohibited.,NO_GO,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False,
+nogo_07,news_context_as_signal,Using news topic attention or tags as trade triggers prohibited.,NO_GO,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False,
+nogo_08,directional_claims,Making certainty claims on market directions prohibited.,NO_GO,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False,
+nogo_09,strategy_backtest_optimizer,Running automated strategy backtests or optimizers prohibited.,NO_GO,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False,
+nogo_10,model_training_fit_predict,Fitting machine learning models or generating predictions prohibited.,NO_GO,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False,
+nogo_11,clustering_unsupervised_execution,Running live unsupervised clustering execution prohibited.,NO_GO,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False,
+nogo_12,target_label_generation,Generating supervised target labels or return shifts prohibited.,NO_GO,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False,
+nogo_13,sentiment_model_output,Running sentiment models or producing positive/negative scores prohibited.,NO_GO,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False,
+nogo_14,full_article_content_usage,Storing or ingesting full article body or scraped HTML prohibited.,NO_GO,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False,
+nogo_15,embeddings_vector_database,Generating neural embeddings or writing to vector DB prohibited.,NO_GO,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False,
+nogo_16,production_broker_approval,"Claiming official approval, production-ready, or broker-ready prohibited.",NO_GO,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False,
+nogo_17,source_overwrite_destruction,Destructive data cleaning or file overwriting prohibited.,NO_GO,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False,
+nogo_18,auto_imputation_feature_drop,Automated data imputation or silent feature dropping prohibited.,NO_GO,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False,
+nogo_19,scraping_and_credentials,Web scraping or outputting sensitive credentials prohibited.,NO_GO,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False,
+nogo_20,deployment_execution,Production or cloud deployment execution prohibited.,NO_GO,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False,
+safego_01,local_offline_context,Operating in local/offline dry-run research mode.,SAFE_GO,,balanced_local_macro_event_news_regime_context,True,True,False,False,False,True
+safego_02,non_signal_macro_context,Reporting macro indicator and release context without signal generation.,SAFE_GO,,balanced_local_macro_event_news_regime_context,True,True,False,False,False,True
+safego_03,non_signal_calendar_context,Observing calendar events and event windows non-predictively.,SAFE_GO,,balanced_local_macro_event_news_regime_context,True,True,False,False,False,True
+safego_04,metadata_only_news_context,"Using only news metadata tags, topics, timestamps, and sources.",SAFE_GO,,balanced_local_macro_event_news_regime_context,True,True,False,False,False,True
+safego_05,scheduled_actual_alignment,Verifying actual release timestamps to prevent forward lookahead.,SAFE_GO,,balanced_local_macro_event_news_regime_context,True,True,False,False,False,True
+safego_06,backward_only_asof_joins,Enforcing strictly backward time-series joining on right <= left.,SAFE_GO,,balanced_local_macro_event_news_regime_context,True,True,False,False,False,True
+safego_07,no_lookahead_guards,Preventing negative shifts and forward return leakage.,SAFE_GO,,balanced_local_macro_event_news_regime_context,True,True,False,False,False,True
+safego_08,source_preserved_manifest,Maintaining immutable lineage and source preservation manifest.,SAFE_GO,,balanced_local_macro_event_news_regime_context,True,True,False,False,False,True
+safego_09,phase_133_handoff,Providing structured acceptance handoff to Phase 133.,SAFE_GO,,balanced_local_macro_event_news_regime_context,True,True,False,False,False,True

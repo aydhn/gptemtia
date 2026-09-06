@@ -1,0 +1,6 @@
+release_context_id,context_name,indicator_id,country_code,currency_code,importance_level,scheduled_time_utc,release_day_of_month,release_lag_days,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+rel_ctx_us_cpi,scheduled_release_context,macro_us_cpi_yoy,US,USD,high,13:30:00,12,14,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+rel_ctx_us_nfp,actual_release_context,macro_us_nfp,US,USD,high,13:30:00,5,7,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+rel_ctx_fomc_statement,release_timestamp_context,macro_us_fed_funds_rate,US,USD,critical,19:00:00,18,0,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+rel_ctx_eu_hicp,release_country_currency_context,macro_eu_hicp_yoy,EU,EUR,high,10:00:00,16,16,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+rel_ctx_cn_pmi,release_importance_context,macro_cn_manufacturing_pmi,CN,CNY,high,01:30:00,31,1,balanced_local_macro_event_news_regime_context,True,True,False,False,False

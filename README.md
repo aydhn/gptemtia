@@ -1177,6 +1177,35 @@ python -m scripts.run_cross_asset_regime_validation_report
 python -m scripts.run_cross_asset_regime_status
 ```
 
+## Phase 132 Macro/Event/News Regime Context Expansion, Metadata-Only Event Regime Layer, Non-Signal Macro Context Contracts ve Phase 133 Handoff
+
+- Phase 132, Phase 126-135 "rejim sınıflandırma ve piyasa davranışı" bloğunun yedinci fazıdır (`advanced_macro_event_news_regime/`).
+- Phase 126–131 çıktıları üzerine makro göstergeler, ekonomik takvim ve haber metaverisi rejim bağlamı katmanını kurar:
+  - **Makro Gösterge ve Yayın Bağlamı**: Gösterge evreni (`macro_us_cpi_yoy`, `macro_us_nfp`, `macro_us_fed_funds_rate`, `macro_us_real_gdp_qoq`, `macro_cn_manufacturing_pmi` vb.), revizyon takibi, yayın gecikmesi (`release_lag`) ve kesinlikle sinyalsiz/tahminsiz sürpriz yer tutucuları (`consensus_actual_delta_contract`).
+  - **Ekonomik Takvim ve Olay Pencereleri**: FOMC, CPI, NFP, ECB için olay pencereleri, olay öncesi (`pre-event`) sıkışma ve olay sonrası (`post-event`) sindirme/oynaklık genişlemesi rejim bağlamları, önem derecelendirmesi ve planlanan vs. gerçekleşen yayın zamanlaması denetimi (`scheduled vs actual release alignment`).
+  - **Haber Metaveri Rejim Katmanı (Yalnızca Metaveri - Strictly Metadata-Only)**: Haber temaları (`news_topic`), varlık etiketleri (`news_asset_tag`), makro tematik etiketler (`news_macro_tag`), takvim-olay bağlantıları (`news_event_linkage`), tazelik yarı-ömrü (`freshness half-life`). Haber tam metni, makale gövdesi, ham içerik, taranmış HTML, duygu analizi model çıktıları ve vektör/embedding kullanımı kesinlikle yasaktır ve boundary guard ile engellenir.
+  - **Çapraz Varlık Makro Duyarlılığı ve Geçiş Bağlamı**: FX ve Emtialar için makro duyarlılık kanalları, olay pencereleri çevresinde rejim geçiş gözlemleri ve geriye dönük asof birleştirme sözleşmeleri (`backward-only asof join policies`).
+  - **No-Lookahead ve Veri Bütünlüğü**: `context_timestamp <= base_timestamp` zorunluluğu, negatif shift yasağı (`.shift(-1)` yasak), kaynak verinin silinmeden/üzerine yazılmadan korunması (`source preservation`), otomatik doldurma/özellik atma yasağı.
+  - **Bütünlük Manifestosu ve Phase 133 Devri**: 20 NO-GO ve 9 SAFE-GO güvenlik kuralı, 1.0 bağlam skoru (`high_context_integrity`), VALIDATION_PASS doğrulaması ve Phase 133 (Regime Validation and No-Lookahead Acceptance) için 13 maddelik devir paketi.
+- Kesinlikle sinyal, AL/SAT tavsiyesi, hedef değişken, model tahmini, kümeleme çalıştırma, model eğitimi veya broker entegrasyonu İÇERMEZ.
+- Çıktılar `data/lake/advanced_macro_event_news_regime/` ve `reports/output/advanced_macro_event_news_regime/` altında saklanır.
+- Mevcut faz: 132, Bir sonraki faz: 133 (Regime Validation and No-Lookahead Acceptance), Nihai hedef: Phase 160.
+
+Komutlar:
+```bash
+python -m scripts.run_macro_event_news_regime_profile_registry
+python -m scripts.run_macro_event_news_regime_entities
+python -m scripts.run_macro_regime_contexts
+python -m scripts.run_event_regime_contexts
+python -m scripts.run_news_metadata_regime_contexts
+python -m scripts.run_macro_event_news_alignment_guards
+python -m scripts.run_macro_event_news_findings_manifest
+python -m scripts.run_macro_event_news_regime_health_check
+python -m scripts.run_macro_event_news_regime_validation_report
+python -m scripts.run_macro_event_news_regime_status
+```
+
+
 
 
 

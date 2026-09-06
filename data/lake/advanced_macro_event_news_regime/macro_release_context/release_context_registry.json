@@ -1,0 +1,10 @@
+{
+  "total_release_contexts": 5,
+  "countries": [
+    "US",
+    "EU",
+    "CN"
+  ],
+  "all_non_signal": true,
+  "all_source_preserved": true
+}

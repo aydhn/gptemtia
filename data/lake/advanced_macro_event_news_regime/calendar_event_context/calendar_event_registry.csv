@@ -1,0 +1,5 @@
+calendar_context_id,event_id,event_name,jurisdiction,currency,importance,regular_schedule,event_window_minutes,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+cal_ctx_fomc,event_fomc_rate_decision,FOMC Rate Decision,US,USD,critical,8_times_per_year,360,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+cal_ctx_us_cpi,event_us_cpi_release,US CPI Release,US,USD,high,monthly,180,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+cal_ctx_us_nfp,event_us_nfp_actual,US NFP Release,US,USD,high,first_friday_monthly,180,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+cal_ctx_ecb_decision,event_ecb_monetary_policy,ECB Monetary Policy Meeting,EU,EUR,critical,8_times_per_year,270,balanced_local_macro_event_news_regime_context,True,True,False,False,False

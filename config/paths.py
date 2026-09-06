@@ -1230,6 +1230,61 @@ phase_131_paths = [
 for p in phase_131_paths:
     Path(p).mkdir(parents=True, exist_ok=True)
 
+phase_132_paths = [
+    "data/lake/advanced_macro_event_news_regime/",
+    "data/lake/advanced_macro_event_news_regime/profiles/",
+    "data/lake/advanced_macro_event_news_regime/domains/",
+    "data/lake/advanced_macro_event_news_regime/entities/",
+    "data/lake/advanced_macro_event_news_regime/context_taxonomy/",
+    "data/lake/advanced_macro_event_news_regime/macro_indicator_context/",
+    "data/lake/advanced_macro_event_news_regime/macro_release_context/",
+    "data/lake/advanced_macro_event_news_regime/macro_revision_context/",
+    "data/lake/advanced_macro_event_news_regime/macro_surprise/",
+    "data/lake/advanced_macro_event_news_regime/calendar_event_context/",
+    "data/lake/advanced_macro_event_news_regime/event_window_context/",
+    "data/lake/advanced_macro_event_news_regime/pre_event_context/",
+    "data/lake/advanced_macro_event_news_regime/post_event_context/",
+    "data/lake/advanced_macro_event_news_regime/event_importance_context/",
+    "data/lake/advanced_macro_event_news_regime/release_lag_context/",
+    "data/lake/advanced_macro_event_news_regime/release_alignment/",
+    "data/lake/advanced_macro_event_news_regime/news_topic_context/",
+    "data/lake/advanced_macro_event_news_regime/news_asset_tag_context/",
+    "data/lake/advanced_macro_event_news_regime/news_macro_tag_context/",
+    "data/lake/advanced_macro_event_news_regime/news_event_linkage_context/",
+    "data/lake/advanced_macro_event_news_regime/news_freshness_context/",
+    "data/lake/advanced_macro_event_news_regime/metadata_only_boundary/",
+    "data/lake/advanced_macro_event_news_regime/cross_asset_context/",
+    "data/lake/advanced_macro_event_news_regime/transition_context/",
+    "data/lake/advanced_macro_event_news_regime/contracts/",
+    "data/lake/advanced_macro_event_news_regime/timestamp_policies/",
+    "data/lake/advanced_macro_event_news_regime/asof_join/",
+    "data/lake/advanced_macro_event_news_regime/no_lookahead/",
+    "data/lake/advanced_macro_event_news_regime/validation_dependencies/",
+    "data/lake/advanced_macro_event_news_regime/quality_dependencies/",
+    "data/lake/advanced_macro_event_news_regime/source_phases/",
+    "data/lake/advanced_macro_event_news_regime/manual_review/",
+    "data/lake/advanced_macro_event_news_regime/findings/",
+    "data/lake/advanced_macro_event_news_regime/scoring/",
+    "data/lake/advanced_macro_event_news_regime/manifest/",
+    "data/lake/advanced_macro_event_news_regime/health/",
+    "data/lake/advanced_macro_event_news_regime/validation/",
+    "data/lake/advanced_macro_event_news_regime/safety/",
+    "data/lake/advanced_macro_event_news_regime/handoff/",
+    "reports/output/advanced_macro_event_news_regime/",
+    "reports/output/advanced_macro_event_news_regime/csv/",
+    "reports/output/advanced_macro_event_news_regime/markdown/",
+    "reports/output/advanced_macro_event_news_regime/txt/",
+    "reports/output/advanced_macro_event_news_regime/json/",
+    "docs/generated/advanced_macro_event_news_regime/",
+    "docs/generated/advanced_macro_event_news_regime/entities/",
+    "docs/generated/advanced_macro_event_news_regime/context/",
+    "docs/generated/advanced_macro_event_news_regime/news_metadata/",
+    "docs/generated/advanced_macro_event_news_regime/manifest/",
+    "docs/generated/advanced_macro_event_news_regime/handoff/",
+]
+for p in phase_132_paths:
+    Path(p).mkdir(parents=True, exist_ok=True)
+
 def ensure_project_directories():
     for p in (
         phase_110_paths
@@ -1254,6 +1309,7 @@ def ensure_project_directories():
         + phase_129_paths
         + phase_130_paths
         + phase_131_paths
+        + phase_132_paths
     ):
         Path(p).mkdir(parents=True, exist_ok=True)
 

@@ -1,0 +1,4 @@
+profile_name,description,current_phase,target_final_phase,next_phase,dry_run_default,local_only,non_production,research_only,min_context_score,is_active,non_signal,source_preserved,official_approval,production_ready,broker_ready
+balanced_local_macro_event_news_regime_context,"Standard balanced local offline macro, economic calendar, and news metadata regime context profile.",132,160,133,True,True,True,True,0.45,True,True,True,False,False,False
+strict_metadata_only_news_regime_safety,"Strict safety profile enforcing zero-tolerance metadata-only news boundaries, zero sentiment, and heightened threshold gates.",132,160,133,True,True,True,True,0.6,False,True,True,False,False,False
+dry_run_macro_event_context_focus,"Dry-run focused profile prioritizing offline release alignment, lag diagnostics, and event windows without live execution.",132,160,133,True,True,True,True,0.45,False,True,True,False,False,False

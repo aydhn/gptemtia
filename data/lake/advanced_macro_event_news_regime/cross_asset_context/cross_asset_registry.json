@@ -1,0 +1,10 @@
+{
+  "total_cross_asset_contexts": 7,
+  "target_asset_classes": [
+    "forex",
+    "commodities",
+    "multi_asset"
+  ],
+  "all_non_signal": true,
+  "all_source_preserved": true
+}

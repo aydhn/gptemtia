@@ -1,0 +1,4 @@
+policy_id,policy_name,direction,allow_future_timestamp,allow_nearest_future,description,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+policy_backward_timestamp_only,Backward-Only Historical Timestamp Policy,backward,False,False,Ensures context data timestamp is strictly <= observation base timestamp.,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+policy_scheduled_actual_alignment,Scheduled vs Actual Availability Alignment Policy,backward,False,False,Enforces that release context is only known after actual release timestamp.,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+policy_published_at_utc_only,Published-At UTC News Timestamp Policy,backward,False,False,Ensures news metadata is only joined as of published_at_utc.,balanced_local_macro_event_news_regime_context,True,True,False,False,False

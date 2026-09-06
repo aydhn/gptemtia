@@ -1,0 +1,13 @@
+{
+  "total_transition_contexts": 6,
+  "transition_types": [
+    "event_driven_transition",
+    "anticipatory_window_transition",
+    "digestion_window_transition",
+    "news_attention_transition",
+    "lag_boundary_transition",
+    "sequence_continuity_transition"
+  ],
+  "all_non_signal": true,
+  "all_source_preserved": true
+}

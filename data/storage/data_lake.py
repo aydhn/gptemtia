@@ -4818,4 +4818,255 @@ class DataLake:
     save_cross_asset_regime_manifest = save_cross_asset_regime_context_manifest
     load_cross_asset_regime_manifest = load_cross_asset_regime_context_manifest
 
+    # Phase 132 Macro/Event/News Regime Context Expansion methods
+    def save_macro_event_news_regime_profile_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/profiles/profile_registry', df, summary)
+    def load_macro_event_news_regime_profile_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/profiles/profile_registry.csv')
+
+    def save_macro_event_news_regime_domain_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/domains/domain_registry', df, summary)
+    def load_macro_event_news_regime_domain_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/domains/domain_registry.csv')
+
+    def save_macro_regime_entity_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/entities/macro_entity_registry', df, summary)
+    def load_macro_regime_entity_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/entities/macro_entity_registry.csv')
+
+    def save_event_regime_entity_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/entities/event_entity_registry', df, summary)
+    def load_event_regime_entity_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/entities/event_entity_registry.csv')
+
+    def save_news_metadata_regime_entity_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/entities/news_metadata_entity_registry', df, summary)
+    def load_news_metadata_regime_entity_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/entities/news_metadata_entity_registry.csv')
+
+    def save_macro_regime_context_taxonomy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/context_taxonomy/macro_taxonomy_registry', df, summary)
+    def load_macro_regime_context_taxonomy_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/context_taxonomy/macro_taxonomy_registry.csv')
+
+    def save_event_regime_context_taxonomy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/context_taxonomy/event_taxonomy_registry', df, summary)
+    def load_event_regime_context_taxonomy_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/context_taxonomy/event_taxonomy_registry.csv')
+
+    def save_news_metadata_regime_context_taxonomy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/context_taxonomy/news_metadata_taxonomy_registry', df, summary)
+    def load_news_metadata_regime_context_taxonomy_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/context_taxonomy/news_metadata_taxonomy_registry.csv')
+
+    def save_macro_indicator_regime_context_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/macro_indicator_context/indicator_context_registry', df, summary)
+    def load_macro_indicator_regime_context_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/macro_indicator_context/indicator_context_registry.csv')
+
+    def save_macro_release_regime_context_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/macro_release_context/release_context_registry', df, summary)
+    def load_macro_release_regime_context_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/macro_release_context/release_context_registry.csv')
+
+    def save_macro_revision_regime_context_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/macro_revision_context/revision_context_registry', df, summary)
+    def load_macro_revision_regime_context_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/macro_revision_context/revision_context_registry.csv')
+
+    def save_macro_surprise_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/macro_surprise/surprise_placeholder_registry', df, summary)
+    def load_macro_surprise_placeholder_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/macro_surprise/surprise_placeholder_registry.csv')
+
+    def save_calendar_event_regime_context_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/calendar_event_context/calendar_event_registry', df, summary)
+    def load_calendar_event_regime_context_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/calendar_event_context/calendar_event_registry.csv')
+
+    def save_event_window_regime_context_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/event_window_context/event_window_registry', df, summary)
+    def load_event_window_regime_context_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/event_window_context/event_window_registry.csv')
+
+    def save_pre_event_regime_context_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/pre_event_context/pre_event_registry', df, summary)
+    def load_pre_event_regime_context_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/pre_event_context/pre_event_registry.csv')
+
+    def save_post_event_regime_context_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/post_event_context/post_event_registry', df, summary)
+    def load_post_event_regime_context_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/post_event_context/post_event_registry.csv')
+
+    def save_event_importance_regime_context_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/event_importance_context/event_importance_registry', df, summary)
+    def load_event_importance_regime_context_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/event_importance_context/event_importance_registry.csv')
+
+    def save_release_lag_regime_context_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/release_lag_context/release_lag_registry', df, summary)
+    def load_release_lag_regime_context_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/release_lag_context/release_lag_registry.csv')
+
+    def save_scheduled_actual_release_alignment_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/release_alignment/release_alignment_registry', df, summary)
+    def load_scheduled_actual_release_alignment_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/release_alignment/release_alignment_registry.csv')
+
+    def save_news_topic_regime_context_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/news_topic_context/news_topic_registry', df, summary)
+    def load_news_topic_regime_context_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/news_topic_context/news_topic_registry.csv')
+
+    def save_news_asset_tag_regime_context_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/news_asset_tag_context/news_asset_tag_registry', df, summary)
+    def load_news_asset_tag_regime_context_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/news_asset_tag_context/news_asset_tag_registry.csv')
+
+    def save_news_macro_tag_regime_context_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/news_macro_tag_context/news_macro_tag_registry', df, summary)
+    def load_news_macro_tag_regime_context_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/news_macro_tag_context/news_macro_tag_registry.csv')
+
+    def save_news_event_linkage_regime_context_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/news_event_linkage_context/news_event_linkage_registry', df, summary)
+    def load_news_event_linkage_regime_context_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/news_event_linkage_context/news_event_linkage_registry.csv')
+
+    def save_news_freshness_regime_context_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/news_freshness_context/news_freshness_registry', df, summary)
+    def load_news_freshness_regime_context_placeholder_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/news_freshness_context/news_freshness_registry.csv')
+
+    def save_metadata_only_news_boundary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/metadata_only_boundary/boundary_registry', df, summary)
+    def load_metadata_only_news_boundary_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/metadata_only_boundary/boundary_registry.csv')
+
+    def save_macro_event_news_cross_asset_context_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/cross_asset_context/cross_asset_registry', df, summary)
+    def load_macro_event_news_cross_asset_context_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/cross_asset_context/cross_asset_registry.csv')
+
+    def save_macro_event_news_transition_context_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/transition_context/transition_registry', df, summary)
+    def load_macro_event_news_transition_context_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/transition_context/transition_registry.csv')
+
+    def save_macro_event_news_regime_context_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/contracts/contract_registry', df, summary)
+    def load_macro_event_news_regime_context_contract_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/contracts/contract_registry.csv')
+
+    def save_macro_event_news_timestamp_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/timestamp_policies/timestamp_policy_registry', df, summary)
+    def load_macro_event_news_timestamp_policy_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/timestamp_policies/timestamp_policy_registry.csv')
+
+    def save_macro_event_news_asof_join_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/asof_join/asof_join_policy_registry', df, summary)
+    def load_macro_event_news_asof_join_policy_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/asof_join/asof_join_policy_registry.csv')
+
+    def save_macro_event_news_no_lookahead_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/no_lookahead/no_lookahead_guard_registry', df, summary)
+    def load_macro_event_news_no_lookahead_guard_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/no_lookahead/no_lookahead_guard_registry.csv')
+
+    def save_macro_event_news_validation_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/validation_dependencies/validation_dependency_registry', df, summary)
+    def load_macro_event_news_validation_dependency_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/validation_dependencies/validation_dependency_registry.csv')
+
+    def save_macro_event_news_quality_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/quality_dependencies/quality_dependency_registry', df, summary)
+    def load_macro_event_news_quality_dependency_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/quality_dependencies/quality_dependency_registry.csv')
+
+    def save_macro_event_news_source_phase_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/source_phases/source_phase_registry', df, summary)
+    def load_macro_event_news_source_phase_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/source_phases/source_phase_registry.csv')
+
+    def save_macro_event_news_manual_review_queue(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/manual_review/manual_review_queue', df, summary)
+    def load_macro_event_news_manual_review_queue(self):
+        return self._load_csv('advanced_macro_event_news_regime/manual_review/manual_review_queue.csv')
+
+    def save_macro_event_news_context_findings_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/findings/findings_registry', df, summary)
+    def load_macro_event_news_context_findings_registry(self):
+        return self._load_csv('advanced_macro_event_news_regime/findings/findings_registry.csv')
+
+    def save_macro_event_news_context_score_report(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/scoring/context_score_report', df, summary)
+    def load_macro_event_news_context_score_report(self):
+        return self._load_csv('advanced_macro_event_news_regime/scoring/context_score_report.csv')
+
+    def save_macro_event_news_regime_context_manifest(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/manifest/context_manifest', df, summary)
+    def load_macro_event_news_regime_context_manifest(self):
+        return self._load_csv('advanced_macro_event_news_regime/manifest/context_manifest.csv')
+
+    def save_macro_event_news_regime_health_check(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/health/health_check', df, summary)
+    def load_macro_event_news_regime_health_check(self):
+        return self._load_csv('advanced_macro_event_news_regime/health/health_check.csv')
+
+    def save_macro_event_news_regime_validation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/validation/validation_report', df, summary)
+    def load_macro_event_news_regime_validation_report(self):
+        return self._load_csv('advanced_macro_event_news_regime/validation/validation_report.csv')
+
+    def save_macro_event_news_regime_safety_boundary(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/safety/safety_boundary', df, summary)
+    def load_macro_event_news_regime_safety_boundary(self):
+        return self._load_csv('advanced_macro_event_news_regime/safety/safety_boundary.csv')
+
+    def save_phase_133_regime_validation_no_lookahead_acceptance_handoff_report(self, df, summary=None):
+        return self._save_csv_json('advanced_macro_event_news_regime/handoff/phase_133_handoff', df, summary)
+    def load_phase_133_regime_validation_no_lookahead_acceptance_handoff_report(self):
+        return self._load_csv('advanced_macro_event_news_regime/handoff/phase_133_handoff.csv')
+
+    def save_macro_event_news_regime_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_macro_event_news_regime' / f'report_{profile_name}.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        if markdown:
+            md_path = path.with_suffix('.md')
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(markdown)
+        return path
+
+    def load_macro_event_news_regime_report(self, profile_name: str):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_macro_event_news_regime' / f'report_{profile_name}.json'
+        if not path.exists():
+            return {}
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def list_macro_event_news_regime_reports(self):
+        return pd.DataFrame()
+
+    # Phase 132 Aliases
+    save_macro_event_news_regime_health = save_macro_event_news_regime_health_check
+    load_macro_event_news_regime_health = load_macro_event_news_regime_health_check
+    save_macro_event_news_regime_validation = save_macro_event_news_regime_validation_report
+    load_macro_event_news_regime_validation = load_macro_event_news_regime_validation_report
+    save_macro_event_news_regime_safety = save_macro_event_news_regime_safety_boundary
+    load_macro_event_news_regime_safety = load_macro_event_news_regime_safety_boundary
+    save_phase_133_handoff = save_phase_133_regime_validation_no_lookahead_acceptance_handoff_report
+    load_phase_133_handoff = load_phase_133_regime_validation_no_lookahead_acceptance_handoff_report
+    save_macro_event_news_regime_findings = save_macro_event_news_context_findings_registry
+    load_macro_event_news_regime_findings = load_macro_event_news_context_findings_registry
+    save_macro_event_news_regime_score = save_macro_event_news_context_score_report
+    load_macro_event_news_regime_score = load_macro_event_news_context_score_report
+    save_macro_event_news_regime_manifest = save_macro_event_news_regime_context_manifest
+    load_macro_event_news_regime_manifest = load_macro_event_news_regime_context_manifest
+
+
 

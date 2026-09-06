@@ -1,0 +1,6 @@
+check_name,passed,status,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+profile_registry_validation,True,PASS,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+metadata_only_boundary_validation,True,PASS,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+context_contracts_validation,True,PASS,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+manifest_invariants_validation,True,PASS,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+forbidden_claims_validation,True,PASS,balanced_local_macro_event_news_regime_context,True,True,False,False,False

@@ -1,0 +1,2 @@
+profile_name,context_score,classification,total_findings,blocker_count,warning_count,manual_review_count,min_required_score,meets_threshold,non_signal,source_preserved,official_approval,production_ready,broker_ready
+balanced_local_macro_event_news_regime_context,1.0,high_context_integrity,3,0,0,0,0.45,True,True,True,False,False,False

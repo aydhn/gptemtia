@@ -1,0 +1,11 @@
+entity_id,entity_name,entity_type,country_code,currency_code,source_provider,release_frequency,nominal_lag_days,revision_tracked,profile_name,non_signal,source_preserved,official_approval,production_ready,broker_ready
+macro_us_cpi_yoy,US Consumer Price Index YoY,inflation_indicator,US,USD,BLS,monthly,14,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+macro_us_fed_funds_rate,US Federal Funds Target Rate,rate_indicator,US,USD,Federal Reserve,fomc_cycle,0,False,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+macro_us_real_gdp_qoq,US Real GDP QoQ Annualized,growth_indicator,US,USD,BEA,quarterly,30,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+macro_us_nfp,US Non-Farm Payrolls,employment_indicator,US,USD,BLS,monthly,7,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+macro_eu_hicp_yoy,Eurozone HICP Inflation YoY,fx_sensitive_macro_indicator,EU,EUR,Eurostat,monthly,16,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+macro_cn_manufacturing_pmi,China Official Manufacturing PMI,commodity_sensitive_macro_indicator,CN,CNY,NBS,monthly,1,False,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+macro_us_dxy_regime_ref,US Dollar Index Broad Reference,macro_indicator,US,USD,Federal Reserve,daily,1,False,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+macro_release_schedule_bundle,Macro Release Schedule Synchronization Bundle,macro_release,GLOBAL,MULTI,Official Calendar,continuous,0,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+macro_revision_ledger_bundle,Macro Indicator Historical Revision Ledger,macro_revision,GLOBAL,MULTI,Official Sources,event_driven,30,True,balanced_local_macro_event_news_regime_context,True,True,False,False,False
+macro_surprise_contract_placeholder,Macro Consensus vs Actual Delta Placeholder,macro_surprise_placeholder,GLOBAL,MULTI,Consensus Engine,event_driven,0,False,balanced_local_macro_event_news_regime_context,True,True,False,False,False

@@ -1,0 +1,10 @@
+{
+  "total_findings": 3,
+  "severity_distribution": {
+    "info": 3
+  },
+  "manual_review_count": 0,
+  "destructive_action_allowed": false,
+  "all_non_signal": true,
+  "all_source_preserved": true
+}

@@ -1721,4 +1721,91 @@ class FeatureStore:
         df = self.load_cross_asset_regime_context_manifest()
         return {"manifest_loaded": not df.empty, "non_signal": True}
 
+    # Phase 132 Macro/Event/News Regime Context Expansion Methods
+    def load_macro_event_news_regime_profile_registry(self) -> pd.DataFrame:
+        """Load Phase 132 macro event news regime profile registry."""
+        return self.data_lake.load_macro_event_news_regime_profile_registry()
+
+    def load_macro_regime_entity_registry(self) -> pd.DataFrame:
+        """Load Phase 132 macro regime entity registry."""
+        return self.data_lake.load_macro_regime_entity_registry()
+
+    def load_event_regime_entity_registry(self) -> pd.DataFrame:
+        """Load Phase 132 event regime entity registry."""
+        return self.data_lake.load_event_regime_entity_registry()
+
+    def load_news_metadata_regime_entity_registry(self) -> pd.DataFrame:
+        """Load Phase 132 news metadata regime entity registry."""
+        return self.data_lake.load_news_metadata_regime_entity_registry()
+
+    def load_macro_regime_context_taxonomy_registry(self) -> pd.DataFrame:
+        """Load Phase 132 macro regime context taxonomy registry."""
+        return self.data_lake.load_macro_regime_context_taxonomy_registry()
+
+    def load_event_regime_context_taxonomy_registry(self) -> pd.DataFrame:
+        """Load Phase 132 event regime context taxonomy registry."""
+        return self.data_lake.load_event_regime_context_taxonomy_registry()
+
+    def load_news_metadata_regime_context_taxonomy_registry(self) -> pd.DataFrame:
+        """Load Phase 132 news metadata regime context taxonomy registry."""
+        return self.data_lake.load_news_metadata_regime_context_taxonomy_registry()
+
+    def load_macro_indicator_regime_context_registry(self) -> pd.DataFrame:
+        """Load Phase 132 macro indicator regime context registry."""
+        return self.data_lake.load_macro_indicator_regime_context_registry()
+
+    def load_macro_release_regime_context_registry(self) -> pd.DataFrame:
+        """Load Phase 132 macro release regime context registry."""
+        return self.data_lake.load_macro_release_regime_context_registry()
+
+    def load_calendar_event_regime_context_registry(self) -> pd.DataFrame:
+        """Load Phase 132 calendar event regime context registry."""
+        return self.data_lake.load_calendar_event_regime_context_registry()
+
+    def load_event_window_regime_context_registry(self) -> pd.DataFrame:
+        """Load Phase 132 event window regime context registry."""
+        return self.data_lake.load_event_window_regime_context_registry()
+
+    def load_news_topic_regime_context_registry(self) -> pd.DataFrame:
+        """Load Phase 132 news topic regime context registry."""
+        return self.data_lake.load_news_topic_regime_context_registry()
+
+    def load_news_asset_tag_regime_context_registry(self) -> pd.DataFrame:
+        """Load Phase 132 news asset tag regime context registry."""
+        return self.data_lake.load_news_asset_tag_regime_context_registry()
+
+    def load_news_macro_tag_regime_context_registry(self) -> pd.DataFrame:
+        """Load Phase 132 news macro tag regime context registry."""
+        return self.data_lake.load_news_macro_tag_regime_context_registry()
+
+    def load_news_event_linkage_regime_context_registry(self) -> pd.DataFrame:
+        """Load Phase 132 news event linkage regime context registry."""
+        return self.data_lake.load_news_event_linkage_regime_context_registry()
+
+    def load_metadata_only_news_boundary_registry(self) -> pd.DataFrame:
+        """Load Phase 132 metadata-only news boundary registry."""
+        return self.data_lake.load_metadata_only_news_boundary_registry()
+
+    def load_macro_event_news_regime_context_contract_registry(self) -> pd.DataFrame:
+        """Load Phase 132 macro event news regime context contract registry."""
+        return self.data_lake.load_macro_event_news_regime_context_contract_registry()
+
+    def load_macro_event_news_regime_context_manifest(self) -> pd.DataFrame:
+        """Load Phase 132 macro event news regime context manifest."""
+        return self.data_lake.load_macro_event_news_regime_context_manifest()
+
+    def load_phase_133_regime_validation_no_lookahead_acceptance_handoff_report(self) -> pd.DataFrame:
+        """Load Phase 133 regime validation no-lookahead acceptance handoff report."""
+        return self.data_lake.load_phase_133_regime_validation_no_lookahead_acceptance_handoff_report()
+
+    def load_macro_event_news_regime_report(self, profile_name: str | None = None) -> dict:
+        """Load Phase 132 macro event news regime report dictionary."""
+        return self.data_lake.load_macro_event_news_regime_report(profile_name or "balanced_local_macro_event_news_regime_context")
+
+    def list_available_macro_event_news_regime_reports(self) -> dict:
+        """List available macro event news regime reports."""
+        df = self.load_macro_event_news_regime_context_manifest()
+        return {"manifest_loaded": not df.empty, "non_signal": True}
+
+
 

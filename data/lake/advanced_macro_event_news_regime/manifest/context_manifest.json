@@ -1,0 +1,12 @@
+{
+  "manifest_name": "macro_event_news_regime_context_manifest",
+  "current_phase": 132,
+  "next_phase": 133,
+  "context_score": 1.0,
+  "non_signal": true,
+  "source_preserved": true,
+  "zero_article_text": true,
+  "zero_embeddings": true,
+  "zero_sentiment": true,
+  "zero_ml": true
+}
