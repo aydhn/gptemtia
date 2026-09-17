@@ -4072,6 +4072,50 @@ class Settings(BaseSettings):
     final_delivery_min_readiness_score: float = 0.50
     final_delivery_save_reports: bool = True
 
+    # Phase 106 Data Provider Abstraction Settings
+    advanced_data_providers_enabled: bool = True
+    default_data_provider_abstraction_profile: str = "balanced_no_scraping_provider_abstraction"
+    data_provider_current_phase: int = 106
+    data_provider_target_final_phase: int = 160
+    data_provider_next_phase: int = 107
+    data_provider_default_language: str = "tr"
+    data_provider_dry_run_default: bool = True
+    data_provider_local_only: bool = True
+    data_provider_non_production: bool = True
+    data_provider_research_only: bool = True
+    data_provider_allow_live_trading: bool = False
+    data_provider_allow_broker_integration: bool = False
+    data_provider_allow_real_order: bool = False
+    data_provider_allow_investment_advice: bool = False
+    data_provider_allow_model_deployment: bool = False
+    data_provider_allow_production_deployment: bool = False
+    data_provider_allow_web_server: bool = False
+    data_provider_allow_dashboard: bool = False
+    data_provider_allow_gui_tui: bool = False
+    data_provider_allow_external_llm: bool = False
+    data_provider_allow_vector_db: bool = False
+    data_provider_allow_embedding_api: bool = False
+    data_provider_allow_web_scraping: bool = False
+    data_provider_allow_html_scraping: bool = False
+    data_provider_allow_browser_automation_scraping: bool = False
+    data_provider_allow_hidden_api_reverse_engineering: bool = False
+    data_provider_allow_paywall_bypass: bool = False
+    data_provider_allow_rate_limit_abuse: bool = False
+    data_provider_allow_required_network_call: bool = False
+    data_provider_allow_required_paid_api: bool = False
+    data_provider_allow_credential_output: bool = False
+    data_provider_enable_manual_file_provider: bool = True
+    data_provider_enable_local_cache_provider: bool = True
+    data_provider_enable_official_api_placeholder: bool = True
+    data_provider_enable_licensed_provider_placeholder: bool = True
+    data_provider_enable_dry_run_fixture_provider: bool = True
+    data_provider_enable_capability_matching: bool = True
+    data_provider_enable_preference_resolution: bool = True
+    data_provider_enable_health_check: bool = True
+    data_provider_min_readiness_score: float = 0.45
+    data_provider_min_quality_score: float = 0.45
+    data_provider_save_reports: bool = True
+
 
 def get_settings() -> Settings:
     """Return a Settings instance."""

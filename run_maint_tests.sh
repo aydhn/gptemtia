@@ -1,3 +1,0 @@
-cd commodity_fx_signal_bot
-source venv/bin/activate
-pytest tests/test_maintenance_checklist.py tests/test_maintenance_report_builder.py tests/test_maintenance_scripts_contract.py -v

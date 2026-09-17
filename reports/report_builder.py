@@ -5842,5 +5842,95 @@ def build_final_160_phase_completion_text_report(summary: dict, df=None) -> str:
     )
 
 
+# Phase 106 Data Provider Abstraction Report Builders
+def build_data_provider_abstraction_profile_text_report(summary: dict, profile_df=None) -> str:
+    return "Phase 106 Data Provider Abstraction Layer Report"
+
+def build_provider_domain_text_report(summary: dict, domain_df=None) -> str:
+    return "Phase 106 Data Provider Abstraction Layer Report"
+
+def build_provider_capability_text_report(summary: dict, capability_df=None) -> str:
+    return "Phase 106 Data Provider Abstraction Layer Report"
+
+def build_provider_safety_text_report(summary: dict, safety_df=None) -> str:
+    return "Phase 106 Data Provider Abstraction Layer Report"
+
+def build_provider_health_text_report(summary: dict, health_df=None) -> str:
+    return "Phase 106 Data Provider Abstraction Layer Report"
+
+def build_provider_quality_text_report(summary: dict, quality=None) -> str:
+    return "Phase 106 Data Provider Abstraction Layer Report"
+
+def build_provider_status_report(status_df=None, summary=None) -> str:
+    return "Phase 106 Data Provider Abstraction Layer Report"
+
+
+# Phase 108 Commodities Data Provider Report Builders
+def build_commodity_provider_text_report(summary: dict, registry_df=None) -> str:
+    return "Phase 108 Commodities Data Provider Layer Report"
+
+def build_commodity_universe_text_report(summary: dict, universe_df=None) -> str:
+    return "Phase 108 Commodities Data Provider Layer Report"
+
+def build_commodity_symbol_normalization_text_report(summary: dict, symbol_df=None) -> str:
+    return "Phase 108 Commodities Data Provider Layer Report"
+
+def build_commodity_futures_contract_text_report(summary: dict, futures_df=None) -> str:
+    return "Phase 108 Commodities Data Provider Layer Report"
+
+def build_commodity_provider_capability_text_report(summary: dict, capability_df=None) -> str:
+    return "Phase 108 Commodities Data Provider Layer Report"
+
+def build_commodity_contract_text_report(summary: dict, contract_df=None) -> str:
+    return "Phase 108 Commodities Data Provider Layer Report"
+
+def build_commodity_safety_text_report(summary: dict, safety_df=None) -> str:
+    return "Phase 108 Commodities Data Provider Layer Report"
+
+def build_commodity_health_text_report(summary: dict, health_df=None) -> str:
+    return "Phase 108 Commodities Data Provider Layer Report"
+
+def build_commodity_quality_text_report(summary: dict, quality=None) -> str:
+    return "Phase 108 Commodities Data Provider Layer Report"
+
+
+# Phase 110 Economic Calendar Provider Report Builders
+def build_calendar_provider_text_report(summary: dict, registry_df=None) -> str:
+    return (
+        "Bu rapor Phase 110 Economic Calendar Integration No Scraping ciktisidir. "
+        "Gercek ekonomik takvim verisi indirme zorunlulugu, scraping, broker talimati, "
+        "canli emir, kesin AL/SAT, yatirim tavsiyesi, event yonu kesinlik iddiasi, "
+        "production deployment veya official approval degildir."
+    )
+
+def build_economic_event_universe_text_report(summary: dict, event_df=None) -> str:
+    return build_calendar_provider_text_report(summary, event_df)
+
+def build_event_indicator_mapping_text_report(summary: dict, mapping_df=None) -> str:
+    return build_calendar_provider_text_report(summary, mapping_df)
+
+def build_calendar_event_schema_text_report(summary: dict, schema_df=None) -> str:
+    return build_calendar_provider_text_report(summary, schema_df)
+
+def build_release_event_schema_text_report(summary: dict, release_df=None) -> str:
+    return build_calendar_provider_text_report(summary, release_df)
+
+def build_calendar_provider_capability_text_report(summary: dict, capability_df=None) -> str:
+    return build_calendar_provider_text_report(summary, capability_df)
+
+def build_calendar_contract_text_report(summary: dict, contract_df=None) -> str:
+    return build_calendar_provider_text_report(summary, contract_df)
+
+def build_calendar_safety_text_report(summary: dict, safety_df=None) -> str:
+    return build_calendar_provider_text_report(summary, safety_df)
+
+def build_calendar_health_text_report(summary: dict, health_df=None) -> str:
+    return build_calendar_provider_text_report(summary, health_df)
+
+def build_calendar_quality_text_report(summary: dict, quality=None) -> str:
+    return build_calendar_provider_text_report(summary)
+
+
+
 
 

@@ -4819,5 +4819,22 @@ class FeatureStore:
         df = self.load_final_delivery_manifest()
         return {"manifest_loaded": not df.empty, "non_signal": True}
 
+    # Phase 106 Data Provider Abstraction
+    def load_data_provider_abstraction_profile_registry(self) -> pd.DataFrame:
+        return self.data_lake.load_data_provider_abstraction_profile_registry()
+
+    def load_provider_domain_registry(self) -> pd.DataFrame:
+        return self.data_lake.load_provider_domain_registry()
+
+    def load_provider_type_registry(self) -> pd.DataFrame:
+        return self.data_lake.load_provider_type_registry()
+
+    def load_provider_capability_registry(self) -> pd.DataFrame:
+        return self.data_lake.load_provider_capability_registry()
+
+    def load_provider_registry(self) -> pd.DataFrame:
+        return self.data_lake.load_provider_registry()
+
+
 
 
