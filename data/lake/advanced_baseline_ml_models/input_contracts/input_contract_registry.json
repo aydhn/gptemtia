@@ -1,0 +1,8 @@
+{
+  "total_input_contracts": 3,
+  "all_materialization_blocked": true,
+  "all_validated": true,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false
+}

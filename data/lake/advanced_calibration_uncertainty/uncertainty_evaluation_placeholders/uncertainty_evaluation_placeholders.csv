@@ -1,0 +1,5 @@
+evaluation_name,scope,description,executed,performance_claim,non_signal,phase,status
+interval_coverage_evaluation_placeholder,nominal_vs_empirical_coverage,Evaluates prediction interval coverage against nominal confidence levels; unexecuted.,False,False,True,141,calibration_contract_placeholder_only
+interval_efficiency_evaluation_placeholder,mean_interval_width_efficiency,Evaluates sharpness and width of generated uncertainty bounds; unexecuted.,False,False,True,141,calibration_contract_placeholder_only
+conformal_validity_evaluation_placeholder,finite_sample_marginal_coverage,Evaluates distribution-free finite sample coverage validity; unexecuted.,False,False,True,141,calibration_contract_placeholder_only
+ood_detection_evaluation_placeholder,distribution_shift_sensitivity,Evaluates uncertainty response under synthetic distribution shifts; unexecuted.,False,False,True,141,calibration_contract_placeholder_only

@@ -1,0 +1,8 @@
+{
+  "safety_status": "SECURE",
+  "no_go_count": 14,
+  "safe_go_count": 7,
+  "live_trading_prohibited": true,
+  "broker_execution_prohibited": true,
+  "non_signal": true
+}

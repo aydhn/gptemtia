@@ -1,0 +1,9 @@
+{
+  "total_policies": 3,
+  "max_ceiling_seconds": 3600,
+  "all_terminate_on_timeout": true,
+  "all_dry_run": true,
+  "current_phase": 139,
+  "non_signal": true,
+  "active_profile": "balanced_local_gpu_training_governance"
+}

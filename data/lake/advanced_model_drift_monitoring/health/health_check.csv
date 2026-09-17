@@ -1,0 +1,5 @@
+check,status,details
+profile_registry_integrity,passed,Loaded 3 profiles successfully.
+domain_registry_integrity,passed,Loaded 62 drift domains successfully.
+disabled_execution_safeguards,passed,7 safeguards verified disabled.
+profile_safety_invariants,passed,All non-executing safety invariants verified in default profile.

@@ -1,0 +1,9 @@
+{
+  "total_walk_forward_policies": 3,
+  "total_wf_policies": 3,
+  "current_phase": 137,
+  "materialized": false,
+  "backtest_executed": false,
+  "non_signal": true,
+  "status": "READY"
+}

@@ -1,0 +1,9 @@
+prerequisite_id,title,description,status,blocking,source_phase,next_phase,target_final_phase,non_signal
+PREREQ_CALIB_CONTRACTS,calibration_contract_prerequisites,7 probability calibration contracts registered and verified non-executing.,SATISFIED,True,141,142,160,True
+PREREQ_UNCERT_CONTRACTS,uncertainty_contract_prerequisites,8 uncertainty estimation contracts registered and verified non-executing.,SATISFIED,True,141,142,160,True
+PREREQ_MODEL_REGISTRY,candidate_ensemble_registry_prerequisites,Candidate model contracts and ensemble strategy contracts established in Phase 140.,SATISFIED,True,141,142,160,True
+PREREQ_DATASET_CONTRACTS,dataset_contract_prerequisites,Temporal dataset contracts and feature snapshot governance from Phase 137.,SATISFIED,True,141,142,160,True
+PREREQ_GUARDS,no_lookahead_and_metadata_guards,"Strict verification of zero lookahead bias, metadata-only news, and source preservation.",SATISFIED,True,141,142,160,True
+PREREQ_METRICS_AUDIT,metric_and_audit_placeholders,Uncalculated ECE/Brier/Interval metrics and audit trail templates ready for drift linkage.,SATISFIED,True,141,142,160,True
+PREREQ_DRIFT_LINKAGE,feature_drift_linkage_readiness,Phase 123 feature drift diagnostics prepared to link with Phase 142 model drift monitoring.,SATISFIED,True,141,142,160,True
+PREREQ_SAFETY_BOUNDARY,zero_trading_zero_broker_boundary,Explicit non-trading and non-execution invariant maintained for Phase 142.,SATISFIED,True,141,142,160,True

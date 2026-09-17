@@ -1,0 +1,10 @@
+component_name,category,required,is_healthy,status,description,non_signal
+advanced_realistic_backtest,UPSTREAM_PHASE,True,True,HEALTHY,Phase 146 realistic backtest and transaction cost contracts.,True
+advanced_ml_acceptance,UPSTREAM_PHASE,True,True,HEALTHY,Phase 145 ML model acceptance contracts.,True
+advanced_model_governance,UPSTREAM_PHASE,True,True,HEALTHY,Phase 144 Model governance contracts.,True
+advanced_ml_dataset_registry,UPSTREAM_PHASE,True,True,HEALTHY,Phase 137 Dataset registry.,True
+advanced_regime_acceptance,UPSTREAM_PHASE,True,True,HEALTHY,Phase 135 Regime acceptance contracts.,True
+advanced_regime_featurestore_integration,UPSTREAM_PHASE,True,True,HEALTHY,Phase 134 FeatureStore regime integration.,True
+FeatureStore,CORE_MODULE,True,True,HEALTHY,Feature store metadata repository.,True
+DataLake,CORE_MODULE,True,True,HEALTHY,Local file-based DataLake storage.,True
+advanced_walk_forward_validation,PHASE_147_MODULE,True,True,HEALTHY,Current Phase 147 package.,True

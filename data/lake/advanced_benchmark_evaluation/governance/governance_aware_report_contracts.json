@@ -1,0 +1,7 @@
+{
+  "domain": "governance_aware_evaluation_domain",
+  "total_contracts": 4,
+  "all_production_approvals_disabled": true,
+  "status": "evaluation_contract_ready",
+  "non_signal": true
+}

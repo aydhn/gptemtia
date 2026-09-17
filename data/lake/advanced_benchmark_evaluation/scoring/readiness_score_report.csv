@@ -1,0 +1,2 @@
+metric,score,classification,meets_threshold,min_threshold,current_phase,next_phase,status,non_signal
+readiness_score,1.0,benchmark_evaluation_contract_ready_non_production,True,0.5,151,152,evaluation_contract_ready,True

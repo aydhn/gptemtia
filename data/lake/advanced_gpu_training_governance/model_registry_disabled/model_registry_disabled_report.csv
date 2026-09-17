@@ -1,0 +1,4 @@
+check_item,is_disabled,status,details,dry_run,non_signal
+mlflow_registry_write_disabled,True,PASS_DISABLED,MLflow/W&B model registry registration APIs are disabled.,True,True
+local_registry_db_write_disabled,True,PASS_DISABLED,Local SQLite/JSON model registry metadata writes are disabled.,True,True
+cloud_model_hub_push_disabled,True,PASS_DISABLED,Push to remote HuggingFace/cloud model hub is disabled.,True,True

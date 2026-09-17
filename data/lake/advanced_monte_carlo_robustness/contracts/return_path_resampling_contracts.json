@@ -1,0 +1,7 @@
+{
+  "domain": "return_path_resampling_domain",
+  "total_contracts": 3,
+  "all_unexecuted": true,
+  "profile_name": "balanced_local_monte_carlo_robustness_contracts",
+  "status": "monte_carlo_contract_ready"
+}

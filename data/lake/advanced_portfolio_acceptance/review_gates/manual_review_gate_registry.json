@@ -1,0 +1,6 @@
+{
+  "domain": "manual_review_gate_domain",
+  "total_gates": 5,
+  "pending_review_count": 5,
+  "status": "portfolio_acceptance_manual_review_required"
+}

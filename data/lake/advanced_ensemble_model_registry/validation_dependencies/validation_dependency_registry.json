@@ -1,0 +1,12 @@
+{
+  "total_dependencies": 4,
+  "dependency_names": [
+    "dataset_validation_dependency",
+    "feature_validation_dependency",
+    "baseline_validation_dependency",
+    "gpu_resource_validation_dependency"
+  ],
+  "all_enforced": true,
+  "all_non_signal": true,
+  "dry_run": true
+}

@@ -1,0 +1,11 @@
+universe_id,asset_symbol,asset_class,sector,currency,eligibility_rule_ref,current_phase,contract_only,non_production,investment_advice,actual_trading_universe,status
+UNV_BRENT,BRENT,commodity,energy,USD,COMMODITY_LIQUIDITY_RULE,153,True,True,False,False,portfolio_contract_ready
+UNV_CRUDE_WTI,CRUDE_WTI,commodity,energy,USD,COMMODITY_LIQUIDITY_RULE,153,True,True,False,False,portfolio_contract_ready
+UNV_NATGAS,NATGAS,commodity,energy,USD,COMMODITY_VOLATILITY_RULE,153,True,True,False,False,portfolio_contract_ready
+UNV_GOLD,GOLD,commodity,precious_metals,USD,SAFE_HAVEN_RULE,153,True,True,False,False,portfolio_contract_ready
+UNV_SILVER,SILVER,commodity,precious_metals,USD,COMMODITY_LIQUIDITY_RULE,153,True,True,False,False,portfolio_contract_ready
+UNV_COPPER,COPPER,commodity,industrial_metals,USD,CYCLICAL_COMMODITY_RULE,153,True,True,False,False,portfolio_contract_ready
+UNV_EURUSD,EURUSD,fx,g10_currency,USD,FX_MAJOR_LIQUIDITY_RULE,153,True,True,False,False,portfolio_contract_ready
+UNV_USDJPY,USDJPY,fx,g10_currency,JPY,FX_MAJOR_LIQUIDITY_RULE,153,True,True,False,False,portfolio_contract_ready
+UNV_GBPUSD,GBPUSD,fx,g10_currency,USD,FX_MAJOR_LIQUIDITY_RULE,153,True,True,False,False,portfolio_contract_ready
+UNV_USDTRY,USDTRY,fx,em_currency,TRY,FX_EM_VOLATILITY_RULE,153,True,True,False,False,portfolio_contract_ready

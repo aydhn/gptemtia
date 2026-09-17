@@ -1,0 +1,3 @@
+guard_id,guard_type,description,enforcement_action,profile_name,current_phase,status,violations_found,domain
+GUARD_RESAMPLING_LEAKAGE_149_01,oos_boundary_enforcer,Blocks drawing resampling blocks that cross in-sample and out-of-sample split boundaries.,TRUNCATE_BLOCK_AT_BOUNDARY,balanced_local_monte_carlo_robustness_contracts,149,ACTIVE,0,bias_guard_domain
+GUARD_SURVIVORSHIP_LEAKAGE_149_02,delisting_history_checker,Ensures resampled universes account for delisted and suspended instruments to eliminate survivorship bias.,ENFORCE_POINT_IN_TIME_UNIVERSE,balanced_local_monte_carlo_robustness_contracts,149,ACTIVE,0,bias_guard_domain

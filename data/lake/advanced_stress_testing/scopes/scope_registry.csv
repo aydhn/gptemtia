@@ -1,0 +1,13 @@
+scope_name,category,description,enforced,profile_name,current_phase,non_signal
+local_offline_stress_contract_layer,IN_SCOPE,Yerel ve cevrimdisi stres senaryo sozlesmelerinin ve sok yer tutucularinin tanimlanmasi.,True,balanced_local_stress_testing_contracts,148,True
+no_live_trading,OUT_OF_SCOPE,Gercek piyasaya emir gonderimi ve canli islem yurutulmesi kesinlikle yasaktir.,True,balanced_local_stress_testing_contracts,148,True
+no_broker_execution,OUT_OF_SCOPE,Araci kurum API baglantisi ve emir iletimi kesinlikle engellenmistir.,True,balanced_local_stress_testing_contracts,148,True
+no_investment_advice,OUT_OF_SCOPE,"Kesin AL/SAT, pozisyon veya yatirim tavsiyesi uretilmez.",True,balanced_local_stress_testing_contracts,148,True
+no_true_stress_execution,OUT_OF_SCOPE,Gercek stres testi calistirilmasi engellenmistir; sozlesmeler salt sema modundadir.,True,balanced_local_stress_testing_contracts,148,True
+no_scenario_simulation_execution,OUT_OF_SCOPE,Gercek senaryo simülasyonu calistirilmasi engellenmistir.,True,balanced_local_stress_testing_contracts,148,True
+no_monte_carlo_execution,OUT_OF_SCOPE,Monte Carlo simülasyonu bu fazda calistirilmaz; Phase 149 konusu olarak devredilir.,True,balanced_local_stress_testing_contracts,148,True
+no_metric_calculation,OUT_OF_SCOPE,"Stres PnL, VaR, ES veya drawdown gercek olarak hesaplanmaz; yalnizca yer tutucu tanimlanir.",True,balanced_local_stress_testing_contracts,148,True
+no_model_training,OUT_OF_SCOPE,Gercek makine ogrenimi model egitimi kesinlikle engellenmistir.,True,balanced_local_stress_testing_contracts,148,True
+no_prediction,OUT_OF_SCOPE,Tahmin veya hedef etiket uretimi kesinlikle engellenmistir.,True,balanced_local_stress_testing_contracts,148,True
+no_deployment,OUT_OF_SCOPE,Uretim ortamina dagitim veya model kayit defterine yazim yapilmaz.,True,balanced_local_stress_testing_contracts,148,True
+phase_149_handoff_only,IN_SCOPE,Phase 149 Monte Carlo saglamlik fazi icin teshis ve hazirlik devir paketi olusturulmasi.,True,balanced_local_stress_testing_contracts,148,True

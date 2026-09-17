@@ -1,0 +1,11 @@
+runbook_name,category,description,execution_instructions_allowed,live_bot_execution_allowed,broker_execution_allowed,manual_review_required,domain,non_signal,local_only,dry_run,non_production,current_phase,status
+operator_startup_runbook_contract,startup,Yerel ve çevrimdışı sistem ön kontrol ve başlatma sözleşmesi,False,False,False,True,operator_runbook_domain,True,True,True,True,159,operator_runbook_contract_ready
+operator_shutdown_runbook_contract,shutdown,Güvenli sistem sonlandırma ve oturum kapatma prosedürü,False,False,False,True,operator_runbook_domain,True,True,True,True,159,operator_runbook_contract_ready
+operator_config_check_runbook_contract,configuration,Konfigürasyon bütünlüğü ve ortam değişkenleri denetimi,False,False,False,True,operator_runbook_domain,True,True,True,True,159,operator_runbook_contract_ready
+operator_data_check_runbook_contract,data_integrity,DataLake ve FeatureStore veri bütünlüğü kontrolü,False,False,False,True,operator_runbook_domain,True,True,True,True,159,operator_runbook_contract_ready
+operator_report_check_runbook_contract,reporting,Raporlama ve çıktı dosyaları doğrulama prosedürü,False,False,False,True,operator_runbook_domain,True,True,True,True,159,operator_runbook_contract_ready
+operator_health_check_runbook_contract,health,Tüm faz bileşenleri sağlık kontrolü prosedürü,False,False,False,True,operator_runbook_domain,True,True,True,True,159,operator_runbook_contract_ready
+operator_validation_runbook_contract,validation,Kabul kriterleri ve sözleşme kuralları doğrulama prosedürü,False,False,False,True,operator_runbook_domain,True,True,True,True,159,operator_runbook_contract_ready
+operator_troubleshooting_runbook_contract,troubleshooting,"Hata teşhisi, anomali inceleme ve problem giderme kılavuzu",False,False,False,True,operator_runbook_domain,True,True,True,True,159,operator_runbook_contract_ready
+operator_recovery_runbook_contract,recovery,"Güvenli, tahribatsız geri yükleme ve kurtarma prosedürü",False,False,False,True,operator_runbook_domain,True,True,True,True,159,operator_runbook_contract_ready
+operator_safe_usage_runbook_contract,safe_usage,Canlı işlem yasağı ve güvenli araştırma kullanım sınırları kılavuzu,False,False,False,True,operator_runbook_domain,True,True,True,True,159,operator_runbook_contract_ready

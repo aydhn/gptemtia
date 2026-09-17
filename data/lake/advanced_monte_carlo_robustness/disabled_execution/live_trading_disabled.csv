@@ -1,0 +1,2 @@
+capability,execution_allowed,policy_reference,status,description
+live_trading_execution,False,POLICY_PHASE_149_ZERO_LIVE_TRADING,execution_blocked_no_live_trading,Prohibits committing live capital or opening market positions.

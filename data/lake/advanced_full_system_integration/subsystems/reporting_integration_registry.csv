@@ -1,0 +1,5 @@
+item_id,format,builder,disclaimer_enforced,status
+RPI-001,markdown,build_markdown_reports,True,INTEGRATED
+RPI-002,text,build_text_reports,True,INTEGRATED
+RPI-003,json,build_json_reports,True,INTEGRATED
+RPI-004,csv,build_csv_reports,True,INTEGRATED

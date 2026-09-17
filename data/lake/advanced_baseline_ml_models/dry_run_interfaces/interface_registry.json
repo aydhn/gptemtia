@@ -1,0 +1,11 @@
+{
+  "total_interfaces": 15,
+  "permitted_count": 6,
+  "prohibited_count": 9,
+  "fit_prohibited": true,
+  "train_prohibited": true,
+  "predict_prohibited": true,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false
+}

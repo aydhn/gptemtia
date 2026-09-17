@@ -1,0 +1,12 @@
+{
+  "active_profile": "balanced_local_full_system_integration_contracts",
+  "readiness_score": 1.0,
+  "classification": "full_system_integration_contract_ready_non_production",
+  "meets_threshold": true,
+  "total_checks": 12,
+  "passed_checks": 12,
+  "warning_count": 2,
+  "blocker_count": 0,
+  "status": "full_system_integration_ready",
+  "non_signal": true
+}

@@ -1,0 +1,7 @@
+{
+  "domain": "parameter_stability_contract_domain",
+  "total_contracts": 4,
+  "all_valid": true,
+  "all_optimizations_disabled": true,
+  "status": "monte_carlo_contract_ready"
+}

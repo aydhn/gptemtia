@@ -1,0 +1,7 @@
+state,allowed_next_states,description,is_active,non_signal
+FLAT,['OPENING'],"Sifir pozisyon, piyasa maruziyeti yok.",True,True
+OPENING,"['OPEN', 'FLAT']","Giris emri iletildi, dolum bekleniyor.",True,True
+OPEN,"['ADJUSTING', 'CLOSING']",Pozisyon aktif olarak tasiniyor.,True,True
+ADJUSTING,['OPEN'],Pozisyona ekleme veya kismi cikis yapiliyor.,True,True
+CLOSING,"['CLOSED', 'OPEN']",Pozisyon kapatma emri iletildi.,True,True
+CLOSED,['FLAT'],Pozisyon tamamen kapandi ve PnL gerceklesti.,True,True

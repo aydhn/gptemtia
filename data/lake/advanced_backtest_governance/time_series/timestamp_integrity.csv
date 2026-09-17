@@ -1,0 +1,4 @@
+rule_id,rule_name,description,enforcement,status,non_signal,local_only,phase
+TS_01_STRICT_MONOTONIC_ORDER,strictly_monotonic_increasing_timestamps,Ensure observation timestamps are strictly increasing with zero retrograde or out-of-order bars.,BLOCKING_ZERO_TOLERANCE,ACTIVE,True,True,150
+TS_02_UTC_NORMALIZATION,utc_timezone_mandate,Mandate canonical UTC timestamp representation across all asset series and economic calendar releases.,BLOCKING_MANDATORY,ACTIVE,True,True,150
+TS_03_NO_FUTURE_TIMESTAMP_JOIN,future_timestamp_join_prohibition,Strictly prohibit joining or merging datasets using future-dated keys or forward alignment.,BLOCKING_ZERO_TOLERANCE,ACTIVE,True,True,150

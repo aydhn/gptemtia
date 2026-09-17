@@ -1,0 +1,8 @@
+audit_id,target,description,passed,domain,non_signal,local_only,dry_run,non_production,current_phase,status
+settings_class_presence,config/settings.py,Settings pydantic/dataclass varlığı denetimi,True,settings_audit_domain,True,True,True,True,159,final_hardening_contract_ready
+phase_159_settings_presence,config/settings.py,Phase 159 ayarları ve bayrakları varlığı denetimi,True,settings_audit_domain,True,True,True,True,159,final_hardening_contract_ready
+no_live_trading_default,config/settings.py,allow_live_trading varsayılan False denetimi,True,settings_audit_domain,True,True,True,True,159,final_hardening_contract_ready
+no_broker_integration_default,config/settings.py,allow_broker_integration varsayılan False denetimi,True,settings_audit_domain,True,True,True,True,159,final_hardening_contract_ready
+non_production_default,config/settings.py,non_production varsayılan True denetimi,True,settings_audit_domain,True,True,True,True,159,final_hardening_contract_ready
+dry_run_default,config/settings.py,dry_run varsayılan True denetimi,True,settings_audit_domain,True,True,True,True,159,final_hardening_contract_ready
+local_only_default,config/settings.py,local_only varsayılan True denetimi,True,settings_audit_domain,True,True,True,True,159,final_hardening_contract_ready

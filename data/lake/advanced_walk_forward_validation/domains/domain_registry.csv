@@ -1,0 +1,37 @@
+domain_name,category,description,is_active,non_signal
+walk_forward_profile_domain,CONFIGURATION,Walk-forward profil yonetimi ve guvenlik parametreleri.,True,True
+walk_forward_domain,VALIDATION,Zaman serisi walk-forward dogrulama cercevesi sozlesmeleri.,True,True
+walk_forward_scope_domain,SCOPE,Faz 147 kapsam belirleme ve yetki sinirlari.,True,True
+split_contract_domain,SPLIT,Veri bolumleme sozlesmeleri ve pencere yonetimi.,True,True
+rolling_window_contract_domain,SPLIT,Sabit uzunluklu kayan pencere dogrulama sozlesmeleri.,True,True
+expanding_window_contract_domain,SPLIT,Genisleyen pencere dogrulama sozlesmeleri.,True,True
+anchored_window_contract_domain,SPLIT,Sabit baslangicli pencere bolumleme sozlesmeleri.,True,True
+purged_walk_forward_contract_domain,SPLIT,Etiket cakismasini onleyen purged walk-forward sozlesmeleri.,True,True
+embargo_policy_domain,SPLIT,Test sonrasi sizinti onleyici embargo politikalari.,True,True
+train_validation_test_split_domain,SPLIT,"Egitim, dogrulama ve test bolum sozlesmeleri.",True,True
+out_of_sample_split_domain,SPLIT,Orneklem disi (OOS) bolumleme sozlesmeleri.,True,True
+holdout_period_domain,SPLIT,Korumali holdout donemi sozlesmeleri.,True,True
+temporal_split_boundary_domain,SPLIT,Zaman eksenli bolumleme sinirlari.,True,True
+regime_aware_split_domain,SPLIT,Piyasa rejimine duyarli bolumleme sozlesmeleri.,True,True
+cross_asset_oos_split_domain,SPLIT,Varliklar arasi OOS bolumleme sozlesmeleri.,True,True
+walk_forward_fold_domain,SPLIT,Walk-forward katman (fold) tanimlari.,True,True
+walk_forward_schedule_placeholder_domain,SPLIT,Yeniden egitebilme / guncelleme zamanlama yer tutuculari.,True,True
+benchmark_contract_domain,BENCHMARK,Karsilastirmali benchmark sozlesmeleri.,True,True
+benchmark_universe_domain,BENCHMARK,Benchmark varlik evreni sozlesmeleri.,True,True
+benchmark_baseline_domain,BENCHMARK,Temel benchmark strateji sozlesmeleri.,True,True
+benchmark_comparison_domain,BENCHMARK,Benchmark karsilastirma arayuzleri.,True,True
+benchmark_placeholder_domain,BENCHMARK,"Pasif, nakit, buy & hold ve esit agirlikli benchmark yer tutuculari.",True,True
+benchmark_metric_placeholder_domain,METRICS,"Alfa, beta, bilgi orani ve izleme hatasi metrik yer tutuculari.",True,True
+validation_metric_placeholder_domain,METRICS,"OOS Sharpe, drawdown, calmar, win-rate metrik yer tutuculari.",True,True
+output_contract_domain,CONTRACTS,Rapor ve cikti format sozlesmeleri.,True,True
+validation_evidence_domain,GOVERNANCE,Dogrulama kanit ve izlenebilirlik kayitlari.,True,True
+dependency_domain,DEPENDENCY,Phase 1-146 moduler bagimliliklari.,True,True
+bias_guard_domain,GOVERNANCE,"Lookahead, data snooping ve survivorship muhafizlari.",True,True
+disabled_execution_domain,GOVERNANCE,Kesin olarak engellenmis calistirma yollari.,True,True
+finding_domain,AUDIT,Dogrulama bulgulari ve aksiyon kayitlari.,True,True
+readiness_score_domain,AUDIT,Sistem hazirlik skoru olcumu.,True,True
+manifest_domain,MANIFEST,Faz 147 master manifest kaydi.,True,True
+health_domain,HEALTH,Sistem saglik ve ortam kontrolleri.,True,True
+validation_domain,VALIDATION,Kurallara uygunluk dogrulama raporu.,True,True
+safety_domain,SAFETY,"Guvenlik sinirlari, NO-GO ve SAFE-GO kurallari.",True,True
+phase_148_handoff_domain,HANDOFF,Phase 148 Stress Testing and Scenario Simulation gecis paketi.,True,True

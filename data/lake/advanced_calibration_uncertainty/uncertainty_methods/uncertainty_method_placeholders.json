@@ -1,0 +1,16 @@
+{
+  "total_methods": 8,
+  "methods": [
+    "prediction_interval_method_placeholder",
+    "confidence_interval_method_placeholder",
+    "quantile_regression_method_placeholder",
+    "conformal_prediction_method_placeholder",
+    "bootstrap_uncertainty_method_placeholder",
+    "ensemble_variance_method_placeholder",
+    "monte_carlo_dropout_method_placeholder",
+    "bayesian_approximation_method_placeholder"
+  ],
+  "all_execution_blocked": true,
+  "all_estimation_blocked": true,
+  "all_non_signal": true
+}

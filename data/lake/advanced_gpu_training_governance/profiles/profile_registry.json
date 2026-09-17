@@ -1,0 +1,13 @@
+{
+  "total_profiles": 3,
+  "active_profile": "balanced_local_gpu_training_governance",
+  "all_dry_run": true,
+  "all_no_real_training": true,
+  "all_no_prediction": true,
+  "all_no_artifact_persistence": true,
+  "all_no_registry_write": true,
+  "current_phase": 139,
+  "target_final_phase": 160,
+  "next_phase": 140,
+  "non_signal": true
+}

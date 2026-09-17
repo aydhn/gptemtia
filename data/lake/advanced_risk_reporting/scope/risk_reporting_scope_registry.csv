@@ -1,0 +1,16 @@
+scope_name,scope_type,is_in_scope,notes,current_phase,target_final_phase,next_phase,non_production
+local_risk_report_contracts,contract_layer,True,Risk report templates and metadata definitions,155,160,156,True
+exposure_attribution_contracts,contract_layer,True,Gross/net/currency/cross-asset/concentration/liquidity/leverage templates,155,160,156,True
+limit_monitoring_contracts,contract_layer,True,Exposure/drawdown/volatility/turnover limit definitions,155,160,156,True
+monitor_placeholders,placeholder_layer,True,Drawdown/VaR/ES/risk contribution placeholders without actual computation,155,160,156,True
+limit_breach_placeholders,placeholder_layer,True,Limit breach and warning placeholders without live alerting,155,160,156,True
+alert_routing_disabled,safety_boundary,True,Alerting and notifications strictly disabled,155,160,156,True
+dashboard_placeholders,placeholder_layer,True,Dashboard contracts without live UI or server generation,155,160,156,True
+disabled_execution_reports,safety_boundary,True,Real execution blocked across all components,155,160,156,True
+claim_guards,guard_layer,True,"No-lookahead, exposure claim, limit breach claim, investment advice guards",155,160,156,True
+phase_156_handoff,handoff_layer,True,Handoff to scenario testing and drawdown control,155,160,156,True
+real_risk_reporting,out_of_scope,False,Strictly prohibited in Phase 155,155,160,156,True
+real_limit_monitoring_loop,out_of_scope,False,Strictly prohibited in Phase 155,155,160,156,True
+live_alert_notification,out_of_scope,False,Strictly prohibited in Phase 155,155,160,156,True
+portfolio_adjustment_rebalance,out_of_scope,False,Strictly prohibited in Phase 155,155,160,156,True
+live_trading_broker_orders,out_of_scope,False,Strictly prohibited in Phase 155,155,160,156,True

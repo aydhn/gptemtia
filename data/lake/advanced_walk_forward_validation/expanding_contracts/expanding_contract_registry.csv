@@ -1,0 +1,3 @@
+split_name,window_type,min_train_bars,expansion_step_bars,val_period_bars,test_period_bars,max_train_bars,description,execution_allowed,data_split_executed,non_signal
+standard_expanding_window,EXPANDING,252,21,63,63,1260,Minimum 252 bar baslangic ile her adimda 21 bar genisleyen pencere dogrulama sozlesmesi.,False,False,True
+macro_expanding_window,EXPANDING,504,63,126,126,2520,Makro rejimleri kapsayan minimum 504 bar ve ceyreklik adimlarla genisleyen pencere.,False,False,True

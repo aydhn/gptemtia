@@ -1,0 +1,8 @@
+{
+  "domain": "metric_placeholder_domain",
+  "total_metrics": 4,
+  "all_uncalculated": true,
+  "all_claims_blocked": true,
+  "status": "evaluation_contract_ready",
+  "non_signal": true
+}

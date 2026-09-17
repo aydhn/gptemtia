@@ -1,0 +1,10 @@
+contract_name,limit_family,description,limit_type,threshold_metadata,is_placeholder,is_enforced_live,allows_execution,allows_alerting,current_phase,target_final_phase,next_phase
+exposure_limit_monitoring_contract,exposure_limit,Brut ve net exposure tavan sinir izleme sozlesmesi,hard_limit,"gross_exposure <= 1.5, net_exposure in [-0.5, 0.5]",True,False,False,False,155,160,156
+concentration_limit_monitoring_contract,concentration_limit,Tekil varlik ve grup bazinda konsantrasyon sinir izleme sozlesmesi,hard_limit,"max_single_asset <= 0.25, top_3_assets <= 0.60",True,False,False,False,155,160,156
+leverage_limit_monitoring_contract,leverage_limit,Maksimum portfoy kaldirac orani izleme sozlesmesi,hard_limit,leverage_ratio <= 2.0,True,False,False,False,155,160,156
+margin_limit_monitoring_contract,margin_limit,Teminat yeterliligi ve baslangic teminati kullanim izleme sozlesmesi,soft_warning,initial_margin_usage <= 0.70,True,False,False,False,155,160,156
+liquidity_limit_monitoring_contract,liquidity_limit,Tasfiye gunu ve gunluk ortalama hacim payi izleme sozlesmesi,hard_limit,"days_to_liquidate <= 3.0, adv_participation <= 0.10",True,False,False,False,155,160,156
+drawdown_limit_monitoring_contract,drawdown_limit,Zirveden gerileme (Drawdown) esik izleme sozlesmesi,hard_limit,"max_drawdown <= 0.15, warning_drawdown <= 0.10",True,False,False,False,155,160,156
+volatility_limit_monitoring_contract,volatility_limit,Yilliklandirilmis portfoy oynaklik tavan izleme sozlesmesi,soft_warning,annualized_volatility <= 0.20,True,False,False,False,155,160,156
+turnover_limit_monitoring_contract,turnover_limit,Donemsel portfoy donus hizi tavan izleme sozlesmesi,soft_warning,turnover_per_period <= 0.30,True,False,False,False,155,160,156
+risk_budget_limit_monitoring_contract,risk_budget_limit,Risk butcesi sapma ve risk katki tavan izleme sozlesmesi,hard_limit,component_risk_contrib_max <= 0.35,True,False,False,False,155,160,156

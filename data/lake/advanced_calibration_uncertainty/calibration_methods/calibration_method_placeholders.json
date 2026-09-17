@@ -1,0 +1,16 @@
+{
+  "total_methods": 7,
+  "methods": [
+    "platt_scaling_method_placeholder",
+    "isotonic_regression_method_placeholder",
+    "temperature_scaling_method_placeholder",
+    "beta_calibration_method_placeholder",
+    "histogram_binning_method_placeholder",
+    "ensemble_calibration_method_placeholder",
+    "spline_calibration_method_placeholder"
+  ],
+  "all_execution_blocked": true,
+  "all_fit_blocked": true,
+  "all_transform_blocked": true,
+  "all_non_signal": true
+}

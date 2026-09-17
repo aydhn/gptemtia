@@ -1,0 +1,10 @@
+{
+  "readiness_score": 1.0,
+  "classification": "READY_FOR_LOCAL_ML_CONTRACTS",
+  "is_minimum_passed": true,
+  "training_approved": false,
+  "dataset_materialization_approved": false,
+  "production_ready": false,
+  "broker_ready": false,
+  "non_signal": true
+}

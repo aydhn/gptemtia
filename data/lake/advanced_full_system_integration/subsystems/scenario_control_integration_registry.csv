@@ -1,0 +1,4 @@
+item_id,scenario_layer,status,execution_allowed,verified
+SCI-001,stress_testing_scenarios,INTEGRATED,False,True
+SCI-002,drawdown_control_circuit_breakers,INTEGRATED,False,True
+SCI-003,scenario_acceptance_manifest,INTEGRATED,False,True

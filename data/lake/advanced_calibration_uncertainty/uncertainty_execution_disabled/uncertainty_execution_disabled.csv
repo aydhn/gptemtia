@@ -1,0 +1,5 @@
+operation,is_disabled,policy,blocked_action,reason,enforcement,non_signal,phase
+prediction_interval_calculation,True,PHASE_141_NO_UNCERTAINTY_EXECUTION,calculate_prediction_interval,Phase 141 uncertainty estimation is contract-only; interval calculation is blocked.,STRICT_BLOCK,True,141
+conformal_prediction_execution,True,PHASE_141_NO_UNCERTAINTY_EXECUTION,generate_conformal_sets,Conformal set generation is disabled.,STRICT_BLOCK,True,141
+quantile_estimation_execution,True,PHASE_141_NO_UNCERTAINTY_EXECUTION,estimate_conditional_quantiles,Quantile estimation is disabled.,STRICT_BLOCK,True,141
+bayesian_approximation_execution,True,PHASE_141_NO_UNCERTAINTY_EXECUTION,sample_posterior_weights,Bayesian inference is disabled.,STRICT_BLOCK,True,141

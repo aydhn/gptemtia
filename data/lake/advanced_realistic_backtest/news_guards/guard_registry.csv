@@ -1,0 +1,2 @@
+guard_name,enforcement,description,forbidden_columns,active
+metadata_only_news_compliance,STRICT,"Haber verilerinde yalnizca baslik, zaman, kaynak ve etiketlerin kullanilmasi zorunlulugu.","['full_text', 'article_body', 'raw_content', 'scraped_html', 'page_html', 'html', 'embedding', 'vector', 'sentiment', 'sentiment_score']",True

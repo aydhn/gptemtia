@@ -1,0 +1,2 @@
+placeholder_name,exposure_type,formula_description,dimension,is_placeholder,is_calculated,current_phase,target_final_phase,next_phase
+gross_exposure_placeholder,gross,Sum of absolute weights across all active portfolio positions: sum(|w_i|),ratio_to_nav,True,False,155,160,156

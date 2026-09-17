@@ -1,0 +1,5 @@
+audit_id,target,description,passed,secrets_exposed,domain,non_signal,local_only,dry_run,non_production,current_phase,status
+env_example_presence,.env.example,.env.example şablon dosyasının varlığı,True,False,env_template_audit_domain,True,True,True,True,159,final_hardening_contract_ready
+no_secrets_in_env_example,.env.example,"Gerçek API anahtarı, token veya secret bulunmaması",True,False,env_template_audit_domain,True,True,True,True,159,final_hardening_contract_ready
+phase_159_env_vars_presence,.env.example,Phase 159 UPPERCASE konfigürasyon anahtarlarının varlığı,True,False,env_template_audit_domain,True,True,True,True,159,final_hardening_contract_ready
+safe_defaults_in_env_example,.env.example,Varsayılan değerlerin non-live ve dry-run uyumlu olması,True,False,env_template_audit_domain,True,True,True,True,159,final_hardening_contract_ready

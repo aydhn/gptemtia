@@ -1,0 +1,4 @@
+rule_id,rule_name,description,enforcement,zero_slippage_allowed,broker_execution_allowed,status,non_signal,local_only,phase
+SLP_01_ZERO_SLIPPAGE_BAN,zero_slippage_prohibition,Strict prohibition against assuming zero slippage or executing exactly at the signal tick price.,BLOCKING_ZERO_TOLERANCE,False,False,ENFORCED,True,True,150
+SLP_02_NON_LINEAR_IMPACT,square_root_market_impact_mandate,Enforce square-root trade volume-to-ADV market impact penalty.,BLOCKING_MANDATORY,False,False,ENFORCED,True,True,150
+SLP_03_REGIME_VOLATILITY_EXPANSION,volatility_conditioned_slippage_multiplier,Scale simulated slippage during high-volatility regimes and news event windows.,HIGH_AUDIT,False,False,ENFORCED,True,True,150

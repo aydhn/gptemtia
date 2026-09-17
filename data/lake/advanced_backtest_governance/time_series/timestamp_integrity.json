@@ -1,0 +1,9 @@
+{
+  "domain": "realism_governance_domain",
+  "subdomain": "timestamp_integrity_governance",
+  "total_rules": 3,
+  "future_joins_strictly_prohibited": true,
+  "status": "governance_contract_ready",
+  "non_signal": true,
+  "local_only": true
+}

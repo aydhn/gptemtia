@@ -1,0 +1,3 @@
+item_id,execution_type,is_disabled,blocking_reason,enforcement_layer,status
+SGD-001,trade_signal_generation,True,Generating actionable trade signals is disabled.,contract,DISABLED
+SGD-002,directional_recommendations,True,Generating long/short trading directives is disabled.,contract,DISABLED

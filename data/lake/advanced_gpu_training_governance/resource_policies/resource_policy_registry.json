@@ -1,0 +1,10 @@
+{
+  "total_policies": 4,
+  "all_contract_only": true,
+  "all_real_training_disabled": true,
+  "all_prediction_disabled": true,
+  "all_manual_review_required": true,
+  "current_phase": 139,
+  "non_signal": true,
+  "active_profile": "balanced_local_gpu_training_governance"
+}

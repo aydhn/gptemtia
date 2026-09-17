@@ -1,0 +1,7 @@
+{
+  "domain": "disabled_execution_domain",
+  "operation": "live_trading",
+  "is_disabled": true,
+  "status": "execution_blocked_no_live_trading",
+  "non_signal": true
+}

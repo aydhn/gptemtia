@@ -1,0 +1,12 @@
+{
+  "total_prerequisites": 10,
+  "satisfied_prerequisites": 10,
+  "all_prerequisites_satisfied": true,
+  "current_phase": 147,
+  "source_phase": 147,
+  "next_phase": 148,
+  "target_final_phase": 160,
+  "next_phase_name": "Phase 148 — Stress Testing and Scenario Simulation",
+  "status": "READY_FOR_PHASE_148",
+  "non_signal": true
+}

@@ -1,0 +1,18 @@
+{
+  "total_domains": 62,
+  "categories": [
+    "safety_guards",
+    "metric_placeholders",
+    "policies_and_schedules",
+    "governance",
+    "dependencies",
+    "placeholders",
+    "linkage_contracts",
+    "monitoring_contracts",
+    "window_policies",
+    "disabled_executions"
+  ],
+  "all_zero_execution": true,
+  "all_non_signal": true,
+  "all_dry_run_only": true
+}

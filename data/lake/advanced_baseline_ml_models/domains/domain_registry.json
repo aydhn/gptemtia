@@ -1,0 +1,29 @@
+{
+  "total_domains": 37,
+  "categories": [
+    "configuration",
+    "contracts",
+    "dependencies",
+    "fallback",
+    "governance",
+    "guards",
+    "handoff",
+    "harness",
+    "health",
+    "inputs",
+    "lineage",
+    "linkage",
+    "manifest",
+    "placeholders",
+    "policies",
+    "safety",
+    "scoring",
+    "taxonomy",
+    "training_plan",
+    "validation"
+  ],
+  "active_domains": 37,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false
+}

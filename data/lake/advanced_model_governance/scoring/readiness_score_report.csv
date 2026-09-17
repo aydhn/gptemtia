@@ -1,0 +1,2 @@
+readiness_score,classification,meets_threshold,findings_count,manual_review_count,non_signal,production_ready,broker_ready,release_approved,model_performance_claim,phase
+1.0,governance_contract_ready,True,0,10,True,False,False,False,False,144

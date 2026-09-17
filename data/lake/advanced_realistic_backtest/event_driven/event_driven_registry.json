@@ -1,0 +1,12 @@
+{
+  "total_event_contracts": 5,
+  "all_execution_blocked": true,
+  "event_types": [
+    "MARKET_DATA_EVENT",
+    "SIGNAL_INPUT_EVENT",
+    "ORDER_CREATION_EVENT",
+    "ORDER_FILL_EVENT",
+    "POSITION_UPDATE_EVENT"
+  ],
+  "non_signal": true
+}

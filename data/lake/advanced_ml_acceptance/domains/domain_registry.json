@@ -1,0 +1,10 @@
+{
+  "domain": "advanced_ml_acceptance_domain",
+  "active_profile": "balanced_local_advanced_ml_acceptance",
+  "current_phase": 145,
+  "target_final_phase": 160,
+  "next_phase": 146,
+  "total_domains": 30,
+  "non_signal": true,
+  "status": "READY"
+}

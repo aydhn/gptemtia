@@ -1,0 +1,12 @@
+{
+  "total_input_contracts": 10,
+  "all_no_lookahead_guaranteed": true,
+  "all_metadata_only_news_guaranteed": true,
+  "all_source_preserved": true,
+  "zero_targets_contained": true,
+  "zero_signals_contained": true,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false,
+  "active_profile": "balanced_local_ensemble_model_contracts"
+}

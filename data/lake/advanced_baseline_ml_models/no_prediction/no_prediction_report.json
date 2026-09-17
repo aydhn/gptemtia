@@ -1,0 +1,9 @@
+{
+  "total_checks": 3,
+  "all_disabled": true,
+  "model_predict_executed": false,
+  "model_inference_executed": false,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false
+}

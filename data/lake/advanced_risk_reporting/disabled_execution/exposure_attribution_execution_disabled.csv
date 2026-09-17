@@ -1,0 +1,2 @@
+component_name,prohibited_actions,enforcement_mechanism,is_disabled,status,current_phase,target_final_phase,next_phase
+exposure_attribution_engine,"['calculate_exposure', 'run_attribution', 'execute_exposure_analysis']",STRICT_SAFETY_GATE_EXECUTION_BLOCKED,True,execution_contract_only,155,160,156

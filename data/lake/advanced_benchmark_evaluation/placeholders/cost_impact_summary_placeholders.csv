@@ -1,0 +1,4 @@
+impact_id,title,category,description,is_calculated,status,non_signal
+COST_IMP_GROSS_VS_NET,Gross vs Net Return Friction Gap Placeholder,performance_erosion,Brüt getiri ile komisyon düşülmüş net getiri arasındaki fark yer tutucusu.,False,evaluation_contract_ready,True
+COST_IMP_TURNOVER_DRAG,Portfolio Turnover vs Cumulative Fee Drag Placeholder,turnover_friction,İşlem hacmi ve portföy devir hızının yarattığı kümülatif maliyet yükü yer tutucusu.,False,evaluation_contract_ready,True
+COST_IMP_SWAP_CARRY,Cumulative Overnight Financing / Swap Impact Placeholder,carry_cost,Uzun süreli pozisyon taşımada faiz ve swap giderlerinin getiriye etkisi yer tutucusu.,False,evaluation_contract_ready,True

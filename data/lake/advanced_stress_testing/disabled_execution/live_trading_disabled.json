@@ -1,0 +1,15 @@
+{
+  "execution_name": "stress_live_trading",
+  "is_blocked": true,
+  "enforced": true,
+  "blocked_actions": [
+    "live_trade",
+    "open_position",
+    "execute_trade",
+    "buy",
+    "sell",
+    "long",
+    "short"
+  ],
+  "non_signal": true
+}

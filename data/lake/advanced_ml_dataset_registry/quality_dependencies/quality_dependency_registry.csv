@@ -1,0 +1,7 @@
+dep_key,source_phase,description,non_signal,manual_review_required,current_phase
+phase_123_quality_drift,phase_123,Phase 123 Feature Quality Drift output dependency.,True,True,137
+phase_124_featurestore_metadata,phase_124,Phase 124 FeatureStore Metadata quality dependency.,True,True,137
+phase_135_quality_dependency,phase_135,Phase 135 Acceptance Manifest quality dependency.,True,True,137
+phase_136_runtime_quality,phase_136,Phase 136 GPU/ML Runtime readiness quality dependency.,True,True,137
+phase_137_quality,phase_137,Phase 137 Advanced ML Dataset Registry quality dependency.,True,True,137
+manual_review_blocker,manual,Manual review blockers before Phase 138 handoff.,True,True,137

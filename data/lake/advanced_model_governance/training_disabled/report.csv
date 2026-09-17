@@ -1,0 +1,3 @@
+action,is_disabled,reason,status,phase
+model_fit,True,Real model fitting is disabled in governance phase.,BLOCKED_BY_POLICY,144
+model_training,True,Model training execution is disabled in governance phase.,BLOCKED_BY_POLICY,144

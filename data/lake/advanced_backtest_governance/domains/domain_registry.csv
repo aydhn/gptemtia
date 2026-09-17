@@ -1,0 +1,28 @@
+domain_name,description,phase,local_only,non_signal,execution_allowed
+governance_contract_domain,Central backtest governance contracts spanning Phase 146-150.,150,True,True,False
+bias_control_domain,Multi-bias control architecture and guard policies.,150,True,True,False
+result_reporting_domain,Reporting governance enforcing disclosure without actual metric claims.,150,True,True,False
+metric_claim_boundary_domain,"Blocks calculated Sharpe, win-rate, alpha, return claims.",150,True,True,False
+performance_claim_boundary_domain,"Blocks guaranteed return, proven strategy, and production-ready claims.",150,True,True,False
+lookahead_bias_domain,Strict detection and prohibition of lookahead leakage and negative shifts.,150,True,True,False
+survivorship_bias_domain,Point-in-time universe reconstitution controls.,150,True,True,False
+data_snooping_bias_domain,Controls for repeated testing and data reusing artifacts.,150,True,True,False
+overfitting_bias_domain,Overfitting fragility diagnostics and parameter-to-sample ratio bounds.,150,True,True,False
+multiple_testing_bias_domain,"Multiple testing tracking, Bonferroni/Holm/BHY correction placeholders.",150,True,True,False
+parameter_fishing_bias_domain,Prohibition of parameter cherry-picking and p-hacking.,150,True,True,False
+benchmark_selection_bias_domain,Pre-commitment requirement and neutral benchmark baseline selection.,150,True,True,False
+regime_coverage_bias_domain,"Ensures backtest spans bull, bear, high vol, and quiet regimes.",150,True,True,False
+sample_coverage_bias_domain,Sample window adequacy and unrepresentative period mitigation.,150,True,True,False
+realism_governance_domain,"Transaction cost, tiered commissions, non-linear slippage, and liquidity realism.",150,True,True,False
+split_governance_domain,Train/validation/test chronological partition and embargo rules.,150,True,True,False
+walk_forward_governance_domain,Anchored and rolling walk-forward validation governance.,150,True,True,False
+oos_governance_domain,Strict out-of-sample quarantine and isolation contracts.,150,True,True,False
+stress_governance_domain,Phase 148 stress testing scenario integration contracts.,150,True,True,False
+monte_carlo_governance_domain,Phase 149 Monte Carlo robustness and resampling contracts linkage.,150,True,True,False
+benchmark_governance_domain,Passive and active benchmark evaluation governance contracts.,150,True,True,False
+audit_policy_domain,"Audit trails, parameter logging, and provenance tracking policies.",150,True,True,False
+evidence_policy_domain,Empirical validation evidence preservation policies.,150,True,True,False
+manual_review_gate_domain,Required human approval gates before strategy evaluation progression.,150,True,True,False
+go_no_go_boundary_domain,Explicit go/no-go boundaries blocking execution while allowing research handoff.,150,True,True,False
+disabled_execution_domain,"Formally disabled execution reports for live, broker, backtest, and optimizer.",150,True,True,False
+phase_151_handoff_domain,Handshake interface to Phase 151 benchmark comparison contracts.,150,True,True,False

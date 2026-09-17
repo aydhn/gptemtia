@@ -1,0 +1,3 @@
+metric_name,metric_domain,formula_description,unit,is_placeholder,actual_value,is_calculated,current_phase,target_final_phase,next_phase
+parametric_var_95_placeholder,value_at_risk,VaR_95 = 1.645 * sigma_p * sqrt(dt),ratio_to_nav,True,,False,155,160,156
+historical_var_99_placeholder,value_at_risk,"VaR_99 = -Percentile(r_p, 1%)",ratio_to_nav,True,,False,155,160,156

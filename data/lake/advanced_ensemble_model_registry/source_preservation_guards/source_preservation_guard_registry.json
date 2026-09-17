@@ -1,0 +1,13 @@
+{
+  "total_guards": 3,
+  "guard_names": [
+    "source_immutability_guard",
+    "schema_preservation_guard",
+    "audit_traceability_guard"
+  ],
+  "all_guards_enforced": true,
+  "raw_sources_preserved": true,
+  "destructive_mutations_blocked": true,
+  "dry_run": true,
+  "non_signal": true
+}

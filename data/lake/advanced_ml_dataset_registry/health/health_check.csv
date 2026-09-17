@@ -1,0 +1,14 @@
+component,category,path,status,exists,non_signal
+Phase 136 GPU ML Runtime,upstream_dependency,advanced_gpu_ml_runtime,PASS,True,True
+Phase 135 Regime Acceptance,upstream_dependency,advanced_regime_acceptance,PASS,True,True
+Phase 134 FeatureStore Integration,upstream_dependency,advanced_regime_featurestore_integration,PASS,True,True
+Phase 133 Regime Validation,upstream_dependency,advanced_regime_validation_acceptance,PASS,True,True
+Phase 124 Feature Store Integration,upstream_dependency,advanced_feature_store_integration,PASS,True,True
+FeatureStore Core,core_service,ml/feature_store.py,PASS,True,True
+DataLake Storage,core_service,data/storage/data_lake.py,PASS,True,True
+Settings Config,configuration,config/settings.py,PASS,True,True
+Paths Config,configuration,config/paths.py,PASS,True,True
+Phase 137 Module Root,current_module,advanced_ml_dataset_registry,PASS,True,True
+Scripts Directory,execution,scripts,PASS,True,True
+Tests Directory,test_suite,tests,PASS,True,True
+Docs Directory,documentation,docs,PASS,True,True

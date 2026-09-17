@@ -1,0 +1,14 @@
+{
+  "total_profiles": 3,
+  "enabled_profiles": 3,
+  "all_dry_run": true,
+  "all_local_only": true,
+  "zero_real_training": true,
+  "zero_prediction": true,
+  "zero_artifact_persistence": true,
+  "zero_model_registry_write": true,
+  "non_signal": true,
+  "source_preserved": true,
+  "production_ready": false,
+  "broker_ready": false
+}

@@ -1,0 +1,4 @@
+role,responsibility,status,phase,is_placeholder,non_signal
+Model Governance Architect,"Define and maintain governance contracts, model card schemas, and boundary policies.",ASSIGNED,144,True,True
+ML Safety Reviewer,"Audit manual review gates, forbidden column policies, and leakage guards.",ASSIGNED,144,True,True
+Validation Engineer,"Verify evidence packs, dependency inputs, and readiness scoring reports.",ASSIGNED,144,True,True

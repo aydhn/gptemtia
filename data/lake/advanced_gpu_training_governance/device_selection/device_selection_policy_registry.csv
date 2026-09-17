@@ -1,0 +1,4 @@
+policy_id,policy_name,device_preference,fallback_allowed,allow_real_cuda_initialization,dry_run_mode,non_signal,description,status
+DEV_SEL_001,cuda_preferred_with_cpu_fallback_policy,cuda_if_available,True,False,True,True,"Selects CUDA if supported in environment, otherwise safely defaults to CPU dry-run.",gpu_governance_ready
+DEV_SEL_002,strict_cpu_deterministic_selection_policy,cpu_only,False,False,True,True,Deterministic CPU selection for isolated local testing without accelerator dependencies.,gpu_governance_ready
+DEV_SEL_003,mps_apple_silicon_placeholder_policy,mps_if_available,True,False,True,True,Placeholder policy for Apple Silicon MPS environments with mandatory CPU fallback.,gpu_governance_ready

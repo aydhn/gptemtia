@@ -1,0 +1,6 @@
+operation_name,description,status,optimization_permitted,phase,non_signal,local_only
+grid_search,Exhaustive grid search across strategy parameter grids.,DISABLED,False,150,True,True
+random_search,Random sampling optimization over parameter spaces.,DISABLED,False,150,True,True
+bayesian_optimization,Sequential model-based optimization / Gaussian process tuning.,DISABLED,False,150,True,True
+genetic_algorithm,Evolutionary parameter optimization and selection.,DISABLED,False,150,True,True
+optuna_tune,Automated hyperparameter optimization framework integration.,DISABLED,False,150,True,True

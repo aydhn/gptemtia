@@ -1,0 +1,2 @@
+score,score_tier,classification,critical_blockers,total_findings,non_signal,production_ready,broker_ready,official_approval,real_training_approved,dataset_materialization_approved
+1.0,READY_FOR_LOCAL_DRY_RUN_HARNESS,READY_FOR_LOCAL_DRY_RUN_HARNESS,0,0,True,False,False,False,False,False

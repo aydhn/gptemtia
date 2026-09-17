@@ -1,0 +1,7 @@
+{
+  "report_name": "candidate_model_artifact_disabled_report",
+  "phase": 140,
+  "status": "ARTIFACT_PERSISTENCE_BLOCKED_BY_POLICY",
+  "artifact_persistence_disabled": true,
+  "non_signal": true
+}

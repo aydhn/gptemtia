@@ -1,0 +1,2 @@
+manifest_id,current_phase,target_final_phase,next_phase,scenario_contracts_count,drawdown_contracts_count,control_placeholders_count,scenario_executed,drawdown_control_executed,portfolio_adjustment_generated,broker_order_sent,live_order_sent,investment_advice_generated,phase_157_handoff_ready,status
+MNF-156-001,156,160,157,10,4,7,False,False,False,False,False,False,True,READY

@@ -1,0 +1,14 @@
+{
+  "total_dependencies": 5,
+  "all_satisfied": true,
+  "source_phases": [
+    123,
+    124,
+    136,
+    137,
+    138
+  ],
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false
+}

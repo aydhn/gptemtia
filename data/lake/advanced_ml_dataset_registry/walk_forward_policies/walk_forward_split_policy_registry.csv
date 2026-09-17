@@ -1,0 +1,4 @@
+policy_name,description,placeholder_only,real_split_executed,backtest_executed,optimizer_executed,non_signal,manual_review_required,current_phase
+walk_forward_validation_placeholder,Walk-forward validation contract placeholder. Not executed.,True,False,False,False,True,True,137
+expanding_walk_forward_placeholder,Expanding walk-forward contract placeholder. Not executed.,True,False,False,False,True,True,137
+rolling_walk_forward_placeholder,Rolling walk-forward contract placeholder. Not executed.,True,False,False,False,True,True,137

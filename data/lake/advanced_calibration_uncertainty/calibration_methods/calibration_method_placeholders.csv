@@ -1,0 +1,8 @@
+method_name,method_family,description,is_parametric,requires_optimization,execution_blocked,fit_blocked,transform_blocked,non_signal,phase,status
+platt_scaling_method_placeholder,logistic_scaling,Sigmoid fitting over uncalibrated margins; non-executing placeholder.,True,True,True,True,True,True,141,calibration_contract_placeholder_only
+isotonic_regression_method_placeholder,non_parametric_isotonic,Piecewise constant non-decreasing fit; non-executing placeholder.,False,True,True,True,True,True,141,calibration_contract_placeholder_only
+temperature_scaling_method_placeholder,single_parameter_temperature,Single scalar temperature parameter scaling logits; non-executing placeholder.,True,True,True,True,True,True,141,calibration_contract_placeholder_only
+beta_calibration_method_placeholder,beta_distribution_scaling,Beta distribution scaling for skewed model scores; non-executing placeholder.,True,True,True,True,True,True,141,calibration_contract_placeholder_only
+histogram_binning_method_placeholder,binned_empirical_mass,Fixed or quantile bin partitioning; non-executing placeholder.,False,False,True,True,True,True,141,calibration_contract_placeholder_only
+ensemble_calibration_method_placeholder,multi_calibrator_consensus,Consensus combination across multiple calibrators; non-executing placeholder.,False,True,True,True,True,True,141,calibration_contract_placeholder_only
+spline_calibration_method_placeholder,spline_smoothing,Smooth spline fitting over score quantiles; non-executing placeholder.,False,True,True,True,True,True,141,calibration_contract_placeholder_only

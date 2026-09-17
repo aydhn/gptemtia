@@ -1,0 +1,4 @@
+rule_id,rule_name,description,enforcement,instant_fill_allowed,broker_execution_allowed,status,non_signal,local_only,phase
+FIL_01_NO_INSTANT_FILL_CLAIM,instant_fill_prohibition,Prohibit assuming immediate zero-latency fill upon signal generation.,BLOCKING_ZERO_TOLERANCE,False,False,ENFORCED,True,True,150
+FIL_02_PARTIAL_FILL_SIMULATION,partial_fill_and_queue_modeling,Mandate simulation of limit order queue priority and partial fills for large size.,HIGH_AUDIT,False,False,ENFORCED,True,True,150
+FIL_03_TOUCH_RULE_RESTRICTION,touch_fill_prohibition,"Require price to trade through limit price, not just touch it, for limit order fill confirmation.",BLOCKING_MANDATORY,False,False,ENFORCED,True,True,150

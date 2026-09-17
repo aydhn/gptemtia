@@ -1,0 +1,5 @@
+step_id,step_name,description,requires_manual_inspection,destructive_termination_allowed,domain,non_signal,local_only,dry_run,non_production,current_phase,status
+step_1_verify_no_lingering_tasks,Step 1 Verify No Lingering Tasks,Arka planda çalışan asenkron veya daemonic görev olmadığının kontrolü,True,False,operator_runbook_domain,True,True,True,True,159,operator_runbook_contract_ready
+step_2_verify_report_flush,Step 2 Verify Report Flush,Tüm markdown ve text raporların diske yazıldığının teyidi,True,False,operator_runbook_domain,True,True,True,True,159,operator_runbook_contract_ready
+step_3_data_lake_sync_check,Step 3 Data Lake Sync Check,DataLake CSV ve JSON kayıtlarının bütünlüğünün kontrolü,True,False,operator_runbook_domain,True,True,True,True,159,operator_runbook_contract_ready
+step_4_session_closure,Step 4 Session Closure,Yerel operatör araştırma oturumunun güvenli biçimde sonlandırılması,True,False,operator_runbook_domain,True,True,True,True,159,operator_runbook_contract_ready

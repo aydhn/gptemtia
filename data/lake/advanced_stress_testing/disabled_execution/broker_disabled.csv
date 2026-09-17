@@ -1,0 +1,2 @@
+execution_name,prohibited_reason,blocked_actions,is_blocked,enforced,non_signal,local_only
+stress_broker_execution,Phase 148 has no broker integration; sending orders to brokers is prohibited.,"broker_order, send_order, connect_broker, route_order",True,True,True,True

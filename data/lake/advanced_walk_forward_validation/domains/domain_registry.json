@@ -1,0 +1,21 @@
+{
+  "total_domains": 36,
+  "categories": [
+    "CONFIGURATION",
+    "VALIDATION",
+    "SCOPE",
+    "SPLIT",
+    "BENCHMARK",
+    "METRICS",
+    "CONTRACTS",
+    "GOVERNANCE",
+    "DEPENDENCY",
+    "AUDIT",
+    "MANIFEST",
+    "HEALTH",
+    "SAFETY",
+    "HANDOFF"
+  ],
+  "total_categories": 14,
+  "non_signal": true
+}

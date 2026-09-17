@@ -1,0 +1,8 @@
+gap_type,description,severity_label,is_open,current_phase,status
+optional_doc_missing,Non-critical operational runbook item optional for research,warning,False,157,portfolio_acceptance_ready
+optional_generated_report_missing,Generated auxiliary report optional during dry run,warning,False,157,portfolio_acceptance_ready
+manual_review_note_missing,Manual review documentation placeholder pending review,warning,False,157,portfolio_acceptance_ready
+dependency_summary_incomplete,Detailed dependency report can be augmented in integration,warning,False,157,portfolio_acceptance_ready
+acceptance_score_warning,"Acceptance score reflects contracts only, not live readiness",warning,False,157,portfolio_acceptance_ready
+handoff_detail_incomplete,Detailed integration rehearsal notes to be finalized in Phase 158,warning,False,157,portfolio_acceptance_ready
+integration_prerequisite_note_missing,Full-system integration notes registered for Phase 158,warning,False,157,portfolio_acceptance_ready

@@ -1,0 +1,11 @@
+{
+  "domain": "phase_138_baseline_model_acceptance_domain",
+  "active_profile": "balanced_local_advanced_ml_acceptance",
+  "phase_ref": "Phase 138",
+  "phase_title": "Baseline ML Model Contracts and Dry-Run Training Harness",
+  "total_checks": 8,
+  "passed_checks": 8,
+  "all_passed": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

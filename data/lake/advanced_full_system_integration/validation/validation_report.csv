@@ -1,0 +1,7 @@
+rule,passed,non_signal,found_terms
+profile_registry_valid,True,True,
+component_checkpoints_valid,True,True,
+contract_integration_valid,True,True,
+acceptance_rehearsal_valid,True,True,
+manifest_valid,True,True,
+no_forbidden_claims,True,True,[]

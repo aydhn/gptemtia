@@ -414,11 +414,612 @@ Local completion governance framework appended.
 - **Phase 137 Handoff**:
   - "Advanced ML Dataset Contracts and Experiment Registry" fazı için 14 devir maddesi eksiksiz hazırlanmıştır.
 
+## Phase 137 Advanced ML Dataset Contracts and Experiment Registry: Analist ve Araştırmacı Rehberi
+- **Gelişmiş ML Veri Kümesi Sözleşmeleri ve Deney Kaydı**: Phase 137, Phase 136-145 bloğunun ikinci fazı olarak, Phase 1-136 arasındaki zengin özellik ve rejim altyapısını ML deneylerinde güvenli kullanmak üzere sözleşmeye bağlar.
+- **Sıfır Materyalleştirme ve Sıfır Eğitim Prensibi**:
+  - Hiçbir veri kümesi fiziksel olarak kaydedilmez veya materyalleştirilmez (`materialized=False`). Yalnızca şema, zaman damgası, namespace ve kaynak referansları doğrulanır.
+  - Hiçbir model eğitilmez (`fit`, `train`), hiçbir çıkarım yapılmaz (`predict`, `transform`), hiçbir hedef kolon üretilmez (`target_label_allowed=False`).
+- **Sızıntı ve Geleceğe Bakış Engelleri (Leakage & Lookahead Prevention)**:
+  - Negatif indeks kaydırmaları (`shift(-1)`), ileriye dönük hesaplamalar (`future_return`, `forward_return`) ve hedef sızıntısı kesin olarak engellenir.
+  - Kronolojik UTC zaman damgaları (`timestamp_utc`) zorunludur; geriye dönük asof kuralları korunur.
+- **Strictly Metadata-Only Haber Yönetişimi**:
+  - Haber tarafında yalnızca sayısal metaveri, konu/varlık etiketleri ve zaman damgaları geçerlidir. Haber tam metni, makale gövdesi, taranmış HTML, NLP duygu modelleri ve embeddingler yasaktır.
+- **Eğitimsiz Deney Kaydı ve Yer Tutucu Aileleri**:
+  - 6 deney tanımı ve 6 deney şablonu kayıt altına alınmıştır; tüm deneylerde eğitim kilitlidir (`training_blocked=True`).
+  - 10 model ailesi (Baseline Ridge, Logistic, RF, ExtraTrees, GradientBoosting, HistGB, XGBoost, LightGBM, CatBoost, PyTorch MLP) ve 7 metrik ailesi eğitimsiz/çıkarımsız yer tutucu olarak kataloglanmıştır.
+- **Hazırlık Skoru (Readiness Score) Yorumu**:
+  - `readiness_score` (0.0-1.0 aralığında) bir veri kümesi yönetişimi ve sözleşme uyumu puanıdır.
+  - Kesinlikle bir al/sat sinyali, getiri beklentisi, resmi onay veya model eğitimi izni (`official_approval: False`, `production_ready: False`, `broker_ready: False`) değildir.
+- **Phase 138 Handoff**:
+  - "Baseline ML Model Contracts and Training Harness Governance" fazı için 13 devir maddesi eksiksiz hazırlanmıştır.
 
+## Phase 138 Baseline ML Model Contracts and Dry-Run Training Harness: Analist ve Araştırmacı Rehberi
+- **Temel ML Model Sözleşmeleri ve Dry-Run Eğitim Harness'ı**: Phase 138, Phase 136-145 bloğunun üçüncü fazı olarak, Phase 136 runtime ve Phase 137 veri kümesi sözleşmeleri üzerine model ailesi sözleşmelerini ve eğitimsiz simülasyon harness'ını kurar.
+- **Sıfır Gerçek Eğitim ve Sıfır Tahmin Prensibi (No Real Training & No Prediction)**:
+  - Hiçbir model eğitilmez (`fit`, `train`, `backward`), hiçbir model uydurulmaz veya parametre optimizasyonu yapılmaz.
+  - Hiçbir modelden tahmin (`predict`, `inference`, `predict_proba`), sınıflandırma etiketi veya regresyon değeri üretilmez.
+  - Hiçbir al/sat sinyali veya ticaret tavsiyesi üretilmez (`trade_signal_allowed=False`, `non_signal=True`).
+- **Hedef/Etiket Üretim Yasağı ve Veri Sızıntısı Koruması**:
+  - Hedef (`target`), etiket (`label`), `future_return`, `forward_return` ve negatif kaydırma (`shift(-1)`) işlemleri kesinlikle engellenir.
+  - 23 kelimelik yasaklı kolon listesi (`signal`, `buy`, `sell`, `long`, `short`, `position`, `target`, `future_return`, `sentiment_score` vb.) girdilerde ve çıktılarda taranır.
+- **Yapay Nesne ve Model Kayıt Defteri Koruması**:
+  - Model ağırlıklarının diske kaydedilmesi (`joblib.dump`, `pickle.dump`, `torch.save`) ve model registry/MLflow yazımları kesinlikle devre dışıdır (`PASS_DISABLED`).
+- **Metrik ve Değerlendirme Yer Tutucuları**:
+  - 8 metrik kategorisi (sınıflandırma, regresyon, sıralama, kalibrasyon, drift, explainability, gecikme, kaynak kullanımı) ve 7 değerlendirme yer tutucusu hesaplama yapılmadan ve performans iddiası üretilmeden (`is_calculated=False`, `performance_claim_allowed=False`) kataloglanmıştır.
+- **Hazırlık Skoru (Readiness Score) Yorumu**:
+  - `readiness_score` (1.0 - `READY_FOR_LOCAL_DRY_RUN_HARNESS`), model sözleşmelerinin ve güvenlik kontrollerinin sözleşmesel bütünlüğünü gösterir.
+  - Kesinlikle bir al/sat sinyali, model doğruluk iddiası, kârlılık garantisi veya production onayı değildir.
+- **Phase 139 Handoff (GPU-Accelerated Training Harness and Resource Governance)**:
+  - Phase 139 için GPU hızlandırıcı harness gereksinimleri, bellek kotaları ve zaman aşımı korumalarını içeren 12 devir maddesi eksiksiz hazırlanmıştır.
 
+## Phase 139 GPU-Accelerated Training Harness and Resource Governance: Analist ve Araştırmacı Rehberi
+- **GPU Hızlandırmalı Eğitim Harness'ı ve Kaynak Yönetişimi**: Phase 139, Phase 136-145 bloğunun dördüncü fazı olarak, Phase 136 GPU/ML runtime, Phase 137 veri kümesi sözleşmeleri ve Phase 138 temel model sözleşmeleri üzerine GPU/CPU kaynak yönetişim katmanını ve kontrollü kuru koşum (dry-run) harness'ını kurar.
+- **Kaynak Bütçesi ve Donanım Seçim Politikaları (Resource Governance & Device Selection)**:
+  - CUDA GPU, Apple Silicon MPS ve CPU fallback hiyerarşisi sözleşmesel olarak tanımlanmıştır. Donanım yokluğunda veya bellek yetersizliğinde otomatik ve güvenli CPU fallback uygulanır.
+  - Maksimum GPU bellek fraksiyonu %80 (`max_memory_fraction_limit=0.80`) ile sınırlandırılmıştır; OOM koruması ve dry-run bellek ön-denetimi zorunludur.
+  - Zaman aşımı politikası sert tavan olarak 3600 saniye (`max_timeout_seconds_limit=3600`) belirler; simülasyonların asılı kalması engellenir.
+  - Batch size yer tutucusu varsayılan 32 (`default_batch_size_placeholder=32`) olup dinamik ölçekleme kilitlidir; DataLoader yer tutucuları lazy evaluation ve num_workers sınırları ile kataloglanmıştır.
+- **Sıfır Gerçek Eğitim ve Sıfır Tahmin Prensibi (No Real Training & No Prediction)**:
+  - Hiçbir model eğitilmez (`fit`, `train`, `backward`), hiçbir model parametresi optimize edilmez (`real_training_executed: False`, `model_fit_allowed: False`).
+  - Hiçbir modelden tahmin (`predict`, `inference`, `transform`), sınıflandırma etiketi veya regresyon değeri üretilmez (`model_predict_executed: False`).
+  - Hiçbir al/sat sinyali veya ticaret tavsiyesi üretilmez (`trade_signal_allowed=False`, `non_signal=True`).
+- **5 Devre Dışı Bırakılmış Yürütme Raporu (Disabled Execution Reports)**:
+  - `no_real_training_execution`: Gerçek eğitim döngüsünün yürütülmediğini ve policy ile bloklandığını belgeler.
+  - `no_prediction_execution`: Tahmin/çıkarım yapılmadığını belgeler.
+  - `no_target_label_generation`: Hedef değişken ve etiket kolonlarının üretilmediğini belgeler.
+  - `no_model_artifact_persistence`: Model ağırlıklarının diske kaydedilmediğini belgeler.
+  - `no_model_registry_write`: Model registry veya MLflow sistemlerine yazım yapılmadığını belgeler.
+- **Hedef/Etiket Üretim Yasağı ve Veri Sızıntısı Koruması**:
+  - Hedef (`target`), etiket (`label`), `future_return`, `forward_return` ve negatif kaydırma (`shift(-1)`) işlemleri kesinlikle engellenir.
+  - 23 kelimelik yasaklı kolon listesi (`signal`, `buy`, `sell`, `long`, `short`, `position`, `target`, `future_return`, `sentiment_score` vb.) taranır.
+- **Girdi Güvenliği ve Kaynak Dokunulmazlığı**:
+  - Girdi veri çerçeveleri in-place değiştirilemez (`df.copy()` zorunludur). Kaynak tablolar silinemez, ezilemez (`allow_source_overwrite: False`).
+  - Haber verilerinde yalnızca metaveri geçerlidir; makale tam metni, HTML gövdesi, NLP duygu puanı veya embeddingler yasaktır (`metadata_only: True`).
+- **Denetim ve Değerlendirme Yer Tutucuları**:
+  - 6 kaynak kullanım denetim yer tutucusu (GPU bellek zirvesi, CPU yükü, PCI-e aktarım hızı, termal durum, disk I/O, işlem süresi) ve 6 deney denetim yer tutucusu hesaplama yapılmadan ve performans iddiası üretilmeden kataloglanmıştır.
+  - 10 bulgu kataloğu ve 8 manuel inceleme kontrol noktası sistemin sözleşmesel durumunu raporlar.
+- **Hazırlık Skoru (Readiness Score) Yorumu**:
+  - `readiness_score` (1.0 - `READY_FOR_LOCAL_GPU_TRAINING_GOVERNANCE`), GPU eğitim yönetişimi sözleşmelerinin ve güvenlik bariyerlerinin eksiksiz sağlandığını gösterir.
+  - Kesinlikle bir al/sat sinyali, model performans garantisi, kârlılık vaadi veya canlıya geçiş onayı (`official_approval: False`, `production_ready: False`, `broker_ready: False`) değildir.
+- **Phase 140 Handoff (Ensemble Model Contracts and Candidate Model Registry)**:
+  - Phase 140 için topluluk modelleri (ensemble), aday model kayıt defteri ve ağırlıklandırma sözleşmelerini içeren 12 devir maddesi eksiksiz hazırlanmıştır.
 
+## Phase 140 Ensemble Model Contracts and Candidate Model Registry: Analist ve Araştırmacı Rehberi
+- **Topluluk Modeli Sözleşmeleri ve Aday Model Kayıt Defteri**: Phase 140, Phase 136-145 bloğunun beşinci fazı olarak, Phase 136-139 çıktıları üzerine aday model ailelerini, topluluk (ensemble) strateji sözleşmelerini, yürütmesiz ensemble katmanını ve aday model yönetişimini kurar.
+- **Aday Model Aileleri ve Sözleşmeleri (Candidate Model Families & Contracts)**:
+  - 5 aday model ailesi kataloglanmıştır: tree_ensemble (Random Forest, Extra Trees, Gradient Boosting, XGBoost, LightGBM, CatBoost), neural_candidate (PyTorch MLP, Tabular Neural Network), linear_candidate (Ridge, Logistic Regression, ElasticNet), kernel_candidate (Support Vector Machines, Kernel Ridge), boosting_candidate (CatBoost, LightGBM, XGBoost).
+  - Her bir aday model sözleşmesi sıfır gerçek model eğitimi (real_training_allowed=False), sıfır model uyumu (model_fit_allowed=False), sıfır tahmin üretimi (model_predict_allowed=False), sıfır ağırlık kaydı (artifact_persistence_allowed=False) ve sıfır model registry yazımı (model_registry_write_allowed=False) değişmezlerini garanti eder.
+- **Aday Model Uygunluk Kapıları ve Uyumluluk Matrisi**:
+  - 12 uygunluk kapısı ile aday modellerin önkoşulları (Phase 136 runtime, Phase 137 veri kümesi, Phase 138 baseline, Phase 139 GPU governance), güvenlik kuralları ve yürütme engelleri taranır.
+  - 10 aday model ikili uyumluluk sözleşmesi tanımlanmıştır. Uyumluluk skorları strictly non-signal ve non-performance niteliğindedir.
+- **Ensemble Strateji Sözleşmeleri ve Yer Tutucuları**:
+  - 4 strateji sözleşmesi: Voting (Çoğunluk, Olasılık Ortalaması, Kırpılmış Ortalama), Blending (Holdout Split, Walk-Forward Split), Stacking (Out-of-Fold Meta-Feature, İki Seviyeli Hiyerarşik), Dynamic Weighting (Eşit Ağırlık, Ters Varyans).
+  - Tüm stratejilerde ensemble yürütmesi kesin olarak kilitlenmiştir (execution_blocked=True, voting_executed=False, blending_executed=False, stacking_executed=False).
+- **6 Devre Dışı Bırakılmış Yürütme Raporu (Disabled Execution Reports)**:
+  - ensemble_execution_disabled: Ensemble yürütmesinin engellendiğini belgeler.
+  - candidate_model_training_disabled: Aday model eğitiminin engellendiğini belgeler.
+  - candidate_model_prediction_disabled: Aday model tahmin/çıkarımının engellendiğini belgeler.
+  - candidate_model_target_label_disabled: Hedef ve etiket kolonlarının üretilmediğini belgeler.
+  - candidate_model_artifact_disabled: Model ağırlıklarının diske serileştirilmediğini belgeler.
+  - candidate_model_registry_write_disabled: Model kayıt defteri yazımlarının engellendiğini belgeler.
+- **Girdi Güvenliği, Geleceğe Bakış ve Kaynak Dokunulmazlığı**:
+  - No-lookahead zaman damgası denetimleri, backward-only asof birleştirmeleri ve strictly metadata-only haber kuralları (tam metin, HTML, NLP duygu, vektör yasak) korunur.
+  - 24 kelimelik yasaklı kolon listesi (signal, buy, sell, long, short, target, future_return vb.) girdilerde ve çıktılarda taranır.
+  - Kaynak veri dokunulmazlığı: sıfır silme, sıfır üzerine yazma, sıfır otomatik doldurma (destructive_action_allowed: False).
+- **Hazırlık Skoru (Readiness Score) Yorumu**:
+  - readiness_score (1.0 - READY_FOR_ENSEMBLE_CANDIDATE_REGISTRY_DRY_RUN), ensemble ve aday model sözleşmelerinin sözleşmesel bütünlüğünü gösterir.
+  - Kesinlikle bir al/sat sinyali, model doğruluk iddiası, kârlılık garantisi veya production onayı değildir.
+- **Phase 141 Handoff (Probability Calibration and Uncertainty Estimation)**:
+  - Phase 141 için olasılık kalibrasyonu, Platt scaling, Isotonic regression, conformal prediction ve belirsizlik tahmini sözleşmelerini içeren 12 devir maddesi eksiksiz hazırlanmıştır.
 
+## Phase 141 Probability Calibration and Uncertainty Estimation: Analist ve Araştırmacı Rehberi
+- **Olasılık Kalibrasyonu ve Belirsizlik Tahmini Sözleşmeleri**: Phase 141, Phase 136-145 bloğunun altıncı fazı olarak, Phase 136-140 çıktıları üzerine olasılık kalibrasyonu (probability calibration) ve belirsizlik tahmini (uncertainty estimation) sözleşmelerini, yürütmesiz kalibrasyon katmanını ve belirsizlik yönetişimini kurar.
+- **Olasılık Kalibrasyonu Sözleşmeleri ve Yöntemleri**:
+  - 7 kalibrasyon yöntemi sözleşmeye bağlanmıştır: Platt Scaling (lojistik ölçekleme), Isotonic Regression (parametrik olmayan izotonik regresyon), Temperature Scaling (tek parametreli yumuşatma), Beta Calibration (çift parametreli beta dağılımı), Histogram Binning (aralıklı gruplama), Spline Calibration (kubik spline kalibrasyonu), Vector Scaling (çok sınıflı vektörel ölçekleme).
+  - Her sözleşme sıfır kalibrasyon eğitimi (`calibration_fit_allowed=False`), sıfır kalibrasyon dönüşümü (`calibration_transform_allowed=False`), sıfır olasılık tahmini (`probability_prediction_allowed=False`) ve sıfır sinyal (`non_signal_required=True`) garantisi verir.
+- **Belirsizlik Tahmini Sözleşmeleri ve Yöntemleri**:
+  - 8 belirsizlik yöntemi sözleşmeye bağlanmıştır: Monte Carlo Dropout (stokastik ileri geçiş varyansı), Ensemble Variance (topluluk tahmin varyansı), Deep Ensembles (derin topluluk belirsizliği), Quantile Regression (kuantil aralıkları), Bayesian Neural Approximation (ağırlık belirsizliği), Bootstrapped Uncertainty (yeniden örneklemeli belirsizlik), Conformal Prediction (dağılımsız kapsam garantili aralıklar), Evidential Deep Learning (öznel mantık/Dirichlet parametreleri).
+  - Tüm yöntemlerde belirsizlik hesaplaması kesinlikle engellenmiştir (`uncertainty_estimation_allowed=False`, `prediction_interval_allowed=False`).
+- **Güven Puanı, Güven Aralığı ve Tahmin Aralığı Yer Tutucuları**:
+  - 3 güven puanı, 3 güven aralığı (%90, %95, %99), 3 tahmin aralığı (%90, %95, %99), 5 kuantil (q0.05, q0.10, q0.50, q0.90, q0.95) ve 3 konformal tahmin yer tutucusu hesaplama yapılmadan kataloglanmıştır (`all_uncalculated=True`, `all_unexecuted=True`).
+- **5 Devre Dışı Bırakılmış Yürütme Raporu (Disabled Execution Reports)**:
+  - `calibration_execution_disabled`: Kalibrasyon yürütülmediğini belgeler.
+  - `calibration_fit_disabled`: Kalibrasyon uyumunun engellendiğini belgeler.
+  - `calibration_transform_disabled`: Kalibrasyon dönüşümünün engellendiğini belgeler.
+  - `probability_prediction_disabled`: Olasılık tahmini yapılmadığını belgeler.
+  - `uncertainty_execution_disabled`: Belirsizlik kestirimi yürütülmediğini belgeler.
+- **Girdi Güvenliği, Geleceğe Bakış ve Kaynak Dokunulmazlığı**:
+  - No-lookahead zaman damgası denetimleri, backward-only asof birleştirmeleri ve strictly metadata-only haber kuralları (tam metin, HTML, NLP duygu, vektör yasak) korunur.
+  - Yasaklı kolon karantinası: Al/sat sinyali, olasılık veya hedef değişken taşıyan kolonlar girdi ve çıktılarda kesinlikle yasaktır.
+  - Kaynak veri dokunulmazlığı: Sıfır silme, sıfır üzerine yazma, sıfır otomatik doldurma.
+- **Hazırlık Skoru (Readiness Score) Yorumu**:
+  - `readiness_score` (1.0 - `READY_FOR_PHASE_142_DRIFT_MONITORING_HANDOFF`), kalibrasyon ve belirsizlik sözleşmelerinin sözleşmesel bütünlüğünü gösterir.
+  - Kesinlikle bir al/sat sinyali, model doğruluk iddiası, kârlılık garantisi veya production onayı değildir.
+- **Phase 142 Handoff (Model Drift Monitoring and Data/Feature Drift Linkage)**:
+  - Phase 142 için model drift izleme, veri/özellik drift bağlantısı ve kalibrasyon drift hazırlığını içeren 8 devir maddesi eksiksiz hazırlanmıştır.
 
+## Phase 142 Model Drift Monitoring and Data/Feature Drift Linkage: Analist ve Araştırmacı Rehberi
+- **Drift İzleme ve Bağlantı Sözleşmeleri**: Phase 142, Phase 136-145 bloğunun yedinci fazı olarak; model drift, veri drifti, öznitelik drifti, kalibrasyon drifti, belirsizlik drifti ve rejim drifti sözleşmelerini tanımlar.
+- **Sıfır Drift Hesaplama ve Sıfır Yürütme Garantisi**:
+  - Sistem bir sözleşme katmanıdır; gerçek veri üzerinde gerçek PSI, KS, JS Divergence veya Wasserstein mesafesi hesaplanmaz.
+  - Tüm metrikler ve eşik değerler yer tutucudur (`all_uncalculated=True`, `all_non_executing=True`).
+  - Drift tespit edildiğinde otomatik model yeniden eğitimi tetiklenmez (`retraining_trigger_allowed=False`), otomatik uyarı fırlatılmaz (`alerting_allowed=False`), model yayından kaldırılmaz veya değiştirilmez (`model_action_allowed=False`).
+- **İzleme Penceresi ve Eşik Politikaları**:
+  - Referans Pencereler: `in_sample_baseline` (eğitim referansı), `validation_baseline` (doğrulama referansı), `regime_conditioned_baseline` (rejim koşullu referans).
+  - Güncel Pencereler: `short_term_eval` (10 barlık kısa pencere), `medium_term_eval` (30 barlık orta pencere), `rolling_recent_eval` (kayan pencere).
+  - Eşik Değerler: PSI (0.10 uyarı, 0.25 kritik), KS p-değeri (0.05 uyarı, 0.01 kritik), Wasserstein mesafesi (0.15 uyarı, 0.30 kritik).
+- **Yukarı Yönlü Bağlantılar (Linkages)**:
+  - Phase 123: Eksiklik oranı, sonsuz değer ve sıfır varyans tanılarıyla öznitelik kalite drift bağlantısı.
+  - Phase 124: Katalog, şema ve versiyon politikalarıyla FeatureStore drift bağlantısı.
+  - Phase 126-135: Rejim sınıflandırma, durum geçişleri ve çapraz varlık bağlamıyla rejim drift bağlantısı.
+- **6 Devre Dışı Bırakılmış Yürütme Raporu (Disabled Execution Reports)**:
+  - `drift_execution_disabled`: Drift sürecinin canlı çalışmadığını belgeler.
+  - `drift_metric_calculation_disabled`: Canlı drift metriği hesaplanmadığını belgeler.
+  - `drift_alerting_disabled`: Otomatik alarm/uyarı üretilmediğini belgeler.
+  - `drift_retraining_trigger_disabled`: Otomatik yeniden eğitim tetiklenmediğini belgeler.
+  - `drift_model_action_disabled`: Otomatik model aksiyonu alınmadığını belgeler.
+  - `drift_prediction_disabled`: Canlı tahmin çalıştırılmadığını belgeler.
+- **Hazırlık Skoru (Readiness Score) Yorumu**:
+  - `readiness_score` (100.0 - `READY_FOR_PHASE_143_EXPLAINABILITY_HANDOFF`), drift izleme ve bağlantı sözleşmelerinin sözleşmesel bütünlüğünü gösterir.
+  - Kesinlikle bir al/sat sinyali, model doğruluk iddiası, kârlılık garantisi veya production onayı değildir.
+- **Phase 143 Handoff (Explainability and Feature Attribution Reports)**:
+  - Phase 143 için SHAP, Integrated Gradients, permütasyon önem derecesi ve öznitelik atıf raporları hazırlığını içeren 8 devir maddesi eksiksiz tanımlanmıştır.
 
+## Phase 143 Explainability and Feature Attribution Reports: Analist ve Araştırmacı Rehberi
+- **Açıklanabilirlik ve Öznitelik Atıf Sözleşmeleri**: Phase 143, Phase 136-145 bloğunun sekizinci fazı olarak; global ve yerel açıklama, öznitelik önem derecesi, öznitelik katkısı, SHAP, LIME, permütasyon, PDP, ICE, vekil modeller, karşıgözlemsel analiz ve neden kodları sözleşmelerini tanımlar.
+- **Sıfır Hesaplama ve Sıfır Yürütme Garantisi**:
+  - Sistem bir sözleşme katmanıdır; gerçek veri veya modeller üzerinde gerçek SHAP değerleri, LIME ağırlıkları, permütasyon önem skorları veya kısmi bağımlılık eğrileri hesaplanmaz.
+  - Tüm atıf değerleri ve grafik koordinatları yer tutucudur (`all_uncalculated=True`, `all_non_executing=True`).
+  - Açıklamalara dayalı olarak otomatik model budama, yeniden eğitim tetikleme, model değiştirme veya yayından kaldırma aksiyonları kesinlikle alınmaz (`model_action_allowed=False`).
+- **Rapor Sözleşmeleri ve Kapsam Politikaları**:
+  - Rapor Sözleşmeleri: Global açıklama, Yerel açıklama, Aday model açıklaması, Ensemble açıklaması, Rejim koşullu açıklama, Drift bağlantılı açıklama, Kalibrasyon duyarlı açıklama.
+  - Kapsam Politikaları: `global` (tüm veri kümesi düzeyinde genel etki), `local` (tekil tahmin veya bar düzeyinde anlık etki), `regime_conditioned` (farklı piyasa rejimlerinde değişen etki), `drift_linked` (zaman içinde atıf kayması).
+- **Yöntem Yer Tutucuları ve Politikaları**:
+  - TreeSHAP, KernelSHAP, LIME Tabular, Permutation Importance, Integrated Gradients, PDP/ICE, Tree Surrogate, RuleFit.
+  - Her bir yöntem politikası için girdi şeması, arka plan örnekleme engelleri ve hesaplama yasakları sözleşmeye bağlanmıştır.
+- **Yukarı Yönlü Bağlantılar (Linkages)**:
+  - FeatureStore Linkage: Öznitelik katalogları, ad uzayları ve versiyon politikaları ile açıklanabilirlik bağlantısı.
+  - Regime Linkage: Phase 126-135 rejim durumları ve geçiş matrisleri ile rejim koşullu atıf bağlantısı.
+  - Drift Linkage: Phase 142 model ve öznitelik drift izleme sözleşmeleri ile atıf kayması (attribution drift) bağlantısı.
+  - Calibration/Uncertainty Linkage: Phase 141 güven puanları ve belirsizlik aralıkları ile açıklama bağlantısı.
+- **9 Devre Dışı Bırakılmış Yürütme Raporu (Disabled Execution Reports)**:
+  - `explainability_execution_disabled`: Açıklanabilirlik motorunun canlı çalışmadığını belgeler.
+  - `attribution_calculation_disabled`: Canlı öznitelik atıfı hesaplanmadığını belgeler.
+  - `shap_execution_disabled`: SHAP TreeExplainer / KernelExplainer çağrılmadığını belgeler.
+  - `lime_execution_disabled`: LIME pertürbasyon örneklemesi yapılmadığını belgeler.
+  - `permutation_importance_disabled`: Özellik karıştırma testi yapılmadığını belgeler.
+  - `pdp_ice_execution_disabled`: PDP / ICE ızgara eğrisi hesaplanmadığını belgeler.
+  - `surrogate_model_execution_disabled`: Karar ağacı vekil modeli eğitilmediğini belgeler.
+  - `counterfactual_execution_disabled`: Karşıgözlemsel optimizasyon yapılmadığını belgeler.
+  - `explanation_model_action_disabled`: Açıklama gerekçesiyle model aksiyonu alınmadığını belgeler.
+- **Hazırlık Skoru (Readiness Score) Yorumu**:
+  - `readiness_score` (1.0 - `READY_FOR_PHASE_144_MODEL_GOVERNANCE_HANDOFF`), açıklanabilirlik ve atıf sözleşmelerinin sözleşmesel bütünlüğünü gösterir.
+  - Kesinlikle bir al/sat sinyali, model doğruluk iddiası, kârlılık garantisi veya production onayı değildir.
+- **Phase 144 Handoff (Model Governance, Model Cards and Audit Trail)**:
+  - Phase 144 için Model Cards, denetim izi (audit trail), model soykütüğü (lineage) ve yönetişim raporları hazırlığını içeren 8 devir maddesi eksiksiz tanımlanmıştır.
 
+## Phase 144 Model Governance, Model Cards and Audit Trail: Analist ve Araştırmacı Rehberi
+- **Model Yönetişimi, Model Kartları ve Denetim İzi Katmanı**: Phase 144, Phase 136-145 bloğunun dokuzuncu fazı olarak; model yönetişim sözleşmelerini, model kartı sözleşmelerini ve şablonlarını, kısıtlamaları, amaçlanan/yasaklanan kullanımları, onay sınırlarını, denetim izi yer tutucularını ve üretim-dışı çalışma sınırlarını tanımlar.
+- **Sıfır Model Eğitimi, Sıfır Tahmin ve Sıfır Dağıtım Garantisi**:
+  - Sistem bir sözleşme katmanıdır; gerçek model eğitimi, model uyumu, model tahmini veya olasılık üretimi yapılmaz.
+  - Model kayıt defterlerine (MLflow, Weights & Biases vb.) hiçbir yazma işlemi yapılmaz (`allow_model_registry_write: False`).
+  - Model ağırlıkları diske serileştirilmez (.pkl, .joblib, .pt vb. kaydedilmez).
+  - Canlıya veya test ortamına model dağıtımı (deployment) kesinlikle yasaktır (`allow_model_deployment: False`).
+  - Üretim onayı veya aracı kurum hazır durumu onayı verilmez (`allow_production_approval: False`, `allow_broker_ready_claim: False`).
+- **Model Kartı Şablonları ve 12 Standart Bölüm**:
+  - Model kartları şu 12 zorunlu bölümü içerir: Overview, Intended Use, Prohibited Use, Data Sources, Feature Dependencies, Model Family, Limitations, Risk Disclosures, Validation Evidence, No-Go Boundaries, Manual Review Requirements, Non-Production Disclaimer.
+  - Model kartları araştırma amaçlıdır ve kesinlikle bir üretim onayı veya yatırım tavsiyesi belgesi değildir.
+- **Kısıtlamalar, Amaçlanan ve Yasaklı Kullanımlar**:
+  - Amaçlanan Kullanımlar: Yerel çevrimdışı araştırma, yönetişim simülasyonu, entegrasyon testi ve Phase 145 kabul hazırlığı.
+  - Yasaklanan Kullanımlar: Canlı borsa işlemleri, aracı kurum emir iletimi, yatırım tavsiyesi, sinyal üretimi, otonom model yeniden eğitimi, otonom dağıtım, telifli haber metni kazıma ve kaynak veri ezme.
+- **10 Devre Dışı Bırakılmış Yürütme Raporu (Disabled Execution Reports)**:
+  - `model_registry_write_disabled`: Model kayıt defterine yazım engeli belgesi.
+  - `artifact_disabled`: Model ağırlık serileştirme engeli belgesi.
+  - `deployment_disabled`: Model dağıtım ve yayın engeli belgesi.
+  - `production_approval_disabled`: Üretim onayı verme engeli belgesi.
+  - `broker_ready_disabled`: Broker hazır durumu onay engeli belgesi.
+  - `live_trading_disabled`: Canlı emir iletimi engeli belgesi.
+  - `prediction_disabled`: Canlı tahmin ve çıkarım engeli belgesi.
+  - `training_disabled`: Canlı model eğitimi engeli belgesi.
+  - `signal_generation_disabled`: Sinyal ve al/sat tavsiyesi üretmeme belgesi.
+  - `performance_claim_disabled`: Performans ve doğruluk iddiası üretmeme belgesi.
+- **Denetim İzi Yer Tutucuları (Audit Trail Placeholders)**:
+  - Gerçek denetim logu üretilmez; yalnızca sözleşmesel denetim izi yer tutucuları, karar kütüğü, değişiklik kütüğü, sahip sorumlulukları, model yaşam döngüsü ve sürüm geçmişi sözleşmeleri tanımlanır.
+- **Hazırlık Skoru (Readiness Score) Yorumu**:
+  - `readiness_score` (1.0 - `governance_contract_ready`), model yönetişimi ve model kartı sözleşmelerinin sözleşmesel bütünlüğünü gösterir.
+  - Kesinlikle bir al/sat sinyali, kârlılık garantisi veya production onayı değildir.
+- **Phase 145 Handoff (Advanced ML Acceptance Report and Candidate Finalization)**:
+  - Phase 145 için Advanced ML Acceptance Report, aday modellerin nihai değerlendirmesi ve Phase 136-145 blok kapanışı için 12 devir maddesi eksiksiz tanımlanmıştır (`READY_FOR_PHASE_145`).
 
+## Phase 145 Advanced ML Acceptance Report and Consolidated Acceptance Layer: Analist ve Araştırmacı Rehberi
+- **Advanced ML Bloğu Kabul ve Kapanış Fazı**: Phase 145, Phase 136-145 bloğunun ("GPU hızlandırma, gelişmiş ML, ensemble, calibration, model drift, explainability ve governance") nihai kabul ve kapanış fazıdır.
+- **Konsolide Faz Kabul Denetimleri (Phases 136-144)**:
+  - 9 fazın tamamı için (Phase 136 GPU runtime'dan Phase 144 Model governance'a kadar) 8'er kabul kuralı (toplam 72 kural) doğrulanmış ve tümünün sözleşmesel gereksinimleri %100 PASSED olarak belgelenmiştir.
+  - Her faz kabul raporu, ilgili fazın non-executing ve dry-run karakterini, no-lookahead kurallarını ve kaynak koruma ilkelerini bağımsız olarak onaylar.
+- **Sıfır Model Eğitimi, Sıfır Tahmin ve Sıfır Canlı İşlem İlkesi**:
+  - Phase 145 bir kabul ve yönetişim raporlama katmanıdır; kesinlikle canlı emir üretmez, broker entegrasyonu yapmaz, model eğitmez veya tahmin yürütmez (`non_signal=True`).
+  - Model kayıt defterlerine yazma ve model ağırlığı kalıcılığı tamamen devre dışıdır (`model_registry_written=False`, `artifact_persisted=False`).
+- **Gelişmiş ML Hazırlık Puanı (Readiness Score: 1.00)**:
+  - `readiness_score` (1.00 - `advanced_ml_contract_acceptance_ready_non_production`), blok içindeki tüm bileşen ve sözleşmelerin eksiksiz olduğunu ve kontrol noktalarından geçtiğini gösterir.
+  - Bu puan kesinlikle bir finansal performans göstergesi, kârlılık metriği, canlıya geçiş izni veya aracı kurum onayı DEĞİLDİR.
+- **Engeller, Boşluklar, Uyarılar ve Bulgular (Blockers, Gaps, Warnings, Findings)**:
+  - 0 Blocker: Blok genelinde hiçbir bloke edici sözleşme hatası yoktur.
+  - 2 Gap: Bilinen araştırma kapsam boşlukları (Phase 146'da ele alınacak gerçekçi işlem maliyetleri ve kayma modellemesi).
+  - 7 Warning: Yönetişim ve gözetim uyarıları (üretim-dışı çalışma, manuel inceleme gereksinimi vb.).
+  - 3 Finding: Çözümlenmiş kabul ve sözleşme bulguları.
+- **Phase 146 Handoff (Realistic Backtest, Transaction Cost and Slippage Modeling)**:
+  - Phase 146 için 13 devir önkoşulu tanımlanmış ve tümü eksiksiz karşılanmıştır (`READY_FOR_PHASE_146`).
+
+## Phase 146 Realistic Backtest, Transaction Cost and Slippage Modeling: Analist ve Araştırmacı Rehberi
+- **Gerçekçi Backtest Sözleşme ve Maliyet Modelleme Katmanı**: Phase 146, Phase 146-152 "gerçekçi backtest, walk-forward, benchmark ve stress" bloğunun ilk fazı olarak backtest mimarisinin güvenli temelini kurar.
+- **Sözleşme Disiplini ve Sıfır Canlı Emir / Sıfır Yürütme İlkesi**:
+  - Phase 146 bir sözleşme ve modelleme katmanıdır (`contract_layer_only=True`).
+  - Hiçbir canlı borsa bağlantısı, broker API'si, gerçek al/sat emri, trade sinyali veya yatırım tavsiyesi üretilmez (`non_signal=True`, `dry_run=True`).
+  - Gerçek zamanlı veya canlı backtest motoru koşturulmaz, parametre optimizasyonu yapılmaz, walk-forward yürütülmez, benchmark çalıştırılmaz veya Monte Carlo stres testi koşturulmaz.
+- **İşlem Maliyeti, Komisyon ve Kayma (Slippage) Modelleri**:
+  - Komisyon Modelleri: Hisse/kontrat başına sabit, işlem başına sabit, nosyonel bps, kademeli hacim ve sıfır komisyon sözleşmeleri.
+  - Borsa Ücretleri: Borsa, regülasyon, takas, fonlama/borçlanma, FX markup ve saklama ücreti sözleşmeleri.
+  - Spread Modelleri: Sabit yarım spread, anlık quoted spread, volatilite ölçekli, likidite ölçekli, günün saati ve seans açılış spread modelleri.
+  - Kayma Modelleri: Sıfır kayma, sabit tick, fiyat yüzdesi, karekök hacim (square-root volume), volatiliteye bağlı ve emir büyüklüğüne göre ölçeklenen kayma modelleri.
+- **Gerçekçilik ve Piyasa Mikro Yapısı Yer Tutucuları**:
+  - Piyasa Etkisi: Almgren-Chriss ve Kyle lambda geçici/kalıcı fiyat etkisi sözleşmeleri.
+  - Gecikme (Latency): 10ms ile 250ms arası simüle edilmiş ağ ve eşleme motoru gecikmesi.
+  - Likidite Kısıtı: Bar hacminin %1-%10'u ile sınırlandırılmış maksimum katılım oranı.
+  - Kısmi Gerçekleşme ve Emir Reddi: Yetersiz bakiye veya limit fiyat aşımında deterministik simülasyon kuralları.
+- **Muhasebe, Pozisyon Yaşam Döngüsü ve Bias Korumaları**:
+  - PnL Muhasebesi: Gerçekleşmiş ve gerçekleşmemiş kâr-zarar, mark-to-market değerleme.
+  - Kaldıraç ve Teminat: Başlangıç/sürdürme teminatı, margin call ve likidasyon kuralları.
+  - Bias Muhafızları: UTC zaman damgası normalizasyonu, no-lookahead koruması (`direction='backward'`), hayatta kalma yanlılığı, veri gözetleme ve aşırı uyum (Deflated Sharpe) kontrolleri.
+- **9 Devre Dışı Bırakılmış Yürütme Raporu (Disabled Execution Reports)**:
+  - `execution_disabled`: Backtest yürütmesinin engellendiğini belgeler.
+  - `optimizer_disabled`: Optimizasyon yürütmesinin engellendiğini belgeler.
+  - `walk_forward_disabled`: Walk-forward simülasyonunun engellendiğini belgeler.
+  - `benchmark_disabled`: Benchmark testinin engellendiğini belgeler.
+  - `live_trading_disabled`: Canlı işlem yetkilendirilmediğini belgeler.
+  - `broker_execution_disabled`: Broker emir iletimi yapılmadığını belgeler.
+  - `model_training_disabled`: Model eğitilmediğini belgeler.
+  - `prediction_disabled`: Model tahmini üretilmediğini belgeler.
+  - `performance_claim_disabled`: Kârlılık ve getiri iddiası üretilmediğini belgeler.
+- **Hazırlık Skoru (Readiness Score) Yorumu**:
+  - `readiness_score` (1.00 - `READY_FOR_PHASE_147_WALK_FORWARD_HANDOFF`), backtest motor sözleşmeleri, maliyet modelleri ve güvenlik muhafızlarının sözleşmesel bütünlüğünü gösterir.
+  - Kesinlikle bir strateji performansı, getiri garantisi veya canlıya geçiş onayı DEĞİLDİR.
+- **Phase 147 Handoff (Walk-Forward Validation and Out-of-Sample Testing)**:
+  - Phase 147 için 14 devir maddesi eksiksiz doğrulanmıştır (`READY_FOR_PHASE_147`).
+
+## Phase 147 Walk-Forward Validation and Out-of-Sample Benchmarking: Analist ve Araştırmacı Rehberi
+- **Walk-Forward Doğrulama ve OOS Kıyaslama Katmanı**: Phase 147, Phase 146-152 bloğunun ikinci fazı olarak zaman serisi doğrulama ve referans benchmark sözleşme mimarisini kurar.
+- **Sözleşme Disiplini ve Sıfır Yürütme İlkesi**:
+  - Phase 147 kesinlikle yerel ve çevrimdışı bir sözleşme katmanıdır (`contract_layer_only=True`, `local_only=True`).
+  - Gerçek walk-forward simülasyonu çalıştırılmaz, parametre optimizasyonu yapılmaz, benchmark yürütülmez, Sharpe/alpha hesaplanmaz (`metric_calculated=False`, `walk_forward_executed=False`).
+  - Canlı emir, broker bağlantısı, sinyal üretimi, yatırım tavsiyesi veya getiri garantisi kesinlikle yoktur (`non_signal=True`).
+- **Doğrulama ve Bölümleme Aileleri (Validation Families)**:
+  - Rolling Window: Sabit uzunluklu kayan pencere doğrulama sözleşmeleri (1 ay, 3 ay, 6 ay, 1 yıl).
+  - Expanding Window: Genişleyen pencere doğrulama sözleşmeleri.
+  - Anchored Window: Sabit başlangıç noktalı pencere doğrulama sözleşmeleri.
+  - Purged Walk-Forward: Etiket ve getiri çakışmalarını temizleyen aralıklı sözleşmeler.
+  - Embargo Politikaları: Otoregresif sızıntıyı önleyen 5-21 bar güvenlik aralıkları.
+  - Mühürlü Holdout Dönemleri: Erken bakma (peeking) ve optimizasyon kirlenmesini önleyen kilitli dönem sözleşmeleri (`all_sealed=True`).
+- **Out-of-Sample Benchmark Referans Stratejileri**:
+  - Buy & Hold: Pasif elde tutma referans stratejisi.
+  - Nakit / Risksiz Faiz: SOFR/gecelik faiz bazlı nakit getiri referansı.
+  - Eşit Ağırlıklı Sepet (1/N): Aylık yeniden dengelenen eşit ağırlık sepet referansı.
+  - Rejim Duyarlı Benchmark: Piyasa rejimine göre varlık dağılımı güncelleyen referans strateji.
+  - Maliyet Duyarlı Benchmark: Phase 146 komisyon ve kayma modellerinin uygulandığı gerçekçi benchmark.
+- **Doğrulama ve Benchmark Metrik Yer Tutucuları**:
+  - Alpha, Beta, Information Ratio, Tracking Error, Return, MaxDD, Sharpe, Sortino, Calmar, Win Rate ve Fold Stabilite değerleri kesinlikle hesaplanmaz; tümü hesaplanmamış yer tutucu olarak sözleşmeye bağlanmıştır (`all_metrics_uncalculated=True`).
+- **Yanlılık ve Sızıntı Muhafızları (Guards)**:
+  - No-Lookahead Muhafızı: Kronolojik sıralama ve `shift(-1)` ileri yönlü sızıntı denetleyicisi.
+  - Data Snooping & Overfitting: Çoklu hipotez cezalandırması ve aşırı uyum risk göstergeleri.
+  - Survivorship Bias: Delisted varlıkların benchmark ve doğrulama evreninde korunması.
+  - Yalnızca-Metadata Haber Muhafızı: Haber tam metinleri, HTML veya embedding kullanımı kesinlikle yasaktır.
+  - 34 Yasaklı Kolon: `future_return`, `signal`, `target`, `prediction`, `leak` gibi kolonlar karantinaya alınır.
+- **Hazırlık Skoru (Readiness Score: 1.00) Yorumu**:
+  - `readiness_score` (1.00 - `walk_forward_oos_contract_ready_non_production`), doğrulama sözleşmeleri, benchmark şablonları ve güvenlik muhafızlarının sözleşmesel bütünlüğünü ifade eder.
+  - Kesinlikle canlı işlem onayı, model başarımı veya finansal getiri vaadi DEĞİLDİR.
+- **Phase 148 Handoff (Stress Testing and Scenario Simulation)**:
+  - Phase 148 Stress Testing and Scenario Simulation için 10 önkoşul eksiksiz karşılanmıştır (`phase_148_handoff_ready=True`).
+
+## Phase 148 Stress Testing and Scenario Simulation: Analist ve Araştırmacı Rehberi
+- **Stres Testi ve Senaryo Simülasyonu Katmanı**: Phase 148, Phase 146-152 bloğunun üçüncü fazı olarak yerel/çevrimdışı senaryo sözleşme mimarisini kurar.
+- **Sözleşme Disiplini ve Sıfır Yürütme İlkesi**:
+  - Phase 148 kesinlikle yerel ve çevrimdışı bir sözleşme katmanıdır (`contract_layer_only=True`, `local_only=True`).
+  - Gerçek stres testi simülasyonu çalıştırılmaz, senaryo yürütülmez, Monte Carlo hesaplaması yapılmaz, portföy şoklanmaz, Stressed PnL veya VaR hesaplanmaz (`metric_calculated=False`, `stress_test_executed=False`, `scenario_simulated=False`).
+  - Canlı emir, broker bağlantısı, sinyal üretimi, yatırım tavsiyesi veya getiri garantisi kesinlikle yoktur (`non_signal=True`).
+- **Senaryo Aileleri ve Sözleşme Kütüphanesi (Scenario Families)**:
+  - Tarihsel Senaryolar (Historical): 2008 Küresel Finans Krizi, 2020 COVID Likidite Şoku, 2022 Emtia/Enflasyon ve Enerji Krizi sözleşmeleri.
+  - Hipotetik Senaryolar (Hypothetical): Ani Faiz Artışı (+300 bps), Jeopolitik Tedarik Şoku, Stagflasyon Rejimi sözleşmeleri.
+  - Ters Stres Testi (Reverse Stress Testing): Portföyü önceden tanımlı çöküş eşiğine (%20, %30, %50 drawdown) götüren kritik piyasa parametresi kombinasyonlarını araştıran sözleşmeler.
+  - Rejim Geçiş Şoku (Regime Shift): Düşük volatilite boğa rejiminden yüksek volatilite ayı veya likidite krizi rejimine ani geçiş senaryoları.
+- **Şok Yer Tutucuları ve Taksonomisi (Shock Placeholders)**:
+  - Piyasa Şoku (Market Shock): Ani yüzde değişimleri (-10% ile -35% arası varlık değerleme şokları).
+  - Volatilite Şoku (Volatility Shock): VIX ve örtük volatilite sıçramaları (+50% ile +200% artış).
+  - Likidite Şoku (Liquidity Shock): İşlem hacminde ani düşüş ve piyasa derinliğinin çekilmesi (%40-%80 hacim daralması).
+  - Spread Genişlemesi (Spread Widening): Normal alım-satım makasının kriz anında 3x ile 10x katına fırlaması.
+  - Gap Riski (Gap Risk): Seans kapanışı ile açılışı arasındaki kopuş riski yer tutucusu.
+  - Korelasyon Çöküşü (Correlation Breakdown): Kriz anında çeşitlendirme faydasının kaybolarak varlık korelasyonlarının 1.0'a yaklaşması.
+- **Stres Metrik Yer Tutucuları (Stress Metric Placeholders)**:
+  - Stressed PnL, Stressed VaR (%95/%99), Expected Shortfall (CVaR), Max Drawdown, Toparlanma Süresi (Recovery Time) ve Stressed Sharpe metrikleri kesinlikle hesaplanmaz; tümü hesaplanmamış yer tutucu olarak sözleşmeye bağlanmıştır (`all_metrics_uncalculated=True`).
+- **Yanlılık ve Sızıntı Muhafızları (Guards)**:
+  - No-Lookahead Muhafızı: Kronolojik sıralama ve `shift(-1)` ileri yönlü sızıntı denetleyicisi.
+  - Senaryo Sızıntısı Muhafızı: Stres senaryosu parametrelerinin eğitim veya geçmiş pencerelere sızmasını önleyen koruma.
+  - Veri Gözetleme ve Hayatta Kalma Yanlılığı: Geçmiş krizleri aşırı uyumlandırma (overfitting) ve krizde yok olan enstrümanların elenmesini önleyen kurallar.
+  - Yalnızca-Metadata Haber Muhafızı: Haber tam metinleri, HTML veya embedding kullanımı kesinlikle yasaktır.
+  - 36 Yasaklı Kolon: `future_return`, `signal`, `target`, `prediction`, `stressed_pnl_calc` gibi kolonlar karantinaya alınır.
+- **Hazırlık Skoru (Readiness Score: 1.00) Yorumu**:
+  - `readiness_score` (1.00 - `stress_testing_contract_ready_non_production`), senaryo sözleşmeleri, şok şablonları ve güvenlik muhafızlarının sözleşmesel bütünlüğünü ifade eder.
+## Phase 149 Monte Carlo Robustness and Parameter Stability: Analist ve Araştırmacı Rehberi
+- **Monte Carlo Sağlamlık ve Parametre Stabilitesi Katmanı**: Phase 149, Phase 146-152 bloğunun dördüncü fazı olarak yerel/çevrimdışı Monte Carlo ve parametre stabilitesi sözleşme mimarisini kurar.
+- **Sözleşme Disiplini ve Sıfır Yürütme İlkesi**:
+  - Phase 149 kesinlikle yerel ve çevrimdışı bir sözleşme katmanıdır (`contract_layer_only=True`, `local_only=True`).
+  - Gerçek Monte Carlo simülasyonu çalıştırılmaz, bootstrap yeniden örnekleme yürütülmez, parametre optimizasyonu yapılmaz, grid taraması çalıştırılmaz, getiri veya drawdown dağılımı hesaplanmaz (`metric_calculated=False`, `monte_carlo_executed=False`, `parameter_optimization_executed=False`).
+  - Canlı emir, broker bağlantısı, sinyal üretimi, yatırım tavsiyesi veya getiri garantisi kesinlikle yoktur (`non_signal=True`).
+- **Sağlamlık Sözleşmeleri ve Bootstrap Aileleri**:
+  - Standart IID Bootstrap: Zaman serisi otokorelasyonu varsaymayan temel getiri yeniden örnekleme sözleşmesi.
+  - Blok Bootstrap: Volatilite kümelenmesini ve otokorelasyonu koruyan hareketli blok sözleşmeleri.
+  - Durağan Bootstrap: Geometrik dağılımlı rastgele blok uzunluğuyla durağanlık koruyan Politis-Romano sözleşmeleri.
+  - Getiri Yolu Yeniden Örnekleme: Sentetik getiri patikası sözleşmeleri (hesaplanmamış yer tutucular).
+  - İşlem Sırası Reshuffling: İşlem sırası permütasyonu ve yol bağımlılığı analiz sözleşmeleri.
+- **Parametre Stabilitesi ve Duyarlılık Sözleşmeleri**:
+  - Strateji Parametreleri: EMA span, RSI periyodu, ATR çarpanı, Stop-Loss ve Take-Profit seviyeleri.
+  - Parametre Duyarlılığı: Parametre elastisitesi, Sharpe duyarlılık gradyanı ve drawdown artış oranları.
+  - Parametre Tedirginliği: ±10%, ±20%, ±30% aralıklarında tekil ve çoklu parametre kaydırma sözleşmeleri.
+  - Parametre Grid & Yüzey Yer Tutucuları: Performans platosu (geniş tepe) ve performans uçurumu (fragility cliff) tespit kriterleri.
+  - Aşırı Uyum Kırılganlığı (Overfitting Fragility): Dar parametre tepelerini ve eğri uydurma kırılganlığını tespit eden formül sözleşmeleri.
+- **Sağlamlık Zarfları ve Dağılım Yer Tutucuları**:
+  - Üst/Alt Zarf Sınırları: Beklenen getiri ve drawdown için %90, %95 ve %99 güven aralığı bantları.
+  - Kuyruk Riski Dağılımları: Dağılım simülasyonu yapılmaksızın sözleşmeye bağlanan VaR ve Expected Shortfall metaverisi.
+  - Senaryo Yolları: En kötü durum (worst case), en iyi durum (best case) ve medyan yol yer tutucu tanımları.
+- **Yanlılık, Geleceğe Bakış ve Sızıntı Muhafızları (Guards)**:
+  - No-Lookahead Muhafızı: Zaman serisi sıralaması ve sızıntı denetleyicisi.
+  - Yeniden Örnekleme Sızıntı Muhafızı: Test dönemi verilerinin bootstrap havuzuna karışmasını önleyen izolasyon kuralı.
+  - Veri Gözetleme ve Çoklu Test Muhafızları: Parametre taraması p-hacking ve snooping cezalandırma kuralları.
+  - Yalnızca-Metadata Haber Muhafızı: Haber tam metinleri, HTML veya embedding kullanımı kesinlikle yasaktır.
+  - 34 Yasaklı Kolon: `future_return`, `signal`, `target`, `prediction`, `mc_var_calc` gibi kolonlar karantinaya alınır.
+- **Hazırlık Skoru (Readiness Score: 1.00) Yorumu**:
+  - `readiness_score` (1.00 - `monte_carlo_robustness_contract_ready_non_production`), simülasyon sözleşmeleri, parametre stabilite şablonları ve güvenlik muhafızlarının sözleşmesel bütünlüğünü ifade eder.
+  - Kesinlikle canlı işlem onayı, optimizasyon başarısı veya getiri garantisi DEĞİLDİR.
+- **Phase 150 Handoff (Backtest Governance and Bias Control)**:
+  - Phase 150 Backtest Governance and Bias Control için 10 devir önkoşulu eksiksiz karşılanmıştır (`phase_150_handoff_ready=True`).
+
+## Phase 150 Backtest Governance and Bias Control: Analist ve Araştırmacı Rehberi
+- **Backtest Yönetişimi ve Yanlılık Kontrolü Katmanı**: Phase 150, Phase 146-152 bloğunun beşinci fazı olarak merkezi backtest yönetişimi, yanlılık kontrolü ve sonuç iddia sınır mimarisini kurar.
+- **Sözleşme Disiplini ve Sıfır Yürütme İlkesi**:
+  - Phase 150 kesinlikle yerel ve çevrimdışı bir sözleşme ve yönetişim katmanıdır (`contract_layer_only=True`, `local_only=True`).
+  - Gerçek backtest yürütülmez, simülasyon koşturulmaz, parametre optimizasyonu yapılmaz, grid taraması çalıştırılmaz, Sharpe/drawdown/getiri hesaplanmaz (`metric_calculated=False`, `backtest_executed=False`, `parameter_optimization_executed=False`).
+  - Canlı emir, broker bağlantısı, sinyal üretimi, yatırım tavsiyesi veya getiri garantisi kesinlikle yoktur (`non_signal=True`).
+  - Sonuç veya performans iddiaları kesinlikle yasaklanmıştır (`allow_result_claim=False`, `allow_performance_claim=False`, `allow_approval_claim=False`).
+- **9 Çoklu Yanlılık Kontrolü (Multi-Bias Controls)**:
+  - *Lookahead Bias*: Zaman serisi sıralaması ve `direction='backward'` birleştirme kuralları ile geleceğe sızıntı denetleyicisi.
+  - *Survivorship Bias*: Delist olmuş veya iflas etmiş enstrümanların analize dahil edilmesi ve hayatta kalma yanlılığı tespiti.
+  - *Data Snooping Bias*: Veri gözetleme cezalandırma katsayısı (`snooping_penalty_rate`) ve Snooping Penalty Ratio denetimi.
+  - *Overfitting Bias*: Dar parametre tepeleri, aşırı serbestlik derecesi ve ezberleme kırılganlığı denetimi.
+  - *Multiple Testing Bias*: Çoklu hipotez testi enflasyonu, Bonferroni / Holm-Bonferroni p-değeri sözleşmeleri ve `max_allowable_multiple_tests` tavanı.
+  - *Parameter Fishing Bias*: Parametre avcılığı ve veri madenciliği sınır kontrolleri.
+  - *Benchmark Selection Bias*: Seçici ve uygunsuz benchmark (cherry-picking) yanlılığı önleme sözleşmeleri.
+  - *Regime Coverage Bias*: Boğa, ayı, yatay ve kriz piyasa rejimlerinin kapsam eksikliğini tespit eden sözleşmeler.
+  - *Sample Coverage Bias*: Örneklem boyutu ve temsil yetersizliği yanlılığı denetimi.
+- **Gerçekçilik ve Doğrulama Bölme Yönetişimi (Realism & Split Governance)**:
+  - *Maliyet ve Kayma Gerçekçiliği*: İşlem maliyeti (`transaction_cost_realism`), kayma modellemesi (`slippage_realism`), likidite ve piyasa etkisi sözleşmeleri.
+  - *Zaman Damgası Bütünlüğü*: Kronolojik sıralama, takas/tatil günleri ve gecikme (latency) sözleşmeleri.
+  - *Bölme & Doğrulama Yönetişimi*: Train/Val/Test bölme bütünlüğü, Walk-Forward, OOS (Out-of-Sample), Stres Testi ve Monte Carlo yönetişim sözleşmeleri.
+- **Yönetişim Politikaları, Manuel İnceleme ve Güvenlik Muhafızları**:
+  - *Denetim ve İnceleme Kapıları*: Denetim izi saklama politikaları (`audit_trail_retention_days`), kanıt politikaları ve insan denetimi kapıları (`manual_review_required=True`).
+  - *Go/No-Go ve Sonuç Salım Sınırları*: Otomatik go/no-go karar sınırları ve onay/sonuç salım yasakları.
+  - *Yasaklı Kolon Muhafızı*: 34 adet sızıntı/hedef/hesaplanmış kolon (`future_return`, `signal`, `target`, `prediction`, `sharpe_ratio`, `pnl_calculated` vb.) karantinaya alınır.
+  - *Yalnızca-Metadata Haber Muhafızı*: Haber tam metinleri, HTML veya embedding kullanımı kesinlikle yasaktır.
+  - *Kaynak Koruma Muhafızı*: Ham veri setleri asla in-place ezilemez (`source_preserved=True`).
+- **Hazırlık Skoru (Readiness Score: 1.00) Yorumu**:
+  - `readiness_score` (1.00 - `backtest_governance_contract_ready_non_production`), yönetişim sözleşmelerinin, yanlılık muhafızlarının ve güvenlik kapılarının sözleşmesel bütünlüğünü belgeler.
+  - Kesinlikle canlı işlem onayı, model başarısı veya kârlılık garantisi DEĞİLDİR.
+- **Phase 151 Handoff (Benchmark Comparison and Strategy Evaluation Reports)**:
+  - Phase 151 için 10 devir kalemi eksiksiz hazırlanmıştır (`phase_151_handoff_ready=True`).
+
+## Phase 151 Benchmark Comparison and Strategy Evaluation Reports: Analist ve Araştırmacı Rehberi
+- **Benchmark Karşılaştırma ve Strateji Değerlendirme Rapor Sözleşmeleri Katmanı**: Phase 151, Phase 146-152 bloğunun altıncı fazı olarak yerel/çevrimdışı benchmark karşılaştırma ve strateji değerlendirme rapor sözleşme mimarisini kurar.
+- **Sözleşme Disiplini ve Sıfır Yürütme İlkesi**:
+  - Phase 151 kesinlikle yerel, çevrimdışı ve hesaplamasız bir sözleşme katmanıdır (`contract_layer_only=True`, `local_only=True`, `research_only=True`).
+  - Gerçek benchmark simülasyonu koşturulmaz, gerçek strateji backtesti yürütülmez, gerçek Sharpe, win-rate, alpha, beta, getiri ve drawdown hesaplanmaz (`metric_calculated=False`, `benchmark_executed=False`, `strategy_evaluation_executed=False`).
+  - Tüm metrikler formül metaverisi olarak yer tutucudur (`actual_value=None`, `is_calculated=False`).
+  - Canlı emir, broker bağlantısı, sinyal üretimi, yatırım tavsiyesi, otomatik strateji onayı veya sermaye tahsisi kesinlikle yoktur (`non_signal=True`, `allow_strategy_approval=False`).
+  - Sonuç veya performans iddiaları kesinlikle yasaklanmıştır (`allow_result_claim=False`, `allow_performance_claim=False`).
+- **16 Rapor Sözleşmesi Ailesi**:
+  - *Benchmark Karşılaştırma & Evren*: Emtia ve FX referans evrenleri ile pasif Buy & Hold, Nakit risksiz faiz ve Eşit Ağırlıklı Sepet referans standartları sözleşmeye bağlanmıştır.
+  - *Strateji vs Benchmark & Göreli Karşılaştırma*: Göreli getiri, alfa/beta, takip hatası ve bilgi oranı yer tutucu sözleşmeleri tanımlanmıştır.
+  - *Gerçekçilik Düzeltmeli Değerlendirme*: Kademeli komisyon, borsa ücreti, finansman maliyeti (Cost-Adjusted) ve likidite/piyasa etkisi (Slippage-Adjusted) düzeltmeli rapor sözleşmeleri.
+  - *Koşullu ve Bölmeli Değerlendirme*: Rejim duyarlı (Regime-Aware), Walk-Forward pencereli, kilitli Out-of-Sample (OOS), kriz şoklarına duyarlı (Stress-Aware) ve Monte Carlo sağlamlık zarflarına bağlı değerlendirme sözleşmeleri.
+  - *Yönetişim, Yanlılık ve Açıklama*: Denetim izi uyumlu yönetişim, metodoloji güvencesi ve zorunlu metodolojik açıklama (Result Disclosure) sözleşmeleri.
+- **11 Özet ve 6 Metrik Yer Tutucusu**:
+  - Özet şablonları ve metrik yer tutucuları, gelecekteki olası analizler için ampirik araştırma çerçevesini çizer; hiçbir şekilde doğrulanmış getiri iddiası teşkil etmez.
+- **Muhafızlar, Politikalar ve Yasaklı Kolonlar**:
+  - No-Lookahead muhafızı, Sonuç İddiası muhafızı, Performans İddiası muhafızı, Strateji Onayı muhafızı, Benchmark Seçim Yanlılığı muhafızı, Veri Gözetleme muhafızı, Aşırı Uyum muhafızı ve Çoklu Test muhafızı devrededir.
+  - 40 yasaklı kolon (`future_return`, `signal`, `target`, `prediction`, `actual_sharpe`, `strategy_approved` vb.) karantinaya alınır.
+  - Kaynak veri dokunulmazlığı korunur, haberler yalnızca metadata olarak işlenir.
+- **Hazırlık Skoru (Readiness Score: 1.00) Yorumu**:
+  - `readiness_score` (1.00 - `benchmark_evaluation_contract_ready_non_production`), 16 rapor sözleşmesinin, yer tutucuların, güvenlik muhafızlarının ve devre dışı raporlarının sözleşmesel bütünlüğünü belgeler.
+  - Kesinlikle canlı işlem onayı, model başarısı veya kârlılık garantisi DEĞİLDİR.
+- **Phase 152 Handoff (Backtest Acceptance Report)**:
+  - Phase 152 Backtest Acceptance Report için 10 devir şartnamesi eksiksiz karşılanmıştır (`phase_152_handoff_ready=True`).
+
+## Phase 152 Backtest Acceptance Report: Analist ve Araştırmacı Rehberi
+- **Konsolide Backtest Kabul Katmanı**: Phase 152, Phase 146-152 backtest bloğunun (Realistic Backtest, Walk-Forward, Stress Testing, Monte Carlo, Backtest Governance ve Benchmark Evaluation) kapanış ve kabul katmanıdır.
+- **Sözleşme Disiplini ve Sıfır Yürütme İlkesi**:
+  - Phase 152 kesinlikle yerel, çevrimdışı ve hesaplamasız bir sözleşme katmanıdır (`local_only=True`, `dry_run=True`, `non_production=True`, `research_only=True`).
+  - Gerçek backtest koşturulmaz, benchmark simülasyonu çalıştırılmaz, metrik hesaplanmaz (`backtest_executed=False`, `benchmark_executed=False`, `metric_calculated=False`).
+  - Canlı emir, broker bağlantısı, sinyal üretimi, yatırım tavsiyesi, strateji onayı veya portföy oluşturma kesinlikle yoktur (`non_signal=True`, `strategy_approved=False`, `portfolio_constructed=False`, `position_sizing_generated=False`).
+- **7 Temel Bileşen ve Kontrol Noktaları**:
+  - Phase 146'dan Phase 152'ye kadar 7 bileşenin modül varlığı, betikleri, testleri, manifestoları ve güvenlik sınırları doğrulanmıştır.
+  - Phase 146-151 arasındaki 6 faz için 60 kontrolün tamamı başarıyla geçmiştir (60/60 PASS).
+- **Yönetişim, Sınırlar ve İnceleme Kapıları**:
+  - 12 güvenlik sınırı, 5 non-production kuralı, 7 insan operatör manuel inceleme kapısı ve 22 Go/No-Go kuralı devrededir.
+  - Otomatik aksiyon önerileri (`auto-run backtest`, `auto-approve strategy`, `auto-allocate capital` vb.) kesinlikle yasaklanmıştır ve sistem seviyesinde engellenir.
+- **Hazırlık Skoru (Readiness Score: 1.00) Yorumu**:
+  - `readiness_score` (1.0000 - `backtest_acceptance_contract_ready_non_production`), tüm alt bileşenlerin sözleşme bütünlüğünü ve yönetişim disiplinini belgeler.
+  - Kesinlikle canlı işlem onayı, model başarısı veya getiri garantisi DEĞİLDİR.
+- **Phase 153 Handoff (Portfolio Construction, Position Sizing and Risk Budgeting)**:
+  - Phase 153 için 13 devir önkoşulu eksiksiz karşılanmıştır (`phase_153_handoff_ready=True`).
+  - Phase 153, portföy oluşturma sözleşmelerini yerel/çevrimdışı araştırma sınırları altında kuracaktır; canlı işlem yasağı sürecektir.
+
+## Phase 153 Portfolio Construction, Position Sizing and Risk Budgeting: Analist ve Araştırmacı Rehberi
+- **Portföy İnşa Sözleşmesi Katmanı**: Phase 153, Phase 153-157 portföy ve risk yönetimi bloğunun ilk fazıdır. Portföy yapısı, pozisyon boyutlandırma, risk bütçeleme ve maruziyet limitleri sözleşmelerini tanımlar.
+- **Sözleşme Disiplini ve Sıfır Yürütme İlkesi**:
+  - Phase 153 kesinlikle yerel, çevrimdışı ve hesaplamasız bir sözleşme katmanıdır (`local_only=True`, `dry_run=True`, `research_only=True`).
+  - Gerçek portföy optimizasyonu yapılmaz (`allow_real_optimization=False`), gerçek lot/kontrat veya sermaye büyüklüğü üretilmez (`allow_real_lot_sizing=False`, `actual_size_calculated=None`), gerçek sermaye tahsisi yapılmaz (`allow_real_capital_allocation=False`, `actual_budget_calculated=None`), gerçek portföy ağırlığı atanmaz (`allow_real_portfolio_weights=False`, `actual_weight=None`).
+  - Canlı emir, broker bağlantısı, sinyal üretimi, yatırım tavsiyesi kesinlikle yoktur (`non_signal=True`, `allow_live_trading=False`, `allow_broker_execution=False`, `allow_real_order=False`).
+- **10 Varlık Evreni ve 6 Uygunluk Kuralı**:
+  - Emtia (`GC=F`, `SI=F`, `CL=F`, `NG=F`, `HG=F`) ve Döviz (`EURUSD=X`, `USDJPY=X`, `GBPUSD=X`, `USDTRY=X`, `EURTRY=X`) varlıkları tescil edilmiştir.
+  - Veri mevcudiyeti, spread/likidite, rejim uyumu, volatilite filtreleri, marjin/kaldıraç ve risk bütçesi uygunluk kuralları sözleşmeye bağlanmıştır.
+- **9 Pozisyon Boyutlandırma ve 9 Risk Bütçeleme Modeli**:
+  - Sabit Kesirli, Volatilite Hedefleme, Risk Paritesi, Drawdown Duyarlı, Güven Duyarlı, Rejim Duyarlı, Korelasyon Duyarlı, Likidite Duyarlı ve Maliyet/Kayma Duyarlı boyutlandırma mantıkları sözleşme şablonu olarak yer alır.
+  - Varlık, Strateji, Rejim, Portföy, Drawdown, Volatilite ve Maruziyet risk bütçeleme modelleri şablonlanmıştır.
+- **Konsantrasyon ve Maruziyet Sınırları**:
+  - Varlık başına maksimum ağırlık (%20), sektör/grup maksimum ağırlığı (%40), maksimum brüt kaldıraç (1.0x), maksimum net maruziyet (%100) ve tek para birimi maruziyet limitleri (%30) kısıt yer tutucuları olarak tanımlanmıştır.
+- **Hazırlık Skoru (Readiness Score: 1.0000) Yorumu**:
+  - `readiness_score` (1.0000 - `portfolio_construction_contract_ready_non_production`), tüm portföy sözleşmelerinin, şablonlarının ve güvenlik muhafızlarının tam olduğunu belgeler.
+  - Kesinlikle canlı portföy onayı veya getiri vaadi DEĞİLDİR.
+- **Phase 154 Handoff (Portfolio Optimization Contracts)**:
+  - Phase 154 için 14 devir önkoşulu eksiksiz karşılanmıştır (`phase_154_handoff_ready=True`).
+  - Phase 154, portföy optimizasyon sözleşmelerini yerel/çevrimdışı araştırma sınırları altında kuracaktır; canlı işlem yasağı sürecektir.
+
+## Phase 154 Portfolio Optimization and Allocation Constraints: Analist ve Araştırmacı Rehberi
+- **Portföy Optimizasyonu Sözleşme Katmanı**: Phase 154, Phase 153-157 portföy ve risk yönetimi bloğunun ikinci fazıdır. Matematiksel amaç fonksiyonları, tahsis kısıtları, çözücü arayüzleri ve etkin sınır sözleşmelerini yerel/çevrimdışı araştırma disipliniyle tanımlar.
+- **Sözleşme Disiplini ve Sıfır Yürütme İlkesi**:
+  - Phase 154 kesinlikle yerel, çevrimdışı ve hesaplamasız bir sözleşme katmanıdır (`local_only=True`, `dry_run=True`, `research_only=True`).
+  - Sayısal optimizasyon çözücüleri (CVXPY, SciPy minimize, genetik algoritmalar vb.) kesinlikle çalıştırılmaz (`allow_real_optimization=False`, `is_optimized=False`).
+  - Gerçek optimal portföy ağırlıkları hesaplanmaz ve üretilmez (`allow_real_portfolio_weights=False`, `actual_weight=None`).
+  - Gerçek sermaye tahsisi ve lot/kontrat boyutlandırması yapılmaz (`allow_real_capital_allocation=False`, `actual_allocated_capital=None`).
+  - Yeniden dengeleme (rebalance) alım-satım emirleri üretilmez ve iletilmez (`allow_real_rebalance=False`, `rebalance_order_generated=False`).
+  - Canlı emir, broker bağlantısı, sinyal üretimi, yatırım tavsiyesi kesinlikle yoktur (`non_signal=True`, `allow_live_trading=False`, `allow_broker_execution=False`, `allow_real_order=False`).
+- **11 Amaç Fonksiyonu ve 22 Tahsis Kısıtı Sözleşmesi**:
+  - Amaç Fonksiyonları: Mean-Variance, Min-Variance, Max-Sharpe, Risk Parity, CVaR, Drawdown Minimization, Turnover Minimization, Cost-Aware, Slippage-Aware, Regime-Aware ve Robust optimizasyon formülasyonları şablonlanmıştır (`is_placeholder=True`).
+  - Tahsis Kısıtları: Long-Only, Ağırlık Limitleri, Grup Ağırlıkları, Varlık Sayısı, Konsantrasyon, Brüt/Net/Para Birimi/Varlıklar Arası Maruziyetler, Korelasyon, Likidite, Turnover, İşlem Maliyeti, Kayma, Risk Bütçesi, Volatilite, Drawdown, Kaldıraç, Marjin ve Rebalance kısıtları matematiksel sınır sözleşmesi olarak tanımlanmıştır.
+- **Çözücü ve Etkin Sınır Yer Tutucuları**:
+  - Dışbükey (Convex), Sezgisel (Heuristic) ve Grid Search çözücü yer tutucuları tanımlanmış olup yürütme kilitlenmiştir (`allows_execution=False`).
+  - Etkin sınır (Efficient Frontier) yer tutucusu hesaplama yapmadan veri yapısını doğrular (`frontier_calculated=False`).
+- **Hazırlık Skoru (Readiness Score: 1.0000) Yorumu**:
+  - `readiness_score` (1.0000 - `portfolio_optimization_contract_ready_non_production`), 49 modülün, 34 etki alanının, 11 amaç fonksiyonunun, 22 kısıtın, 18 NO-GO kuralının ve 52 yasaklı kolon karantinasının eksiksiz doğrulandığını gösterir.
+  - Kesinlikle optimize edilmiş portföy başarısı, kârlılık garantisi veya canlı işlem yetkilendirmesi DEĞİLDİR.
+- **Phase 155 Handoff (Portfolio Risk Attribution and Reporting)**:
+  - Phase 155 için 15 devir önkoşulu eksiksiz karşılanmıştır (`phase_155_handoff_ready=True`).
+  - Phase 155, portföy risk atıfları ve risk raporlama sözleşmelerini yerel/çevrimdışı araştırma sınırları altında kuracaktır; canlı işlem yasağı sürecektir.
+
+## Phase 155 Risk Reporting, Exposure Attribution and Limit Monitoring: Analist ve Araştırmacı Rehberi
+- **Risk Raporlama ve Limit İzleme Sözleşme Katmanı**: Phase 155, Phase 153-157 portföy ve risk yönetimi bloğunun üçüncü fazıdır (`advanced_risk_reporting/`). Risk raporları, maruziyet ayrıştırması (exposure attribution), risk katkısı ve limit izleme sözleşmelerini yerel ve çevrimdışı araştırma disipliniyle tanımlar.
+- **Sözleşme Disiplini ve Sıfır Yürütme İlkesi**:
+  - Phase 155 kesinlikle yerel, çevrimdışı ve hesaplamasız bir sözleşme katmanıdır (`local_only=True`, `dry_run=True`, `research_only=True`, `non_production=True`).
+  - Gerçek risk metrikleri (VaR, Beklenen Kayıp / ES, volatilite, maksimum düşüş) hesaplanmaz (`metric_calculated=False`, `var_calculated=False`, `expected_shortfall_calculated=False`).
+  - Gerçek portföy maruziyeti (exposure) hesaplanmaz (`exposure_calculated=False`, `actual_exposure_calculated=None`).
+  - Canlı limit ihlali veya tetikleme üretilmez (`limit_breach_generated=False`, `is_enforced_live=False`).
+  - Dış bildirim, webhook, e-posta veya dashboard üretilmez (`alert_generated=False`, `dashboard_generated=False`, `alert_routing_disabled=True`).
+  - Otomatik portföy düzeltmesi, küçültme (de-risking) veya yeniden dengeleme yapılmaz (`portfolio_adjustment_generated=False`, `rebalance_generated=False`).
+  - Canlı emir, broker bağlantısı, sinyal üretimi, yatırım tavsiyesi kesinlikle yoktur (`non_signal=True`, `allow_live_trading=False`, `allow_broker_integration=False`, `allow_real_order=False`).
+- **9 Risk Raporu ve 10 Maruziyet Ayrıştırma Sözleşmesi**:
+  - Risk Raporları: Günlük Portföy Risk Raporu, Çapraz Varlık Maruziyet Raporu, Emtia-Döviz Limit Raporu, Düşüş Risk Raporu, Volatilite Risk Raporu, Kuyruk Riski (VaR/ES) Raporu, Yoğunlaşma Risk Raporu, Likidite-Kaldıraç Raporu ve Devir Hızı-Maliyet Raporu şablonlanmıştır.
+  - Maruziyet Ayrıştırması (13 Yer Tutucu): Brüt, net, long/short, döviz, çapraz varlık, yoğunlaşma, likidite, kaldıraç, marjin, nominal, rejim, strateji ve varlık maruziyet formül metaverileri tescil edilmiştir.
+- **10 Risk Katkı ve 10 Limit İzleme Modülü**:
+  - Risk Katkısı, Marjinal Risk Katkısı, Bileşen Risk Katkısı ile Drawdown, Volatilite, VaR, ES, Turnover, İşlem Maliyeti ve Kayma izleme yer tutucuları tanımlanmıştır.
+  - Master Limit Tanımı ve 9 Limit İzleme Sözleşmesi (Maruziyet, Yoğunlaşma, Kaldıraç, Marjin, Likidite, Drawdown, Volatilite, Turnover, Risk Bütçesi) oluşturulmuştur.
+- **Hazırlık Skoru (Readiness Score: 1.0000) Yorumu**:
+  - `readiness_score` (1.0000 - `risk_reporting_contract_ready_non_production`), 45 modülün, 28 etki alanının, 15 kapsamın, 25 NO-GO kuralının ve 48 yasaklı kolon karantinasının eksiksiz doğrulandığını gösterir.
+  - Kesinlikle doğrulanmış risk güvenliği, kârlılık garantisi veya canlı limit onaylama DEĞİLDİR.
+- **Phase 156 Handoff (Portfolio Scenario Testing and Drawdown Control)**:
+  - Phase 156 için 10 devir önkoşulu eksiksiz karşılanmıştır (`phase_156_handoff_ready=True`).
+  - Phase 156, portföy senaryo testleri ve drawdown kontrol sözleşmelerini yerel/çevrimdışı araştırma sınırları altında kuracaktır; canlı işlem yasağı sürecektir.
+
+## Phase 156 Portfolio Scenario Testing and Drawdown Control: Analist ve Araştırmacı Rehberi
+- **Portföy Senaryo Testi ve Düşüş (Drawdown) Kontrol Sözleşme Katmanı**: Phase 156, Phase 153-157 portföy ve risk yönetimi bloğunun dördüncü fazıdır (`advanced_portfolio_scenario_control/`). Tarihsel/hipotetik senaryo testleri, şok kütüphaneleri, drawdown kontrol eşikleri, toparlanma planları ve portföy kontrol aksiyonu sözleşmelerini yerel ve çevrimdışı araştırma disipliniyle tanımlar.
+- **Sözleşme Disiplini ve Sıfır Yürütme İlkesi**:
+  - Phase 156 kesinlikle yerel, çevrimdışı ve hesaplamasız bir sözleşme katmanıdır (`local_only=True`, `dry_run=True`, `research_only=True`, `non_production=True`).
+  - Gerçek senaryo simülasyonu koşturulmaz, portföy senaryo PnL'i veya stres kaybı hesaplanmaz (`scenario_execution_allowed=False`, `is_placeholder=True`).
+  - Gerçek drawdown ölçülmez, canlı ihlal veya uyarı tetiklenmez (`drawdown_control_execution_allowed=False`, `is_enforced_live=False`).
+  - Dış bildirim, webhook, e-posta veya interaktif gösterge paneli (dashboard) üretilmez (`alerts_disabled=True`, `dashboard_generation_disabled=True`).
+  - Otomatik portföy müdahalesi, maruziyet küçültme (de-risking), koruma (hedge), yeniden dengeleme (rebalance), zarar durdurma (stop) veya portföy dondurma (freeze) yapılmaz (`actual_action_taken=False`).
+  - Canlı emir, broker bağlantısı, sinyal üretimi, yatırım tavsiyesi kesinlikle yoktur (`non_signal=True`, `allow_live_trading=False`, `allow_broker_integration=False`, `allow_real_order=False`).
+- **13 Senaryo Testi ve Şok Sözleşmesi**:
+  - Tarihsel kriz şokları (2008 GFC, 2020 COVID, 2022 Emtia/Enflasyon), Hipotetik senaryolar, Rejim geçiş senaryoları, Volatilite sıçraması, Likidite krizi, Korelasyon çöküşü, Döviz kuru şoku, Spread genişlemesi, İşlem maliyeti şoku ve Kayma (slippage) şok sözleşmeleri şablonlanmıştır.
+- **7 Drawdown Kontrol ve Toparlanma Modülü**:
+  - Drawdown eşik sözleşmeleri, uyarı yer tutucuları, ihlal yer tutucuları, toparlanma yer tutucuları, drawdown kontrol politika yer tutucuları, toparlanma planı yer tutucuları ve limit izleme sözleşmeleri tanımlanmıştır.
+- **7 Portföy Kontrol Aksiyon Yer Tutucusu**:
+  - Maruziyet azaltma (Exposure Reduction), Risk küçültme (De-risking), Koruma (Hedge Control), Yeniden dengeleme (Rebalance Control), Zarar durdurma (Stop Control), Portföy dondurma (Portfolio Freeze) ve Portföy sürdürme (Portfolio Resume) aksiyon şablonları oluşturulmuştur.
+- **Hazırlık Skoru (Readiness Score: 1.0000) Yorumu**:
+  - `readiness_score` (1.0000 - `portfolio_scenario_control_contract_ready_non_production`), 56 modülün, 30 etki alanının, 18 kapsamın, 28 NO-GO kuralının ve 52 yasaklı kolon karantinasının eksiksiz doğrulandığını gösterir.
+  - Kesinlikle doğrulanmış stres direnci, sermaye güvencesi veya canlı işlem yetkilendirmesi DEĞİLDİR.
+- **Phase 157 Handoff (Portfolio Acceptance Report)**:
+  - Phase 157 için 10 devir önkoşulu eksiksiz karşılanmıştır (`phase_157_handoff_ready=True`).
+  - Phase 157, Phase 153-156 portföy bloğu için konsolide kabul raporu ve yönetişim kapanışını kuracaktır; canlı işlem yasağı sürecektir.
+
+## Phase 157 Portfolio Acceptance Report: Analist ve Araştırmacı Rehberi
+- **Portföy ve Risk Bloğu Konsolide Kabul Katmanı**: Phase 157, Phase 153-157 portföy construction, position sizing, risk budgeting, portfolio optimization, allocation constraints, risk reporting, exposure attribution, limit monitoring, scenario testing ve drawdown control bloğunun kapanış ve acceptance fazıdır (`advanced_portfolio_acceptance/`).
+- **Sözleşme Disiplini ve Sıfır Yürütme İlkesi**:
+  - Phase 157 kesinlikle yerel, çevrimdışı ve hesaplamasız bir sözleşme ve yönetişim katmanıdır (`local_only=True`, `dry_run=True`, `research_only=True`, `non_production=True`).
+  - Gerçek portföy inşası, pozisyon boyutlandırması, matematiksel optimizasyon, sermaye tahsisi ve yeniden dengeleme yürütülmez (`portfolio_constructed=False`, `position_sizing_generated=False`, `portfolio_optimized=False`, `capital_allocation_generated=False`, `rebalance_generated=False`).
+  - Gerçek risk raporlaması, maruziyet hesaplaması, limit ihlali takibi, senaryo şok simülasyonu veya düşüş kontrolü aksiyonları yapılmaz (`risk_report_generated=False`, `exposure_attribution_generated=False`, `limit_monitoring_executed=False`, `scenario_executed=False`, `drawdown_control_executed=False`).
+  - Otomatik portföy düzeltmesi, koruma (hedge) veya risk küçültme (de-risking) emirleri verilmez (`portfolio_adjustment_generated=False`, `hedge_derisk_generated=False`).
+  - Canlı emir, broker bağlantısı, sinyal üretimi, yatırım tavsiyesi kesinlikle yoktur (`non_signal=True`, `allow_live_trading=False`, `allow_broker_integration=False`, `allow_real_order=False`).
+- **Bileşen Kayıt Defteri ve 5 Doğrulama Kontrol Noktası**:
+  - Phase 153 (Portfolio Construction), Phase 154 (Portfolio Optimization), Phase 155 (Risk Reporting), Phase 156 (Scenario & Drawdown Control) ve Phase 157 (Portfolio Acceptance Report) modül, script, test, manifest ve doğrulama kanıtlarıyla tescil edilmiştir.
+- **40 Kriterli Faz Düzeyi Kabul Tescili**:
+  - Phase 153, 154, 155 ve 156 için 10'ar adet (toplam 40) kabul kriteri eksiksiz denetlenmiş ve kabul edilmiştir.
+- **Hazırlık Skoru (Readiness Score: 0.9500) Yorumu**:
+  - `readiness_score` (0.9500 - `portfolio_acceptance_contract_ready_non_production`), 5 fazlık portföy/risk bloğunun sözleşmesel bütünlüğünü, güvenlik sınırlarını ve sıfır engel durumunu yansıtır.
+  - Kesinlikle doğrulanmış portföy getirisi, Sharpe oranı garantisi, sermaye güvencesi veya canlı işlem yetkilendirmesi DEĞİLDİR (`production_ready: False`, `broker_ready: False`, `live_trading_ready: False`, `strategy_approved: False`, `portfolio_approved: False`).
+- **Phase 158 Handoff (Full-System Integration and Advanced Acceptance Rehearsal)**:
+  - Phase 158 için 14 devir önkoşulu eksiksiz karşılanmıştır (`phase_158_handoff_ready=True`).
+  - Phase 158, veri, özellik, rejim, makine öğrenimi, geriye dönük test ve portföy bloklarını birleştiren sistem geneli entegrasyon ve ileri kabul provasını yürütecektir; canlı işlem yasağı sürecektir.
+
+## Phase 158 Full-System Integration and Advanced Acceptance Rehearsal: Analist ve Araştırmacı Rehberi
+- **Tam Sistem Entegrasyonu ve İleri Düzey Kabul Provası**: Phase 158, Phase 158-160 final sistem kapanış bloğunun ilk fazıdır (`advanced_full_system_integration/`). Phase 1-157 arasındaki tüm veri, öznitelik, faktör, rejim, ML yönetişimi, geriye dönük test ve portföy bloklarını tek bir entegrasyon haritasında birleştirir.
+- **Sözleşme Disiplini ve Sıfır Yürütme İlkesi**:
+  - Phase 158 kesinlikle yerel, çevrimdışı ve hesaplamasız bir sözleşme ve kabul provası katmanıdır (`local_only=True`, `dry_run=True`, `research_only=True`, `non_production=True`).
+  - Gerçek sistem yürütmesi veya uçtan uca bot çalıştırması yapılmaz (`system_executed=False`, `end_to_end_run_executed=False`).
+  - Model eğitimi, uyumu veya tahmin üretimi kesinlikle engellenmiştir (`model_training_executed=False`, `prediction_generated=False`).
+  - Gerçek backtest, portföy oluşturma, optimizasyon, risk analizi veya senaryo simülasyonu yürütülmez (`backtest_executed=False`, `portfolio_executed=False`, `risk_executed=False`, `scenario_executed=False`).
+  - Canlı emir, broker bağlantısı, ticaret sinyali veya yatırım tavsiyesi kesinlikle yoktur (`non_signal=True`, `allow_live_trading=False`, `allow_broker_integration=False`, `allow_real_order=False`, `allow_signal_generation=False`).
+  - 52 yasaklı kolon politikası (`FORBIDDEN_COLUMNS`) ile tüm veri akışları karantina altında tutulur.
+- **36 Sistem Bileşeni ve 32 Yönlü Bağımlılık Grafı**:
+  - `CMP-001` - `CMP-036`: Tüm çekirdek çalışma zamanı, veri sağlayıcılar, öznitelik motorları, rejim dedektörleri, ML yönetişimi, backtest kabul, portföy kabul, risk raporlama ve operasyonel dokümantasyon bileşenleri haritalanmıştır.
+  - `DEP-001` - `DEP-032`: Veri gölünden başlayarak FeatureStore, rejim, ML, backtest, portföy ve tam sistem entegrasyonuna uzanan yönlü bağımlılık zinciri doğrulanmıştır.
+- **11 İleri Düzey Kabul Provası ve 13 Devre Dışı Bırakılmış Yürütme Raporu**:
+  - Bileşen varlığı, konfigürasyon tutarlılığı, import güvenliği, şema ve manifesto uyumu canlı kod koşturulmadan (%100 REHEARSED & PASSED) provaya tabi tutulmuştur.
+  - 13 resmi yürütme yasağı raporu ile hiçbir canlı veya üretim aksiyonunun alınmadığı sözleşmeyle tescil edilmiştir.
+- **Hazırlık Skoru (Readiness Score: 1.0000) Yorumu**:
+  - `readiness_score` (1.0000 - `full_system_integration_contract_ready_non_production`), tam sistem mimarisinin sözleşmesel eksiksizliğini, güvenlik sınırlarının aktif olduğunu ve sıfır engel bulunduğunu gösterir.
+  - Kesinlikle doğrulanmış piyasa performansı, kârlılık garantisi veya canlı işlem yetkilendirmesi DEĞİLDİR (`production_ready: False`, `broker_ready: False`, `live_trading_ready: False`).
+- **Phase 159 Handoff (Final Hardening, Operator Runbook and Release Candidate)**:
+  - Phase 159 için 12 devir önkoşulu eksiksiz karşılanmıştır (`phase_159_handoff_ready=True`, `status=ACCEPTED`).
+  - Phase 159, nihai kod sertleştirme, operatör çalışma kitabı (runbook) ve sürüm adayı (release candidate) paketlemesini yerel/çevrimdışı araştırma sınırları altında kuracaktır; canlı işlem yasağı sürecektir.
+
+## Phase 159 Final Hardening, Operator Runbook and Release Candidate: Analist ve Araştırmacı Rehberi
+- **Nihai Sertleştirme, Operatör Kılavuzları ve Release Candidate**: Phase 159, Phase 158-160 final sistem kapanış bloğunun ikinci fazıdır (`advanced_final_hardening/`).
+- **Sözleşme Disiplini ve Sıfır Yürütme İlkesi**:
+  - Phase 159 kesinlikle yerel, çevrimdışı ve hesaplamasız bir sözleşme, dondurma ve release candidate katmanıdır (`local_only=True`, `dry_run=True`, `research_only=True`, `non_production=True`).
+  - Gerçek sistem yürütmesi veya bot çalıştırması yapılmaz (`system_executed=False`).
+  - Model eğitimi, uyumu veya tahmin üretimi kesinlikle engellenmiştir (`model_training_executed=False`, `prediction_generated=False`).
+  - Canlı emir, broker bağlantısı, ticaret sinyali veya yatırım tavsiyesi kesinlikle yoktur (`non_signal=True`, `allow_live_trading=False`, `allow_broker_integration=False`, `allow_real_order=False`).
+  - Üretim dağıtımı yapılmaz; üretim, broker veya canlı hazır olma iddiaları sözleşmesel olarak yasaklanmıştır (`production_ready: False`, `broker_ready: False`, `live_trading_ready: False`).
+- **Dondurma (Freeze) Sözleşmeleri ve Denetimler**:
+  - Konfigürasyon, dokümantasyon, güvenlik, doğrulama, bağımlılık, manifesto ve rapor şablonları dondurulmuştur.
+  - `.env.example`, `config/settings.py` ve `config/paths.py` denetimleri uyumlu olarak tamamlanmıştır.
+- **Sistem Envanterleri**:
+  - Betikler, testler, dokümanlar, raporlar, DataLake dizinleri, FeatureStore arayüzleri ve devre dışı bırakılmış işlemler tam envantere alınmıştır.
+- **Release Candidate Hazırlık Skoru (Readiness Score: 0.9500)**:
+  - `readiness_score` (0.9500 - `release_candidate_contract_ready_non_production`), sistemin nihai teslimat (Phase 160) için sözleşmesel olgunluğunu gösterir.
+  - Kesinlikle bir al/sat sinyali veya canlı işlem yetkilendirmesi DEĞİLDİR.
+- **Phase 160 Handoff (Full Advanced Bot Final Delivery)**:
+  - Phase 160 için 12 devir önkoşulu eksiksiz karşılanmıştır (`phase_160_handoff_ready=True`, `status=ACCEPTED`).
+  - Phase 160, projenin nihai teslimat fazı olup bot mimarisini sonlandıracaktır.
+
+## Phase 160 Full Advanced Bot Final Delivery: Analist ve Araştırmacı Rehberi
+- **160 Fazlık Planın Tamamlanması ve Kapanışı**: Phase 160, projenin en son ve nihai teslimat fazıdır (`advanced_final_delivery/`).
+- **Nihai Teslimat Paketi ve Sözleşmesel Olgunluk**:
+  - Phase 1-159 arasındaki tüm alt sistemler tek bir teslimat paketi altında toplanmış ve doğrulanmıştır.
+  - Sistem tamamen yerel, çevrimdışı, kuru çalıştırma (dry-run) ve salt-araştırma niteliğindedir (`local_only=True`, `dry_run=True`, `research_only=True`, `non_production=True`).
+  - Canlı emir, broker bağlantısı, sinyal dağıtımı veya yatırım tavsiyesi kesinlikle bulunmaz.
+- **Hazırlık Skoru (Readiness Score: 100.0/100.0)**:
+  - Analistler için hazırlık skoru (%100.0 - `FULL_ADVANCED_BOT_FINAL_DELIVERY_READY`), 160 fazın tüm sözleşme, envanter, kanıt ve güvenlik standartlarını eksiksiz karşıladığını gösterir.
+  - Bu skor piyasa getirisi, finansal kâr veya gerçek işlem başarısı güvencesi DEĞİLDİR.
+- **Kritik Engelleyici ve Eksiklik Durumu**:
+  - Aktif blocker sayısı: `0`.
+  - Kritik mimari gap sayısı: `0`.
+- **Resmi Plan Kapanışı**:
+  - `current_phase = 160`, `target_final_phase = 160`, `next_phase = None`.
+  - 160 fazlık yol haritası resmi olarak tamamlanmış ve kapatılmıştır (`final_plan_closed=True`).

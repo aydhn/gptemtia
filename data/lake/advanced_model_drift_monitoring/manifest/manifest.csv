@@ -1,0 +1,2 @@
+manifest_id,phase,profile,generated_at,contracts_count,linkages_count,window_policies_count,thresholds_count,metrics_count,disabled_safeguards_count,guards_count,findings_count,readiness_scores_count,all_calculation_disabled,all_window_execution_disabled,non_executing_compliance
+drift_manifest_p142_balanced_local_model_drift_contracts_20260913_214725,142,balanced_local_model_drift_contracts,2026-09-13T21:47:25.318346+00:00,32,16,21,6,24,7,5,5,6,True,True,True

@@ -1,0 +1,2 @@
+profile_name,readiness_score,classification,total_findings,critical_blockers,meets_threshold,threshold,non_signal,production_ready,broker_ready
+balanced_local_realistic_backtest_contracts,0.85,realistic_backtest_contract_ready_non_production,3,0,True,0.5,True,False,False

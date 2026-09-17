@@ -1,0 +1,4 @@
+UYARI: Bu rapor Phase 151 Benchmark Comparison and Strategy Evaluation Reports çıktısıdır. Araştırma, sözleşme doğrulaması ve dry-run amaçlıdır; kesin AL/SAT, yatırım tavsiyesi, canlı emir veya portföy dağıtım kararı içermez. Gerçek backtest, benchmark simülasyonu, metrik hesaplaması, strateji onayı veya model tahmini yapılmamıştır.
+Guard Name: evaluation_guards
+Total Guards: 0
+Status: evaluation_contract_ready

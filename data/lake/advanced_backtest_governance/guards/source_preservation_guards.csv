@@ -1,0 +1,5 @@
+guard_id,guard_name,description,enforcement,status,non_signal,local_only,phase
+SRC_01_NO_OVERWRITE,source_overwrite_prohibition,Prohibit overwriting or altering raw market data tables and original provider observations.,BLOCKING_ZERO_TOLERANCE,ACTIVE,True,True,150
+SRC_02_NO_DESTRUCTIVE_CLEANING,destructive_cleaning_prohibition,"Forbid silent row deletion, silent trimming, or destructive in-place cleaning passes.",BLOCKING_ZERO_TOLERANCE,ACTIVE,True,True,150
+SRC_03_NO_AUTO_IMPUTATION,auto_imputation_prohibition,Disallow automated forward-filling or statistical imputation without explicit audit trails.,BLOCKING_MANDATORY,ACTIVE,True,True,150
+SRC_04_NO_AUTO_FEATURE_DROP,auto_feature_drop_prohibition,Disallow automatic silent dropping of underperforming or correlated features.,BLOCKING_MANDATORY,ACTIVE,True,True,150

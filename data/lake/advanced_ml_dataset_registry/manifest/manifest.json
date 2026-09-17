@@ -1,0 +1,21 @@
+{
+  "manifest_name": "advanced_ml_dataset_manifest",
+  "current_phase": 137,
+  "target_final_phase": 160,
+  "next_phase": 138,
+  "dataset_contract_count": 9,
+  "experiment_count": 6,
+  "readiness_score": 1.0,
+  "dataset_materialized": false,
+  "feature_snapshot_materialized": false,
+  "model_training_executed": false,
+  "model_predict_executed": false,
+  "clustering_executed": false,
+  "artifact_persisted": false,
+  "non_signal": true,
+  "source_preserved": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false,
+  "status": "dataset_contract_placeholder_only"
+}

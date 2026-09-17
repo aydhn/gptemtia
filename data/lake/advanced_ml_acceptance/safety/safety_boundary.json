@@ -1,0 +1,12 @@
+{
+  "domain": "safety_domain",
+  "active_profile": "balanced_local_advanced_ml_acceptance",
+  "current_phase": 145,
+  "target_final_phase": 160,
+  "next_phase": 146,
+  "total_conditions": 42,
+  "no_go_count": 34,
+  "safe_go_count": 8,
+  "non_signal": true,
+  "status": "SECURE"
+}

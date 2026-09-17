@@ -1,0 +1,9 @@
+{
+  "total_checks": 6,
+  "passed_checks": 6,
+  "failed_checks": 0,
+  "all_passed": true,
+  "forbidden_claims_clean": true,
+  "validation_status": "VALIDATION_PASS",
+  "non_signal": true
+}

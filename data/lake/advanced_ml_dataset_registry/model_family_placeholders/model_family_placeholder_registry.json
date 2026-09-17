@@ -1,0 +1,9 @@
+{
+  "total_model_families": 10,
+  "all_executable_blocked": true,
+  "training_allowed": false,
+  "prediction_allowed": false,
+  "artifact_persistence_allowed": false,
+  "non_signal": true,
+  "manual_review_required": true
+}

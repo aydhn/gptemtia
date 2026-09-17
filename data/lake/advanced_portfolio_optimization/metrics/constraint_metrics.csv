@@ -1,0 +1,2 @@
+metric_name,description,is_placeholder,actual_value,is_calculated,status
+constraint_violation_placeholder,Kisit ihlal miktari yer tutucusu,True,,False,metric_contract_only

@@ -1,0 +1,9 @@
+{
+  "domain": "readiness_score_domain",
+  "score": 1.0,
+  "classification": "monte_carlo_robustness_contract_ready_non_production",
+  "meets_threshold": true,
+  "manual_review_required": true,
+  "profile_name": "balanced_local_monte_carlo_robustness_contracts",
+  "status": "monte_carlo_contract_ready"
+}

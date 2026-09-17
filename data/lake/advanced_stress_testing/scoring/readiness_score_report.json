@@ -1,0 +1,9 @@
+{
+  "score": 1.0,
+  "classification": "stress_testing_contract_ready_non_production",
+  "meets_threshold": true,
+  "critical_blockers": 0,
+  "zero_production_ready": true,
+  "zero_broker_ready": true,
+  "non_signal": true
+}

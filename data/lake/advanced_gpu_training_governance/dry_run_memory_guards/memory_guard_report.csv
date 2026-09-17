@@ -1,0 +1,5 @@
+test_case,requested_fraction,is_valid,blocked,guard_status,dry_run,non_signal
+normal_memory_request,0.5,True,False,PASS_GUARD,True,True
+ceiling_memory_request,0.8,True,False,PASS_GUARD,True,True
+excessive_memory_request,0.95,False,True,BLOCKED_BY_GUARD,True,True
+zero_memory_request,0.0,False,True,BLOCKED_BY_GUARD,True,True

@@ -1,0 +1,9 @@
+{
+  "domain": "finding_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "total_findings": 1,
+  "critical_count": 0,
+  "manual_review_required_count": 1,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

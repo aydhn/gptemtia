@@ -1,0 +1,6 @@
+{
+  "total_cost_models": 3,
+  "all_real_calculation_blocked": true,
+  "all_broker_connections_blocked": true,
+  "non_signal": true
+}

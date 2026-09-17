@@ -1,0 +1,6 @@
+shock_name,spread_multiplier,description,applicable_assets,duration_minutes,execution_allowed,non_signal,local_only,manual_review_required
+spread_expansion_3x_contract,3.0,3x Spread Genişlemesi: Standart medyan spread'in 3 katına yükselmesi.,ALL_FX_AND_COMMODITIES,60,False,True,True,True
+spread_expansion_5x_contract,5.0,5x Şiddetli Spread Patlaması: Yüksek oynaklıkta likidite sağlayıcıların kotasyon aralığını açması.,CROSS_RATES_AND_METALS,120,False,True,True,True
+spread_expansion_10x_extreme_contract,10.0,10x Katastrofik Spread Şoku: Kriz anında tekil piyasa yapıcı kotasyonları.,EXOTIC_FX_AND_ENERGY,30,False,True,True,True
+off_hours_spread_blowout_contract,4.0,Seans Arası ve Hafta Sonu Spread Açılması: Cuma kapanış ve Pazar açılış spread patlaması.,ALL_ASSETS,240,False,True,True,True
+news_release_spread_spike_contract,6.0,"Kritik Makro Veri Açıklanma Anı Spread Şoku (NFP, TÜFE, Faiz kararı anı 5 dakikalık spike).",USD_PAIRS_AND_PRECIOUS_METALS,15,False,True,True,True

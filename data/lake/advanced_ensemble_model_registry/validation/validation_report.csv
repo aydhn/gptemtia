@@ -1,0 +1,2 @@
+report_name,phase,target_final_phase,validation_status,readiness_score,classification,health_checks,invariants_satisfied,zero_execution_verified,zero_lookahead_verified,metadata_only_news_verified,non_signal,dry_run
+ensemble_model_validation_report_v140,140,160,VALID,1.0,READY_FOR_PHASE_141_HANDOFF,"{'candidate_contracts_valid': True, 'eligibility_gates_valid': True, 'compatibility_matrix_valid': True, 'strategy_contracts_valid': True, 'execution_disabled_valid': True, 'lookahead_guards_valid': True, 'news_guards_valid': True}",True,True,True,True,True,True

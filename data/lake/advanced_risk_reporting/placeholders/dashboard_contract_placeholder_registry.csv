@@ -1,0 +1,2 @@
+component_name,prohibited_actions,enforcement_mechanism,is_disabled,status,current_phase,target_final_phase,next_phase
+risk_monitoring_dashboard,"['generate_dashboard', 'launch_web_server', 'render_live_ui', 'stream_realtime_metrics']",STRICT_SAFETY_GATE_DASHBOARD_GENERATION_DISABLED,True,execution_contract_only,155,160,156

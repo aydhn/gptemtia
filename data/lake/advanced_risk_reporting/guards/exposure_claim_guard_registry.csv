@@ -1,0 +1,2 @@
+guard_name,domain,guard_rule,is_active,action_on_violation,current_phase,target_final_phase,next_phase
+exposure_attribution_claim_guard,claim_guard,Prohibits presenting exposure placeholders as real or executed portfolio allocations,True,BLOCK,155,160,156

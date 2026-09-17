@@ -1,0 +1,6 @@
+boundary_id,boundary_type,rule_name,action_type,is_allowed,reason
+DRB-158-001,dry_run_boundary,enforce_dry_run_default,execution,True,Default mode must be dry-run across all subsystems.
+DRB-158-002,dry_run_boundary,block_real_broker_socket,network,False,Opening real broker sockets or websockets is blocked.
+DRB-158-003,dry_run_boundary,block_real_order_routing,order,False,Routing orders to trading venues is blocked.
+DRB-158-004,dry_run_boundary,block_real_account_mutation,account,False,Mutating real account balances or positions is blocked.
+DRB-158-005,dry_run_boundary,allow_in_memory_simulation,simulation,True,Isolated in-memory test fixtures are permitted.

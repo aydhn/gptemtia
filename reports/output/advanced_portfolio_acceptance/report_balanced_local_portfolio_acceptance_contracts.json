@@ -1,0 +1,9 @@
+{
+  "active_profile": "balanced_local_portfolio_acceptance_contracts",
+  "readiness_score": 0.95,
+  "classification": "portfolio_acceptance_contract_ready_non_production",
+  "meets_threshold": true,
+  "handoff_ready": true,
+  "status": "ACCEPTED",
+  "non_signal": true
+}

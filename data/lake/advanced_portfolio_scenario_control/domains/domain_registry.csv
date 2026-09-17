@@ -1,0 +1,6 @@
+domain_id,domain_name,description,scope_count,is_contract_only,execution_disabled
+DOM-156-001,portfolio_scenario_testing_contracts,"Portfoy stres, kriz ve sok senaryolari sozlesme altyapisi",10,True,True
+DOM-156-002,portfolio_drawdown_control_contracts,"Portfoy drawdown esik, ihlal ve toparlanma sozlesme altyapisi",8,True,True
+DOM-156-003,portfolio_control_action_placeholders,"Risk azaltma, de-risk, hedge, rebalance ve dondurma aksiyon yer tutuculari",8,True,True
+DOM-156-004,scenario_control_outputs_metrics,Senaryo ve drawdown kontrol cikti semalari ve metrik yer tutuculari,12,True,True
+DOM-156-005,portfolio_scenario_guards_governance,"Lookahead, trade claim, broker execution ve snoop onleme korumalari",14,True,True

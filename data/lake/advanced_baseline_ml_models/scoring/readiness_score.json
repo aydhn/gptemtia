@@ -1,0 +1,9 @@
+{
+  "readiness_score": 1.0,
+  "score_tier": "READY_FOR_LOCAL_DRY_RUN_HARNESS",
+  "is_ready_for_dry_run": true,
+  "trade_signal_certified": false,
+  "production_ready": false,
+  "broker_ready": false,
+  "non_signal": true
+}

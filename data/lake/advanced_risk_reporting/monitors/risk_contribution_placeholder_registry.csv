@@ -1,0 +1,2 @@
+metric_name,metric_domain,formula_description,unit,is_placeholder,actual_value,is_calculated,current_phase,target_final_phase,next_phase
+risk_contribution_placeholder,risk_contribution,RC_i = w_i * (Sigma * w)_i / sigma_p,risk_percentage,True,,False,155,160,156

@@ -1,0 +1,12 @@
+{
+  "domain": "non_production_boundary_domain",
+  "active_profile": "balanced_local_advanced_ml_acceptance",
+  "current_phase": 145,
+  "target_final_phase": 160,
+  "next_phase": 146,
+  "total_boundaries": 7,
+  "active_boundaries": 7,
+  "all_active": true,
+  "non_signal": true,
+  "status": "ENFORCED"
+}

@@ -1,0 +1,4 @@
+margin_type,description,nominal_rate,is_placeholder,is_active,non_signal
+initial_margin_placeholder,Yeni bir pozisyon acilabilmesi icin gereken asgari teminat orani.,0.1,True,True,True
+maintenance_margin_placeholder,Pozisyonun tasinabilmesi icin gereken surdurme teminati orani.,0.05,True,True,True
+margin_call_liquidation_placeholder,Teminatin surdurme sinirinin altina inmesi durumunda otomatik tasfiye kurali.,0.03,True,True,True

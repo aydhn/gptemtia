@@ -1,0 +1,22 @@
+source_key,source_phase,description,source_type,materialized,contains_target,contains_label,contains_prediction,contains_full_article,contains_embedding,non_signal,manual_review_required,current_phase
+phase_116_technical_indicators,phase_116,Phase 116 Technical Indicators output — metadata reference only,metadata_reference,False,False,False,False,False,False,True,True,137
+phase_117_feature_engine,phase_117,Phase 117 Feature Engine output — metadata reference only,metadata_reference,False,False,False,False,False,False,True,True,137
+phase_118_feature_grid,phase_118,Phase 118 Feature Grid output — metadata reference only,metadata_reference,False,False,False,False,False,False,True,True,137
+phase_119_cross_asset_alignment,phase_119,Phase 119 Cross-Asset Alignment output — metadata reference only,metadata_reference,False,False,False,False,False,False,True,True,137
+phase_120_feature_fusion,phase_120,Phase 120 Feature Fusion output — metadata reference only,metadata_reference,False,False,False,False,False,False,True,True,137
+phase_121_feature_validation,phase_121,Phase 121 Feature Validation output — metadata reference only,metadata_reference,False,False,False,False,False,False,True,True,137
+phase_122_factor_metadata,phase_122,Phase 122 Factor Metadata output — metadata reference only,metadata_reference,False,False,False,False,False,False,True,True,137
+phase_123_feature_quality_drift,phase_123,Phase 123 Feature Quality Drift output — metadata reference only,metadata_reference,False,False,False,False,False,False,True,True,137
+phase_124_feature_store_integration,phase_124,Phase 124 FeatureStore Integration output — metadata reference only,metadata_reference,False,False,False,False,False,False,True,True,137
+phase_125_feature_factor_acceptance,phase_125,Phase 125 Feature Factor Acceptance output — metadata reference only,metadata_reference,False,False,False,False,False,False,True,True,137
+phase_126_regime_foundation,phase_126,Phase 126 Regime Foundation output — metadata reference only,metadata_reference,False,False,False,False,False,False,True,True,137
+phase_127_regime_matrix,phase_127,Phase 127 Regime Matrix output — metadata reference only,metadata_reference,False,False,False,False,False,False,True,True,137
+phase_128_regime_rule_free,phase_128,Phase 128 Regime Rule-Free output — metadata reference only,metadata_reference,False,False,False,False,False,False,True,True,137
+phase_129_regime_transition,phase_129,Phase 129 Regime Transition output — metadata reference only,metadata_reference,False,False,False,False,False,False,True,True,137
+phase_130_market_behavior_diagnostics,phase_130,Phase 130 Market Behavior Diagnostics output — metadata reference only,metadata_reference,False,False,False,False,False,False,True,True,137
+phase_131_cross_asset_regime_context,phase_131,Phase 131 Cross-Asset Regime Context output — metadata reference only,metadata_reference,False,False,False,False,False,False,True,True,137
+phase_132_macro_event_news_regime,phase_132,Phase 132 Macro Event News Regime output — metadata reference only,metadata_reference,False,False,False,False,False,False,True,True,137
+phase_133_regime_validation_acceptance,phase_133,Phase 133 Regime Validation Acceptance output — metadata reference only,metadata_reference,False,False,False,False,False,False,True,True,137
+phase_134_featurestore_catalog,phase_134,Phase 134 FeatureStore Catalog — metadata reference only,metadata_reference,False,False,False,False,False,False,True,True,137
+phase_135_acceptance_manifest,phase_135,Phase 135 Acceptance Manifest — metadata reference only,metadata_reference,False,False,False,False,False,False,True,True,137
+phase_136_gpu_ml_runtime,phase_136,Phase 136 GPU/ML Runtime Foundation output — metadata reference only,metadata_reference,False,False,False,False,False,False,True,True,137

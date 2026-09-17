@@ -1,0 +1,4 @@
+placeholder_id,meta_model_type,description,training_blocked,meta_model_trained,meta_model_fitted,non_signal,source_preserved,manual_review_required
+linear_meta_model_placeholder,linear_regression,Linear meta-learner contract placeholder (model training blocked).,True,False,False,True,True,True
+ridge_meta_model_placeholder,ridge_regression,L2-regularized linear meta-learner contract placeholder (model training blocked).,True,False,False,True,True,True
+gradient_boosting_meta_model_placeholder,gradient_boosting,Tree-based secondary meta-learner contract placeholder (model training blocked).,True,False,False,True,True,True

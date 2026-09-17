@@ -1,0 +1,5 @@
+dependency_name,source_phase,target_component,description,status,non_signal,phase
+candidate_tree_ensemble_contract_dep,Phase 140,candidate_model_contracts,Tree ensemble candidate contract dependency.,SATISFIED,True,141
+candidate_neural_contract_dep,Phase 140,candidate_model_contracts,Neural candidate contract dependency.,SATISFIED,True,141
+candidate_linear_contract_dep,Phase 140,candidate_model_contracts,Linear candidate contract dependency.,SATISFIED,True,141
+candidate_boosting_contract_dep,Phase 140,candidate_model_contracts,Boosting candidate contract dependency.,SATISFIED,True,141

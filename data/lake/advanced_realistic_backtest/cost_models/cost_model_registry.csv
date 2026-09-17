@@ -1,0 +1,4 @@
+cost_model_name,description,aggregation_formula,real_cost_calculated,broker_connected,execution_allowed,is_active,non_signal
+standard_realistic_cost_model,"Komisyon, borsa ucreti, alis-satis farki ve kaymayi toplayan standart maliyet modeli.",commission + exchange_fee + spread_cost + slippage_cost,False,False,False,True,True
+institutional_market_impact_cost_model,Standart maliyetlere ek olarak buyuk emirler icin piyasa etki maliyetini toplayan kurumsal model.,commission + fee + spread_cost + slippage_cost + market_impact,False,False,False,True,True
+leveraged_holding_cost_model,Gunici maliyetlere ek olarak gecelik tasima ve borclanma maliyetlerini iceren sozlesme.,standard_cost + borrow_fee + funding_fee,False,False,False,True,True

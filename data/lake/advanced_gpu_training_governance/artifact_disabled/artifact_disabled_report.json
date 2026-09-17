@@ -1,0 +1,8 @@
+{
+  "total_checks": 3,
+  "all_disabled": true,
+  "artifact_persisted": false,
+  "current_phase": 139,
+  "non_signal": true,
+  "active_profile": "balanced_local_gpu_training_governance"
+}

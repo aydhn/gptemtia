@@ -1,0 +1,2 @@
+contract_name,limit_family,description,limit_type,threshold_metadata,is_placeholder,is_enforced_live,allows_execution,allows_alerting,current_phase,target_final_phase,next_phase
+portfolio_master_limit_definition,master_limit,Genel portfoy risk ve maruziyet sinirlarinin sozlesme sablonu,hard_limit,multi_metric_threshold_matrix,True,False,False,False,155,160,156

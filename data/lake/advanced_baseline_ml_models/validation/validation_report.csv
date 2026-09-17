@@ -1,0 +1,6 @@
+check_name,passed,violations_count,violations,non_signal
+profile_registry_validation,True,0,None,True
+baseline_model_contracts_validation,True,0,None,True
+dry_run_harness_contracts_validation,True,0,None,True
+manifest_validation,True,0,None,True
+disabled_execution_reports_validation,True,0,None,True

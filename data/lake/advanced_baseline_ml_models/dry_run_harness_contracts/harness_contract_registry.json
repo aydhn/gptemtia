@@ -1,0 +1,11 @@
+{
+  "total_harness_contracts": 5,
+  "all_real_training_blocked": true,
+  "all_model_fit_blocked": true,
+  "all_predict_blocked": true,
+  "all_artifact_blocked": true,
+  "all_registry_write_blocked": true,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false
+}

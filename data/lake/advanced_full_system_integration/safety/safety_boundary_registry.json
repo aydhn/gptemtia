@@ -1,0 +1,8 @@
+{
+  "active_profile": "balanced_local_full_system_integration_contracts",
+  "total_rules": 18,
+  "prohibited_actions_count": 15,
+  "allowed_actions_count": 3,
+  "status": "full_system_integration_ready",
+  "non_signal": true
+}

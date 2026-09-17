@@ -1,0 +1,10 @@
+{
+  "total_placeholders": 3,
+  "placeholders": [
+    "ols_prediction_interval_90_placeholder",
+    "gradient_boosting_prediction_interval_95_placeholder",
+    "ensemble_spread_prediction_interval_placeholder"
+  ],
+  "all_uncalculated": true,
+  "all_non_signal": true
+}

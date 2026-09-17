@@ -1,0 +1,13 @@
+boundary_type,rule,enforced
+NO_GO,No live trading or real broker execution,True
+NO_GO,No real-time portfolio rebalance order execution,True
+NO_GO,No automated de-risking or hedging order creation,True
+NO_GO,No actual scenario loss/PnL calculation treated as verified,True
+NO_GO,No live drawdown calculation trigger,True
+NO_GO,No alert/dashboard pushing to production channels,True
+NO_GO,No investment advice or trade recommendations,True
+SAFE_GO,Offline/local scenario contract registration,True
+SAFE_GO,Offline drawdown control contract definition,True
+SAFE_GO,Non-executable control action placeholder registration,True
+SAFE_GO,Output schemas and metric placeholders,True
+SAFE_GO,Phase 157 handoff readiness reporting,True

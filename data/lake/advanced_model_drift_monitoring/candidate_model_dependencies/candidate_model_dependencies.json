@@ -1,0 +1,21 @@
+{
+  "status": "satisfied",
+  "total_checks": 2,
+  "all_satisfied": true,
+  "dependencies": [
+    {
+      "dependency": "phase_138_baseline_models",
+      "required_phase": 138,
+      "contract_type": "baseline_model_registry",
+      "status": "satisfied",
+      "source_module": "advanced_baseline_models.baseline_contracts"
+    },
+    {
+      "dependency": "phase_140_candidate_models",
+      "required_phase": 140,
+      "contract_type": "candidate_model_registry",
+      "status": "satisfied",
+      "source_module": "advanced_ensemble_model_registry.candidate_model_registry"
+    }
+  ]
+}

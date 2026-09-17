@@ -1,0 +1,5 @@
+stress_summary_id,scenario_name,severity,description,is_calculated,status,non_signal
+STRESS_SUM_GFC_2008,2008 Global Financial Crisis Shock,extreme,2008 GFC kriz simülasyonu altında azami kayıp ve sermaye erozyonu yer tutucusu.,False,evaluation_contract_ready,True
+STRESS_SUM_COVID_2020,March 2020 Covid Liquidity Shock,severe,Mart 2020 küresel likidite çöküşü altında strateji dayanıklılık özeti.,False,evaluation_contract_ready,True
+STRESS_SUM_OIL_NEGATIVE_2020,April 2020 Negative Oil Price Shock,black_swan,Nisan 2020 WTI negatif fiyat şoku altında marjin ve teminat riski özeti.,False,evaluation_contract_ready,True
+STRESS_SUM_SUPPLY_CHAIN_CHOKE,Hypothetical Global Supply Chain Choke,severe,Boğaz ve tedarik zinciri tıkanıklığı varsayımsal şoku altındaki risk özeti.,False,evaluation_contract_ready,True

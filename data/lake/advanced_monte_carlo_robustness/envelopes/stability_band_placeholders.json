@@ -1,0 +1,8 @@
+{
+  "domain": "stability_band_placeholder_domain",
+  "total_stability_bands": 3,
+  "total_bands": 3,
+  "all_uncalculated": true,
+  "profile_name": "balanced_local_monte_carlo_robustness_contracts",
+  "status": "monte_carlo_contract_ready"
+}

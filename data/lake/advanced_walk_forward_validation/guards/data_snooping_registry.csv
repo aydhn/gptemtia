@@ -1,0 +1,3 @@
+guard_name,enforcement_level,active,description,non_signal
+oos_peeking_prevention_guard,STRICT,True,Model tasarimi veya hiperparametre secimi asamasinda OOS test kumesine erisimi engelleyen muhafiz.,True
+repeated_trial_penalty_guard,STRICT,True,Ayni veri kumesi uzerinde cok sayida deneme yapildiginda anlamlilik esigini yukselten muhafiz.,True

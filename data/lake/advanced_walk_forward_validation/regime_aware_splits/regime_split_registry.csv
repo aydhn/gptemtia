@@ -1,0 +1,4 @@
+split_name,target_regime,min_bars_per_regime,transition_embargo_bars,description,split_executed,regime_labels_simulated_only,non_signal
+high_volatility_regime_split,HIGH_VOLATILITY,63,10,Yuksek oynaklik donemlerini ayri bir test kumesi olarak izole eden rejim duyarlilik sozlesmesi.,False,True,True
+trending_bull_bear_regime_split,TREND_REGIME,126,15,Trendli piyasa kosullarini izole ederek modelin yonlu ortamlardaki tutarliligini test etmeye yonelik bolumleme.,False,True,True
+mean_reverting_choppy_regime_split,MEAN_REVERTING_CHOPPY,63,10,Yatay ve dalgali piyasa donemlerini dogrulama havuzunda temsil eden sozlesme.,False,True,True

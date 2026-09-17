@@ -1,0 +1,7 @@
+{
+  "total_fill_models": 4,
+  "zero_instant_fill_assumed": true,
+  "spread_always_applied": true,
+  "slippage_always_applied": true,
+  "non_signal": true
+}

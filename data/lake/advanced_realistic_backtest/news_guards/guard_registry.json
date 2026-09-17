@@ -1,0 +1,6 @@
+{
+  "total_guards": 1,
+  "zero_full_text_enforced": true,
+  "zero_html_scraping_enforced": true,
+  "non_signal": true
+}

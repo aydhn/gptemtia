@@ -1,0 +1,7 @@
+check_id,check_name,passed,current_phase,target_final_phase,next_phase,status,non_signal,non_production,local_only
+VAL-152-01,phase_invariants,True,152,160,153,acceptance_ready,True,True,True
+VAL-152-02,offline_research_boundary,True,152,160,153,acceptance_ready,True,True,True
+VAL-152-03,prohibit_live_trading_broker,True,152,160,153,acceptance_ready,True,True,True
+VAL-152-04,prohibit_backtest_benchmark_metrics,True,152,160,153,acceptance_ready,True,True,True
+VAL-152-05,prohibit_strategy_approval_portfolio,True,152,160,153,acceptance_ready,True,True,True
+VAL-152-06,forbidden_claims_clean,True,152,160,153,acceptance_ready,True,True,True

@@ -1,0 +1,11 @@
+{
+  "total_outputs": 2,
+  "outputs": [
+    "uncertainty_contract_status_output",
+    "uncertainty_safety_block_output"
+  ],
+  "all_zero_uncertainty_values": true,
+  "all_zero_intervals": true,
+  "all_zero_signals": true,
+  "all_non_signal": true
+}

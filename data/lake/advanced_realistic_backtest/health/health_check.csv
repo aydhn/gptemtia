@@ -1,0 +1,13 @@
+subsystem,target_path,description,exists,status,non_signal
+advanced_ml_acceptance,advanced_ml_acceptance,Phase 145 kabul raporu modulu.,True,HEALTHY,True
+advanced_model_governance,advanced_model_governance,Phase 144 model yonetisim modulu.,True,HEALTHY,True
+advanced_ml_dataset_registry,advanced_ml_dataset_registry,Phase 137 ML veri seti kayit defteri modulu.,True,HEALTHY,True
+advanced_regime_acceptance,advanced_regime_acceptance,Phase 135 rejim kabul modulu.,True,HEALTHY,True
+advanced_regime_featurestore_integration,advanced_regime_featurestore_integration,Phase 134 FeatureStore entegrasyon modulu.,True,HEALTHY,True
+feature_store,ml/feature_store.py,FeatureStore merkezi modulu.,True,HEALTHY,True
+data_lake,data/storage/data_lake.py,DataLake depolama katmani.,True,HEALTHY,True
+advanced_realistic_backtest,advanced_realistic_backtest,Phase 146 gercekci backtest sozlesme modulu.,True,HEALTHY,True
+config_system,config/settings.py,Konfigurasyon ayarlari.,True,HEALTHY,True
+scripts_directory,scripts,Operasyonel CLI betikleri dizini.,True,HEALTHY,True
+tests_directory,tests,Test suitleri dizini.,True,HEALTHY,True
+docs_directory,docs,Proje dokumantasyon dizini.,True,HEALTHY,True

@@ -1,0 +1,9 @@
+component_name,category,description,is_placeholder,calculation_required_in_real_backtest,is_active,non_signal
+commission,DIRECT_BROKER_FEE,Araci kurum komisyon bedeli.,False,True,True,True
+exchange_fee,EXCHANGE_TARIFF,Borsa tescil ve takas ucreti.,False,True,True,True
+spread_cost,MARKET_STRUCTURE_COST,Alis-satis makas maliyeti.,False,True,True,True
+slippage_cost,EXECUTION_FRICTION,Beklenen fiyat ile gerceklesen fiyat arasindaki olumsuz fark.,False,True,True,True
+market_impact_placeholder,MICROSTRUCTURE_IMPACT,Buyuk emirlerin piyasa defterinde yarattigi olumsuz kayma etkisi yer tutucusu.,True,False,True,True
+borrow_fee_placeholder,FINANCING_COST,Aciga satis (short) pozisyonlar icin menkul kiymet odunc alma maliyeti yer tutucusu.,True,False,True,True
+funding_fee_placeholder,FINANCING_COST,Kaldracli pozisyonlar icin gecelik fonlama ve swap faizi yer tutucusu.,True,False,True,True
+currency_conversion_cost_placeholder,FX_CONVERSION,Farkli para birimindeki enstrumanlarin portfoy ana para birimine cevrilme masrafi yer tutucusu.,True,False,True,True

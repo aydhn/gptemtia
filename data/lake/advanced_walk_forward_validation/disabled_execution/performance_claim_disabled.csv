@@ -1,0 +1,3 @@
+prohibited_claim,is_blocked,reason,enforced,non_signal
+guaranteed_future_return,True,Gelecek getiri veya kesin kazanc garantisi iddiasi kanunen ve sistemce yasaktir.,True,True
+production_or_broker_readiness_approval,True,Sozlesme katmani basarili diye sisteme canli/broker onayi verilemez.,True,True

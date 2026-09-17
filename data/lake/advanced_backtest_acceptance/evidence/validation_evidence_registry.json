@@ -1,0 +1,9 @@
+{
+  "domain": "validation_evidence_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "total_evidence_items": 8,
+  "verified_evidence_items": 8,
+  "all_verified": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

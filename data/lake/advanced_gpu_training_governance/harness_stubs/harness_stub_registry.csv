@@ -1,0 +1,4 @@
+stub_id,stub_name,dry_run,resource_policy_validated,device_selection_dry_run,real_training_executed,model_fit_executed,model_predict_executed,target_label_generated,artifact_persisted,model_registry_written,blocked_by_policy,blocked_reason,manual_review_required,status
+HARN_STUB_001,default_dry_run_harness_stub,True,True,True,False,False,False,False,False,False,True,Phase 139 strict dry-run resource governance boundary,True,execution_blocked_no_real_training
+HARN_STUB_002,strict_safety_harness_stub,True,True,True,False,False,False,False,False,False,True,Absolute zero-training enforcement policy,True,execution_blocked_no_real_training
+HARN_STUB_003,pre_phase_140_harness_stub,True,True,True,False,False,False,False,False,False,True,Ensemble candidate model registry contracts pending Phase 140,True,execution_blocked_no_real_training

@@ -1,0 +1,2 @@
+capability,execution_allowed,policy_reference,status,description
+exhaustive_grid_sweep,False,POLICY_PHASE_149_ZERO_SWEEPS,execution_blocked_no_parameter_sweep,Prohibits evaluating large combinatoric grids of hyperparameters.

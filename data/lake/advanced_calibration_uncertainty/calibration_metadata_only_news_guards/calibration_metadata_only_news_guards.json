@@ -1,0 +1,11 @@
+{
+  "total_guards": 3,
+  "guards": [
+    "calib_guard_no_full_text",
+    "calib_guard_no_embeddings",
+    "calib_guard_no_sentiment_scores"
+  ],
+  "all_active": true,
+  "all_blocking": true,
+  "all_non_signal": true
+}

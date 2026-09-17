@@ -1,0 +1,10 @@
+{
+  "total_dependencies": 3,
+  "dependencies": [
+    "dataset_contract_commodity_fx_dep",
+    "dataset_contract_macro_event_dep",
+    "featurestore_catalog_dep"
+  ],
+  "all_satisfied": true,
+  "all_non_signal": true
+}

@@ -1,0 +1,9 @@
+PHASE 148: STRESS TESTING & SCENARIO SIMULATION CONTRACT LAYER
+NON-PRODUCTION | RESEARCH ONLY | ZERO LIVE TRADING | ZERO BROKER EXECUTION | NON-SIGNAL
+Bu cikti sozlesme ve metadata spesifikasyonudur; canli emir, trade sinyali veya kesin getiri icermez.
+No-Lookahead Guard: ACTIVE
+Scenario Leakage Guard: ACTIVE
+Data Snooping Guard: ACTIVE
+Overfitting Guard: ACTIVE
+Survivorship Bias Guard: ACTIVE
+Forbidden Column Policy: ACTIVE

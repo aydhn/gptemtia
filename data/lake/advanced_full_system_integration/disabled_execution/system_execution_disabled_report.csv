@@ -1,0 +1,3 @@
+item_id,execution_type,is_disabled,blocking_reason,enforcement_layer,status
+SED-001,full_system_execution,True,Phase 158 operates strictly as a contract and rehearsal layer.,contract,DISABLED
+SED-002,end_to_end_bot_run,True,Automated bot execution is forbidden prior to Phase 160.,contract,DISABLED

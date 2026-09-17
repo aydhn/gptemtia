@@ -1,0 +1,4 @@
+guard_name,description,forbidden_columns,full_text_allowed,article_body_allowed,scraped_html_allowed,embedding_allowed,sentiment_allowed,non_signal,manual_review_required,current_phase
+macro_event_metadata_only_news_guard,"Macro event news: metadata only. No full text, article body, scraped HTML, embedding or sentiment.","full_text, article_body, raw_content, scraped_html, page_html, html, embedding, vector, sentiment, sentiment_score",False,False,False,False,False,True,True,137
+news_metadata_only_guard,General news: metadata only. Full article content forbidden.,"full_text, article_body, raw_content, scraped_html, page_html, html, embedding, vector, sentiment, sentiment_score",False,False,False,False,False,True,True,137
+economic_calendar_metadata_only_guard,Economic calendar: metadata only.,"full_text, article_body, raw_content, scraped_html, page_html, html, embedding, vector, sentiment, sentiment_score",False,False,False,False,False,True,True,137

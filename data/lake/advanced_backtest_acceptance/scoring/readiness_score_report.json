@@ -1,0 +1,12 @@
+{
+  "domain": "readiness_score_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "readiness_score": 1.0,
+  "classification": "backtest_acceptance_contract_ready_non_production",
+  "meets_threshold": true,
+  "production_ready": false,
+  "broker_ready": false,
+  "strategy_approved": false,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

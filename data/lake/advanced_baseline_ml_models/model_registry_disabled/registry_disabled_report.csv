@@ -1,0 +1,4 @@
+check_item,status,is_disabled,description
+model_registry_write_disabled,PASS_DISABLED,True,Verification that writing to model registry is disabled
+mlflow_model_logging_disabled,PASS_DISABLED,True,Verification that MLflow/catalog logging is disabled
+model_version_registration_disabled,PASS_DISABLED,True,Verification that model version registration is disabled

@@ -1,0 +1,4 @@
+baseline_id,baseline_name,benchmark_type,rebalance_freq,transaction_cost,description,execution_enabled,non_signal
+BASE-01,cash_zero_risk_baseline,CASH,DAILY,False,Portfoyun nakit tutuldugu risksiz getiri tabani.,False,True
+BASE-02,buy_and_hold_asset_baseline,BUY_HOLD,NONE,True,Ilk bar alinip son bara kadar tasinan varlik baselini.,False,True
+BASE-03,equal_weight_basket_baseline,EQUAL_WEIGHT,MONTHLY,True,Sepetteki varliklarin her ay esit agirliga rebalance edildigi baseline.,False,True

@@ -1,0 +1,6 @@
+feature_namespace,feature_count_placeholder,catalog_ref,no_lookahead_verified,materialized,non_signal,production_ready,broker_ready
+price_technical,45,feature_store_catalog_phase_134,True,False,True,False,False
+volatility_range,30,feature_store_catalog_phase_134,True,False,True,False,False
+momentum_trend,35,feature_store_catalog_phase_134,True,False,True,False,False
+cross_asset_alignment,25,feature_store_catalog_phase_134,True,False,True,False,False
+macro_event_context,20,feature_store_catalog_phase_134,True,False,True,False,False

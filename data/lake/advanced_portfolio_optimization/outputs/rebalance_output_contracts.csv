@@ -1,0 +1,2 @@
+output_contract_name,contains_rebalance_orders,contains_order_quantities,contains_trade_instructions,contract_validation_status,manual_review_required
+rebalance_output_contract,False,False,False,rebalance_contract_ready,True

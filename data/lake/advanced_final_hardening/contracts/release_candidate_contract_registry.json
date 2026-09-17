@@ -1,0 +1,10 @@
+{
+  "candidate_contract_count": 5,
+  "current_phase": 159,
+  "target_final_phase": 160,
+  "all_production_ready_false": true,
+  "all_broker_ready_false": true,
+  "all_live_ready_false": true,
+  "all_official_approval_false": true,
+  "status": "release_candidate_contract_ready"
+}

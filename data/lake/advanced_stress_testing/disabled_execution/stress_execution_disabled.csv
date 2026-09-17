@@ -1,0 +1,2 @@
+execution_name,prohibited_reason,blocked_actions,is_blocked,enforced,non_signal,local_only
+stress_test_execution,Phase 148 is local/offline contract layer; real stress execution is prohibited.,"run_stress_test, execute_stress_test, trigger_stress_run",True,True,True,True

@@ -1,0 +1,6 @@
+freeze_name,freeze_category,target_scope,description,frozen,actual_lock_enacted,modifications_allowed_without_review,domain,non_signal,local_only,dry_run,non_production,current_phase,status
+python_runtime_freeze,dependency,Python 3.12+,Python ana çalışma zamanı sürümü dondurulması,True,False,False,dependency_freeze_domain,True,True,True,True,159,final_hardening_contract_ready
+pandas_freeze,dependency,pandas,Veri manipülasyon kütüphanesi dondurulması,True,False,False,dependency_freeze_domain,True,True,True,True,159,final_hardening_contract_ready
+numpy_freeze,dependency,numpy,Sayısal hesaplama kütüphanesi dondurulması,True,False,False,dependency_freeze_domain,True,True,True,True,159,final_hardening_contract_ready
+pytest_freeze,dependency,pytest,Test çalıştırma altyapısı dondurulması,True,False,False,dependency_freeze_domain,True,True,True,True,159,final_hardening_contract_ready
+offline_stdlib_freeze,dependency,standard_library,Standart kütüphane ve yerel offline çalışma gereksinimleri,True,False,False,dependency_freeze_domain,True,True,True,True,159,final_hardening_contract_ready

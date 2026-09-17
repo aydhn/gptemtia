@@ -1,0 +1,14 @@
+{
+  "domain": "backtest_acceptance_profile_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "total_profiles": 3,
+  "enabled_profiles": 3,
+  "current_phase": 152,
+  "target_final_phase": 160,
+  "next_phase": 153,
+  "all_dry_run": true,
+  "all_local_only": true,
+  "all_non_production": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

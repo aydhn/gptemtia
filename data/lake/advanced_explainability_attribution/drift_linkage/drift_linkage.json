@@ -1,0 +1,9 @@
+{
+  "total_drift_linkages": 4,
+  "all_linkage_contract": true,
+  "all_drift_calculated_false": true,
+  "all_non_signal": true,
+  "current_phase": 143,
+  "next_phase": 144,
+  "target_final_phase": 160
+}

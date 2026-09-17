@@ -1,0 +1,4 @@
+policy_name,description,timestamp_utc_required,naive_timestamp_forbidden,future_timestamp_forbidden,non_signal,manual_review_required,current_phase
+chronological_time_index_policy,Chronological timestamp_utc required. No future timestamps. No naive timestamps.,True,True,True,True,True,137
+strict_utc_no_future_policy,Strict UTC timezone required. Future timestamp forbidden.,True,True,True,True,True,137
+no_lookahead_time_index_policy,Time index must be compatible with no-lookahead guard.,True,True,True,True,True,137

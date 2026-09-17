@@ -1,0 +1,7 @@
+contract_name,dataset_family,materialized,production_ready,non_signal,manual_review_required,current_phase,placeholder_only,snapshot_for_phase
+featurestore_snapshot_contract,featurestore,False,False,True,True,137,True,138
+regime_metadata_snapshot_contract,regime_metadata,False,False,True,True,137,True,138
+technical_feature_snapshot_contract,technical_features,False,False,True,True,137,True,138
+factor_feature_snapshot_contract,factor_features,False,False,True,True,137,True,138
+macro_event_news_metadata_snapshot_contract,macro_event_news_metadata,False,False,True,True,137,True,138
+no_lookahead_accepted_snapshot_contract,validation_accepted,False,False,True,True,137,True,138

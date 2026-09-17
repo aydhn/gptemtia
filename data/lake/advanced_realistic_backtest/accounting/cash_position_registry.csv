@@ -1,0 +1,4 @@
+ledger_component,description,requires_real_money,is_active,non_signal
+cash_balance_ledger,"Nakit bakiye hareketleri, komisyon odemeleri ve gerceklesmis PnL mutabakat defteri.",False,True,True
+margin_collateral_ledger,Acik pozisyonlar icin baglanan baslangic ve surdurme teminati defteri.,False,True,True
+position_inventory_ledger,"Varlik bazinda acik lot, ortalama maliyet ve acilis zaman damgasi defteri.",False,True,True

@@ -1,0 +1,4 @@
+impact_id,title,category,description,is_calculated,status,non_signal
+SLIPPAGE_IMP_SPREAD_CROSS,Bid-Ask Half-Spread Crossing Cost Placeholder,spread_crossing,Piyasa emirlerinde alış-satış makasını geçmenin yarattığı maliyet özeti.,False,evaluation_contract_ready,True
+SLIPPAGE_IMP_MARKET_IMPACT,Order Size Non-Linear Market Impact Drag Placeholder,order_book_impact,Emir büyüklüğünün tahta derinliğini tüketmesinden kaynaklanan fiyat kayması özeti.,False,evaluation_contract_ready,True
+SLIPPAGE_IMP_LATENCY_DELAY,Execution Latency and Adverse Selection Drag Placeholder,latency_friction,Ağ ve eşleme gecikmesi kaynaklı aleyhte fiyat hareketi (adverse selection) özeti.,False,evaluation_contract_ready,True

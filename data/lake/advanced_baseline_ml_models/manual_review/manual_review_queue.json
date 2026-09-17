@@ -1,0 +1,8 @@
+{
+  "total_review_items": 5,
+  "all_auto_execution_blocked": true,
+  "high_priority_items": 2,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false
+}

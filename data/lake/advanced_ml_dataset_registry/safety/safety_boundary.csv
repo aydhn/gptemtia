@@ -1,0 +1,35 @@
+boundary_type,rule_id,name,category,status,is_enforced,non_signal
+NO_GO,NG-01,Live Trading Prohibition,execution,STRICTLY_ENFORCED,True,True
+NO_GO,NG-02,Broker Integration Block,execution,STRICTLY_ENFORCED,True,True
+NO_GO,NG-03,Real Order Execution Block,execution,STRICTLY_ENFORCED,True,True
+NO_GO,NG-04,Investment Advice Prohibition,governance,STRICTLY_ENFORCED,True,True
+NO_GO,NG-05,Signal Generation Prohibition,governance,STRICTLY_ENFORCED,True,True
+NO_GO,NG-06,Directional Return Claim Block,governance,STRICTLY_ENFORCED,True,True
+NO_GO,NG-07,Dataset Materialization Block,storage,STRICTLY_ENFORCED,True,True
+NO_GO,NG-08,Feature Snapshot Materialization Block,storage,STRICTLY_ENFORCED,True,True
+NO_GO,NG-09,Strategy Backtest Optimizer Block,execution,STRICTLY_ENFORCED,True,True
+NO_GO,NG-10,Model Training / Fit Block,ml_lifecycle,STRICTLY_ENFORCED,True,True
+NO_GO,NG-11,Model Predict / Inference Block,ml_lifecycle,STRICTLY_ENFORCED,True,True
+NO_GO,NG-12,Clustering / Unsupervised Execution Block,ml_lifecycle,STRICTLY_ENFORCED,True,True
+NO_GO,NG-13,Ensemble / Calibration Execution Block,ml_lifecycle,STRICTLY_ENFORCED,True,True
+NO_GO,NG-14,Target / Label Generation Block,ml_lifecycle,STRICTLY_ENFORCED,True,True
+NO_GO,NG-15,Sentiment Model Output Block,nlp_governance,STRICTLY_ENFORCED,True,True
+NO_GO,NG-16,Full Text / HTML Scraping Block,nlp_governance,STRICTLY_ENFORCED,True,True
+NO_GO,NG-17,Embedding / Vector Generation Block,nlp_governance,STRICTLY_ENFORCED,True,True
+NO_GO,NG-18,Artifact / Weights Persistence Block,storage,STRICTLY_ENFORCED,True,True
+NO_GO,NG-19,Official Approval / Production Claim Block,governance,STRICTLY_ENFORCED,True,True
+NO_GO,NG-20,Source Overwrite / Deletion Block,data_integrity,STRICTLY_ENFORCED,True,True
+NO_GO,NG-21,Auto-Imputation / Auto-Drop Block,data_integrity,STRICTLY_ENFORCED,True,True
+NO_GO,NG-22,Provider Credential Output Block,security,STRICTLY_ENFORCED,True,True
+SAFE_GO,SG-01,Local Offline Dataset Contract Registry,contract,ACTIVE,True,True
+SAFE_GO,SG-02,Source Catalog Metadata Reference Generation,metadata,ACTIVE,True,True
+SAFE_GO,SG-03,Schema / Namespace / Version / Partition Policies,policy,ACTIVE,True,True
+SAFE_GO,SG-04,Time-Index and Split Policy Placeholders,policy,ACTIVE,True,True
+SAFE_GO,SG-05,Leakage and No-Lookahead Guards,guard,ACTIVE,True,True
+SAFE_GO,SG-06,Metadata-Only News Event Guards,guard,ACTIVE,True,True
+SAFE_GO,SG-07,Source Preservation and Immutability Guards,guard,ACTIVE,True,True
+SAFE_GO,SG-08,Feature Snapshot Contracts Without Materialization,contract,ACTIVE,True,True
+SAFE_GO,SG-09,Experiment Registry Metadata & Templates,registry,ACTIVE,True,True
+SAFE_GO,SG-10,Model Family Placeholders Without Execution,metadata,ACTIVE,True,True
+SAFE_GO,SG-11,Metric Placeholders Without Calculation,metadata,ACTIVE,True,True
+SAFE_GO,SG-12,Phase 138 Dry-Run Training Harness Handoff,handoff,ACTIVE,True,True

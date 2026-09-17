@@ -1,0 +1,5 @@
+contract_id,control_name,drawdown_metric_target,warning_threshold_pct,breach_threshold_pct,critical_threshold_pct,control_policy,contract_status,execution_allowed
+DD-CON-156-001,Peak to Trough Drawdown Control Contract,PEAK_TO_TROUGH_DD_PCT,5.0,10.0,15.0,STEPPED_EXPOSURE_REDUCTION,CONTRACT_ONLY,False
+DD-CON-156-002,Rolling Window Drawdown Control Contract,ROLLING_30D_DD_PCT,4.0,8.0,12.0,DYNAMIC_DE_RISKING,CONTRACT_ONLY,False
+DD-CON-156-003,Underwater Duration Control Contract,UNDERWATER_DURATION_DAYS,30.0,60.0,90.0,PORTFOLIO_REVIEW_FREEZE,CONTRACT_ONLY,False
+DD-CON-156-004,Capital Preservation Soft Floor Contract,NAV_FLOOR_DISTANCE_PCT,6.0,12.0,18.0,SYSTEMATIC_DERISKING_FLOOR,CONTRACT_ONLY,False

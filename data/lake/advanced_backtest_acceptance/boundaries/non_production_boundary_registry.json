@@ -1,0 +1,9 @@
+{
+  "domain": "non_production_boundary_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "total_boundaries": 5,
+  "active_boundaries": 5,
+  "all_active": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

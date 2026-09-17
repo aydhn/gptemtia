@@ -1,0 +1,7 @@
+check_id,name,condition_met,description,current_phase,contract_only,non_production,status
+VAL-153-01,Profile Configurations Validity,True,Tum profil yapilandirmalarinin kurallara uygun oldugunu dogrular.,153,True,True,PASS
+VAL-153-02,Offline Contract Boundary,True,Sistemin sadece yerel/offline ve arastirma amaciyla calistigini dogrular.,153,True,True,PASS
+VAL-153-03,Live Execution Prohibited,True,Canli emir iletimi ve broker entegrasyonunun kesin olarak kapal oldugunu dogrular.,153,True,True,PASS
+VAL-153-04,Real Optimization Prohibited,True,Gercek portfoy optimizasyonu ve sermaye tahsisinin kapal oldugunu dogrular.,153,True,True,PASS
+VAL-153-05,Real Lot Sizing Prohibited,True,Gercek lot ve adet boyutlandirmasinin uretilmedigini dogrular.,153,True,True,PASS
+VAL-153-06,Phase Boundary Alignment,True,Faz numaralarinin (153 -> 154 -> 160) dogru tanimlandigini dogrular.,153,True,True,PASS

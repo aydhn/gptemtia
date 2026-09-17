@@ -1,0 +1,12 @@
+{
+  "domain": "portfolio_universe_domain",
+  "active_profile": "balanced_local_portfolio_construction_contracts",
+  "total_assets": 10,
+  "asset_classes": [
+    "commodity",
+    "fx"
+  ],
+  "all_contract_only": true,
+  "no_investment_advice": true,
+  "status": "portfolio_contract_ready"
+}

@@ -1,0 +1,2 @@
+action_id,action_type,target_scope,hedge_ratio_target,activation_trigger,execution_enabled,status
+ACT-HDG-001,HEDGE_CONTROL,TAIL_RISK_OVERLAY,0.2,CRITICAL_DRAWDOWN_WARNING,False,PLACEHOLDER_ONLY

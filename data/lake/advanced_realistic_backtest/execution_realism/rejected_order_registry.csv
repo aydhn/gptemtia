@@ -1,0 +1,4 @@
+condition_name,reason,action,is_placeholder,execution_allowed,is_active,non_signal
+insufficient_margin_rejection,Serbest teminatin (free margin) emir teminat gereksinimini karsilamamasi.,ORDER_REJECTED,True,False,True,True
+market_closed_rejection,Piyasa seans saatleri disinda veya tatil gununde iletilen piyasa emri.,ORDER_REJECTED,True,False,True,True
+price_band_limit_rejection,Fiyatin gunluk tavan/taban limitlerine takilmasi veya volatilite durdurucusu (circuit breaker).,ORDER_REJECTED,True,False,True,True

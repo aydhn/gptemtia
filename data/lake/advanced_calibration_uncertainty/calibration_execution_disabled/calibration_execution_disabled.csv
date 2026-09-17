@@ -1,0 +1,4 @@
+operation,is_disabled,policy,blocked_action,reason,enforcement,non_signal,phase
+probability_calibration_execution,True,PHASE_141_NON_EXECUTING_CALIBRATION_POLICY,calibrate_models_or_scores,Phase 141 is strictly a contract and governance layer; calibration execution is prohibited.,STRICT_BLOCK,True,141
+probability_prediction_execution,True,PHASE_141_ZERO_PROBABILITY_PREDICTION_POLICY,predict_proba_or_confidence,Probability inference and class likelihood calculations are disabled.,STRICT_BLOCK,True,141
+calibration_parameter_optimization,True,PHASE_141_NO_OPTIMIZATION_POLICY,optimize_calibration_hyperparameters,Calibration parameter fitting is disabled.,STRICT_BLOCK,True,141

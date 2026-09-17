@@ -1,0 +1,4 @@
+operation_name,description,status,live_permitted,phase,non_signal,local_only
+place_live_order,Routing live market or limit orders to exchanges.,DISABLED,False,150,True,True
+manage_live_position,Dynamic risk adjustments on active live brokerage accounts.,DISABLED,False,150,True,True
+rebalance_live_portfolio,Real-time portfolio rebalancing execution.,DISABLED,False,150,True,True

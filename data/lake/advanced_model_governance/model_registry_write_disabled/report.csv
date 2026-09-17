@@ -1,0 +1,4 @@
+action,is_disabled,reason,status,phase
+write_model_registry,True,Model registry write permanently blocked in non-production layer.,BLOCKED_BY_POLICY,144
+mlflow_logging,True,External tracking / registry services are disabled.,BLOCKED_BY_POLICY,144
+publish_model_weights,True,Zero weight materialization or export permitted.,BLOCKED_BY_POLICY,144

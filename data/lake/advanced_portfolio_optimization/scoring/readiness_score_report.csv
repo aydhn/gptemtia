@@ -1,0 +1,2 @@
+metric_name,score_value,classification,is_contract_ready,current_phase,target_final_phase,next_phase,production_ready,broker_ready,live_trading_ready
+portfolio_optimization_readiness_score,1.0,portfolio_optimization_contract_ready_non_production,True,154,160,155,False,False,False

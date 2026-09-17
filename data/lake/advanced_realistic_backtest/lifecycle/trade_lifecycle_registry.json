@@ -1,0 +1,9 @@
+{
+  "total_trade_states": 8,
+  "terminal_states": [
+    "CANCELLED",
+    "REJECTED",
+    "CLOSED"
+  ],
+  "non_signal": true
+}

@@ -1,0 +1,14 @@
+{
+  "total_profiles": 4,
+  "profile_count": 4,
+  "active_profile": "balanced_local_risk_reporting_contracts",
+  "current_phase": 155,
+  "target_final_phase": 160,
+  "next_phase": 156,
+  "all_profiles_non_production": true,
+  "all_profiles_dry_run": true,
+  "all_profiles_local_only": true,
+  "zero_live_trading": true,
+  "zero_broker_integration": true,
+  "zero_execution": true
+}

@@ -1,0 +1,20 @@
+======================================================================
+PHASE 141: CALIBRATION & UNCERTAINTY CONSOLIDATED REPORT
+======================================================================
+Bu çıktı Phase 141 Probability Calibration and Uncertainty Estimation Contracts raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, calibration/uncertainty/readiness/confidence değerini trade sinyali veya production-ready/broker-ready onayı olarak kullanma, gerçek model training, model fit/predict/inference, probability prediction, calibration fit/transform, uncertainty estimation, prediction interval/conformal prediction, dataset materialization, target/label/prediction üretimi, gerçek metric/performance claim, model artifact persistence, model registry write, strateji üretimi, backtest, optimizer, clustering, ensemble execution, sentiment model output, haber tam metni/article body/raw content/scraped HTML/embedding/vector kullanımı, production deployment, model deployment, scraping veya gerçek provider API çağrısı değildir.
+----------------------------------------------------------------------
+Active Profile          : balanced_local_calibration_uncertainty_contracts
+Phase                   : 141
+Next Phase              : 142
+Target Final Phase      : 160
+Calibration Contracts   : 7
+Uncertainty Contracts   : 8
+Health Status           : HEALTHY
+Validation Status       : VALID
+Readiness Score         : 1.0000 (READY_FOR_PHASE_142_DRIFT_MONITORING_HANDOFF)
+Zero Training Executed  : True
+Zero Prediction Executed: True
+Zero Calibration Executed: True
+Zero Uncertainty Executed: True
+Non-Signal Verified     : True
+======================================================================

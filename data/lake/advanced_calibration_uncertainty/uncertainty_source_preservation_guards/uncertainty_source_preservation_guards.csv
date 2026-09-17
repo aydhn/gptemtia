@@ -1,0 +1,4 @@
+guard_id,rule_name,blocking,is_active,non_signal,phase
+uncert_guard_no_overwrite,prohibit_source_file_overwrites,True,True,True,141
+uncert_guard_no_destructive_cleaning,prohibit_auto_destructive_cleaning,True,True,True,141
+uncert_guard_no_auto_drop,prohibit_auto_imputation_and_feature_dropping,True,True,True,141

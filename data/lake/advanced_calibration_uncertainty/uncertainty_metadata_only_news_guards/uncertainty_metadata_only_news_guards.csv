@@ -1,0 +1,4 @@
+guard_id,rule_name,blocking,is_active,non_signal,phase
+uncert_guard_no_full_text,prohibit_raw_article_body_and_full_text,True,True,True,141
+uncert_guard_no_embeddings,prohibit_embedding_vectors_and_vector_dbs,True,True,True,141
+uncert_guard_no_sentiment_scores,prohibit_sentiment_model_outputs,True,True,True,141

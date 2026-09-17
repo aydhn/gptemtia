@@ -1,0 +1,9 @@
+{
+  "total_contracts": 7,
+  "all_production_approval_blocked": true,
+  "all_deployment_blocked": true,
+  "all_model_registry_write_blocked": true,
+  "all_signal_generation_blocked": true,
+  "all_non_signal_required": true,
+  "all_manual_review_required": true
+}

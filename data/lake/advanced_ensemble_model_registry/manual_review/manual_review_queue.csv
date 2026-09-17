@@ -1,0 +1,4 @@
+review_id,finding_ref,ensemble_domain,severity,description,recommended_action,non_signal,auto_fix_allowed,destructive_action_allowed
+REV-140-001,FIND-140-INIT-001,candidate_model_registry,info,Candidate model contracts successfully initialized in non-executing mode.,Confirm candidate families align with planned research scopes.,True,False,False
+REV-140-002,FIND-140-INIT-002,ensemble_strategy_layer,info,Ensemble strategy contracts initialized; voting/blending/stacking execution blocked.,Verify downstream Phase 141 handoff requirements before scheduling execution.,True,False,False
+REV-140-003,FIND-140-INIT-003,candidate_model_governance,info,Eligibility gates and compatibility matrix active; no lookahead confirmed.,Conduct regular review of GPU resource governance bounds.,True,False,False

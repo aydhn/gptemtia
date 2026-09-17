@@ -1,0 +1,2 @@
+contract_name,limit_family,description,limit_type,threshold_metadata,is_placeholder,is_enforced_live,allows_execution,allows_alerting,current_phase,target_final_phase,next_phase
+initial_margin_utilization_limit,margin_limit,Baslangic teminati kullanim orani izleme sozlesmesi,soft_warning,margin_utilization <= 0.70,True,False,False,False,155,160,156

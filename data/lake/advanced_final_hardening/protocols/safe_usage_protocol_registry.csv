@@ -1,0 +1,6 @@
+protocol_id,protocol_name,description,enforced,domain,non_signal,local_only,dry_run,non_production,current_phase,status
+SUR-01,research_only_boundary,Sistem yalnızca yerel akademik ve araştırma amaçlı kullanılabilir.,True,safe_usage_protocol_domain,True,True,True,True,159,operator_runbook_contract_ready
+SUR-02,no_live_orders,Canlı finansal piyasalara emir iletilemez veya işlem yapılamaz.,True,safe_usage_protocol_domain,True,True,True,True,159,operator_runbook_contract_ready
+SUR-03,no_broker_credentials,Broker hesap anahtarları veya şifreleri sisteme girilemez.,True,safe_usage_protocol_domain,True,True,True,True,159,operator_runbook_contract_ready
+SUR-04,no_financial_advice,Üretilen hiçbir analiz veya skor yatırım tavsiyesi olarak sunulamaz.,True,safe_usage_protocol_domain,True,True,True,True,159,operator_runbook_contract_ready
+SUR-05,offline_first,Sistem harici internet araması veya web scraping yapmadan yerel çalışır.,True,safe_usage_protocol_domain,True,True,True,True,159,operator_runbook_contract_ready

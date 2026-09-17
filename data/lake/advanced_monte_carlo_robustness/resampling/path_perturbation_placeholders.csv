@@ -1,0 +1,4 @@
+perturbation_type,transformation,economic_rationale,profile_name,current_phase,perturbation_executed,status,domain
+drift_suppression_path_perturbation,r_perturbed = r_t - mean(r),Evaluates whether strategy alpha survives when underlying market beta drift is zeroed out.,balanced_local_monte_carlo_robustness_contracts,149,False,monte_carlo_contract_ready,path_perturbation_placeholder_domain
+volatility_expansion_path_perturbation,r_perturbed = r_t * (1 + delta_vol),Evaluates margin call risk and maximum drawdown under uniformly scaled volatility regimes.,balanced_local_monte_carlo_robustness_contracts,149,False,monte_carlo_contract_ready,path_perturbation_placeholder_domain
+gap_dilation_path_perturbation,gap_open = gap_open * 1.50,Assesses stop-loss execution slippage under dilated weekend and overnight opening gaps.,balanced_local_monte_carlo_robustness_contracts,149,False,monte_carlo_contract_ready,path_perturbation_placeholder_domain

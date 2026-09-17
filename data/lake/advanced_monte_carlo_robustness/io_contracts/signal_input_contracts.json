@@ -1,0 +1,7 @@
+{
+  "domain": "output_contract_domain",
+  "total_signal_input_contracts": 2,
+  "all_non_live": true,
+  "profile_name": "balanced_local_monte_carlo_robustness_contracts",
+  "status": "monte_carlo_contract_ready"
+}

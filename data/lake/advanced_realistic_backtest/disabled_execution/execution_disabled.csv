@@ -1,0 +1,2 @@
+execution_type,status,reason,blocked_actions,is_blocked,non_signal
+REAL_BACKTEST_EXECUTION,BLOCKED_BY_POLICY,"Phase 146 is strictly contract, cost, and slippage modeling. Execution is blocked.","['run_backtest', 'execute_backtest', 'run_simulation', 'execute_strategy']",True,True

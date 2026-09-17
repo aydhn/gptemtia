@@ -1,0 +1,3 @@
+dependency_id,source_phase,description,status,profile_name,current_phase,domain
+DEP_REALISTIC_BACKTEST_CONTRACTS,146,"Realistic backtest execution schema, fill modeling, and cash accounting contracts.",SATISFIED,balanced_local_monte_carlo_robustness_contracts,149,dependency_domain
+DEP_REALISTIC_TRADE_BLOTTER,146,Trade sequence ledger and execution timestamps required for trade reshuffling.,SATISFIED,balanced_local_monte_carlo_robustness_contracts,149,dependency_domain

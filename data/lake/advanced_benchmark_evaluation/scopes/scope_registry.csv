@@ -1,0 +1,17 @@
+scope_id,scope_type,scope_name,description,is_permitted,is_blocked,status
+SCOPE_INC_01,INCLUDED,benchmark_comparison_reporting_contracts,Benchmark karşılaştırma raporu sözleşme şablonları ve metaveri yapıları.,True,False,evaluation_contract_ready
+SCOPE_INC_02,INCLUDED,strategy_evaluation_reporting_contracts,Strateji değerlendirme raporu sözleşme şablonları ve metodolojik bildirimler.,True,False,evaluation_contract_ready
+SCOPE_INC_03,INCLUDED,benchmark_universe_and_baseline_definitions,"Emtia ve FX varlık sınıfları için pasif, nakit ve sepet baseline sözleşmeleri.",True,False,evaluation_contract_ready
+SCOPE_INC_04,INCLUDED,cost_and_slippage_adjusted_contracts,"Komisyon, taşıma maliyeti ve kayma etkisi düzeltmeli rapor sözleşmeleri.",True,False,evaluation_contract_ready
+SCOPE_INC_05,INCLUDED,regime_and_scenario_aware_evaluation,"Piyasa rejimleri, stres senaryoları ve Monte Carlo dayanıklılığına duyarlı rapor şablonları.",True,False,evaluation_contract_ready
+SCOPE_INC_06,INCLUDED,uncalculated_metric_placeholders,"Gerçek değer üretmeyen, formül ve rol odaklı performans/risk yer tutucuları.",True,False,evaluation_contract_ready
+SCOPE_INC_07,INCLUDED,claim_and_approval_boundaries,"Performans iddiası, strateji onayı ve sermaye tahsisini engelleyen güvenlik kuralları.",True,False,evaluation_contract_ready
+SCOPE_INC_08,INCLUDED,phase_152_handoff_contracts,Phase 152 Backtest Acceptance Report devir şartnamesi ve kabul hazırlığı.,True,False,evaluation_contract_ready
+SCOPE_EXC_01,EXCLUDED,live_trading_and_order_dispatch,"Canlı emir iletimi, gerçek para yönetimi veya piyasa işlemleri.",False,True,evaluation_contract_ready
+SCOPE_EXC_02,EXCLUDED,broker_api_integration,Aracı kurum API bağlantısı veya hesap yönetimi entegrasyonu.,False,True,evaluation_contract_ready
+SCOPE_EXC_03,EXCLUDED,real_backtest_execution,Gerçek simülasyon veya backtest motoru yürütmesi.,False,True,evaluation_contract_ready
+SCOPE_EXC_04,EXCLUDED,real_metric_calculation,"Gerçek Sharpe, getiri, alpha, beta, drawdown veya kazanma oranı hesaplaması.",False,True,evaluation_contract_ready
+SCOPE_EXC_05,EXCLUDED,strategy_approval_and_capital_allocation,"Strateji resmi onayı, portföy oluşturma veya sermaye tahsisi.",False,True,evaluation_contract_ready
+SCOPE_EXC_06,EXCLUDED,model_training_and_inference,"Gerçek makine öğrenmesi eğitimi, model fit veya tahmin üretimi.",False,True,evaluation_contract_ready
+SCOPE_EXC_07,EXCLUDED,parameter_optimization_sweeps,"Optimizasyon taraması, curve fitting veya parametre avcılığı.",False,True,evaluation_contract_ready
+SCOPE_EXC_08,EXCLUDED,signal_generation_and_recommendation,"Al/Sat sinyali, yatırım tavsiyesi veya yönlü pozisyon önerisi.",False,True,evaluation_contract_ready

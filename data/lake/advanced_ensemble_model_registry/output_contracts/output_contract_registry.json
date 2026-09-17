@@ -1,0 +1,13 @@
+{
+  "total_output_contracts": 10,
+  "all_predictions_prohibited": true,
+  "all_probabilities_prohibited": true,
+  "all_classes_prohibited": true,
+  "all_signals_prohibited": true,
+  "all_metrics_prohibited": true,
+  "all_manual_review_required": true,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false,
+  "active_profile": "balanced_local_ensemble_model_contracts"
+}

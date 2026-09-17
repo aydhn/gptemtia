@@ -1,0 +1,3 @@
+placeholder_name,exposure_type,formula_description,dimension,is_placeholder,is_calculated,current_phase,target_final_phase,next_phase
+hhi_concentration_placeholder,herfindahl_hirschman_index,Sum of squared portfolio weights: sum(w_i^2),index,True,False,155,160,156
+top3_concentration_placeholder,top_k_ratio,Sum of 3 largest absolute position weights: sum_{top 3}(|w_i|),ratio,True,False,155,160,156

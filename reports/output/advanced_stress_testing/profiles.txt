@@ -1,0 +1,6 @@
+PHASE 148: STRESS TESTING & SCENARIO SIMULATION CONTRACT LAYER
+NON-PRODUCTION | RESEARCH ONLY | ZERO LIVE TRADING | ZERO BROKER EXECUTION | NON-SIGNAL
+Bu cikti sozlesme ve metadata spesifikasyonudur; canli emir, trade sinyali veya kesin getiri icermez.
+Profile: balanced_local_stress_testing_contracts
+Total Profiles: 3
+Local Only: True | Non-Production: True | Non-Signal: True

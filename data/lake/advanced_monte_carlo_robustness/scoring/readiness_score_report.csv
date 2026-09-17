@@ -1,0 +1,2 @@
+metric,value,classification,total_checks,passed_checks,critical_findings,manual_review_required,broker_ready,production_ready,live_trading_ready,profile_name,current_phase,domain
+readiness_score,1.0,monte_carlo_robustness_contract_ready_non_production,10,10,0,True,False,False,False,balanced_local_monte_carlo_robustness_contracts,149,readiness_score_domain

@@ -1,0 +1,6 @@
+{
+  "total_assumptions": 8,
+  "all_enforced": true,
+  "naive_backtest_prevented": true,
+  "non_signal": true
+}

@@ -1,0 +1,3 @@
+capability,execution_allowed,policy_reference,status,description
+parameter_optimization_engine,False,POLICY_PHASE_149_ZERO_OPTIMIZER,execution_blocked_no_parameter_optimization,"Prohibits gradient descent, genetic algorithms, or bayesian optimization of parameters."
+curve_fitting_routines,False,POLICY_PHASE_149_ZERO_OPTIMIZER,execution_blocked_no_parameter_optimization,Prohibits tuning strategy rules to maximize in-sample backtest metrics.

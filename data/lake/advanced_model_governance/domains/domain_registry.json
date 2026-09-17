@@ -1,0 +1,7 @@
+{
+  "total_domains": 62,
+  "phase": 144,
+  "all_dry_run": true,
+  "all_non_production": true,
+  "all_non_signal": true
+}

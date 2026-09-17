@@ -1,0 +1,3 @@
+action_type,description,is_placeholder,execution_allowed,is_active,non_signal
+dividend_adjustment_placeholder,Temettu odemelerinde spot ve vadeli fiyatin duzeltilmesi yer tutucusu.,True,False,True,True
+futures_roll_adjustment_placeholder,Vadesi dolan emtia/fx vadeli kontratlarinin sonraki vadeye tasinma (roll) maliyeti yer tutucusu.,True,False,True,True

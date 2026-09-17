@@ -1,0 +1,4 @@
+policy_id,policy_name,allow_cpu_fallback,fallback_priority,max_cpu_threads_placeholder,dry_run_only,non_signal,description,status
+CPU_FB_001,auto_cpu_fallback_on_gpu_absence_policy,True,cpu,4,True,True,Automatically falls back to CPU dry-run contracts if CUDA runtime is absent.,gpu_governance_ready
+CPU_FB_002,oom_gpu_to_cpu_evacuation_policy,True,cpu,2,True,True,Simulated fallback to CPU when GPU memory fraction request exceeds safety budget.,gpu_governance_ready
+CPU_FB_003,single_thread_deterministic_cpu_policy,True,cpu,1,True,True,Single-threaded deterministic fallback policy for strict reproducibility checks.,gpu_governance_ready

@@ -1,0 +1,4 @@
+boundary_id,boundary_name,ordering_enforced,future_data_allowed,description,no_lookahead,non_signal
+BND-01,strict_chronological_boundary,CHRONOLOGICAL_ASCENDING,False,Zaman serisi sirasini kesin artan duzende tutan ve gelecege ait veri alimini engelleyen sinir sozlesmesi.,True,True
+BND-02,asof_backward_join_boundary,EXACT_ASOF_BACKWARD,False,Farkli veri kaynaklari birlestirilirken sadece gecmis zaman damgalariyla eslesmeyi garanti eden sinir.,True,True
+BND-03,holiday_weekend_session_boundary,CALENDAR_AWARE,False,Hafta sonu ve tatil bosluklarinda sonraki gun verisinin onceden sizmasini engelleyen takvim duyarlilik siniri.,True,True

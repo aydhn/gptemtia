@@ -1,0 +1,3 @@
+guard_name,enforcement_level,active,description,non_signal
+label_overlap_purge_guard,STRICT,True,Egitim ve test araligi arasindaki etiket cakismasini onlemek amaciyla purge araligi zorlayan muhafiz.,True
+post_test_embargo_guard,STRICT,True,Test doneminin ardindan otoregresif sizintiyi engellemek icin ambargo zorlayan muhafiz.,True

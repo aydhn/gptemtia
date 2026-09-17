@@ -1,0 +1,4 @@
+policy_name,embargo_type,embargo_bars,description,policy_enforced,real_split_executed,non_signal
+standard_fixed_embargo_policy,FIXED_BARS,10,Test kumesi sonrasinda sonraki egitim seti arasina 10 bar bosluk koyan standart ambargo politikasi.,True,False,True
+volatility_scaled_embargo_policy,VOLATILITY_ADAPTIVE,10,Piyasa oynakligina gore dinamik hesaplanacak yer tutucu ambargo politikasi (hesaplama calistirilmaz).,True,False,True
+regime_transition_embargo_policy,REGIME_TRANSITION_BUFFER,21,Rejim degisim sinirlarinda bilgi kirlenmesini engelleyen 1 aylik (21 bar) tampon ambargo politikasi.,True,False,True

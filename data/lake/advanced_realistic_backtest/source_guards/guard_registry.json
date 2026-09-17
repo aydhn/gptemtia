@@ -1,0 +1,6 @@
+{
+  "total_guards": 1,
+  "source_preservation_enforced": true,
+  "destructive_actions_blocked": true,
+  "non_signal": true
+}

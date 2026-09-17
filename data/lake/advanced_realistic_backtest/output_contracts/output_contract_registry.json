@@ -1,0 +1,8 @@
+{
+  "total_output_fields": 5,
+  "all_fields_safe": true,
+  "pnl_output_prohibited": true,
+  "performance_claim_prohibited": true,
+  "trading_signal_prohibited": true,
+  "non_signal": true
+}

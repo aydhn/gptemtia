@@ -1,0 +1,9 @@
+interface_name,interface_type,enforces_dry_run,real_training_allowed,description,status
+validate_resource_policy,pre_execution_check,True,False,Validates that resource limits and execution mode conform to contract_only rules.,gpu_governance_ready
+validate_device_policy,hardware_check,True,False,Verifies target device preferences and ensures CPU fallback rules are configured.,gpu_governance_ready
+validate_memory_policy,memory_guard,True,False,Ensures requested memory budget does not exceed maximum VRAM threshold.,gpu_governance_ready
+validate_timeout_policy,watchdog_guard,True,False,Enforces upper duration limit and watchdog heartbeat contracts.,gpu_governance_ready
+validate_input_guards,input_guard,True,False,"Checks for absence of lookahead columns, raw news text, and destructive actions.",gpu_governance_ready
+simulate_harness_without_training,dry_run_simulation,True,False,"Executes full dry-run harness pipeline without training, fit, or inference calls.",gpu_governance_ready
+return_blocked_execution_status,safety_block,True,False,Returns deterministic blocked execution status when training or prediction is requested.,gpu_governance_ready
+build_resource_audit_placeholder,audit_placeholder,True,False,Constructs structured audit record capturing simulated hardware and memory metrics.,gpu_governance_ready

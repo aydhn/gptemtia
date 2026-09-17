@@ -1,0 +1,8 @@
+{
+  "domain": "validation_domain",
+  "total_rules": 5,
+  "all_passed": true,
+  "validation_status": "VALIDATION_PASS",
+  "forbidden_claims_found": false,
+  "status": "portfolio_acceptance_ready"
+}

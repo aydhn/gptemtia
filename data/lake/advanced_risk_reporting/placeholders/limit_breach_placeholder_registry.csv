@@ -1,0 +1,2 @@
+placeholder_name,limit_type,description,is_placeholder,is_enforced,current_phase,target_final_phase,next_phase
+hard_limit_breach_placeholder,hard_breach,Hard limit asim durumu yapisal yer tutucusu (gercek alarm uretmez),True,False,155,160,156

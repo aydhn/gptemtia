@@ -1,0 +1,9 @@
+{
+  "total_policies": 3,
+  "all_reads_real_data_disabled": true,
+  "all_shuffle_disabled": true,
+  "all_dry_run": true,
+  "current_phase": 139,
+  "non_signal": true,
+  "active_profile": "balanced_local_gpu_training_governance"
+}

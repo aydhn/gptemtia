@@ -1,0 +1,8 @@
+{
+  "total_metric_families": 7,
+  "calculation_allowed": false,
+  "target_label_required": false,
+  "prediction_required": false,
+  "non_signal": true,
+  "manual_review_required": true
+}

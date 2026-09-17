@@ -1,0 +1,3 @@
+guard_name,description,enforcement,active,non_signal
+multiple_testing_penalty_guard,Cok sayida strateji varyasyonu denendiginde istatistiksel ceza (White Reality Check / Deflated Sharpe) gereksinimi.,STRICT,True,True
+in_sample_selection_guard,In-sample veride en iyi sonucu veren parametrelerin out-of-sample test edilmeden basarili sayilmamasi kurali.,STRICT,True,True

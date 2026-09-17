@@ -1,0 +1,12 @@
+{
+  "total_items": 22,
+  "in_scope_count": 10,
+  "out_of_scope_count": 12,
+  "live_trading_prohibited": true,
+  "broker_integration_prohibited": true,
+  "optimizer_prohibited": true,
+  "walk_forward_prohibited": true,
+  "benchmark_prohibited": true,
+  "model_training_prohibited": true,
+  "non_signal": true
+}

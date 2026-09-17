@@ -1,0 +1,9 @@
+{
+  "total_experiments": 6,
+  "current_phase": 137,
+  "non_signal": true,
+  "training_blocked": true,
+  "prediction_blocked": true,
+  "artifact_persistence_blocked": true,
+  "status": "READY"
+}

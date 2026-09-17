@@ -1,0 +1,7 @@
+limitation_id,category,description,impact,phase,is_enforced,non_signal
+LIM-001,dry_run_contract_only,"Models are registered as interface contracts without weights, checkpoints, or persistence.",No inference or real evaluation possible from this contract.,144,True,True
+LIM-002,non_signal_guarantee,"Outputs contain zero directional market signals, position sizing, or trading recommendations.",Must never be consumed by execution or order routing layers.,144,True,True
+LIM-003,offline_research_scope,Contracts are scoped exclusively for offline research and governance simulation.,Real-time streaming feeds or order books are completely unsupported.,144,True,True
+LIM-004,no_production_readiness,Model card presence does NOT confer production readiness or official compliance sign-off.,Cannot be used as justification for live deployment.,144,True,True
+LIM-005,metadata_only_news,Textual information is constrained to schema metadata and timestamps with zero raw article body text.,Natural language sentiment or LLM embeddings are intentionally unavailable.,144,True,True
+LIM-006,no_lookahead_enforced,Time indices and joins are strictly point-in-time and forbid future data or shift(-1).,Backtest overfitting or future leakage is structurally prevented.,144,True,True

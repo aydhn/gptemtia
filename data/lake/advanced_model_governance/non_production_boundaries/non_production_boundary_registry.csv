@@ -1,0 +1,5 @@
+rule_id,rule_name,enforcement,phase,is_enforced,non_production
+NPR-01,local_offline_only,All modules operate strictly on local file systems without external cloud deployments.,144,True,True
+NPR-02,zero_broker_connectivity,Network sockets to broker order gateways or trade execution endpoints are blocked.,144,True,True
+NPR-03,non_signal_invariance,"No metric, score, or model card may produce trade recommendations or directional bias.",144,True,True
+NPR-04,audit_placeholder_only,Audit records are governance placeholders and do not represent regulatory compliance logs.,144,True,True

@@ -1,0 +1,9 @@
+{
+  "domain": "safety_boundary_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "total_boundaries": 12,
+  "enforced_boundaries": 12,
+  "all_enforced": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

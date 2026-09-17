@@ -1,0 +1,9 @@
+gate_name,description,blocking,is_active,gate_status,non_signal,phase
+uncertainty_contract_present_gate,Verifies uncertainty estimation contract metadata is well-formed.,True,True,GATE_ENFORCED,True,141
+no_uncertainty_execution_gate,Guarantees uncertainty estimation algorithms are not executed.,True,True,GATE_ENFORCED,True,141
+no_prediction_interval_execution_gate,Guarantees prediction intervals are not computed.,True,True,GATE_ENFORCED,True,141
+no_conformal_prediction_execution_gate,Guarantees conformal prediction sets are not generated.,True,True,GATE_ENFORCED,True,141
+no_quantile_prediction_gate,Guarantees quantile predictions are not calculated.,True,True,GATE_ENFORCED,True,141
+no_metric_calculation_gate,Guarantees interval coverage and sharpness metrics are not computed.,True,True,GATE_ENFORCED,True,141
+no_artifact_persistence_gate,Guarantees uncertainty artifacts are not persisted.,True,True,GATE_ENFORCED,True,141
+manual_review_gate,Requires operator manual review before downstream progression.,True,True,GATE_ENFORCED,True,141

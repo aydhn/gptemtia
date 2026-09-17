@@ -1,0 +1,12 @@
+prohibition_id,action_name,reason,severity,phase,is_prohibited,status
+PROH-001,live_trading,Direct submission of orders to real exchanges or accounts is strictly prohibited.,CRITICAL,144,True,BLOCKED_BY_POLICY
+PROH-002,broker_execution,Connecting broker APIs or executing automated broker orders is prohibited.,CRITICAL,144,True,BLOCKED_BY_POLICY
+PROH-003,investment_advice,"Generating financial advice, directional buy/sell claims, or position sizing is prohibited.",CRITICAL,144,True,BLOCKED_BY_POLICY
+PROH-004,guaranteed_signal,"Treating governance scores, readiness, or contracts as predictive market signals is prohibited.",CRITICAL,144,True,BLOCKED_BY_POLICY
+PROH-005,production_approval,Signing off production deployment without formal multi-phase governance completion is prohibited.,HIGH,144,True,BLOCKED_BY_POLICY
+PROH-006,broker_ready_approval,Claiming broker readiness or live gateway compatibility is prohibited.,HIGH,144,True,BLOCKED_BY_POLICY
+PROH-007,automatic_retraining,Unsupervised autonomous retraining on production market feeds is prohibited.,HIGH,144,True,BLOCKED_BY_POLICY
+PROH-008,automatic_deployment,Autonomous continuous deployment of models into execution runtime is prohibited.,HIGH,144,True,BLOCKED_BY_POLICY
+PROH-009,model_registry_write,"Writing weights, checkpoints, or artifacts to production model registries (e.g. MLflow) is prohibited.",HIGH,144,True,BLOCKED_BY_POLICY
+PROH-010,source_overwrite,"Overwriting, mutating, or destructively cleaning raw Lake/Store data is prohibited.",CRITICAL,144,True,BLOCKED_BY_POLICY
+PROH-011,article_scraping,Scraping copyrighted full-text articles or storing raw HTML bodies is prohibited.,HIGH,144,True,BLOCKED_BY_POLICY

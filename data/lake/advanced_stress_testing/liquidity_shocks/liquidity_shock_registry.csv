@@ -1,0 +1,6 @@
+shock_name,depth_reduction_ratio,description,expected_slippage_impact,execution_allowed,non_signal,local_only,manual_review_required
+order_book_depth_halving_contract,0.5,Emir Defteri Derinliği Yarılanması (%50 Kayıp): En iyi 5 kademedeki toplam lot hacminin yarıya inmesi.,+100%,False,True,True,True
+volume_freeze_80pct_contract,0.8,İşlem Hacmi Donması (%80 Daralma): Piyasa katılımcılarının geri çekilmesiyle hacmin %20'ye düşmesi.,+250%,False,True,True,True
+quote_staleness_spike_contract,0.6,Fiyat Bayatlaması ve Gecikme Şoku: Kotasyon güncelleme sıklığının 10x gecikmesi.,+150%,False,True,True,True
+illiquid_hours_execution_contract,0.7,Likidite Düşük Seans Saatleri Şoku: Asya seansı sonu veya New York kapanışı sonrası sığ piyasa koşulları.,+180%,False,True,True,True
+bid_ask_depth_asymmetry_contract,0.65,Alış-Satış Derinlik Asimetrisi: Panik satışta alış kademelerinin boşalması (bid-side vacuum).,+300%,False,True,True,True

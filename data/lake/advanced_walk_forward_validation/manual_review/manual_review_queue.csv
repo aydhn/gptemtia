@@ -1,0 +1,8 @@
+review_id,item_type,item_name,description,review_status,recommendation,destructive_action_allowed,non_signal
+REV-WF-01,SPLIT_CONTRACT,walk_forward_split_contracts,"Rolling, expanding ve anchored split parametrelerinin zaman serisi dinamiklerine uygunlugunu incele.",PENDING_REVIEW,Pencere uzunluklarinin ve adim boyutlarinin piyasa rejimleriyle uyumunu dogrula.,False,True
+REV-WF-02,OOS_BOUNDARY,oos_boundary_contracts,Orneklem disi kesisimsiz bolumleme sinirlarini ve holdout muhur durumunu denetle.,PENDING_REVIEW,OOS periyotlarinin egitim setinden sizinti almadigini teyit et.,False,True
+REV-WF-03,PURGE_EMBARGO,purge_embargo_policy,Purge ve embargo tampon surelerinin otoregresif etkiyi kesmeye yeterli oldugunu denetle.,PENDING_REVIEW,Etiket suresine bagli olarak en az 5-10 bar embargo araligi sagla.,False,True
+REV-WF-04,BENCHMARK_CONTRACT,benchmark_universe_and_baselines,"Buy & Hold, nakit ve esit agirlikli referans sozlesmelerinin gercekciligi.",PENDING_REVIEW,Maliyet modeliyle entegre net referans getiri formullerini kontrol et.,False,True
+REV-WF-05,METRIC_PLACEHOLDERS,validation_metric_placeholders,Metrik yer tutucularinin hesaplama yapmadan dogru formulleri gosterdigini incele.,PENDING_REVIEW,Hesaplamanin kesinlikle kapali oldugunu teyit et.,False,True
+REV-WF-06,BIAS_GUARDS,bias_and_lookahead_guards,"Lookahead, data snooping ve survivorship muhafizlarinin aktifligini dogrula.",PENDING_REVIEW,Yasakli kolon listesinin eksiksiz oldugunu kontrol et.,False,True
+REV-WF-07,PHASE_148_BLOCKERS,phase_148_stress_test_prerequisites,Phase 148 Stress Testing and Scenario Simulation oncesi tum engellerin temizlendigini kontrol et.,PENDING_REVIEW,Stress testi ve senaryo simulasyonlari sozlesme altyapisi icin hazir olun.,False,True

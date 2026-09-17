@@ -1,0 +1,8 @@
+{
+  "total_findings": 4,
+  "critical_findings": 0,
+  "high_findings": 0,
+  "info_findings": 4,
+  "all_manual_review_required": true,
+  "status": "FINDINGS_LOGGED"
+}

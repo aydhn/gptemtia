@@ -1,0 +1,5 @@
+metric_name,confidence_level,formula,description,profile_name,current_phase,calculated,value,status,domain
+historical_resampled_var_95,0.95,VaR_alpha = - quantile_alpha(Returns),95% Value at Risk under Monte Carlo return path resampling.,balanced_local_monte_carlo_robustness_contracts,149,False,,monte_carlo_contract_ready,distribution_placeholder_domain
+historical_resampled_var_99,0.99,VaR_alpha = - quantile_alpha(Returns),99% Value at Risk evaluating severe adverse loss thresholds.,balanced_local_monte_carlo_robustness_contracts,149,False,,monte_carlo_contract_ready,distribution_placeholder_domain
+expected_shortfall_cvar_95,0.95,CVaR_alpha = - E[R | R <= - VaR_alpha],Conditional expectation of loss given that the 95% VaR threshold is breached.,balanced_local_monte_carlo_robustness_contracts,149,False,,monte_carlo_contract_ready,distribution_placeholder_domain
+expected_shortfall_cvar_99,0.99,CVaR_alpha = - E[R | R <= - VaR_alpha],Conditional expectation of loss given that the 99% VaR threshold is breached.,balanced_local_monte_carlo_robustness_contracts,149,False,,monte_carlo_contract_ready,distribution_placeholder_domain

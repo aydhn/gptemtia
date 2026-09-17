@@ -1,0 +1,10 @@
+linkage_id,source_phase,component,linked_to,status,phase,non_signal
+EXP-LNK-137,Phase 137,Experiment Registry,Governance Contract Data Spec,LINKED,144,True
+EXP-LNK-138,Phase 138,Baseline Model Contracts,Baseline Model Card,LINKED,144,True
+EXP-LNK-139,Phase 139,GPU Resource Governance,Runtime Dependency Spec,LINKED,144,True
+EXP-LNK-140,Phase 140,Candidate & Ensemble Registry,Candidate & Ensemble Model Cards,LINKED,144,True
+EXP-LNK-141,Phase 141,Calibration & Uncertainty,Calibration Uncertainty Model Card,LINKED,144,True
+EXP-LNK-142,Phase 142,Drift Monitoring Registry,Risk Disclosure & Drift Card,LINKED,144,True
+EXP-LNK-143,Phase 143,Explainability Registry,Explainability Model Card,LINKED,144,True
+EXP-LNK-144,Phase 144,Governance & Model Cards,Governance Manifest,LINKED,144,True
+EXP-LNK-145,Phase 145,Advanced ML Acceptance,Phase 145 Handoff Contract,READY_FOR_HANDOFF,144,True

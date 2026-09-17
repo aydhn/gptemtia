@@ -1,0 +1,3 @@
+dependency,required_phase,contract_type,status,source_module
+phase_123_feature_quality_diagnostics,123,feature_quality_audit,satisfied,data_quality.feature_quality
+phase_124_featurestore_contracts,124,featurestore_catalog_schema,satisfied,ml.feature_store

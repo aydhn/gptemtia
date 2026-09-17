@@ -1,0 +1,17 @@
+{
+  "total_profiles": 3,
+  "profiles": [
+    "balanced_local_ensemble_model_contracts",
+    "strict_non_executing_ensemble_safety",
+    "dry_run_candidate_registry_focus"
+  ],
+  "all_dry_run": true,
+  "all_local_only": true,
+  "all_non_signal": true,
+  "real_training_allowed": false,
+  "ensemble_execution_allowed": false,
+  "production_ready": false,
+  "broker_ready": false,
+  "official_approval": false,
+  "active_profile": "balanced_local_ensemble_model_contracts"
+}

@@ -1,0 +1,3 @@
+depth_model_name,description,levels_simulated,is_placeholder,execution_allowed,is_active,non_signal
+l2_depth_ladder_placeholder,5 veya 10 kademeli alis-satis derinlik merdiveni sozlesmesi.,5,True,False,True,True
+book_liquidity_sweep_placeholder,Buyuk emirlerin kademeleri supurerek gerceklesme agirlikli ortalama fiyati (sweep VWAP) modeli.,10,True,False,True,True

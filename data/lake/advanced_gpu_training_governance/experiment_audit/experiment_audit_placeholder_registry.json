@@ -1,0 +1,9 @@
+{
+  "total_placeholders": 3,
+  "all_dry_run": true,
+  "all_training_disabled": true,
+  "all_performance_claims_disabled": true,
+  "current_phase": 139,
+  "non_signal": true,
+  "active_profile": "balanced_local_gpu_training_governance"
+}

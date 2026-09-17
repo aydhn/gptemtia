@@ -1,0 +1,2 @@
+guard_name,guard_type,description,enforcement_level,active,prohibited_column_count,non_signal,local_only
+stress_no_lookahead_guard,TEMPORAL_ORDER,Geleceğe bakış (lookahead) içeren sütunları ve ileri zamanlı birleştirmeleri engeller.,STRICT,True,9,True,True

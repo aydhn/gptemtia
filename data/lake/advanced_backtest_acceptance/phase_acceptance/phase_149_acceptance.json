@@ -1,0 +1,11 @@
+{
+  "domain": "phase_149_monte_carlo_acceptance_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "phase_ref": "Phase 149",
+  "phase_title": "Monte Carlo Robustness and Parameter Stability",
+  "total_checks": 10,
+  "passed_checks": 10,
+  "all_passed": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

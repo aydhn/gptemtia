@@ -1,0 +1,2 @@
+score,classification,meets_threshold,current_phase,target_final_phase,next_phase,non_signal,production_ready,broker_ready,official_approval,real_training_approved,performance_claim_generated,active_profile
+1.0,READY_FOR_GPU_RESOURCE_GOVERNANCE_DRY_RUN,True,139,160,140,True,False,False,False,False,False,balanced_local_gpu_training_governance

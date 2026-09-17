@@ -1,0 +1,5 @@
+suite_name,status,details,non_signal,local_only
+profile_registry,PASS,"{'passed': True, 'all_non_production': True, 'all_non_signal': True, 'zero_broker_ready': True, 'zero_live_trading_ready': True}",True,True
+scenario_contracts,PASS,"{'passed': True, 'all_stress_execution_blocked': True, 'all_scenario_simulation_blocked': True, 'all_live_trading_blocked': True, 'all_broker_blocked': True, 'all_metric_calc_blocked': True}",True,True
+manifest,PASS,"{'passed': True, 'checks_passed': 16, 'total_checks': 16}",True,True
+forbidden_claims,PASS,"{'is_clean': True, 'violations': [], 'non_signal': True}",True,True

@@ -1,0 +1,3 @@
+capability,execution_allowed,policy_reference,status,description
+physical_bootstrap_sampling,False,POLICY_PHASE_149_ZERO_BOOTSTRAP,execution_blocked_no_bootstrap,Prohibits drawing actual bootstrap resamples from return histories.
+block_bootstrap_generation,False,POLICY_PHASE_149_ZERO_BOOTSTRAP,execution_blocked_no_bootstrap,Prohibits generating simulated block bootstrap synthetic time series.

@@ -1,0 +1,16 @@
+method_name,is_permitted,category,description,enforced_by_policy,non_signal
+validate_contracts,True,validation,Validates model and harness contracts,True,True
+validate_inputs,True,validation,Validates feature store and dataset inputs,True,True
+check_safety_policies,True,safety,Enforces zero-training and guard policies,True,True
+simulate_training_plan_without_fit,True,simulation,Dry-run plan validation without fitting models,True,True
+return_blocked_execution_status,True,execution,Returns safe blocked execution status dict,True,True
+build_manual_review_report,True,reporting,Generates inspection queue report,True,True
+fit,False,execution,Forbidden model fitting,True,True
+train,False,execution,Forbidden model training,True,True
+predict,False,execution,Forbidden model prediction,True,True
+inference,False,execution,Forbidden forward pass inference,True,True
+transform,False,execution,Forbidden state transform,True,True
+save_model,False,persistence,Forbidden artifact dump,True,True
+write_model_registry,False,governance,Forbidden model registry write,True,True
+run_backtest,False,strategy,Forbidden backtest run,True,True
+generate_signal,False,strategy,Forbidden signal generation,True,True

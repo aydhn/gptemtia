@@ -1,0 +1,5 @@
+Bu çıktı Phase 149 Monte Carlo Robustness and Parameter Stability raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, Monte Carlo/readiness/robustness/parameter-stability değerini trade sinyali veya onay olarak kullanma, simülasyon/optimizasyon yürütme, backtest çalıştırma veya gerçek metrik hesaplama içermez. Yalnızca yerel araştırma sözleşmesidir.
+Total Robustness Contracts: 9
+All Contracts Valid: True
+All Executions Blocked: True
+Status: monte_carlo_contract_ready

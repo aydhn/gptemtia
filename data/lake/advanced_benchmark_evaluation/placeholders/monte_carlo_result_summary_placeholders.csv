@@ -1,0 +1,4 @@
+mc_summary_id,title,category,description,is_calculated,status,non_signal
+MC_SUM_CONFIDENCE_INTERVAL,Bootstrap 90%/95% Confidence Interval Summary Placeholder,quantile_envelope,Blok bootstrap getiri ve drawdown güven aralıkları özeti yer tutucusu.,False,evaluation_contract_ready,True
+MC_SUM_PERMUTATION_VARIANCE,Trade Permutation Sequence Variance Placeholder,sequence_luck,İşlem sıralamasının tesadüfi olmasından kaynaklanan kümülatif PnL saçılım özeti.,False,evaluation_contract_ready,True
+MC_SUM_WORST_PATH_PROFILE,Worst 5th Percentile Resampled Path Profile Placeholder,tail_scenario,Yeniden örneklenen en kötü %5'lik patikadaki sermaye tüketimi özeti.,False,evaluation_contract_ready,True

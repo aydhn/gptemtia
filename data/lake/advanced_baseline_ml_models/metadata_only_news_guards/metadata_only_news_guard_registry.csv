@@ -1,0 +1,5 @@
+guard_id,scope,enforced,description,non_signal,production_ready,broker_ready
+guard_no_full_text,copyright_protection,True,Blocks article bodies and full texts,True,False,False
+guard_no_scraped_html,scraping_protection,True,Blocks raw HTML and scraped web content,True,False,False
+guard_no_sentiment_model_output,model_output_boundary,True,Blocks NLP sentiment outputs and polarities,True,False,False
+guard_no_vector_embeddings,embedding_boundary,True,Blocks high-dimensional embeddings and vectors,True,False,False

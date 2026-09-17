@@ -1,0 +1,3 @@
+policy_name,description,placeholder_only,real_purging_executed,backtest_executed,optimizer_executed,embargo_value,purge_value,non_signal,manual_review_required,current_phase
+purged_k_fold_placeholder,Purged K-Fold contract placeholder. Embargo/purge values are metadata placeholders.,True,False,False,False,placeholder,placeholder,True,True,137
+combinatorial_purged_cv_placeholder,Combinatorial purged CV contract placeholder. Not executed.,True,False,False,False,placeholder,placeholder,True,True,137

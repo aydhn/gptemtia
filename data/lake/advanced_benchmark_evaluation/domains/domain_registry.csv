@@ -1,0 +1,37 @@
+domain_name,description,is_active,contract_ready,execution_allowed,metric_calculation_allowed,signal_allowed,status
+benchmark_evaluation_profile_domain,Profil konfigürasyonları ve çalışma modu yönetişimi.,True,True,False,False,False,evaluation_contract_ready
+benchmark_evaluation_domain,Merkezi benchmark değerlendirme etki alanı.,True,True,False,False,False,evaluation_contract_ready
+benchmark_evaluation_scope_domain,Dahil edilen ve hariç tutulan araştırma kapsamları.,True,True,False,False,False,evaluation_contract_ready
+benchmark_report_contract_domain,Benchmark karşılaştırma raporu sözleşmeleri.,True,True,False,False,False,evaluation_contract_ready
+strategy_evaluation_report_contract_domain,Strateji değerlendirme raporu sözleşmeleri.,True,True,False,False,False,evaluation_contract_ready
+benchmark_universe_report_domain,Emtia ve FX benchmark referans evreni sözleşmeleri.,True,True,False,False,False,evaluation_contract_ready
+benchmark_baseline_report_domain,"Pasif, nakit ve sepet temel referans stratejileri.",True,True,False,False,False,evaluation_contract_ready
+strategy_vs_benchmark_report_domain,Strateji ve benchmark görece karşılaştırma sözleşmeleri.,True,True,False,False,False,evaluation_contract_ready
+cost_adjusted_evaluation_domain,Komisyon ve finansman maliyeti düzeltilmiş değerlendirme.,True,True,False,False,False,evaluation_contract_ready
+slippage_adjusted_evaluation_domain,Fiyat kayması ve likidite etkisi düzeltilmiş değerlendirme.,True,True,False,False,False,evaluation_contract_ready
+regime_aware_evaluation_domain,Piyasa rejimlerine göre ayrıştırılmış değerlendirme.,True,True,False,False,False,evaluation_contract_ready
+walk_forward_evaluation_domain,Walk-forward pencerelerine dayalı değerlendirme sözleşmeleri.,True,True,False,False,False,evaluation_contract_ready
+oos_evaluation_domain,Örneklem dışı (OOS) kilitli dönem değerlendirme sözleşmeleri.,True,True,False,False,False,evaluation_contract_ready
+stress_aware_evaluation_domain,Kriz ve stres senaryolarına duyarlı değerlendirme.,True,True,False,False,False,evaluation_contract_ready
+monte_carlo_robustness_evaluation_domain,Monte Carlo yeniden örnekleme ve dayanıklılık değerlendirmesi.,True,True,False,False,False,evaluation_contract_ready
+parameter_stability_evaluation_domain,Parametre duyarlılığı ve plato kararlılığı değerlendirmesi.,True,True,False,False,False,evaluation_contract_ready
+governance_aware_evaluation_domain,Yönetişim ve denetim izi uyumlu raporlama.,True,True,False,False,False,evaluation_contract_ready
+result_disclosure_domain,Zorunlu metodolojik açıklama ve sınır bildirimleri.,True,True,False,False,False,evaluation_contract_ready
+summary_placeholder_domain,Hesaplanmamış özet şablonları.,True,True,False,False,False,evaluation_contract_ready
+metric_placeholder_domain,Hesaplanmamış performans ve risk metrik yer tutucuları.,True,True,False,False,False,evaluation_contract_ready
+risk_summary_domain,Kuyruk riski ve drawdown özet yer tutucuları.,True,True,False,False,False,evaluation_contract_ready
+cost_impact_summary_domain,Maliyet etkisi özet yer tutucuları.,True,True,False,False,False,evaluation_contract_ready
+slippage_impact_summary_domain,Kayma etkisi özet yer tutucuları.,True,True,False,False,False,evaluation_contract_ready
+report_disclaimer_domain,Yasal ve ampirik feragatname bildirimleri.,True,True,False,False,False,evaluation_contract_ready
+claim_guard_domain,Sonuç ve getiri iddialarını engelleyen muhafızlar.,True,True,False,False,False,evaluation_contract_ready
+strategy_approval_guard_domain,Strateji onayı ve sermaye tahsisini engelleyen muhafızlar.,True,True,False,False,False,evaluation_contract_ready
+benchmark_selection_bias_guard_domain,Benchmark seçim yanlılığı denetim muhafızları.,True,True,False,False,False,evaluation_contract_ready
+disabled_execution_domain,Devre dışı bırakılmış canlı ve simülasyon motorları.,True,True,False,False,False,evaluation_contract_ready
+dependency_domain,Yukarı akış faz bağımlılıkları sözleşmeleri.,True,True,False,False,False,evaluation_contract_ready
+finding_domain,Teşhis bulguları ve boşluk takibi.,True,True,False,False,False,evaluation_contract_ready
+readiness_score_domain,Sözleşme hazırlık ve bütünlük skoru.,True,True,False,False,False,evaluation_contract_ready
+manifest_domain,Master bütünlük ve kısıt manifestosu.,True,True,False,False,False,evaluation_contract_ready
+health_domain,Sistem sağlık kontrolü.,True,True,False,False,False,evaluation_contract_ready
+validation_domain,Çoklu doğrulama ve bütünlük kontrolleri.,True,True,False,False,False,evaluation_contract_ready
+safety_domain,NO-GO ve SAFE-GO güvenlik sınırları.,True,True,False,False,False,evaluation_contract_ready
+phase_152_handoff_domain,Phase 152 devir şartnamesi ve kabul hazırlığı.,True,True,False,False,False,evaluation_contract_ready

@@ -1,0 +1,7 @@
+{
+  "total_dependencies": 3,
+  "all_satisfied": true,
+  "current_phase": 139,
+  "non_signal": true,
+  "active_profile": "balanced_local_gpu_training_governance"
+}

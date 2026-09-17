@@ -1,0 +1,8 @@
+{
+  "domain": "survivorship_bias_domain",
+  "total_controls": 3,
+  "status": "governance_contract_ready",
+  "policy_mode": "point_in_time_reconstitution",
+  "non_signal": true,
+  "local_only": true
+}

@@ -1,0 +1,7 @@
+score,classification,passed_gates,total_gates,findings_count,meets_threshold,non_signal,production_ready,broker_ready,official_approval,drift_calculation_approved,retraining_trigger_approved,domain,readiness_score,governance_status,blocker_count,warning_count,is_ready_for_review,details
+100.0,HIGH_READINESS,5,5,0,True,True,False,False,False,False,False,model_drift,100.0,ready,0,0,True,"{'contracts_established': 6, 'non_executing': True}"
+100.0,HIGH_READINESS,5,5,0,True,True,False,False,False,False,False,data_drift,100.0,ready,0,0,True,"{'contracts_established': 6, 'non_executing': True}"
+100.0,HIGH_READINESS,5,5,0,True,True,False,False,False,False,False,feature_drift,100.0,ready,0,0,True,"{'contracts_established': 6, 'non_executing': True}"
+100.0,HIGH_READINESS,5,5,0,True,True,False,False,False,False,False,calibration_drift,100.0,ready,0,0,True,"{'contracts_established': 3, 'non_executing': True}"
+100.0,HIGH_READINESS,5,5,0,True,True,False,False,False,False,False,uncertainty_drift,100.0,ready,0,0,True,"{'contracts_established': 3, 'non_executing': True}"
+100.0,HIGH_READINESS,5,5,0,True,True,False,False,False,False,False,regime_drift,100.0,ready,0,0,True,"{'contracts_established': 3, 'non_executing': True}"

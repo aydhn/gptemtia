@@ -1,0 +1,7 @@
+source_phase,dependency_name,status,description,non_signal,production_ready,broker_ready
+121,feature_validation_no_lookahead,SATISFIED,Phase 121 no-lookahead and timestamp validation,True,False,False
+133,regime_validation_acceptance,SATISFIED,Phase 133 regime validation and no-lookahead acceptance,True,False,False
+134,regime_featurestore_validation,SATISFIED,Phase 134 validation-aware regime store contracts,True,False,False
+135,regime_acceptance_manifest,SATISFIED,Phase 135 regime block final acceptance,True,False,False
+136,gpu_ml_runtime_validation,SATISFIED,Phase 136 ML runtime foundation validation,True,False,False
+137,ml_dataset_contract_validation,SATISFIED,Phase 137 dataset contracts and experiment registry validation,True,False,False

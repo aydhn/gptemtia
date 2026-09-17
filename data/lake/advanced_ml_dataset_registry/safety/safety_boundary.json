@@ -1,0 +1,9 @@
+{
+  "total_boundaries": 34,
+  "no_go_count": 22,
+  "safe_go_count": 12,
+  "safety_status": "SECURE",
+  "live_trading_prohibited": true,
+  "model_training_blocked": true,
+  "non_signal": true
+}

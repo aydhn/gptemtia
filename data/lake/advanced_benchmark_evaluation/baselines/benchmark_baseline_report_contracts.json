@@ -1,0 +1,8 @@
+{
+  "domain": "benchmark_baseline_report_domain",
+  "total_baselines": 5,
+  "all_execution_disabled": true,
+  "all_metrics_disabled": true,
+  "status": "evaluation_contract_ready",
+  "non_signal": true
+}

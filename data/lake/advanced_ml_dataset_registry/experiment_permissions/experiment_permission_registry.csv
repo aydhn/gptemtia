@@ -1,0 +1,15 @@
+permission_name,description,allowed,non_signal,current_phase
+create_experiment_metadata_allowed,Creating experiment metadata is allowed.,True,True,137
+create_dataset_contract_reference_allowed,Creating dataset contract reference is allowed.,True,True,137
+create_feature_snapshot_contract_reference_allowed,Creating feature snapshot contract reference is allowed.,True,True,137
+create_run_plan_placeholder_allowed,Creating run plan placeholder is allowed.,True,True,137
+create_safety_governance_report_allowed,Creating safety/governance report is allowed.,True,True,137
+materialize_dataset_blocked,Materializing dataset is blocked.,False,True,137
+create_target_label_blocked,Creating target label is blocked.,False,True,137
+fit_model_blocked,Fitting model is blocked.,False,True,137
+train_model_blocked,Training model is blocked.,False,True,137
+predict_blocked,Prediction is blocked.,False,True,137
+persist_artifact_blocked,Persisting artifact is blocked.,False,True,137
+write_model_registry_blocked,Writing model registry is blocked.,False,True,137
+run_backtest_blocked,Running backtest is blocked.,False,True,137
+generate_signal_blocked,Generating signal is blocked.,False,True,137

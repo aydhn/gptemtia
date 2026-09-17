@@ -1,0 +1,26 @@
+blocker_type,phase_ref,severity_label,is_active,message,current_phase,status
+missing_phase_module,Portfolio Block (153-157),critical,False,Rule monitored: missing_phase_module,157,portfolio_acceptance_ready
+missing_manifest,Portfolio Block (153-157),critical,False,Rule monitored: missing_manifest,157,portfolio_acceptance_ready
+missing_validation_report,Portfolio Block (153-157),critical,False,Rule monitored: missing_validation_report,157,portfolio_acceptance_ready
+missing_safety_boundary,Portfolio Block (153-157),critical,False,Rule monitored: missing_safety_boundary,157,portfolio_acceptance_ready
+missing_disabled_execution_report,Portfolio Block (153-157),critical,False,Rule monitored: missing_disabled_execution_report,157,portfolio_acceptance_ready
+unsafe_claim_detected,Portfolio Block (153-157),critical,False,Rule monitored: unsafe_claim_detected,157,portfolio_acceptance_ready
+portfolio_construction_detected,Portfolio Block (153-157),critical,False,Rule monitored: portfolio_construction_detected,157,portfolio_acceptance_ready
+position_sizing_detected,Portfolio Block (153-157),critical,False,Rule monitored: position_sizing_detected,157,portfolio_acceptance_ready
+portfolio_optimization_detected,Portfolio Block (153-157),critical,False,Rule monitored: portfolio_optimization_detected,157,portfolio_acceptance_ready
+allocation_generation_detected,Portfolio Block (153-157),critical,False,Rule monitored: allocation_generation_detected,157,portfolio_acceptance_ready
+weight_generation_detected,Portfolio Block (153-157),critical,False,Rule monitored: weight_generation_detected,157,portfolio_acceptance_ready
+rebalance_generation_detected,Portfolio Block (153-157),critical,False,Rule monitored: rebalance_generation_detected,157,portfolio_acceptance_ready
+order_generation_detected,Portfolio Block (153-157),critical,False,Rule monitored: order_generation_detected,157,portfolio_acceptance_ready
+risk_reporting_execution_detected,Portfolio Block (153-157),critical,False,Rule monitored: risk_reporting_execution_detected,157,portfolio_acceptance_ready
+exposure_attribution_detected,Portfolio Block (153-157),critical,False,Rule monitored: exposure_attribution_detected,157,portfolio_acceptance_ready
+limit_monitoring_detected,Portfolio Block (153-157),critical,False,Rule monitored: limit_monitoring_detected,157,portfolio_acceptance_ready
+scenario_execution_detected,Portfolio Block (153-157),critical,False,Rule monitored: scenario_execution_detected,157,portfolio_acceptance_ready
+drawdown_control_detected,Portfolio Block (153-157),critical,False,Rule monitored: drawdown_control_detected,157,portfolio_acceptance_ready
+portfolio_adjustment_detected,Portfolio Block (153-157),critical,False,Rule monitored: portfolio_adjustment_detected,157,portfolio_acceptance_ready
+hedge_derisk_detected,Portfolio Block (153-157),critical,False,Rule monitored: hedge_derisk_detected,157,portfolio_acceptance_ready
+alert_dashboard_detected,Portfolio Block (153-157),critical,False,Rule monitored: alert_dashboard_detected,157,portfolio_acceptance_ready
+live_trading_detected,Portfolio Block (153-157),critical,False,Rule monitored: live_trading_detected,157,portfolio_acceptance_ready
+broker_execution_detected,Portfolio Block (153-157),critical,False,Rule monitored: broker_execution_detected,157,portfolio_acceptance_ready
+deployment_detected,Portfolio Block (153-157),critical,False,Rule monitored: deployment_detected,157,portfolio_acceptance_ready
+phase_158_handoff_missing,Portfolio Block (153-157),critical,False,Rule monitored: phase_158_handoff_missing,157,portfolio_acceptance_ready

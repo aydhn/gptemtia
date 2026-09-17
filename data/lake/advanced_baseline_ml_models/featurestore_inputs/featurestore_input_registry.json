@@ -1,0 +1,8 @@
+{
+  "total_namespaces": 5,
+  "all_no_lookahead_verified": true,
+  "all_materialization_blocked": true,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false
+}

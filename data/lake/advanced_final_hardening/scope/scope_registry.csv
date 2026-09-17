@@ -1,0 +1,18 @@
+scope_item,permission,description,domain,current_phase,target_final_phase,local_only,dry_run,non_production,status
+final_hardening_contracts,ALLOWED,Final hardening sözleşme tanımları ve metaveri üretimi,final_hardening_scope_domain,159,160,True,True,True,final_hardening_contract_ready
+operator_runbook_contracts,ALLOWED,Operatör prosedürleri ve kılavuz sözleşmeleri,final_hardening_scope_domain,159,160,True,True,True,final_hardening_contract_ready
+release_candidate_contracts,ALLOWED,Release candidate kontrol listeleri ve sözleşme katmanı,final_hardening_scope_domain,159,160,True,True,True,final_hardening_contract_ready
+freeze_audits,ALLOWED,"Konfigürasyon, dokümantasyon, güvenlik, doğrulama ve bağımlılık dondurma denetimleri",final_hardening_scope_domain,159,160,True,True,True,final_hardening_contract_ready
+system_inventories,ALLOWED,"Script, test, doküman, rapor, veri ambarı ve sistem bileşenleri envanterleri",final_hardening_scope_domain,159,160,True,True,True,final_hardening_contract_ready
+safety_boundaries,ALLOWED,No-go ve safe-go sınırlarının sistem seviyesinde işletilmesi,final_hardening_scope_domain,159,160,True,True,True,final_hardening_contract_ready
+phase_160_handoff,ALLOWED,Phase 160 Full Advanced Bot Final Delivery devir sözleşmesi,final_hardening_scope_domain,159,160,True,True,True,final_hardening_contract_ready
+live_trading,BLOCKED,Canlı piyasada emir iletimi veya işlem açma,final_hardening_scope_domain,159,160,True,True,True,final_hardening_contract_ready
+broker_integration,BLOCKED,Broker API bağlantısı veya hesap yönetimi,final_hardening_scope_domain,159,160,True,True,True,final_hardening_contract_ready
+signal_generation,BLOCKED,Kesin AL/SAT veya yönlü trade sinyali üretimi,final_hardening_scope_domain,159,160,True,True,True,final_hardening_contract_ready
+investment_advice,BLOCKED,Yatırım tavsiyesi veya portföy yönlendirmesi,final_hardening_scope_domain,159,160,True,True,True,final_hardening_contract_ready
+system_execution,BLOCKED,Gerçek full-system veya end-to-end bot çalıştırma,final_hardening_scope_domain,159,160,True,True,True,final_hardening_contract_ready
+model_inference,BLOCKED,"Gerçek model eğitme, fit etme veya tahmin yürütme",final_hardening_scope_domain,159,160,True,True,True,final_hardening_contract_ready
+backtest_optimizer_execution,BLOCKED,Gerçek backtest veya portföy optimizasyonu çalıştırma,final_hardening_scope_domain,159,160,True,True,True,final_hardening_contract_ready
+production_deployment,BLOCKED,Gerçek ortama veya release sunucusuna deploy etme,final_hardening_scope_domain,159,160,True,True,True,final_hardening_contract_ready
+model_registry_write,BLOCKED,Model registry'ye yazma veya model artifact persist etme,final_hardening_scope_domain,159,160,True,True,True,final_hardening_contract_ready
+data_destructive_ops,BLOCKED,"Dosya silme, kaynak veri ezme, otomatik temizleme",final_hardening_scope_domain,159,160,True,True,True,final_hardening_contract_ready

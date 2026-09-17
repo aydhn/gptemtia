@@ -1,0 +1,11 @@
+{
+  "domain": "phase_150_backtest_governance_acceptance_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "phase_ref": "Phase 150",
+  "phase_title": "Backtest Governance and Bias Control",
+  "total_checks": 10,
+  "passed_checks": 10,
+  "all_passed": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

@@ -1,0 +1,23 @@
+constraint_name,constraint_family,description,mathematical_formulation,bound_type,is_placeholder,is_enforced_live,allows_weight_generation,allows_allocation_generation,manual_review_required
+long_only_constraint,weight,Sadece uzun pozisyon kisiti,"w_i \ge 0, \forall i",lower_bound,True,False,False,False,True
+max_weight_constraint,weight,Maksimum varlik agirligi tavan kisiti,"w_i \le w_{\max}, \forall i",upper_bound,True,False,False,False,True
+min_weight_constraint,weight,Minimum varlik agirligi taban kisiti,"w_i \ge w_{\min}, \forall i",lower_bound,True,False,False,False,True
+group_weight_constraint,weight,Sektor veya varlik grubu agirlik kisiti,\sum_{i \in G_k} w_i \le W_{G_k},upper_bound,True,False,False,False,True
+asset_count_constraint,cardinality,Portfoy aktif varlik adedi kisiti,\sum_{i=1}^N \mathbf{1}_{\{w_i > 0\}} \le K,cardinality_bound,True,False,False,False,True
+concentration_constraint,concentration,Portfoy yogunlasma (Herfindahl) kisiti,\sum_{i=1}^N w_i^2 \le HHI_{\max},upper_bound,True,False,False,False,True
+exposure_constraint,exposure,Toplam portfoy maruziyet kisiti,\sum_{i=1}^N w_i = 1,equality,True,False,False,False,True
+gross_exposure_constraint,exposure,Brut maruziyet kisiti,\sum_{i=1}^N |w_i| \le L_{\text{gross}},upper_bound,True,False,False,False,True
+net_exposure_constraint,exposure,Net maruziyet kisiti,|\sum_{i=1}^N w_i| \le L_{\text{net}},box,True,False,False,False,True
+currency_exposure_constraint,currency,Para birimi maruziyet tavan kisiti,\sum_{i \in \text{CCY}_c} |w_i| \le L_{\text{ccy}},upper_bound,True,False,False,False,True
+cross_asset_exposure_constraint,cross_asset,Capraz varlik sinifi maruziyet kisiti,\sum_{i \in \text{AssetClass}_m} w_i \le L_{\text{class}},upper_bound,True,False,False,False,True
+correlation_constraint,correlation,Varliklar arasi maksimum korelasyon kisiti,"\text{Corr}(i, j) \le \rho_{\max}",pairwise_bound,True,False,False,False,True
+liquidity_constraint,liquidity,Likidite ve ortalama gunluk hacim (ADV) kisiti,w_i \cdot V_{\text{port}} \le \alpha \cdot \text{ADV}_i,upper_bound,True,False,False,False,True
+turnover_constraint,turnover,Portfoy devir hizi tavan kisiti,"\sum_{i=1}^N |w_i - w_{i,0}| \le \tau_{\max}",upper_bound,True,False,False,False,True
+transaction_cost_constraint,cost,Toplam islem maliyeti tavan kisiti,"\sum_{i=1}^N c_i |w_i - w_{i,0}| \le C_{\max}",upper_bound,True,False,False,False,True
+slippage_constraint,slippage,Piyasa kaymasi etkisi tavan kisiti,"\sum_{i=1}^N \eta_i |w_i - w_{i,0}|^{1.5} \le S_{\max}",upper_bound,True,False,False,False,True
+risk_budget_constraint,risk_budget,Risk butcesi uyum kisiti,\frac{w_i (\Sigma w)_i}{w^T \Sigma w} \le b_i,upper_bound,True,False,False,False,True
+volatility_constraint,volatility,Portfoy yillik volatilite tavan kisiti,\sqrt{w^T \Sigma w} \le \sigma_{\max},upper_bound,True,False,False,False,True
+drawdown_constraint,drawdown,Maksimum portfoy dusus butcesi kisiti,\text{MaxDD}(w) \le \text{DD}_{\max},upper_bound,True,False,False,False,True
+leverage_constraint,leverage,Maksimum kaldirac tavan kisiti,\sum_{i=1}^N |w_i| \le 1.0,upper_bound,True,False,False,False,True
+margin_constraint,margin,Baslangic teminati tavan kisiti,\sum_{i=1}^N m_i |w_i| \le M_{\max},upper_bound,True,False,False,False,True
+rebalance_constraint,rebalance,Yeniden dengeleme esik kisiti,"|w_i - w_{i,0}| > \delta_{\text{reb}}",trigger_bound,True,False,False,False,True

@@ -1,0 +1,2 @@
+output_name,contract_validation_status,blocked_reason,manual_review_required,actual_breach_detected,live_alert_dispatched,current_phase,target_final_phase,next_phase
+limit_monitoring_output_contract,limit_monitoring_contract_ready,execution_contract_only,True,False,False,155,160,156

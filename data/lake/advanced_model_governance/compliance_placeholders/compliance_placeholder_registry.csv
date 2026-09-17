@@ -1,0 +1,4 @@
+placeholder_id,regulatory_framework,scope,legal_opinion,official_approval,phase,is_placeholder,is_legal_opinion,is_regulatory_approval,is_production_approval
+CMP-01,EU_AI_ACT_SIMULATION,Risk categorization placeholder for algorithmic systems.,NONE,NONE,144,True,False,False,False
+CMP-02,SR_11_7_MODEL_RISK,Model inventory and conceptual soundness placeholder.,NONE,NONE,144,True,False,False,False
+CMP-03,NIST_AI_RMF,"Govern, Map, Measure, Manage governance mapping placeholder.",NONE,NONE,144,True,False,False,False

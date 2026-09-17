@@ -1,0 +1,4 @@
+split_name,train_ratio,val_ratio,test_ratio,embargo_bars,purge_bars,description,split_executed,targets_generated,predictions_generated,non_signal
+standard_60_20_20_split,0.6,0.2,0.2,10,5,"Standart %60 egitim, %20 ic dogrulama, %20 OOS test orani ve purge/embargo korumali sozlesme.",False,False,False,True
+conservative_70_15_15_split,0.7,0.15,0.15,15,10,Daha uzun egitim gecmisi gerektiren modeller icin %70-%15-%15 bolum sozlesmesi.,False,False,False,True
+strict_holdout_50_25_25_split,0.5,0.25,0.25,21,10,Genis OOS test donemi sunan %50-%25-%25 bolumleme sozlesmesi.,False,False,False,True

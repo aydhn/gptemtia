@@ -1,0 +1,19 @@
+keyword,test_query,blocked,block_reason,status,dry_run,non_signal
+fit,execute_fit_command,True,Detected forbidden execution keywords: ['fit'],PASS_BLOCKED,True,True
+train,execute_train_command,True,Detected forbidden execution keywords: ['train'],PASS_BLOCKED,True,True
+predict,execute_predict_command,True,Detected forbidden execution keywords: ['predict'],PASS_BLOCKED,True,True
+inference,execute_inference_command,True,Detected forbidden execution keywords: ['inference'],PASS_BLOCKED,True,True
+transform,execute_transform_command,True,Detected forbidden execution keywords: ['transform'],PASS_BLOCKED,True,True
+backward,execute_backward_command,True,Detected forbidden execution keywords: ['backward'],PASS_BLOCKED,True,True
+optimizer,execute_optimizer_command,True,Detected forbidden execution keywords: ['optimizer'],PASS_BLOCKED,True,True
+step,execute_step_command,True,Detected forbidden execution keywords: ['step'],PASS_BLOCKED,True,True
+loss.backward,execute_loss.backward_command,True,"Detected forbidden execution keywords: ['backward', 'loss.backward']",PASS_BLOCKED,True,True
+save_model,execute_save_model_command,True,Detected forbidden execution keywords: ['save_model'],PASS_BLOCKED,True,True
+model_registry,execute_model_registry_command,True,Detected forbidden execution keywords: ['model_registry'],PASS_BLOCKED,True,True
+target,execute_target_command,True,Detected forbidden execution keywords: ['target'],PASS_BLOCKED,True,True
+label,execute_label_command,True,Detected forbidden execution keywords: ['label'],PASS_BLOCKED,True,True
+signal,execute_signal_command,True,Detected forbidden execution keywords: ['signal'],PASS_BLOCKED,True,True
+buy,execute_buy_command,True,Detected forbidden execution keywords: ['buy'],PASS_BLOCKED,True,True
+sell,execute_sell_command,True,Detected forbidden execution keywords: ['sell'],PASS_BLOCKED,True,True
+long,execute_long_command,True,Detected forbidden execution keywords: ['long'],PASS_BLOCKED,True,True
+short,execute_short_command,True,Detected forbidden execution keywords: ['short'],PASS_BLOCKED,True,True

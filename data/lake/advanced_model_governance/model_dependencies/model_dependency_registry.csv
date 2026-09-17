@@ -1,0 +1,4 @@
+mdep_id,name,phase_ref,role,phase,status,non_signal
+MDEP-01,baseline_model_contract_ref,Phase 138,Baseline linear and tree model contract interfaces.,144,SATISFIED,True
+MDEP-02,candidate_model_contract_ref,Phase 140,Advanced candidate family specifications.,144,SATISFIED,True
+MDEP-03,ensemble_model_contract_ref,Phase 140,"Voting, blending, and stacking strategy contracts.",144,SATISFIED,True

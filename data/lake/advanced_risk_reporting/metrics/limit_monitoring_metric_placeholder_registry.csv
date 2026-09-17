@@ -1,0 +1,4 @@
+metric_name,metric_domain,formula_description,unit,is_placeholder,actual_value,is_calculated,current_phase,target_final_phase,next_phase
+limit_utilization_ratio,limit_metrics,Current metric value divided by hard limit threshold: Value / Limit,ratio,True,,False,155,160,156
+breach_count_placeholder,limit_metrics,Number of hard limits exceeded at evaluation timestamp,count,True,,False,155,160,156
+warning_count_placeholder,limit_metrics,Number of soft limits approaching threshold at evaluation timestamp,count,True,,False,155,160,156

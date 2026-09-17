@@ -1,0 +1,8 @@
+{
+  "domain": "health_domain",
+  "total_checks": 20,
+  "passed_checks": 20,
+  "failed_checks": 0,
+  "all_passed": true,
+  "status": "portfolio_acceptance_ready"
+}

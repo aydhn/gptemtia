@@ -1,0 +1,14 @@
+warning_id,warning_name,warning_text,is_acknowledged,domain,non_signal,local_only,dry_run,non_production,current_phase,status
+WARN-01,contract_only_release_candidate,Bu sürüm adayı bir sözleşme katmanıdır; gerçek production release değildir.,True,warning_domain,True,True,True,True,159,final_hardening_contract_ready
+WARN-02,placeholder_only_evidence,Tüm yedekleme ve kurtarma mekanizmaları yerel simülasyon ve sözleşme seviyesindedir.,True,warning_domain,True,True,True,True,159,final_hardening_contract_ready
+WARN-03,no_real_system_execution,Sistem tam otomasyonla çalıştırılmamıştır; canlı bot işletimi kapalıdır.,True,warning_domain,True,True,True,True,159,final_hardening_contract_ready
+WARN-04,no_live_trading,Canlı alım satım emirleri kesinlikle bloke edilmiştir.,True,warning_domain,True,True,True,True,159,final_hardening_contract_ready
+WARN-05,no_broker_execution,Broker API entegrasyonu tamamen devre dışıdır.,True,warning_domain,True,True,True,True,159,final_hardening_contract_ready
+WARN-06,no_production_deployment,Canlı sunucuya dağıtım yapılmamıştır ve onaylanmamıştır.,True,warning_domain,True,True,True,True,159,final_hardening_contract_ready
+WARN-07,no_release_deployment,Harici ortama release aktarımı yapılmamıştır.,True,warning_domain,True,True,True,True,159,final_hardening_contract_ready
+WARN-08,no_model_registry_write,Model registry üzerine hiçbir kayıt yazılmamıştır.,True,warning_domain,True,True,True,True,159,final_hardening_contract_ready
+WARN-09,no_artifact_persistence,Hiçbir model ağırlığı diske kaydedilmemiştir.,True,warning_domain,True,True,True,True,159,final_hardening_contract_ready
+WARN-10,no_prediction,Canlı tahmin veya inference yürütülmemiştir.,True,warning_domain,True,True,True,True,159,final_hardening_contract_ready
+WARN-11,no_signal_generation,Hiçbir AL/SAT sinyali veya yatırım tavsiyesi üretilmemiştir.,True,warning_domain,True,True,True,True,159,final_hardening_contract_ready
+WARN-12,manual_review_required,Tüm kritik adımlar için insan operatör incelemesi zorunludur.,True,warning_domain,True,True,True,True,159,final_hardening_contract_ready
+WARN-13,phase_160_must_remain_non_live,Phase 160 nihai teslimatı da canlı işlem ve broker kilitlerini korumak zorundadır.,True,warning_domain,True,True,True,True,159,final_hardening_contract_ready

@@ -1,0 +1,2 @@
+profile_name,readiness_score,classification,meets_threshold,min_threshold,total_checks,passed_checks,warning_count,blocker_count,non_signal,dry_run,local_only,non_production,broker_ready,production_ready,live_trading_ready,current_phase,status
+balanced_local_portfolio_acceptance_contracts,0.95,portfolio_acceptance_contract_ready_non_production,True,0.5,10,9,1,0,True,True,True,True,False,False,False,157,portfolio_acceptance_ready

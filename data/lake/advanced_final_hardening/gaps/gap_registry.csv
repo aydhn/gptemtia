@@ -1,0 +1,8 @@
+gap_id,gap_name,description,is_open,domain,non_signal,local_only,dry_run,non_production,current_phase,status
+GAP-01,optional_doc_missing,İsteğe bağlı dokümantasyon notu,False,gap_domain,True,True,True,True,159,final_hardening_contract_ready
+GAP-02,optional_report_missing,İsteğe bağlı ek rapor notu,False,gap_domain,True,True,True,True,159,final_hardening_contract_ready
+GAP-03,runbook_detail_incomplete,Runbook detay tamamlama notu,False,gap_domain,True,True,True,True,159,final_hardening_contract_ready
+GAP-04,manual_review_note_missing,Manuel inceleme notu,False,gap_domain,True,True,True,True,159,final_hardening_contract_ready
+GAP-05,final_inventory_incomplete,Envanter listesi notu,False,gap_domain,True,True,True,True,159,final_hardening_contract_ready
+GAP-06,release_candidate_note_missing,Release candidate genel notu,False,gap_domain,True,True,True,True,159,final_hardening_contract_ready
+GAP-07,final_delivery_prerequisite_note_missing,Phase 160 nihai teslim önşart notu,False,gap_domain,True,True,True,True,159,final_hardening_contract_ready

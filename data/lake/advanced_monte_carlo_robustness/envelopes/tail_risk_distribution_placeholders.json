@@ -1,0 +1,7 @@
+{
+  "domain": "distribution_placeholder_domain",
+  "total_tail_risk_items": 4,
+  "all_uncalculated": true,
+  "profile_name": "balanced_local_monte_carlo_robustness_contracts",
+  "status": "monte_carlo_contract_ready"
+}

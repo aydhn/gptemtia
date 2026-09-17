@@ -1,0 +1,12 @@
+{
+  "domain": "health_domain",
+  "active_profile": "balanced_local_advanced_ml_acceptance",
+  "current_phase": 145,
+  "target_final_phase": 160,
+  "next_phase": 146,
+  "total_checks": 18,
+  "healthy_checks": 18,
+  "all_healthy": true,
+  "non_signal": true,
+  "status": "HEALTHY"
+}

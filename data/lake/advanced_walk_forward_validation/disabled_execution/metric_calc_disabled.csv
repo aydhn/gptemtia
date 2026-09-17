@@ -1,0 +1,3 @@
+calculation_target,is_blocked,reason,enforced,non_signal
+alpha_calculation_engine,True,Gercek alfa hesaplamasi Phase 147 sozlesme fazinda devre disidir.,True,True
+information_ratio_engine,True,Information ratio ve tracking error hesaplamasi devre disidir.,True,True

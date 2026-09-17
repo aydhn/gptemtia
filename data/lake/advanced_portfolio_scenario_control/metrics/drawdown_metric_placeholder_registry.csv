@@ -1,0 +1,3 @@
+metric_id,metric_name,metric_category,formula_spec,is_calculated,status
+MET-DD-001,maximum_drawdown_pct,DRAWDOWN,(NAV_t - Peak_t) / Peak_t,False,PLACEHOLDER_ONLY
+MET-DD-002,underwater_duration_days,DURATION,t - t_peak,False,PLACEHOLDER_ONLY

@@ -1,0 +1,12 @@
+{
+  "total_checks": 5,
+  "passed_checks": 5,
+  "validation_status": "VALIDATION_PASS",
+  "all_passed": true,
+  "forbidden_claims_clean": true,
+  "current_phase": 139,
+  "target_final_phase": 160,
+  "next_phase": 140,
+  "non_signal": true,
+  "active_profile": "balanced_local_gpu_training_governance"
+}

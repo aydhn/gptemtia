@@ -1,0 +1,9 @@
+state,allowed_next_states,description,is_active,non_signal
+CREATED,"['SUBMITTED', 'REJECTED']",Emir sinyal uzerine olusturuldu.,True,True
+SUBMITTED,"['ACKNOWLEDGED', 'REJECTED', 'CANCELLED']",Emir simulasyon motoruna iletildi.,True,True
+ACKNOWLEDGED,"['PARTIALLY_FILLED', 'FILLED', 'CANCELLED']",Emir deftere yazildi.,True,True
+PARTIALLY_FILLED,"['PARTIALLY_FILLED', 'FILLED', 'CANCELLED']",Emir kismi olarak gerceklesti.,True,True
+FILLED,['CLOSED'],Emir tamamen gerceklesti.,True,True
+CANCELLED,[],Emir iptal edildi.,True,True
+REJECTED,[],Emir kurallar geregi reddedildi.,True,True
+CLOSED,[],Pozisyon baglantisi kapandi.,True,True

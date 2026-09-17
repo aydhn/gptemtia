@@ -1,0 +1,2 @@
+readiness_score,classification,min_required_score,threshold_met,is_trading_signal,is_investment_advice,production_ready,broker_ready,live_trading_ready,domain,non_signal,local_only,dry_run,non_production,current_phase,status
+0.95,release_candidate_contract_ready_non_production,0.5,True,False,False,False,False,False,readiness_score_domain,True,True,True,True,159,release_candidate_contract_ready

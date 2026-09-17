@@ -1,0 +1,11 @@
+{
+  "domain": "portfolio_acceptance_scope_domain",
+  "total_scope_items": 14,
+  "in_scope_count": 4,
+  "out_of_scope_count": 10,
+  "live_trading_excluded": true,
+  "portfolio_execution_excluded": true,
+  "risk_execution_excluded": true,
+  "scenario_execution_excluded": true,
+  "status": "portfolio_acceptance_ready"
+}

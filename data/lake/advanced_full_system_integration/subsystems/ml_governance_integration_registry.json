@@ -1,0 +1,9 @@
+{
+  "active_profile": "balanced_local_full_system_integration_contracts",
+  "total_components": 7,
+  "all_training_blocked": true,
+  "all_inference_blocked": true,
+  "all_verified": true,
+  "status": "full_system_integration_ready",
+  "non_signal": true
+}

@@ -1,0 +1,31 @@
+action_name,decision,boundary_label,description,is_permitted,current_phase,status
+proceed_to_phase_158_full_system_integration_contracts,GO,go_contract_only,Advance to Phase 158 contract specifications,True,157,portfolio_acceptance_ready
+proceed_to_advanced_acceptance_rehearsal_design,GO,go_contract_only,Advance to dry-run acceptance rehearsal design,True,157,portfolio_acceptance_ready
+proceed_to_non_live_system_wide_validation_design,GO,go_contract_only,Design cross-block offline validation routines,True,157,portfolio_acceptance_ready
+proceed_to_final_integration_boundary_design,GO,go_contract_only,Establish final integration boundary conditions,True,157,portfolio_acceptance_ready
+live_trading,NO-GO,no_go_live_trading,Real-money order transmission prohibited,False,157,portfolio_acceptance_ready
+broker_execution,NO-GO,no_go_broker_execution,Broker API interactions prohibited,False,157,portfolio_acceptance_ready
+investment_advice,NO-GO,no_go_investment_advice,Providing investment or trading advice prohibited,False,157,portfolio_acceptance_ready
+signal_generation,NO-GO,no_go_signal_generation,Generating actionable trade signals prohibited,False,157,portfolio_acceptance_ready
+portfolio_construction,NO-GO,no_go_portfolio_construction,Real portfolio construction prohibited,False,157,portfolio_acceptance_ready
+position_sizing,NO-GO,no_go_position_sizing,Real position size calculation prohibited,False,157,portfolio_acceptance_ready
+portfolio_optimization,NO-GO,no_go_portfolio_optimization,Executing numerical portfolio optimizer prohibited,False,157,portfolio_acceptance_ready
+allocation_generation,NO-GO,no_go_allocation,Generating capital allocation prohibited,False,157,portfolio_acceptance_ready
+weight_generation,NO-GO,no_go_allocation,Generating live portfolio weights prohibited,False,157,portfolio_acceptance_ready
+rebalance_generation,NO-GO,no_go_rebalance,Generating rebalance trade lists prohibited,False,157,portfolio_acceptance_ready
+order_generation,NO-GO,no_go_order_generation,Generating orders prohibited,False,157,portfolio_acceptance_ready
+risk_reporting_execution,NO-GO,no_go_risk_reporting,Live risk report execution prohibited,False,157,portfolio_acceptance_ready
+exposure_attribution_execution,NO-GO,no_go_risk_reporting,Real exposure attribution calculation prohibited,False,157,portfolio_acceptance_ready
+limit_monitoring_execution,NO-GO,no_go_limit_monitoring,Active limit monitoring prohibited,False,157,portfolio_acceptance_ready
+scenario_execution,NO-GO,no_go_scenario_execution,Executing scenario simulation on live books prohibited,False,157,portfolio_acceptance_ready
+drawdown_control_execution,NO-GO,no_go_drawdown_control,Triggering automated drawdown control prohibited,False,157,portfolio_acceptance_ready
+portfolio_adjustment,NO-GO,no_go_portfolio_adjustment,Automated portfolio adjustments prohibited,False,157,portfolio_acceptance_ready
+hedge_derisk,NO-GO,no_go_hedge_derisk,Automated hedge or de-risking actions prohibited,False,157,portfolio_acceptance_ready
+alert_generation,NO-GO,no_go_risk_reporting,Generating live push alerts prohibited,False,157,portfolio_acceptance_ready
+dashboard_generation,NO-GO,no_go_risk_reporting,Real-time dashboard deployment prohibited,False,157,portfolio_acceptance_ready
+metric_calculation,NO-GO,no_go_metric_calculation,Real Sharpe/VaR/ES/drawdown calculation prohibited,False,157,portfolio_acceptance_ready
+optimizer_execution,NO-GO,no_go_portfolio_optimization,Active solver execution prohibited,False,157,portfolio_acceptance_ready
+model_training,NO-GO,no_go_model_training,Real machine learning model training prohibited,False,157,portfolio_acceptance_ready
+prediction,NO-GO,no_go_prediction,Generating model predictions prohibited,False,157,portfolio_acceptance_ready
+deployment,NO-GO,no_go_deployment,Production deployment prohibited,False,157,portfolio_acceptance_ready
+model_registry_write,NO-GO,no_go_deployment,Writing model artifacts to registry prohibited,False,157,portfolio_acceptance_ready

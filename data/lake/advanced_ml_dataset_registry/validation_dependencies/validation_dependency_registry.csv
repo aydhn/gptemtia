@@ -1,0 +1,8 @@
+dep_key,source_phase,description,non_signal,manual_review_required,current_phase
+phase_121_validation,phase_121,Phase 121 Feature Validation output dependency.,True,True,137
+phase_133_regime_validation,phase_133,Phase 133 Regime Validation Acceptance output dependency.,True,True,137
+phase_134_featurestore_validation,phase_134,Phase 134 FeatureStore Integration Validation output dependency.,True,True,137
+phase_135_acceptance_validation,phase_135,Phase 135 Regime Acceptance output dependency.,True,True,137
+phase_136_runtime_validation,phase_136,Phase 136 GPU/ML Runtime validation output dependency.,True,True,137
+phase_137_validation,phase_137,Phase 137 Advanced ML Dataset Registry validation output dependency.,True,True,137
+phase_125_factor_validation,phase_125,Phase 125 Feature Factor Acceptance validation dependency.,True,True,137

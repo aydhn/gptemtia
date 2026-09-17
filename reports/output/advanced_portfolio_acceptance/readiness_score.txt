@@ -1,0 +1,7 @@
+Bu rapor Phase 157 Portfolio Acceptance Report çıktısıdır. Gerçek portfolio construction, position sizing, portfolio optimization, allocation, rebalance, order generation, risk reporting, exposure attribution, limit monitoring, scenario execution, drawdown control, hedge/de-risk, alerting, dashboard, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, metric calculation, performance claim, portfolio approval, production-ready, broker-ready, deployment, model registry write, artifact persistence, scraping, credential output veya source overwrite değildir.
+Readiness Score: 0.9500
+Classification: portfolio_acceptance_contract_ready_non_production
+Meets Threshold: True
+Total Checks: 10
+Passed Checks: 9
+Trade Signal: False | Production Ready: False | Broker Ready: False

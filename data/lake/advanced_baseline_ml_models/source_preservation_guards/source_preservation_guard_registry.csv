@@ -1,0 +1,5 @@
+guard_id,scope,enforced,description,non_signal,production_ready,broker_ready
+guard_no_source_overwrite,storage_integrity,True,Strictly prohibits modifying or overwriting source files,True,False,False
+guard_no_file_deletion,storage_integrity,True,Strictly prohibits deleting data lake or catalog files,True,False,False
+guard_no_auto_imputation,data_quality,True,Prohibits automated filling of missing values without explicit audit,True,False,False
+guard_no_auto_feature_drop,feature_governance,True,Prohibits automated dropping of features during ingestion,True,False,False

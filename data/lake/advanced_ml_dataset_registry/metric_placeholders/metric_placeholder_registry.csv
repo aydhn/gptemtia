@@ -1,0 +1,8 @@
+metric_family_key,metric_group,metrics,description,target_phase,calculation_allowed,target_label_required,prediction_required,non_signal,manual_review_required
+classification_metric_placeholder,classification,"['log_loss', 'brier_score', 'roc_auc', 'f1_macro']",Classification evaluation metric placeholders for categorical regime target,138,False,False,False,True,True
+regression_metric_placeholder,regression,"['mse', 'mae', 'directional_accuracy_placeholder']",Regression evaluation metric placeholders for continuous factor changes,138,False,False,False,True,True
+calibration_metric_placeholder,probability_calibration,"['expected_calibration_error', 'maximum_calibration_error']",Probability calibration diagnostic placeholders for Phase 141,141,False,False,False,True,True
+ranking_metric_placeholder,ranking_fidelity,"['spearman_rank_correlation', 'ndcg']",Cross-sectional ranking fidelity metric placeholders,140,False,False,False,True,True
+drift_metric_placeholder,model_drift,"['prediction_drift_psi', 'concept_drift_ks']",Model and concept drift metric placeholders for Phase 142,142,False,False,False,True,True
+explainability_metric_placeholder,attribution,"['shap_attribution_placeholder', 'permutation_importance_placeholder']",Feature attribution and explainability metric placeholders for Phase 143,143,False,False,False,True,True
+robustness_metric_placeholder,stress_testing,"['subperiod_stability', 'worst_regime_decay']",Subperiod stability and regime transition robustness placeholders,144,False,False,False,True,True

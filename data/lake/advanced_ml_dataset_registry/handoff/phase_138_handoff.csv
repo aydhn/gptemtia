@@ -1,0 +1,14 @@
+prerequisite_key,category,description,status,is_ready,non_signal
+dataset_contracts_established,contract_layer,All 9 ML dataset contracts established with source references and schema requirements,SATISFIED,True,True
+feature_snapshot_contracts_established,contract_layer,Feature snapshot contracts prepared with strict unmaterialized invariant,SATISFIED,True,True
+experiment_registry_metadata_ready,governance_layer,"Experiment registry, templates, permissions, and run-plan placeholders defined",SATISFIED,True,True
+time_series_split_policies_defined,split_layer,"Chronological, expanding, rolling, and purged split placeholders established without execution",SATISFIED,True,True
+leakage_no_lookahead_guards_enforced,safety_layer,"Data leakage and no-lookahead guards active, blocking shift(-1) and future joins",SATISFIED,True,True
+metadata_only_news_guards_enforced,safety_layer,"Metadata-only news guards enforced, strictly blocking full text and raw HTML",SATISFIED,True,True
+source_preservation_guards_enforced,safety_layer,"Immutability verified; no file deletion, overwrite, or destructive cleaning permitted",SATISFIED,True,True
+target_label_governance_established,governance_layer,"Target/label disabled contracts verified, ensuring zero forward return signals",SATISFIED,True,True
+model_family_placeholders_cataloged,metadata_layer,10 baseline model families cataloged as unexecuted metadata placeholders,SATISFIED,True,True
+metric_placeholders_cataloged,metadata_layer,7 metric evaluation families cataloged without premature calculation,SATISFIED,True,True
+artifact_governance_disabled_contracts,storage_layer,Model weights persistence and model registry writes strictly prohibited,SATISFIED,True,True
+manual_review_queue_operational,governance_layer,Audit findings and manual review items operational for dry-run verification,SATISFIED,True,True
+phase_138_dry_run_training_boundary,scope_boundary,"Phase 138 may introduce dry-run training harness contracts, but must block live trading and broker execution",SATISFIED,True,True

@@ -1,0 +1,9 @@
+{
+  "total_split_policies": 4,
+  "current_phase": 137,
+  "all_placeholder_only": true,
+  "materialized": false,
+  "train_test_split_executed": false,
+  "non_signal": true,
+  "status": "READY"
+}

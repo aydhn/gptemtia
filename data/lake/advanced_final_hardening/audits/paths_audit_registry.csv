@@ -1,0 +1,6 @@
+audit_id,target,description,passed,destructive_migration_allowed,domain,non_signal,local_only,dry_run,non_production,current_phase,status
+paths_module_presence,config/paths.py,paths.py modülünün varlığı,True,False,paths_audit_domain,True,True,True,True,159,final_hardening_contract_ready
+phase_159_paths_definition,config/paths.py:phase_159_paths,Phase 159 dizin listesi tanımı,True,False,paths_audit_domain,True,True,True,True,159,final_hardening_contract_ready
+data_lake_directories_creation,data/lake/advanced_final_hardening/,Veri ambarı alt dizinleri varlığı,True,False,paths_audit_domain,True,True,True,True,159,final_hardening_contract_ready
+reports_directories_creation,reports/output/advanced_final_hardening/,Raporlama dizinleri varlığı,True,False,paths_audit_domain,True,True,True,True,159,final_hardening_contract_ready
+docs_directories_creation,docs/generated/advanced_final_hardening/,Oluşturulan dokümantasyon dizinleri varlığı,True,False,paths_audit_domain,True,True,True,True,159,final_hardening_contract_ready

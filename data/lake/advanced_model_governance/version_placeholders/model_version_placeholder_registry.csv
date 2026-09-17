@@ -1,0 +1,4 @@
+version_id,model_name,contract_version,is_deployed,notes,phase,is_placeholder,deployed,non_signal
+VER-144-01,baseline_linear_ridge,v1.0.0-contract,NO,Dry-run interface contract only.,144,True,False,True
+VER-144-02,candidate_lightgbm_regressor,v1.0.0-contract,NO,Dry-run interface contract only.,144,True,False,True
+VER-144-03,ensemble_stacking_meta,v1.0.0-contract,NO,Dry-run interface contract only.,144,True,False,True

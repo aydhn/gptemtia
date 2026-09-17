@@ -1,0 +1,5 @@
+contract_key,description,enforced,current_phase,next_phase,non_signal,manual_review_required
+no_model_training_contract,"Strict prohibition of all model training routines (fit, train, step, epochs)",True,137,138,True,True
+no_backtest_optimizer_contract,"Strict prohibition of strategy backtesting, grid search, and hyperparameter optimizers",True,137,138,True,True
+no_clustering_unsupervised_contract,"Strict prohibition of unsupervised clustering, manifold learning, and centroid updates",True,137,138,True,True
+no_weights_persistence_contract,Strict prohibition of saving trained model checkpoints or weights to storage,True,137,138,True,True

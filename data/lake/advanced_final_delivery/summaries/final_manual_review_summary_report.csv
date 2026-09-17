@@ -1,0 +1,7 @@
+gate_name,description,manual_review_enforced,auto_approval_prohibited,non_signal,local_only,dry_run,non_production,domain,status
+final_manifest_manual_review,Phase 160 final manifestonun insan tarafindan incelenmesi zorunlulugu,True,True,True,True,True,True,final_evidence_domain,full_advanced_bot_final_delivery_ready
+safety_boundary_manual_review,Tum guvenlik sinirlarinin aktif oldugunun operator tarafindan teyit edilmesi,True,True,True,True,True,True,final_evidence_domain,full_advanced_bot_final_delivery_ready
+validation_report_manual_review,Dogrulama raporu sonuclarinin ve uyarilarinin incelenmesi,True,True,True,True,True,True,final_evidence_domain,full_advanced_bot_final_delivery_ready
+operator_handover_manual_review,Devir teslim protokolunun operator tarafindan imzalanmasi,True,True,True,True,True,True,final_evidence_domain,full_advanced_bot_final_delivery_ready
+acceptance_evidence_manual_review,"ML, backtest ve portfoy kabul kanitlarinin teyit edilmesi",True,True,True,True,True,True,final_evidence_domain,full_advanced_bot_final_delivery_ready
+160_phase_completion_manual_review,160 fazlik plan resmi kapanis kaydinin insan incelemesinden gecmesi,True,True,True,True,True,True,final_evidence_domain,full_advanced_bot_final_delivery_ready

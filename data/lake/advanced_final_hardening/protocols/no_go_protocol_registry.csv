@@ -1,0 +1,9 @@
+protocol_id,target_request,description,action,enforced,domain,non_signal,local_only,dry_run,non_production,current_phase,status
+NOGO-01,live_trading_request,Canlı piyasa alım/satım işlemi talebi,BLOCK_IMMEDIATELY,True,no_go_protocol_domain,True,True,True,True,159,operator_runbook_contract_ready
+NOGO-02,broker_connection_request,Broker API anahtarı veya bağlantı talebi,BLOCK_IMMEDIATELY,True,no_go_protocol_domain,True,True,True,True,159,operator_runbook_contract_ready
+NOGO-03,signal_issuance_request,Kesin AL/SAT veya yönlü tavsiye üretme talebi,BLOCK_IMMEDIATELY,True,no_go_protocol_domain,True,True,True,True,159,operator_runbook_contract_ready
+NOGO-04,production_deploy_request,Canlı sunucu veya release deployment talebi,BLOCK_IMMEDIATELY,True,no_go_protocol_domain,True,True,True,True,159,operator_runbook_contract_ready
+NOGO-05,model_inference_request,Gerçek zamanlı model tahmini veya inference talebi,BLOCK_IMMEDIATELY,True,no_go_protocol_domain,True,True,True,True,159,operator_runbook_contract_ready
+NOGO-06,order_generation_request,Gerçek emir nesnesi oluşturma talebi,BLOCK_IMMEDIATELY,True,no_go_protocol_domain,True,True,True,True,159,operator_runbook_contract_ready
+NOGO-07,source_overwrite_request,Kaynak veri dosyalarını silme veya ezme talebi,BLOCK_IMMEDIATELY,True,no_go_protocol_domain,True,True,True,True,159,operator_runbook_contract_ready
+NOGO-08,credential_leak_request,API anahtarı veya parola yazdırma talebi,BLOCK_IMMEDIATELY,True,no_go_protocol_domain,True,True,True,True,159,operator_runbook_contract_ready

@@ -1,0 +1,13 @@
+risk_id,risk_category,description,impact_level,mitigation_strategy,residual_risk,phase,manual_review_required,non_signal
+REG-01,data_quality_risk,"Missing, noisy, or non-stationary input prices.",HIGH,Pre-check quality gates and validation dependencies.,LOW,144,True,True
+REG-02,no_lookahead_risk,Inadvertent inclusion of future data or next return.,CRITICAL,Strict no-lookahead guards and chronological sort assertions.,VERY_LOW,144,True,True
+REG-03,metadata_only_news_risk,Accidental ingestion of full article text or HTML.,HIGH,Forbidden column policies and metadata-only filters.,VERY_LOW,144,True,True
+REG-04,model_execution_risk,Uncontrolled model fit/predict execution.,HIGH,Disabled execution checks intercepting fit/predict calls.,VERY_LOW,144,True,True
+REG-05,drift_monitoring_risk,Silent degradation of feature distributions.,MEDIUM,Linkage to Phase 142 drift monitoring contracts.,LOW,144,True,True
+REG-06,explainability_misuse_risk,Treating feature attribution as causal certainty.,MEDIUM,Model card limitations and non-causal disclosures.,LOW,144,True,True
+REG-07,overfitting_risk_placeholder,Overfitting to historical sample periods.,HIGH,Purged split requirements and walk-forward contract placeholders.,MEDIUM,144,True,True
+REG-08,production_misuse_risk,Premature deployment to production environments.,CRITICAL,Non-production boundaries and approval blocking.,VERY_LOW,144,True,True
+REG-09,broker_execution_misuse_risk,Unauthorized connection of broker trading APIs.,CRITICAL,Zero broker integration settings and blocked status.,VERY_LOW,144,True,True
+REG-10,investment_advice_misuse_risk,Misinterpreting research scores as investment advice.,CRITICAL,Prominent non-signal disclaimers across all reports.,VERY_LOW,144,True,True
+REG-11,source_preservation_risk,Destructive overwriting or deletion of source data.,CRITICAL,Source preservation guards preventing file mutation.,VERY_LOW,144,True,True
+REG-12,credential_leakage_risk,Exposure of API keys or credentials in reports.,CRITICAL,Credential output prohibition and automated scanning.,VERY_LOW,144,True,True

@@ -1,0 +1,15 @@
+{
+  "total_contracts": 6,
+  "contract_names": [
+    "voting_output_contract",
+    "blending_output_contract",
+    "stacking_output_contract",
+    "averaging_output_contract",
+    "rank_aggregation_output_contract",
+    "meta_model_output_contract"
+  ],
+  "all_predictions_blocked": true,
+  "all_signals_blocked": true,
+  "all_non_signal": true,
+  "dry_run": true
+}

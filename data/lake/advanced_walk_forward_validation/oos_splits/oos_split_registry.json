@@ -1,0 +1,7 @@
+{
+  "total_oos_splits": 3,
+  "all_splits_isolated": true,
+  "zero_split_executed": true,
+  "zero_targets_generated": true,
+  "non_signal": true
+}

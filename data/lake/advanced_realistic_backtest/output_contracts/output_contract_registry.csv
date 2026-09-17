@@ -1,0 +1,6 @@
+field_name,data_type,description,is_safe,is_active,non_signal
+contract_validation_status,STRING,"Backtest sozlesmelerinin gecerlilik durumu (PASS, REVIEW_REQUIRED, BLOCKED).",True,True,True
+blocked_reason,STRING,Guvenlik veya politika geregi engellenme gerekcesi.,True,True,True
+manual_review_required,BOOLEAN,Insan operator incelemesinin zorunlu olup olmadigi.,True,True,True
+cost_model_contract_ready,BOOLEAN,Islem maliyeti model sozlesmesinin hazirlik durumu.,True,True,True
+slippage_model_contract_ready,BOOLEAN,Fiyat kaymasi (slippage) model sozlesmesinin hazirlik durumu.,True,True,True

@@ -1,0 +1,2 @@
+action_id,action_type,target_scope,activation_trigger,execution_enabled,status
+ACT-RSM-001,RESUME_CONTROL,RESTRICTED_RESUME_MODE,MANUAL_OPERATOR_APPROVAL_AND_STABILIZATION,False,PLACEHOLDER_ONLY

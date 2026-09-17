@@ -1,0 +1,5 @@
+risk_id,title,risk_type,description,is_calculated,status,non_signal
+RISK_MAX_DRAWDOWN,Maximum Drawdown and Underwater Profile Placeholder,drawdown_profile,Zirveden dibe azami kayıp ve toparlanma süresi (recovery time) yer tutucusu.,False,evaluation_contract_ready,True
+RISK_VALUE_AT_RISK,Parametric and Historical Value at Risk (VaR) Placeholder,tail_risk,%95 ve %99 güven aralığında günlük ve dönemsel Riske Maruz Değer yer tutucusu.,False,evaluation_contract_ready,True
+RISK_EXPECTED_SHORTFALL,Conditional Value at Risk / Expected Shortfall (ES) Placeholder,tail_risk,VaR eşiğini aşan aşırı kayıpların beklenen ortalaması yer tutucusu.,False,evaluation_contract_ready,True
+RISK_DOWNSIDE_DEVIATION,Downside Semi-Variance and Deviation Placeholder,downside_volatility,Yalnızca negatif getirilerin oluşturduğu asimetrik risk varyansı yer tutucusu.,False,evaluation_contract_ready,True

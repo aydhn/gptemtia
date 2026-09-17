@@ -1,0 +1,9 @@
+{
+  "domain": "finding_domain",
+  "total_findings": 3,
+  "critical_count": 0,
+  "blocker_count": 0,
+  "has_blockers": false,
+  "status": "evaluation_contract_ready",
+  "non_signal": true
+}

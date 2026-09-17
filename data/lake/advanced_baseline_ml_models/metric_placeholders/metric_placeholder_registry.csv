@@ -1,0 +1,9 @@
+metric_placeholder_id,metric_category,description,is_calculated,calculated_value,performance_claim_allowed,non_signal,production_ready,broker_ready
+classification_metric_placeholder,classification,"Placeholder for binary/multiclass classification accuracy, F1, and log-loss without compute",False,,False,True,False,False
+regression_metric_placeholder,regression,"Placeholder for MSE, MAE, RMSE metrics without compute",False,,False,True,False,False
+ranking_metric_placeholder,ranking,"Placeholder for NDCG, spearman rank correlation without compute",False,,False,True,False,False
+calibration_metric_placeholder,calibration,Placeholder for Brier score and expected calibration error (ECE) without compute,False,,False,True,False,False
+drift_metric_placeholder,drift,Placeholder for prediction drift and population stability index (PSI) without compute,False,,False,True,False,False
+explainability_metric_placeholder,explainability,Placeholder for SHAP / feature attribution metrics without compute,False,,False,True,False,False
+latency_metric_placeholder,system,Placeholder for inference latency and batch throughput timing without compute,False,,False,True,False,False
+resource_usage_metric_placeholder,system,Placeholder for GPU memory and CPU utilization profiling without compute,False,,False,True,False,False

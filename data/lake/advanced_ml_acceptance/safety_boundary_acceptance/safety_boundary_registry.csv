@@ -1,0 +1,12 @@
+boundary_id,name,boundary_rule,enforced,current_phase,target_final_phase,next_phase,status,non_signal,production_ready,broker_ready
+SB-01,live_trading_boundary,"Strict prohibition of live capital, order routing, and broker APIs.",True,145,160,146,acceptance_ready,True,False,False
+SB-02,broker_integration_boundary,Zero broker execution bindings allowed in Phase 145.,True,145,160,146,acceptance_ready,True,False,False
+SB-03,investment_advice_boundary,"No buy/sell signals, directional targets, or financial advice.",True,145,160,146,acceptance_ready,True,False,False
+SB-04,training_execution_boundary,Real model training loops completely disabled.,True,145,160,146,acceptance_ready,True,False,False
+SB-05,prediction_inference_boundary,Real inference and model predictions disabled.,True,145,160,146,acceptance_ready,True,False,False
+SB-06,backtest_execution_boundary,"Real backtest, walk-forward, and slippage calculations disabled in Phase 145.",True,145,160,146,acceptance_ready,True,False,False
+SB-07,dataset_materialization_boundary,Dataset and feature snapshot disk materialization disabled.,True,145,160,146,acceptance_ready,True,False,False
+SB-08,model_registry_write_boundary,Writing to model registry or artifact publishing disabled.,True,145,160,146,acceptance_ready,True,False,False
+SB-09,model_deployment_boundary,Model deployment and production release disabled.,True,145,160,146,acceptance_ready,True,False,False
+SB-10,source_preservation_boundary,Source records in DataLake are immutable and never overwritten.,True,145,160,146,acceptance_ready,True,False,False
+SB-11,metadata_only_news_boundary,News is restricted to metadata only; full text and scraping prohibited.,True,145,160,146,acceptance_ready,True,False,False

@@ -1,0 +1,7 @@
+{
+  "domain": "bias_guard_domain",
+  "total_guards": 3,
+  "all_active": true,
+  "profile_name": "balanced_local_monte_carlo_robustness_contracts",
+  "status": "monte_carlo_contract_ready"
+}

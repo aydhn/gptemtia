@@ -1,0 +1,4 @@
+guard_id,guard_name,check_type,enforced,non_signal,description,status
+NLA_GRD_001,column_naming_lookahead_guard,column_inspection,True,True,Scans column headers for future/forward/next/lead prefixes or suffixes.,gpu_governance_ready
+NLA_GRD_002,timestamp_order_integrity_guard,temporal_validation,True,True,Ensures all training inputs respect strictly ascending chronological order.,gpu_governance_ready
+NLA_GRD_003,backward_asof_join_guard,join_validation,True,True,Validates that joins only match past or current timestamps (no future right-hand keys).,gpu_governance_ready

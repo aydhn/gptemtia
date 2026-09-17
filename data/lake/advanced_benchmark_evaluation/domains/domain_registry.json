@@ -1,0 +1,9 @@
+{
+  "domain": "benchmark_evaluation_domain",
+  "total_domains": 36,
+  "all_contract_ready": true,
+  "all_execution_disabled": true,
+  "all_signals_disabled": true,
+  "status": "evaluation_contract_ready",
+  "non_signal": true
+}

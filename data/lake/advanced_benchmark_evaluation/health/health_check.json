@@ -1,0 +1,8 @@
+{
+  "domain": "health_domain",
+  "total_checks": 11,
+  "healthy_count": 11,
+  "all_healthy": true,
+  "status": "evaluation_contract_ready",
+  "non_signal": true
+}

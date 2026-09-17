@@ -1,0 +1,3 @@
+linkage_name,scenario_source,integration_mode,status,description,profile_name,current_phase,domain
+historical_crisis_window_resampling,Phase 148 Historical Stress Scenarios,conditioned_block_resampling,SATISFIED,"Links historical crisis event return blocks (e.g. 2008, 2020) as conditioned sampling pools.",balanced_local_monte_carlo_robustness_contracts,149,linkage_domain
+hypothetical_shock_path_resampling,Phase 148 Hypothetical Stress Scenarios,synthetic_mean_shift_injection,SATISFIED,Links severe hypothetical shocks as parameter shift priors for robustness envelope bounds.,balanced_local_monte_carlo_robustness_contracts,149,linkage_domain

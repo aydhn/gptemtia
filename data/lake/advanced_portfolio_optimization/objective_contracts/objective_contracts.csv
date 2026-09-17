@@ -1,0 +1,12 @@
+objective_name,objective_type,description,mathematical_formulation,target_variable,risk_metric_ref,is_placeholder,actual_objective_calculated,is_calculated,allows_execution,manual_review_required
+mean_variance_objective,mean_variance,Markowitz ortalama-varyans amaci,\max_w (w^T \mu - \frac{\lambda}{2} w^T \Sigma w),expected_return_and_variance,covariance_matrix,True,,False,False,True
+min_variance_objective,minimum_variance,Minimum portfoy varyansi amaci,\min_w (w^T \Sigma w),portfolio_variance,covariance_matrix,True,,False,False,True
+max_sharpe_objective,maximum_sharpe,Maksimum Sharpe orani amaci,\max_w \frac{w^T \mu - r_f}{\sqrt{w^T \Sigma w}},sharpe_ratio,covariance_matrix,True,,False,False,True
+risk_parity_objective,risk_parity,Risk paritesi (esit risk katkisi) amaci,\min_w \sum_{i=1}^N \sum_{j=1}^N (w_i (\Sigma w)_i - w_j (\Sigma w)_j)^2,risk_contribution_dispersion,marginal_risk_contribution,True,,False,False,True
+cvar_objective,cvar,Kosullu Riske Maruz Deger (CVaR / Expected Shortfall) amaci,"\min_{w, \gamma} (\gamma + \frac{1}{1-\alpha} \frac{1}{T} \sum_{t=1}^T [-w^T r_t - \gamma]^+)",cvar_tail_loss,historical_returns_distribution,True,,False,False,True
+drawdown_minimization_objective,drawdown_minimization,Maksimum portfoy dususunu minimize etme amaci,\min_w \max_{t} (M_t - P_t(w)),maximum_drawdown,path_dependent_equity_curve,True,,False,False,True
+turnover_minimization_objective,turnover_minimization,Portfoy devir hizini (turnover) minimize etme amaci,"\min_w \sum_{i=1}^N |w_i - w_{i,0}|",portfolio_turnover,rebalance_vector,True,,False,False,True
+cost_aware_objective,cost_aware,Islem maliyeti duzeltmeli getiri optimizasyon amaci,"\max_w (w^T \mu - \sum_{i=1}^N c_i |w_i - w_{i,0}| - \frac{\lambda}{2} w^T \Sigma w)",cost_adjusted_utility,transaction_cost_profile,True,,False,False,True
+slippage_aware_objective,slippage_aware,Piyasa kaymasi (slippage) duzeltmeli optimizasyon amaci,"\max_w (w^T \mu - \sum_{i=1}^N \eta_i |w_i - w_{i,0}|^{1.5} - \frac{\lambda}{2} w^T \Sigma w)",slippage_adjusted_utility,slippage_impact_model,True,,False,False,True
+regime_aware_objective,regime_aware,Rejim sartlandirmali optimizasyon amaci,\max_w (w^T \mu_{S_t} - \frac{\lambda_{S_t}}{2} w^T \Sigma_{S_t} w),regime_conditioned_utility,regime_state_covariance,True,,False,False,True
+robust_optimization_objective,robust_optimization,Kotu senaryo (worst-case) saglam optimizasyon amaci,\max_w \min_{\mu \in \mathcal{U}} (w^T \mu - \frac{\lambda}{2} w^T \Sigma w),worst_case_utility,uncertainty_set,True,,False,False,True

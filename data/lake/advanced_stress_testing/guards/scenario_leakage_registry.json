@@ -1,0 +1,5 @@
+{
+  "guard_active": true,
+  "enforcement_level": "STRICT",
+  "non_signal": true
+}

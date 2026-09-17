@@ -1,0 +1,7 @@
+policy_id,policy_name,enforced,description,non_signal,production_ready,broker_ready
+policy_zero_real_training,Zero Real Training Enforcement,True,Blocks actual model training on real/market data,True,False,False
+policy_zero_model_fit,Zero Model Fit Enforcement,True,Blocks calling .fit() or optimizer loops,True,False,False
+policy_zero_prediction,Zero Prediction Enforcement,True,Blocks calling .predict() or generating directional signals,True,False,False
+policy_zero_target_label,Zero Target/Label Generation,True,Blocks computing target labels or future returns,True,False,False
+policy_zero_artifact_persistence,Zero Artifact Persistence,True,Blocks saving model weights or pickles,True,False,False
+policy_zero_registry_write,Zero Model Registry Write,True,Blocks writing to model registries or MLflow,True,False,False

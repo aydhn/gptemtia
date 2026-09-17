@@ -1,0 +1,24 @@
+{
+  "total_families": 10,
+  "algorithm_categories": [
+    "gradient_boosting",
+    "linear_model",
+    "neural_network",
+    "sequence_model",
+    "tree_ensemble",
+    "unsupervised"
+  ],
+  "libraries": [
+    "catboost",
+    "lightgbm",
+    "scikit-learn",
+    "torch",
+    "xgboost"
+  ],
+  "all_contract_only": true,
+  "zero_real_training": true,
+  "zero_prediction": true,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false
+}

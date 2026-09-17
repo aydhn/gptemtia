@@ -1,0 +1,12 @@
+{
+  "domain": "monte_carlo_profile_domain",
+  "total_profiles": 3,
+  "active_profile": "balanced_local_monte_carlo_robustness_contracts",
+  "current_phase": 149,
+  "target_final_phase": 160,
+  "next_phase": 150,
+  "all_local_only": true,
+  "all_non_production": true,
+  "all_zero_execution": true,
+  "status": "monte_carlo_contract_ready"
+}

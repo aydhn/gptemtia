@@ -1,0 +1,4 @@
+control_id,name,description,enforcement,status,execution_allowed,non_signal,local_only,phase
+RGM_01_MULTI_REGIME_SPAN,multi_regime_breadth_validation,"Require backtest timeline to intersect multiple Phase 126-135 regime states (bull, bear, sideways, high-vol).",BLOCKING_MANDATORY,ACTIVE,False,True,True,150
+RGM_02_REGIME_PROPORTION_AUDIT,regime_proportionality_audit,Detect backtests where >80% of bars reside in a single regime state and flag regime concentration risk.,HIGH_AUDIT,ACTIVE,False,True,True,150
+RGM_03_REGIME_CONDITIONAL_METRICS_PLACEHOLDER,regime_conditioned_metric_disclosure_placeholder,Require performance reporting broken down by individual regime state rather than single aggregated average.,HIGH_AUDIT,ACTIVE,False,True,True,150

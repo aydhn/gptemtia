@@ -1,0 +1,13 @@
+evidence_id,category,description,verification_status,status,non_signal
+EVID_BENCHMARK_REPORT_CONTRACTS,contract_integrity,Benchmark karşılaştırma raporu sözleşmeleri eksiksiz tanımlandı.,VERIFIED,evaluation_contract_ready,True
+EVID_STRATEGY_EVALUATION_CONTRACTS,contract_integrity,Strateji değerlendirme raporu sözleşmeleri eksiksiz tanımlandı.,VERIFIED,evaluation_contract_ready,True
+EVID_METRIC_PLACEHOLDERS,metric_safety,Tüm performans ve risk metrikleri hesaplanmamış yer tutucu olarak sözleşmeye bağlandı.,VERIFIED,evaluation_contract_ready,True
+EVID_RESULT_CLAIM_GUARDS,claim_boundary,Sonuç ve getiri iddialarını engelleyen muhafızlar devrede.,VERIFIED,evaluation_contract_ready,True
+EVID_STRATEGY_APPROVAL_GUARDS,approval_boundary,Strateji onayı ve sermaye tahsisini engelleyen muhafızlar devrede.,VERIFIED,evaluation_contract_ready,True
+EVID_BENCHMARK_SELECTION_BIAS_GUARDS,bias_control,Benchmark seçim yanlılığını önleyen ön taahhütlü baseline kuralları devrede.,VERIFIED,evaluation_contract_ready,True
+EVID_COST_SLIPPAGE_EVALUATION,friction_realism,Maliyet ve kayma düzeltmeli değerlendirme sözleşmeleri oluşturuldu.,VERIFIED,evaluation_contract_ready,True
+EVID_WALK_FORWARD_OOS_DEPENDENCY,validation_linkage,Phase 147 Walk-Forward ve OOS kilitli split bağımlılığı sağlandı.,VERIFIED,evaluation_contract_ready,True
+EVID_STRESS_MONTE_CARLO_DEPENDENCY,robustness_linkage,Phase 148 Stres senaryoları ve Phase 149 Monte Carlo zarf bağımlılığı sağlandı.,VERIFIED,evaluation_contract_ready,True
+EVID_BACKTEST_GOVERNANCE_DEPENDENCY,governance_linkage,Phase 150 Backtest yönetişim ve yanlılık kontrol çerçevesi bağlandı.,VERIFIED,evaluation_contract_ready,True
+EVID_DISABLED_EXECUTION_REPORTS,disabled_execution,11 adet resmi devre dışı yürütme raporu oluşturuldu.,VERIFIED,evaluation_contract_ready,True
+EVID_PHASE_152_HANDOFF,handoff_readiness,Phase 152 Backtest Kabul Raporu için devir şartnamesi hazırlandı.,VERIFIED,evaluation_contract_ready,True

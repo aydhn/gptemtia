@@ -1,0 +1,5 @@
+guard_key,guard_name,enforced,contains_full_article_text,contains_article_body,contains_raw_content,contains_scraped_html,non_signal,contains_embedding,contains_vector,dense_embeddings_blocked,sentiment_model_output,raw_sentiment_scores_blocked,metadata_fields_allowed
+article_body_prohibition_guard,article_body_prohibition_guard,True,False,False,False,False,True,,,,,,
+embedding_vector_prohibition_guard,embedding_vector_prohibition_guard,True,,,,,True,False,False,True,,,
+sentiment_output_prohibition_guard,sentiment_output_prohibition_guard,True,,,,,True,,,,False,True,
+news_metadata_preservation_guard,news_metadata_preservation_guard,True,,,,,True,,,,,,"['count', 'timestamp', 'source_ref', 'category']"

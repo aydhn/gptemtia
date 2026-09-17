@@ -1,0 +1,7 @@
+PHASE 147: WALK-FORWARD VALIDATION & OUT-OF-SAMPLE BENCHMARKING CONTRACT LAYER
+NON-PRODUCTION | RESEARCH ONLY | ZERO LIVE TRADING | ZERO BROKER EXECUTION | NON-SIGNAL
+Bu cikti sozlesme ve metadata spesifikasyonudur; canli emir, trade sinyali veya kesin getiri icermez.
+Manifest ID: manifest_phase_147_balanced_local_walk_forward_validation_contracts
+Current Phase: 147 | Next Phase: 148 | Target Final Phase: 160
+Walk-Forward Executed: False | Broker Order Sent: False
+Phase 148 Handoff Ready: True

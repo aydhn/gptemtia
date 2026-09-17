@@ -1,0 +1,2 @@
+constraint_name,lower_bound,is_placeholder,is_enforced_live,actual_weights_generated,status
+long_only_constraint,0.0,True,False,False,constraint_contract_only

@@ -1,0 +1,7 @@
+{
+  "total_forbidden_columns": 23,
+  "all_enforced": true,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false
+}

@@ -1,0 +1,9 @@
+safety_boundary,phase_range,description,enforced,non_signal,local_only,dry_run,non_production,domain,status
+No-Live-Trading Safety Boundary,Phase 1-160,"Canli emir iletimi, canli borsa ve gercek hesap erisimi sifir toleransla yasaktir",True,True,True,True,True,final_evidence_domain,full_advanced_bot_final_delivery_ready
+No-Broker Safety Boundary,Phase 1-160,Broker API baglantisi ve yetkilendirmesi engellenmistir,True,True,True,True,True,final_evidence_domain,full_advanced_bot_final_delivery_ready
+No-Investment-Advice Safety Boundary,Phase 1-160,"Kesin AL/SAT, yonlu iddia veya tavsiye uretimi yasaktir",True,True,True,True,True,final_evidence_domain,full_advanced_bot_final_delivery_ready
+No-Production-Deployment Safety Boundary,Phase 1-160,Uretim ortamina resmi onay ve otomatik dagitim engellenmistir,True,True,True,True,True,final_evidence_domain,full_advanced_bot_final_delivery_ready
+No-Model-Execution Safety Boundary,Phase 1-160,"Gercek model inference, training ve prediction engellenmistir",True,True,True,True,True,final_evidence_domain,full_advanced_bot_final_delivery_ready
+No-Backtest-Execution Safety Boundary,Phase 1-160,"Gercek backtest, benchmark ve optimizer calistirmasi engellenmistir",True,True,True,True,True,final_evidence_domain,full_advanced_bot_final_delivery_ready
+No-Scraping-Credential-Output Safety Boundary,Phase 1-160,"Web kazima, kimlik bilgisi yazdirma ve kaynak dosya ezme engellenmistir",True,True,True,True,True,final_evidence_domain,full_advanced_bot_final_delivery_ready
+Source Preservation Safety Boundary,Phase 1-160,Kaynak dosyalar degistirilemez ve silinemez,True,True,True,True,True,final_evidence_domain,full_advanced_bot_final_delivery_ready

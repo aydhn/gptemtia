@@ -1,0 +1,5 @@
+fill_model_name,category,description,assumes_instant_fill,spread_applied,slippage_applied,is_active,non_signal
+next_bar_open_fill_model,BAR_LEVEL,Sinyal uretildikten sonraki ilk barin acilis fiyatinda gerceklesme sozlesmesi.,False,True,True,True,True
+next_tick_fill_model,TICK_LEVEL,Zaman damgali emir gonderiminden sonra gelen ilk gercek tick verisinde gerceklesme.,False,True,True,True,True
+vwap_slice_fill_model,EXECUTION_ALGO,Belirli bir zaman penceresi boyunca hacim agirlikli ortalama fiyata gore dilimleme.,False,True,True,True,True
+participation_capped_fill_model,LIQUIDITY_AWARE,"Piyasa hacminin maksimum %10'u kadar tek seferde gerceklesme, kalani bekletme.",False,True,True,True,True

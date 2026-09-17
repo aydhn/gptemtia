@@ -1,0 +1,2 @@
+score,classification,meets_threshold,min_threshold,current_phase,target_final_phase,next_phase,status,non_signal,production_ready,broker_ready,official_approval
+1.0,advanced_ml_contract_acceptance_ready_non_production,True,0.5,145,160,146,acceptance_ready,True,False,False,False

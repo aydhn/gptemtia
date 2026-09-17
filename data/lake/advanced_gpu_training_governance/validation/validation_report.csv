@@ -1,0 +1,6 @@
+validation_check,passed,details
+profile_registry_contract,True,Profiles enforce zero training
+resource_policies_contract,True,Policies enforce contract_only mode
+harness_contracts_contract,True,Harness strictly blocks execution
+manifest_safety_validation,True,Manifest declares all execution flags False
+forbidden_claims_clean,True,No production or performance claims

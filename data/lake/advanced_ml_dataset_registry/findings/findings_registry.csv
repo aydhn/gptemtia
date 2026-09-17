@@ -1,0 +1,7 @@
+finding_id,finding_type,dataset_domain,severity_label,message,recommendation,manual_review_required,non_signal,auto_fix_forbidden
+FIND-137-01,materialization_request_blocked,dataset_contract_domain,INFO,Physical dataset materialization is prohibited in Phase 137 by design.,Maintain contracts as metadata schemas only.,True,True,True
+FIND-137-02,target_label_request_blocked,target_label_disabled_policy_domain,INFO,Target and label generation are blocked by contract; no forward returns permitted.,Enforce target-label disabled policy until future phases.,True,True,True
+FIND-137-03,training_request_blocked,training_harness_disabled_domain,INFO,Model training harness is disabled in Phase 137; deferred to Phase 138 dry-run harness.,Preserve zero-training invariants throughout Phase 137.,True,True,True
+FIND-137-04,prediction_request_blocked,prediction_disabled_domain,INFO,Model inference and prediction execution are strictly disabled.,Ensure no forward inferences or signals are produced.,True,True,True
+FIND-137-05,artifact_persistence_blocked,artifact_disabled_domain,INFO,Model registry writes and binary artifact persistence are prohibited.,Only persist audit and contract governance metadata.,True,True,True
+FIND-137-06,phase_138_readiness_blocker,phase_138_handoff_domain,INFO,Phase 138 dry-run training harness requires explicit non-signal handoff acceptance.,Review handoff deliverables and verify compliance.,True,True,True

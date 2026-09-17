@@ -1,0 +1,11 @@
+{
+  "execution_name": "stress_test_execution",
+  "is_blocked": true,
+  "enforced": true,
+  "blocked_actions": [
+    "run_stress_test",
+    "execute_stress_test",
+    "trigger_stress_run"
+  ],
+  "non_signal": true
+}

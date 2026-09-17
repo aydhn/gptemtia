@@ -1,0 +1,10 @@
+{
+  "total_rules": 33,
+  "no_go_count": 24,
+  "safe_go_count": 9,
+  "safety_status": "SECURE",
+  "all_enforced": true,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false
+}

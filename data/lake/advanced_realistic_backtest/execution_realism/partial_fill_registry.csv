@@ -1,0 +1,3 @@
+rule_name,description,behavior,is_placeholder,execution_allowed,is_active,non_signal
+volume_limit_partial_fill_placeholder,Emir hacmi bar hacminin %10'undan buyukse ilk bar yalnizca %10 doldurulur.,FILL_PORTION_AND_LEAVE_REST,True,False,True,True
+fill_or_kill_rejection_placeholder,FOK tipi emirlerde tam dolum saglanamazsa emrin tamamen iptal edilmesi kurali.,REJECT_IF_NOT_FULL,True,False,True,True

@@ -1,0 +1,11 @@
+review_id,topic,inspection_focus,status,mandatory,non_signal
+REV_01_BENCHMARK_REPORT_CONTRACTS,Benchmark Comparison Report Contracts,Verify benchmark report templates maintain strictly zero execution logic.,PENDING_OPERATOR_REVIEW,True,True
+REV_02_STRATEGY_EVALUATION_CONTRACTS,Strategy Evaluation Report Contracts,Verify strategy evaluation templates maintain zero strategy approval status.,PENDING_OPERATOR_REVIEW,True,True
+REV_03_BENCHMARK_UNIVERSE_BASELINE,Benchmark Universe & Baseline Definitions,Ensure commodity & FX universes and Buy & Hold baselines are pre-committed.,PENDING_OPERATOR_REVIEW,True,True
+REV_04_COST_SLIPPAGE_CONTRACTS,Friction Realism Evaluation Contracts,Confirm commission and market impact assumptions are explicitly defined.,PENDING_OPERATOR_REVIEW,True,True
+REV_05_REGIME_STRESS_MONTE_CARLO,Conditioned Evaluation Contracts,"Verify regime, stress, and Monte Carlo contract links are correctly wired.",PENDING_OPERATOR_REVIEW,True,True
+REV_06_METRIC_PLACEHOLDERS,Uncalculated Metric Placeholders,Inspect all placeholders to verify actual_value is None and zero calculation occurs.,PENDING_OPERATOR_REVIEW,True,True
+REV_07_CLAIM_APPROVAL_GUARDS,Claim and Strategy Approval Guards,Ensure all result/performance claims and capital allocation requests are blocked.,PENDING_OPERATOR_REVIEW,True,True
+REV_08_DISABLED_EXECUTION_REPORTS,Disabled Execution Enforcements,Audit the 11 disabled execution reports for complete perimeter coverage.,PENDING_OPERATOR_REVIEW,True,True
+REV_09_SOURCE_PRESERVATION,Source Preservation & Metadata News,Confirm raw data files are untouched and news bodies/embeddings are rejected.,PENDING_OPERATOR_REVIEW,True,True
+REV_10_PHASE_152_HANDOFF_BLOCKERS,Phase 152 Acceptance Handoff Prerequisites,Verify all 10 handoff prerequisites are satisfied without operational leakage.,PENDING_OPERATOR_REVIEW,True,True

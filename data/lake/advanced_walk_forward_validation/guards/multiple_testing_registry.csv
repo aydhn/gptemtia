@@ -1,0 +1,3 @@
+guard_name,enforcement_level,active,description,non_signal
+bonferroni_haircut_guard,STRICT,True,Deneme sayisi arttikca t-istatistigi ve Sharpe basari esigini cezalandiran Bonferroni kesinti muhafizi.,True
+false_discovery_rate_guard,STRICT,True,Yanlis kesif oranini (FDR) kontrol altinda tutan coklu hipotez test muhafizi.,True

@@ -1,0 +1,109 @@
+# -*- coding: utf-8 -*-
+"""Phase 155: Risk Reporting, Exposure Attribution and Limit Monitoring Domain Labels."""
+
+# Domain Labels
+RISK_REPORTING_PROFILE_DOMAIN = "risk_reporting_profile_domain"
+RISK_REPORTING_DOMAIN = "risk_reporting_domain"
+RISK_REPORTING_SCOPE_DOMAIN = "risk_reporting_scope_domain"
+RISK_REPORT_CONTRACT_DOMAIN = "risk_report_contract_domain"
+EXPOSURE_ATTRIBUTION_DOMAIN = "exposure_attribution_domain"
+LIMIT_MONITORING_DOMAIN = "limit_monitoring_domain"
+RISK_SUMMARY_DOMAIN = "risk_summary_domain"
+EXPOSURE_SUMMARY_DOMAIN = "exposure_summary_domain"
+EXPOSURE_PLACEHOLDER_DOMAIN = "exposure_placeholder_domain"
+RISK_CONTRIBUTION_PLACEHOLDER_DOMAIN = "risk_contribution_placeholder_domain"
+RISK_MONITOR_PLACEHOLDER_DOMAIN = "risk_monitor_placeholder_domain"
+LIMIT_DEFINITION_DOMAIN = "limit_definition_domain"
+LIMIT_BREACH_PLACEHOLDER_DOMAIN = "limit_breach_placeholder_domain"
+RISK_ALERT_PLACEHOLDER_DOMAIN = "risk_alert_placeholder_domain"
+DASHBOARD_PLACEHOLDER_DOMAIN = "dashboard_placeholder_domain"
+MONITORING_SCHEDULE_PLACEHOLDER_DOMAIN = "monitoring_schedule_placeholder_domain"
+OUTPUT_CONTRACT_DOMAIN = "output_contract_domain"
+METRIC_PLACEHOLDER_DOMAIN = "metric_placeholder_domain"
+DEPENDENCY_DOMAIN = "dependency_domain"
+CLAIM_GUARD_DOMAIN = "claim_guard_domain"
+DISABLED_EXECUTION_DOMAIN = "disabled_execution_domain"
+FINDING_DOMAIN = "finding_domain"
+READINESS_SCORE_DOMAIN = "readiness_score_domain"
+MANIFEST_DOMAIN = "manifest_domain"
+HEALTH_DOMAIN = "health_domain"
+VALIDATION_DOMAIN = "validation_domain"
+SAFETY_DOMAIN = "safety_domain"
+PHASE_156_HANDOFF_DOMAIN = "phase_156_handoff_domain"
+
+ALL_DOMAINS = [
+    RISK_REPORTING_PROFILE_DOMAIN,
+    RISK_REPORTING_DOMAIN,
+    RISK_REPORTING_SCOPE_DOMAIN,
+    RISK_REPORT_CONTRACT_DOMAIN,
+    EXPOSURE_ATTRIBUTION_DOMAIN,
+    LIMIT_MONITORING_DOMAIN,
+    RISK_SUMMARY_DOMAIN,
+    EXPOSURE_SUMMARY_DOMAIN,
+    EXPOSURE_PLACEHOLDER_DOMAIN,
+    RISK_CONTRIBUTION_PLACEHOLDER_DOMAIN,
+    RISK_MONITOR_PLACEHOLDER_DOMAIN,
+    LIMIT_DEFINITION_DOMAIN,
+    LIMIT_BREACH_PLACEHOLDER_DOMAIN,
+    RISK_ALERT_PLACEHOLDER_DOMAIN,
+    DASHBOARD_PLACEHOLDER_DOMAIN,
+    MONITORING_SCHEDULE_PLACEHOLDER_DOMAIN,
+    OUTPUT_CONTRACT_DOMAIN,
+    METRIC_PLACEHOLDER_DOMAIN,
+    DEPENDENCY_DOMAIN,
+    CLAIM_GUARD_DOMAIN,
+    DISABLED_EXECUTION_DOMAIN,
+    FINDING_DOMAIN,
+    READINESS_SCORE_DOMAIN,
+    MANIFEST_DOMAIN,
+    HEALTH_DOMAIN,
+    VALIDATION_DOMAIN,
+    SAFETY_DOMAIN,
+    PHASE_156_HANDOFF_DOMAIN,
+]
+
+# Status Labels
+RISK_REPORT_CONTRACT_READY = "risk_report_contract_ready"
+RISK_REPORT_CONTRACT_READY_WITH_WARNINGS = "risk_report_contract_ready_with_warnings"
+RISK_REPORT_CONTRACT_MANUAL_REVIEW_REQUIRED = "risk_report_contract_manual_review_required"
+RISK_REPORT_CONTRACT_BLOCKED_BY_SAFETY = "risk_report_contract_blocked_by_safety"
+RISK_REPORT_CONTRACT_ONLY = "risk_report_contract_only"
+RISK_REPORT_UNKNOWN = "risk_report_unknown"
+
+ALL_STATUSES = [
+    RISK_REPORT_CONTRACT_READY,
+    RISK_REPORT_CONTRACT_READY_WITH_WARNINGS,
+    RISK_REPORT_CONTRACT_MANUAL_REVIEW_REQUIRED,
+    RISK_REPORT_CONTRACT_BLOCKED_BY_SAFETY,
+    RISK_REPORT_CONTRACT_ONLY,
+    RISK_REPORT_UNKNOWN,
+]
+
+# Execution Blocked Labels
+EXECUTION_BLOCKED_NO_RISK_REPORT = "execution_blocked_no_risk_report"
+EXECUTION_BLOCKED_NO_EXPOSURE_ATTRIBUTION = "execution_blocked_no_exposure_attribution"
+EXECUTION_BLOCKED_NO_LIMIT_MONITORING = "execution_blocked_no_limit_monitoring"
+EXECUTION_BLOCKED_NO_METRIC_CALCULATION = "execution_blocked_no_metric_calculation"
+EXECUTION_BLOCKED_NO_ALERTING = "execution_blocked_no_alerting"
+EXECUTION_BLOCKED_NO_DASHBOARD = "execution_blocked_no_dashboard"
+EXECUTION_BLOCKED_NO_PORTFOLIO_ADJUSTMENT = "execution_blocked_no_portfolio_adjustment"
+EXECUTION_BLOCKED_NO_MODEL_TRAINING = "execution_blocked_no_model_training"
+EXECUTION_BLOCKED_NO_PREDICTION = "execution_blocked_no_prediction"
+EXECUTION_BLOCKED_NO_LIVE_TRADING = "execution_blocked_no_live_trading"
+EXECUTION_BLOCKED_NO_BROKER = "execution_blocked_no_broker"
+EXECUTION_CONTRACT_ONLY = "execution_contract_only"
+
+ALL_EXECUTION_LABELS = [
+    EXECUTION_BLOCKED_NO_RISK_REPORT,
+    EXECUTION_BLOCKED_NO_EXPOSURE_ATTRIBUTION,
+    EXECUTION_BLOCKED_NO_LIMIT_MONITORING,
+    EXECUTION_BLOCKED_NO_METRIC_CALCULATION,
+    EXECUTION_BLOCKED_NO_ALERTING,
+    EXECUTION_BLOCKED_NO_DASHBOARD,
+    EXECUTION_BLOCKED_NO_PORTFOLIO_ADJUSTMENT,
+    EXECUTION_BLOCKED_NO_MODEL_TRAINING,
+    EXECUTION_BLOCKED_NO_PREDICTION,
+    EXECUTION_BLOCKED_NO_LIVE_TRADING,
+    EXECUTION_BLOCKED_NO_BROKER,
+    EXECUTION_CONTRACT_ONLY,
+]

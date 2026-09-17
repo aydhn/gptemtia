@@ -1,0 +1,10 @@
+{
+  "domain": "manifest_domain",
+  "manifest_id": "MANIFEST_PHASE_149_MONTE_CARLO_ROBUSTNESS",
+  "current_phase": 149,
+  "next_phase": 150,
+  "target_final_phase": 160,
+  "all_negative_invariants_satisfied": true,
+  "phase_150_handoff_ready": true,
+  "status": "monte_carlo_contract_ready"
+}

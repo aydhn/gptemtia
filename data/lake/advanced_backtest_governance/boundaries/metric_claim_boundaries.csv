@@ -1,0 +1,7 @@
+boundary_name,target_metric,policy,is_blocked,calculation_allowed,status,non_signal,local_only,phase
+boundary_block_actual_sharpe,actual_sharpe,Block calculation of realized Sharpe ratio in Phase 150.,True,False,ENFORCED_BLOCKED,True,True,150
+boundary_block_actual_win_rate,actual_win_rate,Block calculation of realized trade win rates in Phase 150.,True,False,ENFORCED_BLOCKED,True,True,150
+boundary_block_actual_alpha,actual_alpha,Block calculation of annualized strategy alpha in Phase 150.,True,False,ENFORCED_BLOCKED,True,True,150
+boundary_block_actual_return,actual_return,Block calculation of cumulative or CAGR strategy return in Phase 150.,True,False,ENFORCED_BLOCKED,True,True,150
+boundary_block_actual_drawdown,actual_drawdown,Block calculation of realized maximum drawdown in Phase 150.,True,False,ENFORCED_BLOCKED,True,True,150
+boundary_block_actual_var_es,actual_var_es,Block calculation of realized VaR and Expected Shortfall in Phase 150.,True,False,ENFORCED_BLOCKED,True,True,150

@@ -1,0 +1,8 @@
+{
+  "domain": "safety_boundary_domain",
+  "total_rules": 12,
+  "prohibited_actions_count": 10,
+  "allowed_actions_count": 2,
+  "all_prohibited_enforced": true,
+  "status": "portfolio_acceptance_ready"
+}

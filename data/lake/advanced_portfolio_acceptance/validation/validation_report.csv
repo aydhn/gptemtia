@@ -1,0 +1,6 @@
+rule_name,target,passed,issues,current_phase,status
+profile_registry_validation,profiles,True,None,157,PASS
+component_checkpoints_validation,checkpoints,True,None,157,PASS
+phase_acceptance_validation,phases,True,None,157,PASS
+boundaries_validation,boundaries,True,None,157,PASS
+manifest_validation,manifest,True,None,157,PASS

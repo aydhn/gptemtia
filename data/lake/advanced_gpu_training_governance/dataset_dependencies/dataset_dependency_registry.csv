@@ -1,0 +1,4 @@
+dependency_id,source_phase,contract_name,status,enforces_no_materialization,non_signal,description
+DS_DEP_001,137,advanced_ml_dataset_schema_contracts,SATISFIED,True,True,Requires dataset schema definitions without disk materialization.
+DS_DEP_002,137,purged_walk_forward_split_contracts,SATISFIED,True,True,Requires walk-forward and purged time-series splitting contracts.
+DS_DEP_003,137,feature_snapshot_manifest_placeholders,SATISFIED,True,True,Requires feature snapshot manifest placeholders with zero payload writing.

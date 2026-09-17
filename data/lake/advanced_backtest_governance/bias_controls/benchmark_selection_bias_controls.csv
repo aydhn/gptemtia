@@ -1,0 +1,4 @@
+control_id,name,description,enforcement,status,execution_allowed,non_signal,local_only,phase
+BMK_01_PRE_COMMITTED_BASELINES,pre_committed_benchmark_specification,Mandate selection of neutral benchmark (buy-and-hold underlying and cash baseline) prior to backtesting.,BLOCKING_MANDATORY,ACTIVE,False,True,True,150
+BMK_02_POST_HOC_SWAP_BAN,post_hoc_benchmark_switching_prohibition,Prohibit changing benchmark baselines to artificially enhance relative alpha or Sharpe claims.,BLOCKING_ZERO_TOLERANCE,ACTIVE,False,True,True,150
+BMK_03_RISK_ADJUSTED_EQUIVALENCE,volatility_matched_benchmark_contract,Require leverage-matched or volatility-adjusted benchmark comparisons for leveraged strategy designs.,HIGH_AUDIT,ACTIVE,False,True,True,150

@@ -1,0 +1,9 @@
+component,status,details,is_present,non_signal,local_only
+advanced_walk_forward_validation,HEALTHY,Directory/file present,True,True,True
+advanced_realistic_backtest,HEALTHY,Directory/file present,True,True,True
+advanced_stress_testing,HEALTHY,Directory/file present,True,True,True
+advanced_monte_carlo_robustness,HEALTHY,Directory/file present,True,True,True
+FeatureStore_available,HEALTHY,Directory/file present,True,True,True
+DataLake_available,HEALTHY,Directory/file present,True,True,True
+config_paths_available,HEALTHY,Directory/file present,True,True,True
+config_settings_available,HEALTHY,Directory/file present,True,True,True

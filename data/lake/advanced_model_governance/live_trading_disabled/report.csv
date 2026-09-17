@@ -1,0 +1,3 @@
+action,is_disabled,reason,status,phase
+live_trading,True,Live trading execution is permanently disabled in this repository.,BLOCKED_BY_POLICY,144
+order_submission,True,Real exchange order submission is strictly prohibited.,BLOCKED_BY_POLICY,144

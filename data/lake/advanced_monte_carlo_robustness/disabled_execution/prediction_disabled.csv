@@ -1,0 +1,2 @@
+capability,execution_allowed,policy_reference,status,description
+model_inference_and_prediction,False,POLICY_PHASE_149_ZERO_PREDICTION,execution_blocked_no_prediction,"Prohibits generating forward return forecasts, direction predictions, or target labels."

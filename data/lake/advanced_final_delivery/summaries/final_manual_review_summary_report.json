@@ -1,0 +1,7 @@
+{
+  "active_profile": "balanced_local_final_delivery_contracts",
+  "manual_review_gate_count": 6,
+  "all_manual_review_enforced": true,
+  "all_auto_approval_prohibited": true,
+  "status": "full_advanced_bot_final_delivery_ready"
+}

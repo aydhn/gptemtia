@@ -1,0 +1,5 @@
+{
+  "output_contract_name": "optimization_result_output_contract",
+  "zero_actual_weights": true,
+  "contract_ready": true
+}

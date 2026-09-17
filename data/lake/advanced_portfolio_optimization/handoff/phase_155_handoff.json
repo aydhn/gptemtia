@@ -1,0 +1,13 @@
+{
+  "domain": "phase_155_handoff_domain",
+  "active_profile": "balanced_local_portfolio_optimization_contracts",
+  "handoff_id": "HND-154-155-001",
+  "source_phase": 154,
+  "target_phase": 155,
+  "target_final_phase": 160,
+  "total_items": 10,
+  "satisfied_count": 10,
+  "all_satisfied": true,
+  "manual_review_required": true,
+  "status": "HANDOFF_READY"
+}

@@ -1,0 +1,14 @@
+scenario_id,name,group,severity,horizon,execution_allowed,metric_calculation_allowed,manual_review_required,non_signal,local_only
+LIB_HIST_001,historical_gfc_2008,HISTORICAL,EXTREME,PROLONGED,False,False,True,True,True
+LIB_HIST_002,historical_covid_2020,HISTORICAL,BLACK_SWAN,MEDIUM_TERM,False,False,True,True,True
+LIB_HIST_003,historical_negative_oil_2020,HISTORICAL,EXTREME,SHORT_TERM,False,False,True,True,True
+LIB_HIST_004,historical_flash_crash_2010,HISTORICAL,SEVERE,INTRADAY,False,False,True,True,True
+LIB_HIST_005,historical_chf_depeg_2015,HISTORICAL,BLACK_SWAN,INSTANTANEOUS,False,False,True,True,True
+LIB_HYPO_001,hypothetical_stagflation_2_0,HYPOTHETICAL,SEVERE,PROLONGED,False,False,True,True,True
+LIB_HYPO_002,hypothetical_chokepoint_closure,HYPOTHETICAL,EXTREME,MEDIUM_TERM,False,False,True,True,True
+LIB_HYPO_003,hypothetical_sovereign_crisis,HYPOTHETICAL,SEVERE,PROLONGED,False,False,True,True,True
+LIB_REG_001,regime_shock_trend_reversal,REGIME,MODERATE,SHORT_TERM,False,False,True,True,True
+LIB_REG_002,regime_shock_volatility_breakout,REGIME,SEVERE,SHORT_TERM,False,False,True,True,True
+LIB_REG_003,regime_shock_liquidity_drought,REGIME,SEVERE,MEDIUM_TERM,False,False,True,True,True
+LIB_FRICT_001,friction_spread_expansion_5x,FRICTION,MODERATE,INTRADAY,False,False,True,True,True
+LIB_FRICT_002,friction_catastrophic_slippage_5x,FRICTION,SEVERE,INTRADAY,False,False,True,True,True

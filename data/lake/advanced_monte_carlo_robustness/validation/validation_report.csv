@@ -1,0 +1,6 @@
+suite_name,status,details,non_signal,local_only
+profile_registry,PASS,"{'passed': True, 'all_non_production': True, 'all_non_signal': True, 'zero_broker_ready': True, 'zero_live_trading_ready': True}",True,True
+robustness_contracts,PASS,"{'passed': True, 'all_monte_carlo_execution_blocked': True, 'all_bootstrap_execution_blocked': True, 'all_resampling_execution_blocked': True, 'all_live_trading_blocked': True, 'all_broker_blocked': True, 'all_metric_calc_blocked': True, 'all_parameter_optimization_blocked': True}",True,True
+stability_contracts,PASS,"{'passed': True, 'all_optimization_blocked': True, 'all_sweeps_blocked': True}",True,True
+manifest,PASS,"{'passed': True, 'checks_passed': 19, 'total_checks': 19}",True,True
+forbidden_claims,PASS,"{'is_clean': True, 'violations': [], 'non_signal': True}",True,True

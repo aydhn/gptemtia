@@ -1,0 +1,3 @@
+guard_id,guard_name,detection_target,description,is_active,status,non_signal
+GUARD_PROMOTIONAL_CLAIM,Promotional Performance Claim Guard,market_beating_or_superior_alpha_claims,Modeli üstün veya piyasayı yenen kesin bir strateji gibi lanse eden iddiaları engelleyen muhafız.,True,evaluation_contract_ready,True
+GUARD_UNVERIFIED_WIN_RATE,Unverified Win-Rate Claim Guard,actual_win_rate_assertions,Örneklem dışı doğrulanmamış kazanma oranı iddialarını engelleyen muhafız.,True,evaluation_contract_ready,True

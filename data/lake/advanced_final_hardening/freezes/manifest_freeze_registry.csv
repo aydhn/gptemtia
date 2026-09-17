@@ -1,0 +1,5 @@
+freeze_name,freeze_category,target_scope,description,frozen,actual_lock_enacted,modifications_allowed_without_review,domain,non_signal,local_only,dry_run,non_production,current_phase,status
+system_integration_manifest_freeze,manifest,data/lake/advanced_full_system_integration/manifest,Phase 158 sistem entegrasyon manifesti dondurması,True,False,False,manifest_freeze_domain,True,True,True,True,159,final_hardening_contract_ready
+release_candidate_manifest_freeze,manifest,data/lake/advanced_final_hardening/manifest,Phase 159 release candidate manifesti dondurması,True,False,False,manifest_freeze_domain,True,True,True,True,159,final_hardening_contract_ready
+portfolio_acceptance_manifest_freeze,manifest,data/lake/advanced_portfolio_acceptance/manifest,Phase 157 portföy kabul manifesti dondurması,True,False,False,manifest_freeze_domain,True,True,True,True,159,final_hardening_contract_ready
+ml_acceptance_manifest_freeze,manifest,data/lake/advanced_ml_acceptance/manifest,Phase 145 makine öğrenimi kabul manifesti dondurması,True,False,False,manifest_freeze_domain,True,True,True,True,159,final_hardening_contract_ready

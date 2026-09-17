@@ -1,0 +1,6 @@
+harness_id,harness_name,target_family_group,allowed_mode,simulation_mode,real_training_allowed,model_fit_allowed,model_predict_allowed,artifact_persistence_allowed,model_registry_write_allowed,manual_review_required,non_signal,production_ready,broker_ready
+harness_contract_standard_linear,Standard Linear Baseline Dry-Run Harness,linear_models,contract_only,no_op_dry_run,False,False,False,False,False,True,True,False,False
+harness_contract_tree_ensemble,Tree Ensemble Baseline Dry-Run Harness,tree_ensembles,contract_only,no_op_dry_run,False,False,False,False,False,True,True,False,False
+harness_contract_gradient_boosting,Gradient Boosting Baseline Dry-Run Harness,gradient_boosting,contract_only,no_op_dry_run,False,False,False,False,False,True,True,False,False
+harness_contract_neural_baseline,Neural Baseline Dry-Run Harness,neural_networks,contract_only,no_op_dry_run,False,False,False,False,False,True,True,False,False
+harness_contract_unsupervised_baseline,Unsupervised Baseline Dry-Run Harness,unsupervised,contract_only,no_op_dry_run,False,False,False,False,False,True,True,False,False

@@ -1,0 +1,11 @@
+{
+  "readiness_score": 1.0,
+  "classification": "READY_FOR_GPU_RESOURCE_GOVERNANCE_DRY_RUN",
+  "meets_threshold": true,
+  "production_ready": false,
+  "broker_ready": false,
+  "real_training_approved": false,
+  "current_phase": 139,
+  "non_signal": true,
+  "active_profile": "balanced_local_gpu_training_governance"
+}

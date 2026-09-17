@@ -1,0 +1,5 @@
+distribution_metric,statistic_type,formula,description,profile_name,current_phase,calculated,value,status,domain
+empirical_quantile_q05,adverse_tail_quantile,Q_0.05 = F^(-1)(0.05),5th percentile adverse outcome.,balanced_local_monte_carlo_robustness_contracts,149,False,,monte_carlo_contract_ready,distribution_placeholder_domain
+empirical_quantile_q50,median_quantile,Q_0.50 = F^(-1)(0.50),50th percentile median outcome.,balanced_local_monte_carlo_robustness_contracts,149,False,,monte_carlo_contract_ready,distribution_placeholder_domain
+empirical_quantile_q95,favorable_quantile,Q_0.95 = F^(-1)(0.95),95th percentile favorable outcome.,balanced_local_monte_carlo_robustness_contracts,149,False,,monte_carlo_contract_ready,distribution_placeholder_domain
+interquartile_range_iqr,dispersion_measure,IQR = Q_0.75 - Q_0.25,Interquartile range measuring central performance spread.,balanced_local_monte_carlo_robustness_contracts,149,False,,monte_carlo_contract_ready,distribution_placeholder_domain

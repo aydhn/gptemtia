@@ -1,0 +1,4 @@
+guard_name,enforcement,status,phase,is_enforced
+no_overwrite_guard,Strict prohibition of overwriting raw input files.,ACTIVE,144,True
+no_deletion_guard,File deletion and destructive trimming are blocked.,ACTIVE,144,True
+no_auto_drop_guard,Automatic column removal or silent imputation is blocked.,ACTIVE,144,True

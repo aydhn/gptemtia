@@ -1,0 +1,3 @@
+split_name,window_type,anchor_date_placeholder,initial_train_bars,test_step_bars,test_period_bars,description,execution_allowed,data_split_executed,non_signal
+fixed_anchor_start_contract,ANCHORED,HISTORICAL_START_T0,252,42,42,Baslangic noktasi sabit (anchored) tutulan ve zamanla egitim havuzunu genisleterek ilerleyen sozlesme.,False,False,True
+structural_break_anchor_contract,ANCHORED,POST_REGIME_BREAK_T0,126,21,21,Yapisal kirilma sonrasi belirlenen sabit t0 noktasina bagli capalanmis pencere sozlesmesi.,False,False,True

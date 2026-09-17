@@ -1,0 +1,2 @@
+operation,is_disabled,policy_code,reason,status,non_signal
+broker_execution,True,execution_blocked_no_broker,Phase 151 operates strictly offline; broker connections are prohibited.,evaluation_contract_ready,True

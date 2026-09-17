@@ -1,0 +1,4 @@
+control_id,name,description,enforcement,policy_mode,status,execution_allowed,non_signal,local_only,phase
+SRV_01_POINT_IN_TIME_UNIVERSE,point_in_time_constituent_reconstitution,"Ensure historical simulations include delisted, liquidated, or merged instruments actively trading at bar date.",BLOCKING_MANDATORY,point_in_time_reconstitution,ACTIVE,False,True,True,150
+SRV_02_DELISTING_RETURN_TREATMENT,delisting_and_liquidation_loss_inclusion,"Incorporate delisting events, terminal payouts, and final liquidation pricing to avoid upward survivorship drift.",BLOCKING_MANDATORY,point_in_time_reconstitution,ACTIVE,False,True,True,150
+SRV_03_RETROACTIVE_ADDITION_BAN,retroactive_universe_addition_prohibition,Prohibit retroactively back-extrapolating newly added instruments into eras prior to their inception date.,BLOCKING_ZERO_TOLERANCE,point_in_time_reconstitution,ACTIVE,False,True,True,150

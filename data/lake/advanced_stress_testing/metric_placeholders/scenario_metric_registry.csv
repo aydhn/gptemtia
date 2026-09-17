@@ -1,0 +1,5 @@
+metric_name,metric_category,description,formula_spec,benchmark_relative,metric_calculated,performance_claim_generated,non_signal
+scenario_survival_placeholder,SURVIVAL,Senaryo Hayatta Kalma Oranı yer tutucusu (Marjın tükenmeme olasılığı).,P_survival = 1 - P(Nav_t <= Min_Margin),False,False,False,True
+scenario_drawdown_recovery_time_placeholder,RECOVERY,Senaryo Drawdown Toparlanma Süresi yer tutucusu.,T_recovery = min{t > t_trough : Nav_t >= Nav_peak},False,False,False,True
+scenario_worst_case_loss_placeholder,EXTREME_LOSS,Senaryo En Kötü Durum Kaybı (Worst-Case Peak-to-Trough) yer tutucusu.,L_worst = min_t(Nav_t - Nav_0) / Nav_0,False,False,False,True
+scenario_liquidity_drain_placeholder,LIQUIDITY_RISK,Senaryo Likidite Tüketim Oranı yer tutucusu.,D_liquidity = (Available_Cash - Margin_Req) / Total_Capital,False,False,False,True

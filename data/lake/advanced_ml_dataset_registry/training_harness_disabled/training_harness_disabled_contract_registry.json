@@ -1,0 +1,9 @@
+{
+  "total_contracts": 4,
+  "all_enforced": true,
+  "model_training_blocked": true,
+  "optimizer_blocked": true,
+  "backtest_blocked": true,
+  "non_signal": true,
+  "manual_review_required": true
+}

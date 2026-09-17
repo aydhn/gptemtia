@@ -1,0 +1,7 @@
+boundary_id,boundary_type,rule_name,action_type,is_allowed,reason
+NPB-158-001,non_production_boundary,no_production_deployment,deployment,False,Production deployment is strictly prohibited.
+NPB-158-002,non_production_boundary,no_production_ready_claim,claim,False,System cannot be claimed as production-ready.
+NPB-158-003,non_production_boundary,no_broker_ready_claim,claim,False,System cannot be claimed as broker-ready.
+NPB-158-004,non_production_boundary,no_live_ready_claim,claim,False,System cannot be claimed as live-ready.
+NPB-158-005,non_production_boundary,no_official_approval_claim,claim,False,Official approval claims are strictly forbidden.
+NPB-158-006,non_production_boundary,research_only_governance,governance,True,System strictly operates in research-only mode.

@@ -1,0 +1,4 @@
+limitation_id,title,category,description,status,non_signal
+BENCH_LIM_LEVERAGE_MISMATCH,Unlevered Benchmark vs Levered Strategy Mismatch,leverage_mismatch,"Pasif benchmarkın kaldıraçsız, stratejinin ise marjinli işlem yapması durumundaki sapma uyarısı.",evaluation_contract_ready,True
+BENCH_LIM_REBALANCING_FRICTION,Theoretical vs Realizable Benchmark Rebalancing Friction,rebalancing_friction,Sepet benchmarkın maliyetsiz yeniden dengeleme varsayımının yarattığı sapma uyarısı.,evaluation_contract_ready,True
+BENCH_LIM_UNIVERSE_SURVIVORSHIP,Static vs Dynamic Benchmark Universe Composition,universe_limitation,Benchmark evreninin tarihsel bileşen değişimlerini ne ölçüde yansıttığına dair sınır.,evaluation_contract_ready,True

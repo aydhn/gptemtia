@@ -1,0 +1,11 @@
+evidence_id,evidence_name,description,is_verified,evidence_mode,is_local_only,non_production
+EVID_154_01,portfolio_optimization_contracts_present,11 portfoy optimizasyon sozlesmesi tanimlandi,True,offline_contract,True,True
+EVID_154_02,objective_contracts_present,11 amac fonksiyonu sozlesmesi tanimlandi,True,offline_contract,True,True
+EVID_154_03,allocation_constraints_present,22 tahsisat kisit sozlesmesi tanimlandi,True,offline_contract,True,True
+EVID_154_04,solver_contracts_present,Cozucu sozlesmeleri ve yer tutuculari tanimlandi,True,offline_contract,True,True
+EVID_154_05,optimizer_execution_disabled_present,Optimizasyon yurumesi engelleme raporu mevcut,True,offline_contract,True,True
+EVID_154_06,allocation_claim_guards_present,Sermaye tahsisat iddia muhafizlari aktif,True,offline_contract,True,True
+EVID_154_07,weight_generation_claim_guards_present,Portfoy agirligi iddia muhafizlari aktif,True,offline_contract,True,True
+EVID_154_08,investment_advice_guards_present,Yatirim tavsiyesi engelleme muhafizlari aktif,True,offline_contract,True,True
+EVID_154_09,disabled_execution_reports_present,10 resmi yurutme engeli raporu olusturuldu,True,offline_contract,True,True
+EVID_154_10,phase_155_handoff_present,Phase 155 Risk Raporlama devir paketi hazir,True,offline_contract,True,True

@@ -1,0 +1,3 @@
+guard_name,enforcement_level,active,description,non_signal
+train_oos_divergence_guard,STRICT,True,Egitim performansi ile OOS performans arasindaki fark asiri acildiginda bayrak kaldiran muhafiz.,True
+parameter_complexity_budget_guard,STRICT,True,Model parametre sayisinin orneklem sayisina oranini sinirlandiran asiri ogrenme muhafizi.,True

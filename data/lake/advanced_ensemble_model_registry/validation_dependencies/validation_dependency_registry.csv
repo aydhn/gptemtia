@@ -1,0 +1,5 @@
+dep_name,source_phase,target_phase,required_check,enforced,non_signal
+dataset_validation_dependency,137,140,dataset_schema_and_boundary_validated,True,True
+feature_validation_dependency,133,140,feature_registry_validation_passed,True,True
+baseline_validation_dependency,138,140,baseline_model_contract_valid,True,True
+gpu_resource_validation_dependency,139,140,gpu_governance_budget_checked,True,True

@@ -1,0 +1,8 @@
+{
+  "domain": "backtest_governance_domain",
+  "total_domains": 27,
+  "status": "governance_contract_ready",
+  "all_non_signal": true,
+  "all_local_only": true,
+  "non_signal": true
+}

@@ -1,0 +1,22 @@
+> [!CAUTION]
+> **YASAL UYARI VE GÜVENLİK BİLDİRİMİ (PHASE 152 BACKTEST ACCEPTANCE REPORT)**:
+> Bu çıktı Phase 152 Backtest Acceptance Report çıktısıdır. Canlı emir, broker talimatı, > kesin AL/SAT, yatırım tavsiyesi, backtest/acceptance/readiness değerini trade sinyali veya > production-ready/broker-ready/onay olarak kullanma, gerçek backtest execution, benchmark > execution, metric calculation, optimizer, model training, model fit/predict/inference, > dataset materialization, target/label/prediction üretimi, gerçek Sharpe/win-rate/return/> alpha/beta/drawdown/VaR/ES hesaplama, performans garantisi, strategy approval, capital > allocation, portfolio construction, position sizing, model deployment, model registry write, > model artifact persistence, scraping, haber tam metni/article body/raw content/scraped HTML/> embedding/vector kullanımı veya gerçek provider API çağrısı değildir.
+
+## Phase 151 Acceptance Report: Benchmark Comparison and Strategy Evaluation Reports
+- **Active Profile**: `balanced_local_backtest_acceptance_contracts`
+- **Total Checks**: 10
+- **Passed Checks**: 10
+- **All Passed**: True
+- **Status**: `ACCEPTED`
+
+  check_id                                   name                                  topic  passed                                                    details phase_ref  current_phase  target_final_phase  next_phase           status  non_signal  production_ready  broker_ready
+CHK-151-01                         module_present advanced_benchmark_evaluation presence    True                Core benchmark evaluation package verified. Phase 151            152                 160         153 acceptance_ready        True             False         False
+CHK-151-02 benchmark_comparison_contracts_present  Benchmark comparison report contracts    True           Strategy vs benchmark report contracts verified. Phase 151            152                 160         153 acceptance_ready        True             False         False
+CHK-151-03  strategy_evaluation_contracts_present   Strategy evaluation report contracts    True     Evaluation template and disclosure contracts verified. Phase 151            152                 160         153 acceptance_ready        True             False         False
+CHK-151-04            metric_placeholders_present                    Metric placeholders    True                 Uncalculated metric placeholders verified. Phase 151            152                 160         153 acceptance_ready        True             False         False
+CHK-151-05                   claim_guards_present                           Claim guards    True          Result claim and performance claim guards active. Phase 151            152                 160         153 acceptance_ready        True             False         False
+CHK-151-06       strategy_approval_guards_present               Strategy approval guards    True               Approval and allocation prohibitions active. Phase 151            152                 160         153 acceptance_ready        True             False         False
+CHK-151-07                 no_benchmark_execution           Benchmark execution disabled    True                      Zero benchmark calculations executed. Phase 151            152                 160         153 acceptance_ready        True             False         False
+CHK-151-08       no_strategy_evaluation_execution Strategy evaluation execution disabled    True                        Zero strategy evaluations executed. Phase 151            152                 160         153 acceptance_ready        True             False         False
+CHK-151-09   no_capital_portfolio_position_sizing        Portfolio and sizing prohibited    True Zero capital allocation, portfolio construction or sizing. Phase 151            152                 160         153 acceptance_ready        True             False         False
+CHK-151-10               handoff_to_152_completed                      Phase 152 handoff    True    Phase 152 backtest acceptance handoff report satisfied. Phase 151            152                 160         153 acceptance_ready        True             False         False

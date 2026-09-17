@@ -1,0 +1,3 @@
+guard_name,description,enforcement,active,non_signal
+parameter_degrees_of_freedom_guard,Strateji basina serbest parametre sayisinin veri uzunluguna gore sinirlandirilmasi (max 4-5 parametre).,STRICT,True,True
+parameter_plateau_stability_guard,Parametre komsu degerlerinde performansin dramatik dusmemesi (plato kararliligi) kurali.,STRICT,True,True

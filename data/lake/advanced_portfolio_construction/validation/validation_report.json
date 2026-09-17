@@ -1,0 +1,8 @@
+{
+  "domain": "validation_domain",
+  "active_profile": "balanced_local_portfolio_construction_contracts",
+  "total_checks": 6,
+  "passed_count": 6,
+  "all_passed": true,
+  "status": "portfolio_contract_ready"
+}

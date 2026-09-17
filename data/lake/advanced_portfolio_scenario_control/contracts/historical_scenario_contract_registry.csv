@@ -1,0 +1,6 @@
+scenario_id,historical_event,period_start,period_end,macro_backdrop,observed_market_shock,contract_status,execution_allowed
+HIST-SCN-001,2008 Global Financial Crisis (Lehman Shock),2008-09-01,2008-11-30,"Bankacilik krizi, likidite donmasi, genis capli varlik satis dalgasi","Emtia fiyatlarinda %50+ dusus, FX piyasasinda yuksek volatilite",CONTRACT_ONLY,False
+HIST-SCN-002,2020 COVID-19 Pandemic Flash Crash,2020-02-15,2020-04-30,"Kuresel karantinalar, petrol fiyatinin negatif seviyeye inmesi","WTI negatif fiyat, kuresel FX paritelerinde sert kopmalar",CONTRACT_ONLY,False
+HIST-SCN-003,2022 Energy Shock and War Escalation,2022-02-20,2022-06-30,"Jeopolitik catisma, dogalgaz ve bugday arz soklari, enflasyonist baski","Avrupa gaz fiyatlarinda %300 artis, tarimsal emtiada yuksek dalgalanma",CONTRACT_ONLY,False
+HIST-SCN-004,2011 US Debt Downgrade and European Sovereign Debt,2011-08-01,2011-10-31,ABD kredi notu indirimi ve Avrupa borc krizi soku,"Altin rekor seviye, riskli varliklarda sert geri cekilme",CONTRACT_ONLY,False
+HIST-SCN-005,1997 Asian Financial Crisis Contagion,1997-07-01,1997-12-31,Gelisipte olan ulke kurlari devaluasyonu ve sermaye kacisi,Gelisipte olan FX kurlarinda %50+ deger kaybi,CONTRACT_ONLY,False

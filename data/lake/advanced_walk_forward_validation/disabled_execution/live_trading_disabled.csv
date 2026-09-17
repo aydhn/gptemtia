@@ -1,0 +1,2 @@
+execution_target,is_blocked,reason,enforced,non_signal
+live_order_engine,True,"Canli emir iletimi, borsa/piyasa baglantisi ve canli pozisyon acma kesinlikle yasaktir.",True,True

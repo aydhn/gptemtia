@@ -1,0 +1,7 @@
+{
+  "domain": "finding_domain",
+  "total_findings": 2,
+  "blocking_findings_count": 0,
+  "manual_review_required_count": 2,
+  "status": "portfolio_acceptance_ready"
+}

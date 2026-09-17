@@ -1,0 +1,4 @@
+contract_name,multiplier,description,cost_model_ref,execution_allowed,cost_calculation_allowed,non_signal,local_only,manual_review_required
+commission_rate_surge_3x_contract,3.0,3x Aracı Kurum Komisyon Artışı: Kriz ve yüksek volatilite dönemlerinde artan işlem komisyonları.,cost_model_v1,False,False,True,True,True
+exchange_fee_regulatory_shock_contract,2.5,Borsa ve Düzenleyici Kurum Harç Şoku: Finansal işlem vergisi ve borsa takas ücreti artışı.,cost_model_v1,False,False,True,True,True
+stressed_financing_fee_contract,4.0,Stresli Kaldıraç / Finansman Maliyeti: Teminat tamamlama dönemlerinde yükselen gecelik borçlanma faizi.,cost_model_v1,False,False,True,True,True

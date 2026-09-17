@@ -1,0 +1,9 @@
+policy_name,description,materialized,non_signal,manual_review_required,current_phase
+by_dataset_family,"Partition by dataset family (regime_metadata, featurestore, etc.)",False,True,True,137
+by_source_phase,Partition by source phase reference,False,True,True,137
+by_entity_type,"Partition by entity type (commodity, fx, etc.)",False,True,True,137
+by_time_bucket_placeholder,Placeholder partition by time bucket. Not materialized.,False,True,True,137
+by_validation_acceptance_status,Partition by validation acceptance status,False,True,True,137
+by_no_lookahead_status,Partition by no-lookahead guard status,False,True,True,137
+by_metadata_only_news_status,Partition by metadata-only news guard status,False,True,True,137
+by_manual_review_required,Partition by manual review required flag,False,True,True,137

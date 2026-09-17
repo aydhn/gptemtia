@@ -1,0 +1,4 @@
+operation_name,description,status,deployment_permitted,phase,non_signal,local_only
+deploy_to_production,Deploying strategies or backtest models to production environments.,DISABLED,False,150,True,True
+promote_to_live,Promoting experimental models to active execution servers.,DISABLED,False,150,True,True
+cloud_release,Triggering cloud infrastructure releases for autonomous trading.,DISABLED,False,150,True,True

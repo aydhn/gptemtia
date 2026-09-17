@@ -1,0 +1,2 @@
+readiness_score,classification,meets_threshold,min_threshold,total_findings,critical_blockers,non_signal,production_ready,broker_ready,official_approval,phase
+1.0,READY_FOR_PHASE_142_DRIFT_MONITORING_HANDOFF,True,0.45,3,0,True,False,False,False,141

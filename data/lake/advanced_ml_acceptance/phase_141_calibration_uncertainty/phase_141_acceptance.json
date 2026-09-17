@@ -1,0 +1,11 @@
+{
+  "domain": "phase_141_calibration_uncertainty_acceptance_domain",
+  "active_profile": "balanced_local_advanced_ml_acceptance",
+  "phase_ref": "Phase 141",
+  "phase_title": "Probability Calibration and Uncertainty Estimation",
+  "total_checks": 8,
+  "passed_checks": 8,
+  "all_passed": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

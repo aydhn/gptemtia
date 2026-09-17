@@ -1,0 +1,10 @@
+{
+  "score_name": "phase_140_ensemble_readiness_score",
+  "readiness_score": 1.0,
+  "classification": "READY_FOR_PHASE_141_HANDOFF",
+  "meets_threshold": true,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false,
+  "dry_run": true
+}

@@ -1,0 +1,10 @@
+{
+  "domain": "manual_review_gate_domain",
+  "total_review_items": 10,
+  "pending_review_count": 10,
+  "all_pending_manual_review": true,
+  "status": "governance_contract_ready",
+  "non_signal": true,
+  "local_only": true,
+  "profile_name": "balanced_local_backtest_governance_contracts"
+}

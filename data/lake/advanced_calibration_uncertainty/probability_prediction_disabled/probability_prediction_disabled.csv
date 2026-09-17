@@ -1,0 +1,4 @@
+prediction_type,is_prediction_disabled,policy,enforcement,non_signal,phase
+binary_class_probability,True,PHASE_141_NO_PROBABILITY_PREDICTION,STRICT_BLOCK,True,141
+multiclass_posterior_probability,True,PHASE_141_NO_PROBABILITY_PREDICTION,STRICT_BLOCK,True,141
+calibrated_score_mapping,True,PHASE_141_NO_PROBABILITY_PREDICTION,STRICT_BLOCK,True,141

@@ -1,0 +1,10 @@
+review_id,domain,description,recommendation,priority,auto_fix_forbidden,non_signal
+MR-137-001,dataset_source_catalog_domain,Inspect upstream Phase 116-136 source catalog references to verify presence of metadata pointers,inspect dataset source catalog references and ensure zero raw data loading,high,True,True
+MR-137-002,dataset_schema_domain,Inspect schema contracts to confirm required metadata fields and ensure absence of target/signal columns,inspect schema required fields and confirm zero forbidden columns,high,True,True
+MR-137-003,time_index_policy_domain,Inspect time index policy to verify strict UTC parsing and strict monotonic ordering requirements,inspect time index policy and enforce UTC timezone validation,medium,True,True
+MR-137-004,time_series_split_policy_domain,Inspect split policy placeholders to confirm non-execution and verify no train/test materialization,inspect split policy placeholders to ensure dry-run contract fidelity,medium,True,True
+MR-137-005,leakage_guard_domain,Inspect leakage guards to guarantee prohibition of shift(-1) and future return joins,inspect leakage and no-lookahead guards before Phase 138 handoff,critical,True,True
+MR-137-006,metadata_only_news_guard_domain,"Inspect news guards to ensure only metadata headers/event tags are used, blocking all article bodies",inspect metadata-only news guards and verify zero full text / HTML content,critical,True,True
+MR-137-007,feature_snapshot_contract_domain,Inspect FeatureStore accepted catalog references to ensure alignment with Phase 134/135 regimes,inspect FeatureStore accepted references and verify snapshot contracts are unmaterialized,high,True,True
+MR-137-008,experiment_permission_domain,"Inspect experiment registry permissions to confirm training, inference, and artifact persistence blocks",inspect experiment registry permissions and enforce zero-training policy,critical,True,True
+MR-137-009,phase_138_handoff_domain,Inspect prerequisites and dry-run training harness boundaries prior to Phase 138 kickoff,inspect Phase 138 dry-run harness blockers and safety preconditions,high,True,True

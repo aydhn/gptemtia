@@ -1,0 +1,4 @@
+dependency_name,source,scope,status,phase,non_signal
+phase_141_probability_calibration_contracts,Phase 141,Platt scaling and isotonic calibration contracts,SATISFIED,144,True
+phase_141_uncertainty_estimation_contracts,Phase 141,Conformal and quantile uncertainty bounds,SATISFIED,144,True
+phase_141_reliability_placeholders,Phase 141,Reliability diagram and Brier score tracking,SATISFIED,144,True

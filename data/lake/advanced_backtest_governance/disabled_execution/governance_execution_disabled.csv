@@ -1,0 +1,4 @@
+operation_name,description,status,execution_permitted,phase,non_signal,local_only
+run_backtest,Historical backtest execution engine across bar feeds.,DISABLED,False,150,True,True
+execute_backtest,Execution wrapper for multi-asset strategy runs.,DISABLED,False,150,True,True
+run_benchmark,Benchmark simulation and relative return generation.,DISABLED,False,150,True,True

@@ -1,0 +1,9 @@
+{
+  "manifest_id": "manifest_phase_148_balanced_local_stress_testing_contracts",
+  "current_phase": 148,
+  "next_phase": 149,
+  "target_final_phase": 160,
+  "all_invariants_valid": true,
+  "phase_149_handoff_ready": true,
+  "non_signal": true
+}

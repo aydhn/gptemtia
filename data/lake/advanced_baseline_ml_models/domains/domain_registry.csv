@@ -1,0 +1,38 @@
+domain_key,category,scope,active,non_signal,production_ready,broker_ready
+baseline_ml_model_profile_domain,configuration,Profiles & settings,True,True,False,False
+baseline_ml_model_domain,taxonomy,High-level domain tracking,True,True,False,False
+model_family_domain,contracts,Baseline model algorithm families,True,True,False,False
+model_contract_domain,contracts,Formal model contracts,True,True,False,False
+model_input_contract_domain,contracts,Feature and dataset inputs,True,True,False,False
+model_output_contract_domain,contracts,Blocked prediction outputs,True,True,False,False
+training_plan_domain,training_plan,Dry-run simulated plans,True,True,False,False
+dry_run_harness_contract_domain,harness,Dry-run harness rules,True,True,False,False
+dry_run_harness_interface_domain,harness,Interface contracts,True,True,False,False
+trainer_stub_domain,harness,Trainer stubs returning blocked status,True,True,False,False
+dry_run_policy_domain,policies,Training simulation policies,True,True,False,False
+no_real_training_domain,safety,Zero real training enforcement,True,True,False,False
+no_prediction_domain,safety,Zero prediction enforcement,True,True,False,False
+no_target_label_domain,safety,Zero target/label generation,True,True,False,False
+artifact_disabled_domain,governance,Artifact persistence disabled,True,True,False,False
+model_registry_write_disabled_domain,governance,Registry writes disabled,True,True,False,False
+metric_placeholder_domain,placeholders,Metric placeholders without compute,True,True,False,False
+evaluation_placeholder_domain,placeholders,Future evaluation placeholders,True,True,False,False
+validation_dependency_domain,dependencies,Preceding validation linkages,True,True,False,False
+quality_dependency_domain,dependencies,Preceding quality linkages,True,True,False,False
+lineage_domain,lineage,Full Phase 116-138 lineage,True,True,False,False
+featurestore_input_domain,inputs,FeatureStore catalog inputs,True,True,False,False
+regime_input_domain,inputs,Regime acceptance inputs,True,True,False,False
+no_lookahead_guard_domain,guards,Leakage & future timestamp prevention,True,True,False,False
+metadata_only_news_guard_domain,guards,No raw news content enforcement,True,True,False,False
+source_preservation_guard_domain,guards,Source preservation guards,True,True,False,False
+forbidden_column_policy_domain,guards,Forbidden column enforcement,True,True,False,False
+experiment_linkage_domain,linkage,Phase 137 experiment connection,True,True,False,False
+manual_review_domain,governance,Manual inspection queue,True,True,False,False
+finding_domain,governance,Audit findings and blockers,True,True,False,False
+readiness_score_domain,scoring,Phase 138 readiness scoring,True,True,False,False
+manifest_domain,manifest,Phase 138 integrity manifest,True,True,False,False
+health_domain,health,System health verification,True,True,False,False
+validation_domain,validation,Comprehensive validation report,True,True,False,False
+safety_domain,safety,Formal NO-GO and SAFE-GO boundaries,True,True,False,False
+phase_139_handoff_domain,handoff,Handoff to Phase 139 GPU harness,True,True,False,False
+unknown_baseline_ml_model_domain,fallback,Fallback unknown domain,True,True,False,False

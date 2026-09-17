@@ -1,0 +1,6 @@
+check_name,is_valid,error_count,errors,current_phase,target_final_phase,next_phase
+profiles_validation,True,0,NONE,155,160,156
+contracts_validation,True,0,NONE,155,160,156
+exposure_contracts_validation,True,0,NONE,155,160,156
+limit_contracts_validation,True,0,NONE,155,160,156
+manifest_validation,True,0,NONE,155,160,156

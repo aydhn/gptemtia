@@ -1,0 +1,12 @@
+{
+  "total_training_plans": 10,
+  "all_contract_only": true,
+  "zero_real_training_allowed": true,
+  "all_dry_run_allowed": true,
+  "zero_target_label_required": true,
+  "zero_artifact_persistence": true,
+  "all_manual_review_required": true,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false
+}

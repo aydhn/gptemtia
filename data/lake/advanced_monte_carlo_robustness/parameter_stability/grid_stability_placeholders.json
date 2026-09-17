@@ -1,0 +1,8 @@
+{
+  "domain": "parameter_grid_stability_placeholder_domain",
+  "total_placeholders": 2,
+  "all_uncalculated": true,
+  "all_unexecuted": true,
+  "profile_name": "balanced_local_monte_carlo_robustness_contracts",
+  "status": "monte_carlo_contract_ready"
+}

@@ -1,0 +1,5 @@
+item_id,regime_layer,contract,status,non_signal,verified
+RGI-001,market_behavior_diagnostics,diagnostics,INTEGRATED,True,True
+RGI-002,regime_matrix,state_definitions,INTEGRATED,True,True
+RGI-003,regime_transitions,transition_stability,INTEGRATED,True,True
+RGI-004,regime_acceptance,acceptance_manifest,INTEGRATED,True,True

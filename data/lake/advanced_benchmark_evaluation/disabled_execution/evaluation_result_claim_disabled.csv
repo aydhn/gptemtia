@@ -1,0 +1,2 @@
+operation,is_disabled,policy_code,reason,status,non_signal
+result_claim_generation,True,execution_blocked_no_result_claim,Phase 151 prohibits promotional or definitive result claims.,evaluation_contract_ready,True

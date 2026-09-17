@@ -1,0 +1,2 @@
+guard_name,domain,guard_rule,is_active,action_on_violation,current_phase,target_final_phase,next_phase
+portfolio_adjustment_guard,claim_guard,"Prohibits automatic position resizing, rebalance execution, hedging, or de-risking",True,BLOCK,155,160,156

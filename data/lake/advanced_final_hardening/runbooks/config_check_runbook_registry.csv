@@ -1,0 +1,6 @@
+step_id,step_name,description,requires_manual_inspection,domain,non_signal,local_only,dry_run,non_production,current_phase,status
+check_default_profile,Check Default Profile,Varsayılan profilin balanced_local_final_hardening_contracts olduğunun kontrolü,True,operator_runbook_domain,True,True,True,True,159,operator_runbook_contract_ready
+check_dry_run_flag,Check Dry Run Flag,final_hardening_dry_run_default değerinin True olduğunun kontrolü,True,operator_runbook_domain,True,True,True,True,159,operator_runbook_contract_ready
+check_no_live_trading,Check No Live Trading,Tüm allow_live_trading bayraklarının False olduğunun teyidi,True,operator_runbook_domain,True,True,True,True,159,operator_runbook_contract_ready
+check_no_broker,Check No Broker,Tüm allow_broker_integration bayraklarının False olduğunun teyidi,True,operator_runbook_domain,True,True,True,True,159,operator_runbook_contract_ready
+check_env_template,Check Env Template,.env.example dosyasının güncel anahtarlarla örtüştüğünün kontrolü,True,operator_runbook_domain,True,True,True,True,159,operator_runbook_contract_ready

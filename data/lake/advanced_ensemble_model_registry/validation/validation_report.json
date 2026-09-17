@@ -1,0 +1,9 @@
+{
+  "report_name": "ensemble_model_validation_report_v140",
+  "phase": 140,
+  "validation_status": "VALID",
+  "readiness_score": 1.0,
+  "is_valid": true,
+  "dry_run": true,
+  "non_signal": true
+}

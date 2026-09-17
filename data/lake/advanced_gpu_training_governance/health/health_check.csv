@@ -1,0 +1,13 @@
+component,path,status,exists,non_signal,current_phase
+Phase 138 advanced_baseline_ml_models,C:\Projelerim\gptemtia\advanced_baseline_ml_models,HEALTHY,True,True,139
+Phase 137 advanced_ml_dataset_registry,C:\Projelerim\gptemtia\advanced_ml_dataset_registry,HEALTHY,True,True,139
+Phase 136 advanced_gpu_ml_runtime,C:\Projelerim\gptemtia\advanced_gpu_ml_runtime,HEALTHY,True,True,139
+Phase 135 advanced_regime_acceptance,C:\Projelerim\gptemtia\data\lake\advanced_regime_acceptance,HEALTHY,True,True,139
+Phase 134 advanced_regime_featurestore_integration,C:\Projelerim\gptemtia\data\lake\advanced_regime_featurestore_integration,HEALTHY,True,True,139
+FeatureStore,C:\Projelerim\gptemtia\ml\feature_store.py,HEALTHY,True,True,139
+DataLake,C:\Projelerim\gptemtia\data\storage\data_lake.py,HEALTHY,True,True,139
+advanced_gpu_training_governance,C:\Projelerim\gptemtia\advanced_gpu_training_governance,HEALTHY,True,True,139
+scripts,C:\Projelerim\gptemtia\scripts,HEALTHY,True,True,139
+tests,C:\Projelerim\gptemtia\tests,HEALTHY,True,True,139
+docs,C:\Projelerim\gptemtia\docs,HEALTHY,True,True,139
+config,C:\Projelerim\gptemtia\config\settings.py,HEALTHY,True,True,139

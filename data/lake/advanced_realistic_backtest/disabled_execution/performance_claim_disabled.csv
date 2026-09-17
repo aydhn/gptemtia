@@ -1,0 +1,2 @@
+execution_type,status,reason,blocked_actions,is_blocked,non_signal
+PERFORMANCE_CLAIM_ASSERTION,STRICTLY_PROHIBITED,"Performance claims, return guarantees, and production/broker readiness claims are strictly prohibited.","['guaranteed_return', 'sharpe_claim', 'win_rate_claim', 'production_ready', 'broker_ready', 'live_trading_approved', 'guaranteed_profit', 'official_approval']",True,True

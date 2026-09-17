@@ -1,0 +1,10 @@
+{
+  "domain": "phase_155_risk_reporting_acceptance_domain",
+  "phase_number": 155,
+  "total_criteria": 10,
+  "satisfied_criteria": 10,
+  "all_satisfied": true,
+  "contract_only": true,
+  "non_production": true,
+  "status": "portfolio_acceptance_ready"
+}

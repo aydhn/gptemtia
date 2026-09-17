@@ -1,0 +1,10 @@
+gate_id,gate_name,scope,criterion,requires_signoff,status,phase
+GATE-01,dataset_contract_review_gate,Phase 137 ML Dataset Contracts,"Verify time index integrity, purged splits, and absence of target labels.",True,REVIEW_PENDING,144
+GATE-02,baseline_model_contract_review_gate,Phase 138 Baseline Model Contracts,Ensure baseline models are dry-run interface stubs with no trained weights.,True,REVIEW_PENDING,144
+GATE-03,ensemble_contract_review_gate,Phase 140 Ensemble Model Contracts,Verify candidate eligibility and confirm ensemble weights are non-materialized.,True,REVIEW_PENDING,144
+GATE-04,calibration_uncertainty_review_gate,Phase 141 Calibration & Uncertainty,Check calibration curves and guarantee uncertainty outputs are non-signal.,True,REVIEW_PENDING,144
+GATE-05,drift_monitoring_review_gate,Phase 142 Drift Monitoring,Validate statistical drift thresholds and linkage to FeatureStore.,True,REVIEW_PENDING,144
+GATE-06,explainability_review_gate,Phase 143 Explainability & Attribution,Ensure XAI stability contracts and zero automated model action policies.,True,REVIEW_PENDING,144
+GATE-07,model_card_review_gate,Phase 144 Model Cards,"Audit limitations, intended use, prohibited use, and risk disclosures.",True,REVIEW_PENDING,144
+GATE-08,audit_placeholder_review_gate,Phase 144 Audit Trail,Confirm audit trail items are marked dry_run_only and non-production.,True,REVIEW_PENDING,144
+GATE-09,release_boundary_review_gate,Phase 144 Release Boundaries,Confirm 100% block on production deployment and live trading.,True,REVIEW_PENDING,144

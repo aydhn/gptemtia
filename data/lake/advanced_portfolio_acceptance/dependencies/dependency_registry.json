@@ -1,0 +1,7 @@
+{
+  "domain": "dependency_acceptance_domain",
+  "total_dependencies": 16,
+  "satisfied_dependencies": 16,
+  "all_satisfied": true,
+  "status": "portfolio_acceptance_ready"
+}

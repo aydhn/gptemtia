@@ -1,0 +1,5 @@
+operation_name,reason,status,calculation_permitted,phase,non_signal,local_only
+calculate_sharpe,Numerical Sharpe calculation is disabled.,DISABLED,False,150,True,True
+calculate_win_rate,Numerical win-rate calculation is disabled.,DISABLED,False,150,True,True
+calculate_alpha,Numerical alpha calculation is disabled.,DISABLED,False,150,True,True
+calculate_return,Numerical cumulative return calculation is disabled.,DISABLED,False,150,True,True

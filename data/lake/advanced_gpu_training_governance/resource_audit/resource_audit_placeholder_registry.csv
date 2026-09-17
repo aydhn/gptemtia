@@ -1,0 +1,3 @@
+resource_audit_id_placeholder,device_selection_policy_ref,memory_budget_policy_ref,timeout_policy_ref,cpu_fallback_policy_ref,dry_run_only,real_training_executed,artifact_persisted,manual_review_required,non_signal,status
+RES_AUDIT_PH_001,DEV_SEL_001,MEM_POL_001,TMO_POL_001,CPU_FB_001,True,False,False,True,True,gpu_governance_ready
+RES_AUDIT_PH_002,DEV_SEL_002,MEM_POL_002,TMO_POL_002,CPU_FB_002,True,False,False,True,True,gpu_governance_ready

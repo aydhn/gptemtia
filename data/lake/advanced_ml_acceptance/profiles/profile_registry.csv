@@ -1,0 +1,4 @@
+profile_name,description,current_phase,target_final_phase,next_phase,min_readiness_score,dry_run_default,local_only,non_production,research_only,allow_live_trading,allow_broker_integration,allow_signal_generation,allow_backtest_execution,allow_real_model_training,allow_model_predict,status,non_signal
+balanced_local_advanced_ml_acceptance,Dengeli yerel Advanced ML blogu kabul ve yonetisim profili (Phase 136-144 konsolide).,145,160,146,0.5,True,True,True,True,False,False,False,False,False,False,acceptance_ready,True
+strict_non_production_advanced_ml_acceptance_safety,"Siki non-production, no-live-trading ve sifir inference odakli guvenlik kabul profili.",145,160,146,0.65,True,True,True,True,False,False,False,False,False,False,acceptance_ready,True
+dry_run_phase_136_145_acceptance_focus,"Dry-run uyumlu, manifest ve Phase 146 realistic backtest devri odakli kabul profili.",145,160,146,0.45,True,True,True,True,False,False,False,False,False,False,acceptance_ready,True

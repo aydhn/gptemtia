@@ -1,0 +1,13 @@
+section_id,section_name,description,required,manual_review_gate,non_signal
+SEC-01,overview,"High-level summary of model contract, purpose, and phase context.",True,review_required,True
+SEC-02,intended_use,Designated research and offline analysis scope.,True,review_required,True
+SEC-03,prohibited_use,"Strict prohibition of live trading, broker actions, and advice.",True,review_required,True
+SEC-04,data_sources,Lineage and references to Phase 137 dataset contracts.,True,review_required,True
+SEC-05,feature_dependencies,Dependencies on FeatureStore and technical/macro factor spaces.,True,review_required,True
+SEC-06,model_family,Specification of model architecture and hyperparameter contracts.,True,review_required,True
+SEC-07,limitations,"Known constraints, non-materialized state, and non-predictive status.",True,review_required,True
+SEC-08,risk_disclosures,"Identification of modeling, drift, and market regime risks.",True,review_required,True
+SEC-09,validation_evidence,Evidence from prior phases (136-143) validation harnesses.,True,review_required,True
+SEC-10,no_go_boundaries,Strict boundary conditions halting execution or deployment.,True,review_required,True
+SEC-11,manual_review_requirements,Review procedures before accepting governance artifacts.,True,review_required,True
+SEC-12,non_production_disclaimer,Explicit warning that artifact is not an approval or signal.,True,review_required,True

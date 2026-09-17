@@ -1,0 +1,9 @@
+{
+  "domain": "parameter_surface_placeholder_domain",
+  "total_surface_placeholders": 3,
+  "total_placeholders": 3,
+  "all_uncalculated": true,
+  "all_unexecuted": true,
+  "profile_name": "balanced_local_monte_carlo_robustness_contracts",
+  "status": "monte_carlo_contract_ready"
+}

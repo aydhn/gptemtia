@@ -1,0 +1,22 @@
+> [!CAUTION]
+> **YASAL UYARI VE GÜVENLİK BİLDİRİMİ (PHASE 152 BACKTEST ACCEPTANCE REPORT)**:
+> Bu çıktı Phase 152 Backtest Acceptance Report çıktısıdır. Canlı emir, broker talimatı, > kesin AL/SAT, yatırım tavsiyesi, backtest/acceptance/readiness değerini trade sinyali veya > production-ready/broker-ready/onay olarak kullanma, gerçek backtest execution, benchmark > execution, metric calculation, optimizer, model training, model fit/predict/inference, > dataset materialization, target/label/prediction üretimi, gerçek Sharpe/win-rate/return/> alpha/beta/drawdown/VaR/ES hesaplama, performans garantisi, strategy approval, capital > allocation, portfolio construction, position sizing, model deployment, model registry write, > model artifact persistence, scraping, haber tam metni/article body/raw content/scraped HTML/> embedding/vector kullanımı veya gerçek provider API çağrısı değildir.
+
+## Phase 148 Acceptance Report: Stress Testing and Scenario Simulation
+- **Active Profile**: `balanced_local_backtest_acceptance_contracts`
+- **Total Checks**: 10
+- **Passed Checks**: 10
+- **All Passed**: True
+- **Status**: `ACCEPTED`
+
+  check_id                                      name                                 topic  passed                                                                  details phase_ref  current_phase  target_final_phase  next_phase           status  non_signal  production_ready  broker_ready
+CHK-148-01                            module_present      advanced_stress_testing presence    True                                    Core stress testing package verified. Phase 148            152                 160         153 acceptance_ready        True             False         False
+CHK-148-02         stress_scenario_contracts_present             Stress scenario contracts    True               Multi-asset stress scenario definition contracts verified. Phase 148            152                 160         153 acceptance_ready        True             False         False
+CHK-148-03 historical_hypothetical_contracts_present Historical and hypothetical scenarios    True                   2008 GFC, 2020 COVID, energy shock contracts verified. Phase 148            152                 160         153 acceptance_ready        True             False         False
+CHK-148-04                shock_placeholders_present              Asset shock placeholders    True Price shock, spread blowout, and volatility surge placeholders verified. Phase 148            152                 160         153 acceptance_ready        True             False         False
+CHK-148-05        stress_metric_placeholders_present            Stress metric placeholders    True    Conditional VaR, expected shortfall, tail risk placeholders verified. Phase 148            152                 160         153 acceptance_ready        True             False         False
+CHK-148-06                  no_stress_test_execution        Stress test execution disabled    True                                     Zero simulated stress runs executed. Phase 148            152                 160         153 acceptance_ready        True             False         False
+CHK-148-07                    no_scenario_simulation          Scenario simulation disabled    True                                      Zero synthetic scenarios simulated. Phase 148            152                 160         153 acceptance_ready        True             False         False
+CHK-148-08               no_stressed_pnl_calculation     Stressed PnL calculation disabled    True                         Zero stressed PnL or loss estimations generated. Phase 148            152                 160         153 acceptance_ready        True             False         False
+CHK-148-09                           no_live_trading               Live trading prohibited    True                           Strict prohibition of live execution enforced. Phase 148            152                 160         153 acceptance_ready        True             False         False
+CHK-148-10                  handoff_to_149_completed                     Phase 149 handoff    True                          Phase 149 Monte Carlo handoff report satisfied. Phase 148            152                 160         153 acceptance_ready        True             False         False

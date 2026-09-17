@@ -1,0 +1,2 @@
+guard_id,description,enforcement_action,profile_name,current_phase,status,violations_found,domain
+GUARD_SOURCE_PRESERVATION_149_01,"Prohibits in-place mutations, source file overwrites, and unlogged record deletion.",RAISE_PERMISSION_ERROR,balanced_local_monte_carlo_robustness_contracts,149,ACTIVE,0,bias_guard_domain

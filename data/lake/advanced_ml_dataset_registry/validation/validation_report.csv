@@ -1,0 +1,7 @@
+check_name,status,passed,details,non_signal
+Profile Registry Invariants,PASS,True,passed 5/5,True
+Dataset Contract Invariants,PASS,True,passed 4/4,True
+Schema Policy Invariants,PASS,True,passed 3/3,True
+Experiment Registry Invariants,PASS,True,passed 4/4,True
+Manifest Invariants,PASS,True,passed 12/12,True
+Forbidden Claims Verification,PASS,True,no prohibited claims detected,True

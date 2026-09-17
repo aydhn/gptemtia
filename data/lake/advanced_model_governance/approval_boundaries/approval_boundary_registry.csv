@@ -1,0 +1,7 @@
+boundary_name,boundary_type,enforcement_rule,error_message,action_permitted,manual_review_required,phase,status
+production_approval_blocked_boundary,production_approval,Production approval cannot be granted in offline non-production governance.,Production approval request is strictly blocked by safety policy.,False,True,144,ENFORCED
+broker_ready_approval_blocked_boundary,broker_ready_approval,Broker readiness sign-off is prohibited in local offline research.,Broker readiness approval request is strictly blocked by safety policy.,False,True,144,ENFORCED
+live_trading_approval_blocked_boundary,live_trading_approval,Live trading execution approval is permanently disabled in this repository.,Live trading approval request is strictly blocked by safety policy.,False,True,144,ENFORCED
+release_approval_blocked_boundary,release_approval,Release sign-off for deployment is blocked.,Release approval request is strictly blocked by safety policy.,False,True,144,ENFORCED
+official_approval_claim_blocked_boundary,official_approval_claim,Claiming official regulatory or institutional approval is prohibited.,Official approval claim is strictly blocked by safety policy.,False,True,144,ENFORCED
+manual_review_required_boundary,manual_review,All governance transitions require explicit human reviewer sign-off.,Automatic transition prohibited; manual review gate triggered.,False,True,144,ENFORCED

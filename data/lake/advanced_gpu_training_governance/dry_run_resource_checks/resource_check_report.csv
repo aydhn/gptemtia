@@ -1,0 +1,5 @@
+check_id,check_name,check_type,result,details,dry_run_only,non_signal,status
+RES_CHK_001,gpu_device_availability_check,hardware_discovery,PASS,Environment hardware queried without allocation.,True,True,gpu_governance_ready
+RES_CHK_002,memory_headroom_safety_check,memory_budget,PASS,Requested memory fraction within 0.80 ceiling.,True,True,gpu_governance_ready
+RES_CHK_003,cpu_fallback_path_check,fallback_validation,PASS,Deterministic CPU path available if GPU runtime is absent.,True,True,gpu_governance_ready
+RES_CHK_004,timeout_watchdog_boundary_check,timeout_policy,PASS,Simulated training runtime strictly capped at 3600 seconds.,True,True,gpu_governance_ready

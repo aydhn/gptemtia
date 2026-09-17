@@ -1,0 +1,15 @@
+{
+  "total_evidence_items": 8,
+  "all_verified": true,
+  "covered_phases": [
+    "136",
+    "137",
+    "138",
+    "139",
+    "140",
+    "141",
+    "142",
+    "143"
+  ],
+  "non_signal": true
+}

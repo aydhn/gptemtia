@@ -1,0 +1,4 @@
+operation_name,description,status,training_permitted,phase,non_signal,local_only
+train_model,Fitting supervised or unsupervised ML models on dataset splits.,DISABLED,False,150,True,True
+fine_tune,Fine-tuning pre-trained weights or representations.,DISABLED,False,150,True,True
+gradient_update,Gradient descent step or backpropagation execution.,DISABLED,False,150,True,True

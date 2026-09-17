@@ -1,0 +1,8 @@
+check_name,passed
+candidate_contracts_valid,True
+eligibility_gates_valid,True
+compatibility_matrix_valid,True
+strategy_contracts_valid,True
+execution_disabled_valid,True
+lookahead_guards_valid,True
+news_guards_valid,True

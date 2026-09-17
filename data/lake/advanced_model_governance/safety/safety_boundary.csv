@@ -1,0 +1,35 @@
+condition_id,name,rule,is_strictly_enforced
+NG-01,live_trading,Never execute live orders or connect broker APIs.,True
+NG-02,real_orders,Never submit real orders to financial markets.,True
+NG-03,investment_advice,Never provide financial or investment advice.,True
+NG-04,signal_generation,Never generate buy/sell/long/short signals.,True
+NG-05,directional_certainty,Never claim directional predictive certainty.,True
+NG-06,dataset_materialization,Never materialize datasets during governance.,True
+NG-07,feature_snapshot_materialization,Never materialize feature snapshots.,True
+NG-08,strategy_backtest_execution,Never execute backtests or optimization algorithms.,True
+NG-09,real_model_training,Never execute real model fit/training routines.,True
+NG-10,real_model_predict,Never execute model predict or inference routines.,True
+NG-11,probability_prediction,Never compute real probability predictions.,True
+NG-12,calibration_execution,Never execute calibration algorithms on live data.,True
+NG-13,uncertainty_estimation,Never compute live uncertainty estimates.,True
+NG-14,drift_calculation,Never run live drift calculations during governance.,True
+NG-15,explainability_calculation,Never compute live SHAP/LIME/PDP values.,True
+NG-16,feature_attribution_calculation,Never compute live feature attribution.,True
+NG-17,target_label_prediction,Never generate target labels or predictions.,True
+NG-18,metric_performance_claim,Never claim performance metrics or accuracy.,True
+NG-19,model_artifact_persistence,Never persist weights or serialized model objects.,True
+NG-20,model_registry_write,Never write to MLflow or model registries.,True
+NG-21,model_deployment,Never deploy models to serving infrastructure.,True
+NG-22,production_deployment,Never trigger production deployment pipelines.,True
+NG-23,production_approval,Never grant production approval sign-offs.,True
+NG-24,broker_ready_approval,Never certify broker readiness.,True
+NG-25,live_trading_approval,Never grant live trading authorization.,True
+NG-26,release_approval,Never approve release candidates.,True
+NG-27,official_approval_claim,Never claim official regulatory approvals.,True
+NG-28,real_audit_log,Never claim placeholder logs are real audit logs.,True
+NG-29,full_article_content,Never store full news article body text or HTML.,True
+NG-30,embedding_generation,Never generate NLP embeddings or vector databases.,True
+NG-31,source_overwrite,Never overwrite or destructively modify raw source files.,True
+NG-32,auto_imputation_drop,Never silently impute values or drop features.,True
+NG-33,scraping,Never scrape external web sources.,True
+NG-34,credential_output,"Never leak credentials, API keys, or tokens.",True

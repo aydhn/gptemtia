@@ -1,0 +1,4 @@
+guard_id,guard_name,check_type,enforced,non_signal,description,status
+SRC_GRD_001,source_overwrite_guard,filesystem_integrity,True,True,Prevents writing over original DataLake/FeatureStore raw sources.,gpu_governance_ready
+SRC_GRD_002,file_deletion_guard,filesystem_integrity,True,True,"Blocks any rm, unlink, or deletion commands on existing tables.",gpu_governance_ready
+SRC_GRD_003,auto_imputation_guard,data_integrity,True,True,Blocks silent fillna/imputation that hides data gaps.,gpu_governance_ready

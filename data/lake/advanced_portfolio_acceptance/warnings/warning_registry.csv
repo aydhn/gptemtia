@@ -1,0 +1,14 @@
+warning_type,message,severity_label,is_acknowledged,current_phase,status
+contract_only_acceptance,"Acceptance applies solely to contract structures, schemas, and governance rules.",warning,True,157,portfolio_acceptance_ready
+placeholder_only_evidence,Evidence consists of contract definitions and non-executing placeholders.,warning,True,157,portfolio_acceptance_ready
+no_real_portfolio_construction,Real multi-asset portfolio construction was NOT executed; weights are zero.,warning,True,157,portfolio_acceptance_ready
+no_real_position_sizing,Real position sizing was NOT calculated; risk budget execution is inactive.,warning,True,157,portfolio_acceptance_ready
+no_real_portfolio_optimization,Real mathematical optimization was NOT run; solver lockouts remain active.,warning,True,157,portfolio_acceptance_ready
+no_real_risk_reporting,Real risk reporting was NOT generated; exposure metrics are contract placeholders.,warning,True,157,portfolio_acceptance_ready
+no_real_limit_monitoring,Real limit monitoring was NOT run; live breach alerts remain disabled.,warning,True,157,portfolio_acceptance_ready
+no_real_scenario_execution,Real stress scenarios were NOT executed against market positions.,warning,True,157,portfolio_acceptance_ready
+no_real_drawdown_control,"Real drawdown control actions (de-risking, hedge, stop) were NOT triggered.",warning,True,157,portfolio_acceptance_ready
+no_strategy_approval,Zero strategy approval granted; findings do not endorse trading algorithms.,warning,True,157,portfolio_acceptance_ready
+no_portfolio_approval,Zero portfolio allocation approval granted; capital allocation remains blocked.,warning,True,157,portfolio_acceptance_ready
+manual_review_required,Human-in-the-loop review is mandatory across all portfolio components before Phase 158.,warning,True,157,portfolio_acceptance_ready
+phase_158_must_remain_non_live,Phase 158 must remain in local/offline rehearsal mode without live execution.,warning,True,157,portfolio_acceptance_ready

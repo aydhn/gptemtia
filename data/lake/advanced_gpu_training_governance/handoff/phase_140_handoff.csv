@@ -1,0 +1,13 @@
+prerequisite,status,details,source_phase,next_phase,target_final_phase,non_signal,production_ready,broker_ready
+gpu_resource_governance_prerequisite,READY,"Phase 139 GPU resource policies, memory caps, and timeout guards are established.",139,140,160,True,False,False
+device_selection_and_cpu_fallback_prerequisite,READY,Deterministic device selection and CPU fallback policies are active.,139,140,160,True,False,False
+training_loop_stub_contracts_prerequisite,READY,Harness stub contracts preventing fit/train/backward execution are verified.,139,140,160,True,False,False
+disabled_execution_reports_prerequisite,READY,"Zero real training, zero prediction, zero target/label reports are certified.",139,140,160,True,False,False
+baseline_model_contracts_prerequisite,READY,Phase 138 baseline model contracts are accessible for ensemble stacking contracts.,139,140,160,True,False,False
+dataset_contracts_prerequisite,READY,Phase 137 dataset contracts and splitting rules are established.,139,140,160,True,False,False
+resource_audit_placeholders_prerequisite,READY,Structured resource audit schema is prepared for candidate registration logs.,139,140,160,True,False,False
+experiment_audit_placeholders_prerequisite,READY,Simulated experiment audit schema is prepared for ensemble tracking.,139,140,160,True,False,False
+no_lookahead_guards_prerequisite,ENFORCED,Temporal leakage guards are enforced across all model inputs.,139,140,160,True,False,False
+metadata_only_news_guards_prerequisite,ENFORCED,"Raw news text, embeddings, and sentiment output are strictly excluded.",139,140,160,True,False,False
+source_preservation_guards_prerequisite,ENFORCED,Filesystem and source table preservation guards are active.,139,140,160,True,False,False
+candidate_registry_boundary_prerequisite,ENFORCED,Phase 140 will establish ensemble and candidate model registry contracts with zero live execution.,139,140,160,True,False,False

@@ -1,0 +1,8 @@
+Bu rapor Phase 157 Portfolio Acceptance Report çıktısıdır. Gerçek portfolio construction, position sizing, portfolio optimization, allocation, rebalance, order generation, risk reporting, exposure attribution, limit monitoring, scenario execution, drawdown control, hedge/de-risk, alerting, dashboard, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, metric calculation, performance claim, portfolio approval, production-ready, broker-ready, deployment, model registry write, artifact persistence, scraping, credential output veya source overwrite değildir.
+Current Phase: 157 | Next Phase: 158 | Target Final Phase: 160
+Next Phase Name: Phase 158: Full-System Integration and Advanced Acceptance Rehearsal
+Total Prerequisites: 14
+Satisfied Prerequisites: 14
+All Satisfied: True
+Handoff Ready: True
+Status: ACCEPTED

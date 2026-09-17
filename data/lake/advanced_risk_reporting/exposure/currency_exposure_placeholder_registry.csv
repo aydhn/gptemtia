@@ -1,0 +1,4 @@
+placeholder_name,exposure_type,formula_description,dimension,is_placeholder,is_calculated,current_phase,target_final_phase,next_phase
+usd_exposure_placeholder,currency_usd,Sum of weights denominated or referenced in USD,currency_subgroup,True,False,155,160,156
+try_exposure_placeholder,currency_try,Sum of weights denominated or referenced in TRY,currency_subgroup,True,False,155,160,156
+eur_exposure_placeholder,currency_eur,Sum of weights denominated or referenced in EUR,currency_subgroup,True,False,155,160,156

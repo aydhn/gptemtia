@@ -1,0 +1,4 @@
+dependency_id,source_phase,runtime_component,status,non_signal,description
+RUN_DEP_001,136,local_hardware_discovery,SATISFIED,True,"Hardware discovery probe verifying GPU, CPU, and RAM metrics without allocation."
+RUN_DEP_002,136,accelerator_backend_registry,SATISFIED,True,"Accelerator registry mapping CUDA, CPU, and MPS backends."
+RUN_DEP_003,136,ml_runtime_safety_contracts,SATISFIED,True,Base runtime safety boundaries prohibiting unvetted training execution.

@@ -1,0 +1,8 @@
+{
+  "total_interfaces": 8,
+  "all_enforces_dry_run": true,
+  "all_real_training_disabled": true,
+  "current_phase": 139,
+  "non_signal": true,
+  "active_profile": "balanced_local_gpu_training_governance"
+}

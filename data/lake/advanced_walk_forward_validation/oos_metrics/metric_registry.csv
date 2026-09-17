@@ -1,0 +1,9 @@
+metric_name,metric_category,description,formula_spec,metric_calculated,performance_claim_generated,non_signal
+oos_return_placeholder,OOS_PROFITABILITY,Orneklem disi net toplam getiri formulu yer tutucusu.,OOS_Return = (Equity_end - Equity_start) / Equity_start,False,False,True
+oos_drawdown_placeholder,OOS_RISK,Orneklem disi tepe-dip arasi en buyuk kayip formulu yer tutucusu.,OOS_MaxDD = Min((Equity_t - Peak_t) / Peak_t),False,False,True
+oos_sharpe_placeholder,OOS_RISK_ADJUSTED,Orneklem disi yilliklandirilmis Sharpe orani formulu yer tutucusu.,OOS_Sharpe = sqrt(252) * (Mean(R_t - R_f) / Std(R_t)),False,False,True
+oos_sortino_placeholder,OOS_DOWNSIDE_RISK,Orneklem disi yalnizca asagi yonlu oynakligi cezalandiran Sortino orani.,OOS_Sortino = sqrt(252) * (Mean(R_t - R_f) / DownsideDeviation(R_t)),False,False,True
+oos_calmar_placeholder,OOS_DRAWDOWN_RATIO,Orneklem disi yillik getirinin maksimum kayba orani formulu.,OOS_Calmar = AnnualizedReturn / Abs(OOS_MaxDD),False,False,True
+oos_win_rate_placeholder,OOS_HIT_RATIO,Orneklem disi karli gun veya islem yuzdesi formulu yer tutucusu.,OOS_WinRate = Count(PnL > 0) / TotalTrades,False,False,True
+cost_adjusted_oos_return_placeholder,OOS_NET_PROFITABILITY,Tum komisyon ve ucretler dusulmus OOS getiri formulu.,OOS_NetReturn = GrossReturn - TotalCosts,False,False,True
+slippage_adjusted_oos_return_placeholder,OOS_REALISTIC_PROFITABILITY,Kayma etkisi ve likidite maliyeti dahil edilmis net OOS getiri formulu.,OOS_SlippageAdjusted = GrossReturn - TotalCosts - TotalSlippage,False,False,True

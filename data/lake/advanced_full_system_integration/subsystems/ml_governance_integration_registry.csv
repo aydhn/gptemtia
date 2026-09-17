@@ -1,0 +1,8 @@
+item_id,governance_component,status,training_allowed,inference_allowed,verified
+MLG-001,ml_dataset_registry,INTEGRATED,False,False,True
+MLG-002,ensemble_model_registry,INTEGRATED,False,False,True
+MLG-003,calibration_uncertainty,INTEGRATED,False,False,True
+MLG-004,model_drift_monitoring,INTEGRATED,False,False,True
+MLG-005,explainability_attribution,INTEGRATED,False,False,True
+MLG-006,model_cards_audit_trail,INTEGRATED,False,False,True
+MLG-007,ml_acceptance_report,INTEGRATED,False,False,True

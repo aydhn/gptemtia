@@ -1,0 +1,4 @@
+control_id,name,description,enforcement,max_allowable_tests,status,execution_allowed,non_signal,local_only,phase
+MLT_01_TRIAL_COUNT_CAPPING,maximum_allowable_trials_threshold,Cap cumulative strategy variations evaluated on a given asset/timeframe pair.,BLOCKING_MANDATORY,20,ACTIVE,False,True,True,150
+MLT_02_BONFERRONI_HOLM_HAIRCUT,familywise_error_rate_adjustment,Require Bonferroni or Holm step-down critical value adjustments for multi-rule screening.,HIGH_AUDIT,20,ACTIVE,False,True,True,150
+MLT_03_FDR_BENJAMINI_HOCHBERG,false_discovery_rate_control_placeholder,Establish Benjamini-Hochberg-Yekutieli FDR thresholds for multi-asset strategy evaluations.,HIGH_AUDIT,20,ACTIVE,False,True,True,150

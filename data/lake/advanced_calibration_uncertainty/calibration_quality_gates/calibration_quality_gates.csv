@@ -1,0 +1,10 @@
+gate_name,description,blocking,is_active,gate_status,non_signal,phase
+candidate_contract_present_gate,Verifies candidate model contract reference exists in Phase 140 registry.,True,True,GATE_ENFORCED,True,141
+ensemble_contract_present_gate,Verifies ensemble contract reference exists in Phase 140 registry.,True,True,GATE_ENFORCED,True,141
+calibration_contract_present_gate,Verifies calibration contract metadata is well-formed.,True,True,GATE_ENFORCED,True,141
+no_probability_prediction_gate,Guarantees probability prediction execution is disabled.,True,True,GATE_ENFORCED,True,141
+no_calibration_fit_gate,Guarantees calibration fit is disabled.,True,True,GATE_ENFORCED,True,141
+no_calibration_transform_gate,Guarantees calibration transformation is disabled.,True,True,GATE_ENFORCED,True,141
+no_metric_calculation_gate,Guarantees ECE/Brier/loss metrics are not computed.,True,True,GATE_ENFORCED,True,141
+no_artifact_persistence_gate,Guarantees zero model artifacts are persisted to disk.,True,True,GATE_ENFORCED,True,141
+manual_review_gate,Requires operator manual review before downstream progression.,True,True,GATE_ENFORCED,True,141

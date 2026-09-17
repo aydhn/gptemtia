@@ -1,0 +1,2 @@
+action_id,action_type,target_scope,reduction_target_pct,activation_trigger,execution_enabled,status
+ACT-RED-001,EXPOSURE_REDUCTION,GROSS_PORTFOLIO_EXPOSURE,25.0,DRAWDOWN_BREACH_10PCT,False,PLACEHOLDER_ONLY

@@ -1,0 +1,9 @@
+{
+  "domain": "disabled_execution_domain",
+  "subdomain": "deployment_disabled",
+  "total_disabled_operations": 3,
+  "all_deployment_disabled": true,
+  "status": "governance_contract_ready",
+  "non_signal": true,
+  "local_only": true
+}

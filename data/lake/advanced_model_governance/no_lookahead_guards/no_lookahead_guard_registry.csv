@@ -1,0 +1,4 @@
+guard_name,enforcement,status,phase,is_enforced
+column_name_lookahead_guard,Reject column names matching future or shift(-1) patterns.,ACTIVE,144,True
+point_in_time_join_guard,Enforce left_ts >= right_ts for all point-in-time merges.,ACTIVE,144,True
+purged_split_guard,Enforce embargo margins between train and evaluation partitions.,ACTIVE,144,True

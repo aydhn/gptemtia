@@ -1,0 +1,2 @@
+output_contract_id,output_name,schema_fields,frequency,storage_format,materialization_allowed
+OUT-DD-001,drawdown_control_audit_summary,"['control_id', 'current_drawdown_tier', 'active_actions', 'floor_distance', 'underwater_days']",DAILY_AUDIT_STUB,csv_json,False

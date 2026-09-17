@@ -1,0 +1,4 @@
+Bu çıktı Phase 149 Monte Carlo Robustness and Parameter Stability raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, Monte Carlo/readiness/robustness/parameter-stability değerini trade sinyali veya onay olarak kullanma, simülasyon/optimizasyon yürütme, backtest çalıştırma veya gerçek metrik hesaplama içermez. Yalnızca yerel araştırma sözleşmesidir.
+Validation Status: PASS
+Total Checks: 5
+All Passed: True

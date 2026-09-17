@@ -1,0 +1,4 @@
+finding_id,finding_type,domain,severity_label,message,recommendation,manual_review_required,is_blocker,status,non_signal
+FIND_151_01,contract_boundary_verified,benchmark_report_contract_domain,INFO,Benchmark comparison report contracts established with zero execution policy.,Operator should inspect contract parameters prior to Phase 152.,True,False,evaluation_contract_ready,True
+FIND_151_02,strategy_approval_locked,strategy_evaluation_report_contract_domain,INFO,Strategy approval and capital allocation strictly locked.,Maintain approval lock; evaluations remain strictly empirical research hypotheses.,True,False,evaluation_contract_ready,True
+FIND_151_03,metric_calculation_prohibited,metric_placeholder_domain,INFO,All metrics are uncalculated placeholders; zero numerical claims generated.,Preserve uncalculated placeholders throughout Phase 151.,True,False,evaluation_contract_ready,True

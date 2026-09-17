@@ -1,0 +1,10 @@
+dep_id,source_phase,source_module,target_artifact,status
+DEP-156-001,155,advanced_risk_reporting,risk_report_contracts,SATISFIED
+DEP-156-002,154,advanced_portfolio_optimization,portfolio_optimization_contracts,SATISFIED
+DEP-156-003,153,advanced_portfolio_construction,portfolio_construction_contracts,SATISFIED
+DEP-156-004,152,advanced_backtest_acceptance,backtest_acceptance_manifest,SATISFIED
+DEP-156-005,148,advanced_stress_testing,stress_testing_manifest,SATISFIED
+DEP-156-006,149,advanced_monte_carlo_robustness,monte_carlo_manifest,SATISFIED
+DEP-156-007,144,advanced_model_governance,governance_manifest,SATISFIED
+DEP-156-008,135,advanced_regime_acceptance,regime_acceptance_manifest,SATISFIED
+DEP-156-009,108,ml.feature_store,feature_store_client,SATISFIED

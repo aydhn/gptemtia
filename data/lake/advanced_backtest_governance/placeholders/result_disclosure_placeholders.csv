@@ -1,0 +1,7 @@
+section_id,section_title,mandatory,purpose,phase,non_signal,local_only
+DISC_01_HYPOTHESIS,Strategy Economic Rationale & Hypotheses,True,State economic premise before presenting simulation results.,150,True,True
+DISC_02_PERIOD_SELECTION,Observation Period & Data Coverage Rationale,True,Explain selection of backtest start and end dates with full regime coverage.,150,True,True
+DISC_03_FRICTION_BREAKDOWN,Transaction Cost & Slippage Model Details,True,"Detailed disclosure of commission tiers, exchange fees, and spread-slippage modeling.",150,True,True
+DISC_04_BENCHMARK_COMPARISON,Passive & Buy-and-Hold Benchmark Baselines,True,Side-by-side comparative evaluation against neutral asset benchmark.,150,True,True
+DISC_05_STRESS_AND_ROBUSTNESS,Stress Testing & Monte Carlo Robustness Context,True,Cross-reference Phase 148 stress scenarios and Phase 149 resampling distributions.,150,True,True
+DISC_06_MANDATORY_DISCLAIMER,Regulatory & Non-Execution Disclaimer,True,Explicit statement that historical backtesting does not guarantee future results.,150,True,True

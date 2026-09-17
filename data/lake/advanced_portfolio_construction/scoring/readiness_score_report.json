@@ -1,0 +1,8 @@
+{
+  "domain": "readiness_score_domain",
+  "active_profile": "balanced_local_portfolio_construction_contracts",
+  "overall_score": 1.0,
+  "classification": "portfolio_construction_contract_ready_non_production",
+  "meets_threshold": true,
+  "status": "portfolio_contract_ready"
+}

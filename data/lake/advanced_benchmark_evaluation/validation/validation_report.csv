@@ -1,0 +1,5 @@
+suite,status
+benchmark_contracts,PASS
+strategy_contracts,PASS
+manifest,PASS
+forbidden_claims,PASS

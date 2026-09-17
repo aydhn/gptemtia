@@ -1,0 +1,2 @@
+report_name,phase,real_training_executed,model_fit_executed,epochs_run,loss_computed,backprop_run,hyperparameter_search_run,trees_built,non_signal,dry_run,status,policy_reason,manual_review_required
+candidate_model_training_disabled_report,140,False,False,0,False,False,False,0,True,True,CANDIDATE_TRAINING_BLOCKED_BY_POLICY,Phase 140 is a pure contract layer; training candidate models is strictly prohibited.,True

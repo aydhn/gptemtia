@@ -1,0 +1,10 @@
+{
+  "domain": "bias_control_domain",
+  "total_bias_controls": 11,
+  "status": "governance_contract_ready",
+  "all_lookahead_free": true,
+  "all_claims_blocked": true,
+  "all_executions_disabled": true,
+  "non_signal": true,
+  "local_only": true
+}

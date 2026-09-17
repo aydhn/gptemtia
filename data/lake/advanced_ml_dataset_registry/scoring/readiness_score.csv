@@ -1,0 +1,2 @@
+readiness_score,classification_label,total_findings,critical_findings,warning_findings,min_required_score,is_minimum_passed,non_signal,production_ready,broker_ready,training_approved,dataset_materialization_approved
+1.0,READY_FOR_LOCAL_ML_CONTRACTS,6,0,0,0.45,True,True,False,False,False,False

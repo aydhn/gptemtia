@@ -1,0 +1,14 @@
+{
+  "domain": "phase_158_handoff_domain",
+  "active_profile": "balanced_local_portfolio_acceptance_contracts",
+  "current_phase": 157,
+  "next_phase": 158,
+  "next_phase_name": "Phase 158: Full-System Integration and Advanced Acceptance Rehearsal",
+  "target_final_phase": 160,
+  "total_prerequisites": 14,
+  "satisfied_prerequisites": 14,
+  "all_satisfied": true,
+  "handoff_ready": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

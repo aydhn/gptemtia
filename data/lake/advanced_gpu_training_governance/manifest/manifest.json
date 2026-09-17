@@ -1,0 +1,18 @@
+{
+  "manifest_name": "gpu_training_governance_manifest",
+  "current_phase": 139,
+  "next_phase": 140,
+  "target_final_phase": 160,
+  "real_training_executed": false,
+  "model_fit_executed": false,
+  "model_predict_executed": false,
+  "target_label_generated": false,
+  "artifact_persisted": false,
+  "model_registry_written": false,
+  "readiness_score": 1.0,
+  "dry_run": true,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false,
+  "active_profile": "balanced_local_gpu_training_governance"
+}

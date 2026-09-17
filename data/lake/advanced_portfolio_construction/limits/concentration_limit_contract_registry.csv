@@ -1,0 +1,5 @@
+limit_id,limit_name,max_allowed_weight,description,current_phase,contract_only,non_production,actual_limits_assigned,investment_advice,manual_review_required,status
+CONC_MAX_SINGLE_ASSET,Single Asset Concentration Limit,0.15,Tekil bir varligin portfoydeki agirliginin en fazla %15 olabilecegini tanimlar.,153,True,True,False,False,True,portfolio_contract_ready
+CONC_TOP_3_ASSETS,Top 3 Assets Concentration Limit,0.4,En buyuk 3 varligin toplam portfoy agirliginin en fazla %40 olabilecegini tanimlar.,153,True,True,False,False,True,portfolio_contract_ready
+CONC_SECTOR_COMMODITY,Commodity Sector Concentration Limit,0.6,Emtia grubu toplam agirliginin en fazla %60 olabilecegini tanimlar.,153,True,True,False,False,True,portfolio_contract_ready
+CONC_SECTOR_FX,FX Sector Concentration Limit,0.5,Doviz grubu toplam agirliginin en fazla %50 olabilecegini tanimlar.,153,True,True,False,False,True,portfolio_contract_ready

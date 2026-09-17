@@ -1,0 +1,6 @@
+{
+  "total_purged_contracts": 2,
+  "all_execution_blocked": true,
+  "all_purge_unexecuted": true,
+  "non_signal": true
+}

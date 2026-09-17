@@ -1,0 +1,2 @@
+guard_name,guard_type,description,enforcement_level,active,non_signal,local_only
+stress_scenario_leakage_guard,INFORMATION_LEAKAGE,Stres senaryosu parametrelerinin veya kriz tarihlerinin model optimizasyonuna sızmasını engeller.,STRICT,True,True,True

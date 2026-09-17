@@ -1,0 +1,9 @@
+{
+  "domain": "dependency_acceptance_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "total_dependencies": 11,
+  "satisfied_dependencies": 11,
+  "all_satisfied": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

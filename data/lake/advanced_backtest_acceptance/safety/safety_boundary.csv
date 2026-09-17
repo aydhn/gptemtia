@@ -1,0 +1,29 @@
+rule_id,rule_type,rule_name,status,current_phase,target_final_phase,next_phase,non_signal,non_production,local_only
+NGO-01,NO-GO,live trading,ENFORCED,152,160,153,True,True,True
+NGO-02,NO-GO,broker execution,ENFORCED,152,160,153,True,True,True
+NGO-03,NO-GO,investment advice,ENFORCED,152,160,153,True,True,True
+NGO-04,NO-GO,signal generation,ENFORCED,152,160,153,True,True,True
+NGO-05,NO-GO,backtest execution,ENFORCED,152,160,153,True,True,True
+NGO-06,NO-GO,benchmark execution,ENFORCED,152,160,153,True,True,True
+NGO-07,NO-GO,metric calculation,ENFORCED,152,160,153,True,True,True
+NGO-08,NO-GO,result claim,ENFORCED,152,160,153,True,True,True
+NGO-09,NO-GO,performance claim,ENFORCED,152,160,153,True,True,True
+NGO-10,NO-GO,strategy approval,ENFORCED,152,160,153,True,True,True
+NGO-11,NO-GO,capital allocation,ENFORCED,152,160,153,True,True,True
+NGO-12,NO-GO,portfolio construction,ENFORCED,152,160,153,True,True,True
+NGO-13,NO-GO,position sizing,ENFORCED,152,160,153,True,True,True
+NGO-14,NO-GO,optimizer execution,ENFORCED,152,160,153,True,True,True
+NGO-15,NO-GO,model training,ENFORCED,152,160,153,True,True,True
+NGO-16,NO-GO,prediction,ENFORCED,152,160,153,True,True,True
+NGO-17,NO-GO,target label generation,ENFORCED,152,160,153,True,True,True
+NGO-18,NO-GO,model registry write,ENFORCED,152,160,153,True,True,True
+NGO-19,NO-GO,deployment,ENFORCED,152,160,153,True,True,True
+NGO-20,NO-GO,scraping credential source overwrite,ENFORCED,152,160,153,True,True,True
+SGO-01,SAFE-GO,local offline Backtest Acceptance Report generation,ACTIVE,152,160,153,True,True,True
+SGO-02,SAFE-GO,Phase 146-151 component contract completeness checks,ACTIVE,152,160,153,True,True,True
+SGO-03,SAFE-GO,non-production readiness score,ACTIVE,152,160,153,True,True,True
+SGO-04,SAFE-GO,manual review queue,ACTIVE,152,160,153,True,True,True
+SGO-05,SAFE-GO,blocker gap warning registry,ACTIVE,152,160,153,True,True,True
+SGO-06,SAFE-GO,validation evidence summary,ACTIVE,152,160,153,True,True,True
+SGO-07,SAFE-GO,safety boundary summary,ACTIVE,152,160,153,True,True,True
+SGO-08,SAFE-GO,Phase 153 portfolio construction contract handoff,ACTIVE,152,160,153,True,True,True

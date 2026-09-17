@@ -1,0 +1,13 @@
+prerequisite_id,name,phase_ref,status,current_phase,next_phase,target_final_phase,live_trading_prohibited,broker_execution_prohibited,investment_advice_prohibited,non_signal
+PRQ-01,gpu_runtime_prerequisites,Phase 136,SATISFIED,144,145,160,True,True,True,True
+PRQ-02,dataset_contract_prerequisites,Phase 137,SATISFIED,144,145,160,True,True,True,True
+PRQ-03,baseline_model_prerequisites,Phase 138,SATISFIED,144,145,160,True,True,True,True
+PRQ-04,gpu_resource_governance_prerequisites,Phase 139,SATISFIED,144,145,160,True,True,True,True
+PRQ-05,ensemble_candidate_prerequisites,Phase 140,SATISFIED,144,145,160,True,True,True,True
+PRQ-06,calibration_uncertainty_prerequisites,Phase 141,SATISFIED,144,145,160,True,True,True,True
+PRQ-07,drift_monitoring_prerequisites,Phase 142,SATISFIED,144,145,160,True,True,True,True
+PRQ-08,explainability_attribution_prerequisites,Phase 143,SATISFIED,144,145,160,True,True,True,True
+PRQ-09,model_governance_model_cards_prerequisites,Phase 144,SATISFIED,144,145,160,True,True,True,True
+PRQ-10,audit_trail_placeholder_prerequisites,Phase 144,SATISFIED,144,145,160,True,True,True,True
+PRQ-11,safety_boundary_prerequisites,Phase 144,SATISFIED,144,145,160,True,True,True,True
+PRQ-12,manual_review_blockers_cleared,Phase 144,READY_FOR_ACCEPTANCE_REPORT,144,145,160,True,True,True,True

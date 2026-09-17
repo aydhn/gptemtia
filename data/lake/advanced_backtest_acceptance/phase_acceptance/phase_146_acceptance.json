@@ -1,0 +1,11 @@
+{
+  "domain": "phase_146_realistic_backtest_acceptance_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "phase_ref": "Phase 146",
+  "phase_title": "Realistic Backtest, Transaction Cost and Slippage Modeling",
+  "total_checks": 10,
+  "passed_checks": 10,
+  "all_passed": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

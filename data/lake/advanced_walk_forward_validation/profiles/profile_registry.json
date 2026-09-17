@@ -1,0 +1,14 @@
+{
+  "total_profiles": 3,
+  "active_profile": "balanced_local_walk_forward_validation_contracts",
+  "current_phase": 147,
+  "target_final_phase": 160,
+  "next_phase": 148,
+  "all_local_only": true,
+  "all_non_production": true,
+  "zero_live_trading": true,
+  "zero_broker_integration": true,
+  "zero_walk_forward_execution": true,
+  "zero_benchmark_execution": true,
+  "non_signal": true
+}

@@ -1,0 +1,10 @@
+source_phase,dependency_name,description,satisfied,non_signal
+145,advanced_ml_acceptance,Phase 145 Advanced ML Acceptance Report ve kabul kanitlari.,True,True
+137,advanced_ml_dataset_registry,Phase 137 veri seti sozlesmeleri ve oznitelik anlik goruntuleri.,True,True
+134,advanced_regime_featurestore_integration,Phase 134 Rejim FeatureStore ve point-in-time erisim sozlesmeleri.,True,True
+135,advanced_regime_acceptance,Phase 135 rejim kabul ve piyasa davranisi siniflandirma altyapisi.,True,True
+123,advanced_feature_quality_drift,Phase 123 oznitelik kalitesi ve kayma teshisleri.,True,True
+139,advanced_gpu_training_governance,Phase 139 GPU kaynak yonetimi ve egitim sinirlari.,True,True
+144,advanced_model_governance,Phase 144 model yonetisimi ve onay sinirlari.,True,True
+121,no_lookahead_infrastructure,Lookahead onleme ve zaman damgasi muhafiz altyapisi.,True,True
+114,source_preservation_infrastructure,Ham veri degismezligi ve kaynagi koruma altyapisi.,True,True

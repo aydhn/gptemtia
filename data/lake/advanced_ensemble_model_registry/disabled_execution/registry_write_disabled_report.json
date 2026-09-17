@@ -1,0 +1,7 @@
+{
+  "report_name": "candidate_model_registry_write_disabled_report",
+  "phase": 140,
+  "status": "MODEL_REGISTRY_WRITE_BLOCKED_BY_POLICY",
+  "registry_write_disabled": true,
+  "non_signal": true
+}

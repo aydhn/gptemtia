@@ -1,0 +1,2 @@
+action_id,action_type,target_scope,stop_loss_pct,activation_trigger,execution_enabled,status
+ACT-STP-001,STOP_CONTROL,SINGLE_ASSET_STOP_LOSS,7.5,ASSET_DRAWDOWN_LIMIT,False,PLACEHOLDER_ONLY

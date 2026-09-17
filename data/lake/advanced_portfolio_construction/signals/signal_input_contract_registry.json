@@ -1,0 +1,8 @@
+{
+  "domain": "signal_input_domain",
+  "active_profile": "balanced_local_portfolio_construction_contracts",
+  "total_signal_inputs": 5,
+  "all_contract_only": true,
+  "all_zero_signal_generation": true,
+  "status": "portfolio_contract_ready"
+}

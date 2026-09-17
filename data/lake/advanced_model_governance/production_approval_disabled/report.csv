@@ -1,0 +1,3 @@
+action,is_disabled,reason,status,phase
+approve_production,True,Production approval is disabled in non-production research layer.,BLOCKED_BY_POLICY,144
+production_ready_claim,True,Claiming production readiness is strictly prohibited.,BLOCKED_BY_POLICY,144

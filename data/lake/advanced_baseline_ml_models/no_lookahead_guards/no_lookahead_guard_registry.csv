@@ -1,0 +1,5 @@
+guard_id,scope,enforced,description,non_signal,production_ready,broker_ready
+guard_timestamp_order_ascending,temporal_order,True,Ensures timestamps are monotonic ascending,True,False,False
+guard_no_future_columns,column_inspection,True,Blocks column names with forward/future return semantics,True,False,False
+guard_backward_asof_only,merge_policy,True,Requires as-of joins to use backward direction only,True,False,False
+guard_no_shift_negative,feature_computation,True,Rejects any shift(-k) lookahead calculations,True,False,False

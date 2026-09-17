@@ -1,0 +1,3 @@
+contract_name,limit_family,description,limit_type,threshold_metadata,is_placeholder,is_enforced_live,allows_execution,allows_alerting,current_phase,target_final_phase,next_phase
+single_asset_concentration_limit,concentration_limit,Tekil varlik azami agirlik siniri,hard_limit,max_single_weight <= 0.25,True,False,False,False,155,160,156
+top3_asset_concentration_limit,concentration_limit,Ilk 3 varlik toplam agirlik siniri,hard_limit,top3_weight <= 0.60,True,False,False,False,155,160,156

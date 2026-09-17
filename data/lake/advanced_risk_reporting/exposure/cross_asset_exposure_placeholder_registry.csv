@@ -1,0 +1,3 @@
+placeholder_name,exposure_type,formula_description,dimension,is_placeholder,is_calculated,current_phase,target_final_phase,next_phase
+commodity_exposure_placeholder,cross_asset_commodity,Sum of absolute weights in precious/industrial/energy commodities,asset_class,True,False,155,160,156
+fx_exposure_placeholder,cross_asset_fx,Sum of absolute weights in currency pairs,asset_class,True,False,155,160,156

@@ -1,0 +1,10 @@
+{
+  "total_meta_model_placeholders": 3,
+  "all_training_blocked": true,
+  "zero_models_trained": true,
+  "zero_models_fitted": true,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false,
+  "active_profile": "balanced_local_ensemble_model_contracts"
+}

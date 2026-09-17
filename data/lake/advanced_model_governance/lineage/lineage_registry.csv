@@ -1,0 +1,12 @@
+node_id,layer,phase_range,parent_node,status,phase,non_signal
+LIN-116-125,Feature & Factor Layer,Phase 116-125,Root DataLake,INTEGRATED,144,True
+LIN-126-135,Market Regime Context Layer,Phase 126-135,LIN-116-125,INTEGRATED,144,True
+LIN-136,GPU & ML Runtime Foundation,Phase 136,LIN-126-135,INTEGRATED,144,True
+LIN-137,ML Dataset Contracts & Experiments,Phase 137,LIN-136,INTEGRATED,144,True
+LIN-138,Baseline ML Model Contracts,Phase 138,LIN-137,INTEGRATED,144,True
+LIN-139,GPU Training & Resource Governance,Phase 139,LIN-138,INTEGRATED,144,True
+LIN-140,Ensemble Models & Candidate Registry,Phase 140,LIN-139,INTEGRATED,144,True
+LIN-141,Calibration & Uncertainty Contracts,Phase 141,LIN-140,INTEGRATED,144,True
+LIN-142,Model Drift Monitoring Contracts,Phase 142,LIN-141,INTEGRATED,144,True
+LIN-143,Explainability & Attribution Reports,Phase 143,LIN-142,INTEGRATED,144,True
+LIN-144,Model Governance & Model Cards,Phase 144,LIN-143,ACTIVE_LAYER,144,True

@@ -1,0 +1,4 @@
+universe_id,universe_name,instruments,instrument_count,asset_class,description,is_active,non_signal
+UNI-01,precious_metals_universe,"XAU/USD,XAG/USD,XPT/USD,XPD/USD",4,COMMODITIES,"Altin, gumus, platin ve paladyumdan olusan degerli metaller evreni.",True,True
+UNI-02,energy_commodities_universe,"BRENT,WTI,NATGAS",3,COMMODITIES,Ham petrol ve dogal gazdan olusan enerji emtialari evreni.,True,True
+UNI-03,major_forex_universe,"EUR/USD,GBP/USD,USD/JPY,USD/CHF",4,FOREX,Majör doviz ciftlerinden olusan benchmark evreni.,True,True

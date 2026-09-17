@@ -1,0 +1,6 @@
+shock_name,multiplier,description,duration_bars,decay_mode,execution_allowed,non_signal,local_only,manual_review_required
+volatility_spike_2x_contract,2.0,2x Volatilite Genişlemesi: Standart ATR ve gerçekleşen volatilitenin 2 katına çıkması.,10,EXPONENTIAL,False,True,True,True
+volatility_spike_3x_contract,3.0,3x Şiddetli Volatilite Şoku: Önemli makro veri sürprizi veya kriz başlangıcı.,20,LINEAR,False,True,True,True
+volatility_spike_5x_tail_contract,5.0,5x Kuyruk Riski Volatilite Patlaması: Black Swan tipi ani likidite buharlaşması ve fiyat salınımı.,5,STEP_FUNCTION,False,True,True,True
+volatility_smile_flattening_contract,2.5,Volatilite Eğrisi Düzleşmesi: Derin OTM opsiyon ve kuyruk risk fiyatlamasının aşırı yükselmesi.,15,LOGARITHMIC,False,True,True,True
+intraday_gap_volatility_contract,4.0,Gün İçi Fiyat Boşluğu Volatilitesi: Dakikalık çubuklarda normal range'in 4 katı sıçramalar.,8,EXPONENTIAL,False,True,True,True

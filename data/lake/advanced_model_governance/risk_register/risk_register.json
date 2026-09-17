@@ -1,0 +1,7 @@
+{
+  "total_risks": 12,
+  "critical_risks_count": 6,
+  "high_risks_count": 4,
+  "all_mitigated": true,
+  "all_manual_review_required": true
+}

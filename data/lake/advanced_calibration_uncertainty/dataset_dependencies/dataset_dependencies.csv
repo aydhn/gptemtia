@@ -1,0 +1,4 @@
+dependency_name,source_phase,target_component,description,status,non_signal,phase
+dataset_contract_commodity_fx_dep,Phase 137,dataset_contracts,Commodity/FX temporal partition dataset contracts.,SATISFIED,True,141
+dataset_contract_macro_event_dep,Phase 137,dataset_contracts,Macro event partition dataset contracts.,SATISFIED,True,141
+featurestore_catalog_dep,Phase 134,feature_catalog,Validation-aware feature store catalog.,SATISFIED,True,141

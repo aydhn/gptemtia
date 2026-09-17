@@ -1,0 +1,4 @@
+operation_name,description,status,prediction_permitted,phase,non_signal,local_only
+model_predict,Running forward prediction or model inference on sample bars.,DISABLED,False,150,True,True
+generate_signals,Generating directional buy/sell trading signals from features.,DISABLED,False,150,True,True
+predict_proba,Evaluating classification probabilities or forecast likelihoods.,DISABLED,False,150,True,True

@@ -1,0 +1,5 @@
+operation_name,reason,status,claim_permitted,phase,non_signal,local_only
+performance_claim,Claims of verified return are forbidden.,DISABLED,False,150,True,True
+proven_strategy,Empirical certainty claims are forbidden.,DISABLED,False,150,True,True
+guaranteed_return,Profit guarantee claims are forbidden.,DISABLED,False,150,True,True
+approve_strategy,Automated strategy approval is forbidden.,DISABLED,False,150,True,True

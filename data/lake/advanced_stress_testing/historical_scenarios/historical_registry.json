@@ -1,0 +1,7 @@
+{
+  "total_historical_scenarios": 6,
+  "all_execution_blocked": true,
+  "all_pnl_calculation_blocked": true,
+  "all_manual_review_required": true,
+  "non_signal": true
+}

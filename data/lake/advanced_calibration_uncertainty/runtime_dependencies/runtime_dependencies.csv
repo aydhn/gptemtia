@@ -1,0 +1,4 @@
+dependency_name,source_phase,target_component,description,status,non_signal,phase
+gpu_ml_runtime_capability_dep,Phase 136,runtime_discovery,Hardware discovery and ML runtime capability foundation.,SATISFIED,True,141
+gpu_resource_governance_dep,Phase 139,resource_governance,"Memory budgeting, device selection, and CPU fallback governance.",SATISFIED,True,141
+baseline_ml_model_contracts_dep,Phase 138,baseline_models,Baseline model contracts and dry-run training harness.,SATISFIED,True,141

@@ -1,0 +1,8 @@
+{
+  "runbook_count": 10,
+  "current_phase": 159,
+  "all_execution_instructions_blocked": true,
+  "all_live_bot_blocked": true,
+  "all_manual_review_required": true,
+  "status": "operator_runbook_contract_ready"
+}

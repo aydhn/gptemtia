@@ -1,0 +1,10 @@
+{
+  "contract_count": 9,
+  "total_contracts": 9,
+  "all_contracts_disallow_execution": true,
+  "all_contracts_disallow_exposure_attribution": true,
+  "all_contracts_disallow_limit_monitoring": true,
+  "all_contracts_disallow_live_trading": true,
+  "all_contracts_disallow_broker": true,
+  "manual_review_required_all": true
+}

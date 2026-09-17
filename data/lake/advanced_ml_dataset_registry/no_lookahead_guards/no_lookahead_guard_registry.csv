@@ -1,0 +1,10 @@
+guard_name,description,forbidden_columns,future_timestamp_forbidden,non_signal,manual_review_required,current_phase
+regime_no_lookahead_guard,Regime metadata no-lookahead guard.,"future_return, forward_return, next_return, target, label, prediction, signal, buy, sell",True,True,True,137
+featurestore_no_lookahead_guard,FeatureStore no-lookahead guard.,"future_return, forward_return, next_return, target, label, prediction, signal, buy, sell",True,True,True,137
+technical_feature_no_lookahead_guard,Technical feature no-lookahead guard.,"future_return, forward_return, next_return, target, label, prediction, signal, buy, sell",True,True,True,137
+factor_no_lookahead_guard,Factor feature no-lookahead guard.,"future_return, forward_return, next_return, target, label, prediction, signal, buy, sell",True,True,True,137
+cross_asset_no_lookahead_guard,Cross-asset feature no-lookahead guard.,"future_return, forward_return, next_return, target, label, prediction, signal, buy, sell",True,True,True,137
+macro_event_no_lookahead_guard,Macro event no-lookahead guard.,"future_return, forward_return, next_return, target, label, prediction, signal, buy, sell",True,True,True,137
+validation_accepted_no_lookahead_guard,Validation accepted no-lookahead guard.,"future_return, forward_return, next_return, target, label, prediction, signal, buy, sell",True,True,True,137
+baseline_no_lookahead_guard,Baseline model input no-lookahead guard.,"future_return, forward_return, next_return, target, label, prediction, signal, buy, sell",True,True,True,137
+phase_138_no_lookahead_guard,Phase 138 training harness no-lookahead guard.,"future_return, forward_return, next_return, target, label, prediction, signal, buy, sell",True,True,True,137

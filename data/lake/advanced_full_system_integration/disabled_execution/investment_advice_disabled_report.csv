@@ -1,0 +1,3 @@
+item_id,execution_type,is_disabled,blocking_reason,enforcement_layer,status
+IAD-001,investment_advice,True,Providing investment advice or recommendations is forbidden.,contract,DISABLED
+IAD-002,portfolio_endorsement,True,Endorsing live portfolio allocations is forbidden.,contract,DISABLED

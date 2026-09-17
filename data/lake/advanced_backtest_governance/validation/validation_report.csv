@@ -1,0 +1,5 @@
+validation_suite,passed,details,non_signal,local_only,profile_name,current_phase
+profile_registry_invariants,True,"{'passed': True, 'all_non_production': True, 'all_non_signal': True, 'zero_broker_ready': True, 'zero_live_trading_ready': True, 'zero_backtest_execution': True}",True,True,balanced_local_backtest_governance_contracts,150
+governance_contracts_invariants,True,"{'passed': True, 'all_backtest_execution_blocked': True, 'all_benchmark_execution_blocked': True, 'all_metric_calc_blocked': True, 'all_result_claim_blocked': True, 'all_performance_claim_blocked': True, 'all_optimizer_blocked': True}",True,True,balanced_local_backtest_governance_contracts,150
+bias_controls_invariants,True,"{'passed': True, 'all_claims_blocked': True, 'all_executions_blocked': True}",True,True,balanced_local_backtest_governance_contracts,150
+manifest_negative_invariants,True,"{'passed': True, 'negatives_verified': True, 'phase_151_handoff_ready': True, 'source_preserved': True}",True,True,balanced_local_backtest_governance_contracts,150

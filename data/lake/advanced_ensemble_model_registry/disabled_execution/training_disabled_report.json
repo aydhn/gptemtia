@@ -1,0 +1,7 @@
+{
+  "report_name": "candidate_model_training_disabled_report",
+  "phase": 140,
+  "status": "CANDIDATE_TRAINING_BLOCKED_BY_POLICY",
+  "training_disabled": true,
+  "non_signal": true
+}

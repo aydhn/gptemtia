@@ -1,0 +1,9 @@
+{
+  "domain": "block_bootstrap_contract_domain",
+  "total_block_contracts": 4,
+  "total_contracts": 4,
+  "execution_allowed": false,
+  "all_unexecuted": true,
+  "profile_name": "balanced_local_monte_carlo_robustness_contracts",
+  "status": "monte_carlo_contract_ready"
+}

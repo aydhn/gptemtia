@@ -1,0 +1,11 @@
+{
+  "domain": "governance_contract_domain",
+  "total_contracts": 7,
+  "status": "governance_contract_ready",
+  "all_contracts_valid": true,
+  "all_executions_blocked": true,
+  "all_manual_review_required": true,
+  "all_non_signal": true,
+  "all_local_only": true,
+  "non_signal": true
+}

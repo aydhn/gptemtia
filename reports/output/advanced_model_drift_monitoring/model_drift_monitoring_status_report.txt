@@ -1,0 +1,8 @@
+Phase 142 Model Drift Monitoring Summary:
+Manifest ID: drift_manifest_p142_balanced_local_model_drift_contracts_20260913_214727
+Profile: balanced_local_model_drift_contracts
+Contracts: 32 | Linkages: 16
+Window Policies: 21 | Thresholds: 6
+Metric Placeholders: 24 | Disabled Safeguards: 7
+Guards: 5 | Findings: 5
+Non-Executing Compliance: TRUE | Dry-Run: TRUE | Next Phase: 143

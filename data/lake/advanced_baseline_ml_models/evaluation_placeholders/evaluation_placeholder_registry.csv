@@ -1,0 +1,8 @@
+evaluation_placeholder_id,evaluation_scope,description,is_executed,performance_claim_allowed,non_signal,production_ready,broker_ready
+dry_run_contract_validation_placeholder,contract_integrity,Validates that all training plans run in contract-only mode,False,False,True,False,False
+input_contract_validation_placeholder,input_data_integrity,Validates feature store and dataset contract references,False,False,True,False,False
+no_leakage_validation_placeholder,leakage_prevention,Validates split barriers and purged window boundaries,False,False,True,False,False
+no_lookahead_validation_placeholder,temporal_integrity,Validates absence of forward-looking timestamps and future return columns,False,False,True,False,False
+metadata_only_news_validation_placeholder,content_compliance,Validates news streams contain only approved metadata tags,False,False,True,False,False
+artifact_absence_validation_placeholder,artifact_governance,Validates that no binary model files or pickles are saved to disk,False,False,True,False,False
+phase_139_gpu_resource_validation_placeholder,future_readiness,Validates GPU device and memory constraints for Phase 139 handoff,False,False,True,False,False

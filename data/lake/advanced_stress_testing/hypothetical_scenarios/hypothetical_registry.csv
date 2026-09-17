@@ -1,0 +1,6 @@
+scenario_name,scenario_family,description,assumed_commodity_drift,assumed_fx_volatility,assumed_liquidity_drop,execution_allowed,pnl_calculation_allowed,non_signal,local_only,manual_review_required
+hypothetical_stagflation_2_0,MACRO_STAGFLATION,"Küresel Stagflasyon 2.0: Yüksek enflasyon, negatif büyüme, merkez bankası faiz açmazı.",+35%,+60%,-40%,False,False,True,True,True
+hypothetical_shipping_chokepoint_blockade,GEOPOLITICAL_LOGISTICS,Kritik Boğaz Kapanması (Hürmüz / Malakka): Enerji ve yük taşımacılığında anlık arz kesintisi.,+50%,+45%,-30%,False,False,True,True,True
+hypothetical_sovereign_debt_restructuring,SOVEREIGN_CREDIT,"Gelişmekte Olan Ülke Borç Krizi: Sermaye kaçışı, yerel para birimlerinde devalüasyon şoku.",-20%,+80%,-55%,False,False,True,True,True
+hypothetical_extreme_tariff_retaliation,GLOBAL_TRADE,Geniş Çaplı Ticaret Savaşı ve Tarife Şoku: Küresel ticaret hacminde ani daralma ve kur manipülasyonu.,-15%,+50%,-25%,False,False,True,True,True
+hypothetical_clearing_house_outage,MARKET_INFRASTRUCTURE,Takas Merkezi ve Borsa Altyapı Kesintisi: Çoklu gün mutabakat durması ve teminat çağrısı şoku.,0%,+70%,-85%,False,False,True,True,True

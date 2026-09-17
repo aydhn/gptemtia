@@ -1,0 +1,4 @@
+finding_id,finding_type,ensemble_domain,severity_label,message,recommendation,manual_review_required,non_signal,auto_fix_prohibited
+FIND-140-001,GOVERNANCE_INFO,candidate_model_registry,low,Candidate model contracts are verified in pure contract placeholder state.,Retain non-executing invariants until Phase 141 uncertainty calibration handoff.,True,True,True
+FIND-140-002,EXECUTION_BOUNDARY_INFO,ensemble_strategy_layer,low,Ensemble execution (voting/blending/stacking) is confirmed disabled.,Maintain execution guardrails throughout local development runs.,True,True,True
+FIND-140-003,RESOURCE_INFO,candidate_model_governance,low,Compatibility matrix conforms to Phase 139 GPU resource governance budgets.,Periodically verify hardware allocation references.,True,True,True

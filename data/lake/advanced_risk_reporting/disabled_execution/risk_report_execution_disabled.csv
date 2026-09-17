@@ -1,0 +1,2 @@
+component_name,prohibited_actions,enforcement_mechanism,is_disabled,status,current_phase,target_final_phase,next_phase
+risk_report_engine,"['generate_risk_report', 'run_risk_report', 'execute_risk_report']",STRICT_SAFETY_GATE_EXECUTION_BLOCKED,True,execution_contract_only,155,160,156

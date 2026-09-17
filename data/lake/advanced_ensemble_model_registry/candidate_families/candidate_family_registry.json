@@ -1,0 +1,11 @@
+{
+  "total_families": 10,
+  "all_placeholders": true,
+  "zero_models_instantiated": true,
+  "zero_training_executed": true,
+  "zero_predict_executed": true,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false,
+  "active_profile": "balanced_local_ensemble_model_contracts"
+}

@@ -1,0 +1,9 @@
+{
+  "healthy_count": 11,
+  "unhealthy_count": 0,
+  "all_healthy": true,
+  "health_status": "SYSTEM_HEALTHY",
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false
+}

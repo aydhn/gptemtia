@@ -1,0 +1,9 @@
+freeze_name,freeze_category,target_scope,description,frozen,actual_lock_enacted,modifications_allowed_without_review,domain,non_signal,local_only,dry_run,non_production,current_phase,status
+architecture_doc_freeze,documentation,docs/ARCHITECTURE.md,Sistem mimarisi ve veri akış diyagramı dokümantasyon dondurması,True,False,False,documentation_freeze_domain,True,True,True,True,159,final_hardening_contract_ready
+roadmap_doc_freeze,documentation,docs/ROADMAP.md,Faz yol haritası dondurması,True,False,False,documentation_freeze_domain,True,True,True,True,159,final_hardening_contract_ready
+phase_log_doc_freeze,documentation,docs/PHASE_LOG.md,Tüm faz adımları kayıt günlüğü dondurması,True,False,False,documentation_freeze_domain,True,True,True,True,159,final_hardening_contract_ready
+operator_manual_freeze,documentation,docs/OPERATOR_MANUAL.md,Operatör kullanım kılavuzu ve runbook dondurması,True,False,False,documentation_freeze_domain,True,True,True,True,159,final_hardening_contract_ready
+analyst_handbook_freeze,documentation,docs/ANALYST_HANDBOOK.md,Araştırma analisti el kitabı dondurması,True,False,False,documentation_freeze_domain,True,True,True,True,159,final_hardening_contract_ready
+safe_usage_guide_freeze,documentation,docs/SAFE_USAGE_GUIDE.md,Güvenli kullanım ve no-go sınırları dokümanı dondurması,True,False,False,documentation_freeze_domain,True,True,True,True,159,final_hardening_contract_ready
+rc_checklist_freeze,documentation,docs/RELEASE_CANDIDATE_CHECKLIST.md,Release candidate kontrol listesi dokümanı dondurması,True,False,False,documentation_freeze_domain,True,True,True,True,159,final_hardening_contract_ready
+final_hardening_guide_freeze,documentation,docs/FINAL_HARDENING_GUIDE.md,Final hardening kılavuzu dondurması,True,False,False,documentation_freeze_domain,True,True,True,True,159,final_hardening_contract_ready

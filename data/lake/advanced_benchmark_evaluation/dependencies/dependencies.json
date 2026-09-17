@@ -1,0 +1,7 @@
+{
+  "domain": "dependency_domain",
+  "total_dependencies": 5,
+  "all_satisfied": true,
+  "status": "evaluation_contract_ready",
+  "non_signal": true
+}

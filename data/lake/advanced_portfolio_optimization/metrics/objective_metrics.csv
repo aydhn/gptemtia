@@ -1,0 +1,2 @@
+metric_name,description,is_placeholder,actual_value,is_calculated,status
+objective_function_value_placeholder,Amac fonksiyonu degeri yer tutucusu,True,,False,metric_contract_only

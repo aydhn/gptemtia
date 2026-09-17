@@ -1,0 +1,11 @@
+{
+  "domain": "backtest_governance_profile_domain",
+  "total_profiles": 3,
+  "status": "governance_contract_ready",
+  "all_local_only": true,
+  "all_non_production": true,
+  "all_executions_disabled": true,
+  "all_live_trading_disabled": true,
+  "non_signal": true,
+  "active_profile": "balanced_local_backtest_governance_contracts"
+}

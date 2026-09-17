@@ -1,0 +1,15 @@
+{
+  "total_guards": 4,
+  "guard_names": [
+    "article_body_prohibition_guard",
+    "embedding_vector_prohibition_guard",
+    "sentiment_output_prohibition_guard",
+    "news_metadata_preservation_guard"
+  ],
+  "all_guards_enforced": true,
+  "raw_text_prohibited": true,
+  "embeddings_prohibited": true,
+  "sentiment_outputs_prohibited": true,
+  "dry_run": true,
+  "non_signal": true
+}

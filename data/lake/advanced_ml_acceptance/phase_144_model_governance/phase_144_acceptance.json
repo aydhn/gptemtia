@@ -1,0 +1,11 @@
+{
+  "domain": "phase_144_model_governance_acceptance_domain",
+  "active_profile": "balanced_local_advanced_ml_acceptance",
+  "phase_ref": "Phase 144",
+  "phase_title": "Model Governance, Model Cards and Audit Trail",
+  "total_checks": 8,
+  "passed_checks": 8,
+  "all_passed": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

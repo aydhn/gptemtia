@@ -1,0 +1,4 @@
+policy_id,policy_name,max_timeout_seconds,heartbeat_interval_seconds,terminate_on_timeout,dry_run_only,non_signal,description,status
+TMO_POL_001,short_loop_dry_run_timeout_policy,300,15,True,True,True,5-minute cap for short iteration harness tests.,gpu_governance_ready
+TMO_POL_002,standard_epoch_budget_timeout_policy,1800,60,True,True,True,30-minute cap for multi-split simulated training harnesses.,gpu_governance_ready
+TMO_POL_003,ceiling_hard_kill_timeout_policy,3600,120,True,True,True,1-hour absolute ceiling watchdog enforcing termination of runaway loops.,gpu_governance_ready

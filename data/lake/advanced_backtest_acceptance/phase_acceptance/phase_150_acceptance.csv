@@ -1,0 +1,11 @@
+check_id,name,topic,passed,details,phase_ref,current_phase,target_final_phase,next_phase,status,non_signal,production_ready,broker_ready
+CHK-150-01,module_present,advanced_backtest_governance presence,True,Core backtest governance package verified.,Phase 150,152,160,153,acceptance_ready,True,False,False
+CHK-150-02,governance_contracts_present,Backtest governance contracts,True,Governance framework and lifecycle contracts verified.,Phase 150,152,160,153,acceptance_ready,True,False,False
+CHK-150-03,bias_control_contracts_present,Bias control contracts,True,"Selection bias, survivorship bias, data snooping guards verified.",Phase 150,152,160,153,acceptance_ready,True,False,False
+CHK-150-04,result_claim_boundaries_present,Result claim boundaries,True,Prohibition of hypothetical performance claims verified.,Phase 150,152,160,153,acceptance_ready,True,False,False
+CHK-150-05,metric_performance_claim_boundaries_present,Metric claim boundaries,True,Prohibition of unverified Sharpe or drawdown claims verified.,Phase 150,152,160,153,acceptance_ready,True,False,False
+CHK-150-06,no_result_claim,Result claim disabled,True,Zero result claims generated.,Phase 150,152,160,153,acceptance_ready,True,False,False
+CHK-150-07,no_strategy_approval,Strategy approval disabled,True,Zero strategy sign-off or allocation approved.,Phase 150,152,160,153,acceptance_ready,True,False,False
+CHK-150-08,no_metric_calculation,Metric calculation disabled,True,Zero metric calculations executed.,Phase 150,152,160,153,acceptance_ready,True,False,False
+CHK-150-09,no_live_trading,Live trading prohibited,True,Zero live execution or broker connectivity.,Phase 150,152,160,153,acceptance_ready,True,False,False
+CHK-150-10,handoff_to_151_completed,Phase 151 handoff,True,Phase 151 benchmark evaluation handoff report satisfied.,Phase 150,152,160,153,acceptance_ready,True,False,False

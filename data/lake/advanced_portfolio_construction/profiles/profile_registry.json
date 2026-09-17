@@ -1,0 +1,10 @@
+{
+  "domain": "portfolio_construction_profile_domain",
+  "active_profile": "balanced_local_portfolio_construction_contracts",
+  "total_profiles": 3,
+  "all_local_only": true,
+  "all_non_production": true,
+  "all_research_only": true,
+  "all_non_signal": true,
+  "status": "portfolio_contract_ready"
+}

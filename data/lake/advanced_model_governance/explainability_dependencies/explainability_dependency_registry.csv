@@ -1,0 +1,4 @@
+dependency_name,source,scope,status,phase,non_signal
+phase_143_explainability_report_contracts,Phase 143,Global and local XAI report templates,SATISFIED,144,True
+phase_143_feature_attribution_contracts,Phase 143,SHAP/LIME attribution contract specifications,SATISFIED,144,True
+phase_143_xai_safeguards,Phase 143,Zero model action and disabled execution evidence,SATISFIED,144,True

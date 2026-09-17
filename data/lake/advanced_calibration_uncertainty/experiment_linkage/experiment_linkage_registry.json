@@ -1,0 +1,11 @@
+{
+  "total_experiments_linked": 4,
+  "experiments": [
+    "exp_tree_ensemble_calib_001",
+    "exp_isotonic_calib_002",
+    "exp_temp_scaling_calib_003",
+    "exp_beta_calib_004"
+  ],
+  "all_offline": true,
+  "all_non_signal": true
+}

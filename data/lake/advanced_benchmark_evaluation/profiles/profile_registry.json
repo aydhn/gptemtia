@@ -1,0 +1,15 @@
+{
+  "domain": "benchmark_evaluation_profile_domain",
+  "total_profiles": 3,
+  "active_profile": "balanced_local_benchmark_evaluation_contracts",
+  "all_dry_run": true,
+  "all_local_only": true,
+  "all_non_production": true,
+  "all_live_trading_prohibited": true,
+  "all_broker_prohibited": true,
+  "all_backtest_prohibited": true,
+  "all_benchmark_prohibited": true,
+  "all_claims_prohibited": true,
+  "status": "evaluation_contract_ready",
+  "non_signal": true
+}

@@ -1,0 +1,22 @@
+{
+  "total_contracts": 6,
+  "contract_names": [
+    "voting_input_contract",
+    "blending_input_contract",
+    "stacking_input_contract",
+    "averaging_input_contract",
+    "rank_aggregation_input_contract",
+    "meta_model_input_contract"
+  ],
+  "strategies": [
+    "voting",
+    "blending",
+    "stacking",
+    "averaging",
+    "rank_aggregation",
+    "meta_model"
+  ],
+  "all_no_lookahead": true,
+  "all_non_signal": true,
+  "dry_run": true
+}

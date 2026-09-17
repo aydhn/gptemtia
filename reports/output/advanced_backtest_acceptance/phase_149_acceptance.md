@@ -1,0 +1,22 @@
+> [!CAUTION]
+> **YASAL UYARI VE GÜVENLİK BİLDİRİMİ (PHASE 152 BACKTEST ACCEPTANCE REPORT)**:
+> Bu çıktı Phase 152 Backtest Acceptance Report çıktısıdır. Canlı emir, broker talimatı, > kesin AL/SAT, yatırım tavsiyesi, backtest/acceptance/readiness değerini trade sinyali veya > production-ready/broker-ready/onay olarak kullanma, gerçek backtest execution, benchmark > execution, metric calculation, optimizer, model training, model fit/predict/inference, > dataset materialization, target/label/prediction üretimi, gerçek Sharpe/win-rate/return/> alpha/beta/drawdown/VaR/ES hesaplama, performans garantisi, strategy approval, capital > allocation, portfolio construction, position sizing, model deployment, model registry write, > model artifact persistence, scraping, haber tam metni/article body/raw content/scraped HTML/> embedding/vector kullanımı veya gerçek provider API çağrısı değildir.
+
+## Phase 149 Acceptance Report: Monte Carlo Robustness and Parameter Stability
+- **Active Profile**: `balanced_local_backtest_acceptance_contracts`
+- **Total Checks**: 10
+- **Passed Checks**: 10
+- **All Passed**: True
+- **Status**: `ACCEPTED`
+
+  check_id                                         name                                    topic  passed                                                         details phase_ref  current_phase  target_final_phase  next_phase           status  non_signal  production_ready  broker_ready
+CHK-149-01                               module_present advanced_monte_carlo_robustness presence    True                   Core Monte Carlo robustness package verified. Phase 149            152                 160         153 acceptance_ready        True             False         False
+CHK-149-02                monte_carlo_contracts_present         Monte Carlo robustness contracts    True  Path simulation and synthetic price series contracts verified. Phase 149            152                 160         153 acceptance_ready        True             False         False
+CHK-149-03       bootstrap_resampling_contracts_present           Bootstrap/resampling contracts    True       Block bootstrap, stationary bootstrap contracts verified. Phase 149            152                 160         153 acceptance_ready        True             False         False
+CHK-149-04        parameter_stability_contracts_present            Parameter stability contracts    True Parameter sensitivity and plateau stability contracts verified. Phase 149            152                 160         153 acceptance_ready        True             False         False
+CHK-149-05 robustness_distribution_placeholders_present                Distribution placeholders    True              Confidence intervals, drawdown envelopes verified. Phase 149            152                 160         153 acceptance_ready        True             False         False
+CHK-149-06                     no_monte_carlo_execution           Monte Carlo execution disabled    True           Zero random walk paths or Monte Carlo loops executed. Phase 149            152                 160         153 acceptance_ready        True             False         False
+CHK-149-07                       no_bootstrap_execution             Bootstrap execution disabled    True                             Zero empirical resamples generated. Phase 149            152                 160         153 acceptance_ready        True             False         False
+CHK-149-08                    no_parameter_optimization          Parameter optimization disabled    True                Zero hyperparameter tuning or optimization runs. Phase 149            152                 160         153 acceptance_ready        True             False         False
+CHK-149-09                              no_live_trading                  Live trading prohibited    True                     Zero live execution or broker connectivity. Phase 149            152                 160         153 acceptance_ready        True             False         False
+CHK-149-10                     handoff_to_150_completed                        Phase 150 handoff    True         Phase 150 backtest governance handoff report satisfied. Phase 149            152                 160         153 acceptance_ready        True             False         False

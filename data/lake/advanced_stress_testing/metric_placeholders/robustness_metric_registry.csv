@@ -1,0 +1,4 @@
+metric_name,metric_category,description,formula_spec,benchmark_relative,metric_calculated,performance_claim_generated,non_signal
+scenario_robustness_score_placeholder,ROBUSTNESS,Farklı stres senaryolarındaki hayatta kalma ve performans koruma skoru yer tutucusu.,Robustness = mean(Scenario_Survivability_i) * (1 - Std(Loss_i)),False,False,False,True
+cross_scenario_stability_index_placeholder,STABILITY,Senaryolar arası sonuç varyansı ve stabilite indeksi yer tutucusu.,Stability = 1 / (1 + variance(Stressed_Drawdowns)),False,False,False,True
+parameter_fragility_score_placeholder,FRAGILITY,Küçük girdi ve parametre değişimlerinde stres sonucunun bozulma hassasiyeti yer tutucusu.,Fragility = max(|d(Stressed_Loss) / d(Param_k)|),False,False,False,True

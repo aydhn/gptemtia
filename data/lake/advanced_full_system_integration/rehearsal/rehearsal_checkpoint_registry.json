@@ -1,0 +1,8 @@
+{
+  "active_profile": "balanced_local_full_system_integration_contracts",
+  "total_checkpoints": 8,
+  "passed_checkpoints": 8,
+  "all_passed": true,
+  "status": "full_system_integration_ready",
+  "non_signal": true
+}

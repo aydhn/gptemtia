@@ -1,0 +1,7 @@
+{
+  "total_audit_placeholders": 4,
+  "all_dry_run_only": true,
+  "all_real_audit_log_false": true,
+  "all_production_approved_false": true,
+  "status": "AUDIT_PLACEHOLDER_ONLY"
+}

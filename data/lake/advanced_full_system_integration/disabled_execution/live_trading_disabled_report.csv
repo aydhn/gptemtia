@@ -1,0 +1,3 @@
+item_id,execution_type,is_disabled,blocking_reason,enforcement_layer,status
+LTD-001,live_trading,True,Live market order submission is strictly prohibited.,contract,DISABLED
+LTD-002,live_account_access,True,Live account state manipulation is blocked.,contract,DISABLED

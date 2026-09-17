@@ -1,0 +1,6 @@
+event_type,description,handler_interface,lookahead_check,execution_allowed,is_active,non_signal
+MARKET_DATA_EVENT,Zaman damgali yeni fiyat veya bar verisi olusumu.,on_market_data(event: MarketDataEvent),timestamp <= current_sim_time,False,True,True
+SIGNAL_INPUT_EVENT,Stratejiden gelen sinyal istegi bildirim olayi.,on_signal(event: SignalEvent),signal_time <= current_sim_time,False,True,True
+ORDER_CREATION_EVENT,Simulasyon ici emir olusturma olayi.,on_order_create(event: OrderEvent),order_time >= current_sim_time,False,True,True
+ORDER_FILL_EVENT,Fiyat ve kayma kurallarina gore emir eslesme olayi.,on_fill(event: FillEvent),fill_time > order_time,False,True,True
+POSITION_UPDATE_EVENT,Pozisyon ve bakiye guncelleme olayi.,on_position_update(event: PositionEvent),update_time >= fill_time,False,True,True

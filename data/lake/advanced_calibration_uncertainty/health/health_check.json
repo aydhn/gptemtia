@@ -1,0 +1,8 @@
+{
+  "status": "HEALTHY",
+  "total_checks": 12,
+  "passed_checks": 12,
+  "failed_checks": 0,
+  "all_passed": true,
+  "non_signal": true
+}

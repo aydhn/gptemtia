@@ -1,0 +1,4 @@
+check_item,is_disabled,status,details,dry_run,non_signal
+future_return_target_disabled,True,PASS_DISABLED,"Future return, forward return, and next return calculations are disabled.",True,True
+shift_minus_one_label_disabled,True,PASS_DISABLED,Lookahead shift(-1) operations are strictly forbidden and disabled.,True,True
+binary_multiclass_label_disabled,True,PASS_DISABLED,Binary/multi-class trend and regime classification labels are disabled.,True,True

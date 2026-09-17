@@ -1,0 +1,5 @@
+guard_key,guard_name,enforced,lookahead_leakage_detected,temporal_cutoff_enforced,future_information_prohibited,non_signal,weights_fit_on_past_only,purged_folds_enforced,out_of_time_holdout_enforced
+candidate_input_temporal_guard,candidate_input_temporal_guard,True,False,True,True,True,,,
+ensemble_weight_temporal_guard,ensemble_weight_temporal_guard,True,False,,True,True,True,,
+meta_model_split_temporal_guard,meta_model_split_temporal_guard,True,False,,True,True,,True,
+holdout_leakage_guard,holdout_leakage_guard,True,False,,True,True,,,True

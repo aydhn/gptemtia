@@ -1,0 +1,4 @@
+component_name,description,enforcement_rule,shift_direction,forbidden_pattern,execution_allowed,is_active,non_signal
+vectorized_signal_shift_contract,Sinyal matrisinin getiri matrisi ile caprazlanmadan once en az 1 bar (lag=1) otelenmesi zorunlulugu.,signal.shift(1),POSITIVE_LAG_ONLY,shift(-1),False,True,True
+vectorized_cost_deduction_contract,Portfoy donusumunde (turnover) komisyon ve kaymanin cikarilmasi sozlesmesi.,abs(weight - weight.shift(1)) * cost_rate,POSITIVE_LAG_ONLY,future_cost_anticipation,False,True,True
+vectorized_rebalance_matrix_contract,Duzenli araliklarla rebalance edilen agirlik matrisi tanimi.,normalize_weights_sum_to_one,NONE,leverage_without_margin,False,True,True

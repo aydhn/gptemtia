@@ -1,0 +1,13 @@
+check_id,check_name,category,description,status,enforced,phase
+CHK-01,no_live_trading_check,trading_safety,Verify live trading is completely disabled.,PASSED,True,144
+CHK-02,no_broker_execution_check,broker_safety,Verify broker APIs and automated routing are blocked.,PASSED,True,144
+CHK-03,no_investment_advice_check,legal_safety,Verify zero financial advice or directional claims.,PASSED,True,144
+CHK-04,no_signal_generation_check,signal_safety,Verify outputs do not generate buy/sell/position signals.,PASSED,True,144
+CHK-05,no_prediction_check,execution_safety,Verify no model predict/inference was executed.,PASSED,True,144
+CHK-06,no_model_training_check,execution_safety,Verify no real model training or fitting was executed.,PASSED,True,144
+CHK-07,no_model_registry_write_check,registry_safety,Verify zero write operations to model registries.,PASSED,True,144
+CHK-08,no_deployment_check,deployment_safety,Verify no model deployment or publishing occurred.,PASSED,True,144
+CHK-09,no_scraping_check,data_safety,Verify web scraping and article full-text usage are disabled.,PASSED,True,144
+CHK-10,no_credential_output_check,security_safety,Verify no API keys or secrets are leaked in logs.,PASSED,True,144
+CHK-11,no_source_overwrite_check,data_integrity,Verify raw source data files remain unmodified.,PASSED,True,144
+CHK-12,manual_review_check,governance,Verify manual review gates are active and enforced.,PASSED,True,144

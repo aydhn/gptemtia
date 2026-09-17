@@ -1,0 +1,6 @@
+risk_metric_type,timeframe,window_days,expected_dtype,description,current_phase,contract_only,non_production,risk_metric_calculation_allowed,real_risk_calculated,status
+historical_volatility_input,daily,60,float64,Tarihsel volatilite girdi sozlesmesi (metadata only).,153,True,True,False,False,portfolio_contract_ready
+semi_variance_input,daily,120,float64,Asagi yonlu yari-varyans girdi sozlesmesi (metadata only).,153,True,True,False,False,portfolio_contract_ready
+correlation_matrix_input,daily,120,matrix_float64,Korelasyon matrisi girdi sozlesmesi (metadata only).,153,True,True,False,False,portfolio_contract_ready
+drawdown_depth_input,daily,252,float64,Cekilme derinligi girdi sozlesmesi (metadata only).,153,True,True,False,False,portfolio_contract_ready
+liquidity_spread_cost_input,daily,30,float64,Likidite spread maliyet girdi sozlesmesi (metadata only).,153,True,True,False,False,portfolio_contract_ready

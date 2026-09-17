@@ -1,0 +1,11 @@
+{
+  "total_dependencies": 4,
+  "dependencies": [
+    "voting_ensemble_strategy_dep",
+    "blending_ensemble_strategy_dep",
+    "stacking_ensemble_strategy_dep",
+    "dynamic_weighting_strategy_dep"
+  ],
+  "all_satisfied": true,
+  "all_non_signal": true
+}

@@ -1,0 +1,15 @@
+{
+  "domain": "phase_152_handoff_domain",
+  "source_phase": 151,
+  "current_phase": 151,
+  "next_phase": 152,
+  "next_phase_name": "Backtest Acceptance Report",
+  "target_final_phase": 160,
+  "total_prerequisites": 10,
+  "all_prerequisites_satisfied": true,
+  "phase_152_handoff_ready": true,
+  "handoff_status": "READY_FOR_PHASE_152",
+  "status": "evaluation_contract_ready",
+  "non_signal": true,
+  "local_only": true
+}

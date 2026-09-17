@@ -1,0 +1,7 @@
+check_id,component,status,detail
+HLT-156-001,config_profiles,HEALTHY,All profiles enforce non-production dry-run
+HLT-156-002,scenario_contracts,HEALTHY,All scenario contracts are contract-only
+HLT-156-003,drawdown_contracts,HEALTHY,All drawdown control contracts are contract-only
+HLT-156-004,control_placeholders,HEALTHY,All control action placeholders are inactive
+HLT-156-005,guards,HEALTHY,All safety guards and claim blockers are active
+HLT-156-006,phase_157_handoff,HEALTHY,Prerequisites for Phase 157 are verified

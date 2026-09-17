@@ -1,0 +1,17 @@
+{
+  "total_contracts": 7,
+  "contracts": [
+    "platt_scaling_contract",
+    "isotonic_calibration_contract",
+    "temperature_scaling_contract",
+    "beta_calibration_contract",
+    "histogram_binning_contract",
+    "ensemble_calibration_contract",
+    "future_phase_141_contract_only_calibration"
+  ],
+  "all_zero_prediction": true,
+  "all_zero_fit": true,
+  "all_zero_transform": true,
+  "all_non_signal": true,
+  "all_manual_review": true
+}

@@ -1,0 +1,2 @@
+conversion_rule,description,base_currency,is_placeholder,is_active,non_signal
+cross_rate_conversion_placeholder,Farkli para birimlerindeki enstruman PnL ve nosyonelinin portfoy temel para birimine (USD) donusturulmesi.,USD,True,True,True

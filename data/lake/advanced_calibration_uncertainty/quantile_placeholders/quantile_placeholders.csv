@@ -1,0 +1,6 @@
+placeholder_name,quantile_tau,description,calculated,quantile_value,non_signal,production_ready,phase,status
+median_quantile_q50_placeholder,0.5,Conditional median (tau=0.50) placeholder; uncalculated.,False,,True,False,141,calibration_contract_placeholder_only
+lower_tail_quantile_q05_placeholder,0.05,Lower tail conditional quantile (tau=0.05) placeholder; uncalculated.,False,,True,False,141,calibration_contract_placeholder_only
+upper_tail_quantile_q95_placeholder,0.95,Upper tail conditional quantile (tau=0.95) placeholder; uncalculated.,False,,True,False,141,calibration_contract_placeholder_only
+interquartile_quantile_q25_placeholder,0.25,Lower quartile conditional quantile (tau=0.25) placeholder; uncalculated.,False,,True,False,141,calibration_contract_placeholder_only
+interquartile_quantile_q75_placeholder,0.75,Upper quartile conditional quantile (tau=0.75) placeholder; uncalculated.,False,,True,False,141,calibration_contract_placeholder_only

@@ -1,0 +1,6 @@
+stage,layer_name,output_type,target,source_preserved,non_signal,production_ready,broker_ready
+Phase 116-125,Feature & Factor Engine Block,feature_matrix_contracts,FeatureStore catalog & quality gates,True,True,False,False
+Phase 126-135,Regime Classification Block,regime_acceptance_manifest,Market behavior & state sequence metadata,True,True,False,False
+Phase 136,GPU ML Runtime Foundation,runtime_profiles_contracts,Hardware capability & safety permissions,True,True,False,False
+Phase 137,ML Dataset & Experiment Registry,ml_dataset_contracts,Feature snapshots & experiment templates,True,True,False,False
+Phase 138,Baseline ML Model Contracts,baseline_model_contracts,Dry-run training plans & trainer stubs,True,True,False,False

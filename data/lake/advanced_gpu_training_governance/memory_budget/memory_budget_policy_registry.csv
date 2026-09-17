@@ -1,0 +1,4 @@
+policy_id,policy_name,max_memory_fraction,reserved_system_mb,enable_memory_guard,dry_run_only,non_signal,description,status
+MEM_POL_001,conservative_gpu_memory_budget_policy,0.7,2048,True,True,True,Conservative cap keeping 30% VRAM free and reserving 2GB for OS/system processes.,gpu_governance_ready
+MEM_POL_002,standard_gpu_memory_budget_policy,0.8,1536,True,True,True,Standard 80% VRAM ceiling with pre-allocation safety guard.,gpu_governance_ready
+MEM_POL_003,strict_low_memory_footprint_policy,0.5,4096,True,True,True,High safety memory budget for shared workstation environments.,gpu_governance_ready

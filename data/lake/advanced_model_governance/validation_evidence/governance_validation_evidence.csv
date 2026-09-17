@@ -1,0 +1,9 @@
+source,evidence_metric,passed,details,phase,is_verified,non_signal
+Phase 136 GPU Runtime Foundation,runtime_device_validation,True,CUDA/CPU fallback verified without live execution.,144,True,True
+Phase 137 Dataset Contracts,leakage_and_schema_validation,True,Zero target labels and strict time index order verified.,144,True,True
+Phase 138 Baseline Model Contracts,baseline_interface_validation,True,Dry-run stubs verified with zero weights.,144,True,True
+Phase 139 GPU Resource Governance,resource_budget_validation,True,VRAM and timeout limits verified.,144,True,True
+Phase 140 Ensemble Model Contracts,candidate_eligibility_validation,True,Candidate compatibility verified without ensemble fit.,144,True,True
+Phase 141 Calibration & Uncertainty,calibration_metric_validation,True,Reliability curves verified as contract stubs.,144,True,True
+Phase 142 Drift Monitoring,drift_contract_validation,True,Statistical test contracts and thresholds verified.,144,True,True
+Phase 143 Explainability & Attribution,xai_safeguard_validation,True,36 execution disabled safeguard points verified.,144,True,True

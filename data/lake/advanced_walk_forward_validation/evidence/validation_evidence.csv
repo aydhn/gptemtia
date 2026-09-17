@@ -1,0 +1,10 @@
+evidence_id,evidence_type,verified,description,non_signal
+EVD-147-01,SPLIT_CONTRACT_PRESENT,True,"Rolling, expanding ve anchored split sozlesmeleri kayitli.",True
+EVD-147-02,OOS_CONTRACT_PRESENT,True,Orneklem disi (OOS) kesisimsiz bolumleme sozlesmeleri kayitli.,True
+EVD-147-03,BENCHMARK_CONTRACT_PRESENT,True,"Buy & Hold, nakit ve esit agirlikli benchmark sozlesmeleri kayitli.",True
+EVD-147-04,NO_LOOKAHEAD_GUARD_PRESENT,True,Kronolojik siralama ve asof backward join muhafizlari aktif.,True
+EVD-147-05,PURGE_EMBARGO_GUARD_PRESENT,True,Etiket cakismasini ve otoregresif sizintiyi engelleyen purge/embargo muhafizlari aktif.,True
+EVD-147-06,BIAS_GUARDS_PRESENT,True,"Data snooping, survivorship ve overfitting muhafizlari aktif.",True
+EVD-147-07,COST_SLIPPAGE_DEPENDENCY_PRESENT,True,Phase 146 islem maliyeti ve kayma modeli sozlesme baglantilari tanimli.,True
+EVD-147-08,DISABLED_EXECUTION_REPORTS_PRESENT,True,"Canli islem, broker, egitim, cikarim ve metrik hesaplama engelleri raporlandi.",True
+EVD-147-09,PHASE_148_HANDOFF_PRESENT,True,Phase 148 Stress Testing and Scenario Simulation handoff paketi hazir.,True

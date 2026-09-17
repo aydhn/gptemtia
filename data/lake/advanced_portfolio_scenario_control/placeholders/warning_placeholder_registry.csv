@@ -1,0 +1,2 @@
+warning_placeholder_id,warning_type,trigger_level_pct,notification_channel,status,active
+WARN-PLH-001,EARLY_WARNING_DRAWDOWN,5.0,NONE_DISABLED,PLACEHOLDER_ONLY,False

@@ -1,0 +1,2 @@
+operation,is_disabled,policy_code,reason,status,non_signal
+metric_calculation,True,execution_blocked_no_metric_calculation,Phase 151 provides uncalculated metric placeholders only.,evaluation_contract_ready,True

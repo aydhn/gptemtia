@@ -1,0 +1,4 @@
+oos_split_name,oos_type,horizon_months,embargo_days,description,is_isolated,split_executed,targets_generated,non_signal
+primary_oos_contract_1y,FINAL_HOLDOUT,12,14,Son 1 yili (12 ay) tamamen dokunulmamis nihai OOS test seti olarak kilitleyen sozlesme.,True,False,False,True
+rolling_oos_quarterly_contract,ROLLING_CHUNK,3,7,Her ceyrekte 3 aylik dilimlerle OOS test araliklari olusturan sozlesme.,True,False,False,True
+stress_regime_oos_contract,REGIME_SPECIFIC_OOS,6,21,Ozellikle yuksek volatilite ve kriz donemlerini OOS olarak ayiran rejim odakli sozlesme.,True,False,False,True

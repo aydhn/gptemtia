@@ -1,0 +1,4 @@
+rule_id,rule_name,description,enforcement,perfect_liquidity_allowed,broker_execution_allowed,status,non_signal,local_only,phase
+LQD_01_NO_PERFECT_LIQUIDITY,perfect_liquidity_prohibition,Prohibit assuming that arbitrary trade sizes can be absorbed without price slippage.,BLOCKING_ZERO_TOLERANCE,False,False,ENFORCED,True,True,150
+LQD_02_ADV_PARTICIPATION_CAP,maximum_adv_participation_rate,Cap simulated order size at maximum 1-2% of Average Daily Volume (ADV) for realistic fill.,BLOCKING_MANDATORY,False,False,ENFORCED,True,True,150
+LQD_03_OFF_HOURS_LIQUIDITY_PENALTY,session_depth_adjustment,Penalize trades executed during low-liquidity Asian or holiday sessions with wider bid-ask spreads.,HIGH_AUDIT,False,False,ENFORCED,True,True,150

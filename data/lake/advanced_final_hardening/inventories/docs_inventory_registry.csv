@@ -1,0 +1,11 @@
+item_id,inventory_type,item_name,item_path_or_identifier,description,metadata_only,domain,non_signal,local_only,dry_run,non_production,current_phase,status
+DOC-README.md,documentation,README.md,README.md,"Proje genel tanıtımı, felsefesi ve çalıştırma yönergeleri",True,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+DOC-ARCHITECTURE.md,documentation,ARCHITECTURE.md,docs/ARCHITECTURE.md,Sistem mimarisi ve fazlar arası veri akış mimarisi,True,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+DOC-ROADMAP.md,documentation,ROADMAP.md,docs/ROADMAP.md,Faz 1-160 geliştirme yol haritası,True,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+DOC-PHASE_LOG.md,documentation,PHASE_LOG.md,docs/PHASE_LOG.md,Tamamlanan fazların detaylı uygulama günlüğü,True,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+DOC-OPERATOR_MANUAL.md,documentation,OPERATOR_MANUAL.md,docs/OPERATOR_MANUAL.md,Operatör kullanım kılavuzu ve güvenli çalışma yönergeleri,True,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+DOC-ANALYST_HANDBOOK.md,documentation,ANALYST_HANDBOOK.md,docs/ANALYST_HANDBOOK.md,Kullanıcı ve analist el kitabı,True,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+DOC-SAFE_USAGE_GUIDE.md,documentation,SAFE_USAGE_GUIDE.md,docs/SAFE_USAGE_GUIDE.md,Güvenli kullanım kılavuzu ve canlı işlem sınırları,True,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+DOC-CONFIGURATION.md,documentation,CONFIGURATION.md,docs/CONFIGURATION.md,Konfigürasyon ayarları kılavuzu,True,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+DOC-RELEASE_CANDIDATE_CHECKLIST.md,documentation,RELEASE_CANDIDATE_CHECKLIST.md,docs/RELEASE_CANDIDATE_CHECKLIST.md,Release candidate hazır oluş kontrol listesi,True,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+DOC-FINAL_HARDENING_GUIDE.md,documentation,FINAL_HARDENING_GUIDE.md,docs/FINAL_HARDENING_GUIDE.md,Final hardening kılavuzu ve Phase 160 devir yönergeleri,True,inventory_domain,True,True,True,True,159,final_hardening_contract_ready

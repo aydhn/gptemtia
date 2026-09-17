@@ -1,0 +1,5 @@
+contract_key,description,enforced,current_phase,next_phase,non_signal,manual_review_required
+no_prediction_inference_contract,Strict prohibition of all forward pass predictions and batch inference,True,137,138,True,True
+no_directional_signal_contract,Strict prohibition of generating buy/sell/long/short or directional trade signals,True,137,138,True,True
+no_forward_return_contract,"Strict prohibition of forward returns, future return labels, or target variables",True,137,138,True,True
+no_sentiment_score_contract,Strict prohibition of NLP sentiment prediction and model-based scoring,True,137,138,True,True

@@ -1,0 +1,4 @@
+finding_id,finding_type,domain,severity_label,message,recommendation,manual_review_required,current_phase,target_final_phase,next_phase
+FND-155-001,contract_layer_active,risk_report_contract_domain,INFO,Risk reporting contracts successfully registered in contract-only mode.,Operator should review contract specifications before Phase 156.,True,155,160,156
+FND-155-002,exposure_attribution_contracts_active,exposure_attribution_domain,INFO,Exposure attribution contracts initialized as non-executing placeholders.,Operator should inspect exposure families and formulas.,True,155,160,156
+FND-155-003,limit_monitoring_contracts_active,limit_monitoring_domain,INFO,Limit monitoring contracts active with live alerting strictly disabled.,Maintain disabled alerting policy in all local environments.,True,155,160,156

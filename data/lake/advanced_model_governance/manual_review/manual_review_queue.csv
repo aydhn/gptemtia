@@ -1,0 +1,11 @@
+queue_id,component_name,reason,recommended_action,blocked_actions,blocked_actions_csv,resolved,phase
+MRQ-01,model_governance_contracts,Verify alignment of baseline and candidate model specifications.,inspect model governance contracts,"['approve production', 'auto-deploy model']","approve production,auto-deploy model",False,144
+MRQ-02,model_card_templates,Verify completeness of 12 standard template sections.,inspect model card templates,"['auto-write model registry', 'auto-save model artifact']","auto-write model registry,auto-save model artifact",False,144
+MRQ-03,model_card_limitations,Verify non-materialized weight constraints and offline scope.,inspect model card limitations,"['auto-run prediction', 'auto-generate signal']","auto-run prediction,auto-generate signal",False,144
+MRQ-04,prohibited_use_registry,"Verify zero live trading, broker, or financial advice exposure.",inspect prohibited-use registry,"['approve broker readiness', 'approve live trading']","approve broker readiness,approve live trading",False,144
+MRQ-05,risk_disclosures,Verify concept drift and calibration degradation mitigations.,inspect risk disclosures,"['auto-run optimizer', 'auto-run backtest']","auto-run optimizer,auto-run backtest",False,144
+MRQ-06,validation_evidence,Verify evidence chains from Phases 136-143.,inspect validation evidence,"['auto-delete', 'auto-overwrite']","auto-delete,auto-overwrite",False,144
+MRQ-07,approval_boundaries,Verify strict interception of production/broker requests.,inspect approval boundaries,"['approve production', 'approve broker readiness']","approve production,approve broker readiness",False,144
+MRQ-08,audit_trail_placeholders,Verify dry_run_only flag and non-production status.,inspect audit trail placeholders,"['auto-impute', 'enable scraping']","auto-impute,enable scraping",False,144
+MRQ-09,disabled_execution_reports,Verify all 10 execution disabled reports are actively enforced.,inspect disabled approval/deployment reports,"['download article body', 'generate sentiment', 'generate embedding']","download article body,generate sentiment,generate embedding",False,144
+MRQ-10,phase_145_readiness,Verify all handoff prerequisites before acceptance report.,inspect Phase 145 advanced ML acceptance blockers,"['auto-deploy model', 'auto-generate signal']","auto-deploy model,auto-generate signal",False,144

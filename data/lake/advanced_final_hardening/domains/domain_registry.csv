@@ -1,0 +1,35 @@
+domain_name,description,current_phase,target_final_phase,non_signal,local_only,dry_run,non_production,status
+final_hardening_profile_domain,Final hardening profilleri ve çalışma modları,159,160,True,True,True,True,final_hardening_contract_ready
+final_hardening_domain,Genel final hardening ana alanı,159,160,True,True,True,True,final_hardening_contract_ready
+final_hardening_scope_domain,Final hardening kapsam ve sınır tanımı,159,160,True,True,True,True,final_hardening_contract_ready
+final_hardening_contract_domain,Hardening sözleşmeleri ve kural setleri,159,160,True,True,True,True,final_hardening_contract_ready
+operator_runbook_domain,Operatör kılavuzu ve runbook sözleşmeleri,159,160,True,True,True,True,final_hardening_contract_ready
+release_candidate_domain,Release candidate sözleşmesi ve kontrolleri,159,160,True,True,True,True,final_hardening_contract_ready
+configuration_freeze_domain,Konfigürasyon dondurma sözleşmesi,159,160,True,True,True,True,final_hardening_contract_ready
+documentation_freeze_domain,Dokümantasyon dondurma sözleşmesi,159,160,True,True,True,True,final_hardening_contract_ready
+safety_freeze_domain,Güvenlik sınırları dondurma sözleşmesi,159,160,True,True,True,True,final_hardening_contract_ready
+validation_freeze_domain,Doğrulama kuralları dondurma sözleşmesi,159,160,True,True,True,True,final_hardening_contract_ready
+dependency_freeze_domain,Bağımlılık dondurma sözleşmesi,159,160,True,True,True,True,final_hardening_contract_ready
+manifest_freeze_domain,Manifest dondurma sözleşmesi,159,160,True,True,True,True,final_hardening_contract_ready
+report_freeze_domain,Raporlama yapısı dondurma sözleşmesi,159,160,True,True,True,True,final_hardening_contract_ready
+settings_audit_domain,Ayarlar (settings.py) denetim sözleşmesi,159,160,True,True,True,True,final_hardening_contract_ready
+env_template_audit_domain,Ortam şablonu (.env.example) denetimi,159,160,True,True,True,True,final_hardening_contract_ready
+paths_audit_domain,Dizin yolları (paths.py) denetim sözleşmesi,159,160,True,True,True,True,final_hardening_contract_ready
+inventory_domain,Sistem envanterleri genel alanı,159,160,True,True,True,True,final_hardening_contract_ready
+operator_protocol_domain,Operatör güvenlik ve operasyon protokolleri,159,160,True,True,True,True,final_hardening_contract_ready
+troubleshooting_domain,Hata teşhis ve sorun giderme protokolleri,159,160,True,True,True,True,final_hardening_contract_ready
+recovery_domain,Kurtarma ve yedekleme prosedürleri,159,160,True,True,True,True,final_hardening_contract_ready
+no_go_protocol_domain,Operatör NO-GO ve yasaklı eylem protokolleri,159,160,True,True,True,True,final_hardening_contract_ready
+safe_usage_protocol_domain,Güvenli kullanım sınırları ve kuralları,159,160,True,True,True,True,final_hardening_contract_ready
+release_candidate_checkpoint_domain,Release candidate kontrol noktaları,159,160,True,True,True,True,final_hardening_contract_ready
+release_candidate_boundary_domain,Release candidate güvenlik ve sınır tanımları,159,160,True,True,True,True,final_hardening_contract_ready
+blocker_domain,Kritik engelleyiciler kayıt alanı,159,160,True,True,True,True,final_hardening_contract_ready
+gap_domain,Eksiklik ve boşluklar kayıt alanı,159,160,True,True,True,True,final_hardening_contract_ready
+warning_domain,Uyarılar ve dikkat notları kayıt alanı,159,160,True,True,True,True,final_hardening_contract_ready
+finding_domain,Bulgular ve tespitler kayıt alanı,159,160,True,True,True,True,final_hardening_contract_ready
+readiness_score_domain,Sözleşme hazır oluş skoru alanı,159,160,True,True,True,True,final_hardening_contract_ready
+manifest_domain,Release candidate manifest alanı,159,160,True,True,True,True,final_hardening_contract_ready
+health_domain,Sistem sağlık kontrolü alanı,159,160,True,True,True,True,final_hardening_contract_ready
+validation_domain,Sistem doğrulama kuralları alanı,159,160,True,True,True,True,final_hardening_contract_ready
+safety_domain,Güvenlik sınırları ve koruma alanı,159,160,True,True,True,True,final_hardening_contract_ready
+phase_160_handoff_domain,Phase 160 nihai teslim devir alanı,159,160,True,True,True,True,final_hardening_contract_ready

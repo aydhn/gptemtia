@@ -1,0 +1,11 @@
+{
+  "domain": "phase_143_explainability_acceptance_domain",
+  "active_profile": "balanced_local_advanced_ml_acceptance",
+  "phase_ref": "Phase 143",
+  "phase_title": "Explainability and Feature Attribution Reports",
+  "total_checks": 8,
+  "passed_checks": 8,
+  "all_passed": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

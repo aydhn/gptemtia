@@ -1,0 +1,16 @@
+{
+  "domain": "gap_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "total_gaps": 0,
+  "has_gaps": false,
+  "supported_gap_types": [
+    "optional_doc_missing",
+    "optional_generated_report_missing",
+    "manual_review_note_missing",
+    "dependency_summary_incomplete",
+    "acceptance_score_warning",
+    "handoff_detail_incomplete"
+  ],
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

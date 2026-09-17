@@ -5785,8 +5785,6255 @@ class DataLake:
     save_phase_137_handoff = save_phase_137_advanced_ml_dataset_experiment_handoff_report
     load_phase_137_handoff = load_phase_137_advanced_ml_dataset_experiment_handoff_report
 
+    # Phase 137 Advanced ML Dataset Contracts and Experiment Registry Methods
+    def save_advanced_ml_dataset_profile_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/profiles/profile_registry', df, summary)
+    def load_advanced_ml_dataset_profile_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/profiles/profile_registry.csv')
 
+    def save_advanced_ml_dataset_domain_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/domains/domain_registry', df, summary)
+    def load_advanced_ml_dataset_domain_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/domains/domain_registry.csv')
 
+    def save_ml_dataset_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/contracts/dataset_contract_registry', df, summary)
+    def load_ml_dataset_contract_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/contracts/dataset_contract_registry.csv')
+
+    def save_ml_dataset_source_catalog_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/source_catalog/source_catalog_registry', df, summary)
+    def load_ml_dataset_source_catalog_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/source_catalog/source_catalog_registry.csv')
+
+    def save_ml_dataset_schema_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/schema/dataset_schema_registry', df, summary)
+    def load_ml_dataset_schema_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/schema/dataset_schema_registry.csv')
+
+    def save_ml_dataset_feature_namespace_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/feature_namespace/feature_namespace_registry', df, summary)
+    def load_ml_dataset_feature_namespace_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/feature_namespace/feature_namespace_registry.csv')
+
+    def save_ml_dataset_version_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/version_policies/version_policy_registry', df, summary)
+    def load_ml_dataset_version_policy_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/version_policies/version_policy_registry.csv')
+
+    def save_ml_dataset_partition_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/partition_policies/partition_policy_registry', df, summary)
+    def load_ml_dataset_partition_policy_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/partition_policies/partition_policy_registry.csv')
+
+    def save_ml_dataset_time_index_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/time_index_policies/time_index_policy_registry', df, summary)
+    def load_ml_dataset_time_index_policy_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/time_index_policies/time_index_policy_registry.csv')
+
+    def save_ml_dataset_time_series_split_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/split_policies/time_series_split_policy_registry', df, summary)
+    def load_ml_dataset_time_series_split_policy_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/split_policies/time_series_split_policy_registry.csv')
+
+    def save_ml_dataset_walk_forward_split_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/walk_forward_policies/walk_forward_split_policy_registry', df, summary)
+    def load_ml_dataset_walk_forward_split_policy_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/walk_forward_policies/walk_forward_split_policy_registry.csv')
+
+    def save_ml_dataset_purged_split_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/purged_split_placeholders/purged_split_placeholder_registry', df, summary)
+    def load_ml_dataset_purged_split_placeholder_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/purged_split_placeholders/purged_split_placeholder_registry.csv')
+
+    def save_ml_dataset_leakage_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/leakage_guards/leakage_guard_registry', df, summary)
+    def load_ml_dataset_leakage_guard_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/leakage_guards/leakage_guard_registry.csv')
+
+    def save_ml_dataset_no_lookahead_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/no_lookahead_guards/no_lookahead_guard_registry', df, summary)
+    def load_ml_dataset_no_lookahead_guard_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/no_lookahead_guards/no_lookahead_guard_registry.csv')
+
+    def save_ml_dataset_metadata_only_news_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/metadata_only_news_guards/metadata_only_news_guard_registry', df, summary)
+    def load_ml_dataset_metadata_only_news_guard_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/metadata_only_news_guards/metadata_only_news_guard_registry.csv')
+
+    def save_ml_dataset_source_preservation_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/source_preservation_guards/source_preservation_guard_registry', df, summary)
+    def load_ml_dataset_source_preservation_guard_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/source_preservation_guards/source_preservation_guard_registry.csv')
+
+    def save_ml_dataset_forbidden_column_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/forbidden_columns/forbidden_column_policy_registry', df, summary)
+    def load_ml_dataset_forbidden_column_policy_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/forbidden_columns/forbidden_column_policy_registry.csv')
+
+    def save_ml_dataset_target_label_disabled_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/target_label_disabled/target_label_disabled_policy_registry', df, summary)
+    def load_ml_dataset_target_label_disabled_policy_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/target_label_disabled/target_label_disabled_policy_registry.csv')
+
+    def save_ml_dataset_feature_snapshot_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/feature_snapshot_contracts/feature_snapshot_contract_registry', df, summary)
+    def load_ml_dataset_feature_snapshot_contract_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/feature_snapshot_contracts/feature_snapshot_contract_registry.csv')
+
+    def save_ml_dataset_feature_snapshot_manifest_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/feature_snapshot_manifest_placeholders/feature_snapshot_manifest_placeholder_registry', df, summary)
+    def load_ml_dataset_feature_snapshot_manifest_placeholder_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/feature_snapshot_manifest_placeholders/feature_snapshot_manifest_placeholder_registry.csv')
+
+    def save_ml_dataset_quality_gate_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/quality_gates/quality_gate_registry', df, summary)
+    def load_ml_dataset_quality_gate_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/quality_gates/quality_gate_registry.csv')
+
+    def save_ml_dataset_validation_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/validation_dependencies/validation_dependency_registry', df, summary)
+    def load_ml_dataset_validation_dependency_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/validation_dependencies/validation_dependency_registry.csv')
+
+    def save_ml_dataset_quality_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/quality_dependencies/quality_dependency_registry', df, summary)
+    def load_ml_dataset_quality_dependency_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/quality_dependencies/quality_dependency_registry.csv')
+
+    def save_ml_dataset_lineage_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/lineage/lineage_registry', df, summary)
+    def load_ml_dataset_lineage_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/lineage/lineage_registry.csv')
+
+    def save_ml_experiment_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/experiment_registry/experiment_registry', df, summary)
+    def load_ml_experiment_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/experiment_registry/experiment_registry.csv')
+
+    def save_ml_experiment_template_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/experiment_templates/experiment_template_registry', df, summary)
+    def load_ml_experiment_template_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/experiment_templates/experiment_template_registry.csv')
+
+    def save_ml_experiment_permission_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/experiment_permissions/experiment_permission_registry', df, summary)
+    def load_ml_experiment_permission_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/experiment_permissions/experiment_permission_registry.csv')
+
+    def save_ml_experiment_run_plan_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/run_plan_placeholders/run_plan_placeholder_registry', df, summary)
+    def load_ml_experiment_run_plan_placeholder_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/run_plan_placeholders/run_plan_placeholder_registry.csv')
+
+    def save_ml_model_family_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/model_family_placeholders/model_family_placeholder_registry', df, summary)
+    def load_ml_model_family_placeholder_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/model_family_placeholders/model_family_placeholder_registry.csv')
+
+    def save_ml_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/metric_placeholders/metric_placeholder_registry', df, summary)
+    def load_ml_metric_placeholder_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/metric_placeholders/metric_placeholder_registry.csv')
+
+    def save_ml_training_harness_disabled_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/training_harness_disabled/training_harness_disabled_contract_registry', df, summary)
+    def load_ml_training_harness_disabled_contract_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/training_harness_disabled/training_harness_disabled_contract_registry.csv')
+
+    def save_ml_prediction_disabled_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/prediction_disabled/prediction_disabled_contract_registry', df, summary)
+    def load_ml_prediction_disabled_contract_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/prediction_disabled/prediction_disabled_contract_registry.csv')
+
+    def save_ml_artifact_disabled_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/artifact_disabled/artifact_disabled_contract_registry', df, summary)
+    def load_ml_artifact_disabled_contract_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/artifact_disabled/artifact_disabled_contract_registry.csv')
+
+    def save_ml_dataset_manual_review_queue(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/manual_review/manual_review_queue', df, summary)
+    def load_ml_dataset_manual_review_queue(self):
+        return self._load_csv('advanced_ml_dataset_registry/manual_review/manual_review_queue.csv')
+
+    def save_ml_dataset_findings_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/findings/findings_registry', df, summary)
+    def load_ml_dataset_findings_registry(self):
+        return self._load_csv('advanced_ml_dataset_registry/findings/findings_registry.csv')
+
+    def save_ml_dataset_readiness_score_report(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/scoring/readiness_score', df, summary)
+    def load_ml_dataset_readiness_score_report(self):
+        return self._load_csv('advanced_ml_dataset_registry/scoring/readiness_score.csv')
+
+    def save_advanced_ml_dataset_manifest(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/manifest/manifest', df, summary)
+    def load_advanced_ml_dataset_manifest(self):
+        return self._load_csv('advanced_ml_dataset_registry/manifest/manifest.csv')
+
+    def save_advanced_ml_dataset_health_check(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/health/health_check', df, summary)
+    def load_advanced_ml_dataset_health_check(self):
+        return self._load_csv('advanced_ml_dataset_registry/health/health_check.csv')
+
+    def save_advanced_ml_dataset_validation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/validation/validation_report', df, summary)
+    def load_advanced_ml_dataset_validation_report(self):
+        return self._load_csv('advanced_ml_dataset_registry/validation/validation_report.csv')
+
+    def save_advanced_ml_dataset_safety_boundary(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/safety/safety_boundary', df, summary)
+    def load_advanced_ml_dataset_safety_boundary(self):
+        return self._load_csv('advanced_ml_dataset_registry/safety/safety_boundary.csv')
+
+    def save_phase_138_baseline_ml_model_contracts_handoff_report(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_dataset_registry/handoff/phase_138_handoff', df, summary)
+    def load_phase_138_baseline_ml_model_contracts_handoff_report(self):
+        return self._load_csv('advanced_ml_dataset_registry/handoff/phase_138_handoff.csv')
+
+    def save_advanced_ml_dataset_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_ml_dataset_registry' / f'report_{profile_name}.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        if markdown:
+            md_path = path.with_suffix('.md')
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(markdown)
+        return path
+
+    def load_advanced_ml_dataset_report(self, profile_name: str):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_ml_dataset_registry' / f'report_{profile_name}.json'
+        if not path.exists():
+            return {}
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def list_advanced_ml_dataset_reports(self):
+        return pd.DataFrame()
+
+    # Phase 137 Aliases
+    save_phase_138_handoff = save_phase_138_baseline_ml_model_contracts_handoff_report
+    load_phase_138_handoff = load_phase_138_baseline_ml_model_contracts_handoff_report
+
+    # Phase 138 Baseline ML Model Contracts and Dry-Run Training Harness DataLake Support
+    def save_baseline_ml_model_profile_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/profiles/profile_registry', df, summary)
+    def load_baseline_ml_model_profile_registry(self):
+        return self._load_csv('advanced_baseline_ml_models/profiles/profile_registry.csv')
+
+    def save_baseline_ml_model_domain_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/domains/domain_registry', df, summary)
+    def load_baseline_ml_model_domain_registry(self):
+        return self._load_csv('advanced_baseline_ml_models/domains/domain_registry.csv')
+
+    def save_baseline_model_family_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/model_families/model_family_registry', df, summary)
+    def load_baseline_model_family_registry(self):
+        return self._load_csv('advanced_baseline_ml_models/model_families/model_family_registry.csv')
+
+    def save_baseline_model_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/model_contracts/model_contract_registry', df, summary)
+    def load_baseline_model_contract_registry(self):
+        return self._load_csv('advanced_baseline_ml_models/model_contracts/model_contract_registry.csv')
+
+    def save_baseline_model_input_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/input_contracts/input_contract_registry', df, summary)
+    def load_baseline_model_input_contract_registry(self):
+        return self._load_csv('advanced_baseline_ml_models/input_contracts/input_contract_registry.csv')
+
+    def save_baseline_model_output_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/output_contracts/output_contract_registry', df, summary)
+    def load_baseline_model_output_contract_registry(self):
+        return self._load_csv('advanced_baseline_ml_models/output_contracts/output_contract_registry.csv')
+
+    def save_baseline_model_training_plan_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/training_plans/training_plan_registry', df, summary)
+    def load_baseline_model_training_plan_registry(self):
+        return self._load_csv('advanced_baseline_ml_models/training_plans/training_plan_registry.csv')
+
+    def save_dry_run_training_harness_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/dry_run_harness_contracts/harness_contract_registry', df, summary)
+    def load_dry_run_training_harness_contract_registry(self):
+        return self._load_csv('advanced_baseline_ml_models/dry_run_harness_contracts/harness_contract_registry.csv')
+
+    def save_dry_run_training_harness_interface_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/dry_run_interfaces/interface_registry', df, summary)
+    def load_dry_run_training_harness_interface_registry(self):
+        return self._load_csv('advanced_baseline_ml_models/dry_run_interfaces/interface_registry.csv')
+
+    def save_dry_run_trainer_stub_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/trainer_stubs/trainer_stub_registry', df, summary)
+    def load_dry_run_trainer_stub_registry(self):
+        return self._load_csv('advanced_baseline_ml_models/trainer_stubs/trainer_stub_registry.csv')
+
+    def save_dry_run_training_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/dry_run_policies/policy_registry', df, summary)
+    def load_dry_run_training_policy_registry(self):
+        return self._load_csv('advanced_baseline_ml_models/dry_run_policies/policy_registry.csv')
+
+    def save_no_real_training_execution_report(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/no_real_training/no_real_training_report', df, summary)
+    def load_no_real_training_execution_report(self):
+        return self._load_csv('advanced_baseline_ml_models/no_real_training/no_real_training_report.csv')
+
+    def save_no_prediction_execution_report(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/no_prediction/no_prediction_report', df, summary)
+    def load_no_prediction_execution_report(self):
+        return self._load_csv('advanced_baseline_ml_models/no_prediction/no_prediction_report.csv')
+
+    def save_no_target_label_generation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/no_target_label/no_target_label_report', df, summary)
+    def load_no_target_label_generation_report(self):
+        return self._load_csv('advanced_baseline_ml_models/no_target_label/no_target_label_report.csv')
+
+    def save_model_artifact_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/artifact_disabled/artifact_disabled_report', df, summary)
+    def load_model_artifact_disabled_report(self):
+        return self._load_csv('advanced_baseline_ml_models/artifact_disabled/artifact_disabled_report.csv')
+
+    def save_model_registry_write_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/model_registry_disabled/registry_disabled_report', df, summary)
+    def load_model_registry_write_disabled_report(self):
+        return self._load_csv('advanced_baseline_ml_models/model_registry_disabled/registry_disabled_report.csv')
+
+    def save_baseline_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/metric_placeholders/metric_placeholder_registry', df, summary)
+    def load_baseline_metric_placeholder_registry(self):
+        return self._load_csv('advanced_baseline_ml_models/metric_placeholders/metric_placeholder_registry.csv')
+
+    def save_baseline_evaluation_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/evaluation_placeholders/evaluation_placeholder_registry', df, summary)
+    def load_baseline_evaluation_placeholder_registry(self):
+        return self._load_csv('advanced_baseline_ml_models/evaluation_placeholders/evaluation_placeholder_registry.csv')
+
+    def save_baseline_model_validation_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/validation_dependencies/validation_dependency_registry', df, summary)
+    def load_baseline_model_validation_dependency_registry(self):
+        return self._load_csv('advanced_baseline_ml_models/validation_dependencies/validation_dependency_registry.csv')
+
+    def save_baseline_model_quality_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/quality_dependencies/quality_dependency_registry', df, summary)
+    def load_baseline_model_quality_dependency_registry(self):
+        return self._load_csv('advanced_baseline_ml_models/quality_dependencies/quality_dependency_registry.csv')
+
+    def save_baseline_model_lineage_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/lineage/lineage_registry', df, summary)
+    def load_baseline_model_lineage_registry(self):
+        return self._load_csv('advanced_baseline_ml_models/lineage/lineage_registry.csv')
+
+    def save_baseline_model_featurestore_input_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/featurestore_inputs/featurestore_input_registry', df, summary)
+    def load_baseline_model_featurestore_input_registry(self):
+        return self._load_csv('advanced_baseline_ml_models/featurestore_inputs/featurestore_input_registry.csv')
+
+    def save_baseline_model_regime_input_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/regime_inputs/regime_input_registry', df, summary)
+    def load_baseline_model_regime_input_registry(self):
+        return self._load_csv('advanced_baseline_ml_models/regime_inputs/regime_input_registry.csv')
+
+    def save_baseline_model_no_lookahead_input_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/no_lookahead_guards/no_lookahead_guard_registry', df, summary)
+    def load_baseline_model_no_lookahead_input_guard_registry(self):
+        return self._load_csv('advanced_baseline_ml_models/no_lookahead_guards/no_lookahead_guard_registry.csv')
+
+    def save_baseline_model_metadata_only_news_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/metadata_only_news_guards/metadata_only_news_guard_registry', df, summary)
+    def load_baseline_model_metadata_only_news_guard_registry(self):
+        return self._load_csv('advanced_baseline_ml_models/metadata_only_news_guards/metadata_only_news_guard_registry.csv')
+
+    def save_baseline_model_source_preservation_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/source_preservation_guards/source_preservation_guard_registry', df, summary)
+    def load_baseline_model_source_preservation_guard_registry(self):
+        return self._load_csv('advanced_baseline_ml_models/source_preservation_guards/source_preservation_guard_registry.csv')
+
+    def save_baseline_model_forbidden_column_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/forbidden_columns/forbidden_column_policy_registry', df, summary)
+    def load_baseline_model_forbidden_column_policy_registry(self):
+        return self._load_csv('advanced_baseline_ml_models/forbidden_columns/forbidden_column_policy_registry.csv')
+
+    def save_baseline_model_experiment_linkage_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/experiment_linkage/experiment_linkage_registry', df, summary)
+    def load_baseline_model_experiment_linkage_registry(self):
+        return self._load_csv('advanced_baseline_ml_models/experiment_linkage/experiment_linkage_registry.csv')
+
+    def save_baseline_model_manual_review_queue(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/manual_review/manual_review_queue', df, summary)
+    def load_baseline_model_manual_review_queue(self):
+        return self._load_csv('advanced_baseline_ml_models/manual_review/manual_review_queue.csv')
+
+    def save_baseline_model_findings_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/findings/findings_registry', df, summary)
+    def load_baseline_model_findings_registry(self):
+        return self._load_csv('advanced_baseline_ml_models/findings/findings_registry.csv')
+
+    def save_baseline_model_readiness_score_report(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/scoring/readiness_score', df, summary)
+    def load_baseline_model_readiness_score_report(self):
+        return self._load_csv('advanced_baseline_ml_models/scoring/readiness_score.csv')
+
+    def save_baseline_ml_model_manifest(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/manifest/manifest', df, summary)
+    def load_baseline_ml_model_manifest(self):
+        return self._load_csv('advanced_baseline_ml_models/manifest/manifest.csv')
+
+    def save_baseline_ml_model_health_check(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/health/health_check', df, summary)
+    def load_baseline_ml_model_health_check(self):
+        return self._load_csv('advanced_baseline_ml_models/health/health_check.csv')
+
+    def save_baseline_ml_model_validation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/validation/validation_report', df, summary)
+    def load_baseline_ml_model_validation_report(self):
+        return self._load_csv('advanced_baseline_ml_models/validation/validation_report.csv')
+
+    def save_baseline_ml_model_safety_boundary(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/safety/safety_boundary', df, summary)
+    def load_baseline_ml_model_safety_boundary(self):
+        return self._load_csv('advanced_baseline_ml_models/safety/safety_boundary.csv')
+
+    def save_phase_139_gpu_training_harness_resource_governance_handoff_report(self, df, summary=None):
+        return self._save_csv_json('advanced_baseline_ml_models/handoff/phase_139_handoff', df, summary)
+    def load_phase_139_gpu_training_harness_resource_governance_handoff_report(self):
+        return self._load_csv('advanced_baseline_ml_models/handoff/phase_139_handoff.csv')
+
+    def save_baseline_ml_model_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_baseline_ml_models' / f'report_{profile_name}.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        if markdown:
+            md_path = path.with_suffix('.md')
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(markdown)
+        return path
+
+    def load_baseline_ml_model_report(self, profile_name: str):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_baseline_ml_models' / f'report_{profile_name}.json'
+        if not path.exists():
+            return {}
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def list_baseline_ml_model_reports(self):
+        return pd.DataFrame()
+
+    # Phase 138 Aliases
+    save_phase_139_handoff = save_phase_139_gpu_training_harness_resource_governance_handoff_report
+    load_phase_139_handoff = load_phase_139_gpu_training_harness_resource_governance_handoff_report
+
+    # =========================================================================
+    # Phase 139: GPU-Accelerated Training Harness & Resource Governance
+    # =========================================================================
+
+    def save_gpu_training_governance_profile_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/profiles/profile_registry', df, summary)
+    def load_gpu_training_governance_profile_registry(self):
+        return self._load_csv('advanced_gpu_training_governance/profiles/profile_registry.csv')
+
+    def save_gpu_training_governance_domain_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/domains/domain_registry', df, summary)
+    def load_gpu_training_governance_domain_registry(self):
+        return self._load_csv('advanced_gpu_training_governance/domains/domain_registry.csv')
+
+    def save_gpu_training_resource_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/resource_policies/resource_policy_registry', df, summary)
+    def load_gpu_training_resource_policy_registry(self):
+        return self._load_csv('advanced_gpu_training_governance/resource_policies/resource_policy_registry.csv')
+
+    def save_gpu_device_selection_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/device_selection/device_selection_policy_registry', df, summary)
+    def load_gpu_device_selection_policy_registry(self):
+        return self._load_csv('advanced_gpu_training_governance/device_selection/device_selection_policy_registry.csv')
+
+    def save_gpu_memory_budget_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/memory_budget/memory_budget_policy_registry', df, summary)
+    def load_gpu_memory_budget_policy_registry(self):
+        return self._load_csv('advanced_gpu_training_governance/memory_budget/memory_budget_policy_registry.csv')
+
+    def save_cpu_fallback_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/cpu_fallback/cpu_fallback_policy_registry', df, summary)
+    def load_cpu_fallback_policy_registry(self):
+        return self._load_csv('advanced_gpu_training_governance/cpu_fallback/cpu_fallback_policy_registry.csv')
+
+    def save_training_timeout_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/timeout_policy/timeout_policy_registry', df, summary)
+    def load_training_timeout_policy_registry(self):
+        return self._load_csv('advanced_gpu_training_governance/timeout_policy/timeout_policy_registry.csv')
+
+    def save_batch_size_placeholder_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/batch_size_placeholders/batch_size_placeholder_policy_registry', df, summary)
+    def load_batch_size_placeholder_policy_registry(self):
+        return self._load_csv('advanced_gpu_training_governance/batch_size_placeholders/batch_size_placeholder_policy_registry.csv')
+
+    def save_dataloader_placeholder_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/dataloader_placeholders/dataloader_placeholder_policy_registry', df, summary)
+    def load_dataloader_placeholder_policy_registry(self):
+        return self._load_csv('advanced_gpu_training_governance/dataloader_placeholders/dataloader_placeholder_policy_registry.csv')
+
+    def save_training_loop_stub_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/training_loop_contracts/training_loop_stub_contract_registry', df, summary)
+    def load_training_loop_stub_contract_registry(self):
+        return self._load_csv('advanced_gpu_training_governance/training_loop_contracts/training_loop_stub_contract_registry.csv')
+
+    def save_gpu_training_harness_interface_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/harness_interfaces/harness_interface_registry', df, summary)
+    def load_gpu_training_harness_interface_registry(self):
+        return self._load_csv('advanced_gpu_training_governance/harness_interfaces/harness_interface_registry.csv')
+
+    def save_gpu_training_harness_stub_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/harness_stubs/harness_stub_registry', df, summary)
+    def load_gpu_training_harness_stub_registry(self):
+        return self._load_csv('advanced_gpu_training_governance/harness_stubs/harness_stub_registry.csv')
+
+    def save_dry_run_resource_check_report(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/dry_run_resource_checks/resource_check_report', df, summary)
+    def load_dry_run_resource_check_report(self):
+        return self._load_csv('advanced_gpu_training_governance/dry_run_resource_checks/resource_check_report.csv')
+
+    def save_dry_run_device_selection_report(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/dry_run_device_selection/device_selection_report', df, summary)
+    def load_dry_run_device_selection_report(self):
+        return self._load_csv('advanced_gpu_training_governance/dry_run_device_selection/device_selection_report.csv')
+
+    def save_dry_run_memory_guard_report(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/dry_run_memory_guards/memory_guard_report', df, summary)
+    def load_dry_run_memory_guard_report(self):
+        return self._load_csv('advanced_gpu_training_governance/dry_run_memory_guards/memory_guard_report.csv')
+
+    def save_dry_run_timeout_guard_report(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/dry_run_timeout_guards/timeout_guard_report', df, summary)
+    def load_dry_run_timeout_guard_report(self):
+        return self._load_csv('advanced_gpu_training_governance/dry_run_timeout_guards/timeout_guard_report.csv')
+
+    def save_dry_run_training_execution_block_report(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/execution_blocks/execution_block_report', df, summary)
+    def load_dry_run_training_execution_block_report(self):
+        return self._load_csv('advanced_gpu_training_governance/execution_blocks/execution_block_report.csv')
+
+    def save_gpu_training_no_real_training_execution_report(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/no_real_training/no_real_training_report', df, summary)
+    def load_gpu_training_no_real_training_execution_report(self):
+        return self._load_csv('advanced_gpu_training_governance/no_real_training/no_real_training_report.csv')
+
+    def save_gpu_training_no_prediction_execution_report(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/no_prediction/no_prediction_report', df, summary)
+    def load_gpu_training_no_prediction_execution_report(self):
+        return self._load_csv('advanced_gpu_training_governance/no_prediction/no_prediction_report.csv')
+
+    def save_gpu_training_no_target_label_generation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/no_target_label/no_target_label_report', df, summary)
+    def load_gpu_training_no_target_label_generation_report(self):
+        return self._load_csv('advanced_gpu_training_governance/no_target_label/no_target_label_report.csv')
+
+    def save_no_model_artifact_persistence_report(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/artifact_disabled/artifact_disabled_report', df, summary)
+    def load_no_model_artifact_persistence_report(self):
+        return self._load_csv('advanced_gpu_training_governance/artifact_disabled/artifact_disabled_report.csv')
+
+    def save_no_model_registry_write_report(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/model_registry_disabled/model_registry_disabled_report', df, summary)
+    def load_no_model_registry_write_report(self):
+        return self._load_csv('advanced_gpu_training_governance/model_registry_disabled/model_registry_disabled_report.csv')
+
+    def save_gpu_training_dataset_contract_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/dataset_dependencies/dataset_dependency_registry', df, summary)
+    def load_gpu_training_dataset_contract_dependency_registry(self):
+        return self._load_csv('advanced_gpu_training_governance/dataset_dependencies/dataset_dependency_registry.csv')
+
+    def save_gpu_training_baseline_model_contract_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/baseline_model_dependencies/baseline_model_dependency_registry', df, summary)
+    def load_gpu_training_baseline_model_contract_dependency_registry(self):
+        return self._load_csv('advanced_gpu_training_governance/baseline_model_dependencies/baseline_model_dependency_registry.csv')
+
+    def save_gpu_training_runtime_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/runtime_dependencies/runtime_dependency_registry', df, summary)
+    def load_gpu_training_runtime_dependency_registry(self):
+        return self._load_csv('advanced_gpu_training_governance/runtime_dependencies/runtime_dependency_registry.csv')
+
+    def save_gpu_training_featurestore_input_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/featurestore_inputs/featurestore_input_registry', df, summary)
+    def load_gpu_training_featurestore_input_dependency_registry(self):
+        return self._load_csv('advanced_gpu_training_governance/featurestore_inputs/featurestore_input_registry.csv')
+
+    def save_gpu_training_no_lookahead_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/no_lookahead_guards/no_lookahead_guard_registry', df, summary)
+    def load_gpu_training_no_lookahead_guard_registry(self):
+        return self._load_csv('advanced_gpu_training_governance/no_lookahead_guards/no_lookahead_guard_registry.csv')
+
+    def save_gpu_training_metadata_only_news_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/metadata_only_news_guards/metadata_only_news_guard_registry', df, summary)
+    def load_gpu_training_metadata_only_news_guard_registry(self):
+        return self._load_csv('advanced_gpu_training_governance/metadata_only_news_guards/metadata_only_news_guard_registry.csv')
+
+    def save_gpu_training_source_preservation_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/source_preservation_guards/source_preservation_guard_registry', df, summary)
+    def load_gpu_training_source_preservation_guard_registry(self):
+        return self._load_csv('advanced_gpu_training_governance/source_preservation_guards/source_preservation_guard_registry.csv')
+
+    def save_gpu_training_forbidden_column_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/forbidden_columns/forbidden_column_policy_registry', df, summary)
+    def load_gpu_training_forbidden_column_policy_registry(self):
+        return self._load_csv('advanced_gpu_training_governance/forbidden_columns/forbidden_column_policy_registry.csv')
+
+    def save_gpu_training_resource_audit_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/resource_audit/resource_audit_placeholder_registry', df, summary)
+    def load_gpu_training_resource_audit_placeholder_registry(self):
+        return self._load_csv('advanced_gpu_training_governance/resource_audit/resource_audit_placeholder_registry.csv')
+
+    def save_gpu_training_experiment_audit_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/experiment_audit/experiment_audit_placeholder_registry', df, summary)
+    def load_gpu_training_experiment_audit_placeholder_registry(self):
+        return self._load_csv('advanced_gpu_training_governance/experiment_audit/experiment_audit_placeholder_registry.csv')
+
+    def save_gpu_training_manual_review_queue(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/manual_review/manual_review_queue', df, summary)
+    def load_gpu_training_manual_review_queue(self):
+        return self._load_csv('advanced_gpu_training_governance/manual_review/manual_review_queue.csv')
+
+    def save_gpu_training_findings_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/findings/findings_registry', df, summary)
+    def load_gpu_training_findings_registry(self):
+        return self._load_csv('advanced_gpu_training_governance/findings/findings_registry.csv')
+
+    def save_gpu_training_readiness_score_report(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/scoring/readiness_score', df, summary)
+    def load_gpu_training_readiness_score_report(self):
+        return self._load_csv('advanced_gpu_training_governance/scoring/readiness_score.csv')
+
+    def save_gpu_training_governance_manifest(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/manifest/manifest', df, summary)
+    def load_gpu_training_governance_manifest(self):
+        return self._load_csv('advanced_gpu_training_governance/manifest/manifest.csv')
+
+    def save_gpu_training_governance_health_check(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/health/health_check', df, summary)
+    def load_gpu_training_governance_health_check(self):
+        return self._load_csv('advanced_gpu_training_governance/health/health_check.csv')
+
+    def save_gpu_training_governance_validation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/validation/validation_report', df, summary)
+    def load_gpu_training_governance_validation_report(self):
+        return self._load_csv('advanced_gpu_training_governance/validation/validation_report.csv')
+
+    def save_gpu_training_governance_safety_boundary(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/safety/safety_boundary', df, summary)
+    def load_gpu_training_governance_safety_boundary(self):
+        return self._load_csv('advanced_gpu_training_governance/safety/safety_boundary.csv')
+
+    def save_phase_140_ensemble_candidate_model_registry_handoff_report(self, df, summary=None):
+        return self._save_csv_json('advanced_gpu_training_governance/handoff/phase_140_handoff', df, summary)
+    def load_phase_140_ensemble_candidate_model_registry_handoff_report(self):
+        return self._load_csv('advanced_gpu_training_governance/handoff/phase_140_handoff.csv')
+
+    def save_gpu_training_governance_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_gpu_training_governance' / f'report_{profile_name}.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        if markdown:
+            md_path = path.with_suffix('.md')
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(markdown)
+        return path
+
+    def load_gpu_training_governance_report(self, profile_name: str):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_gpu_training_governance' / f'report_{profile_name}.json'
+        if not path.exists():
+            return {}
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def list_gpu_training_governance_reports(self):
+        return pd.DataFrame()
+
+    save_phase_140_handoff = save_phase_140_ensemble_candidate_model_registry_handoff_report
+    load_phase_140_handoff = load_phase_140_ensemble_candidate_model_registry_handoff_report
+
+    # Phase 140 Ensemble Model Contracts & Candidate Model Registry Data Lake Methods
+    def save_ensemble_model_profile_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/profiles/profile_registry', df, summary)
+    def load_ensemble_model_profile_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/profiles/profile_registry.csv')
+
+    def save_ensemble_model_domain_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/domains/domain_registry', df, summary)
+    def load_ensemble_model_domain_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/domains/domain_registry.csv')
+
+    def save_candidate_model_family_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/candidate_families/candidate_family_registry', df, summary)
+    def load_candidate_model_family_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/candidate_families/candidate_family_registry.csv')
+
+    def save_candidate_model_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/candidate_contracts/candidate_contract_registry', df, summary)
+    def load_candidate_model_contract_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/candidate_contracts/candidate_contract_registry.csv')
+
+    def save_candidate_model_input_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/input_contracts/input_contract_registry', df, summary)
+    def load_candidate_model_input_contract_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/input_contracts/input_contract_registry.csv')
+
+    def save_candidate_model_output_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/output_contracts/output_contract_registry', df, summary)
+    def load_candidate_model_output_contract_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/output_contracts/output_contract_registry.csv')
+
+    def save_candidate_model_eligibility_gate_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/eligibility_gates/eligibility_gate_registry', df, summary)
+    def load_candidate_model_eligibility_gate_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/eligibility_gates/eligibility_gate_registry.csv')
+
+    def save_candidate_model_compatibility_matrix(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/compatibility_matrix/compatibility_matrix', df, summary)
+    def load_candidate_model_compatibility_matrix(self):
+        return self._load_csv('advanced_ensemble_model_registry/compatibility_matrix/compatibility_matrix.csv')
+
+    def save_ensemble_strategy_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/strategy_contracts/strategy_contract_registry', df, summary)
+    def load_ensemble_strategy_contract_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/strategy_contracts/strategy_contract_registry.csv')
+
+    def save_ensemble_voting_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/voting_placeholders/voting_placeholder_registry', df, summary)
+    def load_ensemble_voting_placeholder_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/voting_placeholders/voting_placeholder_registry.csv')
+
+    def save_ensemble_blending_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/blending_placeholders/blending_placeholder_registry', df, summary)
+    def load_ensemble_blending_placeholder_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/blending_placeholders/blending_placeholder_registry.csv')
+
+    def save_ensemble_stacking_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/stacking_placeholders/stacking_placeholder_registry', df, summary)
+    def load_ensemble_stacking_placeholder_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/stacking_placeholders/stacking_placeholder_registry.csv')
+
+    def save_ensemble_weighting_policy_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/weighting_policies/weighting_policy_registry', df, summary)
+    def load_ensemble_weighting_policy_placeholder_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/weighting_policies/weighting_policy_registry.csv')
+
+    def save_ensemble_meta_model_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/meta_models/meta_model_registry', df, summary)
+    def load_ensemble_meta_model_placeholder_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/meta_models/meta_model_registry.csv')
+
+    def save_ensemble_selection_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/selection_policies/selection_policy_registry', df, summary)
+    def load_ensemble_selection_policy_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/selection_policies/selection_policy_registry.csv')
+
+    def save_ensemble_input_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/ensemble_inputs/ensemble_input_registry', df, summary)
+    def load_ensemble_input_contract_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/ensemble_inputs/ensemble_input_registry.csv')
+
+    def save_ensemble_output_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/ensemble_outputs/ensemble_output_registry', df, summary)
+    def load_ensemble_output_contract_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/ensemble_outputs/ensemble_output_registry.csv')
+
+    def save_ensemble_disabled_execution_report_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/disabled_execution/disabled_execution_registry', df, summary)
+    def load_ensemble_disabled_execution_report_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/disabled_execution/disabled_execution_registry.csv')
+
+    def save_candidate_model_training_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/disabled_execution/training_disabled_report', df, summary)
+    def load_candidate_model_training_disabled_report(self):
+        return self._load_csv('advanced_ensemble_model_registry/disabled_execution/training_disabled_report.csv')
+
+    def save_candidate_model_prediction_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/disabled_execution/prediction_disabled_report', df, summary)
+    def load_candidate_model_prediction_disabled_report(self):
+        return self._load_csv('advanced_ensemble_model_registry/disabled_execution/prediction_disabled_report.csv')
+
+    def save_candidate_model_target_label_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/disabled_execution/target_label_disabled_report', df, summary)
+    def load_candidate_model_target_label_disabled_report(self):
+        return self._load_csv('advanced_ensemble_model_registry/disabled_execution/target_label_disabled_report.csv')
+
+    def save_candidate_model_artifact_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/disabled_execution/artifact_disabled_report', df, summary)
+    def load_candidate_model_artifact_disabled_report(self):
+        return self._load_csv('advanced_ensemble_model_registry/disabled_execution/artifact_disabled_report.csv')
+
+    def save_candidate_model_registry_write_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/disabled_execution/registry_write_disabled_report', df, summary)
+    def load_candidate_model_registry_write_disabled_report(self):
+        return self._load_csv('advanced_ensemble_model_registry/disabled_execution/registry_write_disabled_report.csv')
+
+    def save_ensemble_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/metric_placeholders/metric_placeholder_registry', df, summary)
+    def load_ensemble_metric_placeholder_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/metric_placeholders/metric_placeholder_registry.csv')
+
+    def save_ensemble_evaluation_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/evaluation_placeholders/evaluation_placeholder_registry', df, summary)
+    def load_ensemble_evaluation_placeholder_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/evaluation_placeholders/evaluation_placeholder_registry.csv')
+
+    def save_ensemble_validation_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/validation_dependencies/validation_dependency_registry', df, summary)
+    def load_ensemble_validation_dependency_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/validation_dependencies/validation_dependency_registry.csv')
+
+    def save_ensemble_quality_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/quality_dependencies/quality_dependency_registry', df, summary)
+    def load_ensemble_quality_dependency_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/quality_dependencies/quality_dependency_registry.csv')
+
+    def save_ensemble_lineage_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/lineage/lineage_registry', df, summary)
+    def load_ensemble_lineage_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/lineage/lineage_registry.csv')
+
+    def save_ensemble_experiment_linkage_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/experiment_linkage/experiment_linkage_registry', df, summary)
+    def load_ensemble_experiment_linkage_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/experiment_linkage/experiment_linkage_registry.csv')
+
+    def save_ensemble_no_lookahead_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/no_lookahead_guards/no_lookahead_guard_registry', df, summary)
+    def load_ensemble_no_lookahead_guard_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/no_lookahead_guards/no_lookahead_guard_registry.csv')
+
+    def save_ensemble_metadata_only_news_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/metadata_only_news_guards/metadata_only_news_guard_registry', df, summary)
+    def load_ensemble_metadata_only_news_guard_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/metadata_only_news_guards/metadata_only_news_guard_registry.csv')
+
+    def save_ensemble_source_preservation_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/source_preservation_guards/source_preservation_guard_registry', df, summary)
+    def load_ensemble_source_preservation_guard_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/source_preservation_guards/source_preservation_guard_registry.csv')
+
+    def save_ensemble_forbidden_column_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/forbidden_columns/forbidden_column_policy_registry', df, summary)
+    def load_ensemble_forbidden_column_policy_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/forbidden_columns/forbidden_column_policy_registry.csv')
+
+    def save_ensemble_candidate_audit_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/candidate_audit/candidate_audit_placeholder_registry', df, summary)
+    def load_ensemble_candidate_audit_placeholder_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/candidate_audit/candidate_audit_placeholder_registry.csv')
+
+    def save_ensemble_manual_review_queue(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/manual_review/manual_review_queue', df, summary)
+    def load_ensemble_manual_review_queue(self):
+        return self._load_csv('advanced_ensemble_model_registry/manual_review/manual_review_queue.csv')
+
+    def save_ensemble_findings_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/findings/findings_registry', df, summary)
+    def load_ensemble_findings_registry(self):
+        return self._load_csv('advanced_ensemble_model_registry/findings/findings_registry.csv')
+
+    def save_ensemble_readiness_score_report(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/scoring/readiness_score', df, summary)
+    def load_ensemble_readiness_score_report(self):
+        return self._load_csv('advanced_ensemble_model_registry/scoring/readiness_score.csv')
+
+    def save_ensemble_model_manifest(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/manifest/manifest', df, summary)
+    def load_ensemble_model_manifest(self):
+        return self._load_csv('advanced_ensemble_model_registry/manifest/manifest.csv')
+
+    def save_ensemble_model_health_check(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/health/health_check', df, summary)
+    def load_ensemble_model_health_check(self):
+        return self._load_csv('advanced_ensemble_model_registry/health/health_check.csv')
+
+    def save_ensemble_model_validation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/validation/validation_report', df, summary)
+    def load_ensemble_model_validation_report(self):
+        return self._load_csv('advanced_ensemble_model_registry/validation/validation_report.csv')
+
+    def save_ensemble_model_safety_boundary(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/safety/safety_boundary', df, summary)
+    def load_ensemble_model_safety_boundary(self):
+        return self._load_csv('advanced_ensemble_model_registry/safety/safety_boundary.csv')
+
+    def save_phase_141_probability_calibration_handoff_report(self, df, summary=None):
+        return self._save_csv_json('advanced_ensemble_model_registry/handoff/phase_141_handoff', df, summary)
+    def load_phase_141_probability_calibration_handoff_report(self):
+        return self._load_csv('advanced_ensemble_model_registry/handoff/phase_141_handoff.csv')
+
+    def save_ensemble_model_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_ensemble_model_registry' / f'report_{profile_name}.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        if markdown:
+            md_path = path.with_suffix('.md')
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(markdown)
+        return path
+
+    def load_ensemble_model_report(self, profile_name: str):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_ensemble_model_registry' / f'report_{profile_name}.json'
+        if not path.exists():
+            return {}
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def list_ensemble_model_reports(self):
+        return pd.DataFrame()
+
+    save_phase_141_handoff = save_phase_141_probability_calibration_handoff_report
+    load_phase_141_handoff = load_phase_141_probability_calibration_handoff_report
+
+    # Phase 141 Probability Calibration and Uncertainty Estimation Contracts DataLake Support
+    def save_calibration_uncertainty_profile_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/profiles/profile_registry', df, summary)
+    def load_calibration_uncertainty_profile_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/profiles/profile_registry.csv')
+
+    def save_calibration_uncertainty_domain_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/domains/domain_registry', df, summary)
+    def load_calibration_uncertainty_domain_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/domains/domain_registry.csv')
+
+    def save_probability_calibration_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/calibration_contracts/probability_calibration_contracts', df, summary)
+    def load_probability_calibration_contract_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/calibration_contracts/probability_calibration_contracts.csv')
+
+    def save_calibration_method_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/calibration_methods/calibration_method_placeholders', df, summary)
+    def load_calibration_method_placeholder_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/calibration_methods/calibration_method_placeholders.csv')
+
+    def save_calibration_input_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/calibration_input_contracts/calibration_input_contracts', df, summary)
+    def load_calibration_input_contract_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/calibration_input_contracts/calibration_input_contracts.csv')
+
+    def save_calibration_output_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/calibration_output_contracts/calibration_output_contracts', df, summary)
+    def load_calibration_output_contract_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/calibration_output_contracts/calibration_output_contracts.csv')
+
+    def save_calibration_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/calibration_execution_disabled/calibration_execution_disabled', df, summary)
+    def load_calibration_execution_disabled_report(self):
+        return self._load_csv('advanced_calibration_uncertainty/calibration_execution_disabled/calibration_execution_disabled.csv')
+
+    def save_calibration_fit_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/calibration_fit_disabled/calibration_fit_disabled', df, summary)
+    def load_calibration_fit_disabled_report(self):
+        return self._load_csv('advanced_calibration_uncertainty/calibration_fit_disabled/calibration_fit_disabled.csv')
+
+    def save_calibration_transform_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/calibration_transform_disabled/calibration_transform_disabled', df, summary)
+    def load_calibration_transform_disabled_report(self):
+        return self._load_csv('advanced_calibration_uncertainty/calibration_transform_disabled/calibration_transform_disabled.csv')
+
+    def save_probability_prediction_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/probability_prediction_disabled/probability_prediction_disabled', df, summary)
+    def load_probability_prediction_disabled_report(self):
+        return self._load_csv('advanced_calibration_uncertainty/probability_prediction_disabled/probability_prediction_disabled.csv')
+
+    def save_uncertainty_estimation_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/uncertainty_contracts/uncertainty_estimation_contracts', df, summary)
+    def load_uncertainty_estimation_contract_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/uncertainty_contracts/uncertainty_estimation_contracts.csv')
+
+    def save_uncertainty_method_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/uncertainty_methods/uncertainty_method_placeholders', df, summary)
+    def load_uncertainty_method_placeholder_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/uncertainty_methods/uncertainty_method_placeholders.csv')
+
+    def save_uncertainty_input_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/uncertainty_input_contracts/uncertainty_input_contracts', df, summary)
+    def load_uncertainty_input_contract_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/uncertainty_input_contracts/uncertainty_input_contracts.csv')
+
+    def save_uncertainty_output_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/uncertainty_output_contracts/uncertainty_output_contracts', df, summary)
+    def load_uncertainty_output_contract_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/uncertainty_output_contracts/uncertainty_output_contracts.csv')
+
+    def save_uncertainty_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/uncertainty_execution_disabled/uncertainty_execution_disabled', df, summary)
+    def load_uncertainty_execution_disabled_report(self):
+        return self._load_csv('advanced_calibration_uncertainty/uncertainty_execution_disabled/uncertainty_execution_disabled.csv')
+
+    def save_confidence_score_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/confidence_score_placeholders/confidence_score_placeholders', df, summary)
+    def load_confidence_score_placeholder_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/confidence_score_placeholders/confidence_score_placeholders.csv')
+
+    def save_confidence_interval_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/confidence_interval_placeholders/confidence_interval_placeholders', df, summary)
+    def load_confidence_interval_placeholder_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/confidence_interval_placeholders/confidence_interval_placeholders.csv')
+
+    def save_prediction_interval_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/prediction_interval_placeholders/prediction_interval_placeholders', df, summary)
+    def load_prediction_interval_placeholder_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/prediction_interval_placeholders/prediction_interval_placeholders.csv')
+
+    def save_quantile_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/quantile_placeholders/quantile_placeholders', df, summary)
+    def load_quantile_placeholder_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/quantile_placeholders/quantile_placeholders.csv')
+
+    def save_conformal_prediction_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/conformal_prediction_placeholders/conformal_prediction_placeholders', df, summary)
+    def load_conformal_prediction_placeholder_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/conformal_prediction_placeholders/conformal_prediction_placeholders.csv')
+
+    def save_calibration_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/calibration_metric_placeholders/calibration_metric_placeholders', df, summary)
+    def load_calibration_metric_placeholder_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/calibration_metric_placeholders/calibration_metric_placeholders.csv')
+
+    def save_uncertainty_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/uncertainty_metric_placeholders/uncertainty_metric_placeholders', df, summary)
+    def load_uncertainty_metric_placeholder_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/uncertainty_metric_placeholders/uncertainty_metric_placeholders.csv')
+
+    def save_calibration_evaluation_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/calibration_evaluation_placeholders/calibration_evaluation_placeholders', df, summary)
+    def load_calibration_evaluation_placeholder_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/calibration_evaluation_placeholders/calibration_evaluation_placeholders.csv')
+
+    def save_uncertainty_evaluation_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/uncertainty_evaluation_placeholders/uncertainty_evaluation_placeholders', df, summary)
+    def load_uncertainty_evaluation_placeholder_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/uncertainty_evaluation_placeholders/uncertainty_evaluation_placeholders.csv')
+
+    def save_calibration_quality_gate_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/calibration_quality_gates/calibration_quality_gates', df, summary)
+    def load_calibration_quality_gate_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/calibration_quality_gates/calibration_quality_gates.csv')
+
+    def save_uncertainty_quality_gate_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/uncertainty_quality_gates/uncertainty_quality_gates', df, summary)
+    def load_uncertainty_quality_gate_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/uncertainty_quality_gates/uncertainty_quality_gates.csv')
+
+    def save_calibration_candidate_model_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/candidate_dependencies/candidate_dependencies', df, summary)
+    def load_calibration_candidate_model_dependency_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/candidate_dependencies/candidate_dependencies.csv')
+
+    def save_calibration_ensemble_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/ensemble_dependencies/ensemble_dependencies', df, summary)
+    def load_calibration_ensemble_dependency_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/ensemble_dependencies/ensemble_dependencies.csv')
+
+    def save_calibration_dataset_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/dataset_dependencies/dataset_dependencies', df, summary)
+    def load_calibration_dataset_dependency_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/dataset_dependencies/dataset_dependencies.csv')
+
+    def save_calibration_runtime_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/runtime_dependencies/runtime_dependencies', df, summary)
+    def load_calibration_runtime_dependency_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/runtime_dependencies/runtime_dependencies.csv')
+
+    def save_calibration_no_lookahead_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/calibration_no_lookahead_guards/calibration_no_lookahead_guards', df, summary)
+    def load_calibration_no_lookahead_guard_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/calibration_no_lookahead_guards/calibration_no_lookahead_guards.csv')
+
+    def save_calibration_metadata_only_news_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/calibration_metadata_only_news_guards/calibration_metadata_only_news_guards', df, summary)
+    def load_calibration_metadata_only_news_guard_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/calibration_metadata_only_news_guards/calibration_metadata_only_news_guards.csv')
+
+    def save_calibration_source_preservation_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/calibration_source_preservation_guards/calibration_source_preservation_guards', df, summary)
+    def load_calibration_source_preservation_guard_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/calibration_source_preservation_guards/calibration_source_preservation_guards.csv')
+
+    def save_calibration_forbidden_column_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/calibration_forbidden_columns/calibration_forbidden_columns', df, summary)
+    def load_calibration_forbidden_column_policy_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/calibration_forbidden_columns/calibration_forbidden_columns.csv')
+
+    def save_uncertainty_no_lookahead_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/uncertainty_no_lookahead_guards/uncertainty_no_lookahead_guards', df, summary)
+    def load_uncertainty_no_lookahead_guard_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/uncertainty_no_lookahead_guards/uncertainty_no_lookahead_guards.csv')
+
+    def save_uncertainty_metadata_only_news_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/uncertainty_metadata_only_news_guards/uncertainty_metadata_only_news_guards', df, summary)
+    def load_uncertainty_metadata_only_news_guard_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/uncertainty_metadata_only_news_guards/uncertainty_metadata_only_news_guards.csv')
+
+    def save_uncertainty_source_preservation_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/uncertainty_source_preservation_guards/uncertainty_source_preservation_guards', df, summary)
+    def load_uncertainty_source_preservation_guard_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/uncertainty_source_preservation_guards/uncertainty_source_preservation_guards.csv')
+
+    def save_uncertainty_forbidden_column_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/uncertainty_forbidden_columns/uncertainty_forbidden_columns', df, summary)
+    def load_uncertainty_forbidden_column_policy_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/uncertainty_forbidden_columns/uncertainty_forbidden_columns.csv')
+
+    def save_calibration_uncertainty_lineage_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/lineage/lineage_registry', df, summary)
+    def load_calibration_uncertainty_lineage_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/lineage/lineage_registry.csv')
+
+    def save_calibration_uncertainty_experiment_linkage_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/experiment_linkage/experiment_linkage_registry', df, summary)
+    def load_calibration_uncertainty_experiment_linkage_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/experiment_linkage/experiment_linkage_registry.csv')
+
+    def save_calibration_uncertainty_audit_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/audit_placeholders/audit_placeholder_registry', df, summary)
+    def load_calibration_uncertainty_audit_placeholder_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/audit_placeholders/audit_placeholder_registry.csv')
+
+    def save_calibration_uncertainty_manual_review_queue(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/manual_review/manual_review_queue', df, summary)
+    def load_calibration_uncertainty_manual_review_queue(self):
+        return self._load_csv('advanced_calibration_uncertainty/manual_review/manual_review_queue.csv')
+
+    def save_calibration_uncertainty_findings_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/findings/findings_registry', df, summary)
+    def load_calibration_uncertainty_findings_registry(self):
+        return self._load_csv('advanced_calibration_uncertainty/findings/findings_registry.csv')
+
+    def save_calibration_uncertainty_readiness_score_report(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/scoring/readiness_score_report', df, summary)
+    def load_calibration_uncertainty_readiness_score_report(self):
+        return self._load_csv('advanced_calibration_uncertainty/scoring/readiness_score_report.csv')
+
+    def save_calibration_uncertainty_manifest(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/manifest/manifest', df, summary)
+    def load_calibration_uncertainty_manifest(self):
+        return self._load_csv('advanced_calibration_uncertainty/manifest/manifest.csv')
+
+    def save_calibration_uncertainty_health_check(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/health/health_check', df, summary)
+    def load_calibration_uncertainty_health_check(self):
+        return self._load_csv('advanced_calibration_uncertainty/health/health_check.csv')
+
+    def save_calibration_uncertainty_validation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/validation/validation_report', df, summary)
+    def load_calibration_uncertainty_validation_report(self):
+        return self._load_csv('advanced_calibration_uncertainty/validation/validation_report.csv')
+
+    def save_calibration_uncertainty_safety_boundary(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/safety/safety_boundary', df, summary)
+    def load_calibration_uncertainty_safety_boundary(self):
+        return self._load_csv('advanced_calibration_uncertainty/safety/safety_boundary.csv')
+
+    def save_phase_142_model_drift_monitoring_handoff_report(self, df, summary=None):
+        return self._save_csv_json('advanced_calibration_uncertainty/handoff/phase_142_handoff', df, summary)
+    def load_phase_142_model_drift_monitoring_handoff_report(self):
+        return self._load_csv('advanced_calibration_uncertainty/handoff/phase_142_handoff.csv')
+
+    def save_calibration_uncertainty_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_calibration_uncertainty' / f'report_{profile_name}.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        if markdown:
+            md_path = path.with_suffix('.md')
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(markdown)
+        return path
+
+    def load_calibration_uncertainty_report(self, profile_name: str):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_calibration_uncertainty' / f'report_{profile_name}.json'
+        if not path.exists():
+            return {}
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def list_calibration_uncertainty_reports(self):
+        return pd.DataFrame()
+
+    save_phase_142_handoff = save_phase_142_model_drift_monitoring_handoff_report
+    load_phase_142_handoff = load_phase_142_model_drift_monitoring_handoff_report
+    save_calibration_execution_disabled_registry = save_calibration_execution_disabled_report
+    load_calibration_execution_disabled_registry = load_calibration_execution_disabled_report
+    save_calibration_fit_disabled_registry = save_calibration_fit_disabled_report
+    load_calibration_fit_disabled_registry = load_calibration_fit_disabled_report
+    save_calibration_transform_disabled_registry = save_calibration_transform_disabled_report
+    load_calibration_transform_disabled_registry = load_calibration_transform_disabled_report
+    save_probability_prediction_disabled_registry = save_probability_prediction_disabled_report
+    load_probability_prediction_disabled_registry = load_probability_prediction_disabled_report
+    save_uncertainty_execution_disabled_registry = save_uncertainty_execution_disabled_report
+    # Phase 142 Model Drift Monitoring and Data/Feature Drift Linkage methods
+    def save_model_drift_profile_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/profiles/profile_registry', df, summary)
+    def load_model_drift_profile_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/profiles/profile_registry.csv')
+
+    def save_model_drift_domain_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/domains/domain_registry', df, summary)
+    def load_model_drift_domain_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/domains/domain_registry.csv')
+
+    def save_model_drift_monitoring_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/model_drift_contracts/model_drift_contracts', df, summary)
+    def load_model_drift_monitoring_contract_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/model_drift_contracts/model_drift_contracts.csv')
+
+    def save_data_drift_monitoring_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/data_drift_contracts/data_drift_contracts', df, summary)
+    def load_data_drift_monitoring_contract_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/data_drift_contracts/data_drift_contracts.csv')
+
+    def save_feature_drift_monitoring_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/feature_drift_contracts/feature_drift_contracts', df, summary)
+    def load_feature_drift_monitoring_contract_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/feature_drift_contracts/feature_drift_contracts.csv')
+
+    def save_feature_drift_linkage_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/feature_drift_linkage/feature_drift_linkage', df, summary)
+    def load_feature_drift_linkage_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/feature_drift_linkage/feature_drift_linkage.csv')
+
+    def save_feature_quality_drift_linkage_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/feature_quality_drift_linkage/feature_quality_drift_linkage', df, summary)
+    def load_feature_quality_drift_linkage_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/feature_quality_drift_linkage/feature_quality_drift_linkage.csv')
+
+    def save_featurestore_drift_linkage_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/featurestore_drift_linkage/featurestore_drift_linkage', df, summary)
+    def load_featurestore_drift_linkage_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/featurestore_drift_linkage/featurestore_drift_linkage.csv')
+
+    def save_regime_drift_linkage_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/regime_drift_linkage/regime_drift_linkage', df, summary)
+    def load_regime_drift_linkage_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/regime_drift_linkage/regime_drift_linkage.csv')
+
+    def save_calibration_drift_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/calibration_drift_contracts/calibration_drift_contracts', df, summary)
+    def load_calibration_drift_contract_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/calibration_drift_contracts/calibration_drift_contracts.csv')
+
+    def save_uncertainty_drift_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/uncertainty_drift_contracts/uncertainty_drift_contracts', df, summary)
+    def load_uncertainty_drift_contract_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/uncertainty_drift_contracts/uncertainty_drift_contracts.csv')
+
+    def save_prediction_distribution_drift_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/prediction_drift_placeholders/prediction_drift_placeholders', df, summary)
+    def load_prediction_distribution_drift_placeholder_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/prediction_drift_placeholders/prediction_drift_placeholders.csv')
+
+    def save_reference_window_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/reference_windows/reference_windows', df, summary)
+    def load_reference_window_policy_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/reference_windows/reference_windows.csv')
+
+    def save_current_window_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/current_windows/current_windows', df, summary)
+    def load_current_window_policy_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/current_windows/current_windows.csv')
+
+    def save_rolling_window_placeholder_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/rolling_windows/rolling_windows', df, summary)
+    def load_rolling_window_placeholder_policy_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/rolling_windows/rolling_windows.csv')
+
+    def save_drift_threshold_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/drift_thresholds/drift_thresholds', df, summary)
+    def load_drift_threshold_placeholder_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/drift_thresholds/drift_thresholds.csv')
+
+    def save_drift_segment_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/drift_segments/drift_segments', df, summary)
+    def load_drift_segment_policy_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/drift_segments/drift_segments.csv')
+
+    def save_drift_monitoring_schedule_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/drift_schedules/drift_schedules', df, summary)
+    def load_drift_monitoring_schedule_placeholder_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/drift_schedules/drift_schedules.csv')
+
+    def save_drift_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/drift_metrics/drift_metrics', df, summary)
+    def load_drift_metric_placeholder_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/drift_metrics/drift_metrics.csv')
+
+    def save_psi_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/psi_metrics/psi_metrics', df, summary)
+    def load_psi_metric_placeholder_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/psi_metrics/psi_metrics.csv')
+
+    def save_ks_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/ks_metrics/ks_metrics', df, summary)
+    def load_ks_metric_placeholder_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/ks_metrics/ks_metrics.csv')
+
+    def save_js_divergence_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/js_divergence_metrics/js_divergence_metrics', df, summary)
+    def load_js_divergence_metric_placeholder_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/js_divergence_metrics/js_divergence_metrics.csv')
+
+    def save_wasserstein_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/wasserstein_metrics/wasserstein_metrics', df, summary)
+    def load_wasserstein_metric_placeholder_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/wasserstein_metrics/wasserstein_metrics.csv')
+
+    def save_correlation_drift_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/correlation_drift_metrics/correlation_drift_metrics', df, summary)
+    def load_correlation_drift_metric_placeholder_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/correlation_drift_metrics/correlation_drift_metrics.csv')
+
+    def save_missingness_drift_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/missingness_drift_metrics/missingness_drift_metrics', df, summary)
+    def load_missingness_drift_metric_placeholder_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/missingness_drift_metrics/missingness_drift_metrics.csv')
+
+    def save_categorical_drift_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/categorical_drift_metrics/categorical_drift_metrics', df, summary)
+    def load_categorical_drift_metric_placeholder_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/categorical_drift_metrics/categorical_drift_metrics.csv')
+
+    def save_numerical_drift_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/numerical_drift_metrics/numerical_drift_metrics', df, summary)
+    def load_numerical_drift_metric_placeholder_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/numerical_drift_metrics/numerical_drift_metrics.csv')
+
+    def save_calibration_drift_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/calibration_drift_metrics/calibration_drift_metrics', df, summary)
+    def load_calibration_drift_metric_placeholder_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/calibration_drift_metrics/calibration_drift_metrics.csv')
+
+    def save_uncertainty_drift_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/uncertainty_drift_metrics/uncertainty_drift_metrics', df, summary)
+    def load_uncertainty_drift_metric_placeholder_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/uncertainty_drift_metrics/uncertainty_drift_metrics.csv')
+
+    def save_drift_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/execution_disabled/execution_disabled', df, summary)
+    def load_drift_execution_disabled_report(self):
+        return self._load_csv('advanced_model_drift_monitoring/execution_disabled/execution_disabled.csv')
+
+    def save_drift_metric_calculation_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/metric_calc_disabled/metric_calc_disabled', df, summary)
+    def load_drift_metric_calculation_disabled_report(self):
+        return self._load_csv('advanced_model_drift_monitoring/metric_calc_disabled/metric_calc_disabled.csv')
+
+    def save_drift_alerting_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/alerting_disabled/alerting_disabled', df, summary)
+    def load_drift_alerting_disabled_report(self):
+        return self._load_csv('advanced_model_drift_monitoring/alerting_disabled/alerting_disabled.csv')
+
+    def save_drift_retraining_trigger_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/retraining_trigger_disabled/retraining_trigger_disabled', df, summary)
+    def load_drift_retraining_trigger_disabled_report(self):
+        return self._load_csv('advanced_model_drift_monitoring/retraining_trigger_disabled/retraining_trigger_disabled.csv')
+
+    def save_drift_model_action_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/model_action_disabled/model_action_disabled', df, summary)
+    def load_drift_model_action_disabled_report(self):
+        return self._load_csv('advanced_model_drift_monitoring/model_action_disabled/model_action_disabled.csv')
+
+    def save_drift_prediction_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/prediction_disabled/prediction_disabled', df, summary)
+    def load_drift_prediction_disabled_report(self):
+        return self._load_csv('advanced_model_drift_monitoring/prediction_disabled/prediction_disabled.csv')
+
+    def save_drift_monitoring_input_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/input_contracts/input_contracts', df, summary)
+    def load_drift_monitoring_input_contract_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/input_contracts/input_contracts.csv')
+
+    def save_drift_monitoring_output_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/output_contracts/output_contracts', df, summary)
+    def load_drift_monitoring_output_contract_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/output_contracts/output_contracts.csv')
+
+    def save_drift_validation_dependency_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/validation_dependencies/validation_dependencies', df, summary)
+    def load_drift_validation_dependency_report(self):
+        return self._load_csv('advanced_model_drift_monitoring/validation_dependencies/validation_dependencies.csv')
+
+    def save_drift_quality_dependency_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/quality_dependencies/quality_dependencies', df, summary)
+    def load_drift_quality_dependency_report(self):
+        return self._load_csv('advanced_model_drift_monitoring/quality_dependencies/quality_dependencies.csv')
+
+    def save_drift_runtime_dependency_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/runtime_dependencies/runtime_dependencies', df, summary)
+    def load_drift_runtime_dependency_report(self):
+        return self._load_csv('advanced_model_drift_monitoring/runtime_dependencies/runtime_dependencies.csv')
+
+    def save_drift_candidate_model_dependency_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/candidate_model_dependencies/candidate_model_dependencies', df, summary)
+    def load_drift_candidate_model_dependency_report(self):
+        return self._load_csv('advanced_model_drift_monitoring/candidate_model_dependencies/candidate_model_dependencies.csv')
+
+    def save_drift_ensemble_dependency_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/ensemble_dependencies/ensemble_dependencies', df, summary)
+    def load_drift_ensemble_dependency_report(self):
+        return self._load_csv('advanced_model_drift_monitoring/ensemble_dependencies/ensemble_dependencies.csv')
+
+    def save_drift_calibration_uncertainty_dependency_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/calib_uncert_dependencies/calib_uncert_dependencies', df, summary)
+    def load_drift_calibration_uncertainty_dependency_report(self):
+        return self._load_csv('advanced_model_drift_monitoring/calib_uncert_dependencies/calib_uncert_dependencies.csv')
+
+    def save_drift_no_lookahead_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/no_lookahead_guards/no_lookahead_guards', df, summary)
+    def load_drift_no_lookahead_guard_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/no_lookahead_guards/no_lookahead_guards.csv')
+
+    def save_drift_metadata_only_news_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/metadata_only_news_guards/metadata_only_news_guards', df, summary)
+    def load_drift_metadata_only_news_guard_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/metadata_only_news_guards/metadata_only_news_guards.csv')
+
+    def save_drift_source_preservation_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/source_preservation_guards/source_preservation_guards', df, summary)
+    def load_drift_source_preservation_guard_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/source_preservation_guards/source_preservation_guards.csv')
+
+    def save_drift_forbidden_column_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/forbidden_columns/forbidden_columns', df, summary)
+    def load_drift_forbidden_column_policy_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/forbidden_columns/forbidden_columns.csv')
+
+    def save_drift_lineage_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/lineage/lineage_registry', df, summary)
+    def load_drift_lineage_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/lineage/lineage_registry.csv')
+
+    def save_drift_experiment_linkage_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/experiment_linkage/experiment_linkage_registry', df, summary)
+    def load_drift_experiment_linkage_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/experiment_linkage/experiment_linkage_registry.csv')
+
+    def save_drift_audit_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/audit_placeholders/audit_placeholder_registry', df, summary)
+    def load_drift_audit_placeholder_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/audit_placeholders/audit_placeholder_registry.csv')
+
+    def save_drift_manual_review_queue(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/manual_review/manual_review_queue', df, summary)
+    def load_drift_manual_review_queue(self):
+        return self._load_csv('advanced_model_drift_monitoring/manual_review/manual_review_queue.csv')
+
+    def save_drift_findings_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/findings/findings_registry', df, summary)
+    def load_drift_findings_registry(self):
+        return self._load_csv('advanced_model_drift_monitoring/findings/findings_registry.csv')
+
+    def save_drift_readiness_score_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/scoring/readiness_score_report', df, summary)
+    def load_drift_readiness_score_report(self):
+        return self._load_csv('advanced_model_drift_monitoring/scoring/readiness_score_report.csv')
+
+    def save_model_drift_monitoring_manifest(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/manifest/manifest', df, summary)
+    def load_model_drift_monitoring_manifest(self):
+        return self._load_csv('advanced_model_drift_monitoring/manifest/manifest.csv')
+
+    def save_model_drift_health_check(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/health/health_check', df, summary)
+    def load_model_drift_health_check(self):
+        return self._load_csv('advanced_model_drift_monitoring/health/health_check.csv')
+
+    def save_model_drift_validation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/validation/validation_report', df, summary)
+    def load_model_drift_validation_report(self):
+        return self._load_csv('advanced_model_drift_monitoring/validation/validation_report.csv')
+
+    def save_model_drift_safety_boundary(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/safety/safety_boundary', df, summary)
+    def load_model_drift_safety_boundary(self):
+        return self._load_csv('advanced_model_drift_monitoring/safety/safety_boundary.csv')
+
+    def save_phase_143_explainability_handoff_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_drift_monitoring/handoff/phase_143_handoff', df, summary)
+    def load_phase_143_explainability_handoff_report(self):
+        return self._load_csv('advanced_model_drift_monitoring/handoff/phase_143_handoff.csv')
+
+    def save_model_drift_monitoring_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_model_drift_monitoring' / f'report_{profile_name}.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        if markdown:
+            md_path = path.with_suffix('.md')
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(markdown)
+        return path
+
+    def load_model_drift_monitoring_report(self, profile_name: str):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_model_drift_monitoring' / f'report_{profile_name}.json'
+        if not path.exists():
+            return {}
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def list_model_drift_monitoring_reports(self):
+        return pd.DataFrame()
+
+    save_phase_143_handoff = save_phase_143_explainability_handoff_report
+    load_phase_143_handoff = load_phase_143_explainability_handoff_report
+    save_drift_calculation_disabled_registry = save_drift_metric_calculation_disabled_report
+    load_drift_calculation_disabled_registry = load_drift_metric_calculation_disabled_report
+
+    # Phase 143 Explainability and Feature Attribution Reports Methods
+    def save_explainability_profile_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/profiles/profile_registry', df, summary)
+    def load_explainability_profile_registry(self):
+        return self._load_csv('advanced_explainability_attribution/profiles/profile_registry.csv')
+
+    def save_explainability_domain_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/domains/domain_registry', df, summary)
+    def load_explainability_domain_registry(self):
+        return self._load_csv('advanced_explainability_attribution/domains/domain_registry.csv')
+
+    def save_explainability_report_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/report_contracts/report_contracts', df, summary)
+    def load_explainability_report_contracts(self):
+        return self._load_csv('advanced_explainability_attribution/report_contracts/report_contracts.csv')
+
+    def save_feature_attribution_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/attribution_contracts/attribution_contracts', df, summary)
+    def load_feature_attribution_contracts(self):
+        return self._load_csv('advanced_explainability_attribution/attribution_contracts/attribution_contracts.csv')
+
+    def save_global_explanation_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/global_explanations/global_explanations', df, summary)
+    def load_global_explanation_contracts(self):
+        return self._load_csv('advanced_explainability_attribution/global_explanations/global_explanations.csv')
+
+    def save_local_explanation_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/local_explanations/local_explanations', df, summary)
+    def load_local_explanation_contracts(self):
+        return self._load_csv('advanced_explainability_attribution/local_explanations/local_explanations.csv')
+
+    def save_feature_importance_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/feature_importance_placeholders/feature_importance_placeholders', df, summary)
+    def load_feature_importance_placeholders(self):
+        return self._load_csv('advanced_explainability_attribution/feature_importance_placeholders/feature_importance_placeholders.csv')
+
+    def save_feature_contribution_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/feature_contribution_placeholders/feature_contribution_placeholders', df, summary)
+    def load_feature_contribution_placeholders(self):
+        return self._load_csv('advanced_explainability_attribution/feature_contribution_placeholders/feature_contribution_placeholders.csv')
+
+    def save_shap_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/shap_placeholders/shap_placeholders', df, summary)
+    def load_shap_placeholders(self):
+        return self._load_csv('advanced_explainability_attribution/shap_placeholders/shap_placeholders.csv')
+
+    def save_lime_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/lime_placeholders/lime_placeholders', df, summary)
+    def load_lime_placeholders(self):
+        return self._load_csv('advanced_explainability_attribution/lime_placeholders/lime_placeholders.csv')
+
+    def save_permutation_importance_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/permutation_importance_placeholders/permutation_importance_placeholders', df, summary)
+    def load_permutation_importance_placeholders(self):
+        return self._load_csv('advanced_explainability_attribution/permutation_importance_placeholders/permutation_importance_placeholders.csv')
+
+    def save_pdp_ice_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/pdp_placeholders/pdp_ice_placeholders', df, summary)
+    def load_pdp_ice_placeholders(self):
+        return self._load_csv('advanced_explainability_attribution/pdp_placeholders/pdp_ice_placeholders.csv')
+
+    def save_surrogate_model_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/surrogate_model_placeholders/surrogate_model_placeholders', df, summary)
+    def load_surrogate_model_placeholders(self):
+        return self._load_csv('advanced_explainability_attribution/surrogate_model_placeholders/surrogate_model_placeholders.csv')
+
+    def save_counterfactual_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/counterfactual_placeholders/counterfactual_placeholders', df, summary)
+    def load_counterfactual_placeholders(self):
+        return self._load_csv('advanced_explainability_attribution/counterfactual_placeholders/counterfactual_placeholders.csv')
+
+    def save_reason_code_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/reason_code_placeholders/reason_code_placeholders', df, summary)
+    def load_reason_code_placeholders(self):
+        return self._load_csv('advanced_explainability_attribution/reason_code_placeholders/reason_code_placeholders.csv')
+
+    def save_attribution_method_policies(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/method_policies/method_policies', df, summary)
+    def load_attribution_method_policies(self):
+        return self._load_csv('advanced_explainability_attribution/method_policies/method_policies.csv')
+
+    def save_attribution_scope_policies(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/scope_policies/scope_policies', df, summary)
+    def load_attribution_scope_policies(self):
+        return self._load_csv('advanced_explainability_attribution/scope_policies/scope_policies.csv')
+
+    def save_attribution_input_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/input_contracts/input_contracts', df, summary)
+    def load_attribution_input_contracts(self):
+        return self._load_csv('advanced_explainability_attribution/input_contracts/input_contracts.csv')
+
+    def save_attribution_output_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/output_contracts/output_contracts', df, summary)
+    def load_attribution_output_contracts(self):
+        return self._load_csv('advanced_explainability_attribution/output_contracts/output_contracts.csv')
+
+    def save_explainability_disabled_execution_report(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/execution_disabled/execution_disabled', df, summary)
+    def load_explainability_disabled_execution_report(self):
+        return self._load_csv('advanced_explainability_attribution/execution_disabled/execution_disabled.csv')
+
+    def save_explainability_metric_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/metric_placeholders/metric_placeholders', df, summary)
+    def load_explainability_metric_placeholders(self):
+        return self._load_csv('advanced_explainability_attribution/metric_placeholders/metric_placeholders.csv')
+
+    def save_attribution_quality_gates(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/quality_gates/quality_gates', df, summary)
+    def load_attribution_quality_gates(self):
+        return self._load_csv('advanced_explainability_attribution/quality_gates/quality_gates.csv')
+
+    def save_explanation_stability_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/stability_placeholders/stability_placeholders', df, summary)
+    def load_explanation_stability_placeholders(self):
+        return self._load_csv('advanced_explainability_attribution/stability_placeholders/stability_placeholders.csv')
+
+    def save_attribution_drift_linkage(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/drift_linkage/drift_linkage', df, summary)
+    def load_attribution_drift_linkage(self):
+        return self._load_csv('advanced_explainability_attribution/drift_linkage/drift_linkage.csv')
+
+    def save_featurestore_explainability_linkage(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/featurestore_linkage/featurestore_linkage', df, summary)
+    def load_featurestore_explainability_linkage(self):
+        return self._load_csv('advanced_explainability_attribution/featurestore_linkage/featurestore_linkage.csv')
+
+    def save_regime_explainability_linkage(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/regime_linkage/regime_linkage', df, summary)
+    def load_regime_explainability_linkage(self):
+        return self._load_csv('advanced_explainability_attribution/regime_linkage/regime_linkage.csv')
+
+    def save_drift_explainability_linkage(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/drift_linkage/drift_explainability_linkage', df, summary)
+    def load_drift_explainability_linkage(self):
+        return self._load_csv('advanced_explainability_attribution/drift_linkage/drift_explainability_linkage.csv')
+
+    def save_calibration_uncertainty_explainability_linkage(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/calibration_uncertainty_linkage/calibration_uncertainty_linkage', df, summary)
+    def load_calibration_uncertainty_explainability_linkage(self):
+        return self._load_csv('advanced_explainability_attribution/calibration_uncertainty_linkage/calibration_uncertainty_linkage.csv')
+
+    def save_explainability_validation_dependencies(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/validation_dependencies/validation_dependencies', df, summary)
+    def load_explainability_validation_dependencies(self):
+        return self._load_csv('advanced_explainability_attribution/validation_dependencies/validation_dependencies.csv')
+
+    def save_explainability_quality_dependencies(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/quality_dependencies/quality_dependencies', df, summary)
+    def load_explainability_quality_dependencies(self):
+        return self._load_csv('advanced_explainability_attribution/quality_dependencies/quality_dependencies.csv')
+
+    def save_explainability_runtime_dependencies(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/runtime_dependencies/runtime_dependencies', df, summary)
+    def load_explainability_runtime_dependencies(self):
+        return self._load_csv('advanced_explainability_attribution/runtime_dependencies/runtime_dependencies.csv')
+
+    def save_explainability_candidate_model_dependencies(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/candidate_dependencies/candidate_dependencies', df, summary)
+    def load_explainability_candidate_model_dependencies(self):
+        return self._load_csv('advanced_explainability_attribution/candidate_dependencies/candidate_dependencies.csv')
+
+    def save_explainability_ensemble_dependencies(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/ensemble_dependencies/ensemble_dependencies', df, summary)
+    def load_explainability_ensemble_dependencies(self):
+        return self._load_csv('advanced_explainability_attribution/ensemble_dependencies/ensemble_dependencies.csv')
+
+    def save_explainability_no_lookahead_guards(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/no_lookahead_guards/no_lookahead_guards', df, summary)
+    def load_explainability_no_lookahead_guards(self):
+        return self._load_csv('advanced_explainability_attribution/no_lookahead_guards/no_lookahead_guards.csv')
+
+    def save_explainability_metadata_only_news_guards(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/metadata_only_news_guards/metadata_only_news_guards', df, summary)
+    def load_explainability_metadata_only_news_guards(self):
+        return self._load_csv('advanced_explainability_attribution/metadata_only_news_guards/metadata_only_news_guards.csv')
+
+    def save_explainability_source_preservation_guards(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/source_preservation_guards/source_preservation_guards', df, summary)
+    def load_explainability_source_preservation_guards(self):
+        return self._load_csv('advanced_explainability_attribution/source_preservation_guards/source_preservation_guards.csv')
+
+    def save_explainability_forbidden_column_policies(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/forbidden_columns/forbidden_columns', df, summary)
+    def load_explainability_forbidden_column_policies(self):
+        return self._load_csv('advanced_explainability_attribution/forbidden_columns/forbidden_columns.csv')
+
+    def save_explainability_lineage(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/lineage/lineage_registry', df, summary)
+    def load_explainability_lineage(self):
+        return self._load_csv('advanced_explainability_attribution/lineage/lineage_registry.csv')
+
+    def save_explainability_experiment_linkage(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/experiment_linkage/experiment_linkage', df, summary)
+    def load_explainability_experiment_linkage(self):
+        return self._load_csv('advanced_explainability_attribution/experiment_linkage/experiment_linkage.csv')
+
+    def save_explainability_audit_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/audit_placeholders/audit_placeholders', df, summary)
+    def load_explainability_audit_placeholders(self):
+        return self._load_csv('advanced_explainability_attribution/audit_placeholders/audit_placeholders.csv')
+
+    def save_explainability_manual_review_queue(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/manual_review/manual_review_queue', df, summary)
+    def load_explainability_manual_review_queue(self):
+        return self._load_csv('advanced_explainability_attribution/manual_review/manual_review_queue.csv')
+
+    def save_explainability_findings(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/findings/findings_registry', df, summary)
+    def load_explainability_findings(self):
+        return self._load_csv('advanced_explainability_attribution/findings/findings_registry.csv')
+
+    def save_explainability_readiness_score(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/scoring/readiness_score_report', df, summary)
+    def load_explainability_readiness_score(self):
+        return self._load_csv('advanced_explainability_attribution/scoring/readiness_score_report.csv')
+
+    def save_explainability_manifest(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/manifest/manifest', df, summary)
+    def load_explainability_manifest(self):
+        return self._load_csv('advanced_explainability_attribution/manifest/manifest.csv')
+
+    def save_explainability_health_check(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/health/health_check', df, summary)
+    def load_explainability_health_check(self):
+        return self._load_csv('advanced_explainability_attribution/health/health_check.csv')
+
+    def save_explainability_validation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/validation/validation_report', df, summary)
+    def load_explainability_validation_report(self):
+        return self._load_csv('advanced_explainability_attribution/validation/validation_report.csv')
+
+    def save_explainability_safety_boundary(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/safety/safety_boundary', df, summary)
+    def load_explainability_safety_boundary(self):
+        return self._load_csv('advanced_explainability_attribution/safety/safety_boundary.csv')
+
+    def save_phase_144_model_governance_handoff_report(self, df, summary=None):
+        return self._save_csv_json('advanced_explainability_attribution/handoff/phase_144_handoff', df, summary)
+    def load_phase_144_model_governance_handoff_report(self):
+        return self._load_csv('advanced_explainability_attribution/handoff/phase_144_handoff.csv')
+
+    def save_explainability_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_explainability_attribution' / f'report_{profile_name}.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        if markdown:
+            md_path = path.with_suffix('.md')
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(markdown)
+        return path
+
+    def load_explainability_report(self, profile_name: str):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_explainability_attribution' / f'report_{profile_name}.json'
+        if not path.exists():
+            return {}
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def list_explainability_reports(self):
+        return pd.DataFrame()
+
+    save_phase_144_handoff = save_phase_144_model_governance_handoff_report
+    load_phase_144_handoff = load_phase_144_model_governance_handoff_report
+
+    # Phase 144 Model Governance, Model Cards and Audit Trail
+    def save_model_governance_profile_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/profiles/profile_registry', df, summary)
+    def load_model_governance_profile_registry(self):
+        return self._load_csv('advanced_model_governance/profiles/profile_registry.csv')
+
+    def save_model_governance_domain_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/domains/domain_registry', df, summary)
+    def load_model_governance_domain_registry(self):
+        return self._load_csv('advanced_model_governance/domains/domain_registry.csv')
+
+    def save_model_governance_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/governance_contracts/contract_registry', df, summary)
+    def load_model_governance_contract_registry(self):
+        return self._load_csv('advanced_model_governance/governance_contracts/contract_registry.csv')
+
+    def save_model_card_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/model_cards/card_contracts', df, summary)
+    def load_model_card_contract_registry(self):
+        return self._load_csv('advanced_model_governance/model_cards/card_contracts.csv')
+
+    def save_model_card_template_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/model_card_templates/template_registry', df, summary)
+    def load_model_card_template_registry(self):
+        return self._load_csv('advanced_model_governance/model_card_templates/template_registry.csv')
+
+    def save_model_card_section_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/model_card_sections/section_registry', df, summary)
+    def load_model_card_section_registry(self):
+        return self._load_csv('advanced_model_governance/model_card_sections/section_registry.csv')
+
+    def save_model_card_limitation_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/model_card_limitations/limitation_registry', df, summary)
+    def load_model_card_limitation_registry(self):
+        return self._load_csv('advanced_model_governance/model_card_limitations/limitation_registry.csv')
+
+    def save_model_card_intended_use_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/intended_use/intended_use_registry', df, summary)
+    def load_model_card_intended_use_registry(self):
+        return self._load_csv('advanced_model_governance/intended_use/intended_use_registry.csv')
+
+    def save_model_card_prohibited_use_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/prohibited_use/prohibited_use_registry', df, summary)
+    def load_model_card_prohibited_use_registry(self):
+        return self._load_csv('advanced_model_governance/prohibited_use/prohibited_use_registry.csv')
+
+    def save_model_card_risk_disclosure_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/risk_disclosures/risk_disclosure_registry', df, summary)
+    def load_model_card_risk_disclosure_registry(self):
+        return self._load_csv('advanced_model_governance/risk_disclosures/risk_disclosure_registry.csv')
+
+    def save_model_card_validation_evidence_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/validation_evidence/validation_evidence_registry', df, summary)
+    def load_model_card_validation_evidence_registry(self):
+        return self._load_csv('advanced_model_governance/validation_evidence/validation_evidence_registry.csv')
+
+    def save_model_card_data_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/data_dependencies/data_dependency_registry', df, summary)
+    def load_model_card_data_dependency_registry(self):
+        return self._load_csv('advanced_model_governance/data_dependencies/data_dependency_registry.csv')
+
+    def save_model_card_feature_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/feature_dependencies/feature_dependency_registry', df, summary)
+    def load_model_card_feature_dependency_registry(self):
+        return self._load_csv('advanced_model_governance/feature_dependencies/feature_dependency_registry.csv')
+
+    def save_model_card_model_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/model_dependencies/model_dependency_registry', df, summary)
+    def load_model_card_model_dependency_registry(self):
+        return self._load_csv('advanced_model_governance/model_dependencies/model_dependency_registry.csv')
+
+    def save_model_card_runtime_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/runtime_dependencies/runtime_dependency_registry', df, summary)
+    def load_model_card_runtime_dependency_registry(self):
+        return self._load_csv('advanced_model_governance/runtime_dependencies/runtime_dependency_registry.csv')
+
+    def save_governance_approval_boundary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/approval_boundaries/approval_boundary_registry', df, summary)
+    def load_governance_approval_boundary_registry(self):
+        return self._load_csv('advanced_model_governance/approval_boundaries/approval_boundary_registry.csv')
+
+    def save_governance_release_boundary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/release_boundaries/release_boundary_registry', df, summary)
+    def load_governance_release_boundary_registry(self):
+        return self._load_csv('advanced_model_governance/release_boundaries/release_boundary_registry.csv')
+
+    def save_governance_non_production_boundary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/non_production_boundaries/non_production_boundary_registry', df, summary)
+    def load_governance_non_production_boundary_registry(self):
+        return self._load_csv('advanced_model_governance/non_production_boundaries/non_production_boundary_registry.csv')
+
+    def save_governance_manual_review_gate_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/manual_review_gates/manual_review_gate_registry', df, summary)
+    def load_governance_manual_review_gate_registry(self):
+        return self._load_csv('advanced_model_governance/manual_review_gates/manual_review_gate_registry.csv')
+
+    def save_governance_validation_evidence_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/validation_evidence/governance_validation_evidence', df, summary)
+    def load_governance_validation_evidence_registry(self):
+        return self._load_csv('advanced_model_governance/validation_evidence/governance_validation_evidence.csv')
+
+    def save_governance_risk_register(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/risk_register/risk_register', df, summary)
+    def load_governance_risk_register(self):
+        return self._load_csv('advanced_model_governance/risk_register/risk_register.csv')
+
+    def save_governance_control_checklist_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/control_checklists/control_checklist_registry', df, summary)
+    def load_governance_control_checklist_registry(self):
+        return self._load_csv('advanced_model_governance/control_checklists/control_checklist_registry.csv')
+
+    def save_governance_compliance_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/compliance_placeholders/compliance_placeholder_registry', df, summary)
+    def load_governance_compliance_placeholder_registry(self):
+        return self._load_csv('advanced_model_governance/compliance_placeholders/compliance_placeholder_registry.csv')
+
+    def save_governance_audit_trail_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/audit_trail_placeholders/audit_trail_placeholder_registry', df, summary)
+    def load_governance_audit_trail_placeholder_registry(self):
+        return self._load_csv('advanced_model_governance/audit_trail_placeholders/audit_trail_placeholder_registry.csv')
+
+    def save_governance_decision_log_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/decision_log_placeholders/decision_log_placeholder_registry', df, summary)
+    def load_governance_decision_log_placeholder_registry(self):
+        return self._load_csv('advanced_model_governance/decision_log_placeholders/decision_log_placeholder_registry.csv')
+
+    def save_governance_change_log_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/change_log_placeholders/change_log_placeholder_registry', df, summary)
+    def load_governance_change_log_placeholder_registry(self):
+        return self._load_csv('advanced_model_governance/change_log_placeholders/change_log_placeholder_registry.csv')
+
+    def save_governance_owner_responsibility_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/owner_responsibility_placeholders/owner_responsibility_placeholder_registry', df, summary)
+    def load_governance_owner_responsibility_placeholder_registry(self):
+        return self._load_csv('advanced_model_governance/owner_responsibility_placeholders/owner_responsibility_placeholder_registry.csv')
+
+    def save_governance_model_lifecycle_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/lifecycle_placeholders/model_lifecycle_placeholder_registry', df, summary)
+    def load_governance_model_lifecycle_placeholder_registry(self):
+        return self._load_csv('advanced_model_governance/lifecycle_placeholders/model_lifecycle_placeholder_registry.csv')
+
+    def save_governance_model_version_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/version_placeholders/model_version_placeholder_registry', df, summary)
+    def load_governance_model_version_placeholder_registry(self):
+        return self._load_csv('advanced_model_governance/version_placeholders/model_version_placeholder_registry.csv')
+
+    def save_governance_model_registry_write_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/model_registry_write_disabled/report', df, summary)
+    def load_governance_model_registry_write_disabled_report(self):
+        return self._load_csv('advanced_model_governance/model_registry_write_disabled/report.csv')
+
+    def save_governance_model_artifact_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/artifact_disabled/report', df, summary)
+    def load_governance_model_artifact_disabled_report(self):
+        return self._load_csv('advanced_model_governance/artifact_disabled/report.csv')
+
+    def save_governance_deployment_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/deployment_disabled/report', df, summary)
+    def load_governance_deployment_disabled_report(self):
+        return self._load_csv('advanced_model_governance/deployment_disabled/report.csv')
+
+    def save_governance_production_approval_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/production_approval_disabled/report', df, summary)
+    def load_governance_production_approval_disabled_report(self):
+        return self._load_csv('advanced_model_governance/production_approval_disabled/report.csv')
+
+    def save_governance_broker_ready_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/broker_ready_disabled/report', df, summary)
+    def load_governance_broker_ready_disabled_report(self):
+        return self._load_csv('advanced_model_governance/broker_ready_disabled/report.csv')
+
+    def save_governance_live_trading_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/live_trading_disabled/report', df, summary)
+    def load_governance_live_trading_disabled_report(self):
+        return self._load_csv('advanced_model_governance/live_trading_disabled/report.csv')
+
+    def save_governance_prediction_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/prediction_disabled/report', df, summary)
+    def load_governance_prediction_disabled_report(self):
+        return self._load_csv('advanced_model_governance/prediction_disabled/report.csv')
+
+    def save_governance_training_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/training_disabled/report', df, summary)
+    def load_governance_training_disabled_report(self):
+        return self._load_csv('advanced_model_governance/training_disabled/report.csv')
+
+    def save_governance_signal_generation_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/signal_generation_disabled/report', df, summary)
+    def load_governance_signal_generation_disabled_report(self):
+        return self._load_csv('advanced_model_governance/signal_generation_disabled/report.csv')
+
+    def save_governance_performance_claim_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/performance_claim_disabled/report', df, summary)
+    def load_governance_performance_claim_disabled_report(self):
+        return self._load_csv('advanced_model_governance/performance_claim_disabled/report.csv')
+
+    def save_governance_dataset_contract_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/dataset_dependencies/dataset_dependency_registry', df, summary)
+    def load_governance_dataset_contract_dependency_registry(self):
+        return self._load_csv('advanced_model_governance/dataset_dependencies/dataset_dependency_registry.csv')
+
+    def save_governance_baseline_model_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/baseline_dependencies/baseline_dependency_registry', df, summary)
+    def load_governance_baseline_model_dependency_registry(self):
+        return self._load_csv('advanced_model_governance/baseline_dependencies/baseline_dependency_registry.csv')
+
+    def save_governance_gpu_training_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/gpu_training_dependencies/gpu_training_dependency_registry', df, summary)
+    def load_governance_gpu_training_dependency_registry(self):
+        return self._load_csv('advanced_model_governance/gpu_training_dependencies/gpu_training_dependency_registry.csv')
+
+    def save_governance_ensemble_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/ensemble_dependencies/ensemble_dependency_registry', df, summary)
+    def load_governance_ensemble_dependency_registry(self):
+        return self._load_csv('advanced_model_governance/ensemble_dependencies/ensemble_dependency_registry.csv')
+
+    def save_governance_calibration_uncertainty_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/calibration_uncertainty_dependencies/calibration_uncertainty_dependency_registry', df, summary)
+    def load_governance_calibration_uncertainty_dependency_registry(self):
+        return self._load_csv('advanced_model_governance/calibration_uncertainty_dependencies/calibration_uncertainty_dependency_registry.csv')
+
+    def save_governance_drift_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/drift_dependencies/drift_dependency_registry', df, summary)
+    def load_governance_drift_dependency_registry(self):
+        return self._load_csv('advanced_model_governance/drift_dependencies/drift_dependency_registry.csv')
+
+    def save_governance_explainability_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/explainability_dependencies/explainability_dependency_registry', df, summary)
+    def load_governance_explainability_dependency_registry(self):
+        return self._load_csv('advanced_model_governance/explainability_dependencies/explainability_dependency_registry.csv')
+
+    def save_governance_no_lookahead_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/no_lookahead_guards/no_lookahead_guard_registry', df, summary)
+    def load_governance_no_lookahead_guard_registry(self):
+        return self._load_csv('advanced_model_governance/no_lookahead_guards/no_lookahead_guard_registry.csv')
+
+    def save_governance_metadata_only_news_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/metadata_only_news_guards/metadata_only_news_guard_registry', df, summary)
+    def load_governance_metadata_only_news_guard_registry(self):
+        return self._load_csv('advanced_model_governance/metadata_only_news_guards/metadata_only_news_guard_registry.csv')
+
+    def save_governance_source_preservation_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/source_preservation_guards/source_preservation_guard_registry', df, summary)
+    def load_governance_source_preservation_guard_registry(self):
+        return self._load_csv('advanced_model_governance/source_preservation_guards/source_preservation_guard_registry.csv')
+
+    def save_governance_forbidden_column_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/forbidden_columns/forbidden_column_policy_registry', df, summary)
+    def load_governance_forbidden_column_policy_registry(self):
+        return self._load_csv('advanced_model_governance/forbidden_columns/forbidden_column_policy_registry.csv')
+
+    def save_governance_lineage_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/lineage/lineage_registry', df, summary)
+    def load_governance_lineage_registry(self):
+        return self._load_csv('advanced_model_governance/lineage/lineage_registry.csv')
+
+    def save_governance_experiment_linkage_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/experiment_linkage/experiment_linkage_registry', df, summary)
+    def load_governance_experiment_linkage_registry(self):
+        return self._load_csv('advanced_model_governance/experiment_linkage/experiment_linkage_registry.csv')
+
+    def save_governance_audit_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/audit_placeholders/audit_placeholder_registry', df, summary)
+    def load_governance_audit_placeholder_registry(self):
+        return self._load_csv('advanced_model_governance/audit_placeholders/audit_placeholder_registry.csv')
+
+    def save_governance_manual_review_queue(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/manual_review/manual_review_queue', df, summary)
+    def load_governance_manual_review_queue(self):
+        return self._load_csv('advanced_model_governance/manual_review/manual_review_queue.csv')
+
+    def save_governance_findings_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/findings/findings_registry', df, summary)
+    def load_governance_findings_registry(self):
+        return self._load_csv('advanced_model_governance/findings/findings_registry.csv')
+
+    def save_governance_readiness_score_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/scoring/readiness_score_report', df, summary)
+    def load_governance_readiness_score_report(self):
+        return self._load_csv('advanced_model_governance/scoring/readiness_score_report.csv')
+
+    def save_model_governance_manifest(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/manifest/manifest', df, summary)
+    def load_model_governance_manifest(self):
+        return self._load_csv('advanced_model_governance/manifest/manifest.csv')
+
+    def save_model_governance_health_check(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/health/health_check', df, summary)
+    def load_model_governance_health_check(self):
+        return self._load_csv('advanced_model_governance/health/health_check.csv')
+
+    def save_model_governance_validation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/validation/validation_report', df, summary)
+    def load_model_governance_validation_report(self):
+        return self._load_csv('advanced_model_governance/validation/validation_report.csv')
+
+    def save_model_governance_safety_boundary(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/safety/safety_boundary', df, summary)
+    def load_model_governance_safety_boundary(self):
+        return self._load_csv('advanced_model_governance/safety/safety_boundary.csv')
+
+    def save_phase_145_advanced_ml_acceptance_handoff_report(self, df, summary=None):
+        return self._save_csv_json('advanced_model_governance/handoff/phase_145_handoff', df, summary)
+    def load_phase_145_advanced_ml_acceptance_handoff_report(self):
+        return self._load_csv('advanced_model_governance/handoff/phase_145_handoff.csv')
+
+    def save_model_governance_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_model_governance' / f'report_{profile_name}.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        if markdown:
+            md_path = path.with_suffix('.md')
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(markdown)
+        return path
+
+    def load_model_governance_report(self, profile_name: str):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_model_governance' / f'report_{profile_name}.json'
+        if not path.exists():
+            return {}
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def list_model_governance_reports(self):
+        return pd.DataFrame()
+
+    save_phase_145_handoff = save_phase_145_advanced_ml_acceptance_handoff_report
+    load_phase_145_handoff = load_phase_145_advanced_ml_acceptance_handoff_report
+
+    # Phase 145 Advanced ML Acceptance Report DataLake Methods
+    def save_advanced_ml_acceptance_profile_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/profiles/profile_registry', df, summary)
+    def load_advanced_ml_acceptance_profile_registry(self):
+        return self._load_csv('advanced_ml_acceptance/profiles/profile_registry.csv')
+
+    def save_advanced_ml_acceptance_domain_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/domains/domain_registry', df, summary)
+    def load_advanced_ml_acceptance_domain_registry(self):
+        return self._load_csv('advanced_ml_acceptance/domains/domain_registry.csv')
+
+    def save_advanced_ml_acceptance_scope_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/scope/scope_registry', df, summary)
+    def load_advanced_ml_acceptance_scope_registry(self):
+        return self._load_csv('advanced_ml_acceptance/scope/scope_registry.csv')
+
+    def save_advanced_ml_component_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/components/component_registry', df, summary)
+    def load_advanced_ml_component_registry(self):
+        return self._load_csv('advanced_ml_acceptance/components/component_registry.csv')
+
+    def save_advanced_ml_component_acceptance_checkpoint_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/component_checkpoints/checkpoint_registry', df, summary)
+    def load_advanced_ml_component_acceptance_checkpoint_registry(self):
+        return self._load_csv('advanced_ml_acceptance/component_checkpoints/checkpoint_registry.csv')
+
+    def save_phase_136_gpu_runtime_acceptance_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/phase_136_gpu_runtime/phase_136_acceptance', df, summary)
+    def load_phase_136_gpu_runtime_acceptance_registry(self):
+        return self._load_csv('advanced_ml_acceptance/phase_136_gpu_runtime/phase_136_acceptance.csv')
+
+    def save_phase_137_dataset_contract_acceptance_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/phase_137_dataset_contracts/phase_137_acceptance', df, summary)
+    def load_phase_137_dataset_contract_acceptance_registry(self):
+        return self._load_csv('advanced_ml_acceptance/phase_137_dataset_contracts/phase_137_acceptance.csv')
+
+    def save_phase_138_baseline_model_acceptance_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/phase_138_baseline_models/phase_138_acceptance', df, summary)
+    def load_phase_138_baseline_model_acceptance_registry(self):
+        return self._load_csv('advanced_ml_acceptance/phase_138_baseline_models/phase_138_acceptance.csv')
+
+    def save_phase_139_gpu_training_governance_acceptance_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/phase_139_gpu_training_governance/phase_139_acceptance', df, summary)
+    def load_phase_139_gpu_training_governance_acceptance_registry(self):
+        return self._load_csv('advanced_ml_acceptance/phase_139_gpu_training_governance/phase_139_acceptance.csv')
+
+    def save_phase_140_ensemble_candidate_acceptance_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/phase_140_ensemble_candidate/phase_140_acceptance', df, summary)
+    def load_phase_140_ensemble_candidate_acceptance_registry(self):
+        return self._load_csv('advanced_ml_acceptance/phase_140_ensemble_candidate/phase_140_acceptance.csv')
+
+    def save_phase_141_calibration_uncertainty_acceptance_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/phase_141_calibration_uncertainty/phase_141_acceptance', df, summary)
+    def load_phase_141_calibration_uncertainty_acceptance_registry(self):
+        return self._load_csv('advanced_ml_acceptance/phase_141_calibration_uncertainty/phase_141_acceptance.csv')
+
+    def save_phase_142_drift_monitoring_acceptance_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/phase_142_drift_monitoring/phase_142_acceptance', df, summary)
+    def load_phase_142_drift_monitoring_acceptance_registry(self):
+        return self._load_csv('advanced_ml_acceptance/phase_142_drift_monitoring/phase_142_acceptance.csv')
+
+    def save_phase_143_explainability_acceptance_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/phase_143_explainability/phase_143_acceptance', df, summary)
+    def load_phase_143_explainability_acceptance_registry(self):
+        return self._load_csv('advanced_ml_acceptance/phase_143_explainability/phase_143_acceptance.csv')
+
+    def save_phase_144_model_governance_acceptance_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/phase_144_model_governance/phase_144_acceptance', df, summary)
+    def load_phase_144_model_governance_acceptance_registry(self):
+        return self._load_csv('advanced_ml_acceptance/phase_144_model_governance/phase_144_acceptance.csv')
+
+    def save_advanced_ml_dependency_acceptance_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/dependency_acceptance/dependency_registry', df, summary)
+    def load_advanced_ml_dependency_acceptance_registry(self):
+        return self._load_csv('advanced_ml_acceptance/dependency_acceptance/dependency_registry.csv')
+
+    def save_advanced_ml_validation_evidence_summary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/validation_evidence/evidence_summary', df, summary)
+    def load_advanced_ml_validation_evidence_summary_registry(self):
+        return self._load_csv('advanced_ml_acceptance/validation_evidence/evidence_summary.csv')
+
+    def save_advanced_ml_safety_boundary_acceptance_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/safety_boundary_acceptance/safety_boundary_registry', df, summary)
+    def load_advanced_ml_safety_boundary_acceptance_registry(self):
+        return self._load_csv('advanced_ml_acceptance/safety_boundary_acceptance/safety_boundary_registry.csv')
+
+    def save_advanced_ml_non_production_boundary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/non_production_boundaries/non_production_registry', df, summary)
+    def load_advanced_ml_non_production_boundary_registry(self):
+        return self._load_csv('advanced_ml_acceptance/non_production_boundaries/non_production_registry.csv')
+
+    def save_advanced_ml_manual_review_gate_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/manual_review_gates/manual_review_gate_registry', df, summary)
+    def load_advanced_ml_manual_review_gate_registry(self):
+        return self._load_csv('advanced_ml_acceptance/manual_review_gates/manual_review_gate_registry.csv')
+
+    def save_advanced_ml_go_no_go_boundary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/go_no_go_boundaries/go_no_go_registry', df, summary)
+    def load_advanced_ml_go_no_go_boundary_registry(self):
+        return self._load_csv('advanced_ml_acceptance/go_no_go_boundaries/go_no_go_registry.csv')
+
+    def save_advanced_ml_blocker_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/blockers/blocker_registry', df, summary)
+    def load_advanced_ml_blocker_registry(self):
+        return self._load_csv('advanced_ml_acceptance/blockers/blocker_registry.csv')
+
+    def save_advanced_ml_gap_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/gaps/gap_registry', df, summary)
+    def load_advanced_ml_gap_registry(self):
+        return self._load_csv('advanced_ml_acceptance/gaps/gap_registry.csv')
+
+    def save_advanced_ml_warning_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/warnings/warning_registry', df, summary)
+    def load_advanced_ml_warning_registry(self):
+        return self._load_csv('advanced_ml_acceptance/warnings/warning_registry.csv')
+
+    def save_advanced_ml_findings_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/findings/findings_registry', df, summary)
+    def load_advanced_ml_findings_registry(self):
+        return self._load_csv('advanced_ml_acceptance/findings/findings_registry.csv')
+
+    def save_advanced_ml_readiness_score_report(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/scoring/readiness_score_report', df, summary)
+    def load_advanced_ml_readiness_score_report(self):
+        return self._load_csv('advanced_ml_acceptance/scoring/readiness_score_report.csv')
+
+    def save_advanced_ml_acceptance_manifest(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/manifest/manifest', df, summary)
+    def load_advanced_ml_acceptance_manifest(self):
+        return self._load_csv('advanced_ml_acceptance/manifest/manifest.csv')
+
+    def save_advanced_ml_acceptance_health_check(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/health/health_check', df, summary)
+    def load_advanced_ml_acceptance_health_check(self):
+        return self._load_csv('advanced_ml_acceptance/health/health_check.csv')
+
+    def save_advanced_ml_acceptance_validation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/validation/validation_report', df, summary)
+    def load_advanced_ml_acceptance_validation_report(self):
+        return self._load_csv('advanced_ml_acceptance/validation/validation_report.csv')
+
+    def save_advanced_ml_acceptance_safety_boundary(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/safety/safety_boundary', df, summary)
+    def load_advanced_ml_acceptance_safety_boundary(self):
+        return self._load_csv('advanced_ml_acceptance/safety/safety_boundary.csv')
+
+    def save_phase_146_realistic_backtest_transaction_cost_slippage_handoff_report(self, df, summary=None):
+        return self._save_csv_json('advanced_ml_acceptance/handoff/phase_146_handoff', df, summary)
+    def load_phase_146_realistic_backtest_transaction_cost_slippage_handoff_report(self):
+        return self._load_csv('advanced_ml_acceptance/handoff/phase_146_handoff.csv')
+
+    def save_advanced_ml_acceptance_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_ml_acceptance' / f'report_{profile_name}.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        if markdown:
+            md_path = path.with_suffix('.md')
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(markdown)
+        return path
+
+    def load_advanced_ml_acceptance_report(self, profile_name: str):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_ml_acceptance' / f'report_{profile_name}.json'
+        if not path.exists():
+            return {}
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def list_advanced_ml_acceptance_reports(self):
+        return pd.DataFrame()
+
+    save_phase_146_handoff = save_phase_146_realistic_backtest_transaction_cost_slippage_handoff_report
+    load_phase_146_handoff = load_phase_146_realistic_backtest_transaction_cost_slippage_handoff_report
+
+    # Phase 146 Realistic Backtest, Transaction Cost and Slippage Modeling DataLake Methods
+    def save_realistic_backtest_profile_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/profiles/profile_registry', df, summary)
+    def load_realistic_backtest_profile_registry(self):
+        return self._load_csv('advanced_realistic_backtest/profiles/profile_registry.csv')
+
+    def save_realistic_backtest_domain_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/domains/domain_registry', df, summary)
+    def load_realistic_backtest_domain_registry(self):
+        return self._load_csv('advanced_realistic_backtest/domains/domain_registry.csv')
+
+    def save_backtest_scope_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/scope/scope_registry', df, summary)
+    def load_backtest_scope_registry(self):
+        return self._load_csv('advanced_realistic_backtest/scope/scope_registry.csv')
+
+    def save_backtest_engine_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/engines/engine_contract_registry', df, summary)
+    def load_backtest_engine_contract_registry(self):
+        return self._load_csv('advanced_realistic_backtest/engines/engine_contract_registry.csv')
+
+    def save_event_driven_backtest_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/event_driven/event_driven_registry', df, summary)
+    def load_event_driven_backtest_contract_registry(self):
+        return self._load_csv('advanced_realistic_backtest/event_driven/event_driven_registry.csv')
+
+    def save_vectorized_backtest_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/vectorized/vectorized_registry', df, summary)
+    def load_vectorized_backtest_contract_registry(self):
+        return self._load_csv('advanced_realistic_backtest/vectorized/vectorized_registry.csv')
+
+    def save_portfolio_backtest_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/portfolio/portfolio_registry', df, summary)
+    def load_portfolio_backtest_contract_registry(self):
+        return self._load_csv('advanced_realistic_backtest/portfolio/portfolio_registry.csv')
+
+    def save_order_simulation_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/order_simulation/order_simulation_registry', df, summary)
+    def load_order_simulation_contract_registry(self):
+        return self._load_csv('advanced_realistic_backtest/order_simulation/order_simulation_registry.csv')
+
+    def save_fill_model_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/fill_models/fill_model_registry', df, summary)
+    def load_fill_model_contract_registry(self):
+        return self._load_csv('advanced_realistic_backtest/fill_models/fill_model_registry.csv')
+
+    def save_execution_price_model_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/execution_price/price_model_registry', df, summary)
+    def load_execution_price_model_contract_registry(self):
+        return self._load_csv('advanced_realistic_backtest/execution_price/price_model_registry.csv')
+
+    def save_commission_model_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/commission_models/commission_registry', df, summary)
+    def load_commission_model_contract_registry(self):
+        return self._load_csv('advanced_realistic_backtest/commission_models/commission_registry.csv')
+
+    def save_fee_model_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/fee_models/fee_registry', df, summary)
+    def load_fee_model_contract_registry(self):
+        return self._load_csv('advanced_realistic_backtest/fee_models/fee_registry.csv')
+
+    def save_spread_model_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/spread_models/spread_registry', df, summary)
+    def load_spread_model_contract_registry(self):
+        return self._load_csv('advanced_realistic_backtest/spread_models/spread_registry.csv')
+
+    def save_slippage_model_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/slippage_models/slippage_registry', df, summary)
+    def load_slippage_model_contract_registry(self):
+        return self._load_csv('advanced_realistic_backtest/slippage_models/slippage_registry.csv')
+
+    def save_transaction_cost_model_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/cost_models/cost_model_registry', df, summary)
+    def load_transaction_cost_model_registry(self):
+        return self._load_csv('advanced_realistic_backtest/cost_models/cost_model_registry.csv')
+
+    def save_transaction_cost_component_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/cost_components/component_registry', df, summary)
+    def load_transaction_cost_component_registry(self):
+        return self._load_csv('advanced_realistic_backtest/cost_components/component_registry.csv')
+
+    def save_backtest_no_lookahead_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/no_lookahead_guards/guard_registry', df, summary)
+    def load_backtest_no_lookahead_guard_registry(self):
+        return self._load_csv('advanced_realistic_backtest/no_lookahead_guards/guard_registry.csv')
+
+    def save_backtest_survivorship_bias_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/survivorship_guards/guard_registry', df, summary)
+    def load_backtest_survivorship_bias_guard_registry(self):
+        return self._load_csv('advanced_realistic_backtest/survivorship_guards/guard_registry.csv')
+
+    def save_backtest_data_snooping_bias_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/data_snooping_guards/guard_registry', df, summary)
+    def load_backtest_data_snooping_bias_guard_registry(self):
+        return self._load_csv('advanced_realistic_backtest/data_snooping_guards/guard_registry.csv')
+
+    def save_backtest_overfitting_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/overfitting_guards/guard_registry', df, summary)
+    def load_backtest_overfitting_guard_registry(self):
+        return self._load_csv('advanced_realistic_backtest/overfitting_guards/guard_registry.csv')
+
+    def save_backtest_forbidden_column_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/forbidden_column_policies/policy_registry', df, summary)
+    def load_backtest_forbidden_column_policy_registry(self):
+        return self._load_csv('advanced_realistic_backtest/forbidden_column_policies/policy_registry.csv')
+
+    def save_backtest_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/disabled_execution/execution_disabled', df, summary)
+    def load_backtest_execution_disabled_report(self):
+        return self._load_csv('advanced_realistic_backtest/disabled_execution/execution_disabled.csv')
+
+    def save_backtest_optimizer_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/disabled_execution/optimizer_disabled', df, summary)
+    def load_backtest_optimizer_disabled_report(self):
+        return self._load_csv('advanced_realistic_backtest/disabled_execution/optimizer_disabled.csv')
+
+    def save_backtest_walk_forward_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/disabled_execution/walk_forward_disabled', df, summary)
+    def load_backtest_walk_forward_disabled_report(self):
+        return self._load_csv('advanced_realistic_backtest/disabled_execution/walk_forward_disabled.csv')
+
+    def save_backtest_benchmark_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/disabled_execution/benchmark_disabled', df, summary)
+    def load_backtest_benchmark_disabled_report(self):
+        return self._load_csv('advanced_realistic_backtest/disabled_execution/benchmark_disabled.csv')
+
+    def save_backtest_live_trading_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/disabled_execution/live_trading_disabled', df, summary)
+    def load_backtest_live_trading_disabled_report(self):
+        return self._load_csv('advanced_realistic_backtest/disabled_execution/live_trading_disabled.csv')
+
+    def save_backtest_broker_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/disabled_execution/broker_disabled', df, summary)
+    def load_backtest_broker_execution_disabled_report(self):
+        return self._load_csv('advanced_realistic_backtest/disabled_execution/broker_disabled.csv')
+
+    def save_backtest_findings_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/findings/findings_registry', df, summary)
+    def load_backtest_findings_registry(self):
+        return self._load_csv('advanced_realistic_backtest/findings/findings_registry.csv')
+
+    def save_backtest_readiness_score_report(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/scoring/readiness_score_report', df, summary)
+    def load_backtest_readiness_score_report(self):
+        return self._load_csv('advanced_realistic_backtest/scoring/readiness_score_report.csv')
+
+    def save_realistic_backtest_manifest(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/manifest/manifest', df, summary)
+    def load_realistic_backtest_manifest(self):
+        return self._load_csv('advanced_realistic_backtest/manifest/manifest.csv')
+
+    def save_realistic_backtest_health_check(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/health/health_check', df, summary)
+    def load_realistic_backtest_health_check(self):
+        return self._load_csv('advanced_realistic_backtest/health/health_check.csv')
+
+    def save_realistic_backtest_validation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/validation/validation_report', df, summary)
+    def load_realistic_backtest_validation_report(self):
+        return self._load_csv('advanced_realistic_backtest/validation/validation_report.csv')
+
+    def save_realistic_backtest_safety_boundary(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/safety/safety_boundary', df, summary)
+    def load_realistic_backtest_safety_boundary(self):
+        return self._load_csv('advanced_realistic_backtest/safety/safety_boundary.csv')
+
+    def save_phase_147_walk_forward_oos_benchmark_handoff_report(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/handoff/phase_147_handoff', df, summary)
+    def load_phase_147_walk_forward_oos_benchmark_handoff_report(self):
+        return self._load_csv('advanced_realistic_backtest/handoff/phase_147_handoff.csv')
+
+    def save_realistic_backtest_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_realistic_backtest' / f'report_{profile_name}.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        if markdown:
+            md_path = path.with_suffix('.md')
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(markdown)
+        return path
+
+    def load_realistic_backtest_report(self, profile_name: str):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_realistic_backtest' / f'report_{profile_name}.json'
+        if not path.exists():
+            return {}
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def list_realistic_backtest_reports(self):
+        return pd.DataFrame()
+
+    def save_realistic_execution_assumptions(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/assumptions/assumption_registry', df, summary)
+    def load_realistic_execution_assumptions(self):
+        return self._load_csv('advanced_realistic_backtest/assumptions/assumption_registry.csv')
+
+    def save_backtest_data_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/data_contracts/data_contract_registry', df, summary)
+    def load_backtest_data_contracts(self):
+        return self._load_csv('advanced_realistic_backtest/data_contracts/data_contract_registry.csv')
+
+    def save_backtest_feature_input_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/feature_contracts/feature_contract_registry', df, summary)
+    def load_backtest_feature_input_contracts(self):
+        return self._load_csv('advanced_realistic_backtest/feature_contracts/feature_contract_registry.csv')
+
+    def save_backtest_signal_input_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/signal_contracts/signal_contract_registry', df, summary)
+    def load_backtest_signal_input_contracts(self):
+        return self._load_csv('advanced_realistic_backtest/signal_contracts/signal_contract_registry.csv')
+
+    def save_backtest_output_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/output_contracts/output_contract_registry', df, summary)
+    def load_backtest_output_contracts(self):
+        return self._load_csv('advanced_realistic_backtest/output_contracts/output_contract_registry.csv')
+
+    def save_backtest_metric_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/metrics/metric_placeholder_registry', df, summary)
+    def load_backtest_metric_placeholders(self):
+        return self._load_csv('advanced_realistic_backtest/metrics/metric_placeholder_registry.csv')
+
+    def save_pnl_accounting_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/accounting/pnl_accounting_registry', df, summary)
+    def load_pnl_accounting_contracts(self):
+        return self._load_csv('advanced_realistic_backtest/accounting/pnl_accounting_registry.csv')
+
+    def save_cash_position_accounting_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/accounting/cash_position_registry', df, summary)
+    def load_cash_position_accounting_contracts(self):
+        return self._load_csv('advanced_realistic_backtest/accounting/cash_position_registry.csv')
+
+    def save_leverage_margin_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/accounting/leverage_margin_registry', df, summary)
+    def load_leverage_margin_placeholders(self):
+        return self._load_csv('advanced_realistic_backtest/accounting/leverage_margin_registry.csv')
+
+    def save_trade_lifecycle_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/lifecycle/trade_lifecycle_registry', df, summary)
+    def load_trade_lifecycle_contracts(self):
+        return self._load_csv('advanced_realistic_backtest/lifecycle/trade_lifecycle_registry.csv')
+
+    def save_position_lifecycle_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/lifecycle/position_lifecycle_registry', df, summary)
+    def load_position_lifecycle_contracts(self):
+        return self._load_csv('advanced_realistic_backtest/lifecycle/position_lifecycle_registry.csv')
+
+    def save_corporate_action_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/lifecycle/corporate_action_registry', df, summary)
+    def load_corporate_action_placeholders(self):
+        return self._load_csv('advanced_realistic_backtest/lifecycle/corporate_action_registry.csv')
+
+    def save_currency_conversion_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/lifecycle/currency_conversion_registry', df, summary)
+    def load_currency_conversion_placeholders(self):
+        return self._load_csv('advanced_realistic_backtest/lifecycle/currency_conversion_registry.csv')
+
+    def save_market_impact_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/execution_realism/market_impact_registry', df, summary)
+    def load_market_impact_placeholders(self):
+        return self._load_csv('advanced_realistic_backtest/execution_realism/market_impact_registry.csv')
+
+    def save_latency_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/execution_realism/latency_registry', df, summary)
+    def load_latency_placeholders(self):
+        return self._load_csv('advanced_realistic_backtest/execution_realism/latency_registry.csv')
+
+    def save_liquidity_constraint_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/execution_realism/liquidity_constraint_registry', df, summary)
+    def load_liquidity_constraint_placeholders(self):
+        return self._load_csv('advanced_realistic_backtest/execution_realism/liquidity_constraint_registry.csv')
+
+    def save_partial_fill_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/execution_realism/partial_fill_registry', df, summary)
+    def load_partial_fill_placeholders(self):
+        return self._load_csv('advanced_realistic_backtest/execution_realism/partial_fill_registry.csv')
+
+    def save_rejected_order_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/execution_realism/rejected_order_registry', df, summary)
+    def load_rejected_order_placeholders(self):
+        return self._load_csv('advanced_realistic_backtest/execution_realism/rejected_order_registry.csv')
+
+    def save_order_book_depth_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/execution_realism/order_book_depth_registry', df, summary)
+    def load_order_book_depth_placeholders(self):
+        return self._load_csv('advanced_realistic_backtest/execution_realism/order_book_depth_registry.csv')
+
+    def save_timezone_alignment_backtest_guards(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/timezone_guards/guard_registry', df, summary)
+    def load_timezone_alignment_backtest_guards(self):
+        return self._load_csv('advanced_realistic_backtest/timezone_guards/guard_registry.csv')
+
+    def save_backtest_metadata_only_news_guards(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/news_guards/guard_registry', df, summary)
+    def load_backtest_metadata_only_news_guards(self):
+        return self._load_csv('advanced_realistic_backtest/news_guards/guard_registry.csv')
+
+    def save_backtest_source_preservation_guards(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/source_guards/guard_registry', df, summary)
+    def load_backtest_source_preservation_guards(self):
+        return self._load_csv('advanced_realistic_backtest/source_guards/guard_registry.csv')
+
+    def save_backtest_model_training_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/disabled_execution/model_training_disabled', df, summary)
+    def load_backtest_model_training_disabled_report(self):
+        return self._load_csv('advanced_realistic_backtest/disabled_execution/model_training_disabled.csv')
+
+    def save_backtest_prediction_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/disabled_execution/prediction_disabled', df, summary)
+    def load_backtest_prediction_disabled_report(self):
+        return self._load_csv('advanced_realistic_backtest/disabled_execution/prediction_disabled.csv')
+
+    def save_backtest_performance_claim_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/disabled_execution/performance_claim_disabled', df, summary)
+    def load_backtest_performance_claim_disabled_report(self):
+        return self._load_csv('advanced_realistic_backtest/disabled_execution/performance_claim_disabled.csv')
+
+    def save_backtest_dependencies(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/dependencies/dependency_registry', df, summary)
+    def load_backtest_dependencies(self):
+        return self._load_csv('advanced_realistic_backtest/dependencies/dependency_registry.csv')
+
+    def save_backtest_validation_evidence(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/evidence/evidence_registry', df, summary)
+    def load_backtest_validation_evidence(self):
+        return self._load_csv('advanced_realistic_backtest/evidence/evidence_registry.csv')
+
+    def save_backtest_manual_review(self, df, summary=None):
+        return self._save_csv_json('advanced_realistic_backtest/review/manual_review_queue', df, summary)
+    def load_backtest_manual_review(self):
+        return self._load_csv('advanced_realistic_backtest/review/manual_review_queue.csv')
+
+    save_phase_147_handoff = save_phase_147_walk_forward_oos_benchmark_handoff_report
+    load_phase_147_handoff = load_phase_147_walk_forward_oos_benchmark_handoff_report
+
+    # Phase 147 Walk-Forward Validation and Out-of-Sample Benchmarking Support
+    def save_walk_forward_profile_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/profiles/profile_registry', df, summary)
+    def load_walk_forward_profile_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/profiles/profile_registry.csv')
+
+    def save_walk_forward_domain_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/domains/domain_registry', df, summary)
+    def load_walk_forward_domain_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/domains/domain_registry.csv')
+
+    def save_walk_forward_scope_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/scopes/scope_registry', df, summary)
+    def load_walk_forward_scope_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/scopes/scope_registry.csv')
+
+    def save_walk_forward_validation_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/validation_contracts/validation_contract_registry', df, summary)
+    def load_walk_forward_validation_contract_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/validation_contracts/validation_contract_registry.csv')
+
+    def save_rolling_window_validation_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/rolling_contracts/rolling_contract_registry', df, summary)
+    def load_rolling_window_validation_contract_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/rolling_contracts/rolling_contract_registry.csv')
+
+    def save_expanding_window_validation_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/expanding_contracts/expanding_contract_registry', df, summary)
+    def load_expanding_window_validation_contract_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/expanding_contracts/expanding_contract_registry.csv')
+
+    def save_anchored_window_validation_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/anchored_contracts/anchored_contract_registry', df, summary)
+    def load_anchored_window_validation_contract_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/anchored_contracts/anchored_contract_registry.csv')
+
+    def save_purged_walk_forward_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/purged_contracts/purged_contract_registry', df, summary)
+    def load_purged_walk_forward_contract_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/purged_contracts/purged_contract_registry.csv')
+
+    def save_embargo_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/embargo_policies/embargo_policy_registry', df, summary)
+    def load_embargo_policy_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/embargo_policies/embargo_policy_registry.csv')
+
+    def save_train_validation_test_split_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/train_val_test_splits/split_contract_registry', df, summary)
+    def load_train_validation_test_split_contract_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/train_val_test_splits/split_contract_registry.csv')
+
+    def save_out_of_sample_split_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/oos_splits/oos_split_registry', df, summary)
+    def load_out_of_sample_split_contract_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/oos_splits/oos_split_registry.csv')
+
+    def save_holdout_period_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/holdout_periods/holdout_registry', df, summary)
+    def load_holdout_period_contract_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/holdout_periods/holdout_registry.csv')
+
+    def save_temporal_split_boundary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/temporal_boundaries/boundary_registry', df, summary)
+    def load_temporal_split_boundary_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/temporal_boundaries/boundary_registry.csv')
+
+    def save_regime_aware_split_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/regime_aware_splits/regime_split_registry', df, summary)
+    def load_regime_aware_split_contract_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/regime_aware_splits/regime_split_registry.csv')
+
+    def save_cross_asset_oos_split_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/cross_asset_splits/cross_asset_registry', df, summary)
+    def load_cross_asset_oos_split_contract_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/cross_asset_splits/cross_asset_registry.csv')
+
+    def save_oos_benchmark_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/oos_benchmarks/benchmark_contract_registry', df, summary)
+    def load_oos_benchmark_contract_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/oos_benchmarks/benchmark_contract_registry.csv')
+
+    def save_benchmark_universe_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/benchmark_universes/universe_registry', df, summary)
+    def load_benchmark_universe_contract_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/benchmark_universes/universe_registry.csv')
+
+    def save_benchmark_baseline_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/benchmark_baselines/baseline_registry', df, summary)
+    def load_benchmark_baseline_contract_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/benchmark_baselines/baseline_registry.csv')
+
+    def save_benchmark_comparison_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/benchmark_comparisons/comparison_registry', df, summary)
+    def load_benchmark_comparison_contract_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/benchmark_comparisons/comparison_registry.csv')
+
+    def save_benchmark_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/benchmark_metrics/metric_registry', df, summary)
+    def load_benchmark_metric_placeholder_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/benchmark_metrics/metric_registry.csv')
+
+    def save_oos_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/oos_metrics/metric_registry', df, summary)
+    def load_oos_metric_placeholder_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/oos_metrics/metric_registry.csv')
+
+    def save_validation_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/validation_metrics/metric_registry', df, summary)
+    def load_validation_metric_placeholder_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/validation_metrics/metric_registry.csv')
+
+    def save_validation_no_lookahead_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/guards/no_lookahead_registry', df, summary)
+    def load_validation_no_lookahead_guard_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/guards/no_lookahead_registry.csv')
+
+    def save_validation_purge_embargo_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/guards/purge_embargo_registry', df, summary)
+    def load_validation_purge_embargo_guard_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/guards/purge_embargo_registry.csv')
+
+    def save_validation_data_snooping_bias_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/guards/data_snooping_registry', df, summary)
+    def load_validation_data_snooping_bias_guard_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/guards/data_snooping_registry.csv')
+
+    def save_validation_overfitting_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/guards/overfitting_registry', df, summary)
+    def load_validation_overfitting_guard_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/guards/overfitting_registry.csv')
+
+    def save_validation_survivorship_bias_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/guards/survivorship_registry', df, summary)
+    def load_validation_survivorship_bias_guard_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/guards/survivorship_registry.csv')
+
+    def save_validation_multiple_testing_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/guards/multiple_testing_registry', df, summary)
+    def load_validation_multiple_testing_guard_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/guards/multiple_testing_registry.csv')
+
+    def save_validation_forbidden_column_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/guards/forbidden_column_registry', df, summary)
+    def load_validation_forbidden_column_policy_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/guards/forbidden_column_registry.csv')
+
+    def save_walk_forward_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/disabled_execution/walk_forward_disabled', df, summary)
+    def load_walk_forward_execution_disabled_report(self):
+        return self._load_csv('advanced_walk_forward_validation/disabled_execution/walk_forward_disabled.csv')
+
+    def save_oos_benchmark_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/disabled_execution/oos_benchmark_disabled', df, summary)
+    def load_oos_benchmark_execution_disabled_report(self):
+        return self._load_csv('advanced_walk_forward_validation/disabled_execution/oos_benchmark_disabled.csv')
+
+    def save_benchmark_metric_calculation_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/disabled_execution/metric_calc_disabled', df, summary)
+    def load_benchmark_metric_calculation_disabled_report(self):
+        return self._load_csv('advanced_walk_forward_validation/disabled_execution/metric_calc_disabled.csv')
+
+    def save_validation_optimizer_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/disabled_execution/optimizer_disabled', df, summary)
+    def load_validation_optimizer_disabled_report(self):
+        return self._load_csv('advanced_walk_forward_validation/disabled_execution/optimizer_disabled.csv')
+
+    def save_validation_live_trading_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/disabled_execution/live_trading_disabled', df, summary)
+    def load_validation_live_trading_disabled_report(self):
+        return self._load_csv('advanced_walk_forward_validation/disabled_execution/live_trading_disabled.csv')
+
+    def save_validation_broker_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/disabled_execution/broker_disabled', df, summary)
+    def load_validation_broker_execution_disabled_report(self):
+        return self._load_csv('advanced_walk_forward_validation/disabled_execution/broker_disabled.csv')
+
+    def save_validation_model_training_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/disabled_execution/model_training_disabled', df, summary)
+    def load_validation_model_training_disabled_report(self):
+        return self._load_csv('advanced_walk_forward_validation/disabled_execution/model_training_disabled.csv')
+
+    def save_validation_prediction_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/disabled_execution/prediction_disabled', df, summary)
+    def load_validation_prediction_disabled_report(self):
+        return self._load_csv('advanced_walk_forward_validation/disabled_execution/prediction_disabled.csv')
+
+    def save_validation_performance_claim_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/disabled_execution/performance_claim_disabled', df, summary)
+    def load_validation_performance_claim_disabled_report(self):
+        return self._load_csv('advanced_walk_forward_validation/disabled_execution/performance_claim_disabled.csv')
+
+    def save_validation_evidence(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/evidence/validation_evidence', df, summary)
+    def load_validation_evidence(self):
+        return self._load_csv('advanced_walk_forward_validation/evidence/validation_evidence.csv')
+    save_validation_evidence_registry = save_validation_evidence
+    load_validation_evidence_registry = load_validation_evidence
+
+    def save_walk_forward_manual_review_queue(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/manual_review/manual_review_queue', df, summary)
+    def load_walk_forward_manual_review_queue(self):
+        return self._load_csv('advanced_walk_forward_validation/manual_review/manual_review_queue.csv')
+
+    def save_walk_forward_findings_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/findings/findings_registry', df, summary)
+    def load_walk_forward_findings_registry(self):
+        return self._load_csv('advanced_walk_forward_validation/findings/findings_registry.csv')
+
+    def save_walk_forward_readiness_score_report(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/scoring/readiness_score_report', df, summary)
+    def load_walk_forward_readiness_score_report(self):
+        return self._load_csv('advanced_walk_forward_validation/scoring/readiness_score_report.csv')
+
+    def save_walk_forward_validation_manifest(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/manifest/manifest', df, summary)
+    def load_walk_forward_validation_manifest(self):
+        return self._load_csv('advanced_walk_forward_validation/manifest/manifest.csv')
+    save_walk_forward_manifest = save_walk_forward_validation_manifest
+    load_walk_forward_manifest = load_walk_forward_validation_manifest
+
+    def save_walk_forward_health_check(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/health/health_check', df, summary)
+    def load_walk_forward_health_check(self):
+        return self._load_csv('advanced_walk_forward_validation/health/health_check.csv')
+
+    def save_walk_forward_validation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/validation/validation_report', df, summary)
+    def load_walk_forward_validation_report(self):
+        return self._load_csv('advanced_walk_forward_validation/validation/validation_report.csv')
+
+    def save_walk_forward_safety_boundary(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/safety/safety_boundary', df, summary)
+    def load_walk_forward_safety_boundary(self):
+        return self._load_csv('advanced_walk_forward_validation/safety/safety_boundary.csv')
+
+    def save_phase_148_stress_testing_scenario_simulation_handoff_report(self, df, summary=None):
+        return self._save_csv_json('advanced_walk_forward_validation/handoff/phase_148_handoff', df, summary)
+    def load_phase_148_stress_testing_scenario_simulation_handoff_report(self):
+        return self._load_csv('advanced_walk_forward_validation/handoff/phase_148_handoff.csv')
+    save_phase_148_handoff = save_phase_148_stress_testing_scenario_simulation_handoff_report
+    load_phase_148_handoff = load_phase_148_stress_testing_scenario_simulation_handoff_report
+
+    def save_walk_forward_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_walk_forward_validation' / f'report_{profile_name}.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        if markdown:
+            md_path = path.with_suffix('.md')
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(markdown)
+        return path
+
+    def load_walk_forward_report(self, profile_name: str):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_walk_forward_validation' / f'report_{profile_name}.json'
+        if not path.exists():
+            return {}
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def list_walk_forward_reports(self):
+        return pd.DataFrame()
+
+    # Phase 148 Stress Testing and Scenario Simulation DataLake Support
+    def save_stress_testing_profile_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/profiles/profile_registry', df, summary)
+    def load_stress_testing_profile_registry(self):
+        return self._load_csv('advanced_stress_testing/profiles/profile_registry.csv')
+
+    def save_stress_testing_domain_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/domains/domain_registry', df, summary)
+    def load_stress_testing_domain_registry(self):
+        return self._load_csv('advanced_stress_testing/domains/domain_registry.csv')
+
+    def save_stress_testing_scope_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/scopes/scope_registry', df, summary)
+    def load_stress_testing_scope_registry(self):
+        return self._load_csv('advanced_stress_testing/scopes/scope_registry.csv')
+
+    def save_stress_scenario_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/scenario_contracts/scenario_contract_registry', df, summary)
+    def load_stress_scenario_contract_registry(self):
+        return self._load_csv('advanced_stress_testing/scenario_contracts/scenario_contract_registry.csv')
+
+    def save_historical_stress_scenario_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/historical_scenarios/historical_registry', df, summary)
+    def load_historical_stress_scenario_contract_registry(self):
+        return self._load_csv('advanced_stress_testing/historical_scenarios/historical_registry.csv')
+
+    def save_hypothetical_stress_scenario_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/hypothetical_scenarios/hypothetical_registry', df, summary)
+    def load_hypothetical_stress_scenario_contract_registry(self):
+        return self._load_csv('advanced_stress_testing/hypothetical_scenarios/hypothetical_registry.csv')
+
+    def save_regime_shock_scenario_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/regime_shocks/regime_shock_registry', df, summary)
+    def load_regime_shock_scenario_contract_registry(self):
+        return self._load_csv('advanced_stress_testing/regime_shocks/regime_shock_registry.csv')
+
+    def save_volatility_shock_scenario_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/volatility_shocks/volatility_shock_registry', df, summary)
+    def load_volatility_shock_scenario_contract_registry(self):
+        return self._load_csv('advanced_stress_testing/volatility_shocks/volatility_shock_registry.csv')
+
+    def save_liquidity_shock_scenario_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/liquidity_shocks/liquidity_shock_registry', df, summary)
+    def load_liquidity_shock_scenario_contract_registry(self):
+        return self._load_csv('advanced_stress_testing/liquidity_shocks/liquidity_shock_registry.csv')
+
+    def save_spread_widening_scenario_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/spread_widening/spread_widening_registry', df, summary)
+    def load_spread_widening_scenario_contract_registry(self):
+        return self._load_csv('advanced_stress_testing/spread_widening/spread_widening_registry.csv')
+
+    def save_gap_risk_scenario_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/shock_placeholders/gap_risk_registry', df, summary)
+    def load_gap_risk_scenario_placeholder_registry(self):
+        return self._load_csv('advanced_stress_testing/shock_placeholders/gap_risk_registry.csv')
+
+    def save_correlation_breakdown_scenario_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/shock_placeholders/correlation_breakdown_registry', df, summary)
+    def load_correlation_breakdown_scenario_placeholder_registry(self):
+        return self._load_csv('advanced_stress_testing/shock_placeholders/correlation_breakdown_registry.csv')
+
+    def save_macro_shock_scenario_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/shock_placeholders/macro_shock_registry', df, summary)
+    def load_macro_shock_scenario_placeholder_registry(self):
+        return self._load_csv('advanced_stress_testing/shock_placeholders/macro_shock_registry.csv')
+
+    def save_cross_asset_contagion_scenario_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/shock_placeholders/cross_asset_contagion_registry', df, summary)
+    def load_cross_asset_contagion_scenario_placeholder_registry(self):
+        return self._load_csv('advanced_stress_testing/shock_placeholders/cross_asset_contagion_registry.csv')
+
+    def save_transaction_cost_shock_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/cost_slippage_shocks/transaction_cost_shock_registry', df, summary)
+    def load_transaction_cost_shock_contract_registry(self):
+        return self._load_csv('advanced_stress_testing/cost_slippage_shocks/transaction_cost_shock_registry.csv')
+
+    def save_slippage_shock_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/cost_slippage_shocks/slippage_shock_registry', df, summary)
+    def load_slippage_shock_contract_registry(self):
+        return self._load_csv('advanced_stress_testing/cost_slippage_shocks/slippage_shock_registry.csv')
+
+    def save_stress_scenario_library_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/scenario_library/library_registry', df, summary)
+    def load_stress_scenario_library_registry(self):
+        return self._load_csv('advanced_stress_testing/scenario_library/library_registry.csv')
+
+    def save_stress_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/metric_placeholders/metric_registry', df, summary)
+    def load_stress_metric_placeholder_registry(self):
+        return self._load_csv('advanced_stress_testing/metric_placeholders/metric_registry.csv')
+
+    def save_scenario_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/metric_placeholders/scenario_metric_registry', df, summary)
+    def load_scenario_metric_placeholder_registry(self):
+        return self._load_csv('advanced_stress_testing/metric_placeholders/scenario_metric_registry.csv')
+
+    def save_robustness_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/metric_placeholders/robustness_metric_registry', df, summary)
+    def load_robustness_metric_placeholder_registry(self):
+        return self._load_csv('advanced_stress_testing/metric_placeholders/robustness_metric_registry.csv')
+
+    def save_stress_no_lookahead_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/guards/no_lookahead_registry', df, summary)
+    def load_stress_no_lookahead_guard_registry(self):
+        return self._load_csv('advanced_stress_testing/guards/no_lookahead_registry.csv')
+
+    def save_stress_scenario_leakage_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/guards/scenario_leakage_registry', df, summary)
+    def load_stress_scenario_leakage_guard_registry(self):
+        return self._load_csv('advanced_stress_testing/guards/scenario_leakage_registry.csv')
+
+    def save_stress_forbidden_column_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/guards/forbidden_column_registry', df, summary)
+    def load_stress_forbidden_column_policy_registry(self):
+        return self._load_csv('advanced_stress_testing/guards/forbidden_column_registry.csv')
+
+    def save_stress_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/disabled_execution/stress_execution_disabled', df, summary)
+    def load_stress_execution_disabled_report(self):
+        return self._load_csv('advanced_stress_testing/disabled_execution/stress_execution_disabled.csv')
+
+    def save_scenario_simulation_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/disabled_execution/scenario_simulation_disabled', df, summary)
+    def load_scenario_simulation_disabled_report(self):
+        return self._load_csv('advanced_stress_testing/disabled_execution/scenario_simulation_disabled.csv')
+
+    def save_stress_metric_calculation_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/disabled_execution/metric_calc_disabled', df, summary)
+    def load_stress_metric_calculation_disabled_report(self):
+        return self._load_csv('advanced_stress_testing/disabled_execution/metric_calc_disabled.csv')
+
+    def save_stress_live_trading_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/disabled_execution/live_trading_disabled', df, summary)
+    def load_stress_live_trading_disabled_report(self):
+        return self._load_csv('advanced_stress_testing/disabled_execution/live_trading_disabled.csv')
+
+    def save_stress_broker_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/disabled_execution/broker_disabled', df, summary)
+    def load_stress_broker_execution_disabled_report(self):
+        return self._load_csv('advanced_stress_testing/disabled_execution/broker_disabled.csv')
+
+    def save_stress_findings_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/findings/findings_registry', df, summary)
+    def load_stress_findings_registry(self):
+        return self._load_csv('advanced_stress_testing/findings/findings_registry.csv')
+
+    def save_stress_readiness_score_report(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/scoring/readiness_score_report', df, summary)
+    def load_stress_readiness_score_report(self):
+        return self._load_csv('advanced_stress_testing/scoring/readiness_score_report.csv')
+
+    def save_stress_testing_manifest(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/manifest/manifest', df, summary)
+    def load_stress_testing_manifest(self):
+        return self._load_csv('advanced_stress_testing/manifest/manifest.csv')
+
+    def save_stress_testing_health_check(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/health/health_check', df, summary)
+    def load_stress_testing_health_check(self):
+        return self._load_csv('advanced_stress_testing/health/health_check.csv')
+
+    def save_stress_testing_validation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/validation/validation_report', df, summary)
+    def load_stress_testing_validation_report(self):
+        return self._load_csv('advanced_stress_testing/validation/validation_report.csv')
+
+    def save_stress_testing_safety_boundary(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/safety/safety_boundary', df, summary)
+    def load_stress_testing_safety_boundary(self):
+        return self._load_csv('advanced_stress_testing/safety/safety_boundary.csv')
+
+    def save_phase_149_monte_carlo_robustness_parameter_stability_handoff_report(self, df, summary=None):
+        return self._save_csv_json('advanced_stress_testing/handoff/phase_149_handoff', df, summary)
+    def load_phase_149_monte_carlo_robustness_parameter_stability_handoff_report(self):
+        return self._load_csv('advanced_stress_testing/handoff/phase_149_handoff.csv')
+    save_phase_149_handoff = save_phase_149_monte_carlo_robustness_parameter_stability_handoff_report
+    load_phase_149_handoff = load_phase_149_monte_carlo_robustness_parameter_stability_handoff_report
+
+    def save_stress_testing_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_stress_testing' / f'report_{profile_name}.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        if markdown:
+            md_path = path.with_suffix('.md')
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(markdown)
+        return path
+
+    def load_stress_testing_report(self, profile_name: str):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_stress_testing' / f'report_{profile_name}.json'
+        if not path.exists():
+            return {}
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def list_stress_testing_reports(self):
+        return pd.DataFrame()
+
+    # ---------------------------------------------------------
+    # PHASE 149: ADVANCED MONTE CARLO ROBUSTNESS CONTRACTS
+    # ---------------------------------------------------------
+    def save_monte_carlo_profile_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/profiles/profile_registry', df, summary)
+    def load_monte_carlo_profile_registry(self):
+        return self._load_csv('advanced_monte_carlo_robustness/profiles/profile_registry.csv')
+
+    def save_monte_carlo_domain_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/domains/domain_registry', df, summary)
+    def load_monte_carlo_domain_registry(self):
+        return self._load_csv('advanced_monte_carlo_robustness/domains/domain_registry.csv')
+
+    def save_monte_carlo_scope_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/scopes/scope_registry', df, summary)
+    def load_monte_carlo_scope_registry(self):
+        return self._load_csv('advanced_monte_carlo_robustness/scopes/scope_registry.csv')
+
+    def save_monte_carlo_robustness_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/contracts/robustness_contracts', df, summary)
+    def load_monte_carlo_robustness_contracts(self):
+        return self._load_csv('advanced_monte_carlo_robustness/contracts/robustness_contracts.csv')
+
+    def save_bootstrap_simulation_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/contracts/bootstrap_simulation_contracts', df, summary)
+    def load_bootstrap_simulation_contracts(self):
+        return self._load_csv('advanced_monte_carlo_robustness/contracts/bootstrap_simulation_contracts.csv')
+
+    def save_block_bootstrap_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/contracts/block_bootstrap_contracts', df, summary)
+    def load_block_bootstrap_contracts(self):
+        return self._load_csv('advanced_monte_carlo_robustness/contracts/block_bootstrap_contracts.csv')
+
+    def save_stationary_bootstrap_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/contracts/stationary_bootstrap_contracts', df, summary)
+    def load_stationary_bootstrap_contracts(self):
+        return self._load_csv('advanced_monte_carlo_robustness/contracts/stationary_bootstrap_contracts.csv')
+
+    def save_return_path_resampling_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/contracts/return_path_resampling_contracts', df, summary)
+    def load_return_path_resampling_contracts(self):
+        return self._load_csv('advanced_monte_carlo_robustness/contracts/return_path_resampling_contracts.csv')
+
+    def save_trade_sequence_reshuffling_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/contracts/trade_sequence_reshuffling_contracts', df, summary)
+    def load_trade_sequence_reshuffling_contracts(self):
+        return self._load_csv('advanced_monte_carlo_robustness/contracts/trade_sequence_reshuffling_contracts.csv')
+
+    def save_residual_resampling_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/resampling/residual_resampling_placeholders', df, summary)
+    def load_residual_resampling_placeholders(self):
+        return self._load_csv('advanced_monte_carlo_robustness/resampling/residual_resampling_placeholders.csv')
+
+    def save_noise_injection_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/resampling/noise_injection_placeholders', df, summary)
+    def load_noise_injection_placeholders(self):
+        return self._load_csv('advanced_monte_carlo_robustness/resampling/noise_injection_placeholders.csv')
+
+    def save_path_perturbation_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/resampling/path_perturbation_placeholders', df, summary)
+    def load_path_perturbation_placeholders(self):
+        return self._load_csv('advanced_monte_carlo_robustness/resampling/path_perturbation_placeholders.csv')
+
+    def save_parameter_stability_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/parameter_stability/stability_contracts', df, summary)
+    def load_parameter_stability_contracts(self):
+        return self._load_csv('advanced_monte_carlo_robustness/parameter_stability/stability_contracts.csv')
+
+    def save_parameter_sensitivity_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/parameter_stability/sensitivity_contracts', df, summary)
+    def load_parameter_sensitivity_contracts(self):
+        return self._load_csv('advanced_monte_carlo_robustness/parameter_stability/sensitivity_contracts.csv')
+
+    def save_parameter_perturbation_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/parameter_stability/perturbation_contracts', df, summary)
+    def load_parameter_perturbation_contracts(self):
+        return self._load_csv('advanced_monte_carlo_robustness/parameter_stability/perturbation_contracts.csv')
+
+    def save_parameter_grid_stability_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/parameter_stability/grid_stability_placeholders', df, summary)
+    def load_parameter_grid_stability_placeholders(self):
+        return self._load_csv('advanced_monte_carlo_robustness/parameter_stability/grid_stability_placeholders.csv')
+
+    def save_parameter_surface_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/parameter_stability/surface_placeholders', df, summary)
+    def load_parameter_surface_placeholders(self):
+        return self._load_csv('advanced_monte_carlo_robustness/parameter_stability/surface_placeholders.csv')
+
+    def save_parameter_fragility_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/parameter_stability/fragility_placeholders', df, summary)
+    def load_parameter_fragility_placeholders(self):
+        return self._load_csv('advanced_monte_carlo_robustness/parameter_stability/fragility_placeholders.csv')
+
+    def save_robustness_envelope_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/envelopes/envelope_placeholders', df, summary)
+    def load_robustness_envelope_placeholders(self):
+        return self._load_csv('advanced_monte_carlo_robustness/envelopes/envelope_placeholders.csv')
+
+    def save_stability_band_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/envelopes/stability_band_placeholders', df, summary)
+    def load_stability_band_placeholders(self):
+        return self._load_csv('advanced_monte_carlo_robustness/envelopes/stability_band_placeholders.csv')
+
+    def save_confidence_interval_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/envelopes/confidence_interval_placeholders', df, summary)
+    def load_confidence_interval_placeholders(self):
+        return self._load_csv('advanced_monte_carlo_robustness/envelopes/confidence_interval_placeholders.csv')
+
+    def save_drawdown_distribution_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/envelopes/drawdown_distribution_placeholders', df, summary)
+    def load_drawdown_distribution_placeholders(self):
+        return self._load_csv('advanced_monte_carlo_robustness/envelopes/drawdown_distribution_placeholders.csv')
+
+    def save_return_distribution_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/envelopes/return_distribution_placeholders', df, summary)
+    def load_return_distribution_placeholders(self):
+        return self._load_csv('advanced_monte_carlo_robustness/envelopes/return_distribution_placeholders.csv')
+
+    def save_tail_risk_distribution_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/envelopes/tail_risk_distribution_placeholders', df, summary)
+    def load_tail_risk_distribution_placeholders(self):
+        return self._load_csv('advanced_monte_carlo_robustness/envelopes/tail_risk_distribution_placeholders.csv')
+
+    def save_worst_case_path_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/envelopes/worst_case_path_placeholders', df, summary)
+    def load_worst_case_path_placeholders(self):
+        return self._load_csv('advanced_monte_carlo_robustness/envelopes/worst_case_path_placeholders.csv')
+
+    def save_best_case_path_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/envelopes/best_case_path_placeholders', df, summary)
+    def load_best_case_path_placeholders(self):
+        return self._load_csv('advanced_monte_carlo_robustness/envelopes/best_case_path_placeholders.csv')
+
+    def save_median_case_path_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/envelopes/median_case_path_placeholders', df, summary)
+    def load_median_case_path_placeholders(self):
+        return self._load_csv('advanced_monte_carlo_robustness/envelopes/median_case_path_placeholders.csv')
+
+    def save_scenario_resampling_linkage(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/dependencies/scenario_resampling_linkage', df, summary)
+    def load_scenario_resampling_linkage(self):
+        return self._load_csv('advanced_monte_carlo_robustness/dependencies/scenario_resampling_linkage.csv')
+
+    def save_stress_monte_carlo_linkage(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/dependencies/stress_monte_carlo_linkage', df, summary)
+    def load_stress_monte_carlo_linkage(self):
+        return self._load_csv('advanced_monte_carlo_robustness/dependencies/stress_monte_carlo_linkage.csv')
+
+    def save_walk_forward_monte_carlo_linkage(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/dependencies/walk_forward_monte_carlo_linkage', df, summary)
+    def load_walk_forward_monte_carlo_linkage(self):
+        return self._load_csv('advanced_monte_carlo_robustness/dependencies/walk_forward_monte_carlo_linkage.csv')
+
+    def save_realistic_backtest_monte_carlo_dependencies(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/dependencies/backtest_dependencies', df, summary)
+    def load_realistic_backtest_monte_carlo_dependencies(self):
+        return self._load_csv('advanced_monte_carlo_robustness/dependencies/backtest_dependencies.csv')
+
+    def save_transaction_cost_monte_carlo_dependencies(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/dependencies/transaction_cost_dependencies', df, summary)
+    def load_transaction_cost_monte_carlo_dependencies(self):
+        return self._load_csv('advanced_monte_carlo_robustness/dependencies/transaction_cost_dependencies.csv')
+
+    def save_slippage_monte_carlo_dependencies(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/dependencies/slippage_dependencies', df, summary)
+    def load_slippage_monte_carlo_dependencies(self):
+        return self._load_csv('advanced_monte_carlo_robustness/dependencies/slippage_dependencies.csv')
+
+    def save_regime_monte_carlo_dependencies(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/dependencies/regime_dependencies', df, summary)
+    def load_regime_monte_carlo_dependencies(self):
+        return self._load_csv('advanced_monte_carlo_robustness/dependencies/regime_dependencies.csv')
+
+    def save_governance_monte_carlo_dependencies(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/dependencies/governance_dependencies', df, summary)
+    def load_governance_monte_carlo_dependencies(self):
+        return self._load_csv('advanced_monte_carlo_robustness/dependencies/governance_dependencies.csv')
+
+    def save_monte_carlo_input_data_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/io_contracts/input_data_contracts', df, summary)
+    def load_monte_carlo_input_data_contracts(self):
+        return self._load_csv('advanced_monte_carlo_robustness/io_contracts/input_data_contracts.csv')
+
+    def save_monte_carlo_feature_input_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/io_contracts/feature_input_contracts', df, summary)
+    def load_monte_carlo_feature_input_contracts(self):
+        return self._load_csv('advanced_monte_carlo_robustness/io_contracts/feature_input_contracts.csv')
+
+    def save_monte_carlo_signal_input_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/io_contracts/signal_input_contracts', df, summary)
+    def load_monte_carlo_signal_input_contracts(self):
+        return self._load_csv('advanced_monte_carlo_robustness/io_contracts/signal_input_contracts.csv')
+
+    def save_monte_carlo_output_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/io_contracts/output_contracts', df, summary)
+    def load_monte_carlo_output_contracts(self):
+        return self._load_csv('advanced_monte_carlo_robustness/io_contracts/output_contracts.csv')
+
+    def save_robustness_output_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/io_contracts/robustness_output_contracts', df, summary)
+    def load_robustness_output_contracts(self):
+        return self._load_csv('advanced_monte_carlo_robustness/io_contracts/robustness_output_contracts.csv')
+
+    def save_parameter_stability_output_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/io_contracts/stability_output_contracts', df, summary)
+    def load_parameter_stability_output_contracts(self):
+        return self._load_csv('advanced_monte_carlo_robustness/io_contracts/stability_output_contracts.csv')
+
+    def save_monte_carlo_metric_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/metrics/mc_metric_placeholders', df, summary)
+    def load_monte_carlo_metric_placeholders(self):
+        return self._load_csv('advanced_monte_carlo_robustness/metrics/mc_metric_placeholders.csv')
+
+    def save_robustness_metric_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/metrics/robustness_metric_placeholders', df, summary)
+    def load_robustness_metric_placeholders(self):
+        return self._load_csv('advanced_monte_carlo_robustness/metrics/robustness_metric_placeholders.csv')
+
+    def save_parameter_stability_metric_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/metrics/stability_metric_placeholders', df, summary)
+    def load_parameter_stability_metric_placeholders(self):
+        return self._load_csv('advanced_monte_carlo_robustness/metrics/stability_metric_placeholders.csv')
+
+    def save_fragility_metric_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/metrics/fragility_metric_placeholders', df, summary)
+    def load_fragility_metric_placeholders(self):
+        return self._load_csv('advanced_monte_carlo_robustness/metrics/fragility_metric_placeholders.csv')
+
+    def save_distribution_metric_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/metrics/distribution_metric_placeholders', df, summary)
+    def load_distribution_metric_placeholders(self):
+        return self._load_csv('advanced_monte_carlo_robustness/metrics/distribution_metric_placeholders.csv')
+
+    def save_monte_carlo_no_lookahead_guards(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/guards/no_lookahead_guards', df, summary)
+    def load_monte_carlo_no_lookahead_guards(self):
+        return self._load_csv('advanced_monte_carlo_robustness/guards/no_lookahead_guards.csv')
+
+    def save_monte_carlo_resampling_leakage_guards(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/guards/resampling_leakage_guards', df, summary)
+    def load_monte_carlo_resampling_leakage_guards(self):
+        return self._load_csv('advanced_monte_carlo_robustness/guards/resampling_leakage_guards.csv')
+
+    def save_monte_carlo_data_snooping_bias_guards(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/guards/data_snooping_guards', df, summary)
+    def load_monte_carlo_data_snooping_bias_guards(self):
+        return self._load_csv('advanced_monte_carlo_robustness/guards/data_snooping_guards.csv')
+
+    def save_monte_carlo_overfitting_guards(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/guards/overfitting_guards', df, summary)
+    def load_monte_carlo_overfitting_guards(self):
+        return self._load_csv('advanced_monte_carlo_robustness/guards/overfitting_guards.csv')
+
+    def save_monte_carlo_survivorship_bias_guards(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/guards/survivorship_bias_guards', df, summary)
+    def load_monte_carlo_survivorship_bias_guards(self):
+        return self._load_csv('advanced_monte_carlo_robustness/guards/survivorship_bias_guards.csv')
+
+    def save_monte_carlo_multiple_testing_guards(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/guards/multiple_testing_guards', df, summary)
+    def load_monte_carlo_multiple_testing_guards(self):
+        return self._load_csv('advanced_monte_carlo_robustness/guards/multiple_testing_guards.csv')
+
+    def save_monte_carlo_metadata_only_news_guards(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/guards/metadata_only_news_guards', df, summary)
+    def load_monte_carlo_metadata_only_news_guards(self):
+        return self._load_csv('advanced_monte_carlo_robustness/guards/metadata_only_news_guards.csv')
+
+    def save_monte_carlo_source_preservation_guards(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/guards/source_preservation_guards', df, summary)
+    def load_monte_carlo_source_preservation_guards(self):
+        return self._load_csv('advanced_monte_carlo_robustness/guards/source_preservation_guards.csv')
+
+    def save_monte_carlo_forbidden_column_policies(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/guards/forbidden_column_policies', df, summary)
+    def load_monte_carlo_forbidden_column_policies(self):
+        return self._load_csv('advanced_monte_carlo_robustness/guards/forbidden_column_policies.csv')
+
+    def save_monte_carlo_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/disabled_execution/mc_disabled', df, summary)
+    def load_monte_carlo_execution_disabled_report(self):
+        return self._load_csv('advanced_monte_carlo_robustness/disabled_execution/mc_disabled.csv')
+
+    def save_bootstrap_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/disabled_execution/bootstrap_disabled', df, summary)
+    def load_bootstrap_execution_disabled_report(self):
+        return self._load_csv('advanced_monte_carlo_robustness/disabled_execution/bootstrap_disabled.csv')
+
+    def save_parameter_optimization_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/disabled_execution/param_opt_disabled', df, summary)
+    def load_parameter_optimization_disabled_report(self):
+        return self._load_csv('advanced_monte_carlo_robustness/disabled_execution/param_opt_disabled.csv')
+
+    def save_parameter_sweep_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/disabled_execution/sweep_disabled', df, summary)
+    def load_parameter_sweep_execution_disabled_report(self):
+        return self._load_csv('advanced_monte_carlo_robustness/disabled_execution/sweep_disabled.csv')
+
+    def save_monte_carlo_metric_calculation_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/disabled_execution/metric_calc_disabled', df, summary)
+    def load_monte_carlo_metric_calculation_disabled_report(self):
+        return self._load_csv('advanced_monte_carlo_robustness/disabled_execution/metric_calc_disabled.csv')
+
+    def save_monte_carlo_model_training_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/disabled_execution/model_train_disabled', df, summary)
+    def load_monte_carlo_model_training_disabled_report(self):
+        return self._load_csv('advanced_monte_carlo_robustness/disabled_execution/model_train_disabled.csv')
+
+    def save_monte_carlo_prediction_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/disabled_execution/prediction_disabled', df, summary)
+    def load_monte_carlo_prediction_disabled_report(self):
+        return self._load_csv('advanced_monte_carlo_robustness/disabled_execution/prediction_disabled.csv')
+
+    def save_monte_carlo_live_trading_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/disabled_execution/live_trading_disabled', df, summary)
+    def load_monte_carlo_live_trading_disabled_report(self):
+        return self._load_csv('advanced_monte_carlo_robustness/disabled_execution/live_trading_disabled.csv')
+
+    def save_monte_carlo_broker_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/disabled_execution/broker_disabled', df, summary)
+    def load_monte_carlo_broker_execution_disabled_report(self):
+        return self._load_csv('advanced_monte_carlo_robustness/disabled_execution/broker_disabled.csv')
+
+    def save_monte_carlo_performance_claim_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/disabled_execution/perf_claim_disabled', df, summary)
+    def load_monte_carlo_performance_claim_disabled_report(self):
+        return self._load_csv('advanced_monte_carlo_robustness/disabled_execution/perf_claim_disabled.csv')
+
+    def save_monte_carlo_manual_review_queue(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/findings/manual_review_queue', df, summary)
+    def load_monte_carlo_manual_review_queue(self):
+        return self._load_csv('advanced_monte_carlo_robustness/findings/manual_review_queue.csv')
+
+    def save_monte_carlo_findings_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/findings/findings_registry', df, summary)
+    def load_monte_carlo_findings_registry(self):
+        return self._load_csv('advanced_monte_carlo_robustness/findings/findings_registry.csv')
+
+    def save_monte_carlo_readiness_score_report(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/scoring/readiness_score_report', df, summary)
+    def load_monte_carlo_readiness_score_report(self):
+        return self._load_csv('advanced_monte_carlo_robustness/scoring/readiness_score_report.csv')
+
+    def save_monte_carlo_robustness_manifest(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/manifest/manifest', df, summary)
+    def load_monte_carlo_robustness_manifest(self):
+        return self._load_csv('advanced_monte_carlo_robustness/manifest/manifest.csv')
+
+    def save_monte_carlo_health_check(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/health/health_check', df, summary)
+    def load_monte_carlo_health_check(self):
+        return self._load_csv('advanced_monte_carlo_robustness/health/health_check.csv')
+
+    def save_monte_carlo_validation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/validation/validation_report', df, summary)
+    def load_monte_carlo_validation_report(self):
+        return self._load_csv('advanced_monte_carlo_robustness/validation/validation_report.csv')
+
+    def save_monte_carlo_safety_boundary(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/safety/safety_boundary', df, summary)
+    def load_monte_carlo_safety_boundary(self):
+        return self._load_csv('advanced_monte_carlo_robustness/safety/safety_boundary.csv')
+
+    def save_phase_150_backtest_governance_bias_control_handoff_report(self, df, summary=None):
+        return self._save_csv_json('advanced_monte_carlo_robustness/handoff/phase_150_handoff', df, summary)
+    def load_phase_150_backtest_governance_bias_control_handoff_report(self):
+        return self._load_csv('advanced_monte_carlo_robustness/handoff/phase_150_handoff.csv')
+    save_phase_150_handoff = save_phase_150_backtest_governance_bias_control_handoff_report
+    load_phase_150_handoff = load_phase_150_backtest_governance_bias_control_handoff_report
+
+    def save_monte_carlo_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_monte_carlo_robustness' / f'report_{profile_name}.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        if markdown:
+            md_path = path.with_suffix('.md')
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(markdown)
+        return path
+
+    def load_monte_carlo_report(self, profile_name: str):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_monte_carlo_robustness' / f'report_{profile_name}.json'
+        if not path.exists():
+            return {}
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def list_monte_carlo_reports(self):
+        return pd.DataFrame()
+
+    # =========================================================================
+    # Phase 150: Advanced Backtest Governance & Bias Control
+    # =========================================================================
+    def save_backtest_governance_profile_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/profiles/profile_registry', df, summary)
+    def load_backtest_governance_profile_registry(self):
+        return self._load_csv('advanced_backtest_governance/profiles/profile_registry.csv')
+
+    def save_backtest_governance_domain_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/domains/domain_registry', df, summary)
+    def load_backtest_governance_domain_registry(self):
+        return self._load_csv('advanced_backtest_governance/domains/domain_registry.csv')
+
+    def save_backtest_governance_scope_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/scopes/scope_registry', df, summary)
+    def load_backtest_governance_scope_registry(self):
+        return self._load_csv('advanced_backtest_governance/scopes/scope_registry.csv')
+
+    def save_backtest_governance_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/contracts/governance_contracts', df, summary)
+    def load_backtest_governance_contracts(self):
+        return self._load_csv('advanced_backtest_governance/contracts/governance_contracts.csv')
+
+    def save_backtest_bias_control_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/contracts/bias_control_contracts', df, summary)
+    def load_backtest_bias_control_contracts(self):
+        return self._load_csv('advanced_backtest_governance/contracts/bias_control_contracts.csv')
+
+    def save_backtest_result_reporting_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/contracts/result_reporting_contracts', df, summary)
+    def load_backtest_result_reporting_contracts(self):
+        return self._load_csv('advanced_backtest_governance/contracts/result_reporting_contracts.csv')
+
+    def save_backtest_metric_claim_boundaries(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/boundaries/metric_claim_boundaries', df, summary)
+    def load_backtest_metric_claim_boundaries(self):
+        return self._load_csv('advanced_backtest_governance/boundaries/metric_claim_boundaries.csv')
+
+    def save_backtest_performance_claim_boundaries(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/boundaries/performance_claim_boundaries', df, summary)
+    def load_backtest_performance_claim_boundaries(self):
+        return self._load_csv('advanced_backtest_governance/boundaries/performance_claim_boundaries.csv')
+
+    def save_backtest_result_disclosure_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/placeholders/result_disclosure_placeholders', df, summary)
+    def load_backtest_result_disclosure_placeholders(self):
+        return self._load_csv('advanced_backtest_governance/placeholders/result_disclosure_placeholders.csv')
+
+    def save_lookahead_bias_controls(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/bias_controls/lookahead_bias_controls', df, summary)
+    def load_lookahead_bias_controls(self):
+        return self._load_csv('advanced_backtest_governance/bias_controls/lookahead_bias_controls.csv')
+
+    def save_survivorship_bias_controls(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/bias_controls/survivorship_bias_controls', df, summary)
+    def load_survivorship_bias_controls(self):
+        return self._load_csv('advanced_backtest_governance/bias_controls/survivorship_bias_controls.csv')
+
+    def save_data_snooping_bias_controls(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/bias_controls/data_snooping_bias_controls', df, summary)
+    def load_data_snooping_bias_controls(self):
+        return self._load_csv('advanced_backtest_governance/bias_controls/data_snooping_bias_controls.csv')
+
+    def save_overfitting_bias_controls(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/bias_controls/overfitting_bias_controls', df, summary)
+    def load_overfitting_bias_controls(self):
+        return self._load_csv('advanced_backtest_governance/bias_controls/overfitting_bias_controls.csv')
+
+    def save_multiple_testing_bias_controls(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/bias_controls/multiple_testing_bias_controls', df, summary)
+    def load_multiple_testing_bias_controls(self):
+        return self._load_csv('advanced_backtest_governance/bias_controls/multiple_testing_bias_controls.csv')
+
+    def save_parameter_fishing_bias_controls(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/bias_controls/parameter_fishing_bias_controls', df, summary)
+    def load_parameter_fishing_bias_controls(self):
+        return self._load_csv('advanced_backtest_governance/bias_controls/parameter_fishing_bias_controls.csv')
+
+    def save_benchmark_selection_bias_controls(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/bias_controls/benchmark_selection_bias_controls', df, summary)
+    def load_benchmark_selection_bias_controls(self):
+        return self._load_csv('advanced_backtest_governance/bias_controls/benchmark_selection_bias_controls.csv')
+
+    def save_regime_coverage_bias_controls(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/bias_controls/regime_coverage_bias_controls', df, summary)
+    def load_regime_coverage_bias_controls(self):
+        return self._load_csv('advanced_backtest_governance/bias_controls/regime_coverage_bias_controls.csv')
+
+    def save_sample_coverage_bias_controls(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/bias_controls/sample_coverage_bias_controls', df, summary)
+    def load_sample_coverage_bias_controls(self):
+        return self._load_csv('advanced_backtest_governance/bias_controls/sample_coverage_bias_controls.csv')
+
+    def save_transaction_cost_realism_governance(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/realism/transaction_cost_realism', df, summary)
+    def load_transaction_cost_realism_governance(self):
+        return self._load_csv('advanced_backtest_governance/realism/transaction_cost_realism.csv')
+
+    def save_slippage_realism_governance(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/realism/slippage_realism', df, summary)
+    def load_slippage_realism_governance(self):
+        return self._load_csv('advanced_backtest_governance/realism/slippage_realism.csv')
+
+    def save_fill_model_realism_governance(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/realism/fill_model_realism', df, summary)
+    def load_fill_model_realism_governance(self):
+        return self._load_csv('advanced_backtest_governance/realism/fill_model_realism.csv')
+
+    def save_liquidity_realism_governance(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/realism/liquidity_realism', df, summary)
+    def load_liquidity_realism_governance(self):
+        return self._load_csv('advanced_backtest_governance/realism/liquidity_realism.csv')
+
+    def save_timestamp_integrity_governance(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/time_series/timestamp_integrity', df, summary)
+    def load_timestamp_integrity_governance(self):
+        return self._load_csv('advanced_backtest_governance/time_series/timestamp_integrity.csv')
+
+    def save_split_governance(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/splits/split_governance', df, summary)
+    def load_split_governance(self):
+        return self._load_csv('advanced_backtest_governance/splits/split_governance.csv')
+
+    def save_walk_forward_governance(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/splits/walk_forward_governance', df, summary)
+    def load_walk_forward_governance(self):
+        return self._load_csv('advanced_backtest_governance/splits/walk_forward_governance.csv')
+
+    def save_oos_governance(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/splits/oos_governance', df, summary)
+    def load_oos_governance(self):
+        return self._load_csv('advanced_backtest_governance/splits/oos_governance.csv')
+
+    def save_stress_testing_governance(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/robustness/stress_testing_governance', df, summary)
+    def load_stress_testing_governance(self):
+        return self._load_csv('advanced_backtest_governance/robustness/stress_testing_governance.csv')
+
+    def save_monte_carlo_governance(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/robustness/monte_carlo_governance', df, summary)
+    def load_monte_carlo_governance(self):
+        return self._load_csv('advanced_backtest_governance/robustness/monte_carlo_governance.csv')
+
+    def save_benchmark_governance(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/robustness/benchmark_governance', df, summary)
+    def load_benchmark_governance(self):
+        return self._load_csv('advanced_backtest_governance/robustness/benchmark_governance.csv')
+
+    def save_scenario_governance(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/robustness/scenario_governance', df, summary)
+    def load_scenario_governance(self):
+        return self._load_csv('advanced_backtest_governance/robustness/scenario_governance.csv')
+
+    def save_parameter_stability_governance(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/robustness/parameter_stability_governance', df, summary)
+    def load_parameter_stability_governance(self):
+        return self._load_csv('advanced_backtest_governance/robustness/parameter_stability_governance.csv')
+
+    def save_backtest_audit_policies(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/policies/audit_policies', df, summary)
+    def load_backtest_audit_policies(self):
+        return self._load_csv('advanced_backtest_governance/policies/audit_policies.csv')
+
+    def save_backtest_evidence_policies(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/policies/evidence_policies', df, summary)
+    def load_backtest_evidence_policies(self):
+        return self._load_csv('advanced_backtest_governance/policies/evidence_policies.csv')
+
+    def save_backtest_manual_review_gates(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/gates/manual_review_gates', df, summary)
+    def load_backtest_manual_review_gates(self):
+        return self._load_csv('advanced_backtest_governance/gates/manual_review_gates.csv')
+
+    def save_backtest_go_no_go_boundaries(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/gates/go_no_go_boundaries', df, summary)
+    def load_backtest_go_no_go_boundaries(self):
+        return self._load_csv('advanced_backtest_governance/gates/go_no_go_boundaries.csv')
+
+    def save_backtest_result_release_boundaries(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/boundaries/result_release_boundaries', df, summary)
+    def load_backtest_result_release_boundaries(self):
+        return self._load_csv('advanced_backtest_governance/boundaries/result_release_boundaries.csv')
+
+    def save_backtest_report_disclaimers(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/policies/report_disclaimers', df, summary)
+    def load_backtest_report_disclaimers(self):
+        return self._load_csv('advanced_backtest_governance/policies/report_disclaimers.csv')
+
+    def save_backtest_source_preservation_guards(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/guards/source_preservation_guards', df, summary)
+    def load_backtest_source_preservation_guards(self):
+        return self._load_csv('advanced_backtest_governance/guards/source_preservation_guards.csv')
+
+    def save_backtest_metadata_only_news_guards(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/guards/metadata_only_news_guards', df, summary)
+    def load_backtest_metadata_only_news_guards(self):
+        return self._load_csv('advanced_backtest_governance/guards/metadata_only_news_guards.csv')
+
+    def save_backtest_forbidden_column_policies(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/guards/forbidden_column_policies', df, summary)
+    def load_backtest_forbidden_column_policies(self):
+        return self._load_csv('advanced_backtest_governance/guards/forbidden_column_policies.csv')
+
+    def save_backtest_governance_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/disabled_execution/governance_execution_disabled', df, summary)
+    def load_backtest_governance_execution_disabled_report(self):
+        return self._load_csv('advanced_backtest_governance/disabled_execution/governance_execution_disabled.csv')
+
+    def save_backtest_result_claim_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/disabled_execution/result_claim_disabled', df, summary)
+    def load_backtest_result_claim_disabled_report(self):
+        return self._load_csv('advanced_backtest_governance/disabled_execution/result_claim_disabled.csv')
+
+    def save_backtest_metric_calculation_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/disabled_execution/metric_calc_disabled', df, summary)
+    def load_backtest_metric_calculation_disabled_report(self):
+        return self._load_csv('advanced_backtest_governance/disabled_execution/metric_calc_disabled.csv')
+
+    def save_backtest_optimizer_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/disabled_execution/optimizer_disabled', df, summary)
+    def load_backtest_optimizer_disabled_report(self):
+        return self._load_csv('advanced_backtest_governance/disabled_execution/optimizer_disabled.csv')
+
+    def save_backtest_model_training_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/disabled_execution/model_training_disabled', df, summary)
+    def load_backtest_model_training_disabled_report(self):
+        return self._load_csv('advanced_backtest_governance/disabled_execution/model_training_disabled.csv')
+
+    def save_backtest_prediction_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/disabled_execution/prediction_disabled', df, summary)
+    def load_backtest_prediction_disabled_report(self):
+        return self._load_csv('advanced_backtest_governance/disabled_execution/prediction_disabled.csv')
+
+    def save_backtest_live_trading_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/disabled_execution/live_trading_disabled', df, summary)
+    def load_backtest_live_trading_disabled_report(self):
+        return self._load_csv('advanced_backtest_governance/disabled_execution/live_trading_disabled.csv')
+
+    def save_backtest_broker_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/disabled_execution/broker_execution_disabled', df, summary)
+    def load_backtest_broker_execution_disabled_report(self):
+        return self._load_csv('advanced_backtest_governance/disabled_execution/broker_execution_disabled.csv')
+
+    def save_backtest_deployment_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/disabled_execution/deployment_disabled', df, summary)
+    def load_backtest_deployment_disabled_report(self):
+        return self._load_csv('advanced_backtest_governance/disabled_execution/deployment_disabled.csv')
+
+    def save_backtest_governance_dependencies(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/dependencies/dependencies', df, summary)
+    def load_backtest_governance_dependencies(self):
+        return self._load_csv('advanced_backtest_governance/dependencies/dependencies.csv')
+
+    def save_backtest_governance_validation_evidence(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/evidence/validation_evidence', df, summary)
+    def load_backtest_governance_validation_evidence(self):
+        return self._load_csv('advanced_backtest_governance/evidence/validation_evidence.csv')
+
+    def save_backtest_governance_manual_review_queue(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/findings/manual_review_queue', df, summary)
+    def load_backtest_governance_manual_review_queue(self):
+        return self._load_csv('advanced_backtest_governance/findings/manual_review_queue.csv')
+
+    def save_backtest_governance_findings(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/findings/findings_registry', df, summary)
+    def load_backtest_governance_findings(self):
+        return self._load_csv('advanced_backtest_governance/findings/findings_registry.csv')
+
+    def save_backtest_governance_readiness_score_report(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/scoring/readiness_score_report', df, summary)
+    def load_backtest_governance_readiness_score_report(self):
+        return self._load_csv('advanced_backtest_governance/scoring/readiness_score_report.csv')
+
+    def save_backtest_governance_manifest(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/manifest/manifest', df, summary)
+    def load_backtest_governance_manifest(self):
+        return self._load_csv('advanced_backtest_governance/manifest/manifest.csv')
+
+    def save_backtest_governance_health_check(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/health/health_check', df, summary)
+    def load_backtest_governance_health_check(self):
+        return self._load_csv('advanced_backtest_governance/health/health_check.csv')
+
+    def save_backtest_governance_validation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/validation/validation_report', df, summary)
+    def load_backtest_governance_validation_report(self):
+        return self._load_csv('advanced_backtest_governance/validation/validation_report.csv')
+
+    def save_backtest_governance_safety_boundary(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/safety/safety_boundary', df, summary)
+    def load_backtest_governance_safety_boundary(self):
+        return self._load_csv('advanced_backtest_governance/safety/safety_boundary.csv')
+
+    def save_phase_151_benchmark_strategy_evaluation_handoff_report(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_governance/handoff/phase_151_handoff', df, summary)
+    def load_phase_151_benchmark_strategy_evaluation_handoff_report(self):
+        return self._load_csv('advanced_backtest_governance/handoff/phase_151_handoff.csv')
+    save_phase_151_handoff = save_phase_151_benchmark_strategy_evaluation_handoff_report
+    load_phase_151_handoff = load_phase_151_benchmark_strategy_evaluation_handoff_report
+
+    def save_backtest_governance_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_backtest_governance' / f'report_{profile_name}.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        if markdown:
+            md_path = path.with_suffix('.md')
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(markdown)
+        return path
+
+    def load_backtest_governance_report(self, profile_name: str):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_backtest_governance' / f'report_{profile_name}.json'
+        if not path.exists():
+            return {}
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def list_backtest_governance_reports(self):
+        return pd.DataFrame()
+
+    # Phase 151 Advanced Benchmark Evaluation and Strategy Evaluation Reports DataLake Support
+    def save_benchmark_evaluation_profile_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/profiles/profile_registry', df, summary)
+    def load_benchmark_evaluation_profile_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/profiles/profile_registry.csv')
+
+    def save_benchmark_evaluation_domain_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/domains/domain_registry', df, summary)
+    def load_benchmark_evaluation_domain_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/domains/domain_registry.csv')
+
+    def save_benchmark_evaluation_scope_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/scopes/scope_registry', df, summary)
+    def load_benchmark_evaluation_scope_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/scopes/scope_registry.csv')
+
+    def save_benchmark_comparison_report_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/contracts/benchmark_comparison_report_contracts', df, summary)
+    def load_benchmark_comparison_report_contract_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/contracts/benchmark_comparison_report_contracts.csv')
+
+    def save_strategy_evaluation_report_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/contracts/strategy_evaluation_report_contracts', df, summary)
+    def load_strategy_evaluation_report_contract_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/contracts/strategy_evaluation_report_contracts.csv')
+
+    def save_benchmark_universe_report_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/universe/benchmark_universe_report_contracts', df, summary)
+    def load_benchmark_universe_report_contract_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/universe/benchmark_universe_report_contracts.csv')
+
+    def save_benchmark_baseline_report_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/baselines/benchmark_baseline_report_contracts', df, summary)
+    def load_benchmark_baseline_report_contract_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/baselines/benchmark_baseline_report_contracts.csv')
+
+    def save_strategy_vs_benchmark_report_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/strategy_vs_benchmark/strategy_vs_benchmark_report_contracts', df, summary)
+    def load_strategy_vs_benchmark_report_contract_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/strategy_vs_benchmark/strategy_vs_benchmark_report_contracts.csv')
+
+    def save_cost_adjusted_evaluation_report_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/cost_adjusted/cost_adjusted_report_contracts', df, summary)
+    def load_cost_adjusted_evaluation_report_contract_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/cost_adjusted/cost_adjusted_report_contracts.csv')
+
+    def save_slippage_adjusted_evaluation_report_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/slippage_adjusted/slippage_adjusted_report_contracts', df, summary)
+    def load_slippage_adjusted_evaluation_report_contract_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/slippage_adjusted/slippage_adjusted_report_contracts.csv')
+
+    def save_regime_aware_evaluation_report_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/regime_aware/regime_aware_report_contracts', df, summary)
+    def load_regime_aware_evaluation_report_contract_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/regime_aware/regime_aware_report_contracts.csv')
+
+    def save_walk_forward_evaluation_report_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/walk_forward/walk_forward_report_contracts', df, summary)
+    def load_walk_forward_evaluation_report_contract_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/walk_forward/walk_forward_report_contracts.csv')
+
+    def save_oos_evaluation_report_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/oos/oos_report_contracts', df, summary)
+    def load_oos_evaluation_report_contract_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/oos/oos_report_contracts.csv')
+
+    def save_stress_aware_evaluation_report_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/stress_aware/stress_aware_report_contracts', df, summary)
+    def load_stress_aware_evaluation_report_contract_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/stress_aware/stress_aware_report_contracts.csv')
+
+    def save_monte_carlo_robustness_evaluation_report_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/monte_carlo/monte_carlo_report_contracts', df, summary)
+    def load_monte_carlo_robustness_evaluation_report_contract_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/monte_carlo/monte_carlo_report_contracts.csv')
+
+    def save_parameter_stability_evaluation_report_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/contracts/parameter_stability_report_contracts', df, summary)
+    def load_parameter_stability_evaluation_report_contract_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/contracts/parameter_stability_report_contracts.csv')
+
+    def save_governance_aware_evaluation_report_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/governance/governance_aware_report_contracts', df, summary)
+    def load_governance_aware_evaluation_report_contract_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/governance/governance_aware_report_contracts.csv')
+
+    def save_bias_control_evaluation_report_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/governance/bias_control_report_contracts', df, summary)
+    def load_bias_control_evaluation_report_contract_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/governance/bias_control_report_contracts.csv')
+
+    def save_result_disclosure_report_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/reports/result_disclosure_report_contracts', df, summary)
+    def load_result_disclosure_report_contract_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/reports/result_disclosure_report_contracts.csv')
+
+    def save_strategy_evaluation_summary_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/placeholders/strategy_evaluation_summary_placeholders', df, summary)
+    def load_strategy_evaluation_summary_placeholder_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/placeholders/strategy_evaluation_summary_placeholders.csv')
+
+    def save_benchmark_comparison_summary_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/placeholders/benchmark_comparison_summary_placeholders', df, summary)
+    def load_benchmark_comparison_summary_placeholder_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/placeholders/benchmark_comparison_summary_placeholders.csv')
+
+    def save_metric_summary_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/placeholders/metric_summary_placeholders', df, summary)
+    def load_metric_summary_placeholder_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/placeholders/metric_summary_placeholders.csv')
+
+    def save_risk_summary_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/placeholders/risk_summary_placeholders', df, summary)
+    def load_risk_summary_placeholder_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/placeholders/risk_summary_placeholders.csv')
+
+    def save_cost_impact_summary_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/placeholders/cost_impact_summary_placeholders', df, summary)
+    def load_cost_impact_summary_placeholder_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/placeholders/cost_impact_summary_placeholders.csv')
+
+    def save_slippage_impact_summary_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/placeholders/slippage_impact_summary_placeholders', df, summary)
+    def load_slippage_impact_summary_placeholder_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/placeholders/slippage_impact_summary_placeholders.csv')
+
+    def save_regime_performance_summary_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/placeholders/regime_performance_summary_placeholders', df, summary)
+    def load_regime_performance_summary_placeholder_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/placeholders/regime_performance_summary_placeholders.csv')
+
+    def save_stress_result_summary_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/placeholders/stress_result_summary_placeholders', df, summary)
+    def load_stress_result_summary_placeholder_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/placeholders/stress_result_summary_placeholders.csv')
+
+    def save_monte_carlo_result_summary_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/placeholders/monte_carlo_result_summary_placeholders', df, summary)
+    def load_monte_carlo_result_summary_placeholder_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/placeholders/monte_carlo_result_summary_placeholders.csv')
+
+    def save_strategy_limitation_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/placeholders/strategy_limitation_placeholders', df, summary)
+    def load_strategy_limitation_placeholder_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/placeholders/strategy_limitation_placeholders.csv')
+
+    def save_benchmark_limitation_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/placeholders/benchmark_limitation_placeholders', df, summary)
+    def load_benchmark_limitation_placeholder_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/placeholders/benchmark_limitation_placeholders.csv')
+
+    def save_strategy_evaluation_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/metrics/strategy_evaluation_metric_placeholders', df, summary)
+    def load_strategy_evaluation_metric_placeholder_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/metrics/strategy_evaluation_metric_placeholders.csv')
+
+    def save_benchmark_comparison_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/metrics/benchmark_comparison_metric_placeholders', df, summary)
+    def load_benchmark_comparison_metric_placeholder_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/metrics/benchmark_comparison_metric_placeholders.csv')
+
+    def save_relative_performance_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/metrics/relative_performance_metric_placeholders', df, summary)
+    def load_relative_performance_metric_placeholder_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/metrics/relative_performance_metric_placeholders.csv')
+
+    def save_risk_adjusted_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/metrics/risk_adjusted_metric_placeholders', df, summary)
+    def load_risk_adjusted_metric_placeholder_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/metrics/risk_adjusted_metric_placeholders.csv')
+
+    def save_cost_adjusted_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/metrics/cost_adjusted_metric_placeholders', df, summary)
+    def load_cost_adjusted_metric_placeholder_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/metrics/cost_adjusted_metric_placeholders.csv')
+
+    def save_robustness_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/metrics/robustness_metric_placeholders', df, summary)
+    def load_robustness_metric_placeholder_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/metrics/robustness_metric_placeholders.csv')
+
+    def save_evaluation_result_claim_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/guards/result_claim_guards', df, summary)
+    def load_evaluation_result_claim_guard_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/guards/result_claim_guards.csv')
+
+    def save_evaluation_performance_claim_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/guards/performance_claim_guards', df, summary)
+    def load_evaluation_performance_claim_guard_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/guards/performance_claim_guards.csv')
+
+    def save_evaluation_strategy_approval_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/guards/strategy_approval_guards', df, summary)
+    def load_evaluation_strategy_approval_guard_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/guards/strategy_approval_guards.csv')
+
+    def save_evaluation_forbidden_column_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/guards/forbidden_column_policies', df, summary)
+    def load_evaluation_forbidden_column_policy_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/guards/forbidden_column_policies.csv')
+
+    def save_benchmark_report_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/disabled_execution/benchmark_report_execution_disabled', df, summary)
+    def load_benchmark_report_execution_disabled_report(self):
+        return self._load_csv('advanced_benchmark_evaluation/disabled_execution/benchmark_report_execution_disabled.csv')
+
+    def save_strategy_evaluation_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/disabled_execution/strategy_evaluation_execution_disabled', df, summary)
+    def load_strategy_evaluation_execution_disabled_report(self):
+        return self._load_csv('advanced_benchmark_evaluation/disabled_execution/strategy_evaluation_execution_disabled.csv')
+
+    def save_evaluation_metric_calculation_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/disabled_execution/evaluation_metric_calculation_disabled', df, summary)
+    def load_evaluation_metric_calculation_disabled_report(self):
+        return self._load_csv('advanced_benchmark_evaluation/disabled_execution/evaluation_metric_calculation_disabled.csv')
+
+    def save_evaluation_result_claim_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/disabled_execution/evaluation_result_claim_disabled', df, summary)
+    def load_evaluation_result_claim_disabled_report(self):
+        return self._load_csv('advanced_benchmark_evaluation/disabled_execution/evaluation_result_claim_disabled.csv')
+
+    def save_evaluation_strategy_approval_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/disabled_execution/evaluation_strategy_approval_disabled', df, summary)
+    def load_evaluation_strategy_approval_disabled_report(self):
+        return self._load_csv('advanced_benchmark_evaluation/disabled_execution/evaluation_strategy_approval_disabled.csv')
+
+    def save_evaluation_live_trading_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/disabled_execution/evaluation_live_trading_disabled', df, summary)
+    def load_evaluation_live_trading_disabled_report(self):
+        return self._load_csv('advanced_benchmark_evaluation/disabled_execution/evaluation_live_trading_disabled.csv')
+
+    def save_evaluation_broker_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/disabled_execution/evaluation_broker_execution_disabled', df, summary)
+    def load_evaluation_broker_execution_disabled_report(self):
+        return self._load_csv('advanced_benchmark_evaluation/disabled_execution/evaluation_broker_execution_disabled.csv')
+
+    def save_benchmark_evaluation_dependencies(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/dependencies/dependencies', df, summary)
+    def load_benchmark_evaluation_dependencies(self):
+        return self._load_csv('advanced_benchmark_evaluation/dependencies/dependencies.csv')
+
+    def save_benchmark_evaluation_validation_evidence(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/evidence/validation_evidence', df, summary)
+    def load_benchmark_evaluation_validation_evidence(self):
+        return self._load_csv('advanced_benchmark_evaluation/evidence/validation_evidence.csv')
+
+    def save_benchmark_evaluation_manual_review_queue(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/manual_review/manual_review_queue', df, summary)
+    def load_benchmark_evaluation_manual_review_queue(self):
+        return self._load_csv('advanced_benchmark_evaluation/manual_review/manual_review_queue.csv')
+
+    def save_benchmark_evaluation_findings_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/findings/findings_registry', df, summary)
+    def load_benchmark_evaluation_findings_registry(self):
+        return self._load_csv('advanced_benchmark_evaluation/findings/findings_registry.csv')
+
+    def save_benchmark_evaluation_readiness_score_report(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/scoring/readiness_score_report', df, summary)
+    def load_benchmark_evaluation_readiness_score_report(self):
+        return self._load_csv('advanced_benchmark_evaluation/scoring/readiness_score_report.csv')
+
+    def save_benchmark_evaluation_manifest(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/manifest/manifest', df, summary)
+    def load_benchmark_evaluation_manifest(self):
+        return self._load_csv('advanced_benchmark_evaluation/manifest/manifest.csv')
+
+    def save_benchmark_evaluation_health_check(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/health/health_check', df, summary)
+    def load_benchmark_evaluation_health_check(self):
+        return self._load_csv('advanced_benchmark_evaluation/health/health_check.csv')
+
+    def save_benchmark_evaluation_validation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/validation/validation_report', df, summary)
+    def load_benchmark_evaluation_validation_report(self):
+        return self._load_csv('advanced_benchmark_evaluation/validation/validation_report.csv')
+
+    def save_benchmark_evaluation_safety_boundary(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/safety/safety_boundary', df, summary)
+    def load_benchmark_evaluation_safety_boundary(self):
+        return self._load_csv('advanced_benchmark_evaluation/safety/safety_boundary.csv')
+
+    def save_phase_152_backtest_acceptance_report_handoff_report(self, df, summary=None):
+        return self._save_csv_json('advanced_benchmark_evaluation/handoff/phase_152_handoff', df, summary)
+    def load_phase_152_backtest_acceptance_report_handoff_report(self):
+        return self._load_csv('advanced_benchmark_evaluation/handoff/phase_152_handoff.csv')
+    save_phase_152_handoff = save_phase_152_backtest_acceptance_report_handoff_report
+    load_phase_152_handoff = load_phase_152_backtest_acceptance_report_handoff_report
+
+    def save_benchmark_evaluation_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_benchmark_evaluation' / f'report_{profile_name}.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        if markdown:
+            md_path = path.with_suffix('.md')
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(markdown)
+        return path
+
+    def load_benchmark_evaluation_report(self, profile_name: str):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_benchmark_evaluation' / f'report_{profile_name}.json'
+        if not path.exists():
+            return {}
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def list_benchmark_evaluation_reports(self):
+        return pd.DataFrame()
+
+    # Phase 152 Backtest Acceptance Report Methods
+    def save_backtest_acceptance_profile_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/profiles/profile_registry', df, summary)
+    def load_backtest_acceptance_profile_registry(self):
+        return self._load_csv('advanced_backtest_acceptance/profiles/profile_registry.csv')
+
+    def save_backtest_acceptance_domain_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/domains/domain_registry', df, summary)
+    def load_backtest_acceptance_domain_registry(self):
+        return self._load_csv('advanced_backtest_acceptance/domains/domain_registry.csv')
+
+    def save_backtest_acceptance_scope_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/scopes/scope_registry', df, summary)
+    def load_backtest_acceptance_scope_registry(self):
+        return self._load_csv('advanced_backtest_acceptance/scopes/scope_registry.csv')
+
+    def save_backtest_acceptance_component_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/components/component_registry', df, summary)
+    def load_backtest_acceptance_component_registry(self):
+        return self._load_csv('advanced_backtest_acceptance/components/component_registry.csv')
+
+    def save_backtest_acceptance_component_checkpoint_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/checkpoints/checkpoint_registry', df, summary)
+    def load_backtest_acceptance_component_checkpoint_registry(self):
+        return self._load_csv('advanced_backtest_acceptance/checkpoints/checkpoint_registry.csv')
+
+    def save_phase_146_realistic_backtest_acceptance_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/phase_acceptance/phase_146_acceptance', df, summary)
+    def load_phase_146_realistic_backtest_acceptance_registry(self):
+        return self._load_csv('advanced_backtest_acceptance/phase_acceptance/phase_146_acceptance.csv')
+
+    def save_phase_147_walk_forward_oos_acceptance_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/phase_acceptance/phase_147_acceptance', df, summary)
+    def load_phase_147_walk_forward_oos_acceptance_registry(self):
+        return self._load_csv('advanced_backtest_acceptance/phase_acceptance/phase_147_acceptance.csv')
+
+    def save_phase_148_stress_testing_acceptance_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/phase_acceptance/phase_148_acceptance', df, summary)
+    def load_phase_148_stress_testing_acceptance_registry(self):
+        return self._load_csv('advanced_backtest_acceptance/phase_acceptance/phase_148_acceptance.csv')
+
+    def save_phase_149_monte_carlo_acceptance_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/phase_acceptance/phase_149_acceptance', df, summary)
+    def load_phase_149_monte_carlo_acceptance_registry(self):
+        return self._load_csv('advanced_backtest_acceptance/phase_acceptance/phase_149_acceptance.csv')
+
+    def save_phase_150_backtest_governance_acceptance_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/phase_acceptance/phase_150_acceptance', df, summary)
+    def load_phase_150_backtest_governance_acceptance_registry(self):
+        return self._load_csv('advanced_backtest_acceptance/phase_acceptance/phase_150_acceptance.csv')
+
+    def save_phase_151_benchmark_evaluation_acceptance_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/phase_acceptance/phase_151_acceptance', df, summary)
+    def load_phase_151_benchmark_evaluation_acceptance_registry(self):
+        return self._load_csv('advanced_backtest_acceptance/phase_acceptance/phase_151_acceptance.csv')
+
+    def save_backtest_acceptance_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/dependencies/dependency_registry', df, summary)
+    def load_backtest_acceptance_dependency_registry(self):
+        return self._load_csv('advanced_backtest_acceptance/dependencies/dependency_registry.csv')
+
+    def save_backtest_acceptance_validation_evidence_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/evidence/validation_evidence_registry', df, summary)
+    def load_backtest_acceptance_validation_evidence_registry(self):
+        return self._load_csv('advanced_backtest_acceptance/evidence/validation_evidence_registry.csv')
+
+    def save_backtest_acceptance_safety_boundary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/safety/safety_boundary_registry', df, summary)
+    def load_backtest_acceptance_safety_boundary_registry(self):
+        return self._load_csv('advanced_backtest_acceptance/safety/safety_boundary_registry.csv')
+
+    def save_backtest_acceptance_non_production_boundary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/boundaries/non_production_boundary_registry', df, summary)
+    def load_backtest_acceptance_non_production_boundary_registry(self):
+        return self._load_csv('advanced_backtest_acceptance/boundaries/non_production_boundary_registry.csv')
+
+    def save_backtest_acceptance_manual_review_gate_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/manual_review/manual_review_gate_registry', df, summary)
+    def load_backtest_acceptance_manual_review_gate_registry(self):
+        return self._load_csv('advanced_backtest_acceptance/manual_review/manual_review_gate_registry.csv')
+
+    def save_backtest_acceptance_go_no_go_boundary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/boundaries/go_no_go_boundary_registry', df, summary)
+    def load_backtest_acceptance_go_no_go_boundary_registry(self):
+        return self._load_csv('advanced_backtest_acceptance/boundaries/go_no_go_boundary_registry.csv')
+
+    def save_backtest_acceptance_blocker_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/blockers/blocker_registry', df, summary)
+    def load_backtest_acceptance_blocker_registry(self):
+        return self._load_csv('advanced_backtest_acceptance/blockers/blocker_registry.csv')
+
+    def save_backtest_acceptance_gap_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/gaps/gap_registry', df, summary)
+    def load_backtest_acceptance_gap_registry(self):
+        return self._load_csv('advanced_backtest_acceptance/gaps/gap_registry.csv')
+
+    def save_backtest_acceptance_warning_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/warnings/warning_registry', df, summary)
+    def load_backtest_acceptance_warning_registry(self):
+        return self._load_csv('advanced_backtest_acceptance/warnings/warning_registry.csv')
+
+    def save_backtest_acceptance_findings_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/findings/findings_registry', df, summary)
+    def load_backtest_acceptance_findings_registry(self):
+        return self._load_csv('advanced_backtest_acceptance/findings/findings_registry.csv')
+
+    def save_backtest_acceptance_readiness_score_report(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/scoring/readiness_score_report', df, summary)
+    def load_backtest_acceptance_readiness_score_report(self):
+        return self._load_csv('advanced_backtest_acceptance/scoring/readiness_score_report.csv')
+
+    def save_backtest_acceptance_manifest(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/manifest/manifest', df, summary)
+    def load_backtest_acceptance_manifest(self):
+        return self._load_csv('advanced_backtest_acceptance/manifest/manifest.csv')
+
+    def save_backtest_acceptance_health_check(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/health/health_check', df, summary)
+    def load_backtest_acceptance_health_check(self):
+        return self._load_csv('advanced_backtest_acceptance/health/health_check.csv')
+
+    def save_backtest_acceptance_validation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/validation/validation_report', df, summary)
+    def load_backtest_acceptance_validation_report(self):
+        return self._load_csv('advanced_backtest_acceptance/validation/validation_report.csv')
+
+    def save_backtest_acceptance_safety_boundary(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/safety/safety_boundary', df, summary)
+    def load_backtest_acceptance_safety_boundary(self):
+        return self._load_csv('advanced_backtest_acceptance/safety/safety_boundary.csv')
+
+    def save_phase_153_portfolio_construction_position_sizing_risk_budgeting_handoff_report(self, df, summary=None):
+        return self._save_csv_json('advanced_backtest_acceptance/handoff/phase_153_handoff', df, summary)
+    def load_phase_153_portfolio_construction_position_sizing_risk_budgeting_handoff_report(self):
+        return self._load_csv('advanced_backtest_acceptance/handoff/phase_153_handoff.csv')
+    save_phase_153_handoff = save_phase_153_portfolio_construction_position_sizing_risk_budgeting_handoff_report
+    load_phase_153_handoff = load_phase_153_portfolio_construction_position_sizing_risk_budgeting_handoff_report
+
+    def save_backtest_acceptance_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_backtest_acceptance' / f'report_{profile_name}.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        if markdown:
+            md_path = path.with_suffix('.md')
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(markdown)
+        return path
+
+    def load_backtest_acceptance_report(self, profile_name: str):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_backtest_acceptance' / f'report_{profile_name}.json'
+        if not path.exists():
+            return {}
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def list_backtest_acceptance_reports(self):
+        return pd.DataFrame()
+
+    # =========================================================================
+    # Phase 153: Advanced Portfolio Construction, Position Sizing, and Risk Budgeting
+    # =========================================================================
+    def save_portfolio_construction_table(self, table_name: str, df: pd.DataFrame, summary: dict | None = None):
+        return self._save_csv_json(f'advanced_portfolio_construction/{table_name}/{table_name}', df, summary)
+
+    def load_portfolio_construction_table(self, table_name: str):
+        return self._load_csv(f'advanced_portfolio_construction/{table_name}/{table_name}.csv')
+
+    def save_portfolio_construction_profile_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/profiles/profile_registry', df, summary)
+    def load_portfolio_construction_profile_registry(self):
+        return self._load_csv('advanced_portfolio_construction/profiles/profile_registry.csv')
+
+    def save_portfolio_construction_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/contracts/contract_registry', df, summary)
+    def load_portfolio_construction_contract_registry(self):
+        return self._load_csv('advanced_portfolio_construction/contracts/contract_registry.csv')
+
+    def save_portfolio_universe_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/universe/universe_contract_registry', df, summary)
+    def load_portfolio_universe_contract_registry(self):
+        return self._load_csv('advanced_portfolio_construction/universe/universe_contract_registry.csv')
+
+    def save_portfolio_asset_eligibility_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/eligibility/asset_eligibility_contract_registry', df, summary)
+    def load_portfolio_asset_eligibility_contract_registry(self):
+        return self._load_csv('advanced_portfolio_construction/eligibility/asset_eligibility_contract_registry.csv')
+
+    def save_portfolio_signal_input_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/signals/signal_input_contract_registry', df, summary)
+    def load_portfolio_signal_input_contract_registry(self):
+        return self._load_csv('advanced_portfolio_construction/signals/signal_input_contract_registry.csv')
+
+    def save_portfolio_risk_input_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/risks/risk_input_contract_registry', df, summary)
+    def load_portfolio_risk_input_contract_registry(self):
+        return self._load_csv('advanced_portfolio_construction/risks/risk_input_contract_registry.csv')
+
+    def save_position_sizing_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/position_sizing/position_sizing_contract_registry', df, summary)
+    def load_position_sizing_contract_registry(self):
+        return self._load_csv('advanced_portfolio_construction/position_sizing/position_sizing_contract_registry.csv')
+
+    def save_fixed_fractional_sizing_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/sizing_placeholders/fixed_fractional', df, summary)
+    def load_fixed_fractional_sizing_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_construction/sizing_placeholders/fixed_fractional.csv')
+
+    def save_volatility_targeting_sizing_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/sizing_placeholders/volatility_targeting', df, summary)
+    def load_volatility_targeting_sizing_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_construction/sizing_placeholders/volatility_targeting.csv')
+
+    def save_risk_parity_sizing_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/sizing_placeholders/risk_parity', df, summary)
+    def load_risk_parity_sizing_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_construction/sizing_placeholders/risk_parity.csv')
+
+    def save_drawdown_aware_sizing_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/sizing_placeholders/drawdown_aware', df, summary)
+    def load_drawdown_aware_sizing_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_construction/sizing_placeholders/drawdown_aware.csv')
+
+    def save_risk_budget_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/risk_budget/risk_budget_contract_registry', df, summary)
+    def load_risk_budget_contract_registry(self):
+        return self._load_csv('advanced_portfolio_construction/risk_budget/risk_budget_contract_registry.csv')
+
+    def save_per_asset_risk_budget_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/risk_budget/per_asset_risk_budget', df, summary)
+    def load_per_asset_risk_budget_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_construction/risk_budget/per_asset_risk_budget.csv')
+
+    def save_per_strategy_risk_budget_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/risk_budget/per_strategy_risk_budget', df, summary)
+    def load_per_strategy_risk_budget_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_construction/risk_budget/per_strategy_risk_budget.csv')
+
+    def save_per_regime_risk_budget_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/risk_budget/per_regime_risk_budget', df, summary)
+    def load_per_regime_risk_budget_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_construction/risk_budget/per_regime_risk_budget.csv')
+
+    def save_portfolio_risk_budget_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/risk_budget/portfolio_risk_budget', df, summary)
+    def load_portfolio_risk_budget_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_construction/risk_budget/portfolio_risk_budget.csv')
+
+    def save_concentration_limit_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/limits/concentration_limit_contract_registry', df, summary)
+    def load_concentration_limit_contract_registry(self):
+        return self._load_csv('advanced_portfolio_construction/limits/concentration_limit_contract_registry.csv')
+
+    def save_exposure_limit_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/limits/exposure_limit_contract_registry', df, summary)
+    def load_exposure_limit_contract_registry(self):
+        return self._load_csv('advanced_portfolio_construction/limits/exposure_limit_contract_registry.csv')
+
+    def save_leverage_limit_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/limits/leverage_limit_placeholder_registry', df, summary)
+    def load_leverage_limit_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_construction/limits/leverage_limit_placeholder_registry.csv')
+
+    def save_margin_limit_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/limits/margin_limit_placeholder_registry', df, summary)
+    def load_margin_limit_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_construction/limits/margin_limit_placeholder_registry.csv')
+
+    def save_notional_limit_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/limits/notional_limit_placeholder_registry', df, summary)
+    def load_notional_limit_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_construction/limits/notional_limit_placeholder_registry.csv')
+
+    def save_portfolio_findings_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/findings/findings_registry', df, summary)
+    def load_portfolio_findings_registry(self):
+        return self._load_csv('advanced_portfolio_construction/findings/findings_registry.csv')
+
+    def save_portfolio_readiness_score_report(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/scoring/readiness_score_report', df, summary)
+    def load_portfolio_readiness_score_report(self):
+        return self._load_csv('advanced_portfolio_construction/scoring/readiness_score_report.csv')
+
+    def save_portfolio_construction_manifest(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/manifest/manifest', df, summary)
+    def load_portfolio_construction_manifest(self):
+        return self._load_csv('advanced_portfolio_construction/manifest/manifest.csv')
+
+    def save_portfolio_construction_health_check(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/health/health_check', df, summary)
+    def load_portfolio_construction_health_check(self):
+        return self._load_csv('advanced_portfolio_construction/health/health_check.csv')
+
+    def save_portfolio_construction_validation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/validation/validation_report', df, summary)
+    def load_portfolio_construction_validation_report(self):
+        return self._load_csv('advanced_portfolio_construction/validation/validation_report.csv')
+
+    def save_portfolio_construction_safety_boundary(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/safety/safety_boundary', df, summary)
+    def load_portfolio_construction_safety_boundary(self):
+        return self._load_csv('advanced_portfolio_construction/safety/safety_boundary.csv')
+
+    def save_phase_154_portfolio_construction_position_sizing_risk_budgeting_handoff_report(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_construction/handoff/phase_154_handoff', df, summary)
+    def load_phase_154_portfolio_construction_position_sizing_risk_budgeting_handoff_report(self):
+        return self._load_csv('advanced_portfolio_construction/handoff/phase_154_handoff.csv')
+    save_phase_154_handoff = save_phase_154_portfolio_construction_position_sizing_risk_budgeting_handoff_report
+    load_phase_154_handoff = load_phase_154_portfolio_construction_position_sizing_risk_budgeting_handoff_report
+
+    def save_portfolio_construction_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_portfolio_construction' / f'report_{profile_name}.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        if markdown:
+            md_path = path.with_suffix('.md')
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(markdown)
+        return path
+
+    def load_portfolio_construction_report(self, profile_name: str):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_portfolio_construction' / f'report_{profile_name}.json'
+        if not path.exists():
+            return {}
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def list_portfolio_construction_reports(self):
+        return pd.DataFrame()
+
+    # =========================================================================
+    # Phase 154: Advanced Portfolio Optimization & Allocation Constraints
+    # =========================================================================
+
+    def save_portfolio_optimization_profile_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/profiles/profile_registry', df, summary)
+    def load_portfolio_optimization_profile_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/profiles/profile_registry.csv')
+
+    def save_portfolio_optimization_domain_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/domains/domain_registry', df, summary)
+    def load_portfolio_optimization_domain_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/domains/domain_registry.csv')
+
+    def save_portfolio_optimization_scope_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/scopes/scope_registry', df, summary)
+    def load_portfolio_optimization_scope_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/scopes/scope_registry.csv')
+
+    def save_portfolio_optimization_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/optimization_contracts/optimization_contracts', df, summary)
+    def load_portfolio_optimization_contracts(self):
+        return self._load_csv('advanced_portfolio_optimization/optimization_contracts/optimization_contracts.csv')
+    save_portfolio_optimization_contract_registry = save_portfolio_optimization_contracts
+    load_portfolio_optimization_contract_registry = load_portfolio_optimization_contracts
+
+    def save_optimization_objective_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/objective_contracts/objective_contracts', df, summary)
+    def load_optimization_objective_contracts(self):
+        return self._load_csv('advanced_portfolio_optimization/objective_contracts/objective_contracts.csv')
+    save_optimization_objective_contract_registry = save_optimization_objective_contracts
+    load_optimization_objective_contract_registry = load_optimization_objective_contracts
+
+    def save_mean_variance_objective_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/objectives/mean_variance', df, summary)
+    def load_mean_variance_objective_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/objectives/mean_variance.csv')
+
+    def save_minimum_variance_objective_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/objectives/minimum_variance', df, summary)
+    def load_minimum_variance_objective_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/objectives/minimum_variance.csv')
+
+    def save_maximum_sharpe_objective_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/objectives/maximum_sharpe', df, summary)
+    def load_maximum_sharpe_objective_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/objectives/maximum_sharpe.csv')
+
+    def save_risk_parity_objective_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/objectives/risk_parity', df, summary)
+    def load_risk_parity_objective_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/objectives/risk_parity.csv')
+
+    def save_cvar_objective_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/objectives/cvar', df, summary)
+    def load_cvar_objective_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/objectives/cvar.csv')
+
+    def save_drawdown_minimization_objective_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/objectives/drawdown_minimization', df, summary)
+    def load_drawdown_minimization_objective_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/objectives/drawdown_minimization.csv')
+
+    def save_turnover_minimization_objective_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/objectives/turnover_minimization', df, summary)
+    def load_turnover_minimization_objective_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/objectives/turnover_minimization.csv')
+
+    def save_cost_aware_objective_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/objectives/cost_aware', df, summary)
+    def load_cost_aware_objective_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/objectives/cost_aware.csv')
+
+    def save_slippage_aware_objective_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/objectives/slippage_aware', df, summary)
+    def load_slippage_aware_objective_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/objectives/slippage_aware.csv')
+
+    def save_regime_aware_objective_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/objectives/regime_aware', df, summary)
+    def load_regime_aware_objective_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/objectives/regime_aware.csv')
+
+    def save_robust_optimization_objective_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/objectives/robust_optimization', df, summary)
+    def load_robust_optimization_objective_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/objectives/robust_optimization.csv')
+
+    def save_allocation_constraint_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/constraint_contracts/constraint_contracts', df, summary)
+    def load_allocation_constraint_contracts(self):
+        return self._load_csv('advanced_portfolio_optimization/constraint_contracts/constraint_contracts.csv')
+    save_allocation_constraint_contract_registry = save_allocation_constraint_contracts
+    load_allocation_constraint_contract_registry = load_allocation_constraint_contracts
+
+    def save_long_only_constraint_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/constraints/long_only', df, summary)
+    def load_long_only_constraint_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/constraints/long_only.csv')
+
+    def save_max_weight_constraint_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/constraints/max_weight', df, summary)
+    def load_max_weight_constraint_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/constraints/max_weight.csv')
+
+    def save_min_weight_constraint_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/constraints/min_weight', df, summary)
+    def load_min_weight_constraint_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/constraints/min_weight.csv')
+
+    def save_group_weight_constraint_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/constraints/group_weight', df, summary)
+    def load_group_weight_constraint_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/constraints/group_weight.csv')
+
+    def save_asset_count_constraint_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/constraints/asset_count', df, summary)
+    def load_asset_count_constraint_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/constraints/asset_count.csv')
+
+    def save_concentration_constraint_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/constraints/concentration', df, summary)
+    def load_concentration_constraint_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/constraints/concentration.csv')
+
+    def save_exposure_constraint_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/constraints/exposure', df, summary)
+    def load_exposure_constraint_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/constraints/exposure.csv')
+
+    def save_gross_exposure_constraint_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/constraints/gross_exposure', df, summary)
+    def load_gross_exposure_constraint_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/constraints/gross_exposure.csv')
+
+    def save_net_exposure_constraint_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/constraints/net_exposure', df, summary)
+    def load_net_exposure_constraint_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/constraints/net_exposure.csv')
+
+    def save_currency_exposure_constraint_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/constraints/currency_exposure', df, summary)
+    def load_currency_exposure_constraint_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/constraints/currency_exposure.csv')
+
+    def save_cross_asset_exposure_constraint_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/constraints/cross_asset_exposure', df, summary)
+    def load_cross_asset_exposure_constraint_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/constraints/cross_asset_exposure.csv')
+
+    def save_correlation_constraint_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/constraints/correlation', df, summary)
+    def load_correlation_constraint_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/constraints/correlation.csv')
+
+    def save_liquidity_constraint_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/constraints/liquidity', df, summary)
+    def load_liquidity_constraint_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/constraints/liquidity.csv')
+
+    def save_turnover_constraint_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/constraints/turnover', df, summary)
+    def load_turnover_constraint_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/constraints/turnover.csv')
+
+    def save_transaction_cost_constraint_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/constraints/transaction_cost', df, summary)
+    def load_transaction_cost_constraint_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/constraints/transaction_cost.csv')
+
+    def save_slippage_constraint_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/constraints/slippage', df, summary)
+    def load_slippage_constraint_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/constraints/slippage.csv')
+
+    def save_risk_budget_constraint_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/constraints/risk_budget', df, summary)
+    def load_risk_budget_constraint_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/constraints/risk_budget.csv')
+
+    def save_volatility_constraint_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/constraints/volatility', df, summary)
+    def load_volatility_constraint_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/constraints/volatility.csv')
+
+    def save_drawdown_constraint_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/constraints/drawdown', df, summary)
+    def load_drawdown_constraint_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/constraints/drawdown.csv')
+
+    def save_leverage_constraint_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/constraints/leverage', df, summary)
+    def load_leverage_constraint_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/constraints/leverage.csv')
+
+    def save_margin_constraint_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/constraints/margin', df, summary)
+    def load_margin_constraint_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/constraints/margin.csv')
+
+    def save_rebalance_constraint_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/constraints/rebalance', df, summary)
+    def load_rebalance_constraint_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/constraints/rebalance.csv')
+
+    def save_optimization_solver_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/solvers/solver_contracts', df, summary)
+    def load_optimization_solver_contracts(self):
+        return self._load_csv('advanced_portfolio_optimization/solvers/solver_contracts.csv')
+    save_optimization_solver_contract_registry = save_optimization_solver_contracts
+    load_optimization_solver_contract_registry = load_optimization_solver_contracts
+
+    def save_convex_solver_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/solvers/convex_solver', df, summary)
+    def load_convex_solver_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/solvers/convex_solver.csv')
+
+    def save_heuristic_solver_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/solvers/heuristic_solver', df, summary)
+    def load_heuristic_solver_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/solvers/heuristic_solver.csv')
+
+    def save_grid_search_solver_disabled_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/solvers/grid_search_disabled', df, summary)
+    def load_grid_search_solver_disabled_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/solvers/grid_search_disabled.csv')
+
+    def save_optimizer_execution_disabled_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/solvers/optimizer_execution_disabled', df, summary)
+    def load_optimizer_execution_disabled_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/solvers/optimizer_execution_disabled.csv')
+
+    def save_efficient_frontier_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/frontiers/efficient_frontier', df, summary)
+    def load_efficient_frontier_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/frontiers/efficient_frontier.csv')
+
+    def save_optimization_result_output_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/outputs/result_output_contracts', df, summary)
+    def load_optimization_result_output_contracts(self):
+        return self._load_csv('advanced_portfolio_optimization/outputs/result_output_contracts.csv')
+    save_optimization_result_output_contract_registry = save_optimization_result_output_contracts
+    load_optimization_result_output_contract_registry = load_optimization_result_output_contracts
+
+    def save_allocation_output_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/outputs/allocation_output_contracts', df, summary)
+    def load_allocation_output_contracts(self):
+        return self._load_csv('advanced_portfolio_optimization/outputs/allocation_output_contracts.csv')
+    save_allocation_output_contract_registry = save_allocation_output_contracts
+    load_allocation_output_contract_registry = load_allocation_output_contracts
+
+    def save_rebalance_output_contracts(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/outputs/rebalance_output_contracts', df, summary)
+    def load_rebalance_output_contracts(self):
+        return self._load_csv('advanced_portfolio_optimization/outputs/rebalance_output_contracts.csv')
+    save_rebalance_output_contract_registry = save_rebalance_output_contracts
+    load_rebalance_output_contract_registry = load_rebalance_output_contracts
+
+    def save_optimization_metric_placeholders(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/metrics/metric_placeholders', df, summary)
+    def load_optimization_metric_placeholders(self):
+        return self._load_csv('advanced_portfolio_optimization/metrics/metric_placeholders.csv')
+    save_optimization_metric_placeholder_registry = save_optimization_metric_placeholders
+    load_optimization_metric_placeholder_registry = load_optimization_metric_placeholders
+
+    def save_objective_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/metrics/objective_metrics', df, summary)
+    def load_objective_metric_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/metrics/objective_metrics.csv')
+
+    def save_constraint_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/metrics/constraint_metrics', df, summary)
+    def load_constraint_metric_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/metrics/constraint_metrics.csv')
+
+    def save_allocation_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/metrics/allocation_metrics', df, summary)
+    def load_allocation_metric_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/metrics/allocation_metrics.csv')
+
+    def save_portfolio_optimization_validation_evidence_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/validation/validation_evidence', df, summary)
+    def load_portfolio_optimization_validation_evidence_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/validation/validation_evidence.csv')
+
+    def save_portfolio_optimization_findings_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/findings/findings_registry', df, summary)
+    def load_portfolio_optimization_findings_registry(self):
+        return self._load_csv('advanced_portfolio_optimization/findings/findings_registry.csv')
+
+    def save_portfolio_optimization_readiness_score_report(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/scoring/readiness_score_report', df, summary)
+    def load_portfolio_optimization_readiness_score_report(self):
+        return self._load_csv('advanced_portfolio_optimization/scoring/readiness_score_report.csv')
+
+    def save_portfolio_optimization_manifest(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/manifest/manifest', df, summary)
+    def load_portfolio_optimization_manifest(self):
+        return self._load_csv('advanced_portfolio_optimization/manifest/manifest.csv')
+
+    def save_portfolio_optimization_health_check(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/health/health_check', df, summary)
+    def load_portfolio_optimization_health_check(self):
+        return self._load_csv('advanced_portfolio_optimization/health/health_check.csv')
+
+    def save_portfolio_optimization_validation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/validation/validation_report', df, summary)
+    def load_portfolio_optimization_validation_report(self):
+        return self._load_csv('advanced_portfolio_optimization/validation/validation_report.csv')
+
+    def save_portfolio_optimization_safety_boundary(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/safety/safety_boundary', df, summary)
+    def load_portfolio_optimization_safety_boundary(self):
+        return self._load_csv('advanced_portfolio_optimization/safety/safety_boundary.csv')
+
+    def save_phase_155_portfolio_optimization_allocation_constraints_handoff_report(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_optimization/handoff/phase_155_handoff', df, summary)
+    def load_phase_155_portfolio_optimization_allocation_constraints_handoff_report(self):
+        return self._load_csv('advanced_portfolio_optimization/handoff/phase_155_handoff.csv')
+    save_phase_155_handoff = save_phase_155_portfolio_optimization_allocation_constraints_handoff_report
+    load_phase_155_handoff = load_phase_155_portfolio_optimization_allocation_constraints_handoff_report
+    save_phase_155_risk_reporting_exposure_attribution_limit_monitoring_handoff_report = save_phase_155_portfolio_optimization_allocation_constraints_handoff_report
+    load_phase_155_risk_reporting_exposure_attribution_limit_monitoring_handoff_report = load_phase_155_portfolio_optimization_allocation_constraints_handoff_report
+
+    def save_portfolio_optimization_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_portfolio_optimization' / f'report_{profile_name}.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        if markdown:
+            md_path = path.with_suffix('.md')
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(markdown)
+        return path
+
+    def load_portfolio_optimization_report(self, profile_name: str):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_portfolio_optimization' / f'report_{profile_name}.json'
+        if not path.exists():
+            return {}
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def list_portfolio_optimization_reports(self):
+        return pd.DataFrame()
+
+    # =========================================================================
+    # Phase 155: Risk Reporting, Exposure Attribution and Limit Monitoring
+    # =========================================================================
+    def save_risk_reporting_profile_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/profiles/risk_reporting_profile_registry', df, summary)
+    def load_risk_reporting_profile_registry(self):
+        return self._load_csv('advanced_risk_reporting/profiles/risk_reporting_profile_registry.csv')
+
+    def save_risk_reporting_domain_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/domains/risk_reporting_domain_registry', df, summary)
+    def load_risk_reporting_domain_registry(self):
+        return self._load_csv('advanced_risk_reporting/domains/risk_reporting_domain_registry.csv')
+
+    def save_risk_reporting_scope_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/scope/risk_reporting_scope_registry', df, summary)
+    def load_risk_reporting_scope_registry(self):
+        return self._load_csv('advanced_risk_reporting/scope/risk_reporting_scope_registry.csv')
+
+    def save_risk_report_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/contracts/risk_report_contract_registry', df, summary)
+    def load_risk_report_contract_registry(self):
+        return self._load_csv('advanced_risk_reporting/contracts/risk_report_contract_registry.csv')
+
+    def save_exposure_attribution_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/contracts/exposure_attribution_contract_registry', df, summary)
+    def load_exposure_attribution_contract_registry(self):
+        return self._load_csv('advanced_risk_reporting/contracts/exposure_attribution_contract_registry.csv')
+
+    def save_limit_monitoring_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/contracts/limit_monitoring_contract_registry', df, summary)
+    def load_limit_monitoring_contract_registry(self):
+        return self._load_csv('advanced_risk_reporting/contracts/limit_monitoring_contract_registry.csv')
+
+    def save_portfolio_risk_summary_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/contracts/portfolio_risk_summary_contract_registry', df, summary)
+    def load_portfolio_risk_summary_contract_registry(self):
+        return self._load_csv('advanced_risk_reporting/contracts/portfolio_risk_summary_contract_registry.csv')
+
+    def save_portfolio_exposure_summary_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/contracts/portfolio_exposure_summary_contract_registry', df, summary)
+    def load_portfolio_exposure_summary_contract_registry(self):
+        return self._load_csv('advanced_risk_reporting/contracts/portfolio_exposure_summary_contract_registry.csv')
+
+    def save_gross_exposure_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/exposure/gross_exposure_placeholder_registry', df, summary)
+    def load_gross_exposure_placeholder_registry(self):
+        return self._load_csv('advanced_risk_reporting/exposure/gross_exposure_placeholder_registry.csv')
+
+    def save_net_exposure_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/exposure/net_exposure_placeholder_registry', df, summary)
+    def load_net_exposure_placeholder_registry(self):
+        return self._load_csv('advanced_risk_reporting/exposure/net_exposure_placeholder_registry.csv')
+
+    def save_currency_exposure_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/exposure/currency_exposure_placeholder_registry', df, summary)
+    def load_currency_exposure_placeholder_registry(self):
+        return self._load_csv('advanced_risk_reporting/exposure/currency_exposure_placeholder_registry.csv')
+
+    def save_cross_asset_exposure_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/exposure/cross_asset_exposure_placeholder_registry', df, summary)
+    def load_cross_asset_exposure_placeholder_registry(self):
+        return self._load_csv('advanced_risk_reporting/exposure/cross_asset_exposure_placeholder_registry.csv')
+
+    def save_concentration_exposure_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/exposure/concentration_exposure_placeholder_registry', df, summary)
+    def load_concentration_exposure_placeholder_registry(self):
+        return self._load_csv('advanced_risk_reporting/exposure/concentration_exposure_placeholder_registry.csv')
+
+    def save_liquidity_exposure_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/exposure/liquidity_exposure_placeholder_registry', df, summary)
+    def load_liquidity_exposure_placeholder_registry(self):
+        return self._load_csv('advanced_risk_reporting/exposure/liquidity_exposure_placeholder_registry.csv')
+
+    def save_leverage_exposure_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/exposure/leverage_exposure_placeholder_registry', df, summary)
+    def load_leverage_exposure_placeholder_registry(self):
+        return self._load_csv('advanced_risk_reporting/exposure/leverage_exposure_placeholder_registry.csv')
+
+    def save_margin_exposure_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/exposure/margin_exposure_placeholder_registry', df, summary)
+    def load_margin_exposure_placeholder_registry(self):
+        return self._load_csv('advanced_risk_reporting/exposure/margin_exposure_placeholder_registry.csv')
+
+    def save_risk_contribution_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/monitors/risk_contribution_placeholder_registry', df, summary)
+    def load_risk_contribution_placeholder_registry(self):
+        return self._load_csv('advanced_risk_reporting/monitors/risk_contribution_placeholder_registry.csv')
+
+    def save_drawdown_monitor_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/monitors/drawdown_monitor_placeholder_registry', df, summary)
+    def load_drawdown_monitor_placeholder_registry(self):
+        return self._load_csv('advanced_risk_reporting/monitors/drawdown_monitor_placeholder_registry.csv')
+
+    def save_var_monitor_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/monitors/var_monitor_placeholder_registry', df, summary)
+    def load_var_monitor_placeholder_registry(self):
+        return self._load_csv('advanced_risk_reporting/monitors/var_monitor_placeholder_registry.csv')
+
+    def save_expected_shortfall_monitor_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/monitors/expected_shortfall_monitor_placeholder_registry', df, summary)
+    def load_expected_shortfall_monitor_placeholder_registry(self):
+        return self._load_csv('advanced_risk_reporting/monitors/expected_shortfall_monitor_placeholder_registry.csv')
+
+    def save_limit_definition_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/limits/limit_definition_contract_registry', df, summary)
+    def load_limit_definition_contract_registry(self):
+        return self._load_csv('advanced_risk_reporting/limits/limit_definition_contract_registry.csv')
+
+    def save_exposure_limit_monitoring_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/limits/exposure_limit_monitoring_contract_registry', df, summary)
+    def load_exposure_limit_monitoring_contract_registry(self):
+        return self._load_csv('advanced_risk_reporting/limits/exposure_limit_monitoring_contract_registry.csv')
+
+    def save_concentration_limit_monitoring_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/limits/concentration_limit_monitoring_contract_registry', df, summary)
+    def load_concentration_limit_monitoring_contract_registry(self):
+        return self._load_csv('advanced_risk_reporting/limits/concentration_limit_monitoring_contract_registry.csv')
+
+    def save_leverage_limit_monitoring_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/limits/leverage_limit_monitoring_contract_registry', df, summary)
+    def load_leverage_limit_monitoring_contract_registry(self):
+        return self._load_csv('advanced_risk_reporting/limits/leverage_limit_monitoring_contract_registry.csv')
+
+    def save_margin_limit_monitoring_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/limits/margin_limit_monitoring_contract_registry', df, summary)
+    def load_margin_limit_monitoring_contract_registry(self):
+        return self._load_csv('advanced_risk_reporting/limits/margin_limit_monitoring_contract_registry.csv')
+
+    def save_drawdown_limit_monitoring_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/limits/drawdown_limit_monitoring_contract_registry', df, summary)
+    def load_drawdown_limit_monitoring_contract_registry(self):
+        return self._load_csv('advanced_risk_reporting/limits/drawdown_limit_monitoring_contract_registry.csv')
+
+    def save_limit_breach_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/placeholders/limit_breach_placeholder_registry', df, summary)
+    def load_limit_breach_placeholder_registry(self):
+        return self._load_csv('advanced_risk_reporting/placeholders/limit_breach_placeholder_registry.csv')
+
+    def save_risk_alert_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/placeholders/risk_alert_placeholder_registry', df, summary)
+    def load_risk_alert_placeholder_registry(self):
+        return self._load_csv('advanced_risk_reporting/placeholders/risk_alert_placeholder_registry.csv')
+
+    def save_alert_routing_disabled_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/disabled_execution/alert_routing_disabled_registry', df, summary)
+    def load_alert_routing_disabled_registry(self):
+        return self._load_csv('advanced_risk_reporting/disabled_execution/alert_routing_disabled_registry.csv')
+
+    def save_dashboard_contract_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/placeholders/dashboard_contract_placeholder_registry', df, summary)
+    def load_dashboard_contract_placeholder_registry(self):
+        return self._load_csv('advanced_risk_reporting/placeholders/dashboard_contract_placeholder_registry.csv')
+
+    def save_risk_report_output_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/outputs/risk_report_output_contract_registry', df, summary)
+    def load_risk_report_output_contract_registry(self):
+        return self._load_csv('advanced_risk_reporting/outputs/risk_report_output_contract_registry.csv')
+
+    def save_exposure_attribution_output_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/outputs/exposure_attribution_output_contract_registry', df, summary)
+    def load_exposure_attribution_output_contract_registry(self):
+        return self._load_csv('advanced_risk_reporting/outputs/exposure_attribution_output_contract_registry.csv')
+
+    def save_limit_monitoring_output_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/outputs/limit_monitoring_output_contract_registry', df, summary)
+    def load_limit_monitoring_output_contract_registry(self):
+        return self._load_csv('advanced_risk_reporting/outputs/limit_monitoring_output_contract_registry.csv')
+
+    def save_risk_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/metrics/risk_metric_placeholder_registry', df, summary)
+    def load_risk_metric_placeholder_registry(self):
+        return self._load_csv('advanced_risk_reporting/metrics/risk_metric_placeholder_registry.csv')
+
+    def save_exposure_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/metrics/exposure_metric_placeholder_registry', df, summary)
+    def load_exposure_metric_placeholder_registry(self):
+        return self._load_csv('advanced_risk_reporting/metrics/exposure_metric_placeholder_registry.csv')
+
+    def save_attribution_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/metrics/attribution_metric_placeholder_registry', df, summary)
+    def load_attribution_metric_placeholder_registry(self):
+        return self._load_csv('advanced_risk_reporting/metrics/attribution_metric_placeholder_registry.csv')
+
+    def save_limit_monitoring_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/metrics/limit_monitoring_metric_placeholder_registry', df, summary)
+    def load_limit_monitoring_metric_placeholder_registry(self):
+        return self._load_csv('advanced_risk_reporting/metrics/limit_monitoring_metric_placeholder_registry.csv')
+
+    def save_risk_reporting_exposure_claim_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/guards/exposure_claim_guard_registry', df, summary)
+    def load_risk_reporting_exposure_claim_guard_registry(self):
+        return self._load_csv('advanced_risk_reporting/guards/exposure_claim_guard_registry.csv')
+
+    def save_risk_reporting_limit_breach_claim_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/guards/limit_breach_claim_guard_registry', df, summary)
+    def load_risk_reporting_limit_breach_claim_guard_registry(self):
+        return self._load_csv('advanced_risk_reporting/guards/limit_breach_claim_guard_registry.csv')
+
+    def save_risk_reporting_investment_advice_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/guards/investment_advice_guard_registry', df, summary)
+    def load_risk_reporting_investment_advice_guard_registry(self):
+        return self._load_csv('advanced_risk_reporting/guards/investment_advice_guard_registry.csv')
+
+    def save_risk_reporting_portfolio_adjustment_guard_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/guards/portfolio_adjustment_guard_registry', df, summary)
+    def load_risk_reporting_portfolio_adjustment_guard_registry(self):
+        return self._load_csv('advanced_risk_reporting/guards/portfolio_adjustment_guard_registry.csv')
+
+    def save_risk_reporting_forbidden_column_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/guards/forbidden_column_policy_registry', df, summary)
+    def load_risk_reporting_forbidden_column_policy_registry(self):
+        return self._load_csv('advanced_risk_reporting/guards/forbidden_column_policy_registry.csv')
+
+    def save_risk_report_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/disabled_execution/risk_report_execution_disabled', df, summary)
+    def load_risk_report_execution_disabled_report(self):
+        return self._load_csv('advanced_risk_reporting/disabled_execution/risk_report_execution_disabled.csv')
+
+    def save_exposure_attribution_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/disabled_execution/exposure_attribution_execution_disabled', df, summary)
+    def load_exposure_attribution_execution_disabled_report(self):
+        return self._load_csv('advanced_risk_reporting/disabled_execution/exposure_attribution_execution_disabled.csv')
+
+    def save_limit_monitoring_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/disabled_execution/limit_monitoring_execution_disabled', df, summary)
+    def load_limit_monitoring_execution_disabled_report(self):
+        return self._load_csv('advanced_risk_reporting/disabled_execution/limit_monitoring_execution_disabled.csv')
+
+    def save_risk_metric_calculation_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/disabled_execution/risk_metric_calculation_disabled', df, summary)
+    def load_risk_metric_calculation_disabled_report(self):
+        return self._load_csv('advanced_risk_reporting/disabled_execution/risk_metric_calculation_disabled.csv')
+
+    def save_limit_alerting_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/disabled_execution/limit_alerting_disabled', df, summary)
+    def load_limit_alerting_disabled_report(self):
+        return self._load_csv('advanced_risk_reporting/disabled_execution/limit_alerting_disabled.csv')
+
+    def save_dashboard_generation_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/disabled_execution/dashboard_generation_disabled', df, summary)
+    def load_dashboard_generation_disabled_report(self):
+        return self._load_csv('advanced_risk_reporting/disabled_execution/dashboard_generation_disabled.csv')
+
+    def save_portfolio_adjustment_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/disabled_execution/portfolio_adjustment_disabled', df, summary)
+    def load_portfolio_adjustment_disabled_report(self):
+        return self._load_csv('advanced_risk_reporting/disabled_execution/portfolio_adjustment_disabled.csv')
+
+    def save_risk_reporting_live_trading_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/disabled_execution/live_trading_disabled', df, summary)
+    def load_risk_reporting_live_trading_disabled_report(self):
+        return self._load_csv('advanced_risk_reporting/disabled_execution/live_trading_disabled.csv')
+
+    def save_risk_reporting_broker_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/disabled_execution/broker_execution_disabled', df, summary)
+    def load_risk_reporting_broker_execution_disabled_report(self):
+        return self._load_csv('advanced_risk_reporting/disabled_execution/broker_execution_disabled.csv')
+
+    def save_risk_reporting_validation_evidence_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/evidence/validation_evidence', df, summary)
+    def load_risk_reporting_validation_evidence_registry(self):
+        return self._load_csv('advanced_risk_reporting/evidence/validation_evidence.csv')
+
+    def save_risk_reporting_findings_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/findings/findings_registry', df, summary)
+    def load_risk_reporting_findings_registry(self):
+        return self._load_csv('advanced_risk_reporting/findings/findings_registry.csv')
+
+    def save_risk_reporting_readiness_score_report(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/scoring/readiness_score_report', df, summary)
+    def load_risk_reporting_readiness_score_report(self):
+        return self._load_csv('advanced_risk_reporting/scoring/readiness_score_report.csv')
+
+    def save_risk_reporting_manifest(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/manifest/manifest', df, summary)
+    def load_risk_reporting_manifest(self):
+        return self._load_csv('advanced_risk_reporting/manifest/manifest.csv')
+
+    def save_risk_reporting_health_check(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/health/health_check', df, summary)
+    def load_risk_reporting_health_check(self):
+        return self._load_csv('advanced_risk_reporting/health/health_check.csv')
+
+    def save_risk_reporting_validation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/validation/validation_report', df, summary)
+    def load_risk_reporting_validation_report(self):
+        return self._load_csv('advanced_risk_reporting/validation/validation_report.csv')
+
+    def save_risk_reporting_safety_boundary(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/safety/safety_boundary', df, summary)
+    def load_risk_reporting_safety_boundary(self):
+        return self._load_csv('advanced_risk_reporting/safety/safety_boundary.csv')
+
+    def save_phase_156_portfolio_scenario_testing_drawdown_control_handoff_report(self, df, summary=None):
+        return self._save_csv_json('advanced_risk_reporting/handoff/phase_156_handoff', df, summary)
+    def load_phase_156_portfolio_scenario_testing_drawdown_control_handoff_report(self):
+        return self._load_csv('advanced_risk_reporting/handoff/phase_156_handoff.csv')
+    save_phase_156_handoff = save_phase_156_portfolio_scenario_testing_drawdown_control_handoff_report
+    load_phase_156_handoff = load_phase_156_portfolio_scenario_testing_drawdown_control_handoff_report
+
+    def save_risk_reporting_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_risk_reporting' / f'report_{profile_name}.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        if markdown:
+            md_path = path.with_suffix('.md')
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(markdown)
+        return path
+
+    def load_risk_reporting_report(self, profile_name: str):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_risk_reporting' / f'report_{profile_name}.json'
+        if not path.exists():
+            return {}
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def list_risk_reporting_reports(self):
+        return pd.DataFrame()
+
+    # =========================================================================
+    # Phase 156: Portfolio Scenario Testing and Drawdown Control
+    # =========================================================================
+    def save_portfolio_scenario_control_profile_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/profiles/profile_registry', df, summary)
+    def load_portfolio_scenario_control_profile_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/profiles/profile_registry.csv')
+
+    def save_portfolio_scenario_control_domain_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/domains/domain_registry', df, summary)
+    def load_portfolio_scenario_control_domain_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/domains/domain_registry.csv')
+
+    def save_portfolio_scenario_control_scope_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/scope/scope_registry', df, summary)
+    def load_portfolio_scenario_control_scope_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/scope/scope_registry.csv')
+
+    def save_portfolio_scenario_testing_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/contracts/scenario_testing_contract_registry', df, summary)
+    def load_portfolio_scenario_testing_contract_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/contracts/scenario_testing_contract_registry.csv')
+
+    def save_portfolio_resilience_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/contracts/resilience_contract_registry', df, summary)
+    def load_portfolio_resilience_contract_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/contracts/resilience_contract_registry.csv')
+
+    def save_portfolio_scenario_library_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/contracts/scenario_library_contract_registry', df, summary)
+    def load_portfolio_scenario_library_contract_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/contracts/scenario_library_contract_registry.csv')
+
+    def save_historical_portfolio_scenario_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/contracts/historical_scenario_contract_registry', df, summary)
+    def load_historical_portfolio_scenario_contract_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/contracts/historical_scenario_contract_registry.csv')
+
+    def save_hypothetical_portfolio_scenario_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/contracts/hypothetical_scenario_contract_registry', df, summary)
+    def load_hypothetical_portfolio_scenario_contract_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/contracts/hypothetical_scenario_contract_registry.csv')
+
+    def save_portfolio_drawdown_control_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/contracts/drawdown_control_contract_registry', df, summary)
+    def load_portfolio_drawdown_control_contract_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/contracts/drawdown_control_contract_registry.csv')
+
+    def save_drawdown_threshold_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/thresholds/drawdown_threshold_contract_registry', df, summary)
+    def load_drawdown_threshold_contract_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/thresholds/drawdown_threshold_contract_registry.csv')
+
+    def save_drawdown_warning_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/placeholders/warning_placeholder_registry', df, summary)
+    def load_drawdown_warning_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/placeholders/warning_placeholder_registry.csv')
+
+    def save_drawdown_breach_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/placeholders/breach_placeholder_registry', df, summary)
+    def load_drawdown_breach_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/placeholders/breach_placeholder_registry.csv')
+
+    def save_drawdown_recovery_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/placeholders/recovery_placeholder_registry', df, summary)
+    def load_drawdown_recovery_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/placeholders/recovery_placeholder_registry.csv')
+
+    def save_exposure_reduction_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/actions/exposure_reduction_placeholder_registry', df, summary)
+    def load_exposure_reduction_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/actions/exposure_reduction_placeholder_registry.csv')
+
+    def save_de_risking_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/actions/de_risking_placeholder_registry', df, summary)
+    def load_de_risking_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/actions/de_risking_placeholder_registry.csv')
+
+    def save_hedge_control_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/actions/hedge_control_placeholder_registry', df, summary)
+    def load_hedge_control_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/actions/hedge_control_placeholder_registry.csv')
+
+    def save_rebalance_control_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/actions/rebalance_control_placeholder_registry', df, summary)
+    def load_rebalance_control_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/actions/rebalance_control_placeholder_registry.csv')
+
+    def save_stop_control_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/actions/stop_control_placeholder_registry', df, summary)
+    def load_stop_control_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/actions/stop_control_placeholder_registry.csv')
+
+    def save_portfolio_freeze_control_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/actions/portfolio_freeze_control_placeholder_registry', df, summary)
+    def load_portfolio_freeze_control_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/actions/portfolio_freeze_control_placeholder_registry.csv')
+
+    def save_portfolio_resume_control_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/actions/portfolio_resume_control_placeholder_registry', df, summary)
+    def load_portfolio_resume_control_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/actions/portfolio_resume_control_placeholder_registry.csv')
+
+    def save_scenario_output_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/outputs/scenario_output_contract_registry', df, summary)
+    def load_scenario_output_contract_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/outputs/scenario_output_contract_registry.csv')
+
+    def save_drawdown_control_output_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/outputs/drawdown_control_output_contract_registry', df, summary)
+    def load_drawdown_control_output_contract_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/outputs/drawdown_control_output_contract_registry.csv')
+
+    def save_resilience_output_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/outputs/resilience_output_contract_registry', df, summary)
+    def load_resilience_output_contract_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/outputs/resilience_output_contract_registry.csv')
+
+    def save_scenario_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/metrics/scenario_metric_placeholder_registry', df, summary)
+    def load_scenario_metric_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/metrics/scenario_metric_placeholder_registry.csv')
+
+    def save_drawdown_metric_placeholder_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/metrics/drawdown_metric_placeholder_registry', df, summary)
+    def load_drawdown_metric_placeholder_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/metrics/drawdown_metric_placeholder_registry.csv')
+
+    def save_portfolio_scenario_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/dependencies/dependency_registry', df, summary)
+    def load_portfolio_scenario_dependency_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/dependencies/dependency_registry.csv')
+
+    def save_portfolio_scenario_forbidden_column_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/guards/forbidden_column_policy_registry', df, summary)
+    def load_portfolio_scenario_forbidden_column_policy_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/guards/forbidden_column_policy_registry.csv')
+
+    def save_portfolio_scenario_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/disabled_execution/scenario_execution_disabled', df, summary)
+    def load_portfolio_scenario_execution_disabled_report(self):
+        return self._load_csv('advanced_portfolio_scenario_control/disabled_execution/scenario_execution_disabled.csv')
+
+    def save_drawdown_control_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/disabled_execution/drawdown_control_execution_disabled', df, summary)
+    def load_drawdown_control_execution_disabled_report(self):
+        return self._load_csv('advanced_portfolio_scenario_control/disabled_execution/drawdown_control_execution_disabled.csv')
+
+    def save_portfolio_control_action_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/disabled_execution/portfolio_control_action_disabled', df, summary)
+    def load_portfolio_control_action_disabled_report(self):
+        return self._load_csv('advanced_portfolio_scenario_control/disabled_execution/portfolio_control_action_disabled.csv')
+
+    def save_portfolio_scenario_live_trading_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/disabled_execution/live_trading_disabled', df, summary)
+    def load_portfolio_scenario_live_trading_disabled_report(self):
+        return self._load_csv('advanced_portfolio_scenario_control/disabled_execution/live_trading_disabled.csv')
+
+    def save_portfolio_scenario_broker_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/disabled_execution/broker_execution_disabled', df, summary)
+    def load_portfolio_scenario_broker_execution_disabled_report(self):
+        return self._load_csv('advanced_portfolio_scenario_control/disabled_execution/broker_execution_disabled.csv')
+
+    def save_portfolio_scenario_validation_evidence_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/evidence/validation_evidence', df, summary)
+    def load_portfolio_scenario_validation_evidence_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/evidence/validation_evidence.csv')
+
+    def save_portfolio_scenario_findings_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/findings/findings_registry', df, summary)
+    def load_portfolio_scenario_findings_registry(self):
+        return self._load_csv('advanced_portfolio_scenario_control/findings/findings_registry.csv')
+
+    def save_portfolio_scenario_readiness_score_report(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/scoring/readiness_score_report', df, summary)
+    def load_portfolio_scenario_readiness_score_report(self):
+        return self._load_csv('advanced_portfolio_scenario_control/scoring/readiness_score_report.csv')
+
+    def save_portfolio_scenario_control_manifest(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/manifest/manifest', df, summary)
+    def load_portfolio_scenario_control_manifest(self):
+        return self._load_csv('advanced_portfolio_scenario_control/manifest/manifest.csv')
+
+    def save_portfolio_scenario_control_health_check(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/health/health_check', df, summary)
+    def load_portfolio_scenario_control_health_check(self):
+        return self._load_csv('advanced_portfolio_scenario_control/health/health_check.csv')
+
+    def save_portfolio_scenario_control_validation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/validation/validation_report', df, summary)
+    def load_portfolio_scenario_control_validation_report(self):
+        return self._load_csv('advanced_portfolio_scenario_control/validation/validation_report.csv')
+
+    def save_portfolio_scenario_control_safety_boundary(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/safety/safety_boundary', df, summary)
+    def load_portfolio_scenario_control_safety_boundary(self):
+        return self._load_csv('advanced_portfolio_scenario_control/safety/safety_boundary.csv')
+
+    def save_phase_157_portfolio_acceptance_report_handoff_report(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_scenario_control/handoff/phase_157_handoff', df, summary)
+    def load_phase_157_portfolio_acceptance_report_handoff_report(self):
+        return self._load_csv('advanced_portfolio_scenario_control/handoff/phase_157_handoff.csv')
+    save_phase_157_handoff = save_phase_157_portfolio_acceptance_report_handoff_report
+    load_phase_157_handoff = load_phase_157_portfolio_acceptance_report_handoff_report
+
+    def save_portfolio_scenario_control_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_portfolio_scenario_control' / f'report_{profile_name}.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        if markdown:
+            md_path = path.with_suffix('.md')
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(markdown)
+        return path
+
+    def load_portfolio_scenario_control_report(self, profile_name: str):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_portfolio_scenario_control' / f'report_{profile_name}.json'
+        if not path.exists():
+            return {}
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def list_portfolio_scenario_control_reports(self):
+        return pd.DataFrame()
+
+    # Phase 157 Portfolio Acceptance Report Methods
+    def save_portfolio_acceptance_profile_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_acceptance/profiles/profile_registry', df, summary)
+    def load_portfolio_acceptance_profile_registry(self):
+        return self._load_csv('advanced_portfolio_acceptance/profiles/profile_registry.csv')
+
+    def save_portfolio_acceptance_domain_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_acceptance/domains/domain_registry', df, summary)
+    def load_portfolio_acceptance_domain_registry(self):
+        return self._load_csv('advanced_portfolio_acceptance/domains/domain_registry.csv')
+
+    def save_portfolio_acceptance_scope_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_acceptance/scope/scope_registry', df, summary)
+    def load_portfolio_acceptance_scope_registry(self):
+        return self._load_csv('advanced_portfolio_acceptance/scope/scope_registry.csv')
+
+    def save_portfolio_acceptance_component_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_acceptance/components/component_registry', df, summary)
+    def load_portfolio_acceptance_component_registry(self):
+        return self._load_csv('advanced_portfolio_acceptance/components/component_registry.csv')
+
+    def save_portfolio_acceptance_component_checkpoint_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_acceptance/checkpoints/checkpoint_registry', df, summary)
+    def load_portfolio_acceptance_component_checkpoint_registry(self):
+        return self._load_csv('advanced_portfolio_acceptance/checkpoints/checkpoint_registry.csv')
+
+    def save_phase_153_portfolio_construction_acceptance_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_acceptance/phase_153/phase_153_acceptance', df, summary)
+    def load_phase_153_portfolio_construction_acceptance_registry(self):
+        return self._load_csv('advanced_portfolio_acceptance/phase_153/phase_153_acceptance.csv')
+
+    def save_phase_154_portfolio_optimization_acceptance_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_acceptance/phase_154/phase_154_acceptance', df, summary)
+    def load_phase_154_portfolio_optimization_acceptance_registry(self):
+        return self._load_csv('advanced_portfolio_acceptance/phase_154/phase_154_acceptance.csv')
+
+    def save_phase_155_risk_reporting_acceptance_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_acceptance/phase_155/phase_155_acceptance', df, summary)
+    def load_phase_155_risk_reporting_acceptance_registry(self):
+        return self._load_csv('advanced_portfolio_acceptance/phase_155/phase_155_acceptance.csv')
+
+    def save_phase_156_portfolio_scenario_control_acceptance_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_acceptance/phase_156/phase_156_acceptance', df, summary)
+    def load_phase_156_portfolio_scenario_control_acceptance_registry(self):
+        return self._load_csv('advanced_portfolio_acceptance/phase_156/phase_156_acceptance.csv')
+
+    def save_portfolio_acceptance_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_acceptance/dependencies/dependency_registry', df, summary)
+    def load_portfolio_acceptance_dependency_registry(self):
+        return self._load_csv('advanced_portfolio_acceptance/dependencies/dependency_registry.csv')
+
+    def save_portfolio_acceptance_validation_evidence_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_acceptance/evidence/validation_evidence', df, summary)
+    def load_portfolio_acceptance_validation_evidence_registry(self):
+        return self._load_csv('advanced_portfolio_acceptance/evidence/validation_evidence.csv')
+
+    def save_portfolio_acceptance_safety_boundary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_acceptance/safety/safety_boundary_registry', df, summary)
+    def load_portfolio_acceptance_safety_boundary_registry(self):
+        return self._load_csv('advanced_portfolio_acceptance/safety/safety_boundary_registry.csv')
+
+    def save_portfolio_acceptance_non_production_boundary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_acceptance/non_production/non_production_boundary_registry', df, summary)
+    def load_portfolio_acceptance_non_production_boundary_registry(self):
+        return self._load_csv('advanced_portfolio_acceptance/non_production/non_production_boundary_registry.csv')
+
+    def save_portfolio_acceptance_manual_review_gate_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_acceptance/review_gates/manual_review_gate_registry', df, summary)
+    def load_portfolio_acceptance_manual_review_gate_registry(self):
+        return self._load_csv('advanced_portfolio_acceptance/review_gates/manual_review_gate_registry.csv')
+
+    def save_portfolio_acceptance_go_no_go_boundary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_acceptance/go_no_go/go_no_go_boundary_registry', df, summary)
+    def load_portfolio_acceptance_go_no_go_boundary_registry(self):
+        return self._load_csv('advanced_portfolio_acceptance/go_no_go/go_no_go_boundary_registry.csv')
+
+    def save_portfolio_acceptance_blocker_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_acceptance/blockers/blocker_registry', df, summary)
+    def load_portfolio_acceptance_blocker_registry(self):
+        return self._load_csv('advanced_portfolio_acceptance/blockers/blocker_registry.csv')
+
+    def save_portfolio_acceptance_gap_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_acceptance/gaps/gap_registry', df, summary)
+    def load_portfolio_acceptance_gap_registry(self):
+        return self._load_csv('advanced_portfolio_acceptance/gaps/gap_registry.csv')
+
+    def save_portfolio_acceptance_warning_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_acceptance/warnings/warning_registry', df, summary)
+    def load_portfolio_acceptance_warning_registry(self):
+        return self._load_csv('advanced_portfolio_acceptance/warnings/warning_registry.csv')
+
+    def save_portfolio_acceptance_findings_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_acceptance/findings/findings_registry', df, summary)
+    def load_portfolio_acceptance_findings_registry(self):
+        return self._load_csv('advanced_portfolio_acceptance/findings/findings_registry.csv')
+
+    def save_portfolio_acceptance_readiness_score_report(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_acceptance/scoring/readiness_score_report', df, summary)
+    def load_portfolio_acceptance_readiness_score_report(self):
+        return self._load_csv('advanced_portfolio_acceptance/scoring/readiness_score_report.csv')
+
+    def save_portfolio_acceptance_manifest(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_acceptance/manifest/manifest', df, summary)
+    def load_portfolio_acceptance_manifest(self):
+        return self._load_csv('advanced_portfolio_acceptance/manifest/manifest.csv')
+
+    def save_portfolio_acceptance_health_check(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_acceptance/health/health_check', df, summary)
+    def load_portfolio_acceptance_health_check(self):
+        return self._load_csv('advanced_portfolio_acceptance/health/health_check.csv')
+
+    def save_portfolio_acceptance_validation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_acceptance/validation/validation_report', df, summary)
+    def load_portfolio_acceptance_validation_report(self):
+        return self._load_csv('advanced_portfolio_acceptance/validation/validation_report.csv')
+
+    def save_portfolio_acceptance_safety_boundary(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_acceptance/safety/safety_boundary', df, summary)
+    def load_portfolio_acceptance_safety_boundary(self):
+        return self._load_csv('advanced_portfolio_acceptance/safety/safety_boundary.csv')
+
+    def save_phase_158_full_system_integration_advanced_acceptance_rehearsal_handoff_report(self, df, summary=None):
+        return self._save_csv_json('advanced_portfolio_acceptance/handoff/phase_158_handoff', df, summary)
+    def load_phase_158_full_system_integration_advanced_acceptance_rehearsal_handoff_report(self):
+        return self._load_csv('advanced_portfolio_acceptance/handoff/phase_158_handoff.csv')
+    save_phase_158_handoff = save_phase_158_full_system_integration_advanced_acceptance_rehearsal_handoff_report
+    load_phase_158_handoff = load_phase_158_full_system_integration_advanced_acceptance_rehearsal_handoff_report
+
+    def save_portfolio_acceptance_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_portfolio_acceptance' / f'report_{profile_name}.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        if markdown:
+            md_path = path.with_suffix('.md')
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(markdown)
+        return path
+
+    def load_portfolio_acceptance_report(self, profile_name: str):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_portfolio_acceptance' / f'report_{profile_name}.json'
+        if not path.exists():
+            return {}
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def list_portfolio_acceptance_reports(self):
+        return pd.DataFrame()
+
+    # =========================================================================
+    # Phase 158: Full-System Integration and Advanced Acceptance Rehearsal
+    # =========================================================================
+    def save_full_system_integration_profile_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/profiles/profile_registry', df, summary)
+    def load_full_system_integration_profile_registry(self):
+        return self._load_csv('advanced_full_system_integration/profiles/profile_registry.csv')
+
+    def save_full_system_integration_domain_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/domains/domain_registry', df, summary)
+    def load_full_system_integration_domain_registry(self):
+        return self._load_csv('advanced_full_system_integration/domains/domain_registry.csv')
+
+    def save_full_system_integration_scope_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/scope/scope_registry', df, summary)
+    def load_full_system_integration_scope_registry(self):
+        return self._load_csv('advanced_full_system_integration/scope/scope_registry.csv')
+
+    def save_system_component_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/components/component_registry', df, summary)
+    def load_system_component_registry(self):
+        return self._load_csv('advanced_full_system_integration/components/component_registry.csv')
+
+    def save_system_component_dependency_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/dependencies/dependency_registry', df, summary)
+    def load_system_component_dependency_registry(self):
+        return self._load_csv('advanced_full_system_integration/dependencies/dependency_registry.csv')
+
+    def save_system_component_checkpoint_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/checkpoints/checkpoint_registry', df, summary)
+    def load_system_component_checkpoint_registry(self):
+        return self._load_csv('advanced_full_system_integration/checkpoints/checkpoint_registry.csv')
+
+    def save_system_contract_integration_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/contracts/contract_integration_registry', df, summary)
+    def load_system_contract_integration_registry(self):
+        return self._load_csv('advanced_full_system_integration/contracts/contract_integration_registry.csv')
+
+    def save_system_manifest_integration_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/manifests/manifest_integration_registry', df, summary)
+    def load_system_manifest_integration_registry(self):
+        return self._load_csv('advanced_full_system_integration/manifests/manifest_integration_registry.csv')
+
+    def save_system_validation_evidence_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/evidence/validation_evidence_registry', df, summary)
+    def load_system_validation_evidence_registry(self):
+        return self._load_csv('advanced_full_system_integration/evidence/validation_evidence_registry.csv')
+
+    def save_system_safety_boundary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/safety/safety_boundary_registry', df, summary)
+    def load_system_safety_boundary_registry(self):
+        return self._load_csv('advanced_full_system_integration/safety/safety_boundary_registry.csv')
+
+    def save_system_non_production_boundary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/non_production/non_production_boundary_registry', df, summary)
+    def load_system_non_production_boundary_registry(self):
+        return self._load_csv('advanced_full_system_integration/non_production/non_production_boundary_registry.csv')
+
+    def save_system_dry_run_boundary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/dry_run/dry_run_boundary_registry', df, summary)
+    def load_system_dry_run_boundary_registry(self):
+        return self._load_csv('advanced_full_system_integration/dry_run/dry_run_boundary_registry.csv')
+
+    def save_system_manual_review_gate_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/review_gates/manual_review_gate_registry', df, summary)
+    def load_system_manual_review_gate_registry(self):
+        return self._load_csv('advanced_full_system_integration/review_gates/manual_review_gate_registry.csv')
+
+    def save_advanced_acceptance_rehearsal_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/rehearsal/acceptance_rehearsal_registry', df, summary)
+    def load_advanced_acceptance_rehearsal_registry(self):
+        return self._load_csv('advanced_full_system_integration/rehearsal/acceptance_rehearsal_registry.csv')
+
+    def save_advanced_acceptance_rehearsal_checkpoint_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/rehearsal/rehearsal_checkpoint_registry', df, summary)
+    def load_advanced_acceptance_rehearsal_checkpoint_registry(self):
+        return self._load_csv('advanced_full_system_integration/rehearsal/rehearsal_checkpoint_registry.csv')
+
+    def save_data_pipeline_integration_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/subsystems/data_pipeline_integration_registry', df, summary)
+    def load_data_pipeline_integration_registry(self):
+        return self._load_csv('advanced_full_system_integration/subsystems/data_pipeline_integration_registry.csv')
+
+    def save_feature_factor_integration_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/subsystems/feature_factor_integration_registry', df, summary)
+    def load_feature_factor_integration_registry(self):
+        return self._load_csv('advanced_full_system_integration/subsystems/feature_factor_integration_registry.csv')
+
+    def save_regime_integration_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/subsystems/regime_integration_registry', df, summary)
+    def load_regime_integration_registry(self):
+        return self._load_csv('advanced_full_system_integration/subsystems/regime_integration_registry.csv')
+
+    def save_ml_governance_integration_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/subsystems/ml_governance_integration_registry', df, summary)
+    def load_ml_governance_integration_registry(self):
+        return self._load_csv('advanced_full_system_integration/subsystems/ml_governance_integration_registry.csv')
+
+    def save_backtest_acceptance_integration_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/subsystems/backtest_acceptance_integration_registry', df, summary)
+    def load_backtest_acceptance_integration_registry(self):
+        return self._load_csv('advanced_full_system_integration/subsystems/backtest_acceptance_integration_registry.csv')
+
+    def save_portfolio_acceptance_integration_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/subsystems/portfolio_acceptance_integration_registry', df, summary)
+    def load_portfolio_acceptance_integration_registry(self):
+        return self._load_csv('advanced_full_system_integration/subsystems/portfolio_acceptance_integration_registry.csv')
+
+    def save_risk_reporting_integration_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/subsystems/risk_reporting_integration_registry', df, summary)
+    def load_risk_reporting_integration_registry(self):
+        return self._load_csv('advanced_full_system_integration/subsystems/risk_reporting_integration_registry.csv')
+
+    def save_scenario_control_integration_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/subsystems/scenario_control_integration_registry', df, summary)
+    def load_scenario_control_integration_registry(self):
+        return self._load_csv('advanced_full_system_integration/subsystems/scenario_control_integration_registry.csv')
+
+    def save_reporting_integration_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/subsystems/reporting_integration_registry', df, summary)
+    def load_reporting_integration_registry(self):
+        return self._load_csv('advanced_full_system_integration/subsystems/reporting_integration_registry.csv')
+
+    def save_forbidden_column_system_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/safety/forbidden_column_system_policy_registry', df, summary)
+    def load_forbidden_column_system_policy_registry(self):
+        return self._load_csv('advanced_full_system_integration/safety/forbidden_column_system_policy_registry.csv')
+
+    def save_system_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/disabled_execution/system_execution_disabled_report', df, summary)
+    def load_system_execution_disabled_report(self):
+        return self._load_csv('advanced_full_system_integration/disabled_execution/system_execution_disabled_report.csv')
+
+    def save_live_trading_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/disabled_execution/live_trading_disabled_report', df, summary)
+    def load_live_trading_disabled_report(self):
+        return self._load_csv('advanced_full_system_integration/disabled_execution/live_trading_disabled_report.csv')
+
+    def save_broker_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/disabled_execution/broker_execution_disabled_report', df, summary)
+    def load_broker_execution_disabled_report(self):
+        return self._load_csv('advanced_full_system_integration/disabled_execution/broker_execution_disabled_report.csv')
+
+    def save_production_deployment_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/disabled_execution/production_deployment_disabled_report', df, summary)
+    def load_production_deployment_disabled_report(self):
+        return self._load_csv('advanced_full_system_integration/disabled_execution/production_deployment_disabled_report.csv')
+
+    def save_model_training_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/disabled_execution/model_training_disabled_report', df, summary)
+    def load_model_training_disabled_report(self):
+        return self._load_csv('advanced_full_system_integration/disabled_execution/model_training_disabled_report.csv')
+
+    def save_model_prediction_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/disabled_execution/model_prediction_disabled_report', df, summary)
+    def load_model_prediction_disabled_report(self):
+        return self._load_csv('advanced_full_system_integration/disabled_execution/model_prediction_disabled_report.csv')
+
+    def save_order_generation_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/disabled_execution/order_generation_disabled_report', df, summary)
+    def load_order_generation_disabled_report(self):
+        return self._load_csv('advanced_full_system_integration/disabled_execution/order_generation_disabled_report.csv')
+
+    def save_signal_generation_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/disabled_execution/signal_generation_disabled_report', df, summary)
+    def load_signal_generation_disabled_report(self):
+        return self._load_csv('advanced_full_system_integration/disabled_execution/signal_generation_disabled_report.csv')
+
+    def save_investment_advice_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/disabled_execution/investment_advice_disabled_report', df, summary)
+    def load_investment_advice_disabled_report(self):
+        return self._load_csv('advanced_full_system_integration/disabled_execution/investment_advice_disabled_report.csv')
+
+    def save_system_integration_findings_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/findings/findings_registry', df, summary)
+    def load_system_integration_findings_registry(self):
+        return self._load_csv('advanced_full_system_integration/findings/findings_registry.csv')
+
+    def save_system_integration_readiness_score_report(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/scoring/readiness_score_report', df, summary)
+    def load_system_integration_readiness_score_report(self):
+        return self._load_csv('advanced_full_system_integration/scoring/readiness_score_report.csv')
+
+    def save_full_system_integration_manifest(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/manifest/manifest', df, summary)
+    def load_full_system_integration_manifest(self):
+        return self._load_csv('advanced_full_system_integration/manifest/manifest.csv')
+
+    def save_full_system_integration_health_check(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/health/health_check', df, summary)
+    def load_full_system_integration_health_check(self):
+        return self._load_csv('advanced_full_system_integration/health/health_check.csv')
+
+    def save_full_system_integration_validation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/validation/validation_report', df, summary)
+    def load_full_system_integration_validation_report(self):
+        return self._load_csv('advanced_full_system_integration/validation/validation_report.csv')
+
+    def save_full_system_integration_safety_boundary(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/safety/safety_boundary', df, summary)
+    def load_full_system_integration_safety_boundary(self):
+        return self._load_csv('advanced_full_system_integration/safety/safety_boundary.csv')
+
+    def save_phase_159_final_hardening_operator_runbook_release_candidate_handoff_report(self, df, summary=None):
+        return self._save_csv_json('advanced_full_system_integration/handoff/phase_159_handoff', df, summary)
+    def load_phase_159_final_hardening_operator_runbook_release_candidate_handoff_report(self):
+        return self._load_csv('advanced_full_system_integration/handoff/phase_159_handoff.csv')
+    save_phase_159_handoff = save_phase_159_final_hardening_operator_runbook_release_candidate_handoff_report
+    load_phase_159_handoff = load_phase_159_final_hardening_operator_runbook_release_candidate_handoff_report
+
+    def save_full_system_integration_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_full_system_integration' / f'report_{profile_name}.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        if markdown:
+            md_path = path.with_suffix('.md')
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(markdown)
+        return path
+
+    def load_full_system_integration_report(self, profile_name: str):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_full_system_integration' / f'report_{profile_name}.json'
+        if not path.exists():
+            return {}
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def list_full_system_integration_reports(self):
+        return pd.DataFrame()
+
+    # Phase 159 Final Hardening and Release Candidate Methods
+    def save_final_hardening_profile_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/profiles/profile_registry', df, summary)
+    def load_final_hardening_profile_registry(self):
+        return self._load_csv('advanced_final_hardening/profiles/profile_registry.csv')
+
+    def save_final_hardening_domain_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/domains/domain_registry', df, summary)
+    def load_final_hardening_domain_registry(self):
+        return self._load_csv('advanced_final_hardening/domains/domain_registry.csv')
+
+    def save_final_hardening_scope_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/scope/scope_registry', df, summary)
+    def load_final_hardening_scope_registry(self):
+        return self._load_csv('advanced_final_hardening/scope/scope_registry.csv')
+
+    def save_final_hardening_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/contracts/contract_registry', df, summary)
+    def load_final_hardening_contract_registry(self):
+        return self._load_csv('advanced_final_hardening/contracts/contract_registry.csv')
+
+    def save_operator_runbook_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/runbooks/runbook_contract_registry', df, summary)
+    def load_operator_runbook_contract_registry(self):
+        return self._load_csv('advanced_final_hardening/runbooks/runbook_contract_registry.csv')
+
+    def save_release_candidate_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/contracts/release_candidate_contract_registry', df, summary)
+    def load_release_candidate_contract_registry(self):
+        return self._load_csv('advanced_final_hardening/contracts/release_candidate_contract_registry.csv')
+
+    def save_final_configuration_freeze_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/freezes/configuration_freeze_registry', df, summary)
+    def load_final_configuration_freeze_contract_registry(self):
+        return self._load_csv('advanced_final_hardening/freezes/configuration_freeze_registry.csv')
+
+    def save_final_documentation_freeze_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/freezes/documentation_freeze_registry', df, summary)
+    def load_final_documentation_freeze_contract_registry(self):
+        return self._load_csv('advanced_final_hardening/freezes/documentation_freeze_registry.csv')
+
+    def save_final_safety_freeze_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/freezes/safety_freeze_registry', df, summary)
+    def load_final_safety_freeze_contract_registry(self):
+        return self._load_csv('advanced_final_hardening/freezes/safety_freeze_registry.csv')
+
+    def save_final_validation_freeze_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/freezes/validation_freeze_registry', df, summary)
+    def load_final_validation_freeze_contract_registry(self):
+        return self._load_csv('advanced_final_hardening/freezes/validation_freeze_registry.csv')
+
+    def save_final_dependency_freeze_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/freezes/dependency_freeze_registry', df, summary)
+    def load_final_dependency_freeze_contract_registry(self):
+        return self._load_csv('advanced_final_hardening/freezes/dependency_freeze_registry.csv')
+
+    def save_final_manifest_freeze_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/freezes/manifest_freeze_registry', df, summary)
+    def load_final_manifest_freeze_contract_registry(self):
+        return self._load_csv('advanced_final_hardening/freezes/manifest_freeze_registry.csv')
+
+    def save_final_report_freeze_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/freezes/report_freeze_registry', df, summary)
+    def load_final_report_freeze_contract_registry(self):
+        return self._load_csv('advanced_final_hardening/freezes/report_freeze_registry.csv')
+
+    def save_final_settings_audit_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/audits/settings_audit_registry', df, summary)
+    def load_final_settings_audit_contract_registry(self):
+        return self._load_csv('advanced_final_hardening/audits/settings_audit_registry.csv')
+
+    def save_final_env_template_audit_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/audits/env_template_audit_registry', df, summary)
+    def load_final_env_template_audit_contract_registry(self):
+        return self._load_csv('advanced_final_hardening/audits/env_template_audit_registry.csv')
+
+    def save_final_paths_audit_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/audits/paths_audit_registry', df, summary)
+    def load_final_paths_audit_contract_registry(self):
+        return self._load_csv('advanced_final_hardening/audits/paths_audit_registry.csv')
+
+    def save_final_script_inventory_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/inventories/script_inventory_registry', df, summary)
+    def load_final_script_inventory_registry(self):
+        return self._load_csv('advanced_final_hardening/inventories/script_inventory_registry.csv')
+
+    def save_final_test_inventory_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/inventories/test_inventory_registry', df, summary)
+    def load_final_test_inventory_registry(self):
+        return self._load_csv('advanced_final_hardening/inventories/test_inventory_registry.csv')
+
+    def save_final_docs_inventory_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/inventories/docs_inventory_registry', df, summary)
+    def load_final_docs_inventory_registry(self):
+        return self._load_csv('advanced_final_hardening/inventories/docs_inventory_registry.csv')
+
+    def save_final_report_inventory_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/inventories/report_inventory_registry', df, summary)
+    def load_final_report_inventory_registry(self):
+        return self._load_csv('advanced_final_hardening/inventories/report_inventory_registry.csv')
+
+    def save_final_system_component_inventory_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/inventories/system_component_inventory_registry', df, summary)
+    def load_final_system_component_inventory_registry(self):
+        return self._load_csv('advanced_final_hardening/inventories/system_component_inventory_registry.csv')
+
+    def save_final_disabled_execution_inventory_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/inventories/disabled_execution_inventory_registry', df, summary)
+    def load_final_disabled_execution_inventory_registry(self):
+        return self._load_csv('advanced_final_hardening/inventories/disabled_execution_inventory_registry.csv')
+
+    def save_final_safety_boundary_inventory_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/inventories/safety_boundary_inventory_registry', df, summary)
+    def load_final_safety_boundary_inventory_registry(self):
+        return self._load_csv('advanced_final_hardening/inventories/safety_boundary_inventory_registry.csv')
+
+    def save_operator_startup_runbook_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/runbooks/startup_runbook_registry', df, summary)
+    def load_operator_startup_runbook_contract_registry(self):
+        return self._load_csv('advanced_final_hardening/runbooks/startup_runbook_registry.csv')
+
+    def save_operator_shutdown_runbook_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/runbooks/shutdown_runbook_registry', df, summary)
+    def load_operator_shutdown_runbook_contract_registry(self):
+        return self._load_csv('advanced_final_hardening/runbooks/shutdown_runbook_registry.csv')
+
+    def save_operator_config_check_runbook_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/runbooks/config_check_runbook_registry', df, summary)
+    def load_operator_config_check_runbook_contract_registry(self):
+        return self._load_csv('advanced_final_hardening/runbooks/config_check_runbook_registry.csv')
+
+    def save_operator_troubleshooting_runbook_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/runbooks/troubleshooting_runbook_registry', df, summary)
+    def load_operator_troubleshooting_runbook_contract_registry(self):
+        return self._load_csv('advanced_final_hardening/runbooks/troubleshooting_runbook_registry.csv')
+
+    def save_operator_recovery_runbook_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/runbooks/recovery_runbook_registry', df, summary)
+    def load_operator_recovery_runbook_contract_registry(self):
+        return self._load_csv('advanced_final_hardening/runbooks/recovery_runbook_registry.csv')
+
+    def save_operator_no_go_protocol_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/protocols/no_go_protocol_registry', df, summary)
+    def load_operator_no_go_protocol_registry(self):
+        return self._load_csv('advanced_final_hardening/protocols/no_go_protocol_registry.csv')
+
+    def save_operator_safe_usage_protocol_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/protocols/safe_usage_protocol_registry', df, summary)
+    def load_operator_safe_usage_protocol_registry(self):
+        return self._load_csv('advanced_final_hardening/protocols/safe_usage_protocol_registry.csv')
+
+    def save_release_candidate_checklist_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/checklists/checklist_registry', df, summary)
+    def load_release_candidate_checklist_registry(self):
+        return self._load_csv('advanced_final_hardening/checklists/checklist_registry.csv')
+
+    def save_release_candidate_component_checkpoint_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/checkpoints/component_checkpoint_registry', df, summary)
+    def load_release_candidate_component_checkpoint_registry(self):
+        return self._load_csv('advanced_final_hardening/checkpoints/component_checkpoint_registry.csv')
+
+    def save_release_candidate_dependency_checkpoint_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/checkpoints/dependency_checkpoint_registry', df, summary)
+    def load_release_candidate_dependency_checkpoint_registry(self):
+        return self._load_csv('advanced_final_hardening/checkpoints/dependency_checkpoint_registry.csv')
+
+    def save_release_candidate_validation_checkpoint_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/checkpoints/validation_checkpoint_registry', df, summary)
+    def load_release_candidate_validation_checkpoint_registry(self):
+        return self._load_csv('advanced_final_hardening/checkpoints/validation_checkpoint_registry.csv')
+
+    def save_release_candidate_safety_checkpoint_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/checkpoints/safety_checkpoint_registry', df, summary)
+    def load_release_candidate_safety_checkpoint_registry(self):
+        return self._load_csv('advanced_final_hardening/checkpoints/safety_checkpoint_registry.csv')
+
+    def save_release_candidate_no_go_boundary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/boundaries/no_go_boundary_registry', df, summary)
+    def load_release_candidate_no_go_boundary_registry(self):
+        return self._load_csv('advanced_final_hardening/boundaries/no_go_boundary_registry.csv')
+
+    def save_release_candidate_go_boundary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/boundaries/go_boundary_registry', df, summary)
+    def load_release_candidate_go_boundary_registry(self):
+        return self._load_csv('advanced_final_hardening/boundaries/go_boundary_registry.csv')
+
+    def save_release_candidate_blocker_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/blockers/blocker_registry', df, summary)
+    def load_release_candidate_blocker_registry(self):
+        return self._load_csv('advanced_final_hardening/blockers/blocker_registry.csv')
+
+    def save_release_candidate_gap_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/gaps/gap_registry', df, summary)
+    def load_release_candidate_gap_registry(self):
+        return self._load_csv('advanced_final_hardening/gaps/gap_registry.csv')
+
+    def save_release_candidate_warning_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/warnings/warning_registry', df, summary)
+    def load_release_candidate_warning_registry(self):
+        return self._load_csv('advanced_final_hardening/warnings/warning_registry.csv')
+
+    def save_release_candidate_findings_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/findings/findings_registry', df, summary)
+    def load_release_candidate_findings_registry(self):
+        return self._load_csv('advanced_final_hardening/findings/findings_registry.csv')
+
+    def save_release_candidate_readiness_score_report(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/scoring/readiness_score_report', df, summary)
+    def load_release_candidate_readiness_score_report(self):
+        return self._load_csv('advanced_final_hardening/scoring/readiness_score_report.csv')
+
+    def save_release_candidate_manifest(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/manifest/manifest', df, summary)
+    def load_release_candidate_manifest(self):
+        return self._load_csv('advanced_final_hardening/manifest/manifest.csv')
+
+    def save_release_candidate_health_check(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/health/health_check', df, summary)
+    def load_release_candidate_health_check(self):
+        return self._load_csv('advanced_final_hardening/health/health_check.csv')
+
+    def save_release_candidate_validation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/validation/validation_report', df, summary)
+    def load_release_candidate_validation_report(self):
+        return self._load_csv('advanced_final_hardening/validation/validation_report.csv')
+
+    def save_release_candidate_safety_boundary(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/safety/safety_boundary', df, summary)
+    def load_release_candidate_safety_boundary(self):
+        return self._load_csv('advanced_final_hardening/safety/safety_boundary.csv')
+
+    def save_phase_160_full_advanced_bot_final_delivery_handoff_report(self, df, summary=None):
+        return self._save_csv_json('advanced_final_hardening/handoff/phase_160_handoff', df, summary)
+    def load_phase_160_full_advanced_bot_final_delivery_handoff_report(self):
+        return self._load_csv('advanced_final_hardening/handoff/phase_160_handoff.csv')
+    save_phase_160_handoff = save_phase_160_full_advanced_bot_final_delivery_handoff_report
+    load_phase_160_handoff = load_phase_160_full_advanced_bot_final_delivery_handoff_report
+
+    def save_final_hardening_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_final_hardening' / f'report_{profile_name}.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        if markdown:
+            md_path = path.with_suffix('.md')
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(markdown)
+        return path
+
+    def load_final_hardening_report(self, profile_name: str):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_final_hardening' / f'report_{profile_name}.json'
+        if not path.exists():
+            return {}
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def list_final_hardening_reports(self):
+        return pd.DataFrame()
+
+    # Phase 160: Full Advanced Bot Final Delivery methods
+    def save_final_delivery_profile_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/profiles/profile_registry', df, summary)
+    def load_final_delivery_profile_registry(self):
+        return self._load_csv('advanced_final_delivery/profiles/profile_registry.csv')
+
+    def save_final_delivery_domain_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/domains/domain_registry', df, summary)
+    def load_final_delivery_domain_registry(self):
+        return self._load_csv('advanced_final_delivery/domains/domain_registry.csv')
+
+    def save_final_delivery_scope_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/scope/scope_registry', df, summary)
+    def load_final_delivery_scope_registry(self):
+        return self._load_csv('advanced_final_delivery/scope/scope_registry.csv')
+
+    def save_final_delivery_package_contract_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/contracts/package_contract_registry', df, summary)
+    def load_final_delivery_package_contract_registry(self):
+        return self._load_csv('advanced_final_delivery/contracts/package_contract_registry.csv')
+
+    def save_final_delivery_component_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/components/component_registry', df, summary)
+    def load_final_delivery_component_registry(self):
+        return self._load_csv('advanced_final_delivery/components/component_registry.csv')
+
+    def save_final_delivery_module_inventory_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/inventory/module_inventory_registry', df, summary)
+    def load_final_delivery_module_inventory_registry(self):
+        return self._load_csv('advanced_final_delivery/inventory/module_inventory_registry.csv')
+
+    def save_final_delivery_script_inventory_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/inventory/script_inventory_registry', df, summary)
+    def load_final_delivery_script_inventory_registry(self):
+        return self._load_csv('advanced_final_delivery/inventory/script_inventory_registry.csv')
+
+    def save_final_delivery_test_inventory_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/inventory/test_inventory_registry', df, summary)
+    def load_final_delivery_test_inventory_registry(self):
+        return self._load_csv('advanced_final_delivery/inventory/test_inventory_registry.csv')
+
+    def save_final_delivery_docs_inventory_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/inventory/docs_inventory_registry', df, summary)
+    def load_final_delivery_docs_inventory_registry(self):
+        return self._load_csv('advanced_final_delivery/inventory/docs_inventory_registry.csv')
+
+    def save_final_delivery_report_inventory_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/inventory/report_inventory_registry', df, summary)
+    def load_final_delivery_report_inventory_registry(self):
+        return self._load_csv('advanced_final_delivery/inventory/report_inventory_registry.csv')
+
+    def save_final_delivery_acceptance_evidence_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/evidence/acceptance_evidence_registry', df, summary)
+    def load_final_delivery_acceptance_evidence_registry(self):
+        return self._load_csv('advanced_final_delivery/evidence/acceptance_evidence_registry.csv')
+
+    def save_final_delivery_manifest_evidence_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/evidence/manifest_evidence_registry', df, summary)
+    def load_final_delivery_manifest_evidence_registry(self):
+        return self._load_csv('advanced_final_delivery/evidence/manifest_evidence_registry.csv')
+
+    def save_final_delivery_validation_evidence_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/evidence/validation_evidence_registry', df, summary)
+    def load_final_delivery_validation_evidence_registry(self):
+        return self._load_csv('advanced_final_delivery/evidence/validation_evidence_registry.csv')
+
+    def save_final_delivery_safety_evidence_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/evidence/safety_evidence_registry', df, summary)
+    def load_final_delivery_safety_evidence_registry(self):
+        return self._load_csv('advanced_final_delivery/evidence/safety_evidence_registry.csv')
+
+    def save_final_delivery_disabled_execution_evidence_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/evidence/disabled_execution_evidence_registry', df, summary)
+    def load_final_delivery_disabled_execution_evidence_registry(self):
+        return self._load_csv('advanced_final_delivery/evidence/disabled_execution_evidence_registry.csv')
+
+    def save_final_delivery_manual_review_evidence_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/evidence/manual_review_evidence_registry', df, summary)
+    def load_final_delivery_manual_review_evidence_registry(self):
+        return self._load_csv('advanced_final_delivery/evidence/manual_review_evidence_registry.csv')
+
+    def save_final_delivery_runbook_evidence_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/evidence/runbook_evidence_registry', df, summary)
+    def load_final_delivery_runbook_evidence_registry(self):
+        return self._load_csv('advanced_final_delivery/evidence/runbook_evidence_registry.csv')
+
+    def save_final_delivery_release_candidate_evidence_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/evidence/release_candidate_evidence_registry', df, summary)
+    def load_final_delivery_release_candidate_evidence_registry(self):
+        return self._load_csv('advanced_final_delivery/evidence/release_candidate_evidence_registry.csv')
+
+    def save_final_delivery_phase_map_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/phase_maps/phase_map_registry', df, summary)
+    def load_final_delivery_phase_map_registry(self):
+        return self._load_csv('advanced_final_delivery/phase_maps/phase_map_registry.csv')
+
+    def save_final_delivery_phase_1_100_mvp_summary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/summaries/phase_1_100_mvp_summary_registry', df, summary)
+    def load_final_delivery_phase_1_100_mvp_summary_registry(self):
+        return self._load_csv('advanced_final_delivery/summaries/phase_1_100_mvp_summary_registry.csv')
+
+    def save_final_delivery_phase_101_160_advanced_summary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/summaries/phase_101_160_advanced_summary_registry', df, summary)
+    def load_final_delivery_phase_101_160_advanced_summary_registry(self):
+        return self._load_csv('advanced_final_delivery/summaries/phase_101_160_advanced_summary_registry.csv')
+
+    def save_final_delivery_backtest_block_summary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/summaries/backtest_block_summary_registry', df, summary)
+    def load_final_delivery_backtest_block_summary_registry(self):
+        return self._load_csv('advanced_final_delivery/summaries/backtest_block_summary_registry.csv')
+
+    def save_final_delivery_portfolio_block_summary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/summaries/portfolio_block_summary_registry', df, summary)
+    def load_final_delivery_portfolio_block_summary_registry(self):
+        return self._load_csv('advanced_final_delivery/summaries/portfolio_block_summary_registry.csv')
+
+    def save_final_delivery_full_system_block_summary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/summaries/full_system_block_summary_registry', df, summary)
+    def load_final_delivery_full_system_block_summary_registry(self):
+        return self._load_csv('advanced_final_delivery/summaries/full_system_block_summary_registry.csv')
+
+    def save_final_delivery_operator_handover_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/handover/operator_handover_registry', df, summary)
+    def load_final_delivery_operator_handover_registry(self):
+        return self._load_csv('advanced_final_delivery/handover/operator_handover_registry.csv')
+
+    def save_final_delivery_no_go_boundary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/boundaries/no_go_boundary_registry', df, summary)
+    def load_final_delivery_no_go_boundary_registry(self):
+        return self._load_csv('advanced_final_delivery/boundaries/no_go_boundary_registry.csv')
+
+    def save_final_delivery_go_boundary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/boundaries/go_boundary_registry', df, summary)
+    def load_final_delivery_go_boundary_registry(self):
+        return self._load_csv('advanced_final_delivery/boundaries/go_boundary_registry.csv')
+
+    def save_final_delivery_safety_boundary_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/boundaries/safety_boundary_registry', df, summary)
+    def load_final_delivery_safety_boundary_registry(self):
+        return self._load_csv('advanced_final_delivery/boundaries/safety_boundary_registry.csv')
+
+    def save_final_delivery_forbidden_column_policy_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/boundaries/forbidden_column_policy_registry', df, summary)
+    def load_final_delivery_forbidden_column_policy_registry(self):
+        return self._load_csv('advanced_final_delivery/boundaries/forbidden_column_policy_registry.csv')
+
+    def save_final_delivery_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/disabled_execution/execution_disabled_report', df, summary)
+    def load_final_delivery_execution_disabled_report(self):
+        return self._load_csv('advanced_final_delivery/disabled_execution/execution_disabled_report.csv')
+
+    def save_final_delivery_live_trading_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/disabled_execution/live_trading_disabled_report', df, summary)
+    def load_final_delivery_live_trading_disabled_report(self):
+        return self._load_csv('advanced_final_delivery/disabled_execution/live_trading_disabled_report.csv')
+
+    def save_final_delivery_broker_execution_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/disabled_execution/broker_execution_disabled_report', df, summary)
+    def load_final_delivery_broker_execution_disabled_report(self):
+        return self._load_csv('advanced_final_delivery/disabled_execution/broker_execution_disabled_report.csv')
+
+    def save_final_delivery_signal_generation_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/disabled_execution/signal_generation_disabled_report', df, summary)
+    def load_final_delivery_signal_generation_disabled_report(self):
+        return self._load_csv('advanced_final_delivery/disabled_execution/signal_generation_disabled_report.csv')
+
+    def save_final_delivery_prediction_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/disabled_execution/prediction_disabled_report', df, summary)
+    def load_final_delivery_prediction_disabled_report(self):
+        return self._load_csv('advanced_final_delivery/disabled_execution/prediction_disabled_report.csv')
+
+    def save_final_delivery_deployment_disabled_report(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/disabled_execution/deployment_disabled_report', df, summary)
+    def load_final_delivery_deployment_disabled_report(self):
+        return self._load_csv('advanced_final_delivery/disabled_execution/deployment_disabled_report.csv')
+
+    def save_final_delivery_findings_registry(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/findings/findings_registry', df, summary)
+    def load_final_delivery_findings_registry(self):
+        return self._load_csv('advanced_final_delivery/findings/findings_registry.csv')
+
+    def save_final_delivery_readiness_score_report(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/scoring/readiness_score_report', df, summary)
+    def load_final_delivery_readiness_score_report(self):
+        return self._load_csv('advanced_final_delivery/scoring/readiness_score_report.csv')
+
+    def save_final_delivery_manifest(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/manifest/manifest', df, summary)
+    def load_final_delivery_manifest(self):
+        return self._load_csv('advanced_final_delivery/manifest/manifest.csv')
+
+    def save_final_delivery_health_check(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/health/health_check', df, summary)
+    def load_final_delivery_health_check(self):
+        return self._load_csv('advanced_final_delivery/health/health_check.csv')
+
+    def save_final_delivery_validation_report(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/validation/validation_report', df, summary)
+    def load_final_delivery_validation_report(self):
+        return self._load_csv('advanced_final_delivery/validation/validation_report.csv')
+
+    def save_final_delivery_safety_boundary(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/safety/safety_boundary', df, summary)
+    def load_final_delivery_safety_boundary(self):
+        return self._load_csv('advanced_final_delivery/safety/safety_boundary.csv')
+
+    def save_final_system_summary_report(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/summaries/final_system_summary_report', df, summary)
+    def load_final_system_summary_report(self):
+        return self._load_csv('advanced_final_delivery/summaries/final_system_summary_report.csv')
+
+    def save_final_local_offline_package_summary_report(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/summaries/final_local_offline_package_summary_report', df, summary)
+    def load_final_local_offline_package_summary_report(self):
+        return self._load_csv('advanced_final_delivery/summaries/final_local_offline_package_summary_report.csv')
+
+    def save_final_manual_review_summary_report(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/summaries/final_manual_review_summary_report', df, summary)
+    def load_final_manual_review_summary_report(self):
+        return self._load_csv('advanced_final_delivery/summaries/final_manual_review_summary_report.csv')
+
+    def save_final_no_live_no_broker_safety_summary_report(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/summaries/final_no_live_no_broker_safety_summary_report', df, summary)
+    def load_final_no_live_no_broker_safety_summary_report(self):
+        return self._load_csv('advanced_final_delivery/summaries/final_no_live_no_broker_safety_summary_report.csv')
+
+    def save_final_operator_handover_report(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/handover/final_operator_handover_report', df, summary)
+    def load_final_operator_handover_report(self):
+        return self._load_csv('advanced_final_delivery/handover/final_operator_handover_report.csv')
+
+    def save_final_160_phase_completion_report(self, df, summary=None):
+        return self._save_csv_json('advanced_final_delivery/completion/final_160_phase_completion_report', df, summary)
+    def load_final_160_phase_completion_report(self):
+        return self._load_csv('advanced_final_delivery/completion/final_160_phase_completion_report.csv')
+
+    def save_final_delivery_report(self, profile_name: str, report: dict, markdown: str | None = None):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_final_delivery' / f'report_{profile_name}.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        if markdown:
+            md_path = path.with_suffix('.md')
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(markdown)
+        return path
+
+    def load_final_delivery_report(self, profile_name: str):
+        path = self.base_dir / 'reports' / 'output' / 'advanced_final_delivery' / f'report_{profile_name}.json'
+        if not path.exists():
+            return {}
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def list_final_delivery_reports(self):
+        return pd.DataFrame()
 
 
 

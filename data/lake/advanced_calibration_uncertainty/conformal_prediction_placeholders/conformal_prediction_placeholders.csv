@@ -1,0 +1,4 @@
+placeholder_name,conformal_type,nominal_error_rate_alpha,description,executed,conformal_set,non_signal,production_ready,phase,status
+split_conformal_regression_placeholder,inductive_split_conformal,0.1,Inductive split conformal interval at alpha=0.10 (90% coverage); uncalculated.,False,,True,False,141,calibration_contract_placeholder_only
+conformalized_quantile_regression_placeholder,cqr_quantile_residuals,0.05,Conformalized quantile regression interval at alpha=0.05 (95% coverage); uncalculated.,False,,True,False,141,calibration_contract_placeholder_only
+adaptive_prediction_sets_placeholder,aps_classification_set,0.05,Adaptive prediction sets for multiclass classification at alpha=0.05; uncalculated.,False,,True,False,141,calibration_contract_placeholder_only

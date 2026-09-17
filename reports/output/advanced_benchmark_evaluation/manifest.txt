@@ -1,0 +1,5 @@
+UYARI: Bu rapor Phase 151 Benchmark Comparison and Strategy Evaluation Reports çıktısıdır. Araştırma, sözleşme doğrulaması ve dry-run amaçlıdır; kesin AL/SAT, yatırım tavsiyesi, canlı emir veya portföy dağıtım kararı içermez. Gerçek backtest, benchmark simülasyonu, metrik hesaplaması, strateji onayı veya model tahmini yapılmamıştır.
+Manifest ID: MANIFEST_PHASE_151_BENCHMARK_EVALUATION
+Current Phase: 151 | Next Phase: 152 | Final Milestone: 160
+All Invariants Satisfied: True
+Phase 152 Handoff Ready: True

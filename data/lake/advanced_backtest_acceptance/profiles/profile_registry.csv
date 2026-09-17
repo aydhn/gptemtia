@@ -1,0 +1,4 @@
+profile_name,description,current_phase,target_final_phase,next_phase,dry_run_default,local_only,non_production,research_only,min_readiness_score,enabled,is_active,status,non_signal,production_ready,broker_ready
+balanced_local_backtest_acceptance_contracts,Dengeli yerel Backtest Acceptance kabul ve yonetisim profili (Phase 146-151 konsolide).,152,160,153,True,True,True,True,0.5,True,True,acceptance_ready,True,False,False
+strict_non_production_backtest_acceptance_safety,"Siki non-production, no-live-trading ve sifir backtest execution odakli guvenlik kabul profili.",152,160,153,True,True,True,True,0.65,True,False,acceptance_ready,True,False,False
+dry_run_phase_146_152_acceptance_focus,"Dry-run uyumlu, manifest ve Phase 153 portfolio construction devri odakli kabul profili.",152,160,153,True,True,True,True,0.45,True,False,acceptance_ready,True,False,False

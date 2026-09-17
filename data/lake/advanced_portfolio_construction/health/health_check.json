@@ -1,0 +1,8 @@
+{
+  "domain": "health_domain",
+  "active_profile": "balanced_local_portfolio_construction_contracts",
+  "total_components": 12,
+  "healthy_count": 12,
+  "all_healthy": true,
+  "status": "portfolio_contract_ready"
+}

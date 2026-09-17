@@ -1,0 +1,8 @@
+{
+  "domain": "backtest_acceptance_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "total_domains": 27,
+  "all_ready": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

@@ -1,0 +1,4 @@
+experiment_audit_id,experiment_name,model_family,run_status,dry_run,real_training_executed,real_prediction_logged,performance_claim_included,non_signal,description,status
+EXP_AUDIT_PH_001,dry_run_baseline_experiment_sim,logistic_regression,CONTRACT_ONLY_NOT_EXECUTED,True,False,False,False,True,Simulated experiment audit record for baseline linear family.,gpu_governance_ready
+EXP_AUDIT_PH_002,dry_run_gradient_boosting_experiment_sim,gradient_boosting,CONTRACT_ONLY_NOT_EXECUTED,True,False,False,False,True,Simulated experiment audit record for baseline tree-based family.,gpu_governance_ready
+EXP_AUDIT_PH_003,dry_run_neural_network_experiment_sim,mlp_lstm_sequence,CONTRACT_ONLY_NOT_EXECUTED,True,False,False,False,True,Simulated experiment audit record for deep sequence family.,gpu_governance_ready

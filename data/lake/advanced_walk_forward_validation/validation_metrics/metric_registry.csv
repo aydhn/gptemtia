@@ -1,0 +1,4 @@
+metric_name,metric_category,description,formula_spec,metric_calculated,performance_claim_generated,non_signal
+fold_stability_placeholder,STABILITY,Katmanlar arasi getiri veya Sharpe varyasyonunu olcen istikrar metrigi formulu.,FoldStability = 1.0 - Std(Sharpe_folds) / Mean(Sharpe_folds),False,False,True
+generalization_gap_placeholder,OVERFITTING_RISK,In-sample egitim performansi ile OOS performans arasindaki acik formulu.,GenGap = Sharpe_train - Sharpe_oos,False,False,True
+parameter_sensitivity_placeholder,SENSITIVITY,Pencere boyutu veya parametre degisimine karsi sonuc duyarliligi formulu.,Sensitivity = MaxVariation(Score(theta +- delta)) / Score(theta),False,False,True

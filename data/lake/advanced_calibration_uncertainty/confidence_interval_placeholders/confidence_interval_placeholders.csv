@@ -1,0 +1,4 @@
+placeholder_name,nominal_coverage,method,description,calculated,lower_bound,upper_bound,non_signal,production_ready,phase,status
+normal_confidence_interval_95_placeholder,0.95,wald_normal_approximation,95% Wald normal approximation confidence interval; uncalculated.,False,,,True,False,141,calibration_contract_placeholder_only
+bootstrap_confidence_interval_95_placeholder,0.95,percentile_bootstrap,95% Percentile bootstrap confidence interval; uncalculated.,False,,,True,False,141,calibration_contract_placeholder_only
+student_t_confidence_interval_99_placeholder,0.99,student_t_distribution,99% Student-t confidence interval; uncalculated.,False,,,True,False,141,calibration_contract_placeholder_only

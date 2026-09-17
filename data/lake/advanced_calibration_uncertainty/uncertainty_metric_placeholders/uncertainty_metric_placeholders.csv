@@ -1,0 +1,8 @@
+metric_name,metric_family,formula_description,calculated,metric_value,performance_claim,non_signal,phase,status
+interval_coverage_placeholder,empirical_coverage,Fraction of true observations captured within prediction intervals; uncalculated.,False,,False,True,141,calibration_contract_placeholder_only
+interval_width_placeholder,interval_efficiency,Average width (upper - lower) of prediction intervals; uncalculated.,False,,False,True,141,calibration_contract_placeholder_only
+prediction_interval_coverage_probability_placeholder,picp_evaluation,Percentage of test points falling into the computed prediction interval; uncalculated.,False,,False,True,141,calibration_contract_placeholder_only
+conformal_coverage_placeholder,conformal_empirical_coverage,Empirical coverage error vs 1 - alpha nominal target; uncalculated.,False,,False,True,141,calibration_contract_placeholder_only
+sharpness_placeholder,dispersion_concentration,Concentration of uncertainty distribution (mean interval width); uncalculated.,False,,False,True,141,calibration_contract_placeholder_only
+uncertainty_calibration_placeholder,error_vs_uncertainty_correlation,Correlation between model error magnitude and estimated uncertainty; uncalculated.,False,,False,True,141,calibration_contract_placeholder_only
+out_of_distribution_uncertainty_placeholder,ood_detection_score,Separation score of uncertainty metrics between in-distribution and OOD inputs; uncalculated.,False,,False,True,141,calibration_contract_placeholder_only

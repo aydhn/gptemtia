@@ -1,0 +1,25 @@
+component,description,available,domain,non_signal,local_only,dry_run,non_production,current_phase,status
+advanced_full_system_integration,Phase 158 full system integration and rehearsal,True,health_domain,True,True,True,True,159,HEALTHY
+advanced_portfolio_acceptance,Phase 157 portfolio acceptance,True,health_domain,True,True,True,True,159,HEALTHY
+advanced_portfolio_scenario_control,Phase 156 portfolio scenario control,True,health_domain,True,True,True,True,159,HEALTHY
+advanced_risk_reporting,Phase 154 risk reporting,True,health_domain,True,True,True,True,159,HEALTHY
+advanced_portfolio_optimization,Phase 153 portfolio optimization,True,health_domain,True,True,True,True,159,HEALTHY
+advanced_portfolio_construction,Phase 152 portfolio construction,True,health_domain,True,True,True,True,159,HEALTHY
+advanced_backtest_acceptance,Phase 151 backtest acceptance,True,health_domain,True,True,True,True,159,HEALTHY
+advanced_benchmark_evaluation,Phase 150 benchmark evaluation,True,health_domain,True,True,True,True,159,HEALTHY
+advanced_backtest_governance,Phase 149 backtest governance,True,health_domain,True,True,True,True,159,HEALTHY
+advanced_monte_carlo_robustness,Phase 148 monte carlo robustness,True,health_domain,True,True,True,True,159,HEALTHY
+advanced_stress_testing,Phase 147 stress testing,True,health_domain,True,True,True,True,159,HEALTHY
+advanced_walk_forward_validation,Phase 146 walk forward validation,True,health_domain,True,True,True,True,159,HEALTHY
+advanced_realistic_backtest,Phase 145/146 realistic backtest,True,health_domain,True,True,True,True,159,HEALTHY
+advanced_ml_acceptance,Phase 145 ml acceptance,True,health_domain,True,True,True,True,159,HEALTHY
+advanced_model_governance,Phase 144 model governance,True,health_domain,True,True,True,True,159,HEALTHY
+advanced_feature_factor_acceptance,Phase 128 feature factor acceptance,True,health_domain,True,True,True,True,159,HEALTHY
+advanced_feature_quality_drift,Phase 123 feature quality drift,True,health_domain,True,True,True,True,159,HEALTHY
+FeatureStore,ml/feature_store.py feature access layer,True,health_domain,True,True,True,True,159,HEALTHY
+DataLake,data/storage/data_lake.py data lake layer,True,health_domain,True,True,True,True,159,HEALTHY
+advanced_final_hardening,Phase 159 final hardening layer,True,health_domain,True,True,True,True,159,HEALTHY
+scripts_present,scripts/ execution scripts directory,True,health_domain,True,True,True,True,159,HEALTHY
+tests_present,tests/ unit tests directory,True,health_domain,True,True,True,True,159,HEALTHY
+docs_present,docs/ documentation directory,True,health_domain,True,True,True,True,159,HEALTHY
+config_present,config/ configuration directory,True,health_domain,True,True,True,True,159,HEALTHY

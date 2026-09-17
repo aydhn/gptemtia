@@ -1,0 +1,11 @@
+{
+  "total_rules": 34,
+  "no_go_count": 24,
+  "safe_go_count": 10,
+  "safety_status": "SECURE",
+  "live_trading_prohibited": true,
+  "zero_model_execution": true,
+  "current_phase": 139,
+  "non_signal": true,
+  "active_profile": "balanced_local_gpu_training_governance"
+}

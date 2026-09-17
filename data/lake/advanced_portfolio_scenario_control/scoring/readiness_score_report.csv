@@ -1,0 +1,7 @@
+component,weight,status
+scenario_contracts_registered,0.25,PASSED
+drawdown_controls_registered,0.25,PASSED
+control_placeholders_established,0.2,PASSED
+negative_invariants_guaranteed,0.2,PASSED
+dependencies_and_evidence_verified,0.1,PASSED
+OVERALL,1.0,READY

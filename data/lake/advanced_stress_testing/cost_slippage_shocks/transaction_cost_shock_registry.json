@@ -1,0 +1,7 @@
+{
+  "total_transaction_cost_shocks": 3,
+  "all_execution_blocked": true,
+  "all_cost_calculation_blocked": true,
+  "all_manual_review_required": true,
+  "non_signal": true
+}

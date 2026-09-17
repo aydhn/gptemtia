@@ -1,0 +1,4 @@
+action,is_disabled,reason,status,phase
+deploy_model,True,Model deployment is permanently disabled.,BLOCKED_BY_POLICY,144
+production_deployment,True,Production deployment is blocked by safety boundary.,BLOCKED_BY_POLICY,144
+publish_model,True,Publishing models to serving infrastructure is prohibited.,BLOCKED_BY_POLICY,144

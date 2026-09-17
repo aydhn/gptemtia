@@ -1,0 +1,7 @@
+{
+  "domain": "disabled_execution_domain",
+  "operation": "result_claim_generation",
+  "is_disabled": true,
+  "status": "execution_blocked_no_result_claim",
+  "non_signal": true
+}

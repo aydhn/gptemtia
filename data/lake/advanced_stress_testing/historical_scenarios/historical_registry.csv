@@ -1,0 +1,7 @@
+scenario_name,crisis_period,description,primary_asset_impact,volatility_multiplier_ref,spread_multiplier_ref,execution_allowed,pnl_calculation_allowed,non_signal,local_only,manual_review_required
+historical_gfc_2008_crisis,2008-09-01_to_2009-03-31,"2008 Küresel Finans Krizi: Likidite çöküşü, hisse/emtia satış dalgası, USD değer kazanımı.",EQUITY_COMMODITY_LIQUIDATION,3.5x,4.0x,False,False,True,True,True
+historical_covid19_market_crash_2020,2020-02-20_to_2020-04-30,"2020 Covid-19 Şoku: Küresel kapanma, anlık talep çöküşü, aşırı volatilite ve nakde kaçış.",CROSS_ASSET_CORRELATION_ONE,4.0x,5.0x,False,False,True,True,True
+historical_wti_negative_oil_2020,2020-04-15_to_2020-04-22,"2020 Negatif Petrol Olayı: Fiziksel depolama kapasitesi tıkanması, WTI eksi fiyat anomalisi.",COMMODITY_STORAGE_CONSTRAINTS,6.0x,8.0x,False,False,True,True,True
+historical_flash_crash_2010,2010-05-06,"2010 Flash Crash: Algoritmik likidite buharlaşması, anlık derin çöküş ve toparlanma.",INTRADAY_LIQUIDITY_EVAPORATION,5.0x,10.0x,False,False,True,True,True
+historical_chf_peg_break_2015,2015-01-15,"2015 İsviçre Frangı Depeg: Ani kur rejimi sonlandırma, devasa fiyat boşluğu (gap) ve aracı kurum batışları.",FX_DISCONTINUITY_GAP,7.0x,15.0x,False,False,True,True,True
+historical_energy_shock_2022,2022-02-24_to_2022-08-31,"2022 Jeopolitik Enerji Krizi: Doğalgaz, petrol ve tarım emtiasında arz şoku ve aşırı backwardation.",COMMODITY_SUPPLY_SHOCK,3.0x,3.5x,False,False,True,True,True

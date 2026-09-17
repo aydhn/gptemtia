@@ -1,0 +1,4 @@
+placeholder_name,score_type,description,calculated,score_value,non_signal,production_ready,phase,status
+max_probability_confidence_placeholder,top_class_max_prob,Maximum class probability score placeholder; uncalculated.,False,,True,False,141,calibration_contract_placeholder_only
+margin_confidence_placeholder,top_two_class_margin,Difference between top two class probabilities; uncalculated.,False,,True,False,141,calibration_contract_placeholder_only
+entropy_confidence_placeholder,predictive_entropy,Information entropy across predicted class distribution; uncalculated.,False,,True,False,141,calibration_contract_placeholder_only

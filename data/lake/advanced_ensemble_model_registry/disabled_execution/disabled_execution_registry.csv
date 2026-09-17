@@ -1,0 +1,2 @@
+report_name,phase,ensemble_execution_allowed,voting_executed,blending_executed,stacking_executed,averaging_executed,rank_aggregation_executed,meta_model_executed,weights_computed,predictions_aggregated,non_signal,dry_run,status,policy_reason,manual_review_required
+ensemble_execution_disabled_report,140,False,False,False,False,False,False,False,False,False,True,True,ENSEMBLE_EXECUTION_BLOCKED_BY_POLICY,Phase 140 defines contracts only; ensemble execution is prohibited.,True

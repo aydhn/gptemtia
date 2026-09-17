@@ -1,0 +1,16 @@
+{
+  "domain": "health_domain",
+  "all_healthy": true,
+  "all_passed": true,
+  "overall_status": "HEALTHY",
+  "overall_health": "HEALTHY",
+  "total_checks": 9,
+  "passed_checks": 9,
+  "failed_checks": 0,
+  "healthy_count": 9,
+  "profile_name": "balanced_local_backtest_governance_contracts",
+  "current_phase": 150,
+  "status": "governance_contract_ready",
+  "non_signal": true,
+  "local_only": true
+}

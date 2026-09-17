@@ -1,0 +1,23 @@
+# Phase 146: Execution Realism Assumptions Report
+
+> **YASAL UYARI VE GUCLENDIRILMIS GUVENLIK SINIRI (PHASE 146)**:
+> Bu cikti Phase 146 Realistic Backtest, Transaction Cost and Slippage Modeling raporudur. Canli emir, broker talimati, kesin AL/SAT, yatirim tavsiyesi, backtest/readiness/cost/slippage degerini trade sinyali veya production-ready/broker-ready/onay olarak kullanma, gercek backtest execution, walk-forward, benchmark, optimizer, stress test, Monte Carlo, gercek model training, model fit/predict/inference, dataset materialization, target/label/prediction uretimi, gercek performans garantisi, model deployment, model registry write, model artifact persistence, scraping, haber tam metni/article body/raw content/scraped HTML/embedding/vector kullanimi veya gercek provider API cagrisi degildir.
+
+## Realism Summary
+- **Total Assumptions**: 8
+- **All Enforced**: True
+- **Naive Backtest Prevented**: True
+
+## Assumptions Table
+
+| assumption_name | category | description | enforced | is_active | non_signal |
+| --- | --- | --- | --- | --- | --- |
+| no_instant_fill_assumption | TIMING | Emirler sinyal uretildigi anda aninda sifir gecikmeyle dolmaz; en erken sonraki bar/tick fiyati kullanilir. | True | True | True |
+| spread_cost_required_assumption | COST | Alis-satis makasi asla sifir kabul edilemez; islem fiyati daima ask veya bid uzerinden veya yarim spread eklenerek hesaplanir. | True | True | True |
+| slippage_required_assumption | FRICTION | Her islemde piyasa oynakligina veya islem hacmine gore kayma (slippage) payi kesilmelidir. | True | True | True |
+| latency_placeholder_required_assumption | LATENCY | Emir iletiminde fiziksel ag ve borsa sirasi gecikmesi (latency) hesaba katilmalidir. | True | True | True |
+| partial_fill_possible_assumption | LIQUIDITY | Piyasa derinligi yetersiz oldugunda tek barda tam dolum gerceklesmeyebilir, kismi dolum mumkundur. | True | True | True |
+| rejected_order_possible_assumption | RISK | Teminat yetersizligi veya tavan/taban limitlerinde emirlerin reddedilmesi gercekci bir olasiliktir. | True | True | True |
+| liquidity_constraint_possible_assumption | LIQUIDITY | Islem buyuklugu bar veya gunluk hacmin kucuk bir yuzdesi ile sinirlandirilmalidir (%10 max ADV). | True | True | True |
+| no_live_execution_assumption | SAFETY | Simulasyon ortami canli piyasa ve broker baglantilarindan tamamen yalitilmistir. | True | True | True |
+

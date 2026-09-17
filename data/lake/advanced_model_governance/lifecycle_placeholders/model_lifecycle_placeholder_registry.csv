@@ -1,0 +1,6 @@
+stage_id,stage_name,description,is_active,phase,is_placeholder,non_signal
+STG-01,concept_and_contract,Formulate contract interfaces and dependency requirements.,YES,144,True,True
+STG-02,dry_run_validation,Execute local offline mock test suites and harness checks.,YES,144,True,True
+STG-03,model_card_authoring,"Document limitations, intended/prohibited use, and risks.",YES,144,True,True
+STG-04,governance_manual_review,Human inspection of contracts and boundaries before acceptance.,YES,144,True,True
+STG-05,production_deployment,Production deployment is PERMANENTLY BLOCKED in this repo.,BLOCKED,144,True,True

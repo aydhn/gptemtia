@@ -1,0 +1,2 @@
+constraint_name,max_risk_contribution_single_asset,is_placeholder,is_enforced_live,actual_weights_generated,status
+risk_budget_constraint,0.25,True,False,False,constraint_contract_only

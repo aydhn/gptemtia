@@ -1,0 +1,12 @@
+{
+  "current_phase": 158,
+  "next_phase": 159,
+  "next_phase_name": "Phase 159: Final Hardening, Operator Runbook and Release Candidate",
+  "target_final_phase": 160,
+  "total_prerequisites": 12,
+  "satisfied_prerequisites": 12,
+  "all_satisfied": true,
+  "handoff_ready": true,
+  "status": "ACCEPTED",
+  "non_signal": true
+}

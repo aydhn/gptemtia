@@ -1,0 +1,13 @@
+{
+  "total_audit_placeholders": 7,
+  "all_dry_run_only": true,
+  "all_real_audit_log_false": true,
+  "all_production_approved_false": true,
+  "all_broker_ready_approved_false": true,
+  "all_live_trading_approved_false": true,
+  "all_model_registry_written_false": true,
+  "all_artifact_persisted_false": true,
+  "all_model_deployed_false": true,
+  "all_manual_review_required": true,
+  "status": "GOVERNANCE_AUDIT_PLACEHOLDERS_READY"
+}

@@ -1,0 +1,7 @@
+freeze_name,freeze_category,target_scope,description,frozen,actual_lock_enacted,modifications_allowed_without_review,domain,non_signal,local_only,dry_run,non_production,current_phase,status
+no_live_trading_freeze,safety,execution_policy,Canlı emir gönderiminin kesin olarak devre dışı bırakılması ve dondurulması,True,False,False,safety_freeze_domain,True,True,True,True,159,final_hardening_contract_ready
+no_broker_integration_freeze,safety,execution_policy,Broker bağlantısının kesin olarak devre dışı bırakılması ve dondurulması,True,False,False,safety_freeze_domain,True,True,True,True,159,final_hardening_contract_ready
+no_signal_generation_freeze,safety,signal_policy,AL/SAT sinyali veya yatırım tavsiyesi üretiminin kesin olarak engellenmesi,True,False,False,safety_freeze_domain,True,True,True,True,159,final_hardening_contract_ready
+no_production_deployment_freeze,safety,deployment_policy,Production veya release sunucusuna aktarımın kilitlenmesi,True,False,False,safety_freeze_domain,True,True,True,True,159,final_hardening_contract_ready
+no_destructive_ops_freeze,safety,data_policy,"Kaynak veri ezme, silme ve tahribatlı işlemlerin kilitlenmesi",True,False,False,safety_freeze_domain,True,True,True,True,159,final_hardening_contract_ready
+no_scraping_no_secrets_freeze,safety,security_policy,Web scraping ve secret/credential basımının engellenmesi,True,False,False,safety_freeze_domain,True,True,True,True,159,final_hardening_contract_ready

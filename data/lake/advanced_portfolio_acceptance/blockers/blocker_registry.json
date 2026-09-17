@@ -1,0 +1,7 @@
+{
+  "domain": "blocker_domain",
+  "total_monitored_blocker_types": 25,
+  "active_blockers_count": 0,
+  "has_active_blockers": false,
+  "status": "portfolio_acceptance_ready"
+}

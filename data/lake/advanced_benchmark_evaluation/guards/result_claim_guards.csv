@@ -1,0 +1,3 @@
+guard_id,guard_name,detection_target,description,is_active,status,non_signal
+GUARD_RESULT_CLAIM_INTERCEPT,Unproven Result Claim Interceptor,guaranteed_or_actual_return_claims,Geçmiş simülasyonları kesin başarı veya ampirik kazanç gibi sunan ifadeleri engelleyen muhafız.,True,evaluation_contract_ready,True
+GUARD_SHARPE_CLAIM_INTERCEPT,Uncalculated Sharpe Ratio Claim Interceptor,actual_sharpe_claims,Hesaplanmamış Sharpe veya risk metriklerinin kesin iddia olarak sunulmasını engelleyen muhafız.,True,evaluation_contract_ready,True

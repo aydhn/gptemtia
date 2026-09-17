@@ -1,0 +1,6 @@
+{
+  "total_spread_models": 4,
+  "zero_spread_assumption_forbidden": true,
+  "dynamic_models_supported": true,
+  "non_signal": true
+}

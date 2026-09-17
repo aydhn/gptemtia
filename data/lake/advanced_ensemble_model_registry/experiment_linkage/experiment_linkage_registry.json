@@ -1,0 +1,19 @@
+{
+  "total_experiments_linked": 11,
+  "experiment_keys": [
+    "linear_candidate",
+    "ridge_lasso_candidate",
+    "random_forest_candidate",
+    "extra_trees_candidate",
+    "lightgbm_candidate",
+    "xgboost_candidate",
+    "catboost_candidate",
+    "mlp_candidate",
+    "temporal_conv_candidate",
+    "unsupervised_anomaly_candidate",
+    "ensemble_meta_contract"
+  ],
+  "all_offline": true,
+  "all_non_signal": true,
+  "dry_run": true
+}

@@ -1,0 +1,5 @@
+policy_name,split_type,placeholder_only,real_split_executed,target_label_generated,train_test_dataset_produced,non_signal,manual_review_required,current_phase
+chronological_train_validation_test_placeholder,chronological,True,False,False,False,True,True,137
+expanding_window_placeholder,expanding_window,True,False,False,False,True,True,137
+rolling_window_placeholder,rolling_window,True,False,False,False,True,True,137
+blocked_time_series_split_placeholder,blocked,True,False,False,False,True,True,137

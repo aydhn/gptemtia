@@ -1,0 +1,26 @@
+boundary_id,boundary_type,action_name,policy,reason,enforced,domain,non_signal,local_only,dry_run,non_production,current_phase,status
+RC-NOGO-live_trading,no_go,live_trading,STRICTLY_PROHIBITED,Canlı piyasa işlem ve emir iletimi,True,release_candidate_boundary_domain,True,True,True,True,159,final_hardening_contract_ready
+RC-NOGO-broker_execution,no_go,broker_execution,STRICTLY_PROHIBITED,Broker API aracılığıyla işlem yapma,True,release_candidate_boundary_domain,True,True,True,True,159,final_hardening_contract_ready
+RC-NOGO-production_deployment,no_go,production_deployment,STRICTLY_PROHIBITED,Canlı production sunucusuna yükleme,True,release_candidate_boundary_domain,True,True,True,True,159,final_hardening_contract_ready
+RC-NOGO-release_deployment,no_go,release_deployment,STRICTLY_PROHIBITED,Harici release ortamına aktarma,True,release_candidate_boundary_domain,True,True,True,True,159,final_hardening_contract_ready
+RC-NOGO-model_deployment,no_go,model_deployment,STRICTLY_PROHIBITED,Model servislerini canlıya alma,True,release_candidate_boundary_domain,True,True,True,True,159,final_hardening_contract_ready
+RC-NOGO-investment_advice,no_go,investment_advice,STRICTLY_PROHIBITED,Yatırım tavsiyesi sunma veya sinyal önerme,True,release_candidate_boundary_domain,True,True,True,True,159,final_hardening_contract_ready
+RC-NOGO-signal_generation,no_go,signal_generation,STRICTLY_PROHIBITED,Doğrudan kesin trade sinyali üretme,True,release_candidate_boundary_domain,True,True,True,True,159,final_hardening_contract_ready
+RC-NOGO-order_generation,no_go,order_generation,STRICTLY_PROHIBITED,Gerçek emir nesneleri türetme,True,release_candidate_boundary_domain,True,True,True,True,159,final_hardening_contract_ready
+RC-NOGO-model_training,no_go,model_training,STRICTLY_PROHIBITED,Gerçek model eğitimi veya ağırlık güncelleme,True,release_candidate_boundary_domain,True,True,True,True,159,final_hardening_contract_ready
+RC-NOGO-prediction,no_go,prediction,STRICTLY_PROHIBITED,Gerçek zamanlı model tahmini/inference,True,release_candidate_boundary_domain,True,True,True,True,159,final_hardening_contract_ready
+RC-NOGO-target_label_generation,no_go,target_label_generation,STRICTLY_PROHIBITED,Etiket/hedef değişken üretimi,True,release_candidate_boundary_domain,True,True,True,True,159,final_hardening_contract_ready
+RC-NOGO-backtest_execution,no_go,backtest_execution,STRICTLY_PROHIBITED,Gerçek zamanlı backtest simülasyonu,True,release_candidate_boundary_domain,True,True,True,True,159,final_hardening_contract_ready
+RC-NOGO-benchmark_execution,no_go,benchmark_execution,STRICTLY_PROHIBITED,Canlı benchmark hesaplaması,True,release_candidate_boundary_domain,True,True,True,True,159,final_hardening_contract_ready
+RC-NOGO-portfolio_execution,no_go,portfolio_execution,STRICTLY_PROHIBITED,Gerçek portföy oluşturma/yeniden dengeleme,True,release_candidate_boundary_domain,True,True,True,True,159,final_hardening_contract_ready
+RC-NOGO-risk_execution,no_go,risk_execution,STRICTLY_PROHIBITED,Gerçek risk limit hesaplama çalıştırması,True,release_candidate_boundary_domain,True,True,True,True,159,final_hardening_contract_ready
+RC-NOGO-scenario_execution,no_go,scenario_execution,STRICTLY_PROHIBITED,Gerçek senaryo simülasyon çalıştırması,True,release_candidate_boundary_domain,True,True,True,True,159,final_hardening_contract_ready
+RC-NOGO-optimizer_execution,no_go,optimizer_execution,STRICTLY_PROHIBITED,Optimizatör çalıştırma,True,release_candidate_boundary_domain,True,True,True,True,159,final_hardening_contract_ready
+RC-NOGO-metric_calculation,no_go,metric_calculation,STRICTLY_PROHIBITED,Performans metriği hesaplama,True,release_candidate_boundary_domain,True,True,True,True,159,final_hardening_contract_ready
+RC-NOGO-model_registry_write,no_go,model_registry_write,STRICTLY_PROHIBITED,Model registry üzerine yazma,True,release_candidate_boundary_domain,True,True,True,True,159,final_hardening_contract_ready
+RC-NOGO-artifact_persistence,no_go,artifact_persistence,STRICTLY_PROHIBITED,Model ağırlık artifact'ı saklama,True,release_candidate_boundary_domain,True,True,True,True,159,final_hardening_contract_ready
+RC-NOGO-scraping,no_go,scraping,STRICTLY_PROHIBITED,Web scraping ve harici veri çekme,True,release_candidate_boundary_domain,True,True,True,True,159,final_hardening_contract_ready
+RC-NOGO-credential_output,no_go,credential_output,STRICTLY_PROHIBITED,Gizli anahtar veya credential yazdırma,True,release_candidate_boundary_domain,True,True,True,True,159,final_hardening_contract_ready
+RC-NOGO-source_overwrite,no_go,source_overwrite,STRICTLY_PROHIBITED,Kaynak veriyi veya kodu ezme,True,release_candidate_boundary_domain,True,True,True,True,159,final_hardening_contract_ready
+RC-NOGO-file_deletion,no_go,file_deletion,STRICTLY_PROHIBITED,Dosya silme,True,release_candidate_boundary_domain,True,True,True,True,159,final_hardening_contract_ready
+RC-NOGO-destructive_cleaning,no_go,destructive_cleaning,STRICTLY_PROHIBITED,Tahribatlı veri temizliği yapma,True,release_candidate_boundary_domain,True,True,True,True,159,final_hardening_contract_ready

@@ -1,0 +1,5 @@
+placeholder_id,title,section,template_text,is_calculated,performance_claim_allowed,strategy_approval_allowed,status,non_signal
+SUM_STRATEGY_EXECUTIVE,Executive Strategy Evaluation Summary Placeholder,executive_summary,[PLACEHOLDER: Çevrimdışı strateji ampirik hipotezi ve model mimarisi özeti],False,False,False,evaluation_contract_ready,True
+SUM_STRATEGY_REGIME_COVERAGE,Regime Performance Stratification Placeholder,regime_performance,[PLACEHOLDER: Volatilite ve trend rejimlerine göre ayrıştırılmış özet],False,False,False,evaluation_contract_ready,True
+SUM_STRATEGY_FRICTION_EROSION,Friction and Slippage Drag Summary Placeholder,friction_analysis,[PLACEHOLDER: Komisyon ve kayma kaynaklı getiri erozyonu özeti],False,False,False,evaluation_contract_ready,True
+SUM_STRATEGY_OOS_STABILITY,Out-of-Sample Stability and Walk-Forward Summary Placeholder,oos_stability,[PLACEHOLDER: Örneklem dışı dönem ve adım stabilitesi özeti],False,False,False,evaluation_contract_ready,True

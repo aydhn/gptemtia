@@ -1,0 +1,11 @@
+contract_name,exposure_family,description,mathematical_formulation,is_placeholder,exposure_calculated,allows_execution,current_phase,target_final_phase,next_phase
+gross_exposure_attribution_contract,gross_exposure,Portfoy toplam mutlak pozisyon buyuklugu exposure attribution sozlesmesi,Gross Exposure = sum(|w_i|) * NAV,True,False,False,155,160,156
+net_exposure_attribution_contract,net_exposure,Portfoy net yonlu pozisyon dengesi exposure attribution sozlesmesi,Net Exposure = sum(w_i) * NAV,True,False,False,155,160,156
+currency_exposure_attribution_contract,currency_exposure,Doviz cinsi bazinda risk ve pozisyon dagilimi sozlesmesi,Currency Exposure_c = sum_{i in c}(w_i) * NAV,True,False,False,155,160,156
+cross_asset_exposure_attribution_contract,cross_asset_exposure,Emtia ve doviz siniflari arasi risk dagilimi sozlesmesi,CrossAsset Exposure_a = sum_{i in a}(|w_i|) / Gross,True,False,False,155,160,156
+concentration_exposure_attribution_contract,concentration_exposure,Konsantrasyon ve agirlik yogunlasma attribution sozlesmesi,"HHI = sum(w_i^2), Top-K weight ratio = sum_{k}(|w_k|)",True,False,False,155,160,156
+liquidity_exposure_attribution_contract,liquidity_exposure,Pozisyon tasfiye edilebilirlik ve likidite riski sozlesmesi,Liquidity Exposure = Days to Liquidate = |Position_i| / (ADV_i * Liquidity_Cap),True,False,False,155,160,156
+leverage_margin_exposure_attribution_contract,leverage_margin_exposure,Kaldirac ve teminat kullanim dagilimi sozlesmesi,"Leverage = Gross / NAV, Margin Utilization = Initial Margin / Equity",True,False,False,155,160,156
+regime_exposure_attribution_contract,regime_exposure,Piyasa rejimi kosullarina gore pozisyon duyarliligi sozlesmesi,"Regime Exposure_r = sum_{i}(w_i * RegimeSensitivity_{i,r})",True,False,False,155,160,156
+strategy_exposure_attribution_contract,strategy_exposure,Alt stratejiler bazinda pozisyon paylasimi sozlesmesi,Strategy Exposure_s = sum_{i in s}(|w_i|),True,False,False,155,160,156
+asset_level_exposure_attribution_contract,asset_exposure,Varlik duzeyinde net ve brut pozisyon dökümü sozlesmesi,Asset Exposure_i = w_i * NAV,True,False,False,155,160,156

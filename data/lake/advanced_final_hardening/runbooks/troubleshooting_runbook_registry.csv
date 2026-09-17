@@ -1,0 +1,6 @@
+scenario_id,issue_title,recommended_action,requires_destructive_action,domain,non_signal,local_only,dry_run,non_production,current_phase,status
+missing_lake_directory,Dizin eksikliği,config/paths.py:ensure_project_directories() fonksiyonunu çağırarak dizinleri oluşturun.,False,troubleshooting_domain,True,True,True,True,159,operator_runbook_contract_ready
+validation_failure,Doğrulama hatası,Hata veren sözleşme satırını inceleyin; yasaklı bayrak veya eksik parametreyi düzeltin.,False,troubleshooting_domain,True,True,True,True,159,operator_runbook_contract_ready
+live_trading_attempt,Canlı işlem talebi,İşlem politikası gereği engellendi. config/settings.py içinde allow_live_trading=False kalmalıdır.,False,troubleshooting_domain,True,True,True,True,159,operator_runbook_contract_ready
+broker_integration_attempt,Broker API talebi,"İşlem politikası gereği engellendi. Broker anahtarları eklenemez, simülasyon salt yerel kalmalıdır.",False,troubleshooting_domain,True,True,True,True,159,operator_runbook_contract_ready
+low_readiness_score,Düşük hazır oluş skoru,Blocker ve gap kayıtlarını inceleyin; eksik rapor veya dokümantasyonu tamamlayın.,False,troubleshooting_domain,True,True,True,True,159,operator_runbook_contract_ready

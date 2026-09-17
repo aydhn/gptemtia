@@ -1,0 +1,14 @@
+{
+  "phase": 146,
+  "target_final_phase": 160,
+  "next_phase": 147,
+  "profile": "balanced_local_realistic_backtest_contracts",
+  "readiness_score": 0.85,
+  "validation_status": "VALIDATION_PASS",
+  "health_status": "ALL_SYSTEMS_OPERATIONAL",
+  "safety_status": "SECURE",
+  "phase_147_handoff_ready": true,
+  "live_trading": false,
+  "broker_execution": false,
+  "non_signal": true
+}

@@ -1,0 +1,3 @@
+dependency,required_phase,contract_type,status,source_module
+phase_136_ml_runtime_foundation,136,ml_runtime_contracts,satisfied,advanced_ml_foundation.runtime_contracts
+phase_139_gpu_governance,139,gpu_resource_governance,satisfied,advanced_gpu_training_governance.gpu_governance_contracts

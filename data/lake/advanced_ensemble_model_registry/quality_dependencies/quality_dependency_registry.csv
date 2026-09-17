@@ -1,0 +1,5 @@
+dep_name,source_phase,target_phase,required_check,enforced,non_signal
+missingness_quality_dependency,134,140,missingness_threshold_verified,True,True
+drift_quality_dependency,134,140,data_drift_contract_satisfied,True,True
+stationarity_quality_dependency,134,140,stationarity_contract_satisfied,True,True
+distribution_quality_dependency,134,140,distribution_anomaly_check_satisfied,True,True

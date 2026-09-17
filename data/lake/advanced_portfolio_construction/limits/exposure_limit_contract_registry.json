@@ -1,0 +1,7 @@
+{
+  "domain": "exposure_limit_domain",
+  "active_profile": "balanced_local_portfolio_construction_contracts",
+  "total_limits": 5,
+  "all_contract_only": true,
+  "status": "portfolio_contract_ready"
+}

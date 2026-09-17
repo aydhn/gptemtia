@@ -1,0 +1,3 @@
+metric_id,metric_name,metric_category,formula_spec,is_calculated,status
+MET-SCN-001,scenario_pnl_impact_pct,LOSS,NAV_shock / NAV_initial - 1.0,False,PLACEHOLDER_ONLY
+MET-SCN-002,worst_case_tail_loss_pct,EXTREME_LOSS,min(all_scenario_pnls),False,PLACEHOLDER_ONLY

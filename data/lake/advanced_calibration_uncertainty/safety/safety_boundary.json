@@ -1,0 +1,8 @@
+{
+  "safety_status": "ENFORCED",
+  "total_rules": 44,
+  "no_go_count": 34,
+  "safe_go_count": 10,
+  "all_enforced": true,
+  "non_signal": true
+}

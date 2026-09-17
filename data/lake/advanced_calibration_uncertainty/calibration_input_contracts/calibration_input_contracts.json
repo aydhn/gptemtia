@@ -1,0 +1,13 @@
+{
+  "total_inputs": 5,
+  "inputs": [
+    "candidate_model_uncalibrated_scores_contract",
+    "ensemble_uncalibrated_consensus_contract",
+    "featurestore_calibration_metadata_contract",
+    "regime_acceptance_context_contract",
+    "no_lookahead_temporal_split_contract"
+  ],
+  "all_zero_target": true,
+  "all_zero_prediction": true,
+  "all_non_signal": true
+}

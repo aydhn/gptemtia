@@ -1,0 +1,4 @@
+contract_name,slippage_multiplier,description,slippage_model_ref,execution_allowed,slippage_calculation_allowed,non_signal,local_only,manual_review_required
+catastrophic_slippage_5x_contract,5.0,5x Katastrofik Kayma (Slippage): Aşırı oynaklıkta piyasa emrinin beklenen fiyattan 5 kat daha kötü gerçekleşmesi.,slippage_model_v1,False,False,True,True,True
+stop_loss_slippage_blowout_contract,8.0,Zarar Kes (Stop-Loss) Kayma Patlaması: Fiyat boşluğunda stop seviyesinin çok altında doldurulması.,slippage_model_v1,False,False,True,True,True
+illiquid_market_order_slippage_contract,4.0,Sığ Piyasa Koşullarında Piyasa Emri Kayması: Çoklu kademe süpürme (order book walk) maliyeti.,slippage_model_v1,False,False,True,True,True

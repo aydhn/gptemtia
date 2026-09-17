@@ -1,0 +1,11 @@
+{
+  "domain": "finding_domain",
+  "active_profile": "balanced_local_advanced_ml_acceptance",
+  "current_phase": 145,
+  "target_final_phase": 160,
+  "next_phase": 146,
+  "total_findings": 3,
+  "manual_review_findings": 2,
+  "non_signal": true,
+  "status": "RECORDED"
+}

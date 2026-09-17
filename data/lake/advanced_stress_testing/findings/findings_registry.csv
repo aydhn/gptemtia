@@ -1,0 +1,4 @@
+finding_id,finding_type,domain,severity_label,message,recommendation,manual_review_required,non_signal,local_only
+FIND_STRESS_001,contract_only_operational_mode,stress_testing_domain,INFO,Phase 148 stres testi ve senaryo katmanı salt sözleşme (contract-only) modunda çalışmaktadır.,Gerçek stres testi yürütülmemeli; contract ve placeholder seviyesinde kalınmalıdır.,True,True,True
+FIND_STRESS_002,zero_live_trading_enforced,safety_domain,INFO,"Canlı emir iletimi, aracı kurum bağlantısı ve AL/SAT sinyali üretimi kesin olarak devre dışıdır.",Sistem güvenliğini ve negatif değişmezleri korumaya devam edin.,True,True,True
+FIND_STRESS_003,metric_calculation_placeholder_mode,stress_metric_placeholder_domain,INFO,"Stres PnL, VaR, ES ve drawdown hesaplamaları formül yer tutucusu olarak yapılandırılmıştır.",Gerçek metrik hesaplaması yapmayın; Phase 149 Monte Carlo hazırlığına odaklanın.,True,True,True

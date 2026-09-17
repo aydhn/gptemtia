@@ -1,0 +1,4 @@
+finding_id,finding_type,domain,severity_label,message,recommendation,manual_review_required,non_signal
+FND-WF-01,contract_isolation_verified,SPLIT_CONTRACT,INFO,Zaman serisi bolumleme sozlesmelerinin hedef/etiket uretmedigi dogrulandi.,Contract-only durumunu Phase 148 handoff asamasina kadar koruyun.,True,True
+FND-WF-02,bias_guards_active,BIAS_CONTROL,INFO,"Data snooping, lookahead ve survivorship muhafizlarinin tumu aktif durumda.",Yasakli kolon listesine yeni turetilmis getiri ozellikleri eklendiginde kontrol saglayin.,True,True
+FND-WF-03,execution_strictly_disabled,EXECUTION_SAFETY,INFO,"Canli islem, broker, egitim, cikarim ve metrik hesaplama yollarinin tumu kilitli.",Sifir canli emir prensibine kesinlikle sadik kalin.,True,True

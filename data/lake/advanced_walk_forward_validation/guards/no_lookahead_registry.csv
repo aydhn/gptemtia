@@ -1,0 +1,3 @@
+guard_name,guard_type,description,enforcement_level,active,non_signal
+column_name_lookahead_guard,NO_LOOKAHEAD,Kolon isimlerinde gelecege yonelik getiri veya etiket tespit edici muhafiz.,STRICT,True,True
+asof_backward_join_guard,TIME_ALIGNMENT,Veri seti birlestirmelerinde geriye donuk asof kurali zorlayan muhafiz.,STRICT,True,True

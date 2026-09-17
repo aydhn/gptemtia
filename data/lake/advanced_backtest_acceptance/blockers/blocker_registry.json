@@ -1,0 +1,28 @@
+{
+  "domain": "blocker_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "total_blockers": 0,
+  "has_blockers": false,
+  "supported_blocker_types": [
+    "missing_phase_module",
+    "missing_manifest",
+    "missing_validation_report",
+    "missing_safety_boundary",
+    "missing_disabled_execution_report",
+    "unsafe_claim_detected",
+    "backtest_execution_detected",
+    "benchmark_execution_detected",
+    "metric_calculation_detected",
+    "performance_claim_detected",
+    "strategy_approval_detected",
+    "capital_allocation_detected",
+    "portfolio_construction_detected",
+    "position_sizing_detected",
+    "live_trading_detected",
+    "broker_execution_detected",
+    "deployment_detected",
+    "phase_153_handoff_missing"
+  ],
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

@@ -1,0 +1,27 @@
+# Phase 145: Phase 146 Realistic Backtest, Transaction Cost and Slippage Handoff Report
+
+> **Yasal Uyarı:** Bu çıktı Phase 145 Advanced ML Acceptance Report çıktısıdır. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, acceptance/readiness/governance değerini trade sinyali veya production-ready/broker-ready/onay olarak kullanma, gerçek model training, model fit/predict/inference, probability prediction, calibration/uncertainty execution, drift calculation, explainability calculation, backtest/walk-forward/benchmark/transaction-cost/slippage execution, model deployment, production deployment, model registry write, model artifact persistence, official approval, production approval, broker-ready approval, live-trading approval, gerçek audit log, dataset materialization, target/label/prediction üretimi, gerçek metric/performance claim, strateji üretimi, optimizer, clustering, ensemble execution, sentiment model output, haber tam metni/article body/raw content/scraped HTML/embedding/vector kullanımı, scraping veya gerçek provider API çağrısı değildir.
+
+- **Source Phase:** `145`
+- **Next Phase:** `146` - Realistic Backtest, Transaction Cost and Slippage Modeling
+- **Target Final Phase:** `160`
+- **Prerequisites Count:** `13`
+- **All Satisfied:** `True`
+- **Handoff Status:** `READY`
+
+## Handoff Prerequisites
+| prerequisite_id | topic | requirement | satisfied | details | source_phase | next_phase | target_final_phase | status | non_signal | production_ready | broker_ready |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| PRQ-146-01 | realistic_backtest_prerequisites | Event-driven, chronological simulation architecture with strictly backward asof lookups. | True | Ready for Phase 146 backtest contract initialization. | 145 | 146 | 160 | acceptance_ready | True | False | False |
+| PRQ-146-02 | transaction_cost_modeling_prerequisites | Commission schedules, exchange fee structures, and turnover tax models defined. | True | Cost modeling parameter contracts designed. | 145 | 146 | 160 | acceptance_ready | True | False | False |
+| PRQ-146-03 | slippage_modeling_prerequisites | Fixed, linear volume-dependent, and square-root market impact slippage schemas. | True | Slippage parameter schemas ready for contract specification. | 145 | 146 | 160 | acceptance_ready | True | False | False |
+| PRQ-146-04 | order_simulation_boundary_prerequisites | Fill price simulation boundaries and partial execution rules established without broker linkage. | True | Simulation-only fill models planned. | 145 | 146 | 160 | acceptance_ready | True | False | False |
+| PRQ-146-05 | benchmark_framework_prerequisites | Passive benchmark comparison contracts (Buy & Hold, Equal Weight, Risk-Free Rate). | True | Benchmark reference schemas cataloged. | 145 | 146 | 160 | acceptance_ready | True | False | False |
+| PRQ-146-06 | data_contract_prerequisites | Accepted Phase 137 dataset schemas and partition boundaries mandatory as inputs. | True | Phase 137 contracts accepted. | 145 | 146 | 160 | acceptance_ready | True | False | False |
+| PRQ-146-07 | featurestore_prerequisites | Multi-domain feature matrices from Phase 134 FeatureStore available for simulation. | True | FeatureStore interfaces verified. | 145 | 146 | 160 | acceptance_ready | True | False | False |
+| PRQ-146-08 | no_lookahead_guard_prerequisites | Absolute chronological ordering and leak-free split boundaries enforced. | True | Phase 133/137 leakage guards verified active. | 145 | 146 | 160 | acceptance_ready | True | False | False |
+| PRQ-146-09 | regime_context_prerequisites | Phase 126-135 regime context features available as market condition filters. | True | Regime acceptance outputs verified. | 145 | 146 | 160 | acceptance_ready | True | False | False |
+| PRQ-146-10 | model_contract_prerequisites | Baseline (Phase 138) and Ensemble (Phase 140) model contracts ready as strategy candidates. | True | Model candidate schemas cataloged. | 145 | 146 | 160 | acceptance_ready | True | False | False |
+| PRQ-146-11 | risk_and_governance_prerequisites | Phase 144 model cards and risk disclosure limits integrated into simulation constraints. | True | Model governance boundaries verified. | 145 | 146 | 160 | acceptance_ready | True | False | False |
+| PRQ-146-12 | manual_review_blockers_before_phase_146 | Manual review items documented; zero critical blockers obstructing Phase 146 design. | True | Manual review ledger verified free of blocking defects. | 145 | 146 | 160 | acceptance_ready | True | False | False |
+| PRQ-146-13 | clear_boundary_phase_146_non_live | Phase 146 may design and run realistic backtest frameworks ONLY inside local/offline research boundaries. | True | Live trading, broker execution, and investment advice remain strictly prohibited; final target is Phase 160. | 145 | 146 | 160 | acceptance_ready | True | False | False |

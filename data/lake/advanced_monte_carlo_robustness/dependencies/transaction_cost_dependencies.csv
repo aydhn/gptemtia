@@ -1,0 +1,3 @@
+dependency_id,source_phase,description,status,profile_name,current_phase,domain
+DEP_TIERED_FEE_SCHEDULE,146,Tiered broker commissions and exchange clearing fees for friction compounding.,SATISFIED,balanced_local_monte_carlo_robustness_contracts,149,dependency_domain
+DEP_BORROW_FINANCING_COSTS,146,Overnight swap and carry cost models applied across resampled holding periods.,SATISFIED,balanced_local_monte_carlo_robustness_contracts,149,dependency_domain

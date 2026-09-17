@@ -1,0 +1,9 @@
+metric_name,metric_domain,formula_description,unit,is_placeholder,actual_value,is_calculated
+objective_value_placeholder,optimization,Hesaplanan amac fonksiyon degeri yer tutucusu,scalar,True,,False
+expected_return_placeholder,optimization,Beklenen portfoy getirisi yer tutucusu,percentage,True,,False
+expected_volatility_placeholder,optimization,Beklenen yillik portfoy oynakligi yer tutucusu,percentage,True,,False
+sharpe_placeholder,optimization,Hesaplanan Sharpe orani yer tutucusu,ratio,True,,False
+cvar_placeholder,optimization,Hesaplanan %95 CVaR degeri yer tutucusu,percentage,True,,False
+max_drawdown_placeholder,optimization,Beklenen maksimum drawdown yer tutucusu,percentage,True,,False
+risk_contribution_placeholder,optimization,Varlik basina marjinal risk katkisi yer tutucusu,percentage,True,,False
+frontier_point_placeholder,optimization,Etkin sinir noktasi koordinat yer tutucusu,coordinate,True,,False

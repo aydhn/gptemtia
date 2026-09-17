@@ -1,0 +1,17 @@
+scope_id,scope_item,description,allowed,current_phase,target_final_phase,next_phase,status,non_signal
+SCP-01,phase_136_145_block_acceptance,Consolidated acceptance for Phase 136 to 144 Advanced ML components.,True,145,160,146,acceptance_ready,True
+SCP-02,local_offline_only,Execution constrained strictly to local/offline research environment.,True,145,160,146,acceptance_ready,True
+SCP-03,dry_run_only,"Deterministic, dry-run compliant contracts and assertions.",True,145,160,146,acceptance_ready,True
+SCP-04,non_production_boundary,"Zero production authorization, deployment, or exposure.",True,145,160,146,acceptance_ready,True
+SCP-05,no_live_trading,"Strict prohibition of live capital, orders, or exchange connectivity.",False,145,160,146,acceptance_ready,True
+SCP-06,no_broker_execution,"Zero broker API calls, credentials, or execution routing.",False,145,160,146,acceptance_ready,True
+SCP-07,no_investment_advice,"Zero financial, buy/sell, or directional advice generation.",False,145,160,146,acceptance_ready,True
+SCP-08,no_production_approval,"No release approval, compliance signoff, or production status.",False,145,160,146,acceptance_ready,True
+SCP-09,no_backtest_execution,"No backtest, walk-forward, or cost execution in Phase 145.",False,145,160,146,acceptance_ready,True
+SCP-10,no_model_training,"No model fitting, parameter optimization, or training loops.",False,145,160,146,acceptance_ready,True
+SCP-11,no_prediction_inference,"No model inference, prediction, or probability generation.",False,145,160,146,acceptance_ready,True
+SCP-12,no_artifact_persistence,"No model weight saving, pickle dump, or tensor serialization.",False,145,160,146,acceptance_ready,True
+SCP-13,no_model_registry_write,"No registry publish, catalog write, or model deployment.",False,145,160,146,acceptance_ready,True
+SCP-14,no_web_scraping,"No HTTP scraping, HTML parsing, or web extraction.",False,145,160,146,acceptance_ready,True
+SCP-15,no_credential_output,"No secret, token, key, or sensitive credential leakage.",False,145,160,146,acceptance_ready,True
+SCP-16,phase_146_handoff_only,Safe handoff to Phase 146 realistic backtest contract planning.,True,145,160,146,acceptance_ready,True

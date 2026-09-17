@@ -1,0 +1,2 @@
+solver_name,algorithm_family,max_iterations,is_placeholder,solver_executed,actual_weights_generated,status
+heuristic_solver,cyclical_coordinate_descent_stub,100,True,False,False,solver_contract_only

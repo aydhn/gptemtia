@@ -1,0 +1,9 @@
+{
+  "domain": "backtest_acceptance_scope_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "total_scope_items": 10,
+  "in_scope_count": 10,
+  "all_safe": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

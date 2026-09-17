@@ -1,0 +1,9 @@
+check_id,name,topic,passed,details,phase_ref,current_phase,target_final_phase,next_phase,status,non_signal,production_ready,broker_ready
+CHK-138-01,module_present,advanced_baseline_ml_models presence,True,Baseline model package verified.,Phase 138,145,160,146,acceptance_ready,True,False,False
+CHK-138-02,model_family_registry_present,Baseline model family registry,True,"Linear, tree, ensemble placeholder families cataloged.",Phase 138,145,160,146,acceptance_ready,True,False,False
+CHK-138-03,model_contracts_present,Model input/output contracts,True,Tensor shape and metadata contracts verified.,Phase 138,145,160,146,acceptance_ready,True,False,False
+CHK-138-04,dry_run_harness_stubs_present,Dry-run training harness stubs,True,Stub interfaces defined without execution capability.,Phase 138,145,160,146,acceptance_ready,True,False,False
+CHK-138-05,no_real_training,Real model training prohibited,True,Training loop triggers disabled.,Phase 138,145,160,146,acceptance_ready,True,False,False
+CHK-138-06,no_fit_predict_inference,Fit/predict/inference prohibited,True,Weight estimation and inference disabled.,Phase 138,145,160,146,acceptance_ready,True,False,False
+CHK-138-07,no_artifact_persistence,Model artifact saving prohibited,True,Disk persistence of model binaries blocked.,Phase 138,145,160,146,acceptance_ready,True,False,False
+CHK-138-08,handoff_to_139_completed,Phase 139 handoff report,True,Phase 139 prerequisites satisfied.,Phase 138,145,160,146,acceptance_ready,True,False,False

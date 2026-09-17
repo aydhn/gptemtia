@@ -1,0 +1,10 @@
+{
+  "domain": "phase_154_portfolio_optimization_acceptance_domain",
+  "phase_number": 154,
+  "total_criteria": 10,
+  "satisfied_criteria": 10,
+  "all_satisfied": true,
+  "contract_only": true,
+  "non_production": true,
+  "status": "portfolio_acceptance_ready"
+}

@@ -1,0 +1,8 @@
+{
+  "total_contracts": 7,
+  "all_production_ready_claims_false": true,
+  "all_broker_ready_claims_false": true,
+  "all_official_approval_claims_false": true,
+  "all_non_signal_required": true,
+  "all_manual_review_required": true
+}

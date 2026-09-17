@@ -1,0 +1,15 @@
+{
+  "total_metrics": 7,
+  "metrics": [
+    "interval_coverage_placeholder",
+    "interval_width_placeholder",
+    "prediction_interval_coverage_probability_placeholder",
+    "conformal_coverage_placeholder",
+    "sharpness_placeholder",
+    "uncertainty_calibration_placeholder",
+    "out_of_distribution_uncertainty_placeholder"
+  ],
+  "all_uncalculated": true,
+  "all_zero_performance_claim": true,
+  "all_non_signal": true
+}

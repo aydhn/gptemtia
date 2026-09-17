@@ -1,0 +1,6 @@
+item_id,review_topic,target_reference,severity,review_instructions,status,auto_execution_blocked,non_signal,production_ready,broker_ready
+review_baseline_contracts,inspect baseline model contracts,baseline_model_contracts_registry,MEDIUM,Inspect that all 10 baseline model contracts specify zero training and non-signal flags.,PENDING_INSPECTION,True,True,False,False
+review_dataset_contract_refs,inspect dataset contract refs,baseline_model_input_contracts,MEDIUM,Verify that dataset contracts reference Phase 137 valid contracts without materializing data.,PENDING_INSPECTION,True,True,False,False
+review_dry_run_policies,inspect dry-run harness policies,dry_run_training_policies,HIGH,"Verify zero real training, fit, and predict enforcement in dry-run trainers.",PENDING_INSPECTION,True,True,False,False
+review_artifact_disabled_blockers,inspect artifact disabled blockers,model_artifact_disabled_report,HIGH,"Ensure binary model dumps, joblib, and model registry writes are strictly disabled.",PENDING_INSPECTION,True,True,False,False
+review_phase_139_gpu_readiness,inspect Phase 139 GPU resource governance blockers,phase_139_handoff_report,MEDIUM,Review GPU accelerator prerequisites and resource limits before Phase 139 handoff.,PENDING_INSPECTION,True,True,False,False

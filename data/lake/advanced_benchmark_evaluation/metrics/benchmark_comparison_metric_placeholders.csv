@@ -1,0 +1,5 @@
+metric_name,category,formula_spec,target_role,description,is_calculated,actual_value,performance_claim_allowed,status,non_signal
+alpha_placeholder,relative_performance,strategy_return - (risk_free + beta * (benchmark_return - risk_free)),excess_alpha_hypothesis,Jensen alfası artık getiri hipotezi yer tutucusu (hesaplanmamış).,False,,False,evaluation_contract_ready,True
+beta_placeholder,systematic_risk,"cov(strategy_returns, benchmark_returns) / var(benchmark_returns)",market_sensitivity_hypothesis,Piyasa duyarlılığı ve korelasyon eğimi yer tutucusu (hesaplanmamış).,False,,False,evaluation_contract_ready,True
+tracking_error_placeholder,tracking_risk,std(strategy_returns - benchmark_returns) * sqrt(252),tracking_divergence_hypothesis,Benchmarktan sapma volatilitesi yer tutucusu (hesaplanmamış).,False,,False,evaluation_contract_ready,True
+benchmark_relative_return_placeholder,relative_return,strategy_cumulative_return - benchmark_cumulative_return,relative_spread_hypothesis,Benchmarka kıyasla artık kümülatif getiri yer tutucusu (hesaplanmamış).,False,,False,evaluation_contract_ready,True

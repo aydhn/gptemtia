@@ -1,0 +1,11 @@
+{
+  "profile_name": "balanced_local_portfolio_scenario_control_contracts",
+  "overall_score": 1.0,
+  "manifest_status": "READY",
+  "health_status": "HEALTHY",
+  "validation_status": "VALIDATION_PASS",
+  "phase_157_handoff_ready": true,
+  "current_phase": 156,
+  "next_phase": 157,
+  "target_final_phase": 160
+}

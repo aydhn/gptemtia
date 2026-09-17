@@ -1,0 +1,3 @@
+guard_name,enforcement,description,active,non_signal
+utc_monotonic_timestamp_guard,STRICT,Tum zaman serisi verilerinin UTC zaman diliminde ve artan sirada (monotonic) olmasi zorunlulugu.,True,True
+cross_asset_session_alignment_guard,STRICT,Farkli borsalarda islem goren emtia ve fx enstrumanlarinin seans saatlerinin dogru eslesmesi.,True,True

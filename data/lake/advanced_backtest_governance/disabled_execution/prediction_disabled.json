@@ -1,0 +1,9 @@
+{
+  "domain": "disabled_execution_domain",
+  "subdomain": "prediction_disabled",
+  "total_disabled_operations": 3,
+  "all_predictions_disabled": true,
+  "status": "governance_contract_ready",
+  "non_signal": true,
+  "local_only": true
+}

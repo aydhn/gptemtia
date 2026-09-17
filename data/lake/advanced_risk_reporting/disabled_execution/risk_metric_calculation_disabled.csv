@@ -1,0 +1,2 @@
+component_name,prohibited_actions,enforcement_mechanism,is_disabled,status,current_phase,target_final_phase,next_phase
+risk_metric_calculator,"['calculate_var', 'calculate_expected_shortfall', 'calculate_volatility', 'calculate_drawdown']",STRICT_SAFETY_GATE_CALCULATION_BLOCKED,True,execution_contract_only,155,160,156

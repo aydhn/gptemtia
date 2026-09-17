@@ -1,0 +1,10 @@
+guard_name,description,forbidden_actions,overwrite_allowed,delete_allowed,auto_impute_allowed,auto_drop_allowed,non_signal,manual_review_required,current_phase
+regime_source_preservation_guard,Regime metadata source preservation.,"overwrite, delete, move, destructive_clean, auto_impute, auto_drop, archive, git_tag, docker_push",False,False,False,False,True,True,137
+featurestore_source_preservation_guard,FeatureStore source preservation.,"overwrite, delete, move, destructive_clean, auto_impute, auto_drop, archive, git_tag, docker_push",False,False,False,False,True,True,137
+technical_source_preservation_guard,Technical feature source preservation.,"overwrite, delete, move, destructive_clean, auto_impute, auto_drop, archive, git_tag, docker_push",False,False,False,False,True,True,137
+factor_source_preservation_guard,Factor feature source preservation.,"overwrite, delete, move, destructive_clean, auto_impute, auto_drop, archive, git_tag, docker_push",False,False,False,False,True,True,137
+cross_asset_source_preservation_guard,Cross-asset feature source preservation.,"overwrite, delete, move, destructive_clean, auto_impute, auto_drop, archive, git_tag, docker_push",False,False,False,False,True,True,137
+macro_event_source_preservation_guard,Macro event source preservation.,"overwrite, delete, move, destructive_clean, auto_impute, auto_drop, archive, git_tag, docker_push",False,False,False,False,True,True,137
+validation_source_preservation_guard,Validation accepted source preservation.,"overwrite, delete, move, destructive_clean, auto_impute, auto_drop, archive, git_tag, docker_push",False,False,False,False,True,True,137
+baseline_source_preservation_guard,Baseline model input source preservation.,"overwrite, delete, move, destructive_clean, auto_impute, auto_drop, archive, git_tag, docker_push",False,False,False,False,True,True,137
+phase_138_source_preservation_guard,Phase 138 training harness source preservation.,"overwrite, delete, move, destructive_clean, auto_impute, auto_drop, archive, git_tag, docker_push",False,False,False,False,True,True,137

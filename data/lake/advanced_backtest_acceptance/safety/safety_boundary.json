@@ -1,0 +1,10 @@
+{
+  "domain": "safety_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "total_rules": 28,
+  "no_go_count": 20,
+  "safe_go_count": 8,
+  "safety_status": "SECURE",
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

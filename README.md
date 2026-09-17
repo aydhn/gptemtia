@@ -1,5 +1,11 @@
 # gptemtia
-\n\n## Local Performance Budgeting and Offline Efficiency Planning
+
+> **GELİŞTİRİCİ & AJAN ÇALIŞMA KURALI (MANDATORY GIT POLICY):**
+> - **Daima `master` Branch:** Tüm geliştirmeler, hata düzeltmeleri ve fazlar doğrudan `master` branch'inde yapılır.
+> - **Her Faz Sonu Zorunlu Commit + Push:** Tamamlanan her faz ve mantıksal iş bloğunun ardından `git add .`, anlamlı bir `git commit` ve doğrudan `git push origin master` yapılır.
+> - **origin/master = Yerel master:** Git çalışma ağacı asla kirli ("dirty") bırakılmaz; yerel ile remote daima tam senkron ve hizalı tutulur.
+
+## Local Performance Budgeting and Offline Efficiency Planning
 
 Final local performance budget gercek benchmark degildir.
 Lightweight runtime profile production profiling degildir.
@@ -1319,12 +1325,750 @@ python -m scripts.run_gpu_ml_runtime_validation_report
 python -m scripts.run_gpu_ml_runtime_status
 ```
 
+## Phase 137 Advanced ML Dataset Contracts and Experiment Registry, Feature Snapshot Governance, No-Training Experiment Contracts ve Phase 138 Handoff
 
+- Phase 137, Phase 136-145 “GPU hızlandırma, gelişmiş ML, ensemble, calibration, model drift, explainability ve governance” bloğunun ikinci fazıdır (`advanced_ml_dataset_registry/`).
+- Phase 1-136 arasındaki Emtia-Döviz offline araştırma ve sinyal botu altyapısını bozmadan ML Dataset sözleşmeleri, özellik anlık görüntü (feature snapshot) yönetişimi, deney kaydı (experiment registry) ve eğitim-yapılmayan deney yönetişim katmanını kurar:
+  - **Gelişmiş ML Veri Kümesi Sözleşmeleri (ML Dataset Contracts)**: 9 ana veri kümesi ailesi için (rejim metadata, featurestore, teknik indikatörler, faktörler, cross-asset, makro olay/haber metadata, doğrulama kabulü, dry-run baseline ve Phase 138 training harness) değişmez girdi ve şema sözleşmeleri tanımlanmıştır.
+  - **Şema ve Bölümleme Politikaları (Schema & Partition Policies)**: UTC zaman damgası (`timestamp_utc`) zorunluluğu, varlık/entity tipleri, özellik ad alanı (`ml_feature_` namespace) ve partition kuralları sözleşmeye bağlanmıştır.
+  - **Sızıntı ve Geleceğe Bakış Engelleri (Leakage & No-Lookahead Guards)**: Hedef sızıntısı, negatif shift (`shift(-1)`), ileriye dönük getiri (`future_return`, `forward_return`) ve bilgi sızıntısı kesin olarak engellenir.
+  - **Yalnızca Metadata Haber Yönetişimi (Metadata-Only News Guards)**: Sıfır makale gövdesi, sıfır tam metin, sıfır kazınmış HTML, sıfır duygu modeli çıktısı ve sıfır embedding/vektör kuralı sıkı denetimle korunur.
+  - **Kaynak Koruma Güvencesi (Source Preservation Guards)**: Orijinal kaynak veriler üzerinde sıfır silme, sıfır üzerine yazma, sıfır otomatik değer doldurma (auto-imputation) ve sıfır özellik düşürme garanti edilir.
+  - **Zaman Serisi Bölme Politikaları (Time-Series Split Policies)**: Kronolojik train/val/test, genişleyen pencere (expanding window), kayan pencere (rolling window), arındırılmış (purged) ve walk-forward k-fold bölme şablonları yalnızca sözleşme ve yer tutucu olarak tanımlanır; gerçek bölme yürütülmez.
+  - **Özellik Anlık Görüntü Yönetişimi (Feature Snapshot Governance)**: Anlık görüntü sözleşmeleri ve manifest yer tutucuları tanımlanmış olup hiçbir fiziksel snapshot materyalleştirilmez (`materialized=False`).
+  - **Eğitimsiz Deney Kaydı ve Şablonları (No-Training Experiment Registry)**: Deney şablonları, izin matrisi ve yürütme planı yer tutucuları kayıt altına alınmıştır. `fit()`, `train()`, `predict()`, `transform()` ve model optimizasyonu kesin olarak kilitlenmiştir.
+  - **Yer Tutucu Aileleri (Placeholder Families)**: 10 model ailesi (Baseline Ridge, Logistic, Random Forest, Extra Trees, Gradient Boosting, HistGB, XGBoost, LightGBM, CatBoost, PyTorch MLP) ve 7 metrik ailesi eğitimsiz ve çıkarımsız yer tutucu olarak kataloglanmıştır.
+  - **Manuel İnceleme ve Hazırlık Puanlama (Manual Review & Readiness Scoring)**: 9 maddelik denetim kuyruğu ve 0.0-1.0 aralığında hazırlık puanlaması sağlanır. Hazırlık puanı kesinlikle bir alım/satım sinyali değildir.
+  - **Güvenlik Sınırı (Safety Boundary)**: 22 NO-GO kuralı ve 12 SAFE-GO ilkesi ile canlı emir, broker API entegrasyonu, model eğitimi, model tahmini, kümeleme ve deployment kesin olarak yasaklanmıştır.
+  - **Phase 138 Devir Paketi (Phase 138 Handoff)**: Phase 138 "Baseline ML Model Contracts and Training Harness Governance" fazı için 13 maddelik devir önkoşulları eksiksiz karşılanmıştır.
+- Çıktılar `data/lake/advanced_ml_dataset_registry/`, `reports/output/advanced_ml_dataset_registry/` ve `docs/generated/advanced_ml_dataset_registry/` altında saklanır.
+- Mevcut faz: 137, Bir sonraki faz: 138 (Baseline ML Model Contracts and Training Harness Governance), Nihai hedef: Phase 160.
 
+Komutlar:
+```bash
+python -m scripts.run_advanced_ml_dataset_profile_registry
+python -m scripts.run_ml_dataset_contracts
+python -m scripts.run_ml_dataset_schema_policies
+python -m scripts.run_ml_dataset_guards
+python -m scripts.run_ml_experiment_registry
+python -m scripts.run_ml_dataset_findings_manifest
+python -m scripts.run_advanced_ml_dataset_health_check
+python -m scripts.run_advanced_ml_dataset_validation_report
+python -m scripts.run_advanced_ml_dataset_status
+```
 
+## Phase 138 Baseline ML Model Contracts and Dry-Run Training Harness, No-Real-Training Harness Layer, Baseline Model Registry ve Phase 139 Handoff
 
+- Phase 138, Phase 136-145 “GPU hızlandırma, gelişmiş ML, ensemble, calibration, model drift, explainability ve governance” bloğunun üçüncü fazıdır (`advanced_baseline_ml_models/`).
+- Phase 1-137 arasındaki Emtia-Döviz offline araştırma ve sinyal botu altyapısını bozmadan Baseline ML Model sözleşmeleri, dry-run eğitim harness'ı, gerçek-eğitim-yapılmayan (no-real-training) koruma katmanı ve model kayıt sözleşmelerini kurar:
+  - **10 Temel Model Ailesi Sözleşmesi (10 Baseline Model Contracts)**: Ridge Regression, Logistic Regression, Random Forest, Extra Trees, Gradient Boosting, Hist Gradient Boosting, XGBoost, LightGBM, CatBoost ve PyTorch Shallow MLP için sözleşmeler; sıfır gerçek eğitim (`real_training_allowed=False`), sıfır model uyumu (`model_fit_allowed=False`), sıfır tahmin (`model_predict_allowed=False`), sıfır ağırlık kaydı (`artifact_persistence_allowed=False`) ve sıfır model kayıt defteri yazımı (`model_registry_write_allowed=False`) değişmez kurallarıyla tanımlanmıştır.
+  - **Girdi ve Çıktı Sözleşmeleri (Input & Output Contracts)**: 3 girdi sözleşme şablonu (Emtia/FX, Makro Olay, Çapraz Varlık Rejim) ve 10 çıktı sözleşmesi oluşturulmuştur. Tahmin üretimi, olasılık hesaplama, sınıf etiketleme, regresyon çıktısı ve trade sinyalleri kesin olarak kilitlenmiştir.
+  - **Dry-Run Eğitim Harness Sözleşmeleri (Dry-Run Harness Contracts & Stubs)**: 5 harness sözleşmesi, 15 harness interface tanımı (6 izinli doğrulama/raporlama arayüzü, 9 kesinlikle yasaklanmış `fit`/`train`/`predict`/`save` arayüzü), 10 dry-run trainer stub'ı ve 6 zorunlu eğitim politikası (`would_run=False`, `blocked_by_policy=True`, `execution_status="no_real_training_executed"`).
+  - **Devre Dışı Yürütme Güvence Raporları (Disabled Execution Reports)**: Gerçek eğitim, tahmin/çıkarım, hedef/etiket üretimi (`shift(-1)`, `future_return`), model yapay nesne kalıcılığı (pickle/joblib) ve model registry yazımının devre dışı olduğunu belgeleyen 5 bağımsız denetim raporu.
+  - **Metrik ve Değerlendirme Yer Tutucuları (Metric & Evaluation Placeholders)**: 8 metrik kategorisi ve 7 değerlendirme kapsamı hiçbir hesaplama yapılmadan ve performans iddiasında bulunulmadan (`is_calculated=False`, `performance_claim_allowed=False`) yer tutucu olarak kataloglanmıştır.
+  - **Bağımlılık, Soykütük ve Girdi Katmanları (Dependencies, Lineage & Inputs)**: Phase 121-137 doğrulama bağımlılıkları, Phase 123-137 kalite bağımlılıkları, 5 aşamalı soykütüğü (lineage), FeatureStore katalog girdileri ve Rejim sınıflandırma girdileri bağlanmıştır.
+  - **Geleceğe Bakış, Haber ve Kaynak Koruma Muhafızları (Guards & Blacklists)**: No-lookahead zaman damgası denetimleri, backward-only asof birleştirmeleri, yalnızca-metadata haber kuralları (sıfır tam metin/HTML/vektör/sentiment), kaynak koruma kuralları (sıfır silme/üzerine yazma/otomatik doldurma) ve 23 yasaklı kolon kara listesi (`signal`, `buy`, `sell`, `target`, `future_return`, vb.).
+  - **Deney Bağlantısı, Manuel İnceleme ve Hazırlık Skoru (Linkage, Review & Readiness)**: Phase 137 deney şablonları ile Phase 139 GPU harness kaynak yönetişimi arasında 4 bağlantı şablonu, 5 maddelik manuel inceleme kuyruğu ve 1.0 hazırlık skoru (`READY_FOR_LOCAL_DRY_RUN_HARNESS`).
+  - **Güvenlik Sınırı (Safety Boundary)**: 24 NO-GO kuralı ve 9 SAFE-GO ilkesi ile canlı emir, broker API entegrasyonu, model eğitimi, model tahmini, kümeleme ve deployment kesin olarak yasaklanmıştır.
+  - **Phase 139 Devir Paketi (Phase 139 Handoff)**: Phase 139 "GPU-Accelerated Training Harness and Resource Governance" fazı için 12 maddelik devir önkoşulları eksiksiz karşılanmıştır.
+- Çıktılar `data/lake/advanced_baseline_ml_models/`, `reports/output/advanced_baseline_ml_models/` ve `docs/generated/advanced_baseline_ml_models/` altında saklanır.
+- Mevcut faz: 138, Bir sonraki faz: 139 (GPU-Accelerated Training Harness and Resource Governance), Nihai hedef: Phase 160.
 
+Komutlar:
+```bash
+python -m scripts.run_baseline_ml_model_profile_registry
+python -m scripts.run_baseline_model_contracts
+python -m scripts.run_dry_run_training_harness_contracts
+python -m scripts.run_baseline_model_safety_reports
+python -m scripts.run_baseline_model_dependencies_inputs
+python -m scripts.run_baseline_model_findings_manifest
+python -m scripts.run_baseline_ml_model_health_check
+python -m scripts.run_baseline_ml_model_validation_report
+python -m scripts.run_baseline_ml_model_status
+```
 
+## Phase 139 GPU-Accelerated Training Harness and Resource Governance, Controlled Dry-Run Resource Layer, No-Live-Execution ML Harness ve Phase 140 Handoff
 
+- Phase 139, Phase 136-145 “GPU hızlandırma, gelişmiş ML, ensemble, calibration, model drift, explainability ve governance” bloğunun dördüncü fazıdır (`advanced_gpu_training_governance/`).
+- Phase 1-138 arasındaki Emtia-Döviz offline araştırma ve sinyal botu altyapısını bozmadan GPU hızlandırmalı eğitim harness'ı, kontrollü kaynak yönetişimi (resource governance), deterministik cihaz seçimi (device selection), bellek bütçesi (memory budget), CPU fallback, zaman aşımı politikaları (timeout policies), stub eğitim döngüleri ve devre dışı bırakılmış yürütme güvence katmanını kurar:
+  - **GPU ve CPU Kaynak Yönetişim Politikaları (Resource Governance Policies)**: 4 kaynak yönetişim politikası; `allowed_mode='contract_only'`, kesinlikle sıfır gerçek eğitim (`real_training_allowed=False`), sıfır model tahmini (`prediction_allowed=False`), sıfır ağırlık kaydı (`artifact_persistence_allowed=False`) ve sıfır model registry yazımı (`model_registry_write_allowed=False`) değişmez kurallarıyla tanımlanmıştır.
+  - **Deterministik Cihaz Seçimi ve CPU Fallback (Device Selection & CPU Fallback)**: Donanım tahsisi yapmayan simüle edilmiş cihaz seçici (`cuda:0` veya `cpu`), donanım yokluğunda ya da bellek aşımında deterministik CPU fallback politikaları ve `dry_run_select_device` arayüzü kurulmuştur.
+  - **Bellek Bütçesi ve OOM Koruması (Memory Budget & OOM Guards)**: VRAM fraksiyon tavanı (%80 hard ceiling %85) ve 2048 MB sistem ayrılmış bellek garantisi getirilmiştir.
+  - **Watchdog Zaman Aşımı Politikaları (Training Timeout Policies)**: 300s, 1800s ve 3600s tavanlı otomatik sonlandırma ve heartbeat sözleşmeleri tanımlanmıştır.
+  - **Batch Size ve Dataloader Yer Tutucuları (Batch Size & Dataloader Placeholders)**: 16, 32, 64 batch size sözleşmeleri ve sıralı, walk-forward, in-memory dataloader yer tutucuları (karıştırma/shuffle yasak, diskten gerçek veri okunmaz) tanımlanmıştır.
+  - **Eğitim Döngüsü Stub Sözleşmeleri (Training Loop Stub Contracts & Harness Interfaces)**: 5 eğitim döngüsü stub sözleşmesi, 8 izinli harness arayüzü, 3 harness stub'ı ve 10 kesinlikle kilitli yöntem karantinası (`fit`, `train`, `predict`, `inference`, `transform`, `backward`, `optimizer_step`, `save_model`, `write_model_registry`, `generate_signal`).
+  - **Dry-Run Kaynak ve Yürütme Muhafızları (Dry-Run Resource Guards)**: Donanım denetimi, bellek koruması, zaman aşımı koruması ve 17 yasaklı yürütme anahtar kelimesini tarayan bloklama mekanizması.
+  - **Devre Dışı Yürütme Güvence Raporları (Disabled Execution Reports)**: Gerçek model eğitimi, model tahmini/çıkarımı, hedef/etiket üretimi (`shift(-1)`, `future_return`), model ağırlığı kalıcılığı ve model registry yazımının engellendiğini doğrulayan 5 bağımsız denetim raporu.
+  - **Geleceğe Bakış, Haber ve Kaynak Koruma Muhafızları (Guards & Input Dependencies)**: No-lookahead zaman damgası denetimleri, backward-only asof birleştirmeleri, yalnızca-metadata haber kuralları (sıfır tam metin/HTML/vektör/sentiment), kaynak koruma kuralları (sıfır silme/üzerine yazma/otomatik doldurma) ve 23 yasaklı kolon kara listesi (`signal`, `buy`, `sell`, `target`, `future_return`, vb.).
+  - **Denetim Yer Tutucuları, Manuel İnceleme ve Hazırlık Skoru (Audit Placeholders, Review & Readiness)**: Simüle edilmiş kaynak ve deney denetim yer tutucuları, 8 maddelik manuel inceleme kuyruğu ve 1.0 hazırlık skoru (`READY_FOR_GPU_RESOURCE_GOVERNANCE_DRY_RUN`).
+  - **Güvenlik Sınırı (Safety Boundary)**: 24 NO-GO kuralı ve 10 SAFE-GO ilkesi ile canlı emir, broker API entegrasyonu, model eğitimi, model tahmini, kümeleme ve deployment kesin olarak yasaklanmıştır.
+  - **Phase 140 Devir Paketi (Phase 140 Handoff)**: Phase 140 "Ensemble Model Contracts and Candidate Model Registry" fazı için 12 maddelik devir önkoşulları eksiksiz karşılanmıştır.
+- Çıktılar `data/lake/advanced_gpu_training_governance/`, `reports/output/advanced_gpu_training_governance/` ve `docs/generated/advanced_gpu_training_governance/` altında saklanır.
+- Mevcut faz: 139, Bir sonraki faz: 140 (Ensemble Model Contracts and Candidate Model Registry), Nihai hedef: Phase 160.
 
+Komutlar:
+```bash
+python -m scripts.run_gpu_training_governance_profile_registry
+python -m scripts.run_gpu_training_resource_policies
+python -m scripts.run_gpu_training_harness_contracts
+python -m scripts.run_gpu_training_dry_run_guards
+python -m scripts.run_gpu_training_disabled_execution_reports
+python -m scripts.run_gpu_training_dependencies_inputs
+python -m scripts.run_gpu_training_findings_manifest
+python -m scripts.run_gpu_training_governance_health_check
+python -m scripts.run_gpu_training_governance_validation_report
+python -m scripts.run_gpu_training_governance_status
+```
 
+## Phase 140 Ensemble Model Contracts and Candidate Model Registry, Non-Executing Ensemble Layer, Candidate Model Governance ve Phase 141 Handoff
+
+- Phase 140, Phase 136-145 “GPU hızlandırma, gelişmiş ML, ensemble, calibration, model drift, explainability ve governance” bloğunun beşinci fazıdır (`advanced_ensemble_model_registry/`).
+- Phase 1-139 arasındaki Emtia-Döviz offline araştırma ve sinyal botu altyapısını bozmadan Ensemble Model sözleşmeleri, aday model kayıt defteri (candidate model registry), yürütmesiz ensemble katmanı (non-executing ensemble layer), aday model yönetişimi ve Phase 141 devir sözleşmelerini kurar:
+  - **Aday Model Aileleri ve Sözleşmeleri (Candidate Model Families & Contracts)**: 5 aday model ailesi (tree_ensemble, neural_candidate, linear_candidate, kernel_candidate, boosting_candidate) ve 5 aday model sözleşmesi; sıfır gerçek model eğitimi (`real_training_allowed=False`), sıfır model uyumu (`model_fit_allowed=False`), sıfır tahmin üretimi (`model_predict_allowed=False`), sıfır ağırlık kaydı (`artifact_persistence_allowed=False`) ve sıfır model registry yazımı (`model_registry_write_allowed=False`) değişmez kurallarıyla tanımlanmıştır.
+  - **Girdi ve Çıktı Sözleşmeleri (Input & Output Contracts)**: 3 aday model girdi sözleşmesi (Commodity/FX zaman serisi, Makro olay, Çapraz varlık rejim) ve 5 aday model çıktı sözleşmesi oluşturulmuştur. Tahmin üretimi, olasılık hesaplama, sınıf etiketleme ve trade sinyalleri kesin olarak kilitlenmiştir.
+  - **Aday Model Uygunluk Kapıları ve Uyumluluk Matrisi (Eligibility Gates & Compatibility Matrix)**: 12 uygunluk kapısı (`dataset_contract_present_gate`, `baseline_contract_present_gate`, `training_disabled_gate`, vb.) ve 10 ikili model uyumluluk sözleşmesi tanımlanmıştır. Uyumluluk skorları kesinlikle sinyal ve performans iddiası içermez.
+  - **Ensemble Strateji Sözleşmeleri (Ensemble Strategy Contracts)**: 4 strateji sözleşmesi (Voting, Blending, Stacking, Dynamic Weighting), 3 voting yer tutucusu (majority, probability average, trimmed mean), 2 blending yer tutucusu (holdout, walk-forward), 2 stacking yer tutucusu (out-of-fold, multi-level), 2 ağırlıklandırma politikası ve 2 meta-model yer tutucusu tanımlanmıştır; ensemble yürütmesi kesinlikle engellenmiştir (`execution_blocked=True`).
+  - **Devre Dışı Yürütme Güvence Raporları (Disabled Execution Reports)**: Ensemble yürütmesi, aday model eğitimi, aday model tahmini/çıkarımı, hedef/etiket üretimi (`shift(-1)`, `future_return`), model ağırlığı kalıcılığı ve model registry yazımının engellendiğini doğrulayan 6 bağımsız denetim raporu.
+  - **Metrik, Değerlendirme ve Bağımlılık Katmanları (Metrics, Evaluation & Dependencies)**: 5 ensemble metrik kategorisi, 5 değerlendirme kapsamı, Phase 136-139 doğrulama ve kalite bağımlılıkları, FeatureStore katalog girdileri ve Rejim sınıflandırma girdileri bağlanmıştır.
+  - **Geleceğe Bakış, Haber ve Kaynak Koruma Muhafızları (Guards & Blacklists)**: No-lookahead zaman damgası denetimleri, backward-only asof birleştirmeleri, yalnızca-metadata haber kuralları (sıfır tam metin/HTML/vektör/sentiment), kaynak koruma kuralları (sıfır silme/üzerine yazma/otomatik doldurma) ve 24 yasaklı kolon kara listesi (`signal`, `buy`, `sell`, `target`, `future_return`, vb.).
+  - **Denetim Yer Tutucuları, Manuel İnceleme ve Hazırlık Skoru (Audit Placeholders, Review & Readiness)**: Aday model denetim yer tutucuları, 10 maddelik manuel inceleme kuyruğu ve 1.0 hazırlık skoru (`READY_FOR_ENSEMBLE_CANDIDATE_REGISTRY_DRY_RUN`).
+  - **Güvenlik Sınırı (Safety Boundary)**: 25 NO-GO kuralı ve 10 SAFE-GO ilkesi ile canlı emir, broker API entegrasyonu, model eğitimi, model tahmini, kümeleme ve deployment kesin olarak yasaklanmıştır.
+  - **Phase 141 Devir Paketi (Phase 141 Handoff)**: Phase 141 "Probability Calibration and Uncertainty Estimation" fazı için 12 maddelik devir önkoşulları eksiksiz karşılanmıştır.
+- Çıktılar `data/lake/advanced_ensemble_model_registry/`, `reports/output/advanced_ensemble_model_registry/` ve `docs/generated/advanced_ensemble_model_registry/` altında saklanır.
+- Mevcut faz: 140, Bir sonraki faz: 141 (Probability Calibration and Uncertainty Estimation), Nihai hedef: Phase 160.
+
+Komutlar:
+```bash
+python -m scripts.run_ensemble_model_profile_registry
+python -m scripts.run_candidate_model_contracts
+python -m scripts.run_candidate_model_eligibility_compatibility
+python -m scripts.run_ensemble_strategy_contracts
+python -m scripts.run_ensemble_disabled_execution_reports
+python -m scripts.run_ensemble_dependencies_inputs
+python -m scripts.run_ensemble_findings_manifest
+python -m scripts.run_ensemble_model_health_check
+python -m scripts.run_ensemble_model_validation_report
+python -m scripts.run_ensemble_model_status
+```
+
+## Phase 141 Probability Calibration and Uncertainty Estimation Contracts, Non-Executing Calibration Layer, Uncertainty Governance ve Phase 142 Handoff
+
+- Phase 141, Phase 136-145 “GPU hızlandırma, gelişmiş ML, ensemble, calibration, model drift, explainability ve governance” bloğunun altıncı fazıdır (`advanced_calibration_uncertainty/`).
+- Phase 1-140 arasındaki Emtia-Döviz offline araştırma ve sinyal botu altyapısını bozmadan Olasılık Kalibrasyonu ve Belirsizlik Tahmini sözleşmeleri (Probability Calibration & Uncertainty Estimation Contracts), yürütmesiz kalibrasyon katmanı (non-executing calibration layer), belirsizlik yönetişimi ve Phase 142 devir sözleşmelerini kurar:
+  - **Olasılık Kalibrasyonu Sözleşmeleri ve Yöntem Yer Tutucuları**: 7 kalibrasyon sözleşmesi (Platt scaling, Isotonic regression, Temperature scaling, Beta calibration, Histogram binning, Spline calibration, Vector scaling) ve 7 yöntem yer tutucusu; sıfır kalibrasyon eğitimi/uyumu (`calibration_fit_allowed=False`), sıfır kalibrasyon dönüşümü (`calibration_transform_allowed=False`), sıfır olasılık tahmini (`probability_prediction_allowed=False`) ve sıfır sinyal (`non_signal_required=True`) değişmez kurallarıyla tanımlanmıştır.
+  - **Belirsizlik Tahmini Sözleşmeleri ve Yöntem Yer Tutucuları**: 8 belirsizlik sözleşmesi (Monte Carlo dropout, Ensembe variance, Deep ensembles, Quantile regression, Bayesian neural approximation, Bootstrapped uncertainty, Conformal prediction, Evidential deep learning) ve 8 yöntem yer tutucusu; sıfır belirsizlik hesaplaması (`uncertainty_estimation_allowed=False`), sıfır aralık hesaplaması (`prediction_interval_allowed=False`) ve sıfır çıkarım değişmezleriyle tanımlanmıştır.
+  - **Güven Puanı, Güven Aralığı ve Tahmin Aralığı Yer Tutucuları**: 3 güven puanı, 3 güven aralığı, 3 tahmin aralığı, 5 kuantil ve 3 konformal tahmin yer tutucusu; hiçbir skor, aralık veya kuantil hesaplanmadan sözleşme düzeyinde kayıt altına alınmıştır (`all_uncalculated=True`, `all_unexecuted=True`).
+  - **Kalibrasyon ve Belirsizlik Metrik / Değerlendirme Yer Tutucuları**: ECE (Expected Calibration Error), MCE, Brier Score, NLL, Sharpness, Interval Coverage, Interval Width yer tutucuları ve 4 kalibrasyon / 4 belirsizlik değerlendirme şablonu tanımlanmıştır; sıfır metrik üretimi ve sıfır performans iddiası garantilenmiştir.
+  - **Kalite Kapıları ve Bağımlılıklar (Quality Gates & Dependencies)**: 9 kalibrasyon kalite kapısı, 8 belirsizlik kalite kapısı; Phase 140 aday model/ensemble bağımlılıkları, Phase 137 veri seti bağımlılıkları ve Phase 136 runtime bağımlılıkları bağlanmıştır.
+  - **Geleceğe Bakış, Haber ve Kaynak Koruma Muhafızları (Guards & Blacklists)**: No-lookahead zaman damgası muhafızları, geriye dönük asof birleştirmeleri, yalnızca-metadata haber kuralları (sıfır tam metin/HTML/vektör/sentiment), kaynak koruma kuralları (sıfır silme/üzerine yazma/otomatik doldurma) ve yasaklı kolon politikaları.
+  - **Yürütme Engelleme Güvence Raporları (Disabled Execution Reports)**: Kalibrasyon yürütmesi, kalibrasyon uyumu, kalibrasyon dönüşümü, olasılık tahmini ve belirsizlik yürütmesinin engellendiğini doğrulayan 5 bağımsız denetim raporu.
+  - **Yönetişim Bulguları, Manuel İnceleme, Hazırlık Skoru ve Manifest**: 3 yönetişim bulgusu, 7 maddelik operatör manuel inceleme kuyruğu, 1.0 hazırlık skoru (`READY_FOR_PHASE_142_DRIFT_MONITORING_HANDOFF`) ve master bütünlük manifesti (`CalibrationUncertaintyManifest`).
+  - **Güvenlik Sınırı (Safety Boundary)**: Canlı emir, broker API entegrasyonu, gerçek model eğitimi, olasılık tahmini, kalibrasyon uyumu, belirsizlik kestirimi, kümeleme ve deployment kesin olarak yasaklanmıştır (`all_enforced=True`).
+  - **Phase 142 Devir Paketi (Phase 142 Handoff)**: Phase 142 "Model Drift Monitoring and Data/Feature Drift Linkage" fazı için 8 maddelik devir önkoşulları eksiksiz karşılanmıştır.
+- Çıktılar `data/lake/advanced_calibration_uncertainty/`, `reports/output/advanced_calibration_uncertainty/` ve `docs/generated/advanced_calibration_uncertainty/` altında saklanır.
+- Mevcut faz: 141, Bir sonraki faz: 142 (Model Drift Monitoring and Data/Feature Drift Linkage), Nihai hedef: Phase 160.
+
+Komutlar:
+```bash
+python -m scripts.run_calibration_uncertainty_profile_registry
+python -m scripts.run_probability_calibration_contracts
+python -m scripts.run_uncertainty_estimation_contracts
+python -m scripts.run_calibration_uncertainty_disabled_reports
+python -m scripts.run_calibration_uncertainty_placeholders
+python -m scripts.run_calibration_uncertainty_dependencies_inputs
+python -m scripts.run_calibration_uncertainty_findings_manifest
+python -m scripts.run_calibration_uncertainty_health_check
+python -m scripts.run_calibration_uncertainty_validation_report
+python -m scripts.run_calibration_uncertainty_status
+```
+
+## Phase 142 Model Drift Monitoring and Data/Feature Drift Linkage Contracts, Non-Executing Drift Layer, Drift Governance ve Phase 143 Handoff
+
+- Phase 142, Phase 136-145 “GPU hızlandırma, gelişmiş ML, ensemble, calibration, model drift, explainability ve governance” bloğunun yedinci fazıdır (`advanced_model_drift_monitoring/`).
+- Phase 1-141 arasındaki Emtia-Döviz offline araştırma ve sinyal botu altyapısını bozmadan Model Drift Monitoring ve Data/Feature Drift Linkage sözleşmeleri (Model Drift Monitoring & Data/Feature Drift Linkage Contracts), yürütmesiz drift katmanı (non-executing drift layer), drift yönetişimi ve Phase 143 devir sözleşmelerini kurar:
+  - **Drift İzleme Sözleşmeleri (Monitoring Contracts)**: 6 model drift sözleşmesi (candidate models, ensemble, loss, predictions, degradation, residual drift), 6 veri drift sözleşmesi (raw inputs, macro, technical features, news sentiment, cross-asset, raw market distributions), 6 öznitelik drift sözleşmesi, 3 kalibrasyon drift sözleşmesi, 3 belirsizlik drift sözleşmesi ve 3 tahmin dağılımı drift yer tutucusu tanımlanmıştır; drift hesaplaması kesinlikle kilitlidir (`drift_calculation_allowed=False`, `all_zero_calculation=True`).
+  - **Bağlantı Sözleşmeleri (Linkages)**: Phase 123 öznitelik kalite tanıları, Phase 124 FeatureStore şema/katalog politikaları ve Phase 126-135 rejim sınıflandırma / geçiş tanıları ile drift katmanı arasında izleme bağlantıları kurulmuştur.
+  - **Pencere ve Eşik Değer Politikaları (Window & Threshold Policies)**: Referans pencereler (`in_sample_baseline`, `validation_baseline`, `regime_conditioned_baseline`), güncel pencereler (`short_term_eval`, `medium_term_eval`, `rolling_recent_eval`) ve PSI (0.10/0.25), KS (0.05/0.01), JS, Wasserstein (0.15/0.30) uyarı/kritik eşik değer yer tutucuları tanımlanmıştır.
+  - **Drift Metrik Yer Tutucuları (10 Kategori)**: PSI, KS, JS Diverjansı, Wasserstein, Kategorik, Sayısal, Korelasyon, Eksiklik, Kalibrasyon ve Belirsizlik drift metrikleri canlı hesaplama yapılmadan kataloglanmıştır (`all_uncalculated=True`).
+  - **Devre Dışı Bırakılmış Yürütme Raporları (Disabled Execution Reports)**: Drift yürütmesi, drift metrik hesabı, canlı izleme/uyarı, yeniden eğitim tetikleyicisi, model değiştirme ve tahmin engellerini belgeleyen 6 bağımsız denetim raporu.
+  - **Geleceğe Bakış, Haber ve Kaynak Koruma Muhafızları (Guards & Blacklists)**: No-lookahead zaman damgası muhafızları, geriye dönük asof birleştirmeleri, yalnızca-metadata haber kuralları (sıfır tam metin/HTML/vektör/sentiment), kaynak koruma kuralları (sıfır silme/üzerine yazma/otomatik doldurma) ve 24 yasaklı kolon karantinası.
+  - **Yönetişim Bulguları, Manuel İnceleme, Hazırlık Skoru ve Manifest**: 5 yönetişim bulgusu, 3 maddelik operatör manuel inceleme kuyruğu, 100.0 hazırlık skoru (`READY_FOR_PHASE_143_EXPLAINABILITY_HANDOFF`) ve master bütünlük manifesti (`ModelDriftMonitoringManifest`).
+  - **Güvenlik Sınırı (Safety Boundary)**: Canlı emir, broker API entegrasyonu, gerçek model eğitimi, model tahmini, drift hesaplama, otomatik uyarı, yeniden eğitim tetikleme ve model değiştirme kesin olarak yasaklanmıştır (`all_enforced=True`).
+  - **Phase 143 Devir Paketi (Phase 143 Handoff)**: Phase 143 "Explainability and Feature Attribution Reports" fazı için 8 maddelik devir önkoşulları eksiksiz karşılanmıştır.
+- Çıktılar `data/lake/advanced_model_drift_monitoring/`, `reports/output/advanced_model_drift_monitoring/` ve `docs/generated/advanced_model_drift_monitoring/` altında saklanır.
+- Mevcut faz: 142, Bir sonraki faz: 143 (Explainability and Feature Attribution Reports), Nihai hedef: Phase 160.
+
+Komutlar:
+```bash
+python -m scripts.run_model_drift_profile_registry
+python -m scripts.run_drift_monitoring_contracts
+python -m scripts.run_drift_linkage_contracts
+python -m scripts.run_drift_window_threshold_policies
+python -m scripts.run_drift_metric_placeholders
+python -m scripts.run_drift_disabled_execution_reports
+python -m scripts.run_drift_dependencies_inputs
+python -m scripts.run_drift_findings_manifest
+python -m scripts.run_model_drift_health_check
+python -m scripts.run_model_drift_validation_report
+python -m scripts.run_model_drift_status
+```
+
+## Phase 143 Explainability and Feature Attribution Reports, Non-Executing XAI Contract Layer, Attribution Governance ve Phase 144 Handoff
+
+- Phase 143, Phase 136-145 “GPU hızlandırma, gelişmiş ML, ensemble, calibration, model drift, explainability ve governance” bloğunun sekizinci fazıdır (`advanced_explainability_attribution/`).
+- Phase 1-142 arasındaki Emtia-Döviz offline araştırma ve sinyal botu altyapısını bozmadan Açıklanabilirlik ve Öznitelik Atıf Raporları sözleşmeleri (Explainability & Feature Attribution Reports Contracts), yürütmesiz XAI katmanı (non-executing XAI contract layer), atıf yönetişimi ve Phase 144 devir sözleşmelerini kurar:
+  - **Açıklanabilirlik Rapor Sözleşmeleri (Report Contracts)**: 7 rapor sözleşmesi (Global, Local, Candidate, Ensemble, Regime, Drift, Calibration); sıfır açıklanabilirlik hesaplaması (`explainability_calculation_allowed=False`), sıfır sinyal (`non_signal=True`) ve sıfır model aksiyonu (`model_action_allowed=False`) değişmez kurallarıyla tanımlanmıştır.
+  - **Öznitelik Atıf Sözleşmeleri (Attribution Contracts)**: 8 atıf sözleşmesi (SHAP values, LIME explanations, Permutation importance, Integrated gradients, Partial dependence plots, Individual conditional expectation, Tree surrogate models, Reason codes); canlı hesaplama kesinlikle kilitlidir (`attribution_calculation_allowed=False`, `all_uncalculated=True`).
+  - **Açıklama ve Yöntem Yer Tutucuları (Placeholders)**: Global ve yerel açıklama sözleşmeleri, öznitelik önem derecesi, öznitelik katkısı, SHAP, LIME, permütasyon, PDP, ICE, vekil modeller, karşıgözlemsel senaryolar ve neden kodları yer tutucuları tanımlanmıştır (`all_uncalculated=True`, `all_unexecuted=True`).
+  - **Atıf Yöntem ve Kapsam Politikaları (Policies)**: 8 yöntem politikası (TreeSHAP, KernelSHAP, LIME tabular, Permutation, Integrated Gradients, PDP/ICE, Surrogate tree, Rule fit) ve 4 atıf kapsam politikası (`global`, `local`, `regime_conditioned`, `drift_linked`).
+  - **Devre Dışı Bırakılmış Yürütme Güvence Raporları (Disabled Execution Reports)**: Açıklanabilirlik yürütmesi, atıf hesaplaması, SHAP yürütmesi, LIME yürütmesi, permütasyon yürütmesi, PDP/ICE yürütmesi, vekil model yürütmesi, karşıgözlemsel üretim ve açıklama kaynaklı model aksiyonu engellerini belgeleyen 9 bağımsız denetim raporu (36 güvenlik kontrolü, %100 PASSED).
+  - **Bağlantı Sözleşmeleri (Linkages)**: FeatureStore şema/katalog politikaları, Phase 126-135 rejim sınıflandırması, Phase 142 drift izleme ve Phase 141 kalibrasyon/belirsizlik katmanları ile açıklanabilirlik katmanı arasında izleme bağlantıları kurulmuştur.
+  - **Geleceğe Bakış, Haber ve Kaynak Koruma Muhafızları (Guards & Blacklists)**: No-lookahead zaman damgası muhafızları, geriye dönük asof birleştirmeleri, yalnızca-metadata haber kuralları (sıfır tam metin/HTML/vektör/sentiment), kaynak koruma kuralları (sıfır silme/üzerine yazma/otomatik doldurma) ve 24 yasaklı kolon politikası.
+  - **Yönetişim Bulguları, Manuel İnceleme, Hazırlık Skoru ve Manifest**: 4 yönetişim bulgusu, 4 maddelik operatör manuel inceleme kuyruğu, 1.0 hazırlık skoru (`READY_FOR_PHASE_144_MODEL_GOVERNANCE_HANDOFF`) ve master bütünlük manifesti (`ExplainabilityManifest`).
+  - **Güvenlik Sınırı (Safety Boundary)**: Canlı emir, broker API entegrasyonu, gerçek model eğitimi, model tahmini, SHAP/LIME hesabı, permütasyon testi, vekil model eğitimi, karşıgözlemsel üretim ve otomatik model aksiyonu kesin olarak yasaklanmıştır (`all_enforced=True`).
+  - **Phase 144 Devir Paketi (Phase 144 Handoff)**: Phase 144 "Model Governance, Model Cards and Audit Trail" fazı için 8 maddelik devir önkoşulları eksiksiz karşılanmıştır.
+- Çıktılar `data/lake/advanced_explainability_attribution/`, `reports/output/advanced_explainability_attribution/` ve `docs/generated/advanced_explainability_attribution/` altında saklanır.
+- Mevcut faz: 143, Bir sonraki faz: 144 (Model Governance, Model Cards and Audit Trail), Nihai hedef: Phase 160.
+
+Komutlar:
+```bash
+python -m scripts.run_explainability_pipeline
+python -m scripts.run_feature_attribution_contracts
+python -m scripts.run_shap_placeholders
+python -m scripts.run_lime_placeholders
+python -m scripts.run_permutation_importance_placeholders
+python -m scripts.run_pdp_ice_placeholders
+python -m scripts.run_surrogate_model_placeholders
+python -m scripts.run_counterfactual_placeholders
+python -m scripts.run_attribution_drift_linkage
+python -m scripts.run_phase_144_handoff
+```
+
+## Phase 144 Model Governance, Model Cards and Audit Trail, Non-Production Governance Layer, Approval Boundary Registry ve Phase 145 Handoff
+
+- Phase 144, Phase 136-145 “GPU hızlandırma, gelişmiş ML, ensemble, calibration, model drift, explainability ve governance” bloğunun dokuzuncu fazıdır (`advanced_model_governance/`).
+- Phase 1-143 arasındaki Emtia-Döviz offline araştırma ve sinyal botu altyapısını bozmadan Model Governance, Model Cards ve Audit Trail katmanını kurar:
+  - **Model Yönetişim Sözleşmeleri (Governance Contracts)**: Model yönetim sözleşmeleri, şablonları, doğrulama kanıtları (validation evidence), risk kaydı (risk register), kontrol kontrol listeleri (control checklists) ve regülasyon uyum yer tutucuları (compliance placeholders) tanımlanmıştır.
+  - **Model Kartları ve Şablonları (Model Cards & Templates)**: 7 model için Model Card sözleşmeleri, 4 şablon tipi, 10 zorunlu bölüm, kısıtlamalar (limitations), kullanım amaçları (intended use), yasaklı kullanımlar (prohibited use), risk açıklamaları ve 4 katmanlı bağımlılık katalogları (veri, öznitelik, model, runtime) oluşturulmuştur.
+  - **Yönetişim Sınırları ve Manuel İnceleme Kapıları (Boundaries & Review Gates)**: Onay sınırları (`approval_boundaries`), yayınlama sınırları (`release_boundaries`), üretim-dışı sınırları (`non_production_boundaries`) ve 4 manuel inceleme kapısı ile üretim onayı ve broker entegrasyonu kesin olarak engellenmiştir (`is_blocked_by_policy=True`).
+  - **Devre Dışı Bırakılmış Yürütme Raporları (Disabled Execution Reports)**: Model kayıt defterine yazma (`model_registry_write`), model artefaktı saklama (`artifact_persistence`), dağıtım (`deployment`), üretim onayı (`production_approval`), broker hazır durumu (`broker_ready`), canlı işlem (`live_trading`), tahmin (`prediction`), eğitim (`training`), sinyal üretimi (`signal_generation`) ve performans iddiaları (`performance_claim`) olmak üzere 10 politikanın tümü yürütme engeliyle raporlanmıştır (%100 enforced).
+  - **Bağımlılıklar, Muhafızlar ve Köken (Dependencies, Guards & Lineage)**: Phase 137 veri seti sözleşmeleri, Phase 138 temel modelleri, Phase 139 GPU eğitimi, Phase 140 ansambl, Phase 141 kalibrasyon, Phase 142 drift ve Phase 143 açıklanabilirlik bağımlılıkları doğrulanmış; geleceğe bakış muhafızları (no-lookahead), salt meta veri haber muhafızları, kaynak koruma muhafızları ve 24 yasaklı kolon politikası uygulanmıştır.
+  - **Denetim İzi Yer Tutucuları (Audit Trail Placeholders)**: Gerçek denetim logu yazılmadan denetim izi yer tutucuları, karar logları, değişiklik logları, sahip sorumlulukları, yaşam döngüsü ve sürüm geçmişi sözleşmeleri yapılandırılmıştır.
+  - **Yönetişim Bulguları, Manuel İnceleme, Hazırlık Skoru ve Manifest**: 5 yönetişim bulgusu, 3 manuel inceleme maddesi, 1.0 hazırlık skoru (`governance_contract_ready`) ve ModelGovernanceManifest oluşturulmuştur.
+  - **Güvenlik Sınırı (Safety Boundary)**: Canlı işlem, emir iletimi, model eğitimi, tahmin üretimi, model kaydı yazımı ve üretim onayı tamamen engellenmiştir (`all_boundaries_enforced=True`).
+  - **Phase 145 Devir Paketi (Phase 145 Handoff)**: Phase 145 "Advanced ML Acceptance Report and Candidate Finalization" fazı için devir raporu hazırlanmış ve tüm önkoşullar eksiksiz karşılanmıştır (`READY_FOR_PHASE_145`).
+- Çıktılar `data/lake/advanced_model_governance/`, `reports/output/advanced_model_governance/` ve `docs/generated/advanced_model_governance/` altında saklanır.
+- Mevcut faz: 144, Bir sonraki faz: 145 (Advanced ML Acceptance Report and Candidate Finalization), Nihai hedef: Phase 160.
+
+Komutlar:
+```bash
+python -m scripts.run_model_governance_profile_registry
+python -m scripts.run_model_governance_contracts
+python -m scripts.run_model_card_contracts
+python -m scripts.run_governance_boundaries
+python -m scripts.run_governance_disabled_execution_reports
+python -m scripts.run_governance_dependencies_guards
+python -m scripts.run_governance_audit_trail
+python -m scripts.run_governance_findings_manifest
+python -m scripts.run_model_governance_health_check
+python -m scripts.run_model_governance_validation_report
+python -m scripts.run_model_governance_status
+```
+
+## Phase 145 Advanced ML Acceptance Report, Phase 136-144 Consolidated Acceptance Layer, Non-Production ML Readiness Boundary ve Phase 146 Handoff
+
+- Phase 145, Phase 136-145 “GPU hızlandırma, gelişmiş ML, ensemble, calibration, model drift, explainability ve governance” bloğunun kapanış ve kabul fazıdır (`advanced_ml_acceptance/`).
+- Phase 1-144 arasındaki Emtia-Döviz offline araştırma ve sinyal botu altyapısını bozmadan Advanced ML Acceptance Report katmanını kurar:
+  - **Konsolide Faz Kabul Katmanı (Phase 136-144 Consolidated Acceptance)**: Phase 136 (GPU runtime), Phase 137 (Dataset contracts), Phase 138 (Baseline models), Phase 139 (GPU training governance), Phase 140 (Ensemble candidate models), Phase 141 (Probability calibration & uncertainty), Phase 142 (Model drift monitoring), Phase 143 (Explainability & attribution) ve Phase 144 (Model governance & model cards) fazlarının her biri için 8'er kabul kontrolü (toplam 72 kontrol) gerçekleştirilmiş ve tümü %100 PASSED olarak belgelenmiştir.
+  - **Bileşen Kayıt Defteri ve Kontrol Noktaları (Component Registry & Checkpoints)**: Bloktaki 10 ana bileşen (`Phase136` - `Phase145`) için sözleşme durumu, kontrol noktası denetimleri ve yönetişim kısıtlamaları kayıt altına alınmıştır.
+  - **Bağımlılık ve Doğrulama Kanıtları (Dependency & Validation Evidence)**: 14 kritik faz bağımlılığı doğrulanmış, 12 önceki faz doğrulama kanıtı eksiksiz şekilde çapraz doğrulanmıştır.
+  - **Güvenlik ve Üretim-Dışı Sınırları (Boundaries & Review Gates)**: 7 üretim-dışı çalışma kuralı, 10 operatör manuel inceleme kapısı ve 15 Go/No-Go kuralı (4 Go, 11 No-Go) ile canlı işlem, broker entegrasyonu, gerçek model eğitimi, tahmin yürütmesi ve model dağıtımı kesin olarak engellenmiştir (`is_blocked_by_policy=True`).
+  - **Engeller, Boşluklar, Uyarılar ve Bulgular (Blockers, Gaps, Warnings, Findings)**: 0 Blocker (bloke edici hata yok), 2 Gap (bilinen araştırma kapsamı boşluğu), 7 Warning (yönetişim uyarıları) ve 3 Finding kayıt defterinde belgelenmiştir.
+  - **Gelişmiş ML Hazırlık Puanı (Readiness Scoring)**: 1.00 hazırlık skoru (`advanced_ml_contract_acceptance_ready_non_production`) hesaplanmıştır. Bu skor yalnızca sözleşme ve yönetişim bütünlüğünü temsil eder; üretim/broker/canlı işlem hazır onayı değildir.
+  - **Kabul Manifestosu (Acceptance Manifest)**: 38 negatif değişmez kuralı (sıfır eğitim, sıfır tahmin, sıfır canlı emir vb.) içeren ve tüm kısıtlamaları denetleyen `AdvancedMlAcceptanceManifest` oluşturulmuştur.
+  - **Phase 146 Devir Paketi (Phase 146 Handoff)**: Phase 146 "Realistic Backtest, Transaction Cost and Slippage Modeling" fazı için 13 maddelik devir önkoşulları eksiksiz karşılanmıştır (`READY_FOR_PHASE_146`).
+- Çıktılar `data/lake/advanced_ml_acceptance/` ve `reports/output/advanced_ml_acceptance/` altında saklanır.
+- Mevcut faz: 145, Bir sonraki faz: 146 (Realistic Backtest, Transaction Cost and Slippage Modeling), Nihai hedef: Phase 160.
+
+Komutlar:
+```bash
+python -m scripts.run_advanced_ml_acceptance_profile_registry
+python -m scripts.run_advanced_ml_component_acceptance
+python -m scripts.run_advanced_ml_phase_acceptance
+python -m scripts.run_advanced_ml_dependency_evidence
+python -m scripts.run_advanced_ml_boundaries_findings
+python -m scripts.run_advanced_ml_acceptance_manifest
+python -m scripts.run_advanced_ml_acceptance_health_check
+python -m scripts.run_advanced_ml_acceptance_validation_report
+python -m scripts.run_advanced_ml_acceptance_status
+```
+
+## Phase 146 Realistic Backtest, Transaction Cost and Slippage Modeling, Local/Offline Backtest Contract Layer ve Phase 147 Handoff
+
+- Phase 146, Phase 146-152 "gerçekçi backtest, transaction cost/slippage, walk-forward, benchmark, stress ve Monte Carlo robustness" bloğunun ilk fazıdır (`advanced_realistic_backtest/`).
+- Phase 1-145 arasındaki Emtia-Döviz offline/local araştırma ve sinyal botu altyapısını bozmadan Realistic Backtest, Transaction Cost and Slippage Modeling katmanını kurar:
+  - **Backtest Motor Sözleşmeleri (Engine Contracts)**: Olay tabanlı (`event_driven`), vektörize (`vectorized`), portföy (`portfolio`), çoklu varlık (`multi_asset`), rejim duyarlı (`regime_aware`) ve maliyet duyarlı (`cost_aware`) olmak üzere 6 standart backtest motor sözleşmesi tanımlanmıştır. Tüm motorlarda `backtest_execution_allowed=False`, `live_trading_allowed=False` ve `broker_execution_allowed=False` sabitleri zorunlu tutulmuştur.
+  - **Emir Simülasyonu ve Fiyat Modelleri (Order Simulation & Price Models)**: Market, limit, stop, stop-limit, kısmi dolum ve reddedilen emir olmak üzere 6 emir simülasyon sözleşmesi; Sonraki bar açılışı (`next_bar_open`), sonraki tick (`next_tick`), VWAP dilimi (`vwap_slice`) ve katılım kısıtlı (`participation_capped`) 4 dolum modeli; Alış/satış kotasyonu (`bid_ask_quote`), orta nokta + yarım makas (`mid_plus_half_spread`) ve sonraki açılış (`next_open`) 3 işlem fiyatı modeli yapılandırılmıştır. Gerçek broker emri iletimi kesinlikle yasaktır (`broker_orders_sent=False`).
+  - **İşlem Maliyeti ve Kayma Modelleri (Transaction Cost & Slippage Modeling)**: Lot başı (`per_lot`), yüzdesel baz puan (`percentage_bps`), hacim kademeli (`tiered_volume`) ve asgari bilet ücreti (`min_ticket_fee`) komisyon modelleri; Borsa takas ve düzenleyici ücret modelleri; Sabit pip (`fixed_pip`), yüzdesel (`percentage_spread`), geçmiş kotasyon (`historical_quote`) ve oynaklığa bağlı (`volatility_dependent`) alış-satış makas modelleri; Sabit bps (`fixed_bps`), makas tabanlı (`spread_based`), oynaklık tabanlı (`volatility_based`), likidite tabanlı (`liquidity_based`), katılım oranı (`participation_rate`) ve rejim duyarlı (`regime_aware`) olmak üzere 6 kayma (slippage) modeli sözleşme düzeyinde tanımlanmıştır.
+  - **Gerçekçi Yürütme Yer Tutucuları (Execution Realism Placeholders)**: Karekök/lineer piyasa etkisi (`market_impact`), ağ/eşleme motoru gecikmesi (`latency`), bar hacmi ve ADV katılım tavanı (`liquidity_constraints`), kısmi dolum (`partial_fill`), teminat/fiyat bandı retleri (`rejected_orders`) ve L2 derinlik basamağı (`order_book_depth`) yer tutucuları tanımlanmıştır.
+  - **Muhasebe ve Yaşam Döngüsü Sözleşmeleri (Accounting & Lifecycle)**: Gerçekleşmiş/gerçekleşmemiş MTM PnL standartları, nakit/teminat/pozisyon defterleri, başlangıç/sürdürme teminatı, işlem yaşam döngüsü (CREATED -> SUBMITTED -> FILLED -> CLOSED), pozisyon yaşam döngüsü (FLAT -> OPENING -> OPEN -> CLOSING -> CLOSED), kurumsal aksiyonlar (temettü/futures vade devri) ve çapraz kur dönüşüm sözleşmeleri kurulmuştur.
+  - **Yanlılık ve Geleceğe Bakış Muhafızları (Bias & Lookahead Guards)**: UTC zaman damgası monotonluk muhafızı, `shift(-1)` ve ileri yönlü sızıntıyı engelleyen No-Lookahead muhafızı, kote-dışı varlık takibi sağlayan Survivorship muhafızı, çoklu hipotez ceza muhafızı (Data Snooping), serbestlik derecesi muhafızı (Overfitting), haber metinlerinde tam metin/HTML/embedding yasağı (Metadata-Only News), ve kaynak piyasa verisi değişmezlik muhafızı (Source Preservation) aktif edilmiştir. 29 adet yasaklı kolon (`signal`, `position`, `target`, `prediction`, `future_return`, `leak` vb.) için karantina ve ret politikası zorunlu tutulmuştur.
+  - **Devre Dışı Bırakılmış Yürütme Raporları (Disabled Execution Enforcements)**: Gerçek backtest, optimizer, walk-forward, benchmark, canlı işlem, broker entegrasyonu, model eğitimi, tahmin üretimi ve getiri garantisi iddialarının kesin olarak devre dışı bırakıldığını belgeleyen 9 adet resmi devre dışı raporu oluşturulmuştur.
+  - **Hazırlık Skoru, Bulgular ve Manifest (Readiness, Findings & Manifest)**: 0.85 hazırlık skoru (`realistic_backtest_contract_ready_non_production`), 8 operatör manuel inceleme maddesi, 9 upstream faz bağımlılığı, 6 doğrulama kanıtı ve 30+ negatif değişmez içeren master manifestosu belgelenmiştir.
+  - **Güvenlik Sınırı (Safety Boundary)**: 15 NO-GO kuralı ve 7 SAFE-GO prensibiyle canlı işlem, broker entegrasyonu ve gerçek model optimizasyonu kesin olarak engellenmiştir (`safety_status=SECURE`).
+  - **Phase 147 Devir Paketi (Phase 147 Handoff)**: Phase 147 "Walk-Forward Validation and Out-of-Sample Benchmarking" fazı için 10 önkoşul eksiksiz karşılanmıştır (`phase_147_handoff_ready=True`).
+- Çıktılar `data/lake/advanced_realistic_backtest/` ve `reports/output/advanced_realistic_backtest/` altında saklanır.
+- Mevcut faz: 146, Bir sonraki faz: 147 (Walk-Forward Validation and Out-of-Sample Benchmarking), Nihai hedef: Phase 160.
+
+Komutlar:
+```bash
+python -m scripts.run_realistic_backtest_profile_registry
+python -m scripts.run_backtest_engine_contracts
+python -m scripts.run_backtest_execution_cost_models
+python -m scripts.run_backtest_accounting_lifecycle
+python -m scripts.run_backtest_bias_guards
+python -m scripts.run_backtest_disabled_execution_reports
+python -m scripts.run_backtest_findings_manifest
+python -m scripts.run_realistic_backtest_health_check
+python -m scripts.run_realistic_backtest_validation_report
+python -m scripts.run_realistic_backtest_status
+```
+
+## Phase 147 Walk-Forward Validation and Out-of-Sample Benchmarking, Local/Offline Validation Contract Layer ve Phase 148 Handoff
+
+- Phase 147, Phase 146-152 "gerçekçi backtest, transaction cost/slippage, walk-forward, benchmark, stress ve Monte Carlo robustness" bloğunun ikinci fazıdır (`advanced_walk_forward_validation/`).
+- Phase 1-146 arasındaki Emtia-Döviz offline/local araştırma ve sinyal botu altyapısını bozmadan Walk-Forward Validation ve Out-of-Sample Benchmarking sözleşme katmanını kurar:
+  - **Walk-Forward Doğrulama Sözleşmeleri (Walk-Forward Validation Contracts)**: Rolling window, expanding window, anchored window ve purged walk-forward olmak üzere 4 temel doğrulama ailesi ve split sözleşmeleri kurulmuştur. Tüm sözleşmelerde `walk_forward_execution_allowed=False`, `live_trading_allowed=False` ve `broker_execution_allowed=False` değişmezleri zorunludur.
+  - **Purge ve Embargo Politikaları (Purge & Embargo Policies)**: Otoregresif sızıntıyı ve etiket örtüşmesini önleyen bar bazlı purge ve embargo sözleşmeleri (5-21 bar aralığı) ile test/doğrulama izolasyonu sağlanmıştır.
+  - **Örneklem Dışı ve Kilitli Dönem Sözleşmeleri (OOS & Sealed Holdout Splits)**: Zaman serisi sıralı Train/Validation/Test ve OOS veri bölümleme sözleşmeleri; peeking/sızıntı engelli kilitli holdout dönem sözleşmeleri (`all_sealed=True`).
+  - **Rejim Duyarlı ve Çapraz Varlık OOS Bölümlemeleri (Regime-Aware & Cross-Asset OOS)**: Yüksek/düşük volatilite ve trend rejimlerine göre ayrıştırılmış OOS doğrulama arayüzleri ve döviz-emtia çapraz varlık test sözleşmeleri yapılandırılmıştır.
+  - **Referans Strateji ve Benchmark Sözleşmeleri (OOS Benchmark Contracts & Universe)**: Emtia ve Döviz evrenleri için Buy & Hold, Risksiz Faiz (Nakit), Eşit Ağırlıklı Sepet (1/N), Rejim Duyarlı Benchmark ve İşlem Maliyeti Duyarlı Benchmark olmak üzere 5 referans strateji yer tutucusu tanımlanmıştır (`benchmark_executed=False`).
+  - **Doğrulama ve Benchmark Metrik Yer Tutucuları (Metric Placeholders)**: Gerçek Sharpe, Alpha, Beta, Information Ratio, Tracking Error, Calmar, Sortino veya kazanma oranı hesaplanmaz; tüm metrikler hesaplanmamış yer tutucu olarak sözleşmeye bağlanmıştır (`all_metrics_uncalculated=True`).
+  - **Yanlılık ve Geleceğe Bakış Muhafızları (Bias & Lookahead Guards)**: Sıkı No-Lookahead kolon ve zaman damgası muhafızı, Data Snooping Bias muhafızı, Overfitting / p-hacking muhafızı, Survivorship Bias muhafızı, Çoklu Hipotez Testi muhafızı, Metadata-Only News muhafızı ve Kaynak Veri Dokunulmazlığı muhafızı aktifleştirilmiştir. 34 yasaklı kolon (`future_return`, `signal`, `target`, `prediction`, `leak`, `sentiment` vb.) karantina altına alınmıştır.
+  - **Devre Dışı Bırakılmış Yürütme Güvenceleri (Disabled Execution Enforcements)**: Walk-forward simülasyonu, OOS benchmark yürütmesi, metrik hesaplama, optimizasyon çalıştırma, model eğitimi, tahmin üretimi, canlı işlem, broker entegrasyonu ve getiri iddialarının kesin olarak devre dışı olduğunu belgeleyen 9 resmi devre dışı raporu oluşturulmuştur.
+  - **Hazırlık Skoru, Bulgular ve Manifest (Readiness, Findings & Manifest)**: 1.00 teşhis hazırlık skoru (`walk_forward_oos_contract_ready_non_production`), 7 operatör manuel inceleme maddesi, 9 doğrulama kanıtı, 0 kritik engelleyici ve 32 negatif değişmez içeren master manifestosu belgelenmiştir.
+  - **Güvenlik Sınırı ve Faz Devri (Safety Boundary & Phase 148 Handoff)**: 14 NO-GO kuralı ve 7 SAFE-GO ilkesiyle güvenlik sınırları korunmuş (`safety_status=SECURE`); Phase 148 "Stress Testing and Scenario Simulation" fazı için 10 devir önkoşulu eksiksiz karşılanmıştır (`phase_148_handoff_ready=True`).
+- Çıktılar `data/lake/advanced_walk_forward_validation/` ve `reports/output/advanced_walk_forward_validation/` altında saklanır.
+- Mevcut faz: 147, Bir sonraki faz: 148 (Stress Testing and Scenario Simulation), Nihai hedef: Phase 160.
+
+Komutlar:
+```bash
+python -m scripts.run_walk_forward_profile_registry
+python -m scripts.run_walk_forward_split_contracts
+python -m scripts.run_oos_benchmark_contracts
+python -m scripts.run_validation_metric_placeholders
+python -m scripts.run_validation_bias_guards
+python -m scripts.run_validation_disabled_execution_reports
+python -m scripts.run_walk_forward_findings_manifest
+python -m scripts.run_walk_forward_health_check
+python -m scripts.run_walk_forward_validation_report
+python -m scripts.run_walk_forward_status
+```
+
+## Phase 148 Stress Testing and Scenario Simulation, Local/Offline Scenario Contract Layer ve Phase 149 Handoff
+
+- Phase 148, Phase 146-152 "gerçekçi backtest, transaction cost/slippage, walk-forward, benchmark, stress ve Monte Carlo robustness" bloğunun üçüncü fazıdır (`advanced_stress_testing/`).
+- Phase 1-147 arasındaki Emtia-Döviz offline/local araştırma ve sinyal botu altyapısını bozmadan Stress Testing ve Scenario Simulation sözleşme altyapısını kurar:
+  - **Stres Testi Profil ve Kapsam Sözleşmeleri (Profile, Domain & Scope Registries)**: Dengeli (`balanced`), sıkı güvenlik (`strict_safety`) ve kuru çalışma (`dry_run`) profilleri; FX, emtia, makro, maliyet ve rejim etki alanları yapılandırılmıştır. Tüm profillerde `stress_execution_allowed=False`, `live_trading_allowed=False` ve `broker_execution_allowed=False` sabitleri zorunludur.
+  - **Temel ve Kriz Senaryo Sözleşmeleri (Scenario Contracts & Shocks)**: Tarihsel krizler (2008 GFC, 2020 Covid, Negatif Petrol 2020, 2010 Flash Crash, 2015 CHF depeg, 2022 Enerji Şoku); Varsayımsal krizler (Stagflasyon 2.0, Tedarik Zinciri & Boğaz Tıkanıklığı, Egemen Borç Krizi, Ticaret Savaşları/Gümrük Tarifeleri, Takas Kurumu Arızası); Rejim şokları (ani trend dönüşü, volatilite patlaması, likidite kuraklığı); Volatilite şokları (2x, 3x, 5x spike, smile düzleşmesi); Likidite şokları (derinlik yarılanması, hacim donması); Makas genişleme şokları (3x, 5x, 10x spread widening) sözleşme düzeyinde tanımlanmıştır.
+  - **Uç Durum ve Mikro Yapı Şok Yer Tutucuları (Shock Placeholders)**: Fiyat boşluğu riskleri (hafta sonu gap, gecelik gap, seans içi makro gap); Korelasyon kırılmaları (Altın-USD ayrışması, emtia sepeti korelasyon çöküşü, carry trade çözülmesi); Makro şoklar (faiz sürprizi, enflasyon sıçraması, resesyon); Çapraz varlık bulaşma riskleri; Yürütme aksaklıkları (borsa kesintisi, emir retleri, gecikme sıçraması); Finansman/taşıma maliyeti şokları; Para birimi dönüşüm şokları; Stresli komisyon artışları ve katastrofik kayma (slippage) şok sözleşmeleri kurulmuştur.
+  - **Senaryo Kütüphanesi ve Yönetişim Politikaları (Scenario Library & Taxonomy)**: Birleşik senaryo kataloğu; 6 taksonomi grubu; 5 şiddet seviyesi (Hafif, Orta, Şiddetli, Aşırı, Siyah Kuğu); 5 zaman ufku (Anlık, Gün İçi, Kısa Vadeli, Orta Vadeli, Uzun Süreli); ve 5 varlık kapsam politikası yapılandırılmıştır.
+  - **Hesaplanmamış Metrik Yer Tutucuları (Uncalculated Metric Placeholders)**: Gerçek stresli PnL, azami drawdown, Riske Maruz Değer (VaR), Koşullu VaR / Beklenen Kayıp (Expected Shortfall), stresli marjin/kaldıraç gereksinimi ve likidite açığı hesaplanmaz; formül ve metaveri spesifikasyonu olarak tanımlanmıştır (`all_metrics_uncalculated=True`).
+  - **Yanlılık, Geleceğe Bakış ve Senaryo Sızıntı Muhafızları (Bias & Leakage Guards)**: Sıkı No-Lookahead zaman damgası muhafızı, Senaryo Sızıntısı (Scenario Leakage) muhafızı, Veri Gözetleme (Data Snooping) muhafızı, Aşırı Öğrenme (Overfitting) muhafızı, Hayatta Kalma Yanlılığı (Survivorship Bias) muhafızı, Çoklu Hipotez Testi muhafızı, Yalnızca-Metadata Haber muhafızı ve Kaynak Veri Dokunulmazlığı muhafızı aktifleştirilmiştir. 34 yasaklı kolon karantinaya alınmıştır.
+  - **Devre Dışı Bırakılmış Yürütme Güvenceleri (Disabled Execution Enforcements)**: Gerçek stres testi yürütmesi, senaryo simülasyonu, stres metrik hesaplaması, optimizasyon, model eğitimi, tahmin üretimi, canlı işlem, broker emir iletimi ve getiri iddialarının kesin olarak devre dışı olduğunu belgeleyen 9 resmi devre dışı raporu oluşturulmuştur.
+  - **Hazırlık Skoru, Bulgular ve Bütünlük Manifestosu (Readiness, Findings & Manifest)**: 1.00 teşhis hazırlık skoru (`stress_testing_scenario_simulation_contract_ready_non_production`), 7 operatör inceleme maddesi, 0 kritik engelleyici ve 32 negatif değişmez içeren master manifestosu belgelenmiştir.
+  - **Güvenlik Sınırı ve Faz Devri (Safety Boundary & Phase 149 Handoff)**: 14 NO-GO kuralı ve 7 SAFE-GO ilkesiyle güvenlik sınırları korunmuş (`safety_status=SECURE`); Phase 149 "Monte Carlo Robustness and Parameter Stability" fazı için 10 devir önkoşulu eksiksiz karşılanmıştır (`phase_149_handoff_ready=True`).
+- Çıktılar `data/lake/advanced_stress_testing/` ve `reports/output/advanced_stress_testing/` altında saklanır.
+- Mevcut faz: 148, Bir sonraki faz: 149 (Monte Carlo Robustness and Parameter Stability), Nihai hedef: Phase 160.
+
+Komutlar:
+```bash
+python -m scripts.run_stress_testing_profile_registry
+python -m scripts.run_stress_scenario_contracts
+python -m scripts.run_stress_shock_placeholders
+python -m scripts.run_stress_metric_placeholders
+python -m scripts.run_stress_dependencies_guards
+python -m scripts.run_stress_disabled_execution_reports
+python -m scripts.run_stress_findings_manifest
+python -m scripts.run_stress_testing_health_check
+python -m scripts.run_stress_testing_validation_report
+python -m scripts.run_stress_testing_status
+```
+
+## Phase 149 Monte Carlo Robustness and Parameter Stability, Local/Offline Robustness Contract Layer ve Phase 150 Handoff
+
+- Phase 149, Phase 146-152 "gerçekçi backtest, transaction cost/slippage, walk-forward, benchmark, stress ve Monte Carlo robustness" bloğunun dördüncü fazıdır (`advanced_monte_carlo_robustness/`).
+- Phase 1-148 arasındaki Emtia-Döviz offline/local araştırma ve sinyal botu altyapısını bozmadan Monte Carlo Robustness ve Parameter Stability sözleşme altyapısını kurar:
+  - **Monte Carlo Profil ve Kapsam Sözleşmeleri (Profile, Domain & Scope Registries)**: Dengeli (`balanced`), muhafazakâr (`conservative`) ve kurumsal (`institutional`) profiller; getiri, işlem, parametre, kuyruk riski ve zarf etki alanları yapılandırılmıştır. Tüm profillerde `allow_monte_carlo_execution=False`, `allow_bootstrap_execution=False`, `allow_parameter_optimization=False`, `allow_live_trading=False` ve `allow_broker_integration=False` zorunludur.
+  - **Sağlamlık ve Bootstrap Sözleşmeleri (Robustness & Bootstrap Contracts)**: Standart IID bootstrap, otokorelasyon koruyucu blok bootstrap, durağan geometrik blok bootstrap, getiri yolu yeniden örnekleme ve işlem sırası permütasyon sözleşmeleri tanımlanmıştır.
+  - **Yeniden Örnekleme ve Pertürbasyon Yer Tutucuları (Resampling & Perturbation Placeholders)**: Model artığı yeniden örnekleme, gürültü enjeksiyonu ve yol pertürbasyon yer tutucuları kurulmuştur.
+  - **Parametre Stabilitesi ve Duyarlılık Sözleşmeleri (Parameter Stability & Sensitivity)**: Strateji parametreleri (EMA, RSI, ATR, Stop, TP vb.) için tedirginlik aralıkları, duyarlılık esneklikleri, grid stabilite yer tutucuları, parametre yüzey / plato analizleri ve aşırı uyum kırılganlık yer tutucuları tanımlanmıştır.
+  - **Sağlamlık Zarfları ve Dağılım Yer Tutucuları (Envelopes & Distribution Placeholders)**: Üst/alt/medyan zarf sınırları, stabilite bantları, %90/%95/%99 güven aralıkları, azami drawdown ve getiri dağılımları, kuyruk riski (VaR, Beklenen Kayıp) ve en kötü/en iyi/medyan yol yer tutucuları oluşturulmuştur.
+  - **Hesaplanmamış Metrik Yer Tutucuları (Uncalculated Metric Placeholders)**: Gerçek simülasyon veya metrik hesaplaması yapılmaz; tüm dağılım ve sağlamlık metrikleri formül metaverisi olarak yer tutucudur (`all_metrics_uncalculated=True`).
+  - **Yanlılık, Geleceğe Bakış ve Sızıntı Muhafızları (Bias & Lookahead Guards)**: No-Lookahead zaman serisi muhafızı, Yeniden Örnekleme Sızıntısı (Resampling Leakage) muhafızı, Veri Gözetleme (Data Snooping) muhafızı, Aşırı Uyum (Overfitting) muhafızı, Hayatta Kalma Yanlılığı muhafızı, Çoklu Test muhafızı, Yalnızca-Metadata Haber muhafızı ve Kaynak Veri Dokunulmazlığı muhafızı devrededir.
+  - **Devre Dışı Bırakılmış Yürütme Güvenceleri (Disabled Execution Enforcements)**: Monte Carlo simülasyonu, bootstrap yeniden örnekleme, parametre optimizasyonu, parametre taraması, metrik hesaplama, model eğitimi, tahmin üretimi, canlı işlem, broker emir iletimi ve getiri iddialarının engellendiğini belgeleyen 10 resmi devre dışı raporu oluşturulmuştur.
+  - **Hazırlık Skoru, Bulgular ve Bütünlük Manifestosu (Readiness, Findings & Manifest)**: 1.00 teşhis hazırlık skoru (`monte_carlo_robustness_contract_ready_non_production`), 7 operatör inceleme maddesi, 3 bulgu ve master manifestosu belgelenmiştir.
+  - **Güvenlik Sınırı ve Faz Devri (Safety Boundary & Phase 150 Handoff)**: 14 NO-GO kuralı ve 8 SAFE-GO ilkesiyle güvenlik sınırları korunmuş (`safety_status=SECURE`); Phase 150 "Backtest Governance and Bias Control" için 10 devir önkoşulu eksiksiz karşılanmıştır (`phase_150_handoff_ready=True`).
+- Çıktılar `data/lake/advanced_monte_carlo_robustness/` ve `reports/output/advanced_monte_carlo_robustness/` altında saklanır.
+- Mevcut faz: 149, Bir sonraki faz: 150 (Backtest Governance and Bias Control), Nihai hedef: Phase 160.
+
+Komutlar:
+```bash
+python -m scripts.run_monte_carlo_profile_registry
+python -m scripts.run_monte_carlo_contracts
+python -m scripts.run_monte_carlo_resampling_placeholders
+python -m scripts.run_parameter_stability_contracts
+python -m scripts.run_monte_carlo_metric_placeholders
+python -m scripts.run_monte_carlo_dependencies_guards
+python -m scripts.run_monte_carlo_disabled_execution_reports
+python -m scripts.run_monte_carlo_findings_manifest
+python -m scripts.run_monte_carlo_health_check
+python -m scripts.run_monte_carlo_validation_report
+python -m scripts.run_monte_carlo_status
+```
+
+## Phase 150 Backtest Governance and Bias Control, Local/Offline Backtest Governance Layer ve Phase 151 Handoff
+
+- Phase 150, Phase 146-152 "gerçekçi backtest, transaction cost/slippage, walk-forward, benchmark, stress ve Monte Carlo robustness" bloğunun beşinci fazıdır (`advanced_backtest_governance/`).
+- Phase 1-149 arasındaki Emtia-Döviz offline/local araştırma ve sinyal botu altyapısını bozmadan Backtest Governance, Bias Control ve Result-Claim Boundary altyapısını kurar:
+  - **Backtest Yönetişim Profil ve Kapsam Sözleşmeleri (Profile, Domain & Scope Registries)**: Dengeli (`balanced`), muhafazakâr (`conservative`) ve kurumsal (`institutional`) profiller; 27 yönetişim alanı ve 16 kapsam unsuru yapılandırılmıştır. Tüm profillerde `allow_live_trading=False`, `allow_broker_integration=False`, `allow_backtest_execution=False`, `allow_metric_calculation=False`, `allow_result_claim=False` ve `allow_strategy_approval=False` zorunludur.
+  - **Merkezi Yönetişim ve Yanlılık Kontrol Sözleşmeleri (Governance & Bias Control Contracts)**: Phase 146-149 çıktılarını bağlayan 7 çekirdek yönetişim sözleşmesi ve 11 yanlılık kontrol sözleşmesi kurulmuştur.
+  - **Çok Boyutlu Yanlılık Kontrolleri (Multi-Bias Controls)**: Lookahead, Survivorship, Data Snooping, Overfitting, Multiple Testing, Parameter Fishing, Benchmark Selection, Regime Coverage ve Sample Coverage yanlılıkları için tespit metodolojileri ve katı engelleme politikaları tescillenmiştir.
+  - **Gerçekçilik ve Bölme Yönetişimi (Realism & Split Governance)**: Sıfır komisyon yasağı (Tiered Fee), doğrusal olmayan piyasa etkisi (Slippage), kısmi emir gerçekleştirme (Fill Model), ADV likidite sınırları (Liquidity), kesin zaman sırası (Timestamp Integrity), kronolojik bölme ve arınma/ambargo (Split, Walk-Forward, OOS) kuralları bağlanmıştır.
+  - **Stres ve Monte Carlo Yönetişim Entegrasyonu (Stress & Monte Carlo Governance)**: Phase 148 stres senaryoları ve Phase 149 bootstrap yeniden örnekleme / parametre stabilitesi sözleşmeleri merkezi yönetişim çerçevesine entegre edilmiştir.
+  - **Sonuç ve Metrik İddia Sınırları (Result & Metric Claim Boundaries)**: Hesaplanmış Sharpe, kazanma oranı, alfa ve getiri iddiaları yasaklanmış; strateji sonuçlarının kanıtlanmış getiri değil, salt ampirik araştırma hipotezi olarak etiketlenmesi şart koşulmuştur.
+  - **İnceleme Kapıları, Politikalar ve Muhafızlar (Gates, Policies & Guards)**: 10 zorunlu insan inceleme kapısı (Manual Review Gates), denetim izi (Audit Policies), kanıt politikaları (Evidence Policies), Go/No-Go sınırları, zorunlu feragatnameler, yalnızca-metadata haber muhafızları ve kaynak veri dokunulmazlığı muhafızları işletilmektedir.
+  - **Devre Dışı Bırakılmış Yürütme Raporları (Disabled Execution Enforcements)**: Backtest yürütme, benchmark simülasyonu, metrik hesaplama, optimizasyon, model eğitimi, tahmin üretimi, canlı işlem, broker emir iletimi ve üretim dağıtımının engellendiğini belgeleyen 9 resmi devre dışı raporu üretilmiştir.
+  - **Hazırlık Skoru, Bulgular ve Bütünlük Manifestosu (Readiness, Findings & Manifest)**: 1.00 teşhis hazırlık skoru (`backtest_governance_contract_ready_non_production`), 8 operatör inceleme maddesi, 3 bulgu ve master manifestosu belgelenmiştir.
+  - **Güvenlik Sınırı ve Faz Devri (Safety Boundary & Phase 151 Handoff)**: 10 NO-GO kuralı ve 3 SAFE-GO ilkesiyle güvenlik sınırları korunmuş (`safety_status=SECURE`); Phase 151 "Benchmark Comparison and Strategy Evaluation Contracts" için 10 devir önkoşulu eksiksiz karşılanmıştır (`phase_151_handoff_ready=True`).
+- Çıktılar `data/lake/advanced_backtest_governance/` ve `reports/output/advanced_backtest_governance/` altında saklanır.
+- Mevcut faz: 150, Bir sonraki faz: 151 (Benchmark Comparison and Strategy Evaluation Contracts), Nihai hedef: Phase 160.
+
+Komutlar:
+```bash
+python -m scripts.run_backtest_governance_profile_registry
+python -m scripts.run_backtest_governance_contracts
+python -m scripts.run_backtest_bias_controls
+python -m scripts.run_backtest_result_boundaries
+python -m scripts.run_backtest_realism_governance
+python -m scripts.run_backtest_governance_guards
+python -m scripts.run_backtest_governance_disabled_execution_reports
+python -m scripts.run_backtest_governance_findings_manifest
+python -m scripts.run_backtest_governance_health_check
+python -m scripts.run_backtest_governance_validation_report
+python -m scripts.run_backtest_governance_status
+```
+
+## Phase 151 Benchmark Comparison and Strategy Evaluation Reports, Local/Offline Evaluation Report Contract Layer ve Phase 152 Handoff
+
+- Phase 151, Phase 146-152 "gerçekçi backtest, transaction cost/slippage, walk-forward, benchmark, stress, Monte Carlo robustness ve governance" bloğunun altıncı fazıdır (`advanced_benchmark_evaluation/`).
+- Phase 1-150 arasındaki Emtia-Döviz offline/local araştırma ve sinyal botu altyapısını bozmadan Benchmark Comparison and Strategy Evaluation Reports katmanını kurar:
+  - **Değerlendirme Profil ve Kapsam Sözleşmeleri (Profile, Domain & Scope Registries)**: Dengeli (`balanced`), muhafazakâr (`conservative`) ve kurumsal (`institutional`) profiller; 36 etki alanı ve 16 araştırma kapsamı tanımlanmıştır. Tüm profillerde `dry_run_default=True`, `local_only=True`, `research_only=True`, `allow_live_trading=False`, `allow_backtest_execution=False`, `allow_benchmark_execution=False`, `allow_metric_calculation=False`, `allow_result_claim=False` ve `allow_strategy_approval=False` negatif değişmezleri zorunludur.
+  - **16 Rapor Sözleşmesi (16 Report Contracts)**: Benchmark Karşılaştırma, Strateji Değerlendirme, Benchmark Evreni, Temel Referanslar (Buy & Hold, Nakit Risksiz Faiz, Eşit Ağırlıklı Sepet), Strateji vs Benchmark, Maliyet Düzeltmeli (Cost-Adjusted), Kayma Düzeltmeli (Slippage-Adjusted), Rejim Duyarlı (Regime-Aware), Walk-Forward, OOS Kilitli, Stres Duyarlı, Monte Carlo Sağlamlık, Parametre Stabilitesi, Yönetişim Duyarlı, Yanlılık Kontrol ve Sonuç Açıklama sözleşmeleri.
+  - **11 Özet ve 6 Metrik Yer Tutucusu (Placeholders)**: Gerçek Sharpe, win-rate, alpha, beta, getiri ve drawdown hesaplamaları yapılmaz (`actual_value=None`, `is_calculated=False`); tüm metrikler formül metaverisi olarak yer tutucudur.
+  - **3 Veri Giriş Sözleşmesi (Data, Features, Signals)**: Salt-okunur fiyat/hacim, FeatureStore v2 faktörleri ve araştırma sinyalleri için strict sözleşmeler kurulmuştur.
+  - **6 Yukarı Akış Faz Bağımlılığı (Dependencies)**: Phase 146 (Realistic Backtest), Phase 147 (Walk-Forward), Phase 148 (Stress Testing), Phase 149 (Monte Carlo), Phase 150 (Backtest Governance) ve Benchmark standartları doğrulanmıştır.
+  - **11 Muhafız ve Politika (Guards & Policies)**: No-Lookahead, Sonuç İddiası Engelleme, Performans İddiası Engelleme, Strateji Onayı Engelleme, Benchmark Seçim Yanlılığı, Veri Gözetleme, Aşırı Uyum, Çoklu Test, Yalnızca-Metadata Haber, Kaynak Veri Koruma ve 40 yasaklı kolon karantina politikası devrededir.
+  - **11 Devre Dışı Bırakılmış Yürütme Raporu (Disabled Execution Enforcements)**: Benchmark rapor yürütmesi, strateji değerlendirme yürütmesi, metrik hesaplama, sonuç iddiası, strateji onayı, optimizasyon, model eğitimi, tahmin üretimi, canlı işlem, broker entegrasyonu ve dağıtımın engellendiğini belgeleyen resmi devre dışı raporları üretilmiştir.
+  - **Hazırlık Skoru, Bulgular ve Bütünlük Manifestosu (Readiness, Findings & Manifest)**: 1.00 teşhis hazırlık skoru (`benchmark_evaluation_contract_ready_non_production`), 10 operatör manuel inceleme kapısı, 3 teşhis bulgusu ve master bütünlük manifestosu tescillenmiştir.
+  - **Güvenlik Sınırı ve Faz Devri (Safety Boundary & Phase 152 Handoff)**: 15 NO-GO kuralı ve 7 SAFE-GO ilkesiyle güvenlik sınırları tescillenmiş (`safety_status=SECURE`); Phase 152 "Backtest Acceptance Report" için 10 devir şartı eksiksiz karşılanmıştır (`phase_152_handoff_ready=True`).
+- Çıktılar `data/lake/advanced_benchmark_evaluation/` ve `reports/output/advanced_benchmark_evaluation/` altında saklanır.
+- Mevcut faz: 151, Bir sonraki faz: 152 (Backtest Acceptance Report), Nihai hedef: Phase 160.
+
+Komutlar:
+```bash
+python -m scripts.run_benchmark_evaluation_profile_registry
+python -m scripts.run_benchmark_report_contracts
+python -m scripts.run_strategy_evaluation_report_contracts
+python -m scripts.run_evaluation_summary_placeholders
+python -m scripts.run_evaluation_metric_placeholders
+python -m scripts.run_evaluation_dependencies_guards
+python -m scripts.run_evaluation_disabled_execution_reports
+python -m scripts.run_benchmark_evaluation_findings_manifest
+python -m scripts.run_benchmark_evaluation_health_check
+python -m scripts.run_benchmark_evaluation_validation_report
+python -m scripts.run_benchmark_evaluation_status
+```
+
+## Phase 152 Backtest Acceptance Report, Phase 146-152 Consolidated Acceptance Layer ve Phase 153 Handoff
+
+- Phase 152, Phase 146-152 "gerçekçi backtest, transaction cost/slippage, walk-forward, benchmark, stress ve Monte Carlo robustness" bloğunun kapanış ve acceptance fazıdır (`advanced_backtest_acceptance/`).
+- Phase 1-151 arasındaki Emtia-Döviz offline/local araştırma ve sinyal botu altyapısını bozmadan Backtest Acceptance Report katmanını kurar:
+  - **Kabul Profil, Alan ve Kapsam Tescilleri (Profile, Domain & Scope Registries)**: Dengeli (`balanced`), sıkı güvenlikli (`strict`) ve dry-run odaklı (`dry_run`) profiller; 27 etki alanı ve 10 araştırma kapsamı tanımlanmıştır. Tüm profillerde `dry_run_default=True`, `local_only=True`, `non_production=True`, `research_only=True`, `allow_live_trading=False`, `allow_broker_integration=False`, `allow_backtest_execution=False`, `allow_benchmark_execution=False`, `allow_metric_calculation=False`, `allow_strategy_approval=False` ve `allow_portfolio_construction=False` negatif değişmezleri zorunludur.
+  - **Bileşen Kaydı ve Kabul Kontrol Noktaları (Component Registry & Checkpoints)**: Phase 146 (Realistic Backtest), Phase 147 (Walk-Forward), Phase 148 (Stress Testing), Phase 149 (Monte Carlo), Phase 150 (Backtest Governance), Phase 151 (Benchmark Evaluation) ve Phase 152 (Acceptance Report) olmak üzere 7 temel bileşen ve kontrol noktaları tescil edilmiştir.
+  - **Faz Düzeyi Kabul Tescilleri (Phase 146-151 Acceptance Registries)**: Phase 146'dan Phase 151'e kadar her faz için 10'ar adet (toplam 60 adet) sözleşme kontrolü başarıyla doğrulanmıştır (60/60 PASS).
+  - **Bağımlılık ve Doğrulama Kanıtları (Dependencies & Validation Evidence)**: 11 yukarı akış faz bağımlılığı ve 8 doğrulama kanıtı doğrulanmıştır.
+  - **Güvenlik Sınırları, Non-Production ve İnceleme Kapıları (Boundaries & Review Gates)**: 12 güvenlik sınırı, 5 non-production kuralı, 7 operatör manuel inceleme kapısı ve 22 Go/No-Go kuralı (4 Go, 18 No-Go) tescillenmiştir.
+  - **Engel, Boşluk, Uyarı ve Bulgular (Blockers, Gaps, Warnings & Findings)**: 0 engel (blocker), 0 boşluk (gap), 8 standart uyarı ve 1 konsolide bulgu kayıt altına alınmıştır. Yasaklı otomatik aksiyon önerileri (`auto-run backtest`, `auto-approve strategy`, `auto-allocate capital` vb.) sistem seviyesinde engellenir.
+  - **Hazırlık Skoru ve Kabul Manifestosu (Readiness Scoring & Acceptance Manifest)**: 1.0000 teşhis hazırlık skoru (`backtest_acceptance_contract_ready_non_production`), `backtest_block_completed=True`, `production_ready=False`, `broker_ready=False`, `live_trading_ready=False`, `strategy_approved=False`, `backtest_executed=False`, `benchmark_executed=False`, `metric_calculated=False`, `portfolio_constructed=False` ve `position_sizing_generated=False` değişmezleri tescil edilmiştir.
+  - **Faz 153 Devri (Phase 153 Handoff)**: Phase 153 "Portfolio Construction, Position Sizing and Risk Budgeting" için 13 önkoşul eksiksiz karşılanmış ve devir hazır hale getirilmiştir (`phase_153_handoff_ready=True`).
+- Çıktılar `data/lake/advanced_backtest_acceptance/` ve `reports/output/advanced_backtest_acceptance/` altında saklanır.
+- Mevcut faz: 152, Bir sonraki faz: 153 (Portfolio Construction, Position Sizing and Risk Budgeting), Nihai hedef: Phase 160.
+
+Komutlar:
+```bash
+python -m scripts.run_backtest_acceptance_profile_registry
+python -m scripts.run_backtest_acceptance_component_checkpoints
+python -m scripts.run_backtest_phase_acceptance
+python -m scripts.run_backtest_acceptance_dependencies_evidence
+python -m scripts.run_backtest_acceptance_boundaries_findings
+python -m scripts.run_backtest_acceptance_manifest
+python -m scripts.run_backtest_acceptance_health_check
+python -m scripts.run_backtest_acceptance_validation_report
+python -m scripts.run_backtest_acceptance_status
+```
+
+## Phase 153 Portfolio Construction, Position Sizing and Risk Budgeting, Local/Offline Portfolio Contract Layer ve Phase 154 Handoff
+
+- Phase 153, Phase 153-157 "portföy construction, position sizing, risk budgeting, portfolio optimization ve risk raporları" bloğunun ilk fazıdır (`advanced_portfolio_construction/`).
+- Phase 1-152 arasındaki Emtia-Döviz offline/local araştırma ve sinyal botu altyapısını bozmadan Portfolio Construction, Position Sizing and Risk Budgeting sözleşme katmanını kurar:
+  - **Portföy İnşa Profil ve Kapsam Sözleşmeleri (Profile, Domain & Scope Registries)**: Dengeli (`balanced`), muhafazakâr (`conservative`) ve kurumsal (`institutional`) profiller; 36 etki alanı ve 16 araştırma kapsamı tanımlanmıştır. Tüm profillerde `dry_run_default=True`, `local_only=True`, `research_only=True`, `allow_live_trading=False`, `allow_broker_execution=False`, `allow_real_order=False`, `allow_real_lot_sizing=False`, `allow_real_capital_allocation=False`, `allow_real_portfolio_weights=False`, `allow_real_optimization=False`, `allow_metric_calculation=False` ve `allow_prediction=False` negatif değişmezleri zorunludur.
+  - **Sözleşmeler ve Evren Kuralları (Portfolio & Universe Contracts)**: 10 temel Emtia-Döviz varlığı (`GC=F`, `SI=F`, `CL=F`, `NG=F`, `HG=F`, `EURUSD=X`, `USDJPY=X`, `GBPUSD=X`, `USDTRY=X`, `EURTRY=X`) için evren sözleşmesi, 6 varlık uygunluk kuralı (veri mevcudiyeti, spread/likidite, rejim uyumu, volatilite uygunluğu, marjin/kaldıraç ve risk bütçesi), 5 sinyal giriş spesifikasyonu ve 5 risk girdi spesifikasyonu tescil edilmiştir.
+  - **9 Pozisyon Boyutlandırma Şablonu ve Yer Tutucuları (Position Sizing Contracts & Placeholders)**: Sabit kesirli (Fixed Fractional), volatilite hedeflemeli (Volatility Targeting), risk paritesi (Risk Parity), düşüş duyarlı (Drawdown-Aware), güven duyarlı (Confidence-Aware), rejim duyarlı (Regime-Aware), korelasyon duyarlı (Correlation-Aware), likidite duyarlı (Liquidity-Aware), işlem maliyeti ve kayma duyarlı boyutlandırma sözleşmeleri ve yer tutucuları oluşturulmuştur. Gerçek lot/kontrat veya sermaye büyüklüğü üretilmez (`actual_size_calculated=None`, `actual_lot_generated=None`, `is_placeholder=True`).
+  - **9 Risk Bütçeleme Şablonu ve Yer Tutucuları (Risk Budget Contracts & Placeholders)**: Varlık başına, strateji başına, rejim başına, portföy geneli, maksimum düşüş bütçesi, volatilite bütçesi ve piyasa risk bütçesi sözleşmeleri ve yer tutucuları tanımlanmıştır. Gerçek bütçe tahsisi yapılmaz (`actual_budget_calculated=None`, `is_placeholder=True`).
+  - **Limitler ve Metrik Yer Tutucuları (Exposure, Concentration & Limit Placeholders)**: Yoğunlaşma limitleri, brüt/net exposure limitleri, kaldıraç/marjin limitleri, nominal değer limitleri, para birimi exposure limitleri, çapraz varlık limitleri, sektör/grup limitleri, korelasyon ve likidite kısıtları tanımlanmıştır. Gerçek portföy ağırlığı (`actual_weight=None`) veya optimizasyon metriği hesaplanmaz.
+  - **Yukarı Akış Bağımlılıkları ve Doğrulama Kanıtları (Dependencies & Evidence)**: Phase 152 (Backtest Acceptance), Phase 151 (Benchmark Evaluation), Phase 145 (Model Governance), Phase 140 (Regime Detection) ve Phase 130 (FeatureStore v2) bağımlılıkları ve 8 doğrulama kanıtı doğrulanmıştır.
+  - **11 Muhafız ve Politika (Guards & Policies)**: No-Lookahead, Portföy Tahsis İddiası Engelleme, Pozisyon Boyutlandırma İddiası Engelleme, Yatırım Tavsiyesi Engelleme, Risk Limiti İddiası Engelleme, Veri Gözetleme Yanlılığı, Aşırı Uyum, Çoklu Test, Yalnızca-Metadata Haber, Kaynak Veri Koruma ve 40 yasaklı kolon karantina politikası devrededir.
+  - **11 Devre Dışı Bırakılmış Yürütme Raporu (Disabled Execution Enforcements)**: Portföy inşası yürütmesi, pozisyon boyutlandırma yürütmesi, risk bütçeleme yürütmesi, tahsisat üretimi, portföy optimizasyonu, metrik hesaplama, model eğitimi, tahmin üretimi, canlı işlem, broker entegrasyonu ve dağıtımın engellendiğini belgeleyen resmi devre dışı raporları üretilmiştir.
+  - **Hazırlık Skoru, Bulgular ve Bütünlük Manifestosu (Readiness, Findings & Manifest)**: 1.0000 teşhis hazırlık skoru (`portfolio_construction_contract_ready_non_production`), 10 operatör manuel inceleme maddesi, 3 teşhis bulgusu ve master bütünlük manifestosu (`portfolio_constructed=False`, `position_sizing_generated=False`, `capital_allocation_generated=False`, `portfolio_weights_generated=False`, `orders_generated=False`, `broker_order_sent=False`, `live_order_sent=False`) tescillenmiştir.
+  - **Güvenlik Sınırı ve Faz Devri (Safety Boundary & Phase 154 Handoff)**: 20 NO-GO kuralı ve 8 SAFE-GO ilkesiyle güvenlik sınırları tescillenmiş (`safety_status=SECURE`); Phase 154 "Portfolio Optimization Contracts" için 14 devir önkoşulu eksiksiz karşılanmıştır (`phase_154_handoff_ready=True`).
+- Çıktılar `data/lake/advanced_portfolio_construction/` ve `reports/output/advanced_portfolio_construction/` altında saklanır.
+- Mevcut faz: 153, Bir sonraki faz: 154 (Portfolio Optimization Contracts), Nihai hedef: Phase 160.
+
+Komutlar:
+```bash
+python -m scripts.run_portfolio_construction_profile_registry
+python -m scripts.run_portfolio_construction_contracts
+python -m scripts.run_position_sizing_contracts
+python -m scripts.run_risk_budget_contracts
+python -m scripts.run_portfolio_limits_placeholders
+python -m scripts.run_portfolio_dependencies_guards
+python -m scripts.run_portfolio_disabled_execution_reports
+python -m scripts.run_portfolio_findings_manifest
+python -m scripts.run_portfolio_construction_health_check
+python -m scripts.run_portfolio_construction_validation_report
+python -m scripts.run_portfolio_construction_status
+```
+
+## Phase 154 Portfolio Optimization and Allocation Constraints, Local/Offline Optimization Contract Layer ve Phase 155 Handoff
+
+- Phase 154, Phase 153-157 "portföy construction, position sizing, risk budgeting, portfolio optimization ve risk raporları" bloğunun ikinci fazıdır (`advanced_portfolio_optimization/`).
+- Phase 1-153 arasındaki Emtia-Döviz offline/local araştırma ve sinyal botu altyapısını bozmadan Portfolio Optimization and Allocation Constraints sözleşme katmanını kurar:
+  - **Portföy Optimizasyon Profil ve Kapsam Sözleşmeleri (Profile, Domain & Scope Registries)**: Dengeli (`balanced_local_portfolio_optimization_contracts`), sıkı güvenlikli (`strict_non_production_portfolio_optimization_safety`) ve dry-run odaklı (`dry_run_phase_154_optimization_contracts_focus` / `dry_run_phase_154_allocation_constraints_focus`) profiller; 26 etki alanı ve 4 araştırma kapsamı tanımlanmıştır. Tüm profillerde `dry_run_default=True`, `local_only=True`, `non_production=True`, `research_only=True`, `allow_live_trading=False`, `allow_broker_integration=False`, `allow_real_order=False`, `allow_portfolio_optimization=False`, `allow_weight_generation=False`, `allow_capital_allocation=False`, `allow_rebalance_generation=False`, `allow_order_generation=False`, `allow_optimizer_execution=False`, `allow_solver_execution=False`, `allow_grid_search_execution=False`, `allow_efficient_frontier_generation=False`, `allow_metric_calculation=False`, `allow_result_claim=False`, `allow_performance_claim=False`, `allow_strategy_approval=False`, `allow_model_training=False`, `allow_model_predict=False`, `allow_model_deployment=False` negatif değişmezleri zorunludur.
+  - **11 Optimizasyon Şablonu (Optimization Contracts)**: Mean-Variance, Minimum Variance, Maximum Sharpe, Risk Parity, CVaR, Drawdown Minimization, Turnover Minimization, Cost-Aware, Slippage-Aware, Regime-Aware ve Robust Optimization sözleşmeleri tanımlanmıştır. Gerçek optimizasyon çözümü yapılmaz (`portfolio_optimization_allowed=False`, `weight_generation_allowed=False`).
+  - **11 Amac Fonksiyonu Sözleşmesi ve Yer Tutucusu (Objective Contracts & Placeholders)**: 11 amaç fonksiyonu formül ve şema metaverileriyle yer tutucu olarak tescil edilmiştir (`is_placeholder=True`, `is_calculated=False`, `allows_execution=False`).
+  - **22 Tahsisat Kısıt Sözleşmesi ve Yer Tutucusu (Allocation Constraint Contracts & Placeholders)**: Long-only, maksimum/minimum ağırlık, grup ağırlığı, varlık sayısı, yoğunlaşma, brüt/net exposure, döviz exposure, çapraz varlık exposure, korelasyon, likidite, devir hızı (turnover), işlem maliyeti, kayma (slippage), risk bütçesi, volatilite, maksimum drawdown, kaldıraç, teminat (margin) ve yeniden dengeleme (rebalance) kısıtları tescil edilmiştir (`is_placeholder=True`, `is_enforced_live=False`, `allows_weight_generation=False`).
+  - **Çözücü ve Etkin Sınır Yer Tutucuları (Solver Placeholders & Efficient Frontier)**: Konveks çözücüler, sezgisel çözücüler, yasaklı grid arama çözücüsü ve etkin sınır yer tutucusu tanımlanmış; tüm gerçek çözücü yürütmeleri engellenmiştir (`all_solvers_placeholders=True`, `zero_solvers_executed=True`, `optimizer_execution_disabled=True`).
+  - **Çıktı ve Metrik Yer Tutucuları (Outputs & Metrics)**: Optimizasyon sonuç çıktısı (`contains_actual_weights=False`), sermaye tahsisat çıktısı (`contains_capital_allocation=False`), yeniden dengeleme çıktısı (`contains_rebalance_orders=False`) ve 8 hesaplamasız metrik yer tutucusu kurulmuştur.
+  - **Yukarı Akış Bağımlılıkları ve Doğrulama Kanıtları (Dependencies & Evidence)**: Phase 153 (Portfolio Construction), Phase 152 (Backtest Acceptance), Phase 151 (Benchmark Evaluation), Phase 145 (Model Governance), Phase 135 (Regime Context) ve Phase 134 (FeatureStore v2) bağımlılıkları ve doğrulama kanıtları bağlanmıştır.
+  - **12 Muhafız ve Politika (Guards & Policies)**: No-Lookahead, Tahsisat İddiası Engelleme, Ağırlık Üretimi İddiası Engelleme, Yeniden Dengeleme İddiası Engelleme, Yatırım Tavsiyesi Engelleme, Risk Limiti İddiası Engelleme, Veri Gözetleme Yanlılığı, Aşırı Uyum, Çoklu Test, Yalnızca-Metadata Haber, Kaynak Veri Koruma ve 52 yasaklı kolon karantina politikası devrededir.
+  - **10 Devre Dışı Bırakılmış Yürütme Raporu (Disabled Execution Reports)**: Portföy optimizasyonu yürütmesi, ağırlık üretimi, tahsisat üretimi, yeniden dengeleme üretimi, metrik hesaplama, model eğitimi, tahmin üretimi, canlı işlem, broker yürütmesi ve model dağıtımının engellendiğini belgeleyen resmi devre dışı raporları üretilmiştir.
+  - **Hazırlık Skoru, Bulgular ve Bütünlük Manifestosu (Readiness, Findings & Manifest)**: 1.0000 teşhis hazırlık skoru (`portfolio_optimization_contract_ready_non_production`), 3 teşhis bulgusu ve master bütünlük manifestosu (`portfolio_optimized=False`, `portfolio_weights_generated=False`, `allocation_generated=False`, `rebalance_generated=False`, `orders_generated=False`, `efficient_frontier_generated=False`, `optimizer_executed=False`, `solver_executed=False`, `broker_order_sent=False`, `live_order_sent=False`) tescillenmiştir.
+  - **Güvenlik Sınırı ve Faz Devri (Safety Boundary & Phase 155 Handoff)**: 18 NO-GO kuralı ve 8 SAFE-GO ilkesiyle güvenlik sınırları tescillenmiş (`safety_status=SECURE`); Phase 155 "Portfolio Risk Monitoring, Exposure Attribution and Limit Enforcement Contracts" için 10 devir şartı eksiksiz karşılanmıştır (`phase_155_handoff_ready=True`).
+- Çıktılar `data/lake/advanced_portfolio_optimization/` ve `reports/output/advanced_portfolio_optimization/` altında saklanır.
+- Mevcut faz: 154, Bir sonraki faz: 155 (Portfolio Risk Monitoring, Exposure Attribution and Limit Enforcement Contracts), Nihai hedef: Phase 160.
+
+Komutlar:
+```bash
+python -m scripts.run_portfolio_optimization_profile_registry
+python -m scripts.run_portfolio_optimization_contracts
+python -m scripts.run_optimization_objective_contracts
+python -m scripts.run_allocation_constraint_contracts
+python -m scripts.run_optimization_solver_placeholders
+python -m scripts.run_optimization_outputs_metrics
+python -m scripts.run_optimization_dependencies_guards
+python -m scripts.run_optimization_disabled_execution_reports
+python -m scripts.run_portfolio_optimization_findings_manifest
+python -m scripts.run_portfolio_optimization_health_check
+python -m scripts.run_portfolio_optimization_validation_report
+python -m scripts.run_portfolio_optimization_status
+```
+
+## Phase 155 Risk Reporting, Exposure Attribution and Limit Monitoring, Local/Offline Risk Report Contract Layer ve Phase 156 Handoff
+
+- Phase 155, Phase 153-157 "portföy construction, position sizing, risk budgeting, portfolio optimization ve risk raporları" bloğunun üçüncü fazıdır (`advanced_risk_reporting/`).
+- Phase 1-154 arasındaki Emtia-Döviz offline/local araştırma ve sinyal botu altyapısını bozmadan Risk Reporting, Exposure Attribution and Limit Monitoring sözleşme katmanını kurar:
+  - **Risk Raporlama Profil ve Kapsam Sözleşmeleri (Profile, Domain & Scope Registries)**: Dengeli (`balanced_local_risk_reporting_contracts`), muhafazakâr (`conservative_risk_reporting_contracts`), kurumsal (`institutional_risk_reporting_contracts`) ve denetim (`audit_risk_reporting_contracts`) profilleri; 28 risk raporlama alanı ve 15 araştırma kapsamı tanımlanmıştır. Tüm profillerde `dry_run_default=True`, `local_only=True`, `non_production=True`, `research_only=True`, `allow_live_trading=False`, `allow_broker_integration=False`, `allow_real_order=False`, `allow_risk_report_execution=False`, `allow_exposure_attribution_execution=False`, `allow_limit_monitoring_execution=False`, `allow_metric_calculation=False`, `allow_var_calculation=False`, `allow_expected_shortfall_calculation=False`, `allow_exposure_calculation=False`, `allow_limit_breach_generation=False`, `allow_alert_generation=False`, `allow_dashboard_generation=False`, `allow_portfolio_adjustment=False`, `allow_rebalance_generation=False` negatif değişmezleri zorunludur.
+  - **9 Risk Rapor Sözleşmesi ve Özetleri (Risk Report Contracts & Summaries)**: Günlük portföy risk raporu, çapraz varlık exposure raporu, emtia-döviz limit raporu, düşüş risk raporu, volatilite risk raporu, kuyruk riski (VaR/ES) raporu, yoğunlaşma risk raporu, likidite-kaldıraç raporu ve devir hızı-maliyet raporu sözleşmeleri ve özetleri tescil edilmiştir. Gerçek rapor derlemesi yapılmaz (`risk_report_allowed=False`, `is_placeholder=True`).
+  - **Exposure Attribution Sözleşmeleri ve 13 Yer Tutucu (Exposure Placeholders)**: Brüt exposure, net exposure, long/short exposure, döviz exposure, çapraz varlık exposure, yoğunlaşma exposure, likidite exposure, kaldıraç exposure, marjin exposure, nominal exposure, rejim exposure, strateji exposure ve varlık exposure yer tutucuları ve formülleri kurulmuştur (`actual_exposure_calculated=None`, `is_placeholder=True`).
+  - **10 Risk Katkı ve İzleme Yer Tutucusu (Risk Contribution & Monitor Placeholders)**: Risk katkısı (Risk Contribution), marjinal risk katkısı (Marginal Risk Contribution), bileşen risk katkısı (Component Risk Contribution), düşüş izleme (Drawdown Monitor), volatilite izleme (Volatility Monitor), Riske Maruz Değer (VaR Monitor), Koşullu VaR / Beklenen Kayıp (Expected Shortfall Monitor), devir hızı (Turnover Monitor), işlem maliyeti (Transaction Cost Monitor) ve kayma (Slippage Monitor) yer tutucuları tanımlanmıştır.
+  - **Limit Tanımları ve 10 Limit İzleme Sözleşmesi (Limit Definition & Monitoring Contracts)**: Limit tanım sözleşmesi, exposure limit izleme, yoğunlaşma limit izleme, kaldıraç limit izleme, marjin limit izleme, likidite limit izleme, düşüş limit izleme, volatilite limit izleme, devir hızı limit izleme ve risk bütçesi limit izleme sözleşmeleri tanımlanmıştır (`is_placeholder=True`, `is_enforced_live=False`).
+  - **Limit İhlali, Uyarı, Alarm ve Dashboard Sınırları (Breach, Warning, Alert & Dashboard Boundaries)**: Limit ihlal yer tutucusu, limit uyarı yer tutucusu, risk alarm yer tutucusu, yönlendirmesi tamamen kapatılmış alarm sicili (`alert_routing_disabled_registry`), dashboard yer tutucusu ve izleme takvimi yer tutucusu kurulmuştur (`alerts_disabled=True`, `dashboard_generation_disabled=True`).
+  - **Çıktı ve Metrik Yer Tutucuları (Outputs & Metrics)**: Risk raporu çıktı sözleşmesi, exposure attribution çıktı sözleşmesi, limit izleme çıktı sözleşmesi ve 4 metrik yer tutucu sicili tanımlanmıştır (`contains_actual_calculations=False`).
+  - **Yukarı Akış Bağımlılıkları ve Doğrulama Kanıtları (Dependencies & Evidence)**: Phase 154 (Portfolio Optimization), Phase 153 (Portfolio Construction), Phase 152 (Backtest Acceptance), Phase 151 (Benchmark Evaluation), Phase 150 (Backtest Governance), Phase 149 (Monte Carlo), Phase 148 (Stress Testing), Phase 147 (Walk-Forward), Phase 146 (Realistic Backtest), Phase 145 (ML Acceptance), Phase 144 (Model Governance), Phase 135 (Regime Catalog) ve Phase 134 (FeatureStore v2) bağımlılıkları ile 12 doğrulama kanıtı tescil edilmiştir.
+  - **12 Muhafız ve Politika (Guards & Policies)**: No-Lookahead, Exposure İddiası Engelleme, Limit İhlali İddiası Engelleme, Yatırım Tavsiyesi Engelleme, Portföy Düzeltme Engelleme, Alarm İddiası Engelleme, Veri Gözetleme Yanlılığı, Aşırı Uyum, Çoklu Test, Yalnızca-Metadata Haber, Kaynak Veri Koruma ve 48 yasaklı kolon karantina politikası devrededir.
+  - **12 Devre Dışı Bırakılmış Yürütme Raporu (Disabled Execution Reports)**: Risk raporu yürütmesi, exposure attribution yürütmesi, limit izleme yürütmesi, risk metrik hesaplaması, limit alarmları, dashboard üretimi, portföy düzeltmesi/rebalance, model eğitimi, tahmin üretimi, canlı işlem, broker yürütmesi ve model dağıtımının engellendiğini belgeleyen resmi devre dışı raporları üretilmiştir.
+  - **Hazırlık Skoru, Bulgular, Sağlık ve Bütünlük Manifestosu (Readiness, Findings, Health & Manifest)**: 1.0000 teşhis hazırlık skoru (`risk_reporting_contract_ready_non_production`), 3 bulgu, 4 manuel inceleme maddesi, 21 sağlık kontrolü (%100 PASS) ve master bütünlük manifestosu (`risk_report_generated=False`, `exposure_attribution_generated=False`, `limit_monitoring_executed=False`, `metric_calculated=False`, `var_calculated=False`, `expected_shortfall_calculated=False`, `alert_generated=False`, `dashboard_generated=False`, `portfolio_adjustment_generated=False`, `broker_order_sent=False`, `live_order_sent=False`) tescillenmiştir.
+  - **Güvenlik Sınırı ve Faz Devri (Safety Boundary & Phase 156 Handoff)**: 25 NO-GO kuralı ve 21 SAFE-GO ilkesiyle güvenlik sınırları tescillenmiş (`safety_status=SAFETY_BOUNDARY_ACTIVE`); Phase 156 "Portfolio Scenario Testing and Drawdown Control" için 10 devir şartı eksiksiz karşılanmıştır (`phase_156_handoff_ready=True`).
+- Çıktılar `data/lake/advanced_risk_reporting/` ve `reports/output/advanced_risk_reporting/` altında saklanır.
+- Mevcut faz: 155, Bir sonraki faz: 156 (Portfolio Scenario Testing and Drawdown Control), Nihai hedef: Phase 160.
+
+Komutlar:
+```bash
+python -m scripts.run_risk_reporting_profile_registry
+python -m scripts.run_risk_report_contracts
+python -m scripts.run_exposure_attribution_contracts
+python -m scripts.run_limit_monitoring_contracts
+python -m scripts.run_risk_monitor_placeholders
+python -m scripts.run_risk_reporting_outputs_metrics
+python -m scripts.run_risk_reporting_dependencies_guards
+python -m scripts.run_risk_reporting_disabled_execution_reports
+python -m scripts.run_risk_reporting_findings_manifest
+python -m scripts.run_risk_reporting_health_check
+python -m scripts.run_risk_reporting_validation_report
+python -m scripts.run_risk_reporting_status
+```
+
+## Phase 156 Portfolio Scenario Testing and Drawdown Control, Local/Offline Scenario-Control Contract Layer ve Phase 157 Handoff
+
+- Phase 156, Phase 153-157 "portföy construction, position sizing, risk budgeting, portfolio optimization ve risk raporları" bloğunun dördüncü fazıdır (`advanced_portfolio_scenario_control/`).
+- Phase 1-155 arasındaki Emtia-Döviz offline/local araştırma ve sinyal botu altyapısını bozmadan Portfolio Scenario Testing and Drawdown Control sözleşme katmanını kurar:
+  - **Portföy Senaryo Kontrol Profil ve Kapsam Sözleşmeleri (Profile, Domain & Scope Registries)**: Dengeli (`balanced_local_portfolio_scenario_control_contracts`), muhafazakâr (`conservative_portfolio_scenario_control_contracts`), kurumsal (`institutional_portfolio_scenario_control_contracts`) ve denetim (`audit_portfolio_scenario_control_contracts`) profilleri; 30 etki alanı ve 18 araştırma kapsamı tanımlanmıştır. Tüm profillerde `dry_run_default=True`, `local_only=True`, `non_production=True`, `research_only=True`, `allow_live_trading=False`, `allow_broker_integration=False`, `allow_real_order=False`, `allow_scenario_execution=False`, `allow_drawdown_control_execution=False`, `allow_portfolio_adjustment=False`, `allow_hedge_execution=False`, `allow_derisk_execution=False`, `allow_rebalance_execution=False`, `allow_metric_calculation=False`, `allow_alert_generation=False`, `allow_dashboard_generation=False` negatif değişmezleri zorunludur.
+  - **13 Senaryo Testi Sözleşmesi ve Kütüphanesi (Scenario Testing Contracts & Library)**: Tarihsel kriz şokları (2008 GFC, 2020 COVID, 2022 Emtia Şoku), hipotetik şoklar, rejim geçiş senaryoları, volatilite sıçraması, likidite daralması, korelasyon çöküşü, döviz kuru şoku, spread genişlemesi, işlem maliyeti şoku, kayma (slippage) şoku ve portföy dayanıklılık sözleşmeleri tanımlanmıştır. Gerçek senaryo simülasyonu veya PnL hesabı yapılmaz (`scenario_execution_allowed=False`, `is_placeholder=True`).
+  - **7 Drawdown Kontrol ve Kurtarma Planı Yer Tutucusu (Drawdown Control & Recovery Placeholders)**: Drawdown eşik sözleşmeleri, drawdown uyarı yer tutucuları, drawdown ihlal yer tutucuları, drawdown toparlanma yer tutucuları, drawdown kontrol politika yer tutucuları, toparlanma planı yer tutucuları ve limit izleme sözleşmeleri tescil edilmiştir (`is_placeholder=True`, `is_enforced_live=False`).
+  - **7 Portföy Kontrol Aksiyon Yer Tutucusu (Control Action Placeholders)**: Maruziyet azaltma (exposure reduction), risk düşürme (de-risking), hedge kontrolü (hedge control), yeniden dengeleme (rebalance control), zarar durdurma (stop control), portföy dondurma (portfolio freeze) ve portföy sürdürme (portfolio resume) aksiyon yer tutucuları kurulmuştur (`actual_action_taken=False`, `is_placeholder=True`).
+  - **8 Çıktı ve Metrik Yer Tutucu Sözleşmesi (Outputs & Metrics)**: Senaryo çıktı sözleşmesi, drawdown kontrol çıktı sözleşmesi, dayanıklılık çıktı sözleşmesi ve 5 metrik yer tutucusu (senaryo metrikleri, drawdown metrikleri, dayanıklılık metrikleri, toparlanma metrikleri, kontrol aksiyon metrikleri) kurulmuştur (`contains_actual_calculations=False`).
+  - **Yukarı Akış Bağımlılıkları ve Doğrulama Kanıtları (Dependencies & Evidence)**: Phase 155 (Risk Reporting), Phase 154 (Optimization), Phase 153 (Construction), Phase 152 (Backtest Acceptance), Phase 148 (Stress Testing), Phase 149 (Monte Carlo), Phase 145 (Model Acceptance), Phase 144 (Model Governance), Phase 135 (Regime Catalog) ve Phase 134 (FeatureStore v2) bağımlılıkları ve doğrulama kanıtları bağlanmıştır.
+  - **14 Muhafız ve Politika (Guards & Policies)**: No-Lookahead, Senaryo Yürütme İddiası Engelleme, Drawdown Kontrol İddiası Engelleme, Portföy Düzeltme İddiası Engelleme, Hedge/De-risk İddiası Engelleme, Yeniden Dengeleme İddiası Engelleme, Yatırım Tavsiyesi Engelleme, Senaryo Alarm İddiası Engelleme, Veri Gözetleme Yanlılığı, Aşırı Uyum, Çoklu Test, Yalnızca-Metadata Haber, Kaynak Veri Koruma ve 52 yasaklı kolon karantina politikası devrededir.
+  - **14 Devre Dışı Bırakılmış Yürütme Raporu (Disabled Execution Reports)**: Senaryo testi yürütmesi, drawdown kontrol yürütmesi, portföy kontrol aksiyonları, hedge/de-risk yürütmesi, rebalance kontrol yürütmesi, senaryo metrik hesaplaması, drawdown metrik hesaplaması, senaryo alarmları, dashboard üretimi, model eğitimi, tahmin üretimi, canlı işlem, broker yürütmesi ve model dağıtımının engellendiğini belgeleyen resmi devre dışı raporları üretilmiştir.
+  - **Hazırlık Skoru, Bulgular, Sağlık ve Bütünlük Manifestosu (Readiness, Findings, Health & Manifest)**: 1.0000 teşhis hazırlık skoru (`portfolio_scenario_control_contract_ready_non_production`), 3 bulgu, 5 operatör manuel inceleme maddesi, 24 sağlık denetimi (%100 HEALTHY), 5 validasyon denetimi (%100 PASS) ve master bütünlük manifestosu (`scenario_tested=False`, `drawdown_controlled=False`, `hedge_executed=False`, `de_risked=False`, `portfolio_frozen=False`, `rebalance_executed=False`, `orders_sent=False`, `broker_order_sent=False`, `live_order_sent=False`, `phase_157_handoff_ready=True`) tescillenmiştir.
+  - **Güvenlik Sınırı ve Faz Devri (Safety Boundary & Phase 157 Handoff)**: 28 NO-GO kuralı ve 24 SAFE-GO ilkesiyle güvenlik sınırları tescillenmiş (`safety_status=SAFETY_BOUNDARY_ACTIVE`); Phase 157 "Portfolio Acceptance Report" için 10 devir şartı eksiksiz karşılanmıştır (`phase_157_handoff_ready=True`).
+- Çıktılar `data/lake/advanced_portfolio_scenario_control/` ve `reports/output/advanced_portfolio_scenario_control/` altında saklanır.
+- Mevcut faz: 156, Bir sonraki faz: 157 (Portfolio Acceptance Report), Nihai hedef: Phase 160.
+
+Komutlar:
+```bash
+python -m scripts.run_portfolio_scenario_control_profile_registry
+python -m scripts.run_portfolio_scenario_testing_contracts
+python -m scripts.run_drawdown_control_contracts
+python -m scripts.run_portfolio_control_placeholders
+python -m scripts.run_scenario_control_outputs_metrics
+python -m scripts.run_scenario_control_dependencies_guards
+python -m scripts.run_scenario_control_disabled_execution_reports
+python -m scripts.run_portfolio_scenario_findings_manifest
+python -m scripts.run_portfolio_scenario_control_health_check
+python -m scripts.run_portfolio_scenario_control_validation_report
+python -m scripts.run_portfolio_scenario_control_status
+```
+
+## Phase 157 Portfolio Acceptance Report, Phase 153-157 Consolidated Portfolio Acceptance Layer ve Phase 158 Handoff
+
+- Phase 157, Phase 153-157 "portföy construction, position sizing, risk budgeting, portfolio optimization ve risk raporları" bloğunun kapanış ve acceptance fazıdır (`advanced_portfolio_acceptance/`).
+- Phase 1-156 arasındaki Emtia-Döviz offline/local araştırma ve sinyal botu altyapısını bozmadan Portfolio Acceptance Report katmanını kurar:
+  - **Portföy Kabul Profil, Etki Alanı ve Kapsam Tescili (Profile, Domain & Scope Registries)**: Dengeli (`balanced_local_portfolio_acceptance_contracts`), muhafazakâr (`conservative_portfolio_acceptance_contracts`) ve kurumsal (`institutional_portfolio_acceptance_contracts`) profilleri; 25 etki alanı ve 14 kapsam kuralı tanımlanmıştır. Tüm profillerde `dry_run_default=True`, `local_only=True`, `non_production=True`, `research_only=True`, `allow_live_trading=False`, `allow_broker_integration=False`, `allow_real_order=False`, `allow_portfolio_construction=False`, `allow_position_sizing=False`, `allow_portfolio_optimization=False`, `allow_capital_allocation=False`, `allow_weight_generation=False`, `allow_allocation_generation=False`, `allow_rebalance_generation=False`, `allow_order_generation=False`, `allow_risk_reporting_execution=False`, `allow_limit_monitoring_execution=False`, `allow_scenario_execution=False`, `allow_drawdown_control_execution=False` negatif değişmezleri zorunludur.
+  - **Bileşen Kayıt ve Kontrol Noktaları (Component Registry & Checkpoints)**: Phase 153 (Portfolio Construction), Phase 154 (Portfolio Optimization), Phase 155 (Risk Reporting), Phase 156 (Scenario & Drawdown Control) ve Phase 157 (Portfolio Acceptance Report) bileşenlerinin modül, script, test, manifest, validasyon raporu, güvenlik sınırları ve handoff uygunlukları denetlenmiştir.
+  - **Faz Düzeyi Kabul Tescilleri (Phase-Level Acceptance Registries)**: Phase 153, 154, 155 ve 156 için 10'ar adet (toplam 40) kabul kriteri eksiksiz denetlenmiş ve kabul edilmiştir.
+  - **Bağımlılık ve Doğrulama Kanıtları (Dependencies & Evidence)**: Veri gölü, FeatureStore, rejim, ML yönetişimi, geriye dönük test blokları ve portföy/risk bileşenleri dahil 16 yukarı akış bağımlılığı ve 8 doğrulama kanıtı tescil edilmiştir.
+  - **Güvenlik ve Üretim Dışı Sınırları, Manuel İnceleme Kapıları ve Karar Ağacı (Boundaries, Gates & Go/No-Go)**: 12 güvenlik kuralı, 7 üretim dışı değişmezi, 5 operatör manuel inceleme kapısı, 4 GO kuralı ve 26 NO-GO kuralı ile sıfır güven (zero-trust) politikası uygulanmıştır.
+  - **Engel, Boşluk, Uyarı ve Bulgu Tescili (Blockers, Gaps, Warnings & Findings)**: 25 potansiyel engel kuralı izlenmekte olup 0 aktif engel bulunmaktadır; 13 yönetişim uyarısı ve 2 resmi kabul bulgusu tescil edilmiştir.
+  - **Hazırlık Skoru ve Ana Manifesto (Readiness Score & Master Manifest)**: 0.9500 hazırlık skoru (`portfolio_acceptance_contract_ready_non_production`) üretilmiş; manifestoda `portfolio_block_completed=True`, `production_ready=False`, `broker_ready=False`, `live_trading_ready=False`, `portfolio_constructed=False`, `orders_generated=False`, `phase_158_handoff_ready=True` kesin sınırları mühürlenmiştir.
+  - **Sağlık, Validasyon ve Güvenlik Raporları (Health, Validation & Safety)**: 20 sağlık denetimi (%100 HEALTHY), 5 validasyon kuralı (%100 PASS) ve 29 NO-GO / 8 SAFE-GO koşulundan oluşan güvenlik sınırı doğrulanmıştır.
+  - **Phase 158 Faz Devri (Phase 158 Handoff)**: Phase 158 "Full-System Integration and Advanced Acceptance Rehearsal" için 14 önkoşul eksiksiz karşılanarak devir mühürlenmiştir (`handoff_ready=True`).
+- Çıktılar `data/lake/advanced_portfolio_acceptance/` ve `reports/output/advanced_portfolio_acceptance/` altında saklanır.
+- Mevcut faz: 157, Bir sonraki faz: 158 (Full-System Integration and Advanced Acceptance Rehearsal), Nihai hedef: Phase 160.
+
+Komutlar:
+```bash
+python -m scripts.run_portfolio_acceptance_profile_registry
+python -m scripts.run_portfolio_acceptance_component_checkpoints
+python -m scripts.run_portfolio_phase_acceptance
+python -m scripts.run_portfolio_acceptance_dependencies_evidence
+python -m scripts.run_portfolio_acceptance_boundaries_findings
+python -m scripts.run_portfolio_acceptance_manifest
+python -m scripts.run_portfolio_acceptance_health_check
+python -m scripts.run_portfolio_acceptance_validation_report
+python -m scripts.run_portfolio_acceptance_status
+```
+
+## Phase 158 Full-System Integration and Advanced Acceptance Rehearsal, Local/Offline System-Wide Integration Layer ve Phase 159 Handoff
+
+- Phase 158, Phase 158-160 final sistem kapanış bloğunun ilk fazıdır (`advanced_full_system_integration/`).
+- Phase 1-157 arasındaki Emtia-Döviz offline/local araştırma ve sinyal botu altyapısını bozmadan Full-System Integration and Advanced Acceptance Rehearsal katmanını kurar:
+  - **Sistem Entegrasyon Profil, Etki Alanı ve Kapsam Tescili (Profile, Domain & Scope Registries)**: Dengeli (`balanced_local_full_system_integration_contracts`), sıkı güvenlik (`strict_non_production_system_integration_safety`) ve kabul provası odaklı (`dry_run_acceptance_rehearsal_focus`) profilleri; 34 etki alanı ve 20 operasyonel kapsam kuralı tanımlanmıştır. Tüm profillerde `dry_run_default=True`, `local_only=True`, `non_production=True`, `research_only=True`, `allow_live_trading=False`, `allow_broker_integration=False`, `allow_real_order=False`, `allow_signal_generation=False`, `allow_system_execution=False`, `allow_end_to_end_run=False`, `allow_model_training=False`, `allow_model_predict=False`, `allow_backtest_execution=False`, `allow_portfolio_execution=False`, `allow_risk_execution=False`, `allow_scenario_execution=False`, `allow_production_deployment=False` negatif değişmezleri zorunludur.
+  - **Sistem Bileşenleri, Bağımlılık Haritası ve Kontrol Noktaları (Component Registry, Dependency Graph & Checkpoints)**: Tüm mimariyi kapsayan 36 sistem bileşeni (`CMP-001` - `CMP-036`), 32 yönlü mimari bağımlılık ilişkisi (`DEP-001` - `DEP-032`) ve 13 doğrulanabilir kontrol noktası (`CHK-001` - `CHK-013`) tescil edilmiştir.
+  - **Sözleşme, Manifesto ve Kanıt Entegrasyonu (Contract, Manifest & Validation Evidence)**: Tüm katmanlar arasında 11 sözleşme grubu (`CNT-001` - `CNT-011`), Phase 106-158 arasındaki 13 alt sistem manifestosu (`MNF-INT-001` - `MNF-INT-013`) ve 8 sistem doğrulama kanıtı (`EVD-158-001` - `EVD-158-008`) mutabakat altına alınmıştır.
+  - **Sistem Sınırları ve Manuel İnceleme Kapıları (Boundaries & Manual Review Gates)**: 18 güvenlik kuralı, 6 üretim dışı kuralı, 5 dry-run kuralı ve 10 operatör manuel inceleme kapısı (`MRG-158-001` - `MRG-158-010`) tanımlanmıştır.
+  - **İleri Düzey Kabul Provası (Advanced Acceptance Rehearsal)**: 11 kabul provası maddesi (`REH-158-001` - `REH-158-011`) ve 8 prova kontrol noktası (`RCP-158-001` - `RCP-158-008`) canlı yürütme olmadan tüm alt sistemlerin yapılandırma, import güvenliği ve manifesto bütünlüğünü doğrulamıştır (%100 REHEARSED & PASSED).
+  - **11 Alt Sistem Entegrasyonu ve Özel Sınırlar (Subsystems & Specific Boundaries)**: Veri akışı, özellik/faktör, rejim, ML yönetişimi, geriye dönük test, portföy, risk, senaryo, raporlama, telegram yer tutucuları ve paper trading yer tutucuları; canlı sinyal engelleme, broker engelleme, canlı işlem engelleme, yatırım tavsiyesi engelleme, dağıtım engelleme, model kaydı yazma engelleme, ikili kalıcılık engelleme, web kazıma engelleme, kaynak koruma, yalnızca-metadata haber ve 52 yasaklı kolon politikasıyla izole edilmiştir.
+  - **13 Devre Dışı Bırakılmış Yürütme Raporu (Disabled Execution Reports)**: Tam sistem yürütmesi, canlı trading, broker yürütmesi, üretim dağıtımı, model eğitimi, model tahmini, backtest, portföy, risk, senaryo, emir üretimi, sinyal üretimi ve yatırım tavsiyesinin sözleşmeyle devre dışı olduğunu belgeleyen 13 resmi rapor üretilmiştir.
+  - **Bulgular, Hazırlık Skoru ve Master Manifesto (Findings, Readiness Score & Master Manifest)**: 20 potansiyel engel izlenmekte olup 0 aktif engel bulunmaktadır; 1.0000 tam hazır skoru (`full_system_integration_contract_ready_non_production`) üretilmiş; `FSI-MANIFEST-PHASE-158` master manifestosu ile `full_system_integration_completed=True`, `production_ready=False`, `broker_ready=False`, `live_trading_ready=False`, `system_executed=False`, `phase_159_handoff_ready=True` sınırları mühürlenmiştir.
+  - **Sağlık, Doğrulama, Güvenlik ve Phase 159 Devri (Health, Validation, Safety & Handoff)**: 34 fiziksel bileşen ve dizin denetimi (%100 HEALTHY), 6 ana doğrulama kuralı (%100 PASS), 22 NO-GO ve 6 SAFE-GO kuralından oluşan güvenlik sınırı doğrulanmış; Phase 159 "Final Hardening, Operator Runbook and Release Candidate" için 12 önkoşul eksiksiz karşılanarak devir mühürlenmiştir (`handoff_ready=True`, `status=ACCEPTED`).
+- Çıktılar `data/lake/advanced_full_system_integration/` ve `reports/output/advanced_full_system_integration/` altında saklanır.
+- Mevcut faz: 158, Bir sonraki faz: 159 (Final Hardening, Operator Runbook and Release Candidate), Nihai hedef: Phase 160 (Full Advanced Bot Final Delivery).
+
+Komutlar:
+```bash
+python -m scripts.run_full_system_integration_profile_registry
+python -m scripts.run_system_component_registry
+python -m scripts.run_system_contract_integration
+python -m scripts.run_advanced_acceptance_rehearsal
+python -m scripts.run_system_boundaries
+python -m scripts.run_system_disabled_execution_reports
+python -m scripts.run_system_integration_findings_manifest
+python -m scripts.run_full_system_integration_health_check
+python -m scripts.run_full_system_integration_validation_report
+python -m scripts.run_full_system_integration_status
+```
+
+## Phase 159 Final Hardening, Operator Runbook and Release Candidate, Local/Offline Release-Candidate Contract Layer ve Phase 160 Handoff
+
+- Phase 159, Phase 158-160 final sistem kapanış bloğunun ikinci fazıdır (`advanced_final_hardening/`).
+- Phase 1-158 arasındaki Emtia-Döviz offline/local araştırma ve sinyal botu altyapısını bozmadan Final Hardening, Operator Runbook ve Release Candidate katmanını kurar:
+  - **Sertleştirme Profilleri, Etki Alanları ve Kapsam Tescilleri**: Dengeli (`balanced_local_final_hardening_contracts`), sıkı güvenlik (`strict_non_production_hardening_safety`) ve dry-run odaklı (`dry_run_release_candidate_focus`) profilleri; 34 etki alanı ve 20 kapsam kuralı tanımlanmıştır. `allow_live_trading=False`, `allow_broker_integration=False`, `allow_real_order=False`, `allow_signal_generation=False`, `allow_system_execution=False`, `allow_production_deployment=False` negatif değişmezleri zorunludur.
+  - **Sözleşmeler ve Dondurma (Freeze) Katmanı**: 9 sertleştirme sözleşmesi, 10 operatör çalıştırma sözleşmesi ve 5 release candidate sözleşmesi; konfigürasyon (`final_configuration_freeze`), dokümantasyon (`final_documentation_freeze`), güvenlik (`final_safety_freeze`), doğrulama (`final_validation_freeze`), bağımlılık (`final_dependency_freeze`), manifesto (`final_manifest_freeze`) ve rapor (`final_report_freeze`) dondurma sözleşmeleriyle kilitlenmiştir.
+  - **Konfigürasyon, Ortam Şablonu ve Dizin Denetimleri**: `.env.example`, `config/settings.py` ve `config/paths.py` bileşenleri için tam uyumluluk denetimleri (`final_settings_audit`, `final_env_template_audit`, `final_paths_audit`) sağlanmıştır.
+  - **Sistem Envanterleri**: CLI betikleri, test paketleri, dokümantasyonlar, rapor şablonları, DataLake dizinleri, FeatureStore arayüzleri, sistem bileşenleri, devre dışı bırakılmış işlemler, güvenlik sınırları ve manuel inceleme kapıları eksiksiz envantere alınmıştır.
+  - **Operatör Kılavuzları (Operator Runbooks)**: Başlatma (`system_startup_verification`), kapatma (`graceful_offline_shutdown`), konfigürasyon denetimi (`offline_configuration_audit`), veri bütünlüğü (`local_data_integrity_check`), rapor inceleme (`offline_report_inspection`), sağlık denetimi (`subsystem_health_audit`), teşhis ve sorun giderme (`diagnostic_and_troubleshooting`), güvenli kurtarma (`safe_state_recovery`), NO-GO ihlal protokolü (`no_go_violation_handling`), manuel inceleme (`manual_review_sign_off`) ve güvenli çevrimdışı kullanım kuralları (`safe_offline_usage_rules`) sözleşmeye bağlanmıştır.
+  - **Release Candidate Kontrol Listeleri ve Kontrol Noktaları**: 16 kontrol listesi (`RC-CHK-01` - `RC-CHK-16`), alt sistem kontrol noktaları, bağımlılık kilitleri, validasyon ve güvenlik kontrolleri tescil edilmiştir.
+  - **Sınırlar, Engeller, Boşluklar, Uyarılar ve Bulgular**: 16 NO-GO kuralı, 16 SAFE-GO kuralı, 0 aktif engel, mutabakata varılmış boşluklar, onaylanmış operasyonel uyarılar ve kapatılmış denetim bulguları mühürlenmiştir.
+  - **Hazırlık Skoru ve Master Manifesto**: 0.9500 hazırlık skoru (`release_candidate_contract_ready_non_production`) üretilmiş; `MNF-159-RELEASE-CANDIDATE-001` manifestosu ile `final_hardening_completed=True`, `release_candidate_contract_ready=True`, `operator_runbook_contract_ready=True`, `production_ready=False`, `broker_ready=False`, `live_trading_ready=False`, `system_executed=False`, `phase_160_handoff_ready=True` kesin sınırları mühürlenmiştir.
+  - **Sağlık, Validasyon, Güvenlik ve Phase 160 Devri**: 24 fiziksel bileşen ve dizin denetimi (%100 HEALTHY), 6 ana validasyon kuralı (%100 VALIDATION_PASS), 32 NO-GO ve 16 SAFE-GO kuralından oluşan güvenlik sınırı doğrulanmış; Phase 160 "Full Advanced Bot Final Delivery" için 12 önkoşul eksiksiz karşılanarak devir mühürlenmiştir (`phase_160_handoff_ready=True`, `status=ACCEPTED`).
+- Çıktılar `data/lake/advanced_final_hardening/` ve `reports/output/advanced_final_hardening/` altında saklanır.
+- Mevcut faz: 159, Bir sonraki faz: 160 (Full Advanced Bot Final Delivery), Nihai hedef: Phase 160 (Full Advanced Bot Final Delivery).
+
+Komutlar:
+```bash
+python -m scripts.run_final_hardening_profile_registry
+python -m scripts.run_final_hardening_contracts
+python -m scripts.run_operator_runbook_contracts
+python -m scripts.run_release_candidate_checklists
+python -m scripts.run_final_freeze_audits
+python -m scripts.run_final_inventory_reports
+python -m scripts.run_release_candidate_boundaries
+python -m scripts.run_release_candidate_findings_manifest
+python -m scripts.run_final_hardening_health_check
+python -m scripts.run_final_hardening_validation_report
+python -m scripts.run_release_candidate_status
+```
+
+## Phase 160 Full Advanced Bot Final Delivery, Final Local/Offline Delivery Package ve 160 Fazlık Plan Kapanışı
+
+- Phase 160, 160 fazlık planın final teslim ve kapanış fazıdır (`advanced_final_delivery/`).
+- Phase 1-159 arasındaki Emtia-Döviz offline/local araştırma ve sinyal botu altyapısını bozmadan Full Advanced Bot Final Delivery katmanını kurar:
+  - **Nihai Teslimat Profilleri, Etki Alanları ve Kapsam Tescilleri**: Dengeli (`balanced_local_final_delivery_package`), sıkı güvenlik (`strict_non_production_final_delivery_package`) ve denetim odaklı (`dry_run_audit_delivery_package`) profilleri; 12 etki alanı ve 5 operasyonel kapsam kuralı tanımlanmıştır. Tüm profillerde `current_phase=160`, `target_final_phase=160`, `next_phase=None`, `phase_160_completed=True`, `final_plan_closed=True`, `dry_run_default=True`, `local_only=True`, `non_production=True`, `research_only=True`, `allow_live_trading=False`, `allow_broker_integration=False`, `allow_signal_generation=False`, `allow_order_generation=False`, `allow_production_deployment=False` negatif değişmezleri zorunludur.
+  - **Teslimat Paketi Sözleşmeleri (Package Contracts)**: 4 adet nihai teslimat sözleşmesi (`FDC-CONTRACT-001` - `FDC-CONTRACT-004`) ile çevrimdışı, yerel, canlı-işlem-olmayan ve salt-araştırma koşulları mühürlenmiştir.
+  - **Tüm Sistem Envanteri (System Inventories)**: 50+ modül, 12 script, 55+ test, 15+ dokümantasyon, 12+ rapor şablonu, 20+ DataLake dizini ve 15+ FeatureStore arayüzü eksiksiz envantere alınmıştır.
+  - **Kabul, Güvenlik ve Doğrulama Kanıtları (Evidence Registries)**: Kabul kanıtları, manifest kanıtları, doğrulama kanıtları, güvenlik kanıtları, kısıtlı çalıştırma kanıtları, manuel gözden geçirme kanıtları, runbook kanıtları ve release candidate kanıtları tescil edilmiştir.
+  - **160 Faz Haritası ve Blok Özetleri**: 1-160 Faz Haritası (`final_delivery_phase_map`), Phase 1-100 MVP Özeti, Phase 101-160 Advanced Özeti, Backtest/Simulation Blok Özeti, Portfolio/Risk Blok Özeti, Full-System Blok Özeti ve Nihai Operatör Devir Paketi (`final_delivery_operator_handover`) derlenmiştir.
+  - **Güvenlik Sınırları ve No-Go Kuralları**: 16 No-Go kuralı, 16 Go kuralı, genel güvenlik sınırları, non-production ve dry-run garantileri, canlı işlem/broker/yatırım tavsiyesi/tahmin/dağıtım/kazıma engellemeleri, kaynak kod koruma kuralları ve yasaklı kolon politikaları uygulanmıştır.
+  - **14 Devre Dışı Bırakılmış İşlem Raporu (Disabled Execution Reports)**: Canlı işlem, broker, emir üretimi, sinyal üretimi, model eğitimi, model tahmini, backtest yürütmesi, portföy yürütmesi, risk simülasyonu, senaryo yürütmesi, üretim dağıtımı, kimlik bilgisi sızıntısı ve kaynak kod ezilmesinin sözleşmeyle tamamen engellendiği resmi raporlarla tescillenmiştir.
+  - **Yönetişim, Bulgular, Hazırlık Skoru ve Nihai Manifest**: 0 blocker, 0 gap; %100.0 tam hazır skoru (`FULL_ADVANCED_BOT_FINAL_DELIVERY_READY`); `FDM-MANIFEST-PHASE-160` nihai teslimat manifestosu ile sistem mühürlenmiştir.
+  - **Resmi 160 Fazlık Plan Kapanışı (Phase 160 Completion Declaration)**: `final_160_phase_completion.py` ve `run_final_160_phase_completion_report.py` ile 160 fazlık planın başarıyla tamamlandığı ve resmi olarak kapatıldığı deklare edilmiştir (`final_plan_closed=True`, `next_phase=None`).
+- Çıktılar `data/lake/advanced_final_delivery/` ve `reports/output/advanced_final_delivery/` altında saklanır.
+- Mevcut faz: 160, Hedef nihai faz: 160, Bir sonraki faz: Yok (`None`), Plan Durumu: KAPANDI (`final_plan_closed=True`).
+
+Komutlar:
+```bash
+python -m scripts.run_final_delivery_profile_registry
+python -m scripts.run_final_delivery_package_contracts
+python -m scripts.run_final_delivery_inventory
+python -m scripts.run_final_delivery_evidence
+python -m scripts.run_final_delivery_phase_summaries
+python -m scripts.run_final_delivery_boundaries
+python -m scripts.run_final_delivery_disabled_execution_reports
+python -m scripts.run_final_delivery_findings_manifest
+python -m scripts.run_final_delivery_health_check
+python -m scripts.run_final_delivery_validation_report
+python -m scripts.run_final_delivery_status
+python -m scripts.run_final_160_phase_completion_report
+```

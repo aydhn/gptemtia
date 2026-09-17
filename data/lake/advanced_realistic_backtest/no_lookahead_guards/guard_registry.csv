@@ -1,0 +1,3 @@
+rule_name,enforcement,description,forbidden_patterns,active
+prohibit_future_return_columns,STRICT,Gelecek getiri veya sonraki bar fiyatini gosteren kolonlarin engellenmesi.,"['future_return', 'forward_return', 'next_return', 'lookahead_return', 'future_close', 'future_open', 'realized_future_pnl', 'future_pnl', 'perfect_fill', 'leak', 'leakage']",True
+prohibit_forward_shifts,STRICT,shift(-1) veya ileri yonlu zaman kaydirmalarinin kesinlikle engellenmesi.,shift(-*),True

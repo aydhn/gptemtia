@@ -1,0 +1,8 @@
+{
+  "active_profile": "balanced_local_full_system_integration_contracts",
+  "total_subsystems": 4,
+  "all_non_signal": true,
+  "all_verified": true,
+  "status": "full_system_integration_ready",
+  "non_signal": true
+}

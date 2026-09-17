@@ -1,0 +1,12 @@
+{
+  "execution_name": "stress_broker_execution",
+  "is_blocked": true,
+  "enforced": true,
+  "blocked_actions": [
+    "broker_order",
+    "send_order",
+    "connect_broker",
+    "route_order"
+  ],
+  "non_signal": true
+}

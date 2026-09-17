@@ -1,0 +1,4 @@
+dependency_name,source,scope,status,phase,non_signal
+phase_139_gpu_resource_policies,Phase 139,VRAM budget control and device limiters,SATISFIED,144,True
+phase_139_timeout_policies,Phase 139,Execution execution timeouts,SATISFIED,144,True
+phase_139_audit_placeholders,Phase 139,GPU audit placeholders,SATISFIED,144,True

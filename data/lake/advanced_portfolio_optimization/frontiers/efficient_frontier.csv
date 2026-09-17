@@ -1,0 +1,2 @@
+curve_name,num_frontier_points,is_placeholder,frontier_calculated,actual_frontier_points,status
+efficient_frontier_curve,0,True,False,,frontier_contract_only

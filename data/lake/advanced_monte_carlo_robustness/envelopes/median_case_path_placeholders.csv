@@ -1,0 +1,3 @@
+path_selector,selection_criterion,description,profile_name,current_phase,calculated,path_data,status,domain
+median_terminal_equity_path,argmin(|Terminal_Equity_i - median(Terminal_Equity)|),Trajectory most closely tracking the 50th percentile terminal wealth level.,balanced_local_monte_carlo_robustness_contracts,149,False,,monte_carlo_contract_ready,robustness_envelope_placeholder_domain
+median_drawdown_profile_path,argmin(|Max_Drawdown_i - median(Max_Drawdown)|),Trajectory exhibiting median maximum drawdown behavior across the simulation set.,balanced_local_monte_carlo_robustness_contracts,149,False,,monte_carlo_contract_ready,robustness_envelope_placeholder_domain

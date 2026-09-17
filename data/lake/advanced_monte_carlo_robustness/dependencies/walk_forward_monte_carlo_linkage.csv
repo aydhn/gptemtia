@@ -1,0 +1,3 @@
+linkage_id,phase_147_ref,integration_purpose,status,profile_name,current_phase,domain
+LINK_WF_OOS_SPLITS,walk_forward_split_contracts,Resample within discrete out-of-sample test windows without in-sample contamination.,SATISFIED,balanced_local_monte_carlo_robustness_contracts,149,linkage_domain
+LINK_WF_BENCHMARK_STABILITY,walk_forward_benchmark_contracts,Benchmark distribution comparison across anchor asset benchmarks.,SATISFIED,balanced_local_monte_carlo_robustness_contracts,149,linkage_domain

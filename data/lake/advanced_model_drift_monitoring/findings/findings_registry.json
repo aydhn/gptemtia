@@ -1,0 +1,122 @@
+{
+  "total_findings": 5,
+  "by_severity": {
+    "info": 5
+  },
+  "by_domain": {
+    "model_drift": 1,
+    "data_drift": 1,
+    "feature_quality_drift": 1,
+    "calibration_drift": 1,
+    "regime_drift": 1
+  },
+  "requires_human_review_count": 3,
+  "all_execution_blocked": true,
+  "findings": [
+    {
+      "finding_type": "contract_governance",
+      "drift_domain": "model_drift",
+      "severity_label": "info",
+      "message": "Model drift monitoring contracts successfully established across 59 domains.",
+      "recommendation": "Maintain contracts in non-executing mode pending Phase 143 explainability linkage.",
+      "manual_review_required": true,
+      "non_signal": true,
+      "finding_id": "find_drift_001_contract_established",
+      "domain": "model_drift",
+      "target_name": "candidate_models",
+      "severity": "info",
+      "description": "Model drift monitoring contracts successfully established across 59 domains.",
+      "recommended_action": "Maintain contracts in non-executing mode pending Phase 143 explainability linkage.",
+      "requires_human_review": false,
+      "execution_blocked": true,
+      "metadata": {
+        "phase": 142,
+        "category": "milestone"
+      }
+    },
+    {
+      "finding_type": "threshold_policy",
+      "drift_domain": "data_drift",
+      "severity_label": "info",
+      "message": "PSI, KS, JS, and Wasserstein thresholds established as non-executing placeholders.",
+      "recommendation": "Do not trigger automated alerts or retrain runs based on placeholder thresholds.",
+      "manual_review_required": true,
+      "non_signal": true,
+      "finding_id": "find_drift_002_thresholds_calibrated_as_placeholders",
+      "domain": "data_drift",
+      "target_name": "threshold_policies",
+      "severity": "info",
+      "description": "PSI, KS, JS, and Wasserstein thresholds established as non-executing placeholders.",
+      "recommended_action": "Do not trigger automated alerts or retrain runs based on placeholder thresholds.",
+      "requires_human_review": true,
+      "execution_blocked": true,
+      "metadata": {
+        "phase": 142,
+        "category": "policy"
+      }
+    },
+    {
+      "finding_type": "linkage_verification",
+      "drift_domain": "feature_quality_drift",
+      "severity_label": "info",
+      "message": "Feature quality linkage contracts verified against Phase 123 diagnostics without data mutation.",
+      "recommendation": "Continue read-only lineage tracking without automated feature dropping.",
+      "manual_review_required": true,
+      "non_signal": true,
+      "finding_id": "find_drift_003_feature_quality_linkage_verified",
+      "domain": "feature_quality_drift",
+      "target_name": "phase_123_quality_linkage",
+      "severity": "info",
+      "description": "Feature quality linkage contracts verified against Phase 123 diagnostics without data mutation.",
+      "recommended_action": "Continue read-only lineage tracking without automated feature dropping.",
+      "requires_human_review": false,
+      "execution_blocked": true,
+      "metadata": {
+        "phase": 142,
+        "category": "linkage"
+      }
+    },
+    {
+      "finding_type": "linkage_verification",
+      "drift_domain": "calibration_drift",
+      "severity_label": "info",
+      "message": "Calibration and uncertainty drift monitoring contracts linked to Phase 141 baselines.",
+      "recommendation": "Verify reliability diagram placeholders remain aligned with calibrated confidence intervals.",
+      "manual_review_required": true,
+      "non_signal": true,
+      "finding_id": "find_drift_004_calibration_uncertainty_linkage",
+      "domain": "calibration_drift",
+      "target_name": "phase_141_calibration_linkage",
+      "severity": "info",
+      "description": "Calibration and uncertainty drift monitoring contracts linked to Phase 141 baselines.",
+      "recommended_action": "Verify reliability diagram placeholders remain aligned with calibrated confidence intervals.",
+      "requires_human_review": true,
+      "execution_blocked": true,
+      "metadata": {
+        "phase": 142,
+        "category": "linkage"
+      }
+    },
+    {
+      "finding_type": "regime_monitoring",
+      "drift_domain": "regime_drift",
+      "severity_label": "info",
+      "message": "Regime shift linkage contracts established to track transitions across macro volatility regimes.",
+      "recommendation": "Condition reference windows on regime clusters in future analytical phases.",
+      "manual_review_required": true,
+      "non_signal": true,
+      "finding_id": "find_drift_005_regime_shift_linkage",
+      "domain": "regime_drift",
+      "target_name": "phase_126_135_regime_linkage",
+      "severity": "info",
+      "description": "Regime shift linkage contracts established to track transitions across macro volatility regimes.",
+      "recommended_action": "Condition reference windows on regime clusters in future analytical phases.",
+      "requires_human_review": true,
+      "execution_blocked": true,
+      "metadata": {
+        "phase": 142,
+        "category": "regime"
+      }
+    }
+  ]
+}

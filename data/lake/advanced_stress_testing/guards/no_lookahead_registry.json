@@ -1,0 +1,16 @@
+{
+  "guard_active": true,
+  "enforcement_level": "STRICT",
+  "prohibited_columns": [
+    "future_return",
+    "forward_return",
+    "next_return",
+    "lookahead_return",
+    "target",
+    "label",
+    "prediction",
+    "realized_future_pnl",
+    "future_pnl"
+  ],
+  "non_signal": true
+}

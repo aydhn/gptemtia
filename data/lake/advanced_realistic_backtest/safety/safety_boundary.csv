@@ -1,0 +1,23 @@
+rule_id,type,name,category,description,enforced,non_signal
+NOGO-146-01,NO-GO,prohibit_live_trading,TRADING,Canli emir gonderme ve gercek pozisyon yonetimi kesinlikle yasaktir.,True,True
+NOGO-146-02,NO-GO,prohibit_broker_execution,BROKER,Araci kurum API baglantisi ve emir rotalama kesinlikle yasaktir.,True,True
+NOGO-146-03,NO-GO,prohibit_investment_advice,REGULATION,Kesin AL/SAT veya portfoy yonetim tavsiyesi uretilemez.,True,True
+NOGO-146-04,NO-GO,prohibit_signal_generation,SIGNAL,Backtest katmani trade sinyali veya alfa uretemez.,True,True
+NOGO-146-05,NO-GO,prohibit_optimizer_execution,EXECUTION,Parametre veya strateji optimizasyonu bu fazda calistirilamaz.,True,True
+NOGO-146-06,NO-GO,prohibit_walk_forward_execution,EXECUTION,"Walk-forward simulasyonu Phase 147'ye ertelenmistir, bu fazda calistirilamaz.",True,True
+NOGO-146-07,NO-GO,prohibit_benchmark_execution,EXECUTION,Benchmark karsilastirma simulasyonu sonraki fazlara ertelenmistir.,True,True
+NOGO-146-08,NO-GO,prohibit_model_training,ML,Gercek ML model egitimi ve model fit islemleri kesinlikle calistirilamaz.,True,True
+NOGO-146-09,NO-GO,prohibit_model_prediction,ML,Gercek model cikarimi ve tahmin uretimi yapilamaz.,True,True
+NOGO-146-10,NO-GO,prohibit_target_label_generation,ML,Hedef etiket veya getiri sinifi uretilemez.,True,True
+NOGO-146-11,NO-GO,prohibit_model_registry_write,GOVERNANCE,Model kayit defterine yazim yapilamaz.,True,True
+NOGO-146-12,NO-GO,prohibit_production_deployment,DEPLOYMENT,Uretim ortamina dagitim veya onay verilmesi yasaktir.,True,True
+NOGO-146-13,NO-GO,prohibit_performance_guarantees,LEGAL,Gecmis veya gelecek getiri garantisi iddia edilemez.,True,True
+NOGO-146-14,NO-GO,prohibit_scraping_and_credentials,DATA,"Web kazima, gizli API cagrisi ve credential yazdirma yasaktir.",True,True
+NOGO-146-15,NO-GO,prohibit_source_overwrite,DATA,Ham verinin uzerine yazilmasi veya silinmesi kesinlikle yasaktir.,True,True
+SAFEGO-146-01,SAFE-GO,local_offline_backtest_contracts,CONTRACT,Yerel ve cevrimdisi backtest motor sozlesmelerinin kurulmasi.,True,True
+SAFEGO-146-02,SAFE-GO,transaction_cost_model_contracts,COST,"Komisyon, borsa ucreti ve alis-satis makas sozlesmelerinin kurulmasi.",True,True
+SAFEGO-146-03,SAFE-GO,slippage_model_contracts,SLIPPAGE,Fiyat kaymasi formullerinin sozlesme modunda hazirlanmasi.,True,True
+SAFEGO-146-04,SAFE-GO,execution_realism_placeholders,REALISM,"Gecikme, likidite ve kismi dolum yer tutucularinin kurulmasi.",True,True
+SAFEGO-146-05,SAFE-GO,accounting_and_lifecycle_contracts,ACCOUNTING,"PnL, nakit, teminat ve islem yasam dongusu sozlesmelerinin tanimlanmasi.",True,True
+SAFEGO-146-06,SAFE-GO,bias_and_no_lookahead_guards,GUARD,"Lookahead, survivorship ve overfitting muhafizlarinin olusturulmasi.",True,True
+SAFEGO-146-07,SAFE-GO,phase_147_handoff_preparation,HANDOFF,Phase 147 Walk-Forward ve OOS karsilastirma fazi icin guvenli devir hazirligi.,True,True

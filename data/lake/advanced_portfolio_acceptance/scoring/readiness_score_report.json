@@ -1,0 +1,16 @@
+{
+  "domain": "readiness_score_domain",
+  "readiness_score": 0.95,
+  "classification": "portfolio_acceptance_contract_ready_non_production",
+  "meets_threshold": true,
+  "total_checks": 10,
+  "passed_checks": 9,
+  "warning_count": 1,
+  "blocker_count": 0,
+  "is_signal": false,
+  "is_investment_advice": false,
+  "is_portfolio_approval": false,
+  "is_production_ready": false,
+  "is_broker_ready": false,
+  "status": "portfolio_acceptance_ready"
+}

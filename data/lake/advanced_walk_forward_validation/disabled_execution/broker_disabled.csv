@@ -1,0 +1,2 @@
+execution_target,is_blocked,reason,enforced,non_signal
+broker_api_client,True,Broker API entegrasyonu ve otomatik hesap islemleri kesinlikle yasaktir.,True,True

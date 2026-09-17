@@ -1,0 +1,12 @@
+{
+  "total_placeholders": 5,
+  "placeholders": [
+    "median_quantile_q50_placeholder",
+    "lower_tail_quantile_q05_placeholder",
+    "upper_tail_quantile_q95_placeholder",
+    "interquartile_quantile_q25_placeholder",
+    "interquartile_quantile_q75_placeholder"
+  ],
+  "all_uncalculated": true,
+  "all_non_signal": true
+}

@@ -1,0 +1,5 @@
+{
+  "total_guards": 2,
+  "overfitting_mitigation_enforced": true,
+  "non_signal": true
+}

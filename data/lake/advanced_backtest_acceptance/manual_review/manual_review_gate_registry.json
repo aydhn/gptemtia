@@ -1,0 +1,9 @@
+{
+  "domain": "manual_review_gate_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "total_gates": 7,
+  "manual_review_required_count": 7,
+  "all_require_review": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

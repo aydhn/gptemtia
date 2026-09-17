@@ -1,0 +1,8 @@
+{
+  "total_version_policies": 3,
+  "current_phase": 137,
+  "destructive_overwrite_allowed": false,
+  "production_tag_allowed": false,
+  "non_signal": true,
+  "status": "READY"
+}

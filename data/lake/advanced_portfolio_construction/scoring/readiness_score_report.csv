@@ -1,0 +1,2 @@
+overall_score,classification,meets_threshold,min_readiness_score,findings_count,critical_count,current_phase,target_final_phase,next_phase,contract_only,non_production,broker_ready,live_trading_ready,status
+1.0,portfolio_construction_contract_ready_non_production,True,0.5,3,0,153,160,154,True,True,False,False,portfolio_contract_ready

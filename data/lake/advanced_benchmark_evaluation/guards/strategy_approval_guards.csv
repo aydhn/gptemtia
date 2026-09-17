@@ -1,0 +1,3 @@
+guard_id,guard_name,detection_target,description,is_active,status,non_signal
+GUARD_STRATEGY_APPROVAL_LOCK,Zero Strategy Approval Enforcement Guard,strategy_approval_requests,Değerlendirme raporu hazır diye stratejiye otomatik onay verilmesini engelleyen muhafız.,True,evaluation_contract_ready,True
+GUARD_CAPITAL_ALLOCATION_LOCK,Zero Capital Allocation Enforcement Guard,capital_allocation_and_sizing_requests,Değerlendirme skorlarına dayanarak fon tahsisi veya lot büyüklüğü belirlenmesini engelleyen muhafız.,True,evaluation_contract_ready,True

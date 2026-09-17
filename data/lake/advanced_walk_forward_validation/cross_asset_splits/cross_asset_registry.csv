@@ -1,0 +1,4 @@
+split_name,source_asset_cluster,target_oos_cluster,description,transfer_executed,non_signal
+precious_to_industrial_metals_transfer,PRECIOUS_METALS,INDUSTRIAL_METALS,Degerli metallerde test edilmis kurallarin sanayi metalleri OOS uzerinde genellenebilirlik sozlesmesi.,False,True
+energy_to_commodities_transfer,ENERGY,AGRICULTURE,Enerji emtialarindan tarimsal emtialara model genellenebilirlik sozlesmesi.,False,True
+g10_forex_to_em_forex_transfer,G10_FOREX,EM_FOREX,G10 doviz paritelerinden gelismekte olan ulke paritelerine OOS aktarim sozlesmesi.,False,True

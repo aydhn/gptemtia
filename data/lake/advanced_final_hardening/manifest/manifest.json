@@ -1,0 +1,15 @@
+{
+  "manifest_id": "MNF-159-RELEASE-CANDIDATE-001",
+  "current_phase": 159,
+  "target_final_phase": 160,
+  "next_phase": 160,
+  "final_hardening_completed": true,
+  "release_candidate_contract_ready": true,
+  "operator_runbook_contract_ready": true,
+  "production_ready": false,
+  "broker_ready": false,
+  "live_trading_ready": false,
+  "system_executed": false,
+  "phase_160_handoff_ready": true,
+  "status": "release_candidate_contract_ready"
+}

@@ -1,0 +1,2 @@
+constraint_name,default_max_weight,is_placeholder,is_enforced_live,actual_weights_generated,status
+max_weight_constraint,0.2,True,False,False,constraint_contract_only

@@ -1,0 +1,2 @@
+component_name,prohibited_actions,enforcement_mechanism,is_disabled,status,current_phase,target_final_phase,next_phase
+live_trading_engine,"['live_trade', 'place_market_order', 'execute_real_trade']",STRICT_SAFETY_GATE_LIVE_TRADING_BLOCKED,True,execution_contract_only,155,160,156

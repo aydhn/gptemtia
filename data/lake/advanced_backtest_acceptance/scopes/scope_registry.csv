@@ -1,0 +1,11 @@
+scope_id,scope_name,description,in_scope,is_safe,current_phase,target_final_phase,next_phase,status,non_signal,non_production,local_only
+SCP-152-01,phase_146_152_block_acceptance,Consolidated acceptance of Phases 146-152 backtest/benchmark/robustness block.,True,True,152,160,153,acceptance_ready,True,True,True
+SCP-152-02,local_offline_governance,Enforce local and offline execution without remote service calls.,True,True,152,160,153,acceptance_ready,True,True,True
+SCP-152-03,dry_run_validation_contracts,Verify dry-run compliance and contract existence across all sub-components.,True,True,152,160,153,acceptance_ready,True,True,True
+SCP-152-04,non_production_boundary_enforcement,"Enforce non-production, research-only boundaries on all outputs.",True,True,152,160,153,acceptance_ready,True,True,True
+SCP-152-05,no_live_trading_or_broker_orders,Strict prohibition of live trading or broker order routing.,True,True,152,160,153,acceptance_ready,True,True,True
+SCP-152-06,no_real_backtest_execution,Prohibit execution of real backtesting loops or PnL generation.,True,True,152,160,153,acceptance_ready,True,True,True
+SCP-152-07,no_real_benchmark_execution,Prohibit execution of real benchmark simulations or tracking error calculations.,True,True,152,160,153,acceptance_ready,True,True,True
+SCP-152-08,no_real_metric_calculation,"Prohibit calculation of Sharpe, drawdown, win-rate, alpha, beta, VaR, or returns.",True,True,152,160,153,acceptance_ready,True,True,True
+SCP-152-09,no_strategy_approval_or_capital_allocation,"Prohibit strategy approval, capital allocation, portfolio construction, and position sizing.",True,True,152,160,153,acceptance_ready,True,True,True
+SCP-152-10,phase_153_handoff_preparation,"Provide clean handoff to Phase 153 Portfolio Construction, Position Sizing and Risk Budgeting.",True,True,152,160,153,acceptance_ready,True,True,True

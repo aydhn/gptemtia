@@ -1,0 +1,3 @@
+action,is_disabled,reason,status,phase
+broker_ready_claim,True,Broker readiness claim is permanently prohibited.,BLOCKED_BY_POLICY,144
+broker_gateway_connection,True,Connecting broker order gateways is prohibited.,BLOCKED_BY_POLICY,144

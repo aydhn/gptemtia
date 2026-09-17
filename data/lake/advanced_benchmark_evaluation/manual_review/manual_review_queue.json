@@ -1,0 +1,8 @@
+{
+  "domain": "finding_domain",
+  "total_review_items": 10,
+  "all_mandatory": true,
+  "pending_count": 10,
+  "status": "evaluation_contract_ready",
+  "non_signal": true
+}

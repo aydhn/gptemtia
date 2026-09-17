@@ -1,0 +1,4 @@
+guard_id,guard_name,check_type,enforced,non_signal,description,status
+NEWS_GRD_001,raw_article_body_exclusion_guard,content_exclusion,True,True,"Excludes full article text, copyrighted copy, and raw news bodies.",gpu_governance_ready
+NEWS_GRD_002,scraped_html_exclusion_guard,content_exclusion,True,True,Excludes scraped HTML DOM trees and unparsed web payloads.,gpu_governance_ready
+NEWS_GRD_003,sentiment_embedding_exclusion_guard,nlp_payload_exclusion,True,True,"Excludes LLM embeddings, sentiment scores, and dense NLP vectors.",gpu_governance_ready

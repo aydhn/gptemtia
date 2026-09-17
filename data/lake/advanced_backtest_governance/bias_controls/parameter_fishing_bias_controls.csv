@@ -1,0 +1,4 @@
+control_id,name,description,enforcement,status,execution_allowed,non_signal,local_only,phase
+FSH_01_PRE_REGISTERED_HYPOTHESIS,pre_registered_parameter_space_mandate,Require parameter search boundaries to be pre-registered based on financial theory before backtest iteration.,BLOCKING_MANDATORY,ACTIVE,False,True,True,150
+FSH_02_SURFACE_STABILITY_CHECK,parameter_plateau_smoothness_requirement,Reject isolated parameter spikes surrounded by collapse; mandate broad performance plateaus.,HIGH_AUDIT,ACTIVE,False,True,True,150
+FSH_03_OPTIMIZER_SWEEP_EXCLUSION,optimizer_execution_lock_policy,Strictly block automated parameter grid/random optimization runs in Phase 150 governance layer.,BLOCKING_ZERO_TOLERANCE,ACTIVE,False,True,True,150

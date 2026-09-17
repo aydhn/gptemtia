@@ -1,0 +1,2 @@
+action_id,action_type,target_scope,activation_trigger,execution_enabled,status
+ACT-FRZ-001,FREEZE_CONTROL,ALL_NEW_ORDERS,CRITICAL_CIRCUIT_BREAKER_15PCT,False,PLACEHOLDER_ONLY

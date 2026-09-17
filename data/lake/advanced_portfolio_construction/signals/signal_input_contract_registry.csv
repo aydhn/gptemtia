@@ -1,0 +1,6 @@
+signal_type,source_phase,expected_dtype,range_min,range_max,description,current_phase,contract_only,non_production,signal_generation_allowed,directional_claim_allowed,real_signal_produced,status
+trend_following_score,Phase 116-125 Feature Engine,float64,-1.0,1.0,Trend gucu girdi sozlesmesi (metadata only).,153,True,True,False,False,False,portfolio_contract_ready
+mean_reversion_score,Phase 117 Technical Indicators,float64,-1.0,1.0,Ortalamaya donus girdi sozlesmesi (metadata only).,153,True,True,False,False,False,portfolio_contract_ready
+momentum_score,Phase 118 Feature Grid,float64,-1.0,1.0,Momentum girdi sozlesmesi (metadata only).,153,True,True,False,False,False,portfolio_contract_ready
+macro_event_sentiment_score,Phase 120 Feature Fusion,float64,-1.0,1.0,Makro/haber metadata girdi sozlesmesi (metadata only).,153,True,True,False,False,False,portfolio_contract_ready
+regime_state_indicator,Phase 127 Regime Matrix,int64,0.0,10.0,Piyasa rejimi girdi sozlesmesi (metadata only).,153,True,True,False,False,False,portfolio_contract_ready

@@ -1,0 +1,5 @@
+placeholder_id,title,section,template_text,is_calculated,performance_claim_allowed,strategy_approval_allowed,status,non_signal
+SUM_BENCHMARK_EXECUTIVE,Executive Benchmark Comparison Summary Placeholder,executive_summary,[PLACEHOLDER: Baseline stratejiler ile görece karşılaştırma özeti],False,False,False,evaluation_contract_ready,True
+SUM_BENCHMARK_RELATIVE_EXPOSURE,Systematic Market Exposure and Beta Summary Placeholder,systematic_risk,[PLACEHOLDER: Benchmark beta ve sistematik risk ayrıştırma özeti],False,False,False,evaluation_contract_ready,True
+SUM_BENCHMARK_TRACKING_DIAGNOSTICS,Tracking Error and Active Risk Summary Placeholder,tracking_diagnostics,[PLACEHOLDER: Benchmark sapma volatilitesi ve artık getiri özeti],False,False,False,evaluation_contract_ready,True
+SUM_BENCHMARK_CAPTURE_RATIO,Bull/Bear Market Participation Summary Placeholder,market_capture,[PLACEHOLDER: Yükseliş ve düşüş evrelerinde benchmark katılım özeti],False,False,False,evaluation_contract_ready,True

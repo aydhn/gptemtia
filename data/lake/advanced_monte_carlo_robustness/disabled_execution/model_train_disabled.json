@@ -1,0 +1,7 @@
+{
+  "domain": "disabled_execution_domain",
+  "total_capabilities": 1,
+  "all_executions_blocked": true,
+  "profile_name": "balanced_local_monte_carlo_robustness_contracts",
+  "status": "monte_carlo_contract_ready"
+}

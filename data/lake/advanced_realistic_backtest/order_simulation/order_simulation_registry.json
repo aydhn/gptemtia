@@ -1,0 +1,8 @@
+{
+  "total_order_types": 6,
+  "all_broker_orders_blocked": true,
+  "all_live_orders_blocked": true,
+  "all_real_fills_blocked": true,
+  "all_manual_review_required": true,
+  "non_signal": true
+}

@@ -1,0 +1,25 @@
+# Phase 149 -> Phase 150 Handoff Report
+
+> **Disclaimer**: Bu çıktı Phase 149 Monte Carlo Robustness and Parameter Stability raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, Monte-Carlo/readiness/robustness/parameter-stability değerini trade sinyali veya production-ready/broker-ready/onay olarak kullanma, gerçek Monte Carlo execution, bootstrap, resampling, parameter optimization, parameter sweep, optimizer, gerçek model training, model fit/predict/inference, dataset materialization, target/label/prediction üretimi, gerçek VaR/ES/distribution/robustness metric hesaplama, performans garantisi, model deployment, model registry write, model artifact persistence, scraping, haber tam metni/article body/raw content/scraped HTML/embedding/vector kullanımı veya gerçek provider API çağrısı değildir.
+
+- **Source Phase**: `149`
+- **Next Phase**: `150`
+- **Next Phase Name**: `Phase 150 — Backtest Governance and Bias Control`
+- **Target Final Phase**: `160`
+- **Total Prerequisites**: `10`
+- **All Prerequisites Satisfied**: `True`
+- **Handoff Status**: `READY_FOR_PHASE_150`
+
+## Handoff Items
+
+prerequisite_id                                              title status                                                                                               description  source_phase  target_phase  non_signal  local_only
+  PREREQ_150_01                   Monte Carlo Robustness Contracts  READY                Monte Carlo sağlamlık ve simülasyon sözleşmeleri yerel araştırma için eksiksiz tanımlandı.           149           150        True        True
+  PREREQ_150_02      Parameter Stability and Sensitivity Contracts  READY                     Parametre duyarlılığı, tedirginlik ve aşırı uyum kırılganlığı yer tutucuları kuruldu.           149           150        True        True
+  PREREQ_150_03                   Bootstrap Simulation Foundations  READY                                IID, blok ve durağan bootstrap resampling altyapı sözleşmeleri hazırlandı.           149           150        True        True
+  PREREQ_150_04              Resampling and Perturbation Framework  READY                 Getiri yolu, işlem sırası reshuffling ve artık yeniden örnekleme sözleşmeleri tamamlandı.           149           150        True        True
+  PREREQ_150_05                            Stress Testing Linkages  READY                               Phase 148 kriz ve stres senaryoları Monte Carlo bağlantılarıyla devredildi.           149           150        True        True
+  PREREQ_150_06   Walk-Forward and Realistic Backtest Dependencies  READY       Phase 146 gerçekçi backtest ve Phase 147 walk-forward çıktıları sözleşme bağımlılıklarına bağlandı.           149           150        True        True
+  PREREQ_150_07               Bias, Lookahead, and Snooping Guards  READY Zaman serisi bütünlüğü, veri gözetleme, aşırı uyum ve hayatta kalma yanlılığı muhafızları devreye alındı.           149           150        True        True
+  PREREQ_150_08         Transaction Cost and Slippage Dependencies  READY        Kademeli komisyon ve doğrusal olmayan kayma modelleri Monte Carlo bağımlılıklarına entegre edildi.           149           150        True        True
+  PREREQ_150_09 Backtest Governance and Bias Control Prerequisites  READY         Phase 150 yönetişim ve yanlılık kontrolü mimarisi için gerekli tüm girdi sözleşmeleri hazırlandı.           149           150        True        True
+  PREREQ_150_10                Strict Safety Boundary Preservation  READY   Canlı trading, broker API, optimizer ve gerçek metrik hesaplama yasakları Phase 150'de de devam edecek.           149           150        True        True

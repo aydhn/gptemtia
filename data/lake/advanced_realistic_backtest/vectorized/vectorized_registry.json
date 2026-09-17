@@ -1,0 +1,7 @@
+{
+  "total_vectorized_contracts": 3,
+  "all_execution_blocked": true,
+  "lag_one_enforced": true,
+  "shift_minus_one_strictly_prohibited": true,
+  "non_signal": true
+}

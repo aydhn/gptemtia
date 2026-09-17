@@ -1,0 +1,38 @@
+# -*- coding: utf-8 -*-
+"""Phase 154: Run Optimization Objective Contracts Script."""
+
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from config.settings import get_settings
+from data.storage.data_lake import DataLake
+from advanced_portfolio_optimization.portfolio_optimization_config import (
+    get_default_portfolio_optimization_profile,
+)
+from advanced_portfolio_optimization.portfolio_optimization_pipeline import (
+    PortfolioOptimizationPipeline,
+)
+
+
+def main():
+    settings = get_settings()
+    data_lake = DataLake()
+    profile = get_default_portfolio_optimization_profile()
+    pipeline = PortfolioOptimizationPipeline(data_lake=data_lake, settings=settings, profile=profile)
+
+    dfs, summary = pipeline.build_objective_contracts(save=True)
+
+    print("=" * 70)
+    print("PHASE 154: OPTIMIZATION OBJECTIVE CONTRACTS & PLACEHOLDERS")
+    print("=" * 70)
+    print(f"Total Objectives       : {summary['objective_summary']['objective_count']}")
+    print(f"All Placeholders       : {summary['objective_summary']['all_objectives_placeholders']}")
+    print(f"Zero Calculated        : {summary['objective_summary']['zero_objective_calculated']}")
+    print(f"Zero Execution Allowed : {summary['objective_summary']['zero_execution_allowed']}")
+    print("=" * 70)
+
+
+if __name__ == "__main__":
+    main()

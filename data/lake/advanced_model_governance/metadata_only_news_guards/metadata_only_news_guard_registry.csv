@@ -1,0 +1,4 @@
+guard_name,enforcement,status,phase,is_enforced
+no_raw_article_body_guard,Reject raw news text or article body fields.,ACTIVE,144,True
+no_scraped_html_guard,"Reject HTML, web page dumps, or scraped payloads.",ACTIVE,144,True
+metadata_only_schema_guard,"Allow only headline, timestamp, category, and source metadata.",ACTIVE,144,True

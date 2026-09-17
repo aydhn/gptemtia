@@ -1,0 +1,17 @@
+{
+  "domain": "manifest_domain",
+  "active_profile": "balanced_local_portfolio_construction_contracts",
+  "manifest_id": "MNF-153-001",
+  "current_phase": 153,
+  "target_final_phase": 160,
+  "next_phase": 154,
+  "portfolio_constructed": false,
+  "position_sizing_generated": false,
+  "capital_allocation_generated": false,
+  "portfolio_weights_generated": false,
+  "orders_generated": false,
+  "broker_order_sent": false,
+  "live_order_sent": false,
+  "phase_154_handoff_ready": true,
+  "status": "portfolio_contract_ready"
+}

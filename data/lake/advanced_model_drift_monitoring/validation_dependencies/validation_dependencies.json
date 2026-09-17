@@ -1,0 +1,21 @@
+{
+  "status": "satisfied",
+  "total_checks": 2,
+  "all_satisfied": true,
+  "dependencies": [
+    {
+      "dependency": "phase_137_dataset_validation",
+      "required_phase": 137,
+      "contract_type": "ml_dataset_validation",
+      "status": "satisfied",
+      "source_module": "advanced_ml_dataset.dataset_contracts"
+    },
+    {
+      "dependency": "phase_138_model_validation",
+      "required_phase": 138,
+      "contract_type": "baseline_model_validation",
+      "status": "satisfied",
+      "source_module": "advanced_baseline_models.baseline_contracts"
+    }
+  ]
+}

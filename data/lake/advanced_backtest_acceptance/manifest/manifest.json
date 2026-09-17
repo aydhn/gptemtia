@@ -1,0 +1,10 @@
+{
+  "domain": "manifest_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "manifest_id": "MNF-152-001",
+  "backtest_block_completed": true,
+  "readiness_score": 1.0,
+  "phase_153_handoff_ready": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

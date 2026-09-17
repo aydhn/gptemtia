@@ -1,0 +1,2 @@
+constraint_name,total_budget_sum,is_placeholder,is_enforced_live,actual_weights_generated,status
+exposure_constraint,1.0,True,False,False,constraint_contract_only

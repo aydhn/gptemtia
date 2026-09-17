@@ -1,0 +1,3 @@
+guard_name,enforcement_level,active,description,non_signal
+delisted_instrument_accounting_guard,STRICT,True,Gecmiste islem gormus ancak gunumuzde delist olmus enstrumanlarin evrenden silinmesini engelleyen muhafiz.,True
+point_in_time_universe_guard,STRICT,True,Enstruman evreninin sadece o an mevcut olan varliklardan olusmasini denetleyen point-in-time muhafizi.,True

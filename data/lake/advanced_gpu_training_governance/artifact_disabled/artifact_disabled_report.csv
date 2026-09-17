@@ -1,0 +1,4 @@
+check_item,is_disabled,status,details,dry_run,non_signal
+torch_save_disabled,True,PASS_DISABLED,torch.save and state_dict serialization to disk are disabled.,True,True
+joblib_pickle_dump_disabled,True,PASS_DISABLED,Joblib/pickle serialization of ML models to disk is disabled.,True,True
+onnx_export_disabled,True,PASS_DISABLED,ONNX or binary weight export routines are disabled.,True,True

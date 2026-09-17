@@ -1,0 +1,4 @@
+request_id,requested_preference,selected_device,selection_reason,dry_run,real_allocation,non_signal,status
+REQ_DEV_001,cuda_if_available,cpu,would_fallback_cpu,True,False,True,gpu_governance_ready
+REQ_DEV_002,cpu_only,cpu,cpu_requested,True,False,True,gpu_governance_ready
+REQ_DEV_003,mps_if_available,cpu,would_fallback_cpu,True,False,True,gpu_governance_ready

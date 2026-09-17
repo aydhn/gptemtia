@@ -1,0 +1,7 @@
+{
+  "no_go_count": 14,
+  "safe_go_count": 7,
+  "all_enforced": true,
+  "safety_status": "SECURE",
+  "non_signal": true
+}

@@ -1,0 +1,6 @@
+baseline_id,baseline_name,strategy_type,rebalance_frequency,turnover_assumption,description,execution_allowed,metric_calculation_allowed,status,non_signal
+BASE_BUY_AND_HOLD,Passive Buy and Hold Baseline,passive_long_only,none,zero,Temel varlıkta ilk bar alış ve dönemin sonuna kadar tutma referansı.,False,False,evaluation_contract_ready,True
+BASE_CASH_RISK_FREE,Cash and Risk-Free Rate Baseline,capital_preservation,daily_accrual,zero,Gecelik risksiz faiz (SOFR/Fed Funds) getirisi referansı.,False,False,evaluation_contract_ready,True
+BASE_EQUAL_WEIGHT_BASKET,Equal-Weight 1/N Basket Baseline,diversified_passive,monthly,low,Tüm evren bileşenlerinin eşit ağırlıklandırıldığı 1/N sepet referansı.,False,False,evaluation_contract_ready,True
+BASE_REGIME_AWARE_DYNAMIC,Regime-Aware Dynamic Baseline,regime_conditioned,regime_transition,moderate,Volatilite veya trend rejimine göre pasif varlık dağılımı ayarlayan referans.,False,False,evaluation_contract_ready,True
+BASE_COST_ADJUSTED_PASSIVE,Cost and Slippage Adjusted Passive Baseline,frictions_included_passive,periodic,cost_penalized,"İşlem ücreti, taşıma maliyeti ve kayma düşülmüş net pasif getiri referansı.",False,False,evaluation_contract_ready,True

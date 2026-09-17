@@ -1,0 +1,7 @@
+{
+  "domain": "warning_domain",
+  "total_warnings": 13,
+  "all_acknowledged": true,
+  "governance_guarantees_enforced": true,
+  "status": "portfolio_acceptance_ready"
+}

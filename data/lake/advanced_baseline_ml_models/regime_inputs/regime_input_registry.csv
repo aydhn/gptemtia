@@ -1,0 +1,6 @@
+regime_context,source_phase,manifest_ref,non_signal_certified,materialized,non_signal,production_ready,broker_ready
+volatility_regime_state,126,regime_acceptance_manifest_phase_135,True,False,True,False,False
+trend_persistence_state,130,regime_acceptance_manifest_phase_135,True,False,True,False,False
+range_bound_state,127,regime_acceptance_manifest_phase_135,True,False,True,False,False
+macro_event_regime_state,132,regime_acceptance_manifest_phase_135,True,False,True,False,False
+cross_asset_regime_context,131,regime_acceptance_manifest_phase_135,True,False,True,False,False

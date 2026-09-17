@@ -1,0 +1,9 @@
+item_id,domain,description,recommended_action,priority,manual_review_required,non_destructive,non_signal
+REV_001,resource_policy_domain,Verify GPU resource policy constraints and dry-run boundaries.,inspect GPU resource policy,HIGH,True,True,True
+REV_002,device_selection_policy_domain,Confirm device preference and CPU fallback behaviors.,inspect device selection policy,NORMAL,True,True,True
+REV_003,memory_budget_policy_domain,Check memory budget fraction limits and system reserve guarantees.,inspect memory budget policy,NORMAL,True,True,True
+REV_004,timeout_policy_domain,Inspect watchdog timeout boundaries and heartbeat thresholds.,inspect timeout policy,NORMAL,True,True,True
+REV_005,cpu_fallback_policy_domain,Validate that deterministic CPU fallback functions correctly when GPU is unavailable.,inspect CPU fallback policy,NORMAL,True,True,True
+REV_006,harness_stub_domain,Ensure harness stubs properly block model fit and return policy-blocked status.,inspect dry-run harness stubs,HIGH,True,True,True
+REV_007,no_real_training_domain,Review disabled execution reports ensuring zero weight training and zero predictions.,inspect disabled execution reports,HIGH,True,True,True
+REV_008,phase_140_handoff_domain,Confirm readiness prerequisites for Phase 140 candidate model registry contracts.,inspect Phase 140 candidate model registry blockers,HIGH,True,True,True

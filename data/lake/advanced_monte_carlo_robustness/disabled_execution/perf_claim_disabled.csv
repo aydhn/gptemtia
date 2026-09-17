@@ -1,0 +1,4 @@
+claim_type,claim_allowed,policy_reference,status,description
+guaranteed_return_claim,False,POLICY_PHASE_149_ZERO_CLAIMS,BLOCKED_BY_POLICY,Prohibits promising future profit or return stability.
+production_readiness_claim,False,POLICY_PHASE_149_ZERO_CLAIMS,BLOCKED_BY_POLICY,Prohibits presenting robustness envelopes as production-ready approval.
+broker_readiness_claim,False,POLICY_PHASE_149_ZERO_CLAIMS,BLOCKED_BY_POLICY,Prohibits asserting broker or live-trading readiness.

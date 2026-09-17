@@ -1,0 +1,6 @@
+dependency_id,phase,name,dependency_status,is_mandatory,status,non_signal
+DEP_PHASE_146,146,"Realistic Backtest, Transaction Cost and Slippage Modeling",SATISFIED,True,evaluation_contract_ready,True
+DEP_PHASE_147,147,Walk-Forward Validation and Out-of-Sample Benchmarking,SATISFIED,True,evaluation_contract_ready,True
+DEP_PHASE_148,148,Stress Testing and Scenario Simulation,SATISFIED,True,evaluation_contract_ready,True
+DEP_PHASE_149,149,Monte Carlo Robustness and Parameter Stability,SATISFIED,True,evaluation_contract_ready,True
+DEP_PHASE_150,150,Backtest Governance and Bias Control,SATISFIED,True,evaluation_contract_ready,True

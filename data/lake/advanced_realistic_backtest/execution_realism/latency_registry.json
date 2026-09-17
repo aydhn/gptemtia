@@ -1,0 +1,6 @@
+{
+  "total_latency_models": 3,
+  "zero_latency_assumption_forbidden": true,
+  "all_placeholders": true,
+  "non_signal": true
+}

@@ -1,0 +1,3 @@
+contract_name,description,join_type,tolerance,allow_forward_look,is_active,non_signal
+featurestore_point_in_time_contract,FeatureStore'dan cekilen faktor ve ozniteliklerin zaman damgasi eslestirme sozlesmesi.,ASOF_BACKWARD_ONLY,0ms,False,True,True
+regime_state_input_contract,Phase 126-135 rejim etiketlerinin sadece geriye donuk olarak backtest motoruna sunulmasi sozlesmesi.,ASOF_BACKWARD_ONLY,0ms,False,True,True

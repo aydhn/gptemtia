@@ -1,0 +1,4 @@
+metric_name,metric_domain,formula_description,unit,is_placeholder,actual_value,is_calculated,current_phase,target_final_phase,next_phase
+gross_exposure_ratio,exposure_metrics,Total absolute position notional divided by portfolio net asset value,ratio,True,,False,155,160,156
+net_exposure_ratio,exposure_metrics,Net directional position notional (longs minus shorts) divided by NAV,ratio,True,,False,155,160,156
+leverage_ratio,exposure_metrics,Gross exposure divided by portfolio equity,ratio,True,,False,155,160,156

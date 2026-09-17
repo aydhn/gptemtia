@@ -1,0 +1,10 @@
+{
+  "total_placeholders": 3,
+  "placeholders": [
+    "max_probability_confidence_placeholder",
+    "margin_confidence_placeholder",
+    "entropy_confidence_placeholder"
+  ],
+  "all_uncalculated": true,
+  "all_non_signal": true
+}

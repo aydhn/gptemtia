@@ -1,0 +1,9 @@
+{
+  "total_contracts": 4,
+  "all_enforced": true,
+  "artifact_persistence_blocked": true,
+  "model_registry_write_blocked": true,
+  "dataset_materialization_blocked": true,
+  "non_signal": true,
+  "manual_review_required": true
+}

@@ -1,0 +1,4 @@
+price_model_name,description,buy_formula,sell_formula,requires_quotes,is_active,non_signal
+bid_ask_quote_model,"Alis islemleri Ask, satis islemleri Bid uzerinden gerceklesir. Sifir maliyetli orta fiyat kullanilmaz.",ask_price + slippage,bid_price - slippage,True,True,True
+mid_price_with_half_spread_model,Quote verisi yoksa Mid fiyata yarim spread ve kayma eklenerek hesaplanir.,mid_price + (spread / 2) + slippage,mid_price - (spread / 2) - slippage,False,True,True
+next_open_price_model,Bar seviyesinde bir sonraki barin acilis fiyatina spread ve kayma payi eklenir.,open_next + (spread / 2) + slippage,open_next - (spread / 2) - slippage,False,True,True

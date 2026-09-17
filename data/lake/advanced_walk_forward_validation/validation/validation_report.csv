@@ -1,0 +1,7 @@
+check_name,passed,details
+profile_registry_constraints,True,OK
+walk_forward_contracts_safety,True,OK
+benchmark_contracts_safety,True,OK
+guards_active_enforcement,True,OK
+manifest_negative_invariants,True,OK
+forbidden_claims_absence,True,Tum iddialar guvenli.

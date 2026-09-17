@@ -1,0 +1,148 @@
+{
+  "phase": 142,
+  "validation_status": "PASSED",
+  "total_items_validated": 20,
+  "valid_items_count": 20,
+  "invalid_items_count": 0,
+  "all_valid": true,
+  "results": [
+    {
+      "contract_id": "candidate_model_drift_monitoring_contract",
+      "contract_name": "candidate_model_drift_monitoring_contract",
+      "valid": true,
+      "is_valid": true,
+      "issues": [],
+      "errors": [],
+      "non_signal": true
+    },
+    {
+      "contract_id": "ensemble_model_drift_monitoring_contract",
+      "contract_name": "ensemble_model_drift_monitoring_contract",
+      "valid": true,
+      "is_valid": true,
+      "issues": [],
+      "errors": [],
+      "non_signal": true
+    },
+    {
+      "contract_id": "calibration_drift_monitoring_contract",
+      "contract_name": "calibration_drift_monitoring_contract",
+      "valid": true,
+      "is_valid": true,
+      "issues": [],
+      "errors": [],
+      "non_signal": true
+    },
+    {
+      "contract_id": "uncertainty_drift_monitoring_contract",
+      "contract_name": "uncertainty_drift_monitoring_contract",
+      "valid": true,
+      "is_valid": true,
+      "issues": [],
+      "errors": [],
+      "non_signal": true
+    },
+    {
+      "contract_id": "prediction_distribution_drift_contract",
+      "contract_name": "prediction_distribution_drift_contract",
+      "valid": true,
+      "is_valid": true,
+      "issues": [],
+      "errors": [],
+      "non_signal": true
+    },
+    {
+      "contract_id": "model_stability_monitoring_contract_placeholder",
+      "contract_name": "model_stability_monitoring_contract_placeholder",
+      "valid": true,
+      "is_valid": true,
+      "issues": [],
+      "errors": [],
+      "non_signal": true
+    },
+    {
+      "valid": true,
+      "is_valid": true,
+      "threshold_name": "psi_standard_drift_threshold_placeholder",
+      "non_signal": true
+    },
+    {
+      "valid": true,
+      "is_valid": true,
+      "threshold_name": "ks_pvalue_drift_threshold_placeholder",
+      "non_signal": true
+    },
+    {
+      "valid": true,
+      "is_valid": true,
+      "threshold_name": "js_divergence_drift_threshold_placeholder",
+      "non_signal": true
+    },
+    {
+      "valid": true,
+      "is_valid": true,
+      "threshold_name": "wasserstein_normalized_drift_threshold_placeholder",
+      "non_signal": true
+    },
+    {
+      "valid": true,
+      "is_valid": true,
+      "threshold_name": "missingness_delta_drift_threshold_placeholder",
+      "non_signal": true
+    },
+    {
+      "valid": true,
+      "is_valid": true,
+      "threshold_name": "calibration_ece_drift_threshold_placeholder",
+      "non_signal": true
+    },
+    {
+      "valid": true,
+      "is_valid": true,
+      "policy_name": "fixed_in_sample_training_window_policy",
+      "non_signal": true
+    },
+    {
+      "valid": true,
+      "is_valid": true,
+      "policy_name": "expanded_validation_baseline_window_policy",
+      "non_signal": true
+    },
+    {
+      "valid": true,
+      "is_valid": true,
+      "policy_name": "rolling_lookback_reference_window_policy",
+      "non_signal": true
+    },
+    {
+      "valid": true,
+      "is_valid": true,
+      "policy_name": "regime_conditioned_reference_window_policy",
+      "non_signal": true
+    },
+    {
+      "valid": true,
+      "is_valid": true,
+      "policy_name": "rolling_short_term_current_window_policy",
+      "non_signal": true
+    },
+    {
+      "valid": true,
+      "is_valid": true,
+      "policy_name": "rolling_medium_term_current_window_policy",
+      "non_signal": true
+    },
+    {
+      "valid": true,
+      "is_valid": true,
+      "policy_name": "daily_session_current_window_policy",
+      "non_signal": true
+    },
+    {
+      "valid": true,
+      "is_valid": true,
+      "policy_name": "regime_transition_current_window_policy",
+      "non_signal": true
+    }
+  ]
+}

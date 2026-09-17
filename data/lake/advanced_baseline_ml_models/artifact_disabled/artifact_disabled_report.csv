@@ -1,0 +1,4 @@
+check_item,status,is_disabled,description
+artifact_persistence_disabled,PASS_DISABLED,True,Verification that model artifact saving is disabled
+weights_dump_blocked,PASS_DISABLED,True,Verification that model weights export is blocked
+binary_serialization_blocked,PASS_DISABLED,True,Verification that pickle/joblib dumping is blocked

@@ -1,0 +1,4 @@
+dependency_name,source,scope,status,phase,non_signal
+phase_140_candidate_model_registry,Phase 140,Candidate model contracts and families,SATISFIED,144,True
+phase_140_ensemble_strategy_contracts,Phase 140,"Voting, blending, and stacking specifications",SATISFIED,144,True
+phase_140_eligibility_gate_registry,Phase 140,Eligibility validation checks,SATISFIED,144,True

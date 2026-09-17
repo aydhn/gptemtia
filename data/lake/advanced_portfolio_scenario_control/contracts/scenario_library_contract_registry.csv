@@ -1,0 +1,4 @@
+library_id,library_name,category,scenario_count,historical_count,hypothetical_count,dry_run_fixture,contract_status
+LIB-156-001,historical_macro_crisis_library,HISTORICAL,5,5,0,fixtures.historical_crises,CONTRACT_ONLY
+LIB-156-002,hypothetical_tail_risk_library,HYPOTHETICAL,5,0,5,fixtures.hypothetical_tails,CONTRACT_ONLY
+LIB-156-003,market_microstructure_shock_library,MICROSTRUCTURE,4,0,4,fixtures.microstructure_shocks,CONTRACT_ONLY

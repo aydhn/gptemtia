@@ -1,0 +1,4 @@
+dependency_id,source_phase,contract_name,status,enforces_zero_training,non_signal,description
+BASE_DEP_001,138,baseline_model_contracts,SATISFIED,True,True,"Requires baseline model contracts (logistic, ridge, tree, gbm, mlp, lstm)."
+BASE_DEP_002,138,dry_run_training_harness_contracts,SATISFIED,True,True,Requires baseline dry-run trainer stubs and interface contracts.
+BASE_DEP_003,138,baseline_model_training_plans,SATISFIED,True,True,Requires declarative non-executing baseline training plans.

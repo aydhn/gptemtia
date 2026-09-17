@@ -1,0 +1,15 @@
+scope_id,description,in_scope,notes,current_phase,status
+scope_portfolio_block_acceptance,Phase 153-157 portfolio/risk block acceptance,True,In-scope,157,portfolio_acceptance_ready
+scope_local_offline_dry_run,Local and offline dry-run verification only,True,In-scope,157,portfolio_acceptance_ready
+scope_non_production_boundary,Non-production governance and contract validation,True,In-scope,157,portfolio_acceptance_ready
+scope_phase_158_handoff,Phase 158 full-system integration contract handoff,True,In-scope,157,portfolio_acceptance_ready
+scope_live_trading,Live trading and order routing,False,Strictly out of scope,157,portfolio_acceptance_ready
+scope_broker_integration,Broker API connection and execution,False,Strictly out of scope,157,portfolio_acceptance_ready
+scope_investment_advice,Investment advice or directional recommendations,False,Strictly out of scope,157,portfolio_acceptance_ready
+scope_signal_generation,Trading signal generation,False,Strictly out of scope,157,portfolio_acceptance_ready
+scope_portfolio_construction,Real portfolio construction and sizing,False,Strictly out of scope,157,portfolio_acceptance_ready
+scope_portfolio_optimization,Real portfolio optimizer execution and rebalancing,False,Strictly out of scope,157,portfolio_acceptance_ready
+scope_risk_reporting_execution,Real risk reporting and limit monitoring execution,False,Strictly out of scope,157,portfolio_acceptance_ready
+scope_scenario_drawdown_control,Real scenario simulation and drawdown control execution,False,Strictly out of scope,157,portfolio_acceptance_ready
+scope_model_training_prediction,"Model training, fitting, or predictive inference",False,Strictly out of scope,157,portfolio_acceptance_ready
+scope_production_deployment,Production deployment or broker-ready certification,False,Strictly out of scope,157,portfolio_acceptance_ready

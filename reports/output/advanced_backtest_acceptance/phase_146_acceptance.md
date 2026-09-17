@@ -1,0 +1,22 @@
+> [!CAUTION]
+> **YASAL UYARI VE GÜVENLİK BİLDİRİMİ (PHASE 152 BACKTEST ACCEPTANCE REPORT)**:
+> Bu çıktı Phase 152 Backtest Acceptance Report çıktısıdır. Canlı emir, broker talimatı, > kesin AL/SAT, yatırım tavsiyesi, backtest/acceptance/readiness değerini trade sinyali veya > production-ready/broker-ready/onay olarak kullanma, gerçek backtest execution, benchmark > execution, metric calculation, optimizer, model training, model fit/predict/inference, > dataset materialization, target/label/prediction üretimi, gerçek Sharpe/win-rate/return/> alpha/beta/drawdown/VaR/ES hesaplama, performans garantisi, strategy approval, capital > allocation, portfolio construction, position sizing, model deployment, model registry write, > model artifact persistence, scraping, haber tam metni/article body/raw content/scraped HTML/> embedding/vector kullanımı veya gerçek provider API çağrısı değildir.
+
+## Phase 146 Acceptance Report: Realistic Backtest, Transaction Cost and Slippage Modeling
+- **Active Profile**: `balanced_local_backtest_acceptance_contracts`
+- **Total Checks**: 10
+- **Passed Checks**: 10
+- **All Passed**: True
+- **Status**: `ACCEPTED`
+
+  check_id                                    name                                topic  passed                                                                    details phase_ref  current_phase  target_final_phase  next_phase           status  non_signal  production_ready  broker_ready
+CHK-146-01                          module_present advanced_realistic_backtest presence    True                                   Core backtest contract package verified. Phase 146            152                 160         153 acceptance_ready        True             False         False
+CHK-146-02       backtest_engine_contracts_present            Backtest engine contracts    True                    Event-driven and bar-based backtest contracts verified. Phase 146            152                 160         153 acceptance_ready        True             False         False
+CHK-146-03      transaction_cost_contracts_present              Transaction cost models    True         Commission, spread, financing, and borrow cost contracts verified. Phase 146            152                 160         153 acceptance_ready        True             False         False
+CHK-146-04        slippage_model_contracts_present                      Slippage models    True Fixed, volatility-based, and liquidity impact slippage contracts verified. Phase 146            152                 160         153 acceptance_ready        True             False         False
+CHK-146-05 order_simulation_fill_contracts_present           Order simulation and fills    True                         Market, limit, stop order fill contracts verified. Phase 146            152                 160         153 acceptance_ready        True             False         False
+CHK-146-06        no_lookahead_bias_guards_present            Lookahead and bias guards    True                    Shift(-1) and next-bar leakage prevention rules active. Phase 146            152                 160         153 acceptance_ready        True             False         False
+CHK-146-07                   no_backtest_execution          Backtest execution disabled    True                    Zero simulated PnL or backtest loop execution enforced. Phase 146            152                 160         153 acceptance_ready        True             False         False
+CHK-146-08                  no_optimizer_execution         Optimizer execution disabled    True               Parameter grid searches and curve-fitting strictly disabled. Phase 146            152                 160         153 acceptance_ready        True             False         False
+CHK-146-09                         no_live_trading              Live trading prohibited    True                     Live trading and broker integration strictly disabled. Phase 146            152                 160         153 acceptance_ready        True             False         False
+CHK-146-10                handoff_to_147_completed                    Phase 147 handoff    True                           Phase 147 walk-forward handoff report satisfied. Phase 146            152                 160         153 acceptance_ready        True             False         False

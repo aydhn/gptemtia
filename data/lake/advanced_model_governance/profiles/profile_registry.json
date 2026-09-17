@@ -1,0 +1,11 @@
+{
+  "total_profiles": 3,
+  "active_profile": "balanced_local_model_governance_contracts",
+  "current_phase": 144,
+  "target_final_phase": 160,
+  "all_local_only": true,
+  "all_non_production": true,
+  "all_trading_prohibited": true,
+  "all_registry_write_prohibited": true,
+  "all_approval_prohibited": true
+}

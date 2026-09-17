@@ -1,0 +1,7 @@
+contract_name,strategy,required_candidate_inputs,expected_input_type,temporal_alignment_required,no_lookahead_guaranteed,metadata_only_news_guaranteed,source_preserved,contains_target,contains_signal,non_signal
+voting_input_contract,voting,['candidate_prediction_placeholder'],metadata_contract_ref,True,True,True,True,False,False,True
+blending_input_contract,blending,['holdout_metadata_prediction_contract'],metadata_contract_ref,True,True,True,True,False,False,True
+stacking_input_contract,stacking,['oof_metadata_contract_ref'],metadata_contract_ref,True,True,True,True,False,False,True
+averaging_input_contract,averaging,['candidate_prediction_placeholder'],metadata_contract_ref,True,True,True,True,False,False,True
+rank_aggregation_input_contract,rank_aggregation,['candidate_prediction_placeholder'],metadata_contract_ref,True,True,True,True,False,False,True
+meta_model_input_contract,meta_model,['candidate_metadata_matrix_ref'],metadata_contract_ref,True,True,True,True,False,False,True

@@ -1,0 +1,5 @@
+policy_name,window_type,window_size_description,min_observations_placeholder,alignment_method,data_materialization_allowed,real_window_extraction_executed,non_signal,status,policy_id,window_size,stride,min_observations,lookback_days,execution_enabled,parameters
+fixed_in_sample_training_window_policy,reference,First 70% of historical series used for baseline training calibration,500,asof_backward,False,False,True,drift_contract_ready,fixed_in_sample_training_window_policy,,,,,False,
+expanded_validation_baseline_window_policy,reference,Combined train + validation historical baseline window,750,asof_backward,False,False,True,drift_contract_ready,expanded_validation_baseline_window_policy,,,,,False,
+rolling_lookback_reference_window_policy,reference,Preceding 252 trading bars sliding reference baseline,252,asof_backward,False,False,True,drift_contract_ready,rolling_lookback_reference_window_policy,,,,,False,
+regime_conditioned_reference_window_policy,reference,Filtered baseline window conditioned on specific regime state,120,asof_backward,False,False,True,drift_contract_ready,regime_conditioned_reference_window_policy,,,,,False,

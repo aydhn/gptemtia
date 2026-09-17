@@ -1,0 +1,14 @@
+{
+  "domain": "phase_153_handoff_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "current_phase": 152,
+  "next_phase": 153,
+  "next_phase_name": "Phase 153: Portfolio Construction, Position Sizing and Risk Budgeting",
+  "target_final_phase": 160,
+  "total_prerequisites": 13,
+  "satisfied_prerequisites": 13,
+  "all_satisfied": true,
+  "handoff_ready": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

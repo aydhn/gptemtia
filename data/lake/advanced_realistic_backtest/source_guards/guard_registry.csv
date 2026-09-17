@@ -1,0 +1,2 @@
+guard_name,enforcement,description,forbidden_actions,active
+immutable_historical_data_guard,STRICT,Ham piyasa verilerinin uzerine yazilmasi veya degistirilmesi kesinlikle engellenir.,"['overwrite', 'delete', 'destructive_cleaning', 'auto_imputation', 'auto_feature_drop', 'truncate', 'drop_table']",True

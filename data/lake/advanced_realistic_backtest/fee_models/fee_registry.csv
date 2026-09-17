@@ -1,0 +1,3 @@
+fee_model_name,category,description,formula,default_rate,currency,execution_allowed,is_active,non_signal
+exchange_clearing_fee,EXCHANGE,Borsa takas ve tescil ucreti sozlesmesi (orn: CME/ICE per-trade fee).,contracts * exchange_fee_per_contract,0.5,USD,False,True,True
+regulatory_transaction_fee,REGULATORY,Regulasyon (NFA/SEC vb.) islem ucreti sozlesmesi.,notional_value * regulatory_rate,2.2e-05,USD,False,True,True

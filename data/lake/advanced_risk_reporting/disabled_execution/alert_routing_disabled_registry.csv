@@ -1,0 +1,2 @@
+component_name,prohibited_actions,enforcement_mechanism,is_disabled,status,current_phase,target_final_phase,next_phase
+alert_routing_engine,"['send_alert', 'route_notification', 'webhook_alert', 'email_alert', 'sms_alert', 'pagerduty_alert', 'slack_alert']",STRICT_SAFETY_GATE_ALERT_ROUTING_DISABLED,True,execution_contract_only,155,160,156

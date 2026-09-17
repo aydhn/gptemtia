@@ -1,0 +1,3 @@
+guard_name,methodology,purpose,status,profile_name,current_phase,domain
+whites_reality_check_guard,White (2000) Reality Check for Data Snooping,Evaluates whether best parameter outcome is statistically superior to benchmark after accounting for full search universe.,ACTIVE,balanced_local_monte_carlo_robustness_contracts,149,bias_guard_domain
+hansen_superior_predictive_ability_guard,Hansen (2005) Test for Superior Predictive Ability (SPA),Improves power over White's check using studentized test statistics and re-centered bootstrap distributions.,ACTIVE,balanced_local_monte_carlo_robustness_contracts,149,bias_guard_domain

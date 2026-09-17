@@ -1,0 +1,13 @@
+{
+  "source_phase": 149,
+  "current_phase": 149,
+  "next_phase": 150,
+  "next_phase_name": "Phase 150 — Backtest Governance and Bias Control",
+  "target_final_phase": 160,
+  "total_prerequisites": 10,
+  "all_prerequisites_satisfied": true,
+  "phase_150_handoff_ready": true,
+  "status": "READY_FOR_PHASE_150",
+  "handoff_status": "READY_FOR_PHASE_150",
+  "non_signal": true
+}

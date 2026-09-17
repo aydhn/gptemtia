@@ -1,0 +1,9 @@
+{
+  "domain": "safety_domain",
+  "subdomain": "source_preservation_guards",
+  "total_guards": 4,
+  "all_active": true,
+  "status": "governance_contract_ready",
+  "non_signal": true,
+  "local_only": true
+}

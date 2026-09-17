@@ -1,0 +1,9 @@
+{
+  "active_profile": "balanced_local_full_system_integration_contracts",
+  "total_rules": 6,
+  "passed_rules": 6,
+  "all_passed": true,
+  "validation_status": "VALIDATION_PASS",
+  "status": "full_system_integration_ready",
+  "non_signal": true
+}

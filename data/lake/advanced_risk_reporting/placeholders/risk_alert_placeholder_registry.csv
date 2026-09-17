@@ -1,0 +1,2 @@
+placeholder_name,limit_type,description,is_placeholder,is_enforced,current_phase,target_final_phase,next_phase
+general_risk_alert_placeholder,risk_alert,Genel risk bildirim sozlesme yer tutucusu (canli alarm kapali),True,False,155,160,156

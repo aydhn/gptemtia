@@ -1,0 +1,10 @@
+{
+  "total_review_items": 9,
+  "critical_review_items": 3,
+  "auto_fix_allowed": false,
+  "auto_drop_allowed": false,
+  "auto_materialize_allowed": false,
+  "auto_train_allowed": false,
+  "non_signal": true,
+  "manual_review_required": true
+}

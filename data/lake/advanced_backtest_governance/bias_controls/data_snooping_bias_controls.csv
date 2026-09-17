@@ -1,0 +1,4 @@
+control_id,name,description,enforcement,snooping_penalty_rate,status,execution_allowed,non_signal,local_only,phase
+SNP_01_TEST_SET_QUARANTINE,strict_test_set_quarantine,Quarantine out-of-sample data so that parameters and rules are strictly fixed before OOS contact.,BLOCKING_MANDATORY,0.05,ACTIVE,False,True,True,150
+SNP_02_REUSE_TRACKING,dataset_reuse_and_iteration_tracking,Log each hypothesis evaluation against identical time slices to track cumulative search intensity.,HIGH_AUDIT,0.05,ACTIVE,False,True,True,150
+SNP_03_HAIRCUT_PENALTY,white_reality_check_haircut_placeholder,Enforce theoretical haircut discount on strategy performance proportional to iteration count.,HIGH_AUDIT,0.05,ACTIVE,False,True,True,150

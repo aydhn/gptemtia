@@ -1,0 +1,11 @@
+{
+  "total_contracts": 10,
+  "all_training_disabled": true,
+  "all_prediction_disabled": true,
+  "all_ensemble_disabled": true,
+  "all_non_signal_required": true,
+  "all_manual_review_required": true,
+  "production_ready": false,
+  "broker_ready": false,
+  "active_profile": "balanced_local_ensemble_model_contracts"
+}

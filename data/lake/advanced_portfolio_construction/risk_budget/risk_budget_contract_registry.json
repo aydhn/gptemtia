@@ -1,0 +1,11 @@
+{
+  "domain": "risk_budget_domain",
+  "active_profile": "balanced_local_portfolio_construction_contracts",
+  "total_contracts": 9,
+  "all_budget_generation_blocked": true,
+  "all_allocation_blocked": true,
+  "all_sizing_blocked": true,
+  "all_live_trading_blocked": true,
+  "all_manual_review_required": true,
+  "status": "portfolio_contract_ready"
+}

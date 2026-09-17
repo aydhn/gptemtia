@@ -1,0 +1,4 @@
+comparison_name,methodology,relative_to,metric_calculated,description,investment_advice,performance_claim,non_signal
+alpha_beta_regression_comparison,ORDINARY_LEAST_SQUARES,BUY_AND_HOLD,False,Stratejinin benchmark getirisini ne olcude taklit ettigi ve alfa uretme potansiyeli sozlesmesi.,False,False,True
+tracking_error_and_ir_comparison,INFORMATION_RATIO_FORMULA,EQUAL_WEIGHT,False,Izleme hatasi (tracking error) ve bilgi orani (information ratio) sozlesmesi.,False,False,True
+drawdown_relative_comparison,MAX_DRAWDOWN_DELTA,BUY_AND_HOLD,False,Benchmark ile strateji arasindaki maksimum deger kaybi farkini kiyaslayan sozlesme.,False,False,True

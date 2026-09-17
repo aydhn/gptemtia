@@ -1,0 +1,9 @@
+{
+  "domain": "health_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "total_components": 18,
+  "healthy_components": 18,
+  "all_healthy": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

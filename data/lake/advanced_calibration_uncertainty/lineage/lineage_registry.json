@@ -1,0 +1,15 @@
+{
+  "total_lineage_stages": 8,
+  "stages": [
+    "Phase 116-125 Feature & Factor Engine",
+    "Phase 126-135 Market Regime Context",
+    "Phase 136 ML Runtime Foundation",
+    "Phase 137 ML Dataset Contracts",
+    "Phase 138 Baseline ML Model Contracts",
+    "Phase 139 GPU Resource Governance",
+    "Phase 140 Ensemble Model Contracts",
+    "Phase 141 Calibration & Uncertainty"
+  ],
+  "all_verified": true,
+  "all_non_signal": true
+}

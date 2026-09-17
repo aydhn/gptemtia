@@ -1,0 +1,7 @@
+{
+  "domain": "disabled_execution_domain",
+  "operation": "metric_calculation",
+  "is_disabled": true,
+  "status": "execution_blocked_no_metric_calculation",
+  "non_signal": true
+}

@@ -1,0 +1,2 @@
+execution_type,status,reason,blocked_actions,is_blocked,non_signal
+MODEL_TRAINING_EXECUTION,BLOCKED_BY_POLICY,Model training and fitting are strictly disabled in Phase 146.,"['train', 'fit', 'retrain', 'fine_tune', 'learn']",True,True

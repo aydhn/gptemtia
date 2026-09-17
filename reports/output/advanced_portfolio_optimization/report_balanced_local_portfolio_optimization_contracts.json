@@ -1,0 +1,58 @@
+{
+  "profile": "balanced_local_portfolio_optimization_contracts",
+  "summary": {
+    "current_phase": 154,
+    "target_final_phase": 160,
+    "next_phase": 155,
+    "pipeline_status": "SUCCESS",
+    "all_stages_completed": true,
+    "phase_155_handoff_ready": true
+  },
+  "stages": [
+    {
+      "stage": "1_profiles_domains_scopes",
+      "status": "COMPLETED",
+      "details": "4 profiles"
+    },
+    {
+      "stage": "2_optimization_contracts",
+      "status": "COMPLETED",
+      "details": "11 contracts"
+    },
+    {
+      "stage": "3_objective_contracts",
+      "status": "COMPLETED",
+      "details": "11 objectives"
+    },
+    {
+      "stage": "4_allocation_constraints",
+      "status": "COMPLETED",
+      "details": "22 constraints"
+    },
+    {
+      "stage": "5_solvers_outputs_metrics",
+      "status": "COMPLETED",
+      "details": "Solvers & metrics in contract mode"
+    },
+    {
+      "stage": "6_dependencies_guards",
+      "status": "COMPLETED",
+      "details": "All guards active"
+    },
+    {
+      "stage": "7_disabled_execution_reports",
+      "status": "COMPLETED",
+      "details": "10 execution lock reports active"
+    },
+    {
+      "stage": "8_findings_scoring_manifest",
+      "status": "COMPLETED",
+      "details": "Score: 1.00"
+    },
+    {
+      "stage": "9_health_validation_handoff",
+      "status": "COMPLETED",
+      "details": "Phase 155 handoff sealed"
+    }
+  ]
+}

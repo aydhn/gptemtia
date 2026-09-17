@@ -1,0 +1,8 @@
+{
+  "domain": "go_no_go_boundary_domain",
+  "total_rules": 30,
+  "go_count": 4,
+  "no_go_count": 26,
+  "zero_trust_enforced": true,
+  "status": "portfolio_acceptance_ready"
+}

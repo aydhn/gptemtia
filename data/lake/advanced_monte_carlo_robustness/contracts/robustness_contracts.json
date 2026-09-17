@@ -1,0 +1,7 @@
+{
+  "domain": "robustness_contract_domain",
+  "total_contracts": 9,
+  "all_contracts_valid": true,
+  "all_executions_blocked": true,
+  "status": "monte_carlo_contract_ready"
+}

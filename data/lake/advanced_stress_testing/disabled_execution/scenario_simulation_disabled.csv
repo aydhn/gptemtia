@@ -1,0 +1,2 @@
+execution_name,prohibited_reason,blocked_actions,is_blocked,enforced,non_signal,local_only
+scenario_simulation_execution,Phase 148 is scenario contract layer; real scenario simulation is prohibited.,"simulate_scenario, run_scenario, execute_scenario_simulation",True,True,True,True

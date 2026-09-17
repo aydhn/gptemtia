@@ -1,0 +1,2 @@
+capability,execution_allowed,policy_reference,status,description
+ml_model_training,False,POLICY_PHASE_149_ZERO_TRAINING,execution_blocked_no_model_training,"Prohibits fitting supervised, unsupervised, or RL models during robustness evaluations."

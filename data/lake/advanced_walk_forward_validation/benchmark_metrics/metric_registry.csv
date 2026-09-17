@@ -1,0 +1,6 @@
+metric_name,metric_category,description,formula_spec,benchmark_relative,metric_calculated,performance_claim_generated,non_signal
+alpha_placeholder,RELATIVE_PERFORMANCE,Stratejinin benchmark getirisinden arindirilmis fazla getiri formulu yer tutucusu.,Alpha = R_strategy - (R_f + Beta * (R_benchmark - R_f)),True,False,False,True
+beta_placeholder,SYSTEMATIC_RISK,Stratejinin benchmark hareketlerine duyarliligini olcen formul yer tutucusu.,"Beta = Cov(R_strategy, R_benchmark) / Var(R_benchmark)",True,False,False,True
+information_ratio_placeholder,ACTIVE_RISK_ADJUSTED,Aktif getirinin takip hatasina orani formulu yer tutucusu.,IR = (Mean(R_strategy - R_benchmark)) / Std(R_strategy - R_benchmark),True,False,False,True
+tracking_error_placeholder,BENCHMARK_DIVERGENCE,Strateji ile benchmark arasindaki getiri farkinin standart sapmasi formulu yer tutucusu.,TE = Std(R_strategy - R_benchmark) * sqrt(252),True,False,False,True
+benchmark_relative_performance_placeholder,CUMULATIVE_SPREAD,Kümülatif strateji getirisinin kümülatif benchmark getirisinden farki.,RelativePerf = CumReturn_strategy - CumReturn_benchmark,True,False,False,True

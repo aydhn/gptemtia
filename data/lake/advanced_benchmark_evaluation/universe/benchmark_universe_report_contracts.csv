@@ -1,0 +1,6 @@
+universe_id,asset_class,sub_class,universe_name,symbol_count,symbols_str,primary_benchmark,description,execution_allowed,trading_allowed,status,non_signal
+UNIV_COMMODITY_ENERGY,commodity,energy,Commodity Energy Benchmark Universe,3,"BRENT,WTI,NATGAS",BRENT_CRUDE_CONTINUOUS,Ham petrol ve doğal gaz gösterge evreni.,False,False,evaluation_contract_ready,True
+UNIV_COMMODITY_METALS_PRECIOUS,commodity,precious_metals,Precious Metals Benchmark Universe,3,"XAU_USD,XAG_USD,PLATINUM",GOLD_USD_SPOT,Altın ve gümüş değerli maden gösterge evreni.,False,False,evaluation_contract_ready,True
+UNIV_COMMODITY_METALS_BASE,commodity,industrial_metals,Industrial Metals Benchmark Universe,3,"COPPER,ALUMINUM,ZINC",LME_COPPER_CASH,Endüstriyel baz metaller gösterge evreni.,False,False,evaluation_contract_ready,True
+UNIV_FX_MAJORS,fx,major_pairs,FX Major Pairs Benchmark Universe,4,"EUR_USD,GBP_USD,USD_JPY,USD_CHF",DXY_DOLLAR_INDEX,Başlıca döviz çiftleri ve dolar endeksi gösterge evreni.,False,False,evaluation_contract_ready,True
+UNIV_FX_COMMODITY_CURRENCIES,fx,commodity_currencies,FX Commodity Currencies Benchmark Universe,4,"AUD_USD,USD_CAD,NZD_USD,USD_NOK",EQUAL_WEIGHT_COMMODITY_FX_BASKET,Emtia bağlantılı para birimleri gösterge evreni.,False,False,evaluation_contract_ready,True

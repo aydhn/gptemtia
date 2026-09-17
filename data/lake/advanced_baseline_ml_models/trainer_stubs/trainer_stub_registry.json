@@ -1,0 +1,13 @@
+{
+  "total_trainer_stubs": 10,
+  "all_stubs_active": true,
+  "all_active_stubs": true,
+  "all_real_training_blocked": true,
+  "all_model_fit_blocked": true,
+  "all_fit_blocked": true,
+  "all_predict_blocked": true,
+  "all_manual_review_required": true,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false
+}

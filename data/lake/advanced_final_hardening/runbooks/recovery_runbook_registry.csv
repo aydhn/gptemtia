@@ -1,0 +1,4 @@
+procedure_id,title,steps,destructive,domain,non_signal,local_only,dry_run,non_production,current_phase,status
+safe_reinit,Güvenli Yeniden Başlatma,Python sürecini kapatıp `python -m scripts.run_final_hardening_health_check` ile yeniden başlatın.,False,recovery_domain,True,True,True,True,159,operator_runbook_contract_ready
+manifest_rebuild,Manifest Yeniden Oluşturma,Tüm registry'leri pipeline üzerinden save=True ile yeniden oluşturun; kaynak veriye dokunulmaz.,False,recovery_domain,True,True,True,True,159,operator_runbook_contract_ready
+docs_rebuild,Dokümantasyon Yeniden Derleme,Dokümantasyon çıktılarını betikler üzerinden yeniden üretin.,False,recovery_domain,True,True,True,True,159,operator_runbook_contract_ready

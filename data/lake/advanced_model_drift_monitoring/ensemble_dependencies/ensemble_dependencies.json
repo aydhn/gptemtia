@@ -1,0 +1,21 @@
+{
+  "status": "satisfied",
+  "total_checks": 2,
+  "all_satisfied": true,
+  "dependencies": [
+    {
+      "dependency": "phase_140_ensemble_registry",
+      "required_phase": 140,
+      "contract_type": "ensemble_model_registry",
+      "status": "satisfied",
+      "source_module": "advanced_ensemble_model_registry.ensemble_contracts"
+    },
+    {
+      "dependency": "phase_140_stacking_blending_contracts",
+      "required_phase": 140,
+      "contract_type": "ensemble_blending_governance",
+      "status": "satisfied",
+      "source_module": "advanced_ensemble_model_registry.stacking_blending_contracts"
+    }
+  ]
+}

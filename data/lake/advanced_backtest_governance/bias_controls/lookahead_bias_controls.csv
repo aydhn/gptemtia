@@ -1,0 +1,6 @@
+control_id,name,description,enforcement,strictness,status,execution_allowed,non_signal,local_only,phase
+LKB_01_TIMESTAMP_CHRONOLOGY,timestamp_chronological_integrity,Strict verification that features and signals at timestamp T only access data strictly prior to or at T.,BLOCKING_ZERO_TOLERANCE,absolute_zero_tolerance,ACTIVE,False,True,True,150
+LKB_02_NO_NEGATIVE_SHIFTS,negative_shift_prohibition,Prohibit shift(-1) or future bar lookahead indexing in feature definitions and targets.,BLOCKING_ZERO_TOLERANCE,absolute_zero_tolerance,ACTIVE,False,True,True,150
+LKB_03_EXECUTION_LAG_MANDATE,execution_lag_policy,Mandate minimum 1-bar execution delay: orders triggered on bar T close can only execute on T+1 open.,BLOCKING_MANDATORY,absolute_zero_tolerance,ACTIVE,False,True,True,150
+LKB_04_ASOF_JOIN_EXPANSION,macro_event_asof_join_validation,Cross-domain macro and calendar joins must use backwards as-of joins with release lag awareness.,BLOCKING_MANDATORY,absolute_zero_tolerance,ACTIVE,False,True,True,150
+LKB_05_NO_FORWARD_AGGREGATIONS,centered_and_forward_window_prohibition,Rolling calculations must use closed='left' or trailing windows; centered rolling windows are forbidden.,BLOCKING_ZERO_TOLERANCE,absolute_zero_tolerance,ACTIVE,False,True,True,150

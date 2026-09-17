@@ -1,0 +1,4 @@
+ci_method,confidence_level,lower_percentile,upper_percentile,description,profile_name,current_phase,calculated,lower_bound_value,upper_bound_value,status,domain
+percentile_bootstrap_ci,0.95,2.5,97.5,Standard empirical percentile confidence interval bounds.,balanced_local_monte_carlo_robustness_contracts,149,False,,,monte_carlo_contract_ready,confidence_interval_placeholder_domain
+bca_bias_corrected_accelerated_ci,0.95,2.5,97.5,Efron BCa interval adjusting for skewness and median bias in return distributions.,balanced_local_monte_carlo_robustness_contracts,149,False,,,monte_carlo_contract_ready,confidence_interval_placeholder_domain
+conservative_tail_ci,0.95,0.5,99.5,99% coverage interval for tail-risk and catastrophic drawdown bounds.,balanced_local_monte_carlo_robustness_contracts,149,False,,,monte_carlo_contract_ready,confidence_interval_placeholder_domain

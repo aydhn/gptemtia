@@ -1,0 +1,10 @@
+{
+  "handoff_id": "handoff_phase_140_to_phase_141",
+  "current_phase": 140,
+  "next_phase": 141,
+  "next_phase_title": "Probability Calibration and Uncertainty Estimation",
+  "handoff_status": "READY_FOR_PHASE_141",
+  "is_valid": true,
+  "non_signal": true,
+  "dry_run": true
+}

@@ -1,0 +1,9 @@
+{
+  "domain": "metric_claim_boundary_domain",
+  "total_boundaries": 6,
+  "status": "governance_contract_ready",
+  "all_metrics_blocked": true,
+  "all_calculations_disabled": true,
+  "non_signal": true,
+  "local_only": true
+}

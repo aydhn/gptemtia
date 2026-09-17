@@ -1,0 +1,2 @@
+component_name,prohibited_actions,enforcement_mechanism,is_disabled,status,current_phase,target_final_phase,next_phase
+limit_alerting_service,"['generate_alert', 'send_alert', 'broadcast_alert']",STRICT_SAFETY_GATE_ALERTING_BLOCKED,True,execution_contract_only,155,160,156

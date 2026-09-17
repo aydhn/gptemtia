@@ -1,0 +1,12 @@
+linkage_key,experiment_id,candidate_family,offline_tracking_only,external_server_connected,mlflow_synced,wandb_synced,non_signal
+linear_candidate,EXP-140-50128a58131f9294,linear_candidate,True,False,False,False,True
+ridge_lasso_candidate,EXP-140-ed5e9df40d5b1f7a,ridge_lasso_candidate,True,False,False,False,True
+random_forest_candidate,EXP-140-836a2e6a06e44678,random_forest_candidate,True,False,False,False,True
+extra_trees_candidate,EXP-140-73dd078c1589be62,extra_trees_candidate,True,False,False,False,True
+lightgbm_candidate,EXP-140-e690ee3c97683e79,lightgbm_candidate,True,False,False,False,True
+xgboost_candidate,EXP-140-27b9e81168322303,xgboost_candidate,True,False,False,False,True
+catboost_candidate,EXP-140-91721ed7c34fe35c,catboost_candidate,True,False,False,False,True
+mlp_candidate,EXP-140-04bfd60eb1cd2ffb,mlp_candidate,True,False,False,False,True
+temporal_conv_candidate,EXP-140-0f165f9f59d8baf6,temporal_conv_candidate,True,False,False,False,True
+unsupervised_anomaly_candidate,EXP-140-c8e0d975734ac3e5,unsupervised_anomaly_candidate,True,False,False,False,True
+ensemble_meta_contract,EXP-140-ENS-aaa0a2f84fc66fab,all_candidates_ensemble,True,False,False,False,True

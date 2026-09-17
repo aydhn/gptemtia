@@ -1,0 +1,11 @@
+gate_id,phase_ref,topic,requirement,status,current_phase,target_final_phase,next_phase,manual_review_required,status_label,non_signal,production_ready,broker_ready
+MRG-136,Phase 136,phase_136_runtime_review_gate,Inspect hardware discovery outputs and accelerator memory constraints.,PENDING_REVIEW,145,160,146,True,acceptance_manual_review_required,True,False,False
+MRG-137,Phase 137,phase_137_dataset_contract_review_gate,"Audit dataset schemas, experiment run plans, and feature namespaces.",PENDING_REVIEW,145,160,146,True,acceptance_manual_review_required,True,False,False
+MRG-138,Phase 138,phase_138_baseline_contract_review_gate,Review baseline model family contracts and dry-run harness specifications.,PENDING_REVIEW,145,160,146,True,acceptance_manual_review_required,True,False,False
+MRG-139,Phase 139,phase_139_resource_governance_review_gate,"Verify device memory limits, timeout guards, and execution block rules.",PENDING_REVIEW,145,160,146,True,acceptance_manual_review_required,True,False,False
+MRG-140,Phase 140,phase_140_ensemble_contract_review_gate,"Inspect ensemble candidate models, eligibility gates, and weighting contracts.",PENDING_REVIEW,145,160,146,True,acceptance_manual_review_required,True,False,False
+MRG-141,Phase 141,phase_141_calibration_uncertainty_review_gate,Review calibration scaling curves and uncertainty quantile intervals.,PENDING_REVIEW,145,160,146,True,acceptance_manual_review_required,True,False,False
+MRG-142,Phase 142,phase_142_drift_monitoring_review_gate,"Audit drift metrics, reference window sizes, and statistical thresholds.",PENDING_REVIEW,145,160,146,True,acceptance_manual_review_required,True,False,False
+MRG-143,Phase 143,phase_143_explainability_review_gate,Verify SHAP/LIME explanation contracts and feature attribution schemas.,PENDING_REVIEW,145,160,146,True,acceptance_manual_review_required,True,False,False
+MRG-144,Phase 144,phase_144_governance_model_card_review_gate,"Examine model cards, risk registers, and approval boundary documentation.",PENDING_REVIEW,145,160,146,True,acceptance_manual_review_required,True,False,False
+MRG-146,Phase 146,phase_146_backtest_boundary_review_gate,"Validate transaction cost, slippage, and non-live backtest boundaries prior to Phase 146.",PENDING_REVIEW,145,160,146,True,acceptance_manual_review_required,True,False,False

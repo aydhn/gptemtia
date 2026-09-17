@@ -1,0 +1,8 @@
+{
+  "total_checks": 4,
+  "all_passed": true,
+  "all_dry_run": true,
+  "current_phase": 139,
+  "non_signal": true,
+  "active_profile": "balanced_local_gpu_training_governance"
+}

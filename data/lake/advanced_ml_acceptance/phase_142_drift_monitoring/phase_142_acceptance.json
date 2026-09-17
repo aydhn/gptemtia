@@ -1,0 +1,11 @@
+{
+  "domain": "phase_142_drift_monitoring_acceptance_domain",
+  "active_profile": "balanced_local_advanced_ml_acceptance",
+  "phase_ref": "Phase 142",
+  "phase_title": "Model Drift Monitoring and Data/Feature Drift Linkage",
+  "total_checks": 8,
+  "passed_checks": 8,
+  "all_passed": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

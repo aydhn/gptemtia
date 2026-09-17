@@ -1,0 +1,7 @@
+check_name,passed,issues_count,issues,non_signal
+profile_registry_validation,True,0,None,True
+engine_contracts_validation,True,0,None,True
+cost_slippage_contracts_validation,True,0,None,True
+guards_validation,True,0,None,True
+manifest_validation,True,0,None,True
+forbidden_claims_scan,True,0,None,True

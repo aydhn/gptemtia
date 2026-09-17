@@ -1,0 +1,6 @@
+{
+  "total_data_contracts": 2,
+  "point_in_time_enforced": true,
+  "monotonic_timestamp_enforced": true,
+  "non_signal": true
+}

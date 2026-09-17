@@ -1,0 +1,12 @@
+{
+  "total_output_contracts": 10,
+  "all_predictions_prohibited": true,
+  "all_probabilities_prohibited": true,
+  "all_class_labels_prohibited": true,
+  "all_regression_prohibited": true,
+  "all_trade_signals_prohibited": true,
+  "all_metrics_prohibited": true,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false
+}

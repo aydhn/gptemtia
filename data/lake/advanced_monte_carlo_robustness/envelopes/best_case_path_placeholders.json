@@ -1,0 +1,7 @@
+{
+  "domain": "robustness_envelope_placeholder_domain",
+  "total_best_case_selectors": 2,
+  "all_uncalculated": true,
+  "profile_name": "balanced_local_monte_carlo_robustness_contracts",
+  "status": "monte_carlo_contract_ready"
+}

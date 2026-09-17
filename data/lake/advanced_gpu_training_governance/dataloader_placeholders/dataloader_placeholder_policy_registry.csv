@@ -1,0 +1,4 @@
+policy_id,policy_name,shuffle_allowed,num_workers_placeholder,pin_memory_placeholder,reads_real_data,dry_run_only,non_signal,description,status
+DL_POL_001,sequential_time_series_dataloader_placeholder,False,0,False,False,True,True,Chronological sequential iteration placeholder strictly forbidding shuffling to avoid lookahead.,gpu_governance_ready
+DL_POL_002,purged_walk_forward_dataloader_placeholder,False,0,False,False,True,True,Purged walk-forward split iteration contract for future cross-validation phases.,gpu_governance_ready
+DL_POL_003,zero_copy_in_memory_dataloader_placeholder,False,0,False,False,True,True,Zero-copy in-memory placeholder policy enforcing non-disk serialization constraints.,gpu_governance_ready

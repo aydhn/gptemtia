@@ -1,0 +1,4 @@
+policy_name,description,selection_executed,execution_blocked,score_is_signal,score_is_performance,non_signal,source_preserved,manual_review_required
+diversity_based_selection_policy,Candidate selection policy requiring model family diversity (execution blocked).,False,True,False,False,True,True,True
+stability_based_selection_policy,Candidate selection policy evaluating cross-validation stability (execution blocked).,False,True,False,False,True,True,True
+resource_constrained_selection_policy,Candidate selection policy bounded by Phase 139 GPU memory limits (execution blocked).,False,True,False,False,True,True,True

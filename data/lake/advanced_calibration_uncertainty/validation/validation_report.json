@@ -1,0 +1,9 @@
+{
+  "validation_status": "VALID",
+  "total_checks": 12,
+  "passed_checks": 12,
+  "failed_checks": 0,
+  "all_passed": true,
+  "forbidden_claims_clean": true,
+  "non_signal": true
+}

@@ -1,0 +1,8 @@
+{
+  "total_review_items": 8,
+  "high_priority_count": 4,
+  "all_non_destructive": true,
+  "current_phase": 139,
+  "non_signal": true,
+  "active_profile": "balanced_local_gpu_training_governance"
+}

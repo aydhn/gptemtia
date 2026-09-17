@@ -1,0 +1,5 @@
+audit_id,event_type,description,actor,dry_run_only,real_audit_log,production_approved,broker_ready_approved,live_trading_approved,phase
+AUD-01,contract_registration,Baseline model contract registered in offline registry.,system_governance,True,False,False,False,False,144
+AUD-02,model_card_template_instantiation,Model card template instantiated with standard 12 sections.,system_governance,True,False,False,False,False,144
+AUD-03,boundary_check_enforced,Production approval and live trading blocked by policy.,security_boundary,True,False,False,False,False,144
+AUD-04,readiness_evaluation,Readiness score computed across validation dependencies.,governance_evaluator,True,False,False,False,False,144

@@ -1,0 +1,5 @@
+{
+  "output_contract_name": "allocation_output_contract",
+  "zero_capital_allocation": true,
+  "contract_ready": true
+}

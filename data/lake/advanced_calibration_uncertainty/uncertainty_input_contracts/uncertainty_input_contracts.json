@@ -1,0 +1,11 @@
+{
+  "total_inputs": 3,
+  "inputs": [
+    "candidate_predictions_uncertainty_input",
+    "calibrated_scores_uncertainty_input",
+    "featurestore_uncertainty_feature_input"
+  ],
+  "all_zero_target": true,
+  "all_zero_prediction": true,
+  "all_non_signal": true
+}

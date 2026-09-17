@@ -1,0 +1,5 @@
+commission_model_name,category,description,formula,default_value,currency,execution_allowed,is_active,non_signal
+fixed_per_lot_commission,PER_LOT,Her kontrat veya lot basina sabit komisyon tutari (orn: $2.00 / lot).,lots * fixed_cost_per_lot,2.0,USD,False,True,True
+percentage_bps_commission,PERCENTAGE_BPS,Islem nosyonel degeri uzerinden baz puan (bps) oraninda komisyon (orn: 2 bps).,notional_value * (bps / 10000.0),2.0,USD,False,True,True
+tiered_volume_commission,TIERED,Aylik islem hacmine gore kademeli azalan komisyon baremi sozlesmesi.,piecewise_volume_tier(monthly_volume),1.5,USD,False,True,True
+minimum_ticket_commission,MINIMUM_FEE,Islem basina asgari komisyon bariyeri (orn: min $1.00 per trade).,"max(calculated_commission, min_ticket_fee)",1.0,USD,False,True,True

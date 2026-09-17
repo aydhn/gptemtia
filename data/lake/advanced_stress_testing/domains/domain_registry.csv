@@ -1,0 +1,32 @@
+domain_name,description,non_signal,local_only,non_production,current_phase,target_final_phase
+stress_testing_profile_domain,Stres testi profili ve isletim ayarlari alani.,True,True,True,148,160
+stress_testing_domain,Genel yerel stres testi sozlesme alani.,True,True,True,148,160
+stress_testing_scope_domain,Stres testi arastirma ve guvenlik kapsami alani.,True,True,True,148,160
+stress_scenario_contract_domain,Stres senaryo sozlesmeleri cekirdek alani.,True,True,True,148,160
+historical_scenario_contract_domain,Tarihsel kriz senaryo sozlesmeleri alani.,True,True,True,148,160
+hypothetical_scenario_contract_domain,Varsayimsal kriz senaryo sozlesmeleri alani.,True,True,True,148,160
+regime_shock_domain,Rejim kirilma ve gecis soku sozlesmeleri alani.,True,True,True,148,160
+volatility_shock_domain,Volatilite patlamasi ve sok sozlesmeleri alani.,True,True,True,148,160
+liquidity_shock_domain,Likidite kurakligi ve derinlik kaybi sozlesmeleri alani.,True,True,True,148,160
+spread_widening_domain,Spread genislemesi ve alis-satis sok sozlesmeleri alani.,True,True,True,148,160
+gap_risk_placeholder_domain,Fiyat boslugu ve seans gecis risk yer tutucu alani.,True,True,True,148,160
+correlation_breakdown_placeholder_domain,Korelasyon kirilmasi ve baglilik cokus yer tutucu alani.,True,True,True,148,160
+macro_shock_placeholder_domain,"Faiz, enflasyon ve makro sok yer tutucu alani.",True,True,True,148,160
+cross_asset_contagion_placeholder_domain,Capraz varlik bulasma yer tutucu alani.,True,True,True,148,160
+execution_disruption_placeholder_domain,Iletim aksamasi ve emir ret yer tutucu alani.,True,True,True,148,160
+transaction_cost_shock_domain,Stres komisyon ve islem maliyet soku alani.,True,True,True,148,160
+slippage_shock_domain,Stres kayma (slippage) soku sozlesme alani.,True,True,True,148,160
+stress_metric_placeholder_domain,Stres performans ve risk metrik yer tutucu alani.,True,True,True,148,160
+scenario_metric_placeholder_domain,Senaryo metrik yer tutucu alani.,True,True,True,148,160
+robustness_metric_placeholder_domain,Saglamlik metrik yer tutucu alani.,True,True,True,148,160
+output_contract_domain,Stres cikti sema ve sozlesme alani.,True,True,True,148,160
+dependency_domain,Onceki faz ve altyapi bagimliliklari alani.,True,True,True,148,160
+bias_guard_domain,"Lookahead, yanlilik ve sizinti muhafizlari alani.",True,True,True,148,160
+disabled_execution_domain,Devre disi birakilmis gercek yurutme guvenceleri alani.,True,True,True,148,160
+finding_domain,Stres testi yonetisim bulgulari alani.,True,True,True,148,160
+readiness_score_domain,Teshis hazirlik skoru alani.,True,True,True,148,160
+manifest_domain,Master stres testi butunluk manifestosu alani.,True,True,True,148,160
+health_domain,Sistem ve bagimlilik saglik denetimi alani.,True,True,True,148,160
+validation_domain,Sozlesme dogrulama ve guvenlik denetim alani.,True,True,True,148,160
+safety_domain,"Guvenlik sinirlari, NO-GO ve SAFE-GO ilkeleri alani.",True,True,True,148,160
+phase_149_handoff_domain,Phase 149 Monte Carlo saglamlik devir paketi alani.,True,True,True,148,160

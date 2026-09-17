@@ -1,0 +1,6 @@
+source_phase,dependency_name,status,description,non_signal,production_ready,broker_ready
+123,feature_quality_drift_diagnostics,SATISFIED,Phase 123 feature quality and drift monitoring readiness,True,False,False
+124,feature_store_quality_metadata,SATISFIED,Phase 124 catalog quality scores and namespace integrity,True,False,False
+136,gpu_ml_runtime_readiness,SATISFIED,Phase 136 hardware capabilities and snapshot health,True,False,False
+137,ml_dataset_readiness_score,SATISFIED,Phase 137 dataset contract readiness compliance,True,False,False
+138,manual_review_blocker_check,SATISFIED,Phase 138 manual inspection blockers resolved,True,False,False

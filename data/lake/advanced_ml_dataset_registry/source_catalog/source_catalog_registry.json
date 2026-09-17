@@ -1,0 +1,9 @@
+{
+  "total_sources": 21,
+  "current_phase": 137,
+  "all_metadata_reference_only": true,
+  "non_signal": true,
+  "materialized": false,
+  "contains_target": false,
+  "status": "READY"
+}

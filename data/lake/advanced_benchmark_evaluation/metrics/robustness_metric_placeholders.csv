@@ -1,0 +1,5 @@
+metric_name,category,formula_spec,target_role,description,is_calculated,actual_value,performance_claim_allowed,status,non_signal
+oos_stability_placeholder,out_of_sample_stability,oos_annualized_return / is_annualized_return,oos_retention_ratio_hypothesis,Örneklem dışı performansın örneklem içine oranı yer tutucusu (hesaplanmamış).,False,,False,evaluation_contract_ready,True
+stress_resilience_placeholder,stress_resilience,min_nav_under_stress / baseline_nav,capital_preservation_under_shock_hypothesis,Kriz senaryoları altındaki sermaye erozyonu yer tutucusu (hesaplanmamış).,False,,False,evaluation_contract_ready,True
+monte_carlo_robustness_placeholder,resampling_stability,5th_percentile_drawdown / median_drawdown,bootstrap_worst_case_ratio_hypothesis,Monte Carlo yeniden örneklemesindeki en kötü %5'lik yol oranı yer tutucusu (hesaplanmamış).,False,,False,evaluation_contract_ready,True
+parameter_stability_placeholder,parameter_sensitivity,min(perturbed_returns) / nominal_return,plateau_fragility_ratio_hypothesis,Parametre pertürbasyonlarında performansın korunma oranı yer tutucusu (hesaplanmamış).,False,,False,evaluation_contract_ready,True

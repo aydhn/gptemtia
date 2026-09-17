@@ -1,0 +1,4 @@
+rdep_id,name,phase_ref,role,phase,status,non_signal
+RDEP-01,gpu_ml_runtime_foundation,Phase 136,CUDA/DirectML hardware discovery and fallback abstraction.,144,SATISFIED,True
+RDEP-02,gpu_resource_governance,Phase 139,"VRAM budget limiters, memory monitoring, and timeout policies.",144,SATISFIED,True
+RDEP-03,local_dry_run_environment,Phase 144,Offline mock execution harness with zero network requirements.,144,SATISFIED,True

@@ -1,0 +1,4 @@
+item_id,risk_component,status,execution_allowed,verified
+RRI-001,risk_limits_monitoring,INTEGRATED,False,True
+RRI-002,exposure_attribution,INTEGRATED,False,True
+RRI-003,risk_reporting_engine,INTEGRATED,False,True

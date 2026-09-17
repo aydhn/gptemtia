@@ -1,0 +1,5 @@
+Bu çıktı Phase 149 Monte Carlo Robustness and Parameter Stability raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, Monte Carlo/readiness/robustness/parameter-stability değerini trade sinyali veya onay olarak kullanma, simülasyon/optimizasyon yürütme, backtest çalıştırma veya gerçek metrik hesaplama içermez. Yalnızca yerel araştırma sözleşmesidir.
+Manifest ID: MANIFEST_PHASE_149_MONTE_CARLO_ROBUSTNESS
+Current Phase: 149 | Next Phase: 150 | Target Final Phase: 160
+Monte Carlo Executed: False | Optimizer Executed: False
+Phase 150 Handoff Ready: True

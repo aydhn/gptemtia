@@ -1,0 +1,5 @@
+contract_key,description,enforced,current_phase,next_phase,non_signal,manual_review_required
+no_model_registry_write_contract,Strict prohibition of registering or publishing trained model weights,True,137,138,True,True
+no_dataset_materialization_contract,Strict prohibition of materializing physical parquet/csv training tables,True,137,138,True,True
+no_feature_snapshot_materialization_contract,Strict prohibition of writing materialized feature snapshot stores,True,137,138,True,True
+no_binary_model_artifact_contract,"Strict prohibition of generating pickle, joblib, onnx, or torchpt artifacts",True,137,138,True,True

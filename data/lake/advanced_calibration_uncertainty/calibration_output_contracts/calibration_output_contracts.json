@@ -1,0 +1,11 @@
+{
+  "total_outputs": 2,
+  "outputs": [
+    "calibration_contract_status_output",
+    "calibration_safety_block_output"
+  ],
+  "all_zero_probabilities": true,
+  "all_zero_confidence": true,
+  "all_zero_signals": true,
+  "all_non_signal": true
+}

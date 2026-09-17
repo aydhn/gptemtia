@@ -1,0 +1,7 @@
+{
+  "report_name": "candidate_model_prediction_disabled_report",
+  "phase": 140,
+  "status": "CANDIDATE_PREDICTION_BLOCKED_BY_POLICY",
+  "prediction_disabled": true,
+  "non_signal": true
+}

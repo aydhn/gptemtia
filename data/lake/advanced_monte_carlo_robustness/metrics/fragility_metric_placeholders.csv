@@ -1,0 +1,3 @@
+metric_name,formula_definition,interpretation,profile_name,current_phase,calculated,value,status,domain
+parameter_fragility_score_placeholder,Fragility = (Metric(theta - h) + Metric(theta + h) - 2 * Metric(theta)) / (h^2),Negative second derivative indicates concave downside vulnerability (fragility).,balanced_local_monte_carlo_robustness_contracts,149,False,,monte_carlo_contract_ready,distribution_placeholder_domain
+tail_risk_acceleration_placeholder,Acceleration = d(CVaR) / d(Stress_Level),Non-linear acceleration of tail losses under increasing stress increments.,balanced_local_monte_carlo_robustness_contracts,149,False,,monte_carlo_contract_ready,distribution_placeholder_domain

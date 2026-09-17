@@ -1,0 +1,13 @@
+check_name,status,non_signal,phase
+current_phase_is_141,PASS,True,141
+target_final_phase_is_160,PASS,True,141
+next_phase_is_142,PASS,True,141
+local_dry_run_non_production,PASS,True,141
+zero_trading_zero_broker_zero_order,PASS,True,141
+zero_training_zero_fit_zero_predict,PASS,True,141
+zero_probability_zero_calibration_fit,PASS,True,141
+zero_uncertainty_zero_prediction_interval,PASS,True,141
+zero_materialization_zero_artifacts,PASS,True,141
+zero_full_text_zero_embeddings_zero_sentiment,PASS,True,141
+source_preservation_strict,PASS,True,141
+no_production_ready_no_broker_ready_claims,PASS,True,141

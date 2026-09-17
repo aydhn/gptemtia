@@ -1,0 +1,34 @@
+rule_id,rule_type,description,enforced
+no_live_trading,NO-GO,Live order placement and exchange connectivity are strictly prohibited,True
+no_broker_integration,NO-GO,Broker API integration and execution routing are strictly prohibited,True
+no_real_order,NO-GO,Creation or sending of real orders is strictly prohibited,True
+no_investment_advice,NO-GO,Generating financial or investment advice is strictly prohibited,True
+no_signal_generation,NO-GO,AL/SAT or directional trade signal generation is strictly prohibited,True
+no_directional_certainty,NO-GO,Directional market return claims are strictly prohibited,True
+no_dataset_materialization,NO-GO,Real dataset materialization to disk is prohibited,True
+no_feature_snapshot_materialization,NO-GO,Real feature snapshot materialization to disk is prohibited,True
+no_strategy_backtest_optimizer,NO-GO,"Running backtest, optimizer, or strategy engine is prohibited",True
+no_real_model_training,NO-GO,Real machine learning model training is strictly prohibited,True
+no_model_fit,NO-GO,Executing model .fit() calls is strictly prohibited,True
+no_model_predict,NO-GO,Executing model .predict() calls is strictly prohibited,True
+no_model_inference,NO-GO,Forward pass inference execution is strictly prohibited,True
+no_model_transform,NO-GO,Executing state transform calls is strictly prohibited,True
+no_clustering_or_unsupervised_execution,NO-GO,Running unsupervised clustering algorithms is prohibited,True
+no_target_label_generation,NO-GO,Generating target labels or future returns is strictly prohibited,True
+no_metric_calculation,NO-GO,"Computing actual performance metrics (accuracy, F1, RMSE) is prohibited",True
+no_sentiment_model_output,NO-GO,Running sentiment NLP models or outputs is strictly prohibited,True
+no_full_article_usage,NO-GO,"Using full article text, body text, or scraped HTML is strictly prohibited",True
+no_embedding_vector_generation,NO-GO,Generating embeddings or vector database items is prohibited,True
+no_artifact_persistence,NO-GO,"Saving binary weights, pickles, or model files is strictly prohibited",True
+no_model_registry_write,NO-GO,Writing to model registries or MLflow is strictly prohibited,True
+no_official_approval_claim,NO-GO,Claiming official approval or production readiness is prohibited,True
+no_source_overwrite,NO-GO,Overwriting or deleting source data files is strictly prohibited,True
+safe_local_baseline_contracts,SAFE-GO,Generating local baseline ML model contract specifications,True
+safe_baseline_family_metadata,SAFE-GO,Registering baseline model algorithm family metadata,True
+safe_dry_run_harness_contracts,SAFE-GO,Establishing dry-run training harness contracts and rules,True
+safe_dry_run_trainer_stubs,SAFE-GO,Providing safe trainer stubs that return blocked execution status,True
+safe_disabled_execution_reports,SAFE-GO,Generating reports verifying that training and predictions are disabled,True
+safe_metric_evaluation_placeholders,SAFE-GO,Defining metric and evaluation placeholders without computing values,True
+safe_input_metadata_references,SAFE-GO,Referencing FeatureStore and regime metadata without materialization,True
+safe_no_lookahead_guards,SAFE-GO,Enforcing strict no-lookahead and metadata-only input guards,True
+safe_phase_139_handoff,SAFE-GO,Documenting prerequisites and resource governance for Phase 139,True

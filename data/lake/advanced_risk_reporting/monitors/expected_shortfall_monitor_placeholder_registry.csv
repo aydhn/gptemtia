@@ -1,0 +1,3 @@
+metric_name,metric_domain,formula_description,unit,is_placeholder,actual_value,is_calculated,current_phase,target_final_phase,next_phase
+expected_shortfall_95_placeholder,expected_shortfall,ES_95 = -E[r_p | r_p <= -VaR_95],ratio_to_nav,True,,False,155,160,156
+expected_shortfall_99_placeholder,expected_shortfall,ES_99 = -E[r_p | r_p <= -VaR_99],ratio_to_nav,True,,False,155,160,156

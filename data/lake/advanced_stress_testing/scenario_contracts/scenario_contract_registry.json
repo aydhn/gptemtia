@@ -1,0 +1,12 @@
+{
+  "total_contracts": 9,
+  "all_stress_execution_blocked": true,
+  "all_scenario_simulation_blocked": true,
+  "all_optimizer_blocked": true,
+  "all_live_trading_blocked": true,
+  "all_broker_blocked": true,
+  "all_metric_calculation_blocked": true,
+  "all_signal_generation_blocked": true,
+  "all_manual_review_required": true,
+  "non_signal": true
+}

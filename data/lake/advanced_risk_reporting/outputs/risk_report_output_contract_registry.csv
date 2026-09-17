@@ -1,0 +1,2 @@
+output_name,contract_validation_status,blocked_reason,manual_review_required,actual_report_generated,signal_generated,trading_recommendation,current_phase,target_final_phase,next_phase
+local_risk_report_output_contract,risk_report_contract_ready,execution_contract_only,True,False,False,False,155,160,156

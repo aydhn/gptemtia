@@ -1,0 +1,9 @@
+{
+  "total_stacking_placeholders": 2,
+  "all_execution_blocked": true,
+  "zero_stacking_executed": true,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false,
+  "active_profile": "balanced_local_ensemble_model_contracts"
+}

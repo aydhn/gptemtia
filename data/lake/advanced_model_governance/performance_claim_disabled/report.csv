@@ -1,0 +1,4 @@
+action,is_disabled,reason,status,phase
+performance_claim,True,Model performance claims are prohibited in governance contract phase.,BLOCKED_BY_POLICY,144
+accuracy_metric_claim,True,Predictive accuracy claims are prohibited without live verification.,BLOCKED_BY_POLICY,144
+sharpe_ratio_claim,True,Trading Sharpe ratio claims are prohibited.,BLOCKED_BY_POLICY,144

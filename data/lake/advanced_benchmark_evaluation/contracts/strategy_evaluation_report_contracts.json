@@ -1,0 +1,11 @@
+{
+  "domain": "strategy_evaluation_report_contract_domain",
+  "total_contracts": 9,
+  "all_approvals_disabled": true,
+  "all_capital_allocation_disabled": true,
+  "all_portfolio_construction_disabled": true,
+  "all_signals_disabled": true,
+  "manual_review_required": true,
+  "status": "evaluation_contract_ready",
+  "non_signal": true
+}

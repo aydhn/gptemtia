@@ -1,0 +1,5 @@
+metric_name,category,formula_spec,target_role,description,is_calculated,actual_value,performance_claim_allowed,status,non_signal
+sharpe_placeholder,risk_adjusted_ratio,(annualized_return - risk_free) / annualized_volatility,total_volatility_efficiency_hypothesis,Sharpe oranı yer tutucusu (hesaplanmamış).,False,,False,evaluation_contract_ready,True
+sortino_placeholder,risk_adjusted_ratio,(annualized_return - risk_free) / downside_deviation,downside_volatility_efficiency_hypothesis,Sortino oranı yer tutucusu (hesaplanmamış).,False,,False,evaluation_contract_ready,True
+calmar_placeholder,risk_adjusted_ratio,annualized_return / abs(max_drawdown),drawdown_efficiency_hypothesis,Calmar oranı yer tutucusu (hesaplanmamış).,False,,False,evaluation_contract_ready,True
+omega_ratio_placeholder,risk_adjusted_ratio,gain_probability_integral / loss_probability_integral,probability_threshold_efficiency_hypothesis,Omega oranı yer tutucusu (hesaplanmamış).,False,,False,evaluation_contract_ready,True

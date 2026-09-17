@@ -1,0 +1,9 @@
+{
+  "domain": "finding_domain",
+  "total_findings": 3,
+  "critical_count": 0,
+  "high_count": 0,
+  "manual_review_count": 1,
+  "profile_name": "balanced_local_monte_carlo_robustness_contracts",
+  "status": "monte_carlo_contract_ready"
+}

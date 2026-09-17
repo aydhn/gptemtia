@@ -1,0 +1,16 @@
+{
+  "total_audit_placeholders": 3,
+  "audit_ids": [
+    "calib_uncert_audit_platt_variance_001",
+    "calib_uncert_audit_isotonic_conformal_002",
+    "calib_uncert_audit_temp_dropout_003"
+  ],
+  "all_dry_run": true,
+  "all_zero_prediction": true,
+  "all_zero_calibration": true,
+  "all_zero_uncertainty": true,
+  "all_zero_metric": true,
+  "all_zero_artifact": true,
+  "all_manual_review": true,
+  "all_non_signal": true
+}

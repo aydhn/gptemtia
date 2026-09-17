@@ -1,0 +1,5 @@
+fit_operation,is_fit_disabled,policy,enforcement,non_signal,phase
+platt_scaling_fit,True,PHASE_141_NO_CALIBRATION_FIT,STRICT_BLOCK,True,141
+isotonic_regression_fit,True,PHASE_141_NO_CALIBRATION_FIT,STRICT_BLOCK,True,141
+temperature_scaling_fit,True,PHASE_141_NO_CALIBRATION_FIT,STRICT_BLOCK,True,141
+beta_calibration_fit,True,PHASE_141_NO_CALIBRATION_FIT,STRICT_BLOCK,True,141

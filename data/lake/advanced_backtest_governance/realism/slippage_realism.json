@@ -1,0 +1,9 @@
+{
+  "domain": "realism_governance_domain",
+  "subdomain": "slippage_realism",
+  "total_rules": 3,
+  "zero_slippage_strictly_prohibited": true,
+  "status": "governance_contract_ready",
+  "non_signal": true,
+  "local_only": true
+}

@@ -1,0 +1,12 @@
+{
+  "total_profiles": 3,
+  "profiles": [
+    "balanced_local_calibration_uncertainty_contracts",
+    "strict_non_executing_calibration_safety",
+    "dry_run_uncertainty_governance_focus"
+  ],
+  "active_profile": "balanced_local_calibration_uncertainty_contracts",
+  "all_local_only": true,
+  "all_non_signal": true,
+  "all_zero_execution": true
+}

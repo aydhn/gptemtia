@@ -1,0 +1,10 @@
+{
+  "total_profiles": 3,
+  "active_profile": "balanced_local_stress_testing_contracts",
+  "all_local_only": true,
+  "all_non_production": true,
+  "all_non_signal": true,
+  "zero_broker_ready": true,
+  "zero_production_ready": true,
+  "zero_live_trading_ready": true
+}

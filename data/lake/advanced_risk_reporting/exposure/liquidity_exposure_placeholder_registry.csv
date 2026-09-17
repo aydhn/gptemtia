@@ -1,0 +1,2 @@
+placeholder_name,exposure_type,formula_description,dimension,is_placeholder,is_calculated,current_phase,target_final_phase,next_phase
+days_to_liquidate_placeholder,liquidity,Estimated days to exit position under max participation rate: |w_i|*NAV / (ADV_i * 0.10),days,True,False,155,160,156

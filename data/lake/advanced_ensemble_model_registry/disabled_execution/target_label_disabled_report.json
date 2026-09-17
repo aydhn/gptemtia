@@ -1,0 +1,7 @@
+{
+  "report_name": "candidate_model_target_label_disabled_report",
+  "phase": 140,
+  "status": "TARGET_LABEL_GENERATION_BLOCKED_BY_POLICY",
+  "target_label_generation_disabled": true,
+  "non_signal": true
+}

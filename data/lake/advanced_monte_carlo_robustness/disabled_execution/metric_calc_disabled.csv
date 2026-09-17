@@ -1,0 +1,3 @@
+capability,execution_allowed,policy_reference,status,description
+real_var_calculation,False,POLICY_PHASE_149_ZERO_METRICS,execution_blocked_no_metric_calculation,Prohibits calculating empirical or parametric Value at Risk numbers.
+expected_shortfall_calculation,False,POLICY_PHASE_149_ZERO_METRICS,execution_blocked_no_metric_calculation,Prohibits calculating empirical Expected Shortfall (CVaR).

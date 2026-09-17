@@ -1,0 +1,5 @@
+linkage_id,drift_method,drift_source_ref,description,drift_calculated,is_linkage_contract,non_signal,official_approval,production_ready,broker_ready
+linkage_psi_attribution_shift,population_stability_index,phase_142_drift_monitoring,Attribution distribution shift tracked via PSI placeholder,False,True,True,False,False,False
+linkage_ks_attribution_shift,kolmogorov_smirnov,phase_142_drift_monitoring,Attribution distribution shift tracked via KS placeholder,False,True,True,False,False,False
+linkage_wasserstein_attribution_shift,wasserstein_distance,phase_142_drift_monitoring,Attribution distribution shift tracked via Wasserstein placeholder,False,True,True,False,False,False
+linkage_ranking_inversion_shift,kendall_tau_ranking_inversion,phase_142_drift_monitoring,Top feature ranking inversion drift tracked via Kendall tau placeholder,False,True,True,False,False,False

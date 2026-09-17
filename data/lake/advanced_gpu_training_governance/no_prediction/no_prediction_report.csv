@@ -1,0 +1,4 @@
+check_item,is_disabled,status,details,dry_run,non_signal
+model_predict_disabled,True,PASS_DISABLED,Model.predict and predict_proba methods are disabled.,True,True
+forward_inference_disabled,True,PASS_DISABLED,Neural network forward inference pass is disabled.,True,True
+representation_transform_disabled,True,PASS_DISABLED,"Estimator transform, transform_predict, and embedding projections are disabled.",True,True

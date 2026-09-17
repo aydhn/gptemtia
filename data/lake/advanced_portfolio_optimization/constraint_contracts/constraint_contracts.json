@@ -1,0 +1,6 @@
+{
+  "constraint_count": 22,
+  "all_constraints_placeholders": true,
+  "zero_live_enforcement": true,
+  "zero_weight_generation": true
+}

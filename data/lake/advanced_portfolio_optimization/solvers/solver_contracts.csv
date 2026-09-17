@@ -1,0 +1,4 @@
+solver_name,solver_type,description,supported_objectives_count,is_placeholder,solver_executed,allows_execution,is_disabled,manual_review_required
+convex_solver,convex_quadratic_programming,Konveks kuadratik ve koni programlama arayuzu sozlesmesi,4,True,False,False,False,True
+heuristic_solver,heuristic_evolutionary,"Sezgisel (risk parity, cardinality constrained) arayuz sozlesmesi",3,True,False,False,False,True
+grid_search_solver,grid_search_prohibited,Izgara aramali agirlik tarama cozucusu (KESIN ENGEL),0,True,False,False,True,True

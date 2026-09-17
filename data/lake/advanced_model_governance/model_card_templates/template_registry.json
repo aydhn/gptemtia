@@ -1,0 +1,7 @@
+{
+  "total_templates": 7,
+  "standard_sections_count": 12,
+  "all_dry_run": true,
+  "all_non_production": true,
+  "all_manual_review_required": true
+}

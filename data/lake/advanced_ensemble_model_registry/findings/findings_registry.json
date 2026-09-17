@@ -1,0 +1,11 @@
+{
+  "total_findings": 3,
+  "finding_ids": [
+    "FIND-140-001",
+    "FIND-140-002",
+    "FIND-140-003"
+  ],
+  "all_auto_fix_prohibited": true,
+  "all_non_signal": true,
+  "dry_run": true
+}

@@ -1,0 +1,11 @@
+{
+  "domain": "phase_137_dataset_contract_acceptance_domain",
+  "active_profile": "balanced_local_advanced_ml_acceptance",
+  "phase_ref": "Phase 137",
+  "phase_title": "Advanced ML Dataset Contracts and Experiment Registry",
+  "total_checks": 8,
+  "passed_checks": 8,
+  "all_passed": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

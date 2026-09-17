@@ -1,0 +1,32 @@
+domain_name,category,description,is_active,local_only,non_signal
+realistic_backtest_profile_domain,CONFIGURATION,Backtest profilleri ve guvenlik ayarlari.,True,True,True
+realistic_backtest_domain,FOUNDATION,Gercekci backtest mimarisi temel sozlesmeleri.,True,True,True
+backtest_scope_domain,SCOPE,Backtest kapsam ve sinir tanimlari.,True,True,True
+engine_contract_domain,ENGINE,"Motor sozlesmeleri (event-driven, vectorized, portfolio).",True,True,True
+event_driven_contract_domain,ENGINE,Olay tabanli backtest motor sozlesmesi.,True,True,True
+vectorized_contract_domain,ENGINE,Vektorize matris tabanli backtest sozlesmesi.,True,True,True
+portfolio_contract_domain,ENGINE,Portfoy seviyesi sermaye ve pozisyon yonetimi sozlesmesi.,True,True,True
+order_simulation_domain,EXECUTION,"Emir simule sozlesmeleri (market, limit, stop).",True,True,True
+fill_model_domain,EXECUTION,Emir gerceklesme (fill) modeli sozlesmesi.,True,True,True
+execution_price_model_domain,EXECUTION,Islem fiyati belirleme modeli sozlesmesi.,True,True,True
+commission_model_domain,TRANSACTION_COST,Komisyon hesaplama sozlesmeleri.,True,True,True
+fee_model_domain,TRANSACTION_COST,Borsa ve takas ucreti sozlesmeleri.,True,True,True
+spread_model_domain,TRANSACTION_COST,Alis-satis farki (spread) sozlesmeleri.,True,True,True
+slippage_model_domain,SLIPPAGE,Fiyat kaymasi (slippage) sozlesmeleri.,True,True,True
+market_impact_placeholder_domain,EXECUTION_REALISM,Piyasa etki (market impact) yer tutuculari.,True,True,True
+latency_placeholder_domain,EXECUTION_REALISM,Gecikme (latency) yer tutuculari.,True,True,True
+liquidity_constraint_placeholder_domain,EXECUTION_REALISM,Likidite ve hacim kisiti yer tutuculari.,True,True,True
+transaction_cost_domain,TRANSACTION_COST,Toplam islem maliyeti bilesenleri.,True,True,True
+accounting_contract_domain,ACCOUNTING,"PnL, nakit ve teminat muhasebe sozlesmeleri.",True,True,True
+lifecycle_contract_domain,LIFECYCLE,Islem ve pozisyon yasam dongusu sozlesmeleri.,True,True,True
+bias_guard_domain,GUARD,"Lookahead, survivorship ve overfitting muhafizlari.",True,True,True
+disabled_execution_domain,SAFETY,Devre disi birakilmis yurutme kontrolleri.,True,True,True
+dependency_domain,GOVERNANCE,Onceki fazlardan gelen bagimlilik sozlesmeleri.,True,True,True
+validation_evidence_domain,GOVERNANCE,Dogrulama ve kanit kayitlari.,True,True,True
+finding_domain,DIAGNOSTICS,Backtest sozlesme bulgulari ve inceleme maddeleri.,True,True,True
+readiness_score_domain,SCORING,Backtest hazirlik skorlamasi.,True,True,True
+manifest_domain,MANIFEST,Phase 146 gercekci backtest manifestosu.,True,True,True
+health_domain,HEALTH,Sistem saglik denetimi altyapisi.,True,True,True
+validation_domain,VALIDATION,Kapsamli sozlesme ve yasakli iddia dogrulamasi.,True,True,True
+safety_domain,SAFETY,NO-GO ve SAFE-GO guvenlik sinirlari.,True,True,True
+phase_147_handoff_domain,HANDOFF,Phase 147 Walk-Forward ve OOS devir paketi.,True,True,True

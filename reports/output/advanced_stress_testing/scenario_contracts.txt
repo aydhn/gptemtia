@@ -1,0 +1,8 @@
+PHASE 148: STRESS TESTING & SCENARIO SIMULATION CONTRACT LAYER
+NON-PRODUCTION | RESEARCH ONLY | ZERO LIVE TRADING | ZERO BROKER EXECUTION | NON-SIGNAL
+Bu cikti sozlesme ve metadata spesifikasyonudur; canli emir, trade sinyali veya kesin getiri icermez.
+Total Scenario Contracts: 9
+All Execution Blocked: True
+All Fit / Training Blocked: True
+All Optimizer Blocked: True
+Manual Review Required: True

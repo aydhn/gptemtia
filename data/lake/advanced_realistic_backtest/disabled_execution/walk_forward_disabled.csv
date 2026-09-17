@@ -1,0 +1,2 @@
+execution_type,status,reason,blocked_actions,is_blocked,non_signal
+WALK_FORWARD_EXECUTION,DEFERRED_TO_PHASE_147,Walk-forward validation is the dedicated core subject of Phase 147.,"['walk_forward', 'run_walk_forward', 'rolling_window_validation', 'anchored_walk_forward']",True,True

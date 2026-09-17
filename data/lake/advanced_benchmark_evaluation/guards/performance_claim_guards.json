@@ -1,0 +1,7 @@
+{
+  "domain": "claim_guard_domain",
+  "total_guards": 2,
+  "all_active": true,
+  "status": "evaluation_contract_ready",
+  "non_signal": true
+}

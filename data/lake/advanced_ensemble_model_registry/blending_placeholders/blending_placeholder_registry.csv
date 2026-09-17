@@ -1,0 +1,3 @@
+placeholder_id,blending_type,description,execution_blocked,blending_executed,non_signal,source_preserved,manual_review_required
+holdout_blending_placeholder,holdout_split,Holdout validation split blending placeholder contract (execution blocked).,True,False,True,True,True
+walk_forward_blending_placeholder,walk_forward_split,Purged walk-forward temporal split blending placeholder contract (execution blocked).,True,False,True,True,True

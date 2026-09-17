@@ -1,0 +1,4 @@
+placeholder_id,voting_type,description,execution_blocked,voting_executed,non_signal,source_preserved,manual_review_required
+hard_voting_placeholder,majority_vote,Majority vote aggregation contract placeholder (execution blocked).,True,False,True,True,True
+soft_voting_placeholder,probability_average,Continuous probability mean voting contract placeholder (execution blocked).,True,False,True,True,True
+trimmed_voting_placeholder,trimmed_mean,Outlier-resistant trimmed mean voting contract placeholder (execution blocked).,True,False,True,True,True

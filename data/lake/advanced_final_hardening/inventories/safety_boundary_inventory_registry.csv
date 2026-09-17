@@ -1,0 +1,8 @@
+boundary_id,boundary_name,description,severity,enforced,domain,non_signal,local_only,dry_run,non_production,current_phase,status
+SB-01,no_live_trading_boundary,Canlı emir ve işlem engelleme sınırı,CRITICAL,True,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+SB-02,no_broker_boundary,Broker entegrasyonu engelleme sınırı,CRITICAL,True,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+SB-03,no_signals_boundary,Trade tavsiyesi ve sinyal engelleme sınırı,CRITICAL,True,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+SB-04,no_deploy_boundary,Canlıya aktarım engelleme sınırı,CRITICAL,True,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+SB-05,source_preservation_boundary,Kaynak kod ve veriyi koruma sınırı,HIGH,True,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+SB-06,no_scraping_boundary,Web kazıma ve harici istek engelleme sınırı,HIGH,True,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+SB-07,no_credential_boundary,Kimlik ve anahtar sızıntısı engelleme sınırı,CRITICAL,True,inventory_domain,True,True,True,True,159,final_hardening_contract_ready

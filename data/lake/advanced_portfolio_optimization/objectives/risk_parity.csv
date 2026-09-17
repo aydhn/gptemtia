@@ -1,0 +1,2 @@
+objective_name,covariance_matrix_ref,risk_budget_vector_ref,is_placeholder,actual_objective_calculated,is_calculated,actual_weights_generated,status
+risk_parity_objective,sigma_covariance_stub,b_target_risk_budget_stub,True,,False,False,objective_contract_only

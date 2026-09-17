@@ -1,0 +1,4 @@
+check_item,is_disabled,status,details,dry_run,non_signal
+torch_model_fit_disabled,True,PASS_DISABLED,Model.fit and torch backward routines are permanently disabled.,True,True
+sklearn_model_fit_disabled,True,PASS_DISABLED,Scikit-learn estimator fit and partial_fit routines are disabled.,True,True
+lightgbm_xgboost_train_disabled,True,PASS_DISABLED,Gradient boosting train and fit APIs are disabled.,True,True

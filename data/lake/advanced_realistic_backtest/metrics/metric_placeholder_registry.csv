@@ -1,0 +1,11 @@
+metric_name,category,description,is_placeholder,calculated,is_active,non_signal
+total_return_placeholder,RETURN,Toplam portfoy getirisi yer tutucusu.,True,False,True,True
+drawdown_placeholder,RISK,Maksimum tepe-dip kayip orani yer tutucusu.,True,False,True,True
+sharpe_placeholder,RISK_ADJUSTED,Risksiz faize gore duzeltilmis getiri orani yer tutucusu.,True,False,True,True
+sortino_placeholder,RISK_ADJUSTED,Asagi yonlu volatiliteye gore duzeltilmis getiri yer tutucusu.,True,False,True,True
+calmar_placeholder,RISK_ADJUSTED,Yillik getiri / Max Drawdown orani yer tutucusu.,True,False,True,True
+win_rate_placeholder,TRADE_STAT,Karli islem yuzdesi yer tutucusu.,True,False,True,True
+turnover_placeholder,ACTIVITY,Portfoy devir hizi yer tutucusu.,True,False,True,True
+exposure_placeholder,ACTIVITY,Piyasada kalma ve pozisyon aciklik orani yer tutucusu.,True,False,True,True
+cost_adjusted_return_placeholder,REALISM,Komisyon ve kayma sonrasi net getiri yer tutucusu.,True,False,True,True
+slippage_impact_placeholder,REALISM,Kaymanin brut getiri uzerindeki asindirici etkisi yer tutucusu.,True,False,True,True

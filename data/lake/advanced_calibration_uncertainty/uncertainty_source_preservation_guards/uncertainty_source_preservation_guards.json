@@ -1,0 +1,11 @@
+{
+  "total_guards": 3,
+  "guards": [
+    "uncert_guard_no_overwrite",
+    "uncert_guard_no_destructive_cleaning",
+    "uncert_guard_no_auto_drop"
+  ],
+  "all_active": true,
+  "all_blocking": true,
+  "all_non_signal": true
+}

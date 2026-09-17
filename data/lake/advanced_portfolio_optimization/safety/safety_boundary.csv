@@ -1,0 +1,30 @@
+boundary_type,boundary_id,boundary_name,description,status
+NO_GO,NO_GO_154_01,live_trading_prohibited,Canli emir gonderimi ve gercek borsa islemleri kesinlikle yasaktir.,ENFORCED
+NO_GO,NO_GO_154_02,broker_integration_prohibited,Broker API baglantisi ve emir iletim protokolleri kesinlikle yasaktir.,ENFORCED
+NO_GO,NO_GO_154_03,real_position_sizing_prohibited,Gercek pozisyon veya lot buyuklugu uretimi kesinlikle yasaktir.,ENFORCED
+NO_GO,NO_GO_154_04,signal_generation_prohibited,Kesin AL/SAT veya pozisyon tavsiyesi uretilemez.,ENFORCED
+NO_GO,NO_GO_154_05,investment_advice_prohibited,"Yatirim tavsiyesi, portfoy onayi veya getiri garantisi verilemez.",ENFORCED
+NO_GO,NO_GO_154_06,real_optimization_prohibited,"Gercek sayisal optimizasyon motoru (MVO, Sharpe vb.) calistirilamaz.",ENFORCED
+NO_GO,NO_GO_154_07,real_weight_generation_prohibited,Gercek portfoy agirliklari veya sermaye dagilimi uretilemez.,ENFORCED
+NO_GO,NO_GO_154_08,real_allocation_prohibited,Gercek sermaye tahsisati yapilamaz.,ENFORCED
+NO_GO,NO_GO_154_09,real_rebalance_prohibited,Gercek yeniden dengeleme veya lot emirleri uretilemez.,ENFORCED
+NO_GO,NO_GO_154_10,solver_execution_prohibited,Optimizasyon cozuculeri canli olarak yurutulemez.,ENFORCED
+NO_GO,NO_GO_154_11,grid_search_prohibited,Izgara aramali agirlik optimizasyonu kesinlikle engellenmistir.,ENFORCED
+NO_GO,NO_GO_154_12,efficient_frontier_generation_prohibited,Gercek etkin sinir egrisi veya noktalari uretilemez.,ENFORCED
+NO_GO,NO_GO_154_13,metric_calculation_prohibited,"Gercek Sharpe, Sortino, VaR, CVaR veya drawdown hesaplanamaz.",ENFORCED
+NO_GO,NO_GO_154_14,model_training_prohibited,Model egitimi (fit/train/backward) kesinlikle calistirilamaz.,ENFORCED
+NO_GO,NO_GO_154_15,prediction_generation_prohibited,Model tahmini (predict/inference) kesinlikle yurutulemez.,ENFORCED
+NO_GO,NO_GO_154_16,target_label_generation_prohibited,Hedef etiket veya yapay getiri kolonlari turetme kesinlikle yasaktir.,ENFORCED
+NO_GO,NO_GO_154_17,model_registry_write_prohibited,Model registry veya artifact persistisi yapilamaz.,ENFORCED
+NO_GO,NO_GO_154_18,deployment_prohibited,Uretim ortamina dagitim veya release yayini yapilamaz.,ENFORCED
+NO_GO,NO_GO_154_19,web_scraping_prohibited,Harici kaynak kazima veya dis ag baglantisi yasaktir.,ENFORCED
+NO_GO,NO_GO_154_20,credential_output_prohibited,"API key, token, sifre cikartilamaz veya loglanamaz.",ENFORCED
+NO_GO,NO_GO_154_21,source_overwrite_prohibited,Girdi dosyalari degistirilemez veya silinemez.,ENFORCED
+SAFE_GO,SAFE_GO_154_01,local_offline_contract_mode,Optimizasyon ve kisit sozlesmeleri yalnizca yerel ve cevrimdisi tanimlanir.,ACTIVE
+SAFE_GO,SAFE_GO_154_02,objective_formula_metadata_mode,Amac fonksiyonlari hesaplamasiz matematiksel formuller olarak tutulur.,ACTIVE
+SAFE_GO,SAFE_GO_154_03,allocation_constraint_spec_mode,Tahsisat kisitlari sematik sinirlayicilar olarak sozlesmelendirilir.,ACTIVE
+SAFE_GO,SAFE_GO_154_04,solver_interface_placeholder_mode,Cozuculer calistirilmayan arayuz yer tutuculari olarak belgelenir.,ACTIVE
+SAFE_GO,SAFE_GO_154_05,claim_guard_enforcement,"Tahsisat, agirlik ve rebalance iddia muhafizlari aktif kilitlidir.",ACTIVE
+SAFE_GO,SAFE_GO_154_06,disabled_execution_transparency,10 devre disi raporu ile yurutme engelleri tescillenir.,ACTIVE
+SAFE_GO,SAFE_GO_154_07,manifest_negative_invariants,Tum negatif degismezler master manifestoda muhurlenir.,ACTIVE
+SAFE_GO,SAFE_GO_154_08,phase_155_handoff_discipline,Risk Raporlama fazina yapilandirilmis devir birakilir.,ACTIVE

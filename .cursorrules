@@ -1,0 +1,22 @@
+# Cursor Rules — gptemtia
+
+## MANDATORY WORKFLOW RULES:
+1. **Always Work on `master` Branch:**
+   - All code, documentation, and phase implementations must be done directly on the `master` branch.
+   - Do NOT create or switch to other branches.
+
+2. **Commit and Push After Every Phase / Task:**
+   - Immediately after completing any phase or distinct task block:
+     - Run `git add .`
+     - Run `git commit -m "Phase <NO>: <Description>"`
+     - Run `git push origin master`
+   - Never conclude a conversation turn or task leaving uncommitted or unpushed changes.
+
+3. **Origin/Master = Local Master (Keep Clean):**
+   - Working tree must always remain clean (`git status` clean).
+   - Ensure local master and origin/master are fully synchronized at all times.
+
+## Project Scope & Policy:
+- Consult `GLOBAL_PROJECT_POLICY.md`.
+- No live trading, no real broker connections, no production deployment, no investment advice.
+- Real historical data backtests, local paper trading engine, and Telegram paper signals are allowed and encouraged.

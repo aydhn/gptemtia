@@ -1,0 +1,2 @@
+action_id,action_type,target_scope,reduction_target_pct,activation_trigger,execution_enabled,status
+ACT-DRK-001,DE_RISKING,HIGH_BETA_ASSETS,40.0,VOLATILITY_SPIKE_AND_DD,False,PLACEHOLDER_ONLY

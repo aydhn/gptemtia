@@ -1,0 +1,11 @@
+{
+  "total_components": 36,
+  "all_contract_only": true,
+  "all_non_production": true,
+  "all_production_ready_false": true,
+  "all_broker_ready_false": true,
+  "all_live_ready_false": true,
+  "all_system_executed_false": true,
+  "status": "full_system_integration_ready",
+  "non_signal": true
+}

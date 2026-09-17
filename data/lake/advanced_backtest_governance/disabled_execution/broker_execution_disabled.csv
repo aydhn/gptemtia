@@ -1,0 +1,4 @@
+operation_name,description,status,broker_permitted,phase,non_signal,local_only
+connect_broker_gateway,Establishing live socket or FIX connection to broker execution gateway.,DISABLED,False,150,True,True
+query_broker_account,Fetching remote account balances or margin utilization.,DISABLED,False,150,True,True
+transmit_broker_order,Transmitting electronic orders to broker endpoints.,DISABLED,False,150,True,True

@@ -1,0 +1,6 @@
+shock_name,regime_source,regime_target,description,transition_speed,expected_slippage_multiplier,execution_allowed,is_trading_signal,non_signal,local_only,manual_review_required
+regime_shock_sudden_trend_reversal,BULLISH_EXPANSION,BEARISH_CRASH,Ani Trend Dönüş Şoku: Güçlü yükseliş trendinden anlık ve sert düşüş rejimine geçiş.,INSTANTANEOUS_1_BAR,3.0x,False,False,True,True,True
+regime_shock_volatility_breakout,LOW_VOL_COMPRESSION,EXTREME_VOL_EXPLOSION,Volatilite Patlaması Şoku: Düşük volatilite sıkışmasından 4x üzerinde aşırı volatilite rejimine geçiş.,FAST_2_BARS,4.5x,False,False,True,True,True
+regime_shock_liquidity_drought,NORMAL_LIQUIDITY,ILLIQUID_FROZEN,Likidite Kuraklığı Şoku: Normal piyasa koşullarından emir defterinin boşaldığı illikit rejime geçiş.,MODERATE_5_BARS,6.0x,False,False,True,True,True
+regime_shock_macro_regime_pivot,DISINFLATION_GROWTH,STAGFLATION_CRISIS,Makro Rejim Kırılması: Beklenmedik faiz/enflasyon verisiyle makro rejim kutbunun değişmesi.,SESSION_BOUNDARY,2.5x,False,False,True,True,True
+regime_shock_cross_asset_decoupling,HISTORICAL_CORRELATION,COMPLETE_DECOUPLING,Çapraz Varlık Ayrışması: FX-Emtia arasındaki tarihsel bağın anlık kopması.,INSTANTANEOUS_1_BAR,3.5x,False,False,True,True,True

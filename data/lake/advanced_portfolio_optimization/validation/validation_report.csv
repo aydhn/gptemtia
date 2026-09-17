@@ -1,0 +1,8 @@
+check_name,status,is_valid
+profile_registry,VALIDATION_PASS,True
+optimization_contracts,VALIDATION_PASS,True
+objective_contracts,VALIDATION_PASS,True
+constraint_contracts,VALIDATION_PASS,True
+guards_and_policies,VALIDATION_PASS,True
+master_manifest,VALIDATION_PASS,True
+forbidden_claims,VALIDATION_PASS,True

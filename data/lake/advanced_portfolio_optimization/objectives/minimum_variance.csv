@@ -1,0 +1,2 @@
+objective_name,covariance_matrix_ref,is_placeholder,actual_objective_calculated,is_calculated,actual_weights_generated,status
+min_variance_objective,sigma_covariance_stub,True,,False,False,objective_contract_only

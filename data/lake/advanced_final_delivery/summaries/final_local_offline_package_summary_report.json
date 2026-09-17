@@ -1,0 +1,9 @@
+{
+  "active_profile": "balanced_local_final_delivery_contracts",
+  "contract_count": 7,
+  "all_execution_disabled": true,
+  "all_live_disabled": true,
+  "all_broker_disabled": true,
+  "all_manual_review_required": true,
+  "status": "full_advanced_bot_final_delivery_ready"
+}

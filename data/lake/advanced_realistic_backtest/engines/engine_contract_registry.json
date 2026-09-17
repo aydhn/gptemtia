@@ -1,0 +1,16 @@
+{
+  "total_contracts": 6,
+  "engine_families": [
+    "EVENT_DRIVEN",
+    "VECTORIZED",
+    "PORTFOLIO",
+    "MULTI_ASSET",
+    "REGIME_AWARE",
+    "COST_AWARE"
+  ],
+  "all_execution_blocked": true,
+  "all_live_trading_blocked": true,
+  "all_broker_blocked": true,
+  "all_manual_review_required": true,
+  "non_signal": true
+}

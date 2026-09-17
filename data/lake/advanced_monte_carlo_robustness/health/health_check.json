@@ -1,0 +1,10 @@
+{
+  "all_healthy": true,
+  "all_passed": true,
+  "overall_status": "HEALTHY",
+  "total_checks": 8,
+  "passed_checks": 8,
+  "failed_checks": 0,
+  "healthy_count": 8,
+  "non_signal": true
+}

@@ -1,0 +1,5 @@
+use_id,intended_domain,description,target_audience,phase,local_only,non_production,non_signal
+USE-001,offline_research,"Local offline exploration of machine learning model contracts, interfaces, and architecture schemas.",Quantitative researchers and ML engineers.,144,True,True,True
+USE-002,governance_simulation,"Verification of model card templates, approval boundary checks, and audit trail placeholders.",Governance analysts and compliance officers.,144,True,True,True
+USE-003,pipeline_integration_testing,"Dry-run validation of inputs, dependencies, and contract compliance across Phases 136-144.",System integration engineers.,144,True,True,True
+USE-004,acceptance_preparation,"Packaging evidence, findings, and checklists for Phase 145 Advanced ML Acceptance Report handoff.",System architects and reviewers.,144,True,True,True

@@ -1,0 +1,4 @@
+action,is_disabled,reason,status,phase
+save_model_weights,True,Model weight serialization is permanently disabled.,BLOCKED_BY_POLICY,144
+pickle_dump,True,Pickle serialization of models is prohibited.,BLOCKED_BY_POLICY,144
+joblib_dump,True,Joblib artifact dumping is prohibited.,BLOCKED_BY_POLICY,144

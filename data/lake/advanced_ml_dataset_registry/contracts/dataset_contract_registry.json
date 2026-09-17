@@ -1,0 +1,17 @@
+{
+  "total_contracts": 9,
+  "current_phase": 137,
+  "target_final_phase": 160,
+  "next_phase": 138,
+  "non_signal": true,
+  "dry_run": true,
+  "dataset_materialized": false,
+  "dataset_materialization_allowed": false,
+  "materialization_allowed": false,
+  "model_training_allowed": false,
+  "training_allowed": false,
+  "prediction_allowed": false,
+  "target_label_allowed": false,
+  "target_label_generation_allowed": false,
+  "status": "READY"
+}

@@ -1,0 +1,8 @@
+PHASE 147: WALK-FORWARD VALIDATION & OUT-OF-SAMPLE BENCHMARKING CONTRACT LAYER
+NON-PRODUCTION | RESEARCH ONLY | ZERO LIVE TRADING | ZERO BROKER EXECUTION | NON-SIGNAL
+Bu cikti sozlesme ve metadata spesifikasyonudur; canli emir, trade sinyali veya kesin getiri icermez.
+No-Lookahead Guard: ACTIVE
+Purge and Embargo Guard: ACTIVE
+Data Snooping Guard: ACTIVE
+Overfitting Guard: ACTIVE
+Forbidden Column Policy: ACTIVE

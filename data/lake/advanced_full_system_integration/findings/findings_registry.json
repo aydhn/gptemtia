@@ -1,0 +1,8 @@
+{
+  "active_profile": "balanced_local_full_system_integration_contracts",
+  "total_findings": 2,
+  "blocking_findings_count": 0,
+  "manual_review_required_count": 2,
+  "status": "full_system_integration_ready",
+  "non_signal": true
+}

@@ -1,0 +1,9 @@
+{
+  "manifest_id": "manifest_phase_146_balanced_local_realistic_backtest_contracts",
+  "current_phase": 146,
+  "target_final_phase": 160,
+  "next_phase": 147,
+  "all_invariants_valid": true,
+  "phase_147_handoff_ready": true,
+  "non_signal": true
+}

@@ -1,0 +1,3 @@
+action,is_disabled,reason,status,phase
+generate_signal,True,Signal generation is strictly disabled in governance phase.,BLOCKED_BY_POLICY,144
+recommend_position,True,Trading recommendations are prohibited.,BLOCKED_BY_POLICY,144

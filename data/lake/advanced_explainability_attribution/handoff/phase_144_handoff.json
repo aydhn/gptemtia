@@ -1,0 +1,40 @@
+{
+  "current_phase": 143,
+  "next_phase": 144,
+  "target_final_phase": 160,
+  "handoff_title": "Explainability and Feature Attribution Reports to Model Governance & Model Cards",
+  "phase_143_status": "COMPLETE",
+  "readiness_score": 1.0,
+  "classification": "ready_for_phase_144_model_governance",
+  "explainability_contract_count": 7,
+  "attribution_contract_count": 8,
+  "disabled_safeguards_verified": true,
+  "invariants_maintained": {
+    "non_signal": true,
+    "source_preserved": true,
+    "local_only": true,
+    "dry_run": true,
+    "non_production": true,
+    "research_only": true,
+    "zero_training": true,
+    "zero_inference": true,
+    "zero_shap_lime_execution": true,
+    "zero_pdp_ice_execution": true,
+    "zero_surrogate_execution": true,
+    "zero_counterfactual_generation": true,
+    "zero_model_actions": true,
+    "zero_live_trading": true
+  },
+  "handoff_deliverables_for_phase_144": [
+    "Explainability Report Contracts (7 contracts ready for Model Cards)",
+    "Feature Attribution Contracts (8 contracts ready for Model Cards)",
+    "Attribution Method Policies (8 policies documented for Audit Trail)",
+    "Disabled Execution Safeguard Evidence (36 verification points)",
+    "Quality Gates and Stability Placeholder Registry",
+    "Drift Linkages (PSI, KS, Wasserstein, Kendall Tau shift contracts)",
+    "Calibration & Uncertainty Linkage Specifications",
+    "Explainability Lineage Graph Nodes & Edges",
+    "Explainability Manifest and Readiness Score"
+  ],
+  "non_signal_disclaimer": "DISCLAIMER: Phase 143 handoff artifact is for offline research and governance tracking only. Contains zero live trading signals or recommendations."
+}

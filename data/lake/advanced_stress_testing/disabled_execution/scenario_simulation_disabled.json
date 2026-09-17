@@ -1,0 +1,11 @@
+{
+  "execution_name": "scenario_simulation_execution",
+  "is_blocked": true,
+  "enforced": true,
+  "blocked_actions": [
+    "simulate_scenario",
+    "run_scenario",
+    "execute_scenario_simulation"
+  ],
+  "non_signal": true
+}

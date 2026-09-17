@@ -1,0 +1,2 @@
+operation,is_disabled,policy_code,reason,status,non_signal
+benchmark_execution,True,execution_blocked_no_benchmark_report,Phase 151 is strictly a contract and placeholder layer; zero real execution permitted.,evaluation_contract_ready,True

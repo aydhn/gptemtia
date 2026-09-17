@@ -1,0 +1,8 @@
+invariant_id,invariant_name,enforced,notes,current_phase,status
+NPD-01,non_production_enforced,True,System strictly restricted to offline/local research,157,portfolio_acceptance_ready
+NPD-02,production_ready_claim_prohibited,True,Score and report do not claim production readiness,157,portfolio_acceptance_ready
+NPD-03,broker_ready_claim_prohibited,True,System does not claim broker readiness,157,portfolio_acceptance_ready
+NPD-04,live_trading_claim_prohibited,True,No claim of live trading capability,157,portfolio_acceptance_ready
+NPD-05,performance_guarantee_prohibited,True,"No guarantee of alpha, Sharpe, or drawdown safety",157,portfolio_acceptance_ready
+NPD-06,strategy_portfolio_approval_prohibited,True,Acceptance report does not approve live strategies or portfolios,157,portfolio_acceptance_ready
+NPD-07,model_deployment_prohibited,True,Model deployment and registry persistence disabled,157,portfolio_acceptance_ready

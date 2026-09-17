@@ -1,0 +1,11 @@
+{
+  "total_contracts": 8,
+  "total_attribution_contracts": 8,
+  "all_zero_calculation": true,
+  "all_zero_shap": true,
+  "all_zero_lime": true,
+  "all_non_signal": true,
+  "current_phase": 143,
+  "next_phase": 144,
+  "target_final_phase": 160
+}

@@ -1,0 +1,2 @@
+guard_name,domain,guard_rule,is_active,action_on_violation,current_phase,target_final_phase,next_phase
+limit_breach_claim_guard,claim_guard,"Prohibits asserting live limit breach, alarm triggering, or live risk monitoring state",True,BLOCK,155,160,156

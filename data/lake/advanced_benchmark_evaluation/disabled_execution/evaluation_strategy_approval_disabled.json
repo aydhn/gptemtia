@@ -1,0 +1,7 @@
+{
+  "domain": "disabled_execution_domain",
+  "operation": "strategy_approval",
+  "is_disabled": true,
+  "status": "execution_blocked_no_strategy_approval",
+  "non_signal": true
+}

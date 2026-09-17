@@ -1,0 +1,3 @@
+output_contract_name,description,contains_probabilities,contains_confidence_scores,contains_signals,allowed_fields,non_signal,phase,status
+calibration_contract_status_output,Metadata status indicating calibration contract readiness; zero probabilities produced.,False,False,False,"calibration_contract_status, execution_blocked_by_policy, blocked_reason, manual_review_required",True,141,calibration_contract_ready
+calibration_safety_block_output,Execution block notification ensuring fit/transform calls are safely intercepted.,False,False,False,"execution_blocked_by_policy, blocked_reason, intercepted_action",True,141,calibration_contract_ready

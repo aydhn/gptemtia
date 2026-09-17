@@ -1,0 +1,112 @@
+# -*- coding: utf-8 -*-
+"""Phase 153: Advanced Portfolio Construction, Position Sizing, and Risk Budgeting Package.
+
+Offline/local contract layer for portfolio construction, position sizing,
+and risk budgeting with strict non-production, no-live-trading boundaries.
+"""
+
+from .portfolio_construction_config import (
+    PortfolioConstructionProfile,
+    get_portfolio_construction_profile,
+    get_default_portfolio_construction_profile,
+    list_portfolio_construction_profiles,
+    validate_portfolio_construction_profiles,
+    PORTFOLIO_CONSTRUCTION_PROFILES,
+)
+from .portfolio_construction_labels import (
+    PORTFOLIO_CONSTRUCTION_DOMAIN,
+    POSITION_SIZING_DOMAIN,
+    RISK_BUDGET_DOMAIN,
+    EXPOSURE_LIMIT_DOMAIN,
+    CONCENTRATION_LIMIT_DOMAIN,
+    LEVERAGE_MARGIN_DOMAIN,
+    PORTFOLIO_GUARD_DOMAIN,
+    PORTFOLIO_DISABLED_EXECUTION_DOMAIN,
+    PORTFOLIO_MANUAL_REVIEW_DOMAIN,
+    PORTFOLIO_FINDING_DOMAIN,
+    PORTFOLIO_READINESS_DOMAIN,
+    PORTFOLIO_MANIFEST_DOMAIN,
+    PORTFOLIO_HEALTH_DOMAIN,
+    PORTFOLIO_VALIDATION_DOMAIN,
+    PORTFOLIO_SAFETY_DOMAIN,
+    PHASE_154_HANDOFF_DOMAIN,
+    PORTFOLIO_CONTRACT_READY,
+    PORTFOLIO_CONTRACT_DRAFT,
+    PORTFOLIO_CONTRACT_BLOCKED,
+    READINESS_BLOCKED,
+    READINESS_INCOMPLETE,
+    READINESS_CONTRACT_READY_WITH_MANUAL_REVIEW,
+    READINESS_CONTRACT_READY_NON_PRODUCTION,
+    HANDOFF_READY,
+    HANDOFF_PENDING,
+    HANDOFF_BLOCKED,
+)
+from .portfolio_construction_models import (
+    PortfolioConstructionProfileItem,
+    PortfolioConstructionContract,
+    PositionSizingContract,
+    RiskBudgetContract,
+    LimitContract,
+    PortfolioGuardContract,
+    PortfolioDisabledExecutionItem,
+    PortfolioFinding,
+    PortfolioReadinessScore,
+    PortfolioConstructionManifest,
+    PortfolioManualReviewItem,
+)
+from .portfolio_construction_pipeline import (
+    PortfolioConstructionPipeline,
+    run_portfolio_construction_pipeline,
+)
+from .phase_154_handoff import build_phase_154_handoff_report
+
+__version__ = "1.0.0"
+__phase__ = 153
+
+__all__ = [
+    "PortfolioConstructionProfile",
+    "get_portfolio_construction_profile",
+    "get_default_portfolio_construction_profile",
+    "list_portfolio_construction_profiles",
+    "validate_portfolio_construction_profiles",
+    "PORTFOLIO_CONSTRUCTION_PROFILES",
+    "PORTFOLIO_CONSTRUCTION_DOMAIN",
+    "POSITION_SIZING_DOMAIN",
+    "RISK_BUDGET_DOMAIN",
+    "EXPOSURE_LIMIT_DOMAIN",
+    "CONCENTRATION_LIMIT_DOMAIN",
+    "LEVERAGE_MARGIN_DOMAIN",
+    "PORTFOLIO_GUARD_DOMAIN",
+    "PORTFOLIO_DISABLED_EXECUTION_DOMAIN",
+    "PORTFOLIO_MANUAL_REVIEW_DOMAIN",
+    "PORTFOLIO_FINDING_DOMAIN",
+    "PORTFOLIO_READINESS_DOMAIN",
+    "PORTFOLIO_MANIFEST_DOMAIN",
+    "PORTFOLIO_HEALTH_DOMAIN",
+    "PORTFOLIO_VALIDATION_DOMAIN",
+    "PORTFOLIO_SAFETY_DOMAIN",
+    "PHASE_154_HANDOFF_DOMAIN",
+    "PORTFOLIO_CONTRACT_READY",
+    "PORTFOLIO_CONTRACT_DRAFT",
+    "PORTFOLIO_CONTRACT_BLOCKED",
+    "READINESS_BLOCKED",
+    "READINESS_INCOMPLETE",
+    "READINESS_CONTRACT_READY_WITH_MANUAL_REVIEW",
+    "READINESS_CONTRACT_READY_NON_PRODUCTION",
+    "HANDOFF_READY",
+    "HANDOFF_PENDING",
+    "HANDOFF_BLOCKED",
+    "PortfolioConstructionProfileItem",
+    "PortfolioConstructionContract",
+    "PositionSizingContract",
+    "RiskBudgetContract",
+    "LimitContract",
+    "PortfolioGuardContract",
+    "PortfolioDisabledExecutionItem",
+    "PortfolioFinding",
+    "PortfolioReadinessScore",
+    "PortfolioConstructionManifest",
+    "PortfolioManualReviewItem",
+    "run_portfolio_construction_pipeline",
+    "build_phase_154_handoff_report",
+]

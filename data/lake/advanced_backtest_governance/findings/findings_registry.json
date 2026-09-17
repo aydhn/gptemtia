@@ -1,0 +1,11 @@
+{
+  "domain": "finding_domain",
+  "total_findings": 4,
+  "critical_count": 0,
+  "high_count": 0,
+  "manual_review_count": 2,
+  "status": "governance_contract_ready",
+  "non_signal": true,
+  "local_only": true,
+  "profile_name": "balanced_local_backtest_governance_contracts"
+}

@@ -1,0 +1,18 @@
+{
+  "total_profiles": 3,
+  "active_profile": "balanced_local_ml_dataset_contracts",
+  "current_phase": 137,
+  "target_final_phase": 160,
+  "next_phase": 138,
+  "non_signal": true,
+  "dry_run": true,
+  "local_only": true,
+  "official_approval": false,
+  "production_ready": false,
+  "broker_ready": false,
+  "dataset_materialized": false,
+  "dataset_materialization_allowed": false,
+  "model_training_executed": false,
+  "model_training_allowed": false,
+  "status": "READY"
+}

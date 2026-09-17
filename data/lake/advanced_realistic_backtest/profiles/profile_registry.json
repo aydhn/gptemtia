@@ -1,0 +1,14 @@
+{
+  "active_profile": "balanced_local_realistic_backtest_contracts",
+  "total_profiles": 3,
+  "all_local_only": true,
+  "all_non_production": true,
+  "all_dry_run": true,
+  "live_trading_allowed": false,
+  "broker_integration_allowed": false,
+  "optimizer_execution_allowed": false,
+  "walk_forward_allowed": false,
+  "benchmark_allowed": false,
+  "model_training_allowed": false,
+  "non_signal": true
+}

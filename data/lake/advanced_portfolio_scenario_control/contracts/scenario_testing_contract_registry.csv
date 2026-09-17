@@ -1,0 +1,11 @@
+contract_id,scenario_type,name,description,shock_scope,severity_level,target_asset_classes,offline_simulation_hook,contract_status,execution_allowed
+SCN-CON-156-001,HISTORICAL_CRISIS,Historical Crisis Stress Simulation Contract,GFC 2008 ve COVID 2020 gibi gecmis kriz donemleri sok sozlesmesi,CROSS_ASSET,EXTREME,"['COMMODITIES', 'FX']",stubs.historical_crisis_stub,CONTRACT_ONLY,False
+SCN-CON-156-002,HYPOTHETICAL_SHOCK,Hypothetical Multi-Asset Shock Contract,Hipotetik stagflasyon ve emtia arz soklari sozlesmesi,MULTI_FACTOR,HIGH,"['COMMODITIES', 'FX']",stubs.hypothetical_shock_stub,CONTRACT_ONLY,False
+SCN-CON-156-003,REGIME_SHIFT,Regime Shift Shock Contract,Ani rejim degisimi ve volatilite gecis sok sozlesmesi,REGIME_MATRIX,HIGH,"['COMMODITIES', 'FX']",stubs.regime_shift_stub,CONTRACT_ONLY,False
+SCN-CON-156-004,VOLATILITY_SPIKE,Volatility Spike Shock Contract,Ani ima edilen ve gerceklesen volatilite patlamasi sozlesmesi,VOLATILITY_SURGE,HIGH,"['COMMODITIES', 'FX']",stubs.volatility_spike_stub,CONTRACT_ONLY,False
+SCN-CON-156-005,LIQUIDITY_CRUNCH,Liquidity Crunch Shock Contract,Derinlik kaybi ve alis-satis makas genislemesi sozlesmesi,LIQUIDITY_DEPTH,CRITICAL,"['COMMODITIES', 'FX']",stubs.liquidity_crunch_stub,CONTRACT_ONLY,False
+SCN-CON-156-006,CORRELATION_BREAKDOWN,Correlation Breakdown Contract,Varliklar arasi korelasyon yapisi kirilmasi sozlesmesi,CORRELATION_MATRIX,HIGH,"['COMMODITIES', 'FX']",stubs.correlation_breakdown_stub,CONTRACT_ONLY,False
+SCN-CON-156-007,CURRENCY_SHOCK,Currency Devaluation Shock Contract,USD veya yerel para biriminde ani devaluasyon sozlesmesi,FX_CROSS,HIGH,['FX'],stubs.currency_shock_stub,CONTRACT_ONLY,False
+SCN-CON-156-008,SPREAD_WIDENING,Spread Widening Shock Contract,Fiziki/vadeli veya vadeler arasi spread acilmasi sozlesmesi,SPREAD,MEDIUM,['COMMODITIES'],stubs.spread_widening_stub,CONTRACT_ONLY,False
+SCN-CON-156-009,TRANSACTION_COST_SHOCK,Transaction Cost Escalation Contract,"Borsa komisyon, finansman ve marjin maliyeti artisi sozlesmesi",COST_FACTORS,MEDIUM,"['COMMODITIES', 'FX']",stubs.transaction_cost_stub,CONTRACT_ONLY,False
+SCN-CON-156-010,SLIPPAGE_SHOCK,Execution Slippage Shock Contract,Yuksek volatilitede asiri kayma ve gecikme sok sozlesmesi,EXECUTION_SLIPPAGE,HIGH,"['COMMODITIES', 'FX']",stubs.slippage_shock_stub,CONTRACT_ONLY,False

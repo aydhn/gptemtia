@@ -1,0 +1,9 @@
+{
+  "domain": "safety_domain",
+  "subdomain": "forbidden_column_policies",
+  "total_forbidden_columns": 40,
+  "all_strictly_forbidden": true,
+  "status": "governance_contract_ready",
+  "non_signal": true,
+  "local_only": true
+}

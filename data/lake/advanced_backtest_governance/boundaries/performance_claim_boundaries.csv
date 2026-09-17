@@ -1,0 +1,7 @@
+boundary_name,target_claim,policy,is_blocked,approval_allowed,status,non_signal,local_only,phase
+boundary_block_guaranteed_return,guaranteed_return,Strictly prohibit any language implying return certainty or guaranteed profit.,True,False,ENFORCED_BLOCKED,True,True,150
+boundary_block_proven_strategy,proven_strategy,Block claims that historical simulations constitute empirical proof of future profitability.,True,False,ENFORCED_BLOCKED,True,True,150
+boundary_block_strategy_approval,strategy_approved,Block automated or premature strategy approval at Phase 150 governance level.,True,False,ENFORCED_BLOCKED,True,True,150
+boundary_block_production_ready,production_ready,Block any assertion that governance readiness corresponds to production readiness.,True,False,ENFORCED_BLOCKED,True,True,150
+boundary_block_broker_ready,broker_ready,Block broker integration and execution readiness claims.,True,False,ENFORCED_BLOCKED,True,True,150
+boundary_block_official_approval,official_approval,Block official or regulatory approval assertions.,True,False,ENFORCED_BLOCKED,True,True,150

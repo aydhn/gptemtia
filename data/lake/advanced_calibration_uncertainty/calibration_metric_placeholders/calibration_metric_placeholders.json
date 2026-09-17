@@ -1,0 +1,15 @@
+{
+  "total_metrics": 7,
+  "metrics": [
+    "expected_calibration_error_placeholder",
+    "maximum_calibration_error_placeholder",
+    "brier_score_placeholder",
+    "reliability_curve_placeholder",
+    "log_loss_placeholder",
+    "calibration_slope_placeholder",
+    "calibration_intercept_placeholder"
+  ],
+  "all_uncalculated": true,
+  "all_zero_performance_claim": true,
+  "all_non_signal": true
+}

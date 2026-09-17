@@ -1,0 +1,4 @@
+change_id,component,change_type,description,phase,is_placeholder,non_signal
+CHG-01,model_card_contract,initial_creation,Created baseline and candidate model card contracts.,144,True,True
+CHG-02,approval_boundaries,policy_enforcement,Activated 6 approval boundaries blocking live trading.,144,True,True
+CHG-03,manual_review_gates,gate_activation,Activated 9 manual review gates for Phase 144.,144,True,True

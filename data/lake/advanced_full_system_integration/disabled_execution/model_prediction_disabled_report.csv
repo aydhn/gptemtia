@@ -1,0 +1,3 @@
+item_id,execution_type,is_disabled,blocking_reason,enforcement_layer,status
+MPD-001,model_prediction,True,Generating inference outputs or predictions is forbidden.,contract,DISABLED
+MPD-002,directional_forecasting,True,Directional forecast generation is forbidden.,contract,DISABLED

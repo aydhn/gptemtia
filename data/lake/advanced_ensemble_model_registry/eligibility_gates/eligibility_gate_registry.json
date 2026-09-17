@@ -1,0 +1,10 @@
+{
+  "total_gates": 12,
+  "all_gates_passed": true,
+  "all_blocks_execution": true,
+  "all_manual_review_required": true,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false,
+  "active_profile": "balanced_local_ensemble_model_contracts"
+}

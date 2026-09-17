@@ -1,0 +1,7 @@
+{
+  "domain": "parameter_fishing_bias_domain",
+  "total_controls": 3,
+  "status": "governance_contract_ready",
+  "non_signal": true,
+  "local_only": true
+}

@@ -1,0 +1,4 @@
+dependency_id,source_phase,catalog_name,status,non_signal,description
+FS_DEP_001,134,featurestore_read_contracts,SATISFIED,True,Read-only access contracts for FeatureStore technical and macro factors.
+FS_DEP_002,135,regime_classification_acceptance_catalog,SATISFIED,True,Accepted regime state metadata without predictive labels.
+FS_DEP_003,121,feature_validation_matrix_manifest,SATISFIED,True,Validated feature matrix schema without infinite or lookahead values.

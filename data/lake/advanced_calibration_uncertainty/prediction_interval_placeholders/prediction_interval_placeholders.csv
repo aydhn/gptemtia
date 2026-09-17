@@ -1,0 +1,4 @@
+placeholder_name,nominal_coverage,method,description,calculated,lower_bound,upper_bound,non_signal,production_ready,phase,status
+ols_prediction_interval_90_placeholder,0.9,ols_residual_variance,90% OLS residual prediction interval placeholder; uncalculated.,False,,,True,False,141,calibration_contract_placeholder_only
+gradient_boosting_prediction_interval_95_placeholder,0.95,dual_quantile_loss,95% Dual quantile loss gradient boosting prediction interval; uncalculated.,False,,,True,False,141,calibration_contract_placeholder_only
+ensemble_spread_prediction_interval_placeholder,0.95,ensemble_interquartile_spread,Ensemble candidate interquartile range prediction interval; uncalculated.,False,,,True,False,141,calibration_contract_placeholder_only

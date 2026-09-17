@@ -1,0 +1,5 @@
+{
+  "total_forbidden_columns": 21,
+  "all_enforced": true,
+  "policy": "STRICT_FORBIDDEN_COLUMN_ENFORCEMENT"
+}

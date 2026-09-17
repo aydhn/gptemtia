@@ -1,0 +1,5 @@
+Bu rapor Phase 145 Advanced ML Acceptance Report çıktısıdır. Gerçek veri indirme zorunluluğu, dataset materialization, feature snapshot materialization, scraping, haber tam metni/article body/raw content/scraped HTML/embedding/vector kullanımı, sentiment model output, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, acceptance/readiness değerini trade sinyali veya production-ready/broker-ready/onay olarak kullanma, production approval, broker-ready approval, live-trading approval, release approval, real audit log, deployment, model registry write, artifact persistence, model training/model fit/predict/inference, backtest/walk-forward/transaction cost/slippage/benchmark execution, target/label/prediction üretimi veya official approval iddiası değildir.
+Phase: Phase 142 - Model Drift Monitoring and Data/Feature Drift Linkage
+Total Checks: 8
+Passed Checks: 8
+Status: ACCEPTED

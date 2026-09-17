@@ -1,0 +1,4 @@
+boundary_id,scope,description,enforcement,release_allowed,phase,status
+REL-01,production_release,Production release is strictly disabled across all phases.,Release pipeline trigger returns blocked status.,False,144,BLOCKED_BY_POLICY
+REL-02,model_publish,Publishing models or weights to artifact stores/hubs is disabled.,Artifact export intercepted and blocked.,False,144,BLOCKED_BY_POLICY
+REL-03,live_stream_release,Streaming real-time execution signals to brokers is prohibited.,Signal generation engine disconnected.,False,144,BLOCKED_BY_POLICY

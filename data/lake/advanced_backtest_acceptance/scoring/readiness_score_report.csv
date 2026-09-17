@@ -1,0 +1,2 @@
+score,classification,meets_threshold,min_readiness_score,current_phase,target_final_phase,next_phase,non_signal,production_ready,broker_ready,live_trading_ready,official_approval,strategy_approved,performance_guaranteed,status
+1.0,backtest_acceptance_contract_ready_non_production,True,0.5,152,160,153,True,False,False,False,False,False,False,acceptance_ready

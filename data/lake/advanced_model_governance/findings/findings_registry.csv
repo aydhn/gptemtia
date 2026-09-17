@@ -1,0 +1,5 @@
+finding_id,finding_type,governance_domain,severity_label,message,recommendation,manual_review_required,phase
+FND-144-01,production_approval_request_blocked,governance_approval_boundary_domain,INFO,Production approval request intercepted and safely blocked by policy.,Inspect approval boundaries and preserve non-production state.,True,144
+FND-144-02,broker_ready_request_blocked,broker_ready_disabled_domain,INFO,Broker-ready claim intercepted and safely blocked.,Inspect prohibited-use registry and maintain offline research isolation.,True,144
+FND-144-03,live_trading_request_blocked,live_trading_disabled_domain,INFO,Live trading request intercepted and safely blocked.,Inspect live trading disabled report.,True,144
+FND-144-04,model_registry_write_request_blocked,model_registry_write_disabled_domain,INFO,Model registry write request intercepted and safely blocked.,Maintain contract-only representation without external registry writes.,True,144

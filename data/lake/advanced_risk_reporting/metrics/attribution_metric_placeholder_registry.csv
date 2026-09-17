@@ -1,0 +1,4 @@
+metric_name,metric_domain,formula_description,unit,is_placeholder,actual_value,is_calculated,current_phase,target_final_phase,next_phase
+marginal_risk_contribution,attribution_metrics,First derivative of portfolio volatility with respect to asset weight,volatility_derivative,True,,False,155,160,156
+percentage_risk_contribution,attribution_metrics,Fraction of total portfolio risk attributed to a specific asset or factor,ratio,True,,False,155,160,156
+herfindahl_concentration_index,attribution_metrics,Concentration measure based on sum of squared weights: sum(w_i^2),index,True,,False,155,160,156

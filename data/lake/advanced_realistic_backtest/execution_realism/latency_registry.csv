@@ -1,0 +1,4 @@
+latency_model_name,description,nominal_delay_ms,is_placeholder,execution_allowed,is_active,non_signal
+network_roundtrip_latency_placeholder,Istemci ile sunucu arasindaki ag gecikmesi (orn: 20-50 ms arasi simule gecikme).,30.0,True,False,True,True
+exchange_matching_engine_latency_placeholder,Borsa eslestirme motoru sira gecikmesi (orn: 5-15 ms).,10.0,True,False,True,True
+bar_interval_lag_placeholder,Bar seviyesinde calisan sistemler icin en az 1 bar gecikme (1-bar lag).,60000.0,True,False,True,True

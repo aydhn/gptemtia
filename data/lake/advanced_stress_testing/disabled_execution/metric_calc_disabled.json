@@ -1,0 +1,12 @@
+{
+  "execution_name": "stress_metric_calculation",
+  "is_blocked": true,
+  "enforced": true,
+  "blocked_actions": [
+    "calculate_stressed_pnl",
+    "calculate_var",
+    "calculate_expected_shortfall",
+    "calculate_drawdown"
+  ],
+  "non_signal": true
+}

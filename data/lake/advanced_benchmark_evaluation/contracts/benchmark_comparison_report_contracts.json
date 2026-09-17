@@ -1,0 +1,11 @@
+{
+  "domain": "benchmark_report_contract_domain",
+  "total_contracts": 9,
+  "all_execution_disabled": true,
+  "all_metrics_disabled": true,
+  "all_claims_disabled": true,
+  "all_approvals_disabled": true,
+  "manual_review_required": true,
+  "status": "evaluation_contract_ready",
+  "non_signal": true
+}

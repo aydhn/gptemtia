@@ -1,0 +1,3 @@
+constraint_name,description,is_placeholder,execution_allowed,is_active,non_signal
+bar_volume_cap_placeholder,Tek bir bar icinde gerceklesebilecek maksimum hacim orani (%10 max participation).,True,False,True,True
+adv_threshold_placeholder,Ortalama gunluk hacmi belirli bir sinirin altinda olan illikit enstrumanlarda islem kisiti.,True,False,True,True

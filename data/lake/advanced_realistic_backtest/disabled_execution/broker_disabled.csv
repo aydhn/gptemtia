@@ -1,0 +1,2 @@
+execution_type,status,reason,blocked_actions,is_blocked,non_signal
+BROKER_EXECUTION,STRICTLY_PROHIBITED,Broker API connectivity and order dispatch are strictly prohibited.,"['broker_order', 'send_order', 'connect_broker', 'broker_api', 'place_order', 'route_order', 'ibkr', 'binance', 'mt5']",True,True

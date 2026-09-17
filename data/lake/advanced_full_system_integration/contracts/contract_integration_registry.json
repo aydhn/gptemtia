@@ -1,0 +1,9 @@
+{
+  "active_profile": "balanced_local_full_system_integration_contracts",
+  "total_contracts": 11,
+  "all_contract_only": true,
+  "all_non_production": true,
+  "all_zero_execution": true,
+  "status": "full_system_integration_ready",
+  "non_signal": true
+}

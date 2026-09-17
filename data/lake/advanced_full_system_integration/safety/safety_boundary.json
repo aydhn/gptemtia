@@ -1,0 +1,9 @@
+{
+  "active_profile": "balanced_local_full_system_integration_contracts",
+  "total_rules": 28,
+  "no_go_count": 22,
+  "safe_go_count": 6,
+  "safety_status": "SAFETY_BOUNDARY_ENFORCED",
+  "status": "full_system_integration_ready",
+  "non_signal": true
+}

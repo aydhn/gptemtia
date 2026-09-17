@@ -1,0 +1,23 @@
+scope_id,name,status,description,is_in_scope,non_signal
+SCP-146-01,Backtest Engine Contracts,IN_SCOPE,"Olay tabanli, vektorize ve portfoy seviyesi motor sozlesmeleri.",True,True
+SCP-146-02,Order Simulation Contracts,IN_SCOPE,"Piyasa, limit, stop emir simule sozlesmeleri.",True,True
+SCP-146-03,Fill & Price Model Contracts,IN_SCOPE,Gerceklesme fiyati ve gerceklesme kurallari sozlesmeleri.,True,True
+SCP-146-04,Transaction Cost Models,IN_SCOPE,"Komisyon, borsa ucreti, alis-satis farki sozlesmeleri.",True,True
+SCP-146-05,Slippage Models,IN_SCOPE,"Sabit, oynaklik ve likidite tabanli kayma modelleri.",True,True
+SCP-146-06,Execution Realism Placeholders,IN_SCOPE,"Piyasa etkisi, gecikme ve kismi gerceklesme yer tutuculari.",True,True
+SCP-146-07,Accounting & Lifecycle Contracts,IN_SCOPE,"PnL, nakit, teminat ve pozisyon yasam dongusu sozlesmeleri.",True,True
+SCP-146-08,Bias & Lookahead Guards,IN_SCOPE,"Lookahead, survivorship, data snooping ve overfitting muhafizlari.",True,True
+SCP-146-09,Disabled Execution Reports,IN_SCOPE,"Canli islem, broker, egitim ve tahmin yasaklari denetimi.",True,True
+SCP-146-10,Phase 147 Handoff,IN_SCOPE,Walk-Forward ve OOS karsilastirma fazi icin devir hazirligi.,True,True
+SCP-146-11,Live Trading Execution,OUT_OF_SCOPE,Canli emir gonderimi ve gercek pozisyon yonetimi kesinlikle yasaktir.,False,True
+SCP-146-12,Broker API Integration,OUT_OF_SCOPE,Araci kurum baglantisi veya emir rotalama yapilmaz.,False,True
+SCP-146-13,Investment Advice,OUT_OF_SCOPE,Kesin AL/SAT veya pozisyon tavsiyesi uretilmez.,False,True
+SCP-146-14,Real Backtest Execution,OUT_OF_SCOPE,"Gercek portfoy uzerinde backtest calistirilmaz, contract duzeyindedir.",False,True
+SCP-146-15,Optimizer Execution,OUT_OF_SCOPE,Strateji veya hiperparametre optimizasyonu calistirilmaz.,False,True
+SCP-146-16,Walk-Forward Execution,OUT_OF_SCOPE,"Walk-forward simulasyonu Phase 147 konusudur, bu fazda calistirilmaz.",False,True
+SCP-146-17,Benchmark Comparison Execution,OUT_OF_SCOPE,Strateji karsilastirma benchmarklari bu fazda yurutulmez.,False,True
+SCP-146-18,Stress Test & Monte Carlo Execution,OUT_OF_SCOPE,Stres testi (Phase 148) ve Monte Carlo (Phase 149) bu fazda yurutulmez.,False,True
+SCP-146-19,Model Training & Inference,OUT_OF_SCOPE,"Gercek ML model egitimi, fit ve tahmin calistirilmaz.",False,True
+SCP-146-20,Performance Claims,OUT_OF_SCOPE,Getiri garantisi veya Sharpe/Win-rate performans iddialari yasaktir.,False,True
+SCP-146-21,Model Deployment & Registry Write,OUT_OF_SCOPE,Model kayit defterine yazim ve uretim dagitimi yapilmaz.,False,True
+SCP-146-22,News Full-Text Scraping,OUT_OF_SCOPE,"Haber tam metni, makale govdesi ve kazima kesinlikle yasaktir.",False,True

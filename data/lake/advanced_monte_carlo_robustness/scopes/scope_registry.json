@@ -1,0 +1,9 @@
+{
+  "domain": "monte_carlo_scope_domain",
+  "total_scope_items": 12,
+  "in_scope_count": 5,
+  "prohibited_count": 7,
+  "profile_name": "balanced_local_monte_carlo_robustness_contracts",
+  "all_prohibitions_enforced": true,
+  "status": "monte_carlo_contract_ready"
+}

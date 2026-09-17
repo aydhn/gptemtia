@@ -1,0 +1,2 @@
+component_name,prohibited_actions,enforcement_mechanism,is_disabled,status,current_phase,target_final_phase,next_phase
+dashboard_generator,"['generate_dashboard', 'render_ui', 'serve_dashboard']",STRICT_SAFETY_GATE_DASHBOARD_BLOCKED,True,execution_contract_only,155,160,156

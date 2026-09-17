@@ -1,0 +1,11 @@
+{
+  "domain": "phase_140_ensemble_candidate_acceptance_domain",
+  "active_profile": "balanced_local_advanced_ml_acceptance",
+  "phase_ref": "Phase 140",
+  "phase_title": "Ensemble Model Contracts and Candidate Model Registry",
+  "total_checks": 8,
+  "passed_checks": 8,
+  "all_passed": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

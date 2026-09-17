@@ -1,0 +1,4 @@
+dependency_name,source,model_family,status,phase,non_signal
+phase_138_linear_baseline_contract,Phase 138,linear_ridge,SATISFIED,144,True
+phase_138_tree_baseline_contract,Phase 138,random_forest_regressor,SATISFIED,144,True
+phase_138_training_harness_disabled,Phase 138,all_baselines,SATISFIED,144,True

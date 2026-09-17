@@ -1,0 +1,4 @@
+finding_id,finding_type,domain,severity_label,message,recommendation,manual_review_required,non_signal,local_only,dry_run,non_production,current_phase,status
+FND-FIN-2982,safety_audit,finding_domain,INFO,"All live trading, broker, and real order executions are disabled by policy.",Maintain offline research flags and dry-run boundaries.,True,True,True,True,True,159,final_hardening_contract_ready
+FND-FIN-2635,freeze_audit,finding_domain,INFO,Configuration and documentation freezes are fully documented and registered.,Perform human manual review before approving Phase 160 handoff.,True,True,True,True,True,159,final_hardening_contract_ready
+FND-FIN-9642,readiness_audit,finding_domain,INFO,Release candidate contract layer is ready for local/offline acceptance.,Proceed with Phase 160 Full Advanced Bot Final Delivery under non-live constraints.,True,True,True,True,True,159,final_hardening_contract_ready

@@ -1,0 +1,2 @@
+score_name,readiness_score,classification,meets_threshold,source_phase,target_final_phase,non_signal,production_ready,broker_ready,official_approval
+phase_140_ensemble_readiness_score,1.0,READY_FOR_PHASE_141_HANDOFF,True,140,160,True,False,False,False

@@ -1,0 +1,8 @@
+{
+  "domain": "non_production_boundary_domain",
+  "total_invariants": 7,
+  "all_enforced": true,
+  "production_ready_prohibited": true,
+  "broker_ready_prohibited": true,
+  "status": "portfolio_acceptance_ready"
+}

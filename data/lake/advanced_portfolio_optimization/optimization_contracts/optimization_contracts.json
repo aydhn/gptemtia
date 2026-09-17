@@ -1,0 +1,7 @@
+{
+  "contract_count": 11,
+  "all_contracts_disallow_optimization": true,
+  "all_contracts_disallow_weight_generation": true,
+  "all_contracts_disallow_live_trading": true,
+  "manual_review_required_all": true
+}

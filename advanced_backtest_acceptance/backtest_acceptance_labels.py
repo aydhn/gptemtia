@@ -1,0 +1,113 @@
+# -*- coding: utf-8 -*-
+"""Phase 152: Backtest Acceptance Labels and Domain Constants."""
+
+# Domain labels
+BACKTEST_ACCEPTANCE_PROFILE_DOMAIN = "backtest_acceptance_profile_domain"
+BACKTEST_ACCEPTANCE_DOMAIN = "backtest_acceptance_domain"
+BACKTEST_ACCEPTANCE_SCOPE_DOMAIN = "backtest_acceptance_scope_domain"
+COMPONENT_REGISTRY_DOMAIN = "component_registry_domain"
+COMPONENT_CHECKPOINT_DOMAIN = "component_checkpoint_domain"
+PHASE_146_REALISTIC_BACKTEST_ACCEPTANCE_DOMAIN = "phase_146_realistic_backtest_acceptance_domain"
+PHASE_147_WALK_FORWARD_OOS_ACCEPTANCE_DOMAIN = "phase_147_walk_forward_oos_acceptance_domain"
+PHASE_148_STRESS_TESTING_ACCEPTANCE_DOMAIN = "phase_148_stress_testing_acceptance_domain"
+PHASE_149_MONTE_CARLO_ACCEPTANCE_DOMAIN = "phase_149_monte_carlo_acceptance_domain"
+PHASE_150_BACKTEST_GOVERNANCE_ACCEPTANCE_DOMAIN = "phase_150_backtest_governance_acceptance_domain"
+PHASE_151_BENCHMARK_EVALUATION_ACCEPTANCE_DOMAIN = "phase_151_benchmark_evaluation_acceptance_domain"
+DEPENDENCY_ACCEPTANCE_DOMAIN = "dependency_acceptance_domain"
+VALIDATION_EVIDENCE_DOMAIN = "validation_evidence_domain"
+SAFETY_BOUNDARY_DOMAIN = "safety_boundary_domain"
+NON_PRODUCTION_BOUNDARY_DOMAIN = "non_production_boundary_domain"
+MANUAL_REVIEW_GATE_DOMAIN = "manual_review_gate_domain"
+GO_NO_GO_BOUNDARY_DOMAIN = "go_no_go_boundary_domain"
+BLOCKER_DOMAIN = "blocker_domain"
+GAP_DOMAIN = "gap_domain"
+WARNING_DOMAIN = "warning_domain"
+FINDING_DOMAIN = "finding_domain"
+READINESS_SCORE_DOMAIN = "readiness_score_domain"
+MANIFEST_DOMAIN = "manifest_domain"
+HEALTH_DOMAIN = "health_domain"
+VALIDATION_DOMAIN = "validation_domain"
+SAFETY_DOMAIN = "safety_domain"
+PHASE_153_HANDOFF_DOMAIN = "phase_153_handoff_domain"
+
+# Status labels
+ACCEPTANCE_READY = "acceptance_ready"
+ACCEPTANCE_READY_WITH_WARNINGS = "acceptance_ready_with_warnings"
+ACCEPTANCE_MANUAL_REVIEW_REQUIRED = "acceptance_manual_review_required"
+ACCEPTANCE_BLOCKED_BY_SAFETY = "acceptance_blocked_by_safety"
+ACCEPTANCE_MISSING_DEPENDENCY = "acceptance_missing_dependency"
+ACCEPTANCE_CONTRACT_ONLY = "acceptance_contract_only"
+ACCEPTANCE_UNKNOWN = "acceptance_unknown"
+
+# Boundary labels
+GO_CONTRACT_ONLY = "go_contract_only"
+NO_GO_LIVE_TRADING = "no_go_live_trading"
+NO_GO_BROKER_EXECUTION = "no_go_broker_execution"
+NO_GO_BACKTEST_EXECUTION = "no_go_backtest_execution"
+NO_GO_BENCHMARK_EXECUTION = "no_go_benchmark_execution"
+NO_GO_METRIC_CALCULATION = "no_go_metric_calculation"
+NO_GO_STRATEGY_APPROVAL = "no_go_strategy_approval"
+NO_GO_PORTFOLIO_CONSTRUCTION = "no_go_portfolio_construction"
+NO_GO_POSITION_SIZING = "no_go_position_sizing"
+NO_GO_OPTIMIZER = "no_go_optimizer"
+NO_GO_MODEL_TRAINING = "no_go_model_training"
+NO_GO_PREDICTION = "no_go_prediction"
+NO_GO_DEPLOYMENT = "no_go_deployment"
+NO_GO_UNKNOWN = "no_go_unknown"
+
+ALL_DOMAINS = [
+    BACKTEST_ACCEPTANCE_PROFILE_DOMAIN,
+    BACKTEST_ACCEPTANCE_DOMAIN,
+    BACKTEST_ACCEPTANCE_SCOPE_DOMAIN,
+    COMPONENT_REGISTRY_DOMAIN,
+    COMPONENT_CHECKPOINT_DOMAIN,
+    PHASE_146_REALISTIC_BACKTEST_ACCEPTANCE_DOMAIN,
+    PHASE_147_WALK_FORWARD_OOS_ACCEPTANCE_DOMAIN,
+    PHASE_148_STRESS_TESTING_ACCEPTANCE_DOMAIN,
+    PHASE_149_MONTE_CARLO_ACCEPTANCE_DOMAIN,
+    PHASE_150_BACKTEST_GOVERNANCE_ACCEPTANCE_DOMAIN,
+    PHASE_151_BENCHMARK_EVALUATION_ACCEPTANCE_DOMAIN,
+    DEPENDENCY_ACCEPTANCE_DOMAIN,
+    VALIDATION_EVIDENCE_DOMAIN,
+    SAFETY_BOUNDARY_DOMAIN,
+    NON_PRODUCTION_BOUNDARY_DOMAIN,
+    MANUAL_REVIEW_GATE_DOMAIN,
+    GO_NO_GO_BOUNDARY_DOMAIN,
+    BLOCKER_DOMAIN,
+    GAP_DOMAIN,
+    WARNING_DOMAIN,
+    FINDING_DOMAIN,
+    READINESS_SCORE_DOMAIN,
+    MANIFEST_DOMAIN,
+    HEALTH_DOMAIN,
+    VALIDATION_DOMAIN,
+    SAFETY_DOMAIN,
+    PHASE_153_HANDOFF_DOMAIN,
+]
+
+ALL_STATUSES = [
+    ACCEPTANCE_READY,
+    ACCEPTANCE_READY_WITH_WARNINGS,
+    ACCEPTANCE_MANUAL_REVIEW_REQUIRED,
+    ACCEPTANCE_BLOCKED_BY_SAFETY,
+    ACCEPTANCE_MISSING_DEPENDENCY,
+    ACCEPTANCE_CONTRACT_ONLY,
+    ACCEPTANCE_UNKNOWN,
+]
+
+ALL_BOUNDARIES = [
+    GO_CONTRACT_ONLY,
+    NO_GO_LIVE_TRADING,
+    NO_GO_BROKER_EXECUTION,
+    NO_GO_BACKTEST_EXECUTION,
+    NO_GO_BENCHMARK_EXECUTION,
+    NO_GO_METRIC_CALCULATION,
+    NO_GO_STRATEGY_APPROVAL,
+    NO_GO_PORTFOLIO_CONSTRUCTION,
+    NO_GO_POSITION_SIZING,
+    NO_GO_OPTIMIZER,
+    NO_GO_MODEL_TRAINING,
+    NO_GO_PREDICTION,
+    NO_GO_DEPLOYMENT,
+    NO_GO_UNKNOWN,
+]

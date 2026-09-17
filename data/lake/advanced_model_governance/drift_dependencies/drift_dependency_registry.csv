@@ -1,0 +1,4 @@
+dependency_name,source,scope,status,phase,non_signal
+phase_142_model_drift_monitoring_contracts,Phase 142,"PSI, KS, Wasserstein statistical drift tests",SATISFIED,144,True
+phase_142_feature_drift_linkage,Phase 142,Data and feature drift linkage to FeatureStore,SATISFIED,144,True
+phase_142_uncertainty_drift_contracts,Phase 142,Uncertainty interval drift monitoring,SATISFIED,144,True

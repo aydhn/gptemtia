@@ -1,0 +1,4 @@
+placeholder_name,shock_type,description,magnitude_spec,parameters,real_execution_allowed,non_signal,contains_trading_recommendation,manual_review_required
+interest_rate_surprise_100bp_placeholder,MONETARY_POLICY_SURPRISE,Merkez Bankası Acil Faiz Artışı (+100 bps Sürpriz) yer tutucusu.,+100_basis_points,"{'target_rate': 'FED_FUNDS_OR_POLICY', 'asset_impact': 'CURRENCY_SURGE_COMMODITY_DROP'}",False,True,False,True
+cpi_inflation_shock_plus_3pct_placeholder,INFLATION_SURPRISE,Beklentilerin 300 bps Üzerinde Gelen TÜFE Enflasyon Şoku yer tutucusu.,+3.0pct_above_consensus,{'asset_impact': 'GOLD_RALLY_BOND_YIELD_SPIKE'},False,True,False,True
+gdp_contraction_recession_placeholder,RECESSION_GROWTH_SHOCK,Ani Küresel Büyüme Daralması (-2.5% GSYH Şoku) yer tutucusu.,-2.5pct_annual_gdp,{'asset_impact': 'CRUDE_OIL_COPPER_DEMAND_CRASH'},False,True,False,True

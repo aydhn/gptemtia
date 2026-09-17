@@ -1,0 +1,17 @@
+scope_id,scope_name,description,is_enforced,local_only,non_production
+offline_optimization_contracts,Cevrimdisi Sozlesmeler,Yalnizca yerel ve cevrimdisi calisma,True,True,True
+zero_live_trading,Sifir Canli Islem,Canli emir ve borsa baglantisi yok,True,True,True
+zero_broker_execution,Sifir Broker Iletimi,Broker API ve emir gonderimi yok,True,True,True
+zero_real_optimization,Sifir Gercek Optimizasyon,Sayisal optimizasyon motoru calistirilmaz,True,True,True
+zero_weight_generation,Sifir Agirlik Uretimi,Gercek portfoy agirliklari uretilmez,True,True,True
+zero_allocation_generation,Sifir Sermaye Tahsisi,Gercek sermaye tahsisati yapilmaz,True,True,True
+zero_rebalance_orders,Sifir Rebalance Emri,Rebalance ve lot emirleri uretilmez,True,True,True
+zero_metric_calculation,Sifir Metrik Hesabi,"Gercek Sharpe, CVaR vb. hesaplanmaz",True,True,True
+objective_contract_mode,Amac Sozlesme Modu,Amac fonksiyonlari formullerle tanimlanir,True,True,True
+constraint_contract_mode,Kisit Sozlesme Modu,Tahsisat kisitlari sema olarak tutulur,True,True,True
+solver_placeholder_mode,Cozucu Yer Tutucu Modu,Cozuculer arayuz yer tutucusu olarak kalir,True,True,True
+efficient_frontier_placeholder_mode,Etkin Sinir Yer Tutucusu,"Etkin sinir cizilmez, semalandirilir",True,True,True
+no_lookahead_enforcement,No-Lookahead Muhafizi,Zaman serisi sizintisi engellenir,True,True,True
+no_investment_advice,Yatirim Tavsiyesi Yasagi,Mevzuata uygun non-advisory calisma,True,True,True
+source_data_preservation,Kaynak Veri Koruma,Girdi dosyalari degistirilemez,True,True,True
+phase_155_handoff_ready,Phase 155 Devir Kapsami,Risk raporlama fazina devir hazirligi,True,True,True

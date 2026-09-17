@@ -1,0 +1,11 @@
+{
+  "domain": "phase_148_stress_testing_acceptance_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "phase_ref": "Phase 148",
+  "phase_title": "Stress Testing and Scenario Simulation",
+  "total_checks": 10,
+  "passed_checks": 10,
+  "all_passed": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

@@ -1,0 +1,5 @@
+UYARI: Bu rapor Phase 152 Backtest Acceptance Report çıktısıdır. Gerçek backtest, benchmark, metric calculation, optimizer, model training, prediction, strategy approval, capital allocation, portfolio construction, position sizing, canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, performance claim, result claim, production-ready, broker-ready, deployment, model registry write, artifact persistence, scraping, credential output veya source overwrite değildir.
+Readiness Score: 1.0000
+Classification: backtest_acceptance_contract_ready_non_production
+Meets Threshold: True
+Production Ready: False | Broker Ready: False | Strategy Approved: False

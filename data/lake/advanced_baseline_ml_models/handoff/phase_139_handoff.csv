@@ -1,0 +1,13 @@
+prerequisite,status,details,source_phase,next_phase,target_final_phase,non_signal,production_ready,broker_ready
+GPU-accelerated training harness prerequisites,READY,"Dry-run contracts defined for GPU-ready models (XGBoost, CatBoost, PyTorch)",138,139,160,True,False,False
+resource governance prerequisites,READY,Resource quota definitions and timeout guards prepared,138,139,160,True,False,False
+CPU/GPU memory limit prerequisites,READY,CUDA VRAM allocation barriers and memory leak prevention parameters ready,138,139,160,True,False,False
+dry-run harness contract prerequisites,READY,Contract-only harness mode and simulated execution interfaces established,138,139,160,True,False,False
+baseline model contract prerequisites,READY,10 baseline model contracts configured with non-execution status,138,139,160,True,False,False
+dataset contract prerequisites,READY,Phase 137 dataset and snapshot contracts successfully linked,138,139,160,True,False,False
+no-lookahead guard prerequisites,READY,Temporal monotonicity and forward return blocks active,138,139,160,True,False,False
+metadata-only news guard prerequisites,READY,Zero-scraping and text-only prohibitions verified,138,139,160,True,False,False
+source preservation guard prerequisites,READY,Immutability of feature catalogs and data lakes guaranteed,138,139,160,True,False,False
+artifact governance prerequisites,READY,Policy prohibiting unauthorized model dumps active,138,139,160,True,False,False
+model registry governance prerequisites,READY,Registry write blocks in place until formal governance approval,138,139,160,True,False,False
+non-signal and live trading prohibition,ENFORCED,Phase 139 must strictly maintain prohibition of live orders and trade signals,138,139,160,True,False,False

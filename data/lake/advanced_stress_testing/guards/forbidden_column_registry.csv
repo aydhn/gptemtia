@@ -1,0 +1,2 @@
+guard_name,guard_type,description,enforcement_level,active,prohibited_column_count,non_signal,local_only
+stress_forbidden_column_policy,COLUMN_QUARANTINE,"Stres testi veri setlerinde işlem sinyali, gerçekleşen PnL ve sızıntı kolonlarını engeller.",STRICT,True,39,True,True

@@ -1,0 +1,17 @@
+{
+  "domain": "warning_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "total_warnings": 8,
+  "warning_types": [
+    "contract_only_acceptance",
+    "placeholder_only_evidence",
+    "no_real_backtest",
+    "no_real_benchmark",
+    "no_real_metric_calculation",
+    "no_strategy_approval",
+    "manual_review_required",
+    "phase_153_must_remain_non_live"
+  ],
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

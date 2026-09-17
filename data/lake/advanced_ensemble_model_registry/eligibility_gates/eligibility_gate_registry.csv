@@ -1,0 +1,13 @@
+gate_name,gate_category,description,status,passed,blocks_execution,non_signal,manual_review_required
+dataset_contract_present_gate,prerequisite,Validates that candidate model references an active Phase 137 dataset contract.,GATE_ACTIVE,True,True,True,True
+baseline_contract_present_gate,prerequisite,Validates that candidate model references an active Phase 138 baseline contract.,GATE_ACTIVE,True,True,True,True
+runtime_contract_present_gate,prerequisite,Validates that candidate model references an active Phase 136 runtime foundation.,GATE_ACTIVE,True,True,True,True
+resource_policy_present_gate,governance,Validates that candidate model references an active Phase 139 GPU resource policy.,GATE_ACTIVE,True,True,True,True
+no_lookahead_guard_present_gate,safety,Enforces zero lookahead leakage across all candidate input features.,GATE_ACTIVE,True,True,True,True
+metadata_only_news_guard_present_gate,safety,"Enforces strict metadata-only news usage (no full text, embeddings, sentiment).",GATE_ACTIVE,True,True,True,True
+source_preservation_guard_present_gate,safety,"Guarantees no source deletion, overwrite, auto-imputation, or auto-feature drop.",GATE_ACTIVE,True,True,True,True
+target_label_disabled_gate,execution_block,Blocks any target or ground-truth label generation within candidate registry.,GATE_ACTIVE,True,True,True,True
+training_disabled_gate,execution_block,"Blocks real model training, model fit, or backward passes.",GATE_ACTIVE,True,True,True,True
+prediction_disabled_gate,execution_block,"Blocks model predict, forward inference, or score generation.",GATE_ACTIVE,True,True,True,True
+artifact_disabled_gate,execution_block,"Blocks saving model weights, pickle, joblib dumps, or model registry write.",GATE_ACTIVE,True,True,True,True
+manual_review_gate,governance,Requires human manual review before any candidate contract is promoted.,GATE_ACTIVE,True,True,True,True

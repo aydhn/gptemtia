@@ -1,0 +1,4 @@
+finding_id,finding_type,domain,severity_label,message,recommendation,manual_review_required
+FINDING_154_01,contract_layer_active,optimization_contract_domain,INFO,Portfolio optimization contract layer instantiated in offline research mode,Review contracts manually and maintain zero execution invariants,True
+FINDING_154_02,zero_execution_enforced,disabled_execution_domain,INFO,"All real optimizer, solver, and weight generation executions are strictly locked",Retain policy locks across all future research cycles,True
+FINDING_154_03,phase_155_handoff_ready,phase_155_handoff_domain,INFO,Phase 155 Risk Reporting prerequisites successfully sealed,Proceed to Phase 155 Risk Reporting following operator sign-off,True

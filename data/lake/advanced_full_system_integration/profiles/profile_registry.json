@@ -1,0 +1,15 @@
+{
+  "active_profile": "balanced_local_full_system_integration_contracts",
+  "total_profiles": 3,
+  "current_phase": 158,
+  "target_final_phase": 160,
+  "next_phase": 159,
+  "all_non_signal": true,
+  "all_dry_run": true,
+  "all_local_only": true,
+  "all_non_production": true,
+  "all_broker_ready_false": true,
+  "all_production_ready_false": true,
+  "all_live_ready_false": true,
+  "status": "full_system_integration_ready"
+}

@@ -1,0 +1,9 @@
+evidence_id,phase_number,evidence_type,target_module,description,evidence_present,current_phase,status
+EVD-153,153,module_and_contracts,advanced_portfolio_construction,Portfolio construction contracts and sizing safety guards present.,True,157,portfolio_acceptance_ready
+EVD-154,154,module_and_placeholders,advanced_portfolio_optimization,Optimizer contracts and non-executing solver placeholders present.,True,157,portfolio_acceptance_ready
+EVD-155,155,module_and_reports,advanced_risk_reporting,Risk reporting contracts and disabled alerting reports present.,True,157,portfolio_acceptance_ready
+EVD-156,156,module_and_controls,advanced_portfolio_scenario_control,Scenario testing contracts and drawdown control placeholders present.,True,157,portfolio_acceptance_ready
+EVD-DISABLED-EXEC,157,disabled_execution_reports,portfolio_risk_block,Disabled execution reports present across all portfolio modules.,True,157,portfolio_acceptance_ready
+EVD-NO-GO,157,no_go_boundaries,portfolio_safety,"Strict NO-GO boundaries for live trading, broker, advice, and sizing enforced.",True,157,portfolio_acceptance_ready
+EVD-REVIEW-GATES,157,manual_review_gates,portfolio_governance,Manual review gates defined for all portfolio phases before Phase 158.,True,157,portfolio_acceptance_ready
+EVD-HANDOFF,157,handoff_specification,phase_158_handoff,Phase 158 full-system integration and advanced acceptance rehearsal handoff defined.,True,157,portfolio_acceptance_ready

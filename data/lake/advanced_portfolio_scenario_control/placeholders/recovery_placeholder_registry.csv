@@ -1,0 +1,2 @@
+recovery_placeholder_id,recovery_phase,trigger_recovery_pct,step_size_pct,status,in_recovery
+RCV-PLH-001,GRADUAL_REALLOCATION,50.0,10.0,PLACEHOLDER_ONLY,False

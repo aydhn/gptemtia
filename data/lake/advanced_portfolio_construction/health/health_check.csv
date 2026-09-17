@@ -1,0 +1,13 @@
+component,type,path,status_pass,message,current_phase,contract_only,non_production,status
+advanced_portfolio_construction,module,advanced_portfolio_construction,True,Module imported successfully.,153,True,True,portfolio_contract_ready
+advanced_backtest_acceptance,module,advanced_backtest_acceptance,True,Module imported successfully.,153,True,True,portfolio_contract_ready
+advanced_benchmark_evaluation,module,advanced_benchmark_evaluation,True,Module imported successfully.,153,True,True,portfolio_contract_ready
+advanced_backtest_governance,module,advanced_backtest_governance,True,Module imported successfully.,153,True,True,portfolio_contract_ready
+advanced_model_governance,module,advanced_model_governance,True,Module imported successfully.,153,True,True,portfolio_contract_ready
+advanced_regime_featurestore_integration,module,advanced_regime_featurestore_integration,True,Module imported successfully.,153,True,True,portfolio_contract_ready
+data_lake,module,data.storage.data_lake,True,Module imported successfully.,153,True,True,portfolio_contract_ready
+feature_store,module,ml.feature_store,True,Module imported successfully.,153,True,True,portfolio_contract_ready
+config_directory,directory,config,True,Directory exists.,153,True,True,portfolio_contract_ready
+scripts_directory,directory,scripts,True,Directory exists.,153,True,True,portfolio_contract_ready
+tests_directory,directory,tests,True,Directory exists.,153,True,True,portfolio_contract_ready
+docs_directory,directory,docs,True,Directory exists.,153,True,True,portfolio_contract_ready

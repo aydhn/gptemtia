@@ -1,0 +1,8 @@
+{
+  "report_name": "ensemble_execution_disabled_report",
+  "phase": 140,
+  "status": "ENSEMBLE_EXECUTION_BLOCKED_BY_POLICY",
+  "ensemble_execution_allowed": false,
+  "all_executions_disabled": true,
+  "non_signal": true
+}

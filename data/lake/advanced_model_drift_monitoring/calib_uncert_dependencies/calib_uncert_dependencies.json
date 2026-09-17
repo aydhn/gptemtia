@@ -1,0 +1,21 @@
+{
+  "status": "satisfied",
+  "total_checks": 2,
+  "all_satisfied": true,
+  "dependencies": [
+    {
+      "dependency": "phase_141_calibration_registry",
+      "required_phase": 141,
+      "contract_type": "probability_calibration_registry",
+      "status": "satisfied",
+      "source_module": "advanced_calibration_uncertainty.calibration_profile_registry"
+    },
+    {
+      "dependency": "phase_141_uncertainty_registry",
+      "required_phase": 141,
+      "contract_type": "uncertainty_profile_registry",
+      "status": "satisfied",
+      "source_module": "advanced_calibration_uncertainty.uncertainty_profile_registry"
+    }
+  ]
+}

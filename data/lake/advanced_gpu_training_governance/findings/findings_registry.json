@@ -1,0 +1,10 @@
+{
+  "total_findings": 3,
+  "manual_review_count": 3,
+  "critical_count": 0,
+  "destructive_allowed": false,
+  "auto_fix_allowed": false,
+  "current_phase": 139,
+  "non_signal": true,
+  "active_profile": "balanced_local_gpu_training_governance"
+}

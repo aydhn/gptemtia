@@ -1,0 +1,11 @@
+{
+  "domain": "safety_domain",
+  "safety_status": "SECURE",
+  "no_go_count": 15,
+  "safe_go_count": 7,
+  "live_trading_prohibited": true,
+  "broker_prohibited": true,
+  "all_boundaries_enforced": true,
+  "status": "evaluation_contract_ready",
+  "non_signal": true
+}

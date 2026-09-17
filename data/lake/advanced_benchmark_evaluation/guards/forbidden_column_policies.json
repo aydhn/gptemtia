@@ -1,0 +1,7 @@
+{
+  "domain": "claim_guard_domain",
+  "total_forbidden_columns": 45,
+  "all_enforced": true,
+  "status": "evaluation_contract_ready",
+  "non_signal": true
+}

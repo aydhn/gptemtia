@@ -1,0 +1,6 @@
+{
+  "total_feature_contracts": 2,
+  "zero_forward_look": true,
+  "asof_backward_only": true,
+  "non_signal": true
+}

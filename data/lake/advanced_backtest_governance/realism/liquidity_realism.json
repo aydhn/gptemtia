@@ -1,0 +1,9 @@
+{
+  "domain": "realism_governance_domain",
+  "subdomain": "liquidity_realism",
+  "total_rules": 3,
+  "perfect_liquidity_prohibited": true,
+  "status": "governance_contract_ready",
+  "non_signal": true,
+  "local_only": true
+}

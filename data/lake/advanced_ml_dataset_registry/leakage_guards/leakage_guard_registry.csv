@@ -1,0 +1,5 @@
+guard_name,description,blocked_keywords,non_signal,manual_review_required,current_phase
+no_target_label_leakage_guard,Prevents target/label columns from being in feature sets.,"target, label, prediction, future_return, forward_return, next_return, signal, buy, sell, long, short, position, recommendation",True,True,137
+no_future_return_leakage_guard,Prevents future_return/forward_return/next_return columns.,"target, label, prediction, future_return, forward_return, next_return, signal, buy, sell, long, short, position, recommendation",True,True,137
+no_signal_leakage_guard,Prevents signal/buy/sell/long/short/position columns.,"target, label, prediction, future_return, forward_return, next_return, signal, buy, sell, long, short, position, recommendation",True,True,137
+no_negative_shift_leakage_guard,Prevents shift(-1) or negative lag usage that causes lookahead bias.,"target, label, prediction, future_return, forward_return, next_return, signal, buy, sell, long, short, position, recommendation",True,True,137

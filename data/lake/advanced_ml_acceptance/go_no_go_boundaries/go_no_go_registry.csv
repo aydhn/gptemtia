@@ -1,0 +1,16 @@
+decision_id,decision,topic,allowed,label,current_phase,target_final_phase,next_phase,non_signal,production_ready,broker_ready
+GO-01,GO,proceed_to_phase_146_contract_planning,True,go_contract_only,145,160,146,True,False,False
+GO-02,GO,proceed_to_backtest_contract_design,True,go_contract_only,145,160,146,True,False,False
+GO-03,GO,proceed_to_transaction_cost_slippage_contract_design,True,go_contract_only,145,160,146,True,False,False
+GO-04,GO,proceed_to_non_live_backtest_boundary_design,True,go_contract_only,145,160,146,True,False,False
+NOGO-01,NO-GO,live_trading,False,no_go_live_trading,145,160,146,True,False,False
+NOGO-02,NO-GO,broker_execution,False,no_go_broker_execution,145,160,146,True,False,False
+NOGO-03,NO-GO,investment_advice,False,no_go_signal_generation,145,160,146,True,False,False
+NOGO-04,NO-GO,model_training,False,no_go_model_training,145,160,146,True,False,False
+NOGO-05,NO-GO,prediction,False,no_go_prediction,145,160,146,True,False,False
+NOGO-06,NO-GO,backtest_execution_in_phase_145,False,no_go_backtest_execution,145,160,146,True,False,False
+NOGO-07,NO-GO,model_registry_write,False,no_go_model_registry_write,145,160,146,True,False,False
+NOGO-08,NO-GO,deployment,False,no_go_production_deployment,145,160,146,True,False,False
+NOGO-09,NO-GO,production_approval,False,no_go_production_deployment,145,160,146,True,False,False
+NOGO-10,NO-GO,broker_ready_approval,False,no_go_broker_execution,145,160,146,True,False,False
+NOGO-11,NO-GO,signal_generation,False,no_go_signal_generation,145,160,146,True,False,False

@@ -1,0 +1,2 @@
+output_contract_id,output_name,schema_fields,frequency,storage_format,materialization_allowed
+OUT-SCN-001,scenario_stress_loss_summary,"['scenario_id', 'scenario_name', 'simulated_loss_pct', 'var_99_shock', 'recovery_days']",ON_DEMAND_RESEARCH,csv_json,False

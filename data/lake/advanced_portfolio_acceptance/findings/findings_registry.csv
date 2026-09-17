@@ -1,0 +1,3 @@
+finding_id,finding_type,phase_ref,severity_label,message,recommendation,manual_review_required,is_blocking,current_phase,status
+FND-Phase153-157-CONTRACT,contract_only_verification,Phase 153-157,info,Portfolio and risk contracts verified in contract-only and placeholder mode.,Maintain contract-only boundary into Phase 158 integration rehearsal.,True,False,157,portfolio_acceptance_ready
+FND-Phase157-NON_PROD,non_production_assurance,Phase 157,warning,Acceptance readiness score does not approve live trading or production deployment.,Perform thorough manual governance review before Phase 158 rehearsal.,True,False,157,portfolio_acceptance_ready

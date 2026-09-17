@@ -1,0 +1,10 @@
+{
+  "total_placeholders": 3,
+  "placeholders": [
+    "normal_confidence_interval_95_placeholder",
+    "bootstrap_confidence_interval_95_placeholder",
+    "student_t_confidence_interval_99_placeholder"
+  ],
+  "all_uncalculated": true,
+  "all_non_signal": true
+}

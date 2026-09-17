@@ -1,0 +1,11 @@
+{
+  "domain": "phase_151_benchmark_evaluation_acceptance_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "phase_ref": "Phase 151",
+  "phase_title": "Benchmark Comparison and Strategy Evaluation Reports",
+  "total_checks": 10,
+  "passed_checks": 10,
+  "all_passed": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

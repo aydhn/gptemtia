@@ -1,0 +1,11 @@
+{
+  "domain": "safety_domain",
+  "total_rules": 37,
+  "no_go_count": 29,
+  "safe_go_count": 8,
+  "safety_status": "SAFETY_BOUNDARY_ENFORCED",
+  "live_trading_prohibited": true,
+  "broker_execution_prohibited": true,
+  "portfolio_execution_prohibited": true,
+  "status": "portfolio_acceptance_ready"
+}

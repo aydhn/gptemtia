@@ -1,0 +1,2 @@
+score,classification,meets_threshold,min_threshold,total_findings,critical_blockers,production_ready,broker_ready,non_signal
+1.0,walk_forward_oos_contract_ready_non_production,True,0.5,3,0,False,False,True

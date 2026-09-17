@@ -1,0 +1,12 @@
+{
+  "domain": "manifest_domain",
+  "manifest_id": "MANIFEST_PHASE_151_BENCHMARK_EVALUATION",
+  "timestamp": "2026-09-15T07:28:35.814362+00:00",
+  "current_phase": 151,
+  "next_phase": 152,
+  "target_final_phase": 160,
+  "all_negative_invariants_satisfied": true,
+  "phase_152_handoff_ready": true,
+  "status": "evaluation_contract_ready",
+  "non_signal": true
+}

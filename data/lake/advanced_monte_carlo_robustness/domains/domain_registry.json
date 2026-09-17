@@ -1,0 +1,6 @@
+{
+  "domain": "monte_carlo_domain",
+  "total_domains": 31,
+  "profile_name": "balanced_local_monte_carlo_robustness_contracts",
+  "status": "monte_carlo_contract_ready"
+}

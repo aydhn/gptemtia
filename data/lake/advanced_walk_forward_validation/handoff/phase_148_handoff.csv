@@ -1,0 +1,11 @@
+prerequisite_id,name,description,status,is_satisfied,non_signal
+HND-148-01,stress_testing_prerequisites,Stres testi senaryolari icin gerekli OOS bolumleme ve zaman serisi sinirlari hazir.,SATISFIED,True,True
+HND-148-02,scenario_simulation_prerequisites,Tarihsel kriz ve sentetik senaryo simulasyon sozlesmelerine temel teskil edecek referans cerceve hazir.,SATISFIED,True,True
+HND-148-03,oos_validation_prerequisites,Kesisimsiz OOS test kumesi ve muhurlu holdout sozlesmeleri tamamlandi.,SATISFIED,True,True
+HND-148-04,benchmark_contract_prerequisites,"Buy & Hold, nakit ve esit agirlikli referans strateji sozlesmeleri baglandi.",SATISFIED,True,True
+HND-148-05,realistic_backtest_prerequisites,Phase 146 motor sozlesmeleri ile walk-forward cercevesi arasindaki kopru kuruldu.,SATISFIED,True,True
+HND-148-06,transaction_cost_slippage_prerequisites,Islem komisyonu ve kayma modellerinin OOS metrik sozlesmelerine entegrasyonu tamamlandi.,SATISFIED,True,True
+HND-148-07,no_lookahead_purge_embargo_guard_prerequisites,"Zaman serisi siralamasi, purge ve embargo muhafizlari aktiflestirildi.",SATISFIED,True,True
+HND-148-08,regime_aware_stress_scenario_prerequisites,Rejim duyarlilik bolumlemeleri ve stres donemi gecis arayuzleri hazirlandi.,SATISFIED,True,True
+HND-148-09,manual_review_blockers_cleared,Phase 148 oncesi zorunlu insan inceleme kapilari tanimlandi.,SATISFIED,True,True
+HND-148-10,clear_research_boundary_enforced,Phase 148 yerel/cevrimdisi arastirma sinirlarinda calisacak; canli islem ve broker engelleri devam edecek.,SATISFIED,True,True

@@ -1,0 +1,15 @@
+{
+  "total_strategies": 7,
+  "all_execution_disabled": true,
+  "all_voting_disabled": true,
+  "all_blending_disabled": true,
+  "all_stacking_disabled": true,
+  "all_calibration_disabled": true,
+  "all_prediction_disabled": true,
+  "all_signal_disabled": true,
+  "all_non_signal_required": true,
+  "all_manual_review_required": true,
+  "production_ready": false,
+  "broker_ready": false,
+  "active_profile": "balanced_local_ensemble_model_contracts"
+}

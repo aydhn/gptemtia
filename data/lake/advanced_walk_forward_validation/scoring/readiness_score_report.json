@@ -1,0 +1,9 @@
+{
+  "score": 1.0,
+  "classification": "walk_forward_oos_contract_ready_non_production",
+  "meets_threshold": true,
+  "critical_blockers": 0,
+  "production_ready": false,
+  "broker_ready": false,
+  "non_signal": true
+}

@@ -1,0 +1,7 @@
+rule_id,rule_name,status,is_blocking
+VAL-156-001,no_live_trading_or_broker,PASS,True
+VAL-156-002,no_actual_scenario_execution,PASS,True
+VAL-156-003,no_actual_drawdown_control,PASS,True
+VAL-156-004,no_portfolio_adjustment,PASS,True
+VAL-156-005,no_investment_advice,PASS,True
+VAL-156-006,all_profiles_non_production,PASS,True

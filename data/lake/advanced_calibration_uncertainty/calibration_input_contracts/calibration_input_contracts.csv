@@ -1,0 +1,6 @@
+input_contract_name,source_phase_ref,description,allows_target,allows_prediction,non_signal,phase,status
+candidate_model_uncalibrated_scores_contract,Phase 140 Candidate Model Contracts,Uncalibrated raw decision values or logits from candidate models.,False,False,True,141,calibration_contract_ready
+ensemble_uncalibrated_consensus_contract,Phase 140 Ensemble Strategy Contracts,Uncalibrated ensemble aggregated consensus scores.,False,False,True,141,calibration_contract_ready
+featurestore_calibration_metadata_contract,Phase 134 FeatureStore Catalog,Feature store metadata and schema references for calibration splits.,False,False,True,141,calibration_contract_ready
+regime_acceptance_context_contract,Phase 135 Regime Acceptance,Regime acceptance boundaries and state references.,False,False,True,141,calibration_contract_ready
+no_lookahead_temporal_split_contract,Phase 121/133/137 Validation Contracts,Strict strictly non-overlapping temporal partition contracts.,False,False,True,141,calibration_contract_ready

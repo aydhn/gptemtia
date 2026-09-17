@@ -1,0 +1,2 @@
+execution_name,prohibited_reason,blocked_actions,is_blocked,enforced,non_signal,local_only
+stress_metric_calculation,Phase 148 defines metric placeholders; real calculation is prohibited.,"calculate_stressed_pnl, calculate_var, calculate_expected_shortfall, calculate_drawdown",True,True,True,True

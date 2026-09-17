@@ -1,0 +1,3 @@
+item_id,execution_type,is_disabled,blocking_reason,enforcement_layer,status
+PDD-001,production_deployment,True,Phase 158 is non-production research layer.,contract,DISABLED
+PDD-002,production_ready_claim,True,Claims of production-readiness are strictly prohibited.,contract,DISABLED

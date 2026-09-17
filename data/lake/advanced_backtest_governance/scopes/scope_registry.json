@@ -1,0 +1,9 @@
+{
+  "domain": "backtest_governance_scope_domain",
+  "total_scopes": 16,
+  "included_scopes_count": 8,
+  "excluded_scopes_count": 8,
+  "status": "governance_contract_ready",
+  "non_signal": true,
+  "local_only": true
+}

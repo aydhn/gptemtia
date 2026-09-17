@@ -1,0 +1,6 @@
+PHASE 147: WALK-FORWARD VALIDATION & OUT-OF-SAMPLE BENCHMARKING CONTRACT LAYER
+NON-PRODUCTION | RESEARCH ONLY | ZERO LIVE TRADING | ZERO BROKER EXECUTION | NON-SIGNAL
+Bu cikti sozlesme ve metadata spesifikasyonudur; canli emir, trade sinyali veya kesin getiri icermez.
+Total Metric Placeholders: 5
+Calculations Disabled: True
+Zero Performance Claims: True

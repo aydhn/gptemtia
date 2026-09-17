@@ -1,0 +1,11 @@
+model_family_key,category,description,target_phase,is_executable_in_phase_137,model_training_allowed,prediction_allowed,artifact_persistence_allowed,non_signal,manual_review_required
+logistic_regression_placeholder,linear_baseline,Linear logistic regression baseline placeholder for tabular regime features,138,False,False,False,False,True,True
+random_forest_placeholder,tree_ensemble_baseline,Random Forest non-linear ensemble baseline placeholder,138,False,False,False,False,True,True
+gradient_boosting_placeholder,gradient_boosting_baseline,Standard gradient boosting decision tree baseline placeholder,138,False,False,False,False,True,True
+xgboost_placeholder,gpu_accelerated_tree,XGBoost GPU/CPU tree boosting placeholder for Phase 138/139,139,False,False,False,False,True,True
+lightgbm_placeholder,fast_histogram_tree,LightGBM histogram-based tree boosting placeholder,139,False,False,False,False,True,True
+catboost_placeholder,categorical_tree,CatBoost robust categorical boosting placeholder,139,False,False,False,False,True,True
+shallow_neural_network_placeholder,neural_baseline,Shallow MLP / Feedforward neural net placeholder for tabular feature fusion,139,False,False,False,False,True,True
+sequence_model_placeholder,temporal_sequence,Temporal sequence model placeholder (LSTM/GRU/Temporal Convolution),139,False,False,False,False,True,True
+unsupervised_model_placeholder,representation_learning,Unsupervised manifold / dimensionality reduction placeholder (PCA/UMAP),140,False,False,False,False,True,True
+ensemble_placeholder,meta_ensemble,Stacking / Blending meta-model candidate placeholder for Phase 140,140,False,False,False,False,True,True

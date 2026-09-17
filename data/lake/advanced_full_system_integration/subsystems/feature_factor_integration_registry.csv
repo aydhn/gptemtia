@@ -1,0 +1,5 @@
+item_id,subsystem,contract,status,non_signal,verified
+FFI-001,indicators,technical_indicators,INTEGRATED,True,True
+FFI-002,feature_fusion,multimodal_fusion,INTEGRATED,True,True
+FFI-003,factor_metadata,factor_registry,INTEGRATED,True,True
+FFI-004,feature_drift,drift_monitoring,INTEGRATED,True,True

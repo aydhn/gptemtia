@@ -1,0 +1,4 @@
+finding_id,finding_type,calibration_domain,severity_label,message,recommendation,manual_review_required,is_critical,non_signal,phase
+FIND_CALIB_001,probability_prediction_request_blocked,probability_prediction_disabled_domain,INFO,Probability prediction execution blocked by policy; zero probabilities generated.,Maintain strict non-execution policy during contract phase.,True,False,True,141
+FIND_UNCERT_002,uncertainty_estimation_request_blocked,uncertainty_execution_disabled_domain,INFO,Uncertainty estimation execution blocked by policy; zero intervals computed.,Inspect uncertainty method placeholders for Phase 142 drift readiness.,True,False,True,141
+FIND_AUDIT_003,metric_calculation_request_blocked,calibration_metric_placeholder_domain,INFO,Calibration and uncertainty metrics are uncalculated placeholders.,Perform manual review of metric formulas prior to evaluation phase.,True,False,True,141

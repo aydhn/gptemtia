@@ -1,0 +1,7 @@
+rule_id,rule_name,condition,action_on_breach,description,current_phase,contract_only,non_production,actual_trade_decision,investment_advice,manual_review_required,status
+ELG_MIN_HISTORY,Minimum History Contract,history_days >= 252,block_asset_contract,En az 252 is gunluk gecmis veri sartini tanimlar.,153,True,True,False,False,True,portfolio_contract_ready
+ELG_MAX_MISSINGNESS,Maximum Missingness Contract,missing_rate <= 0.05,block_asset_contract,Eksik veri oraninin yuzde 5'i gecmemesi sartini tanimlar.,153,True,True,False,False,True,portfolio_contract_ready
+ELG_LIQUIDITY_FLOOR,Liquidity Floor Contract,daily_volume_rank >= 0.20,block_asset_contract,Asgari likidite esik sozlesmesini tanimlar.,153,True,True,False,False,True,portfolio_contract_ready
+ELG_SPREAD_CEILING,Spread Ceiling Contract,relative_spread <= 0.02,block_asset_contract,Azami spread sinir sartini tanimlar.,153,True,True,False,False,True,portfolio_contract_ready
+ELG_REGIME_COMPATIBILITY,Regime Compatibility Contract,regime_stability_score >= 0.40,manual_review_required,Rejim uyumluluk asgari skor sartini tanimlar.,153,True,True,False,False,True,portfolio_contract_ready
+ELG_PRICE_SANITY,Price Sanity Contract,price > 0 and not_nan,block_asset_contract,Pozitif ve gecerli fiyat veri sartini tanimlar.,153,True,True,False,False,True,portfolio_contract_ready

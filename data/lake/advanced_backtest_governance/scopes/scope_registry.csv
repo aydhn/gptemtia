@@ -1,0 +1,17 @@
+scope_name,scope_type,description,phase,non_signal,local_only
+offline_governance_contracts,INCLUDED,Defining formal contracts for realistic backtest execution without running actual trades.,150,True,True
+bias_detection_policies,INCLUDED,"Detecting lookahead, survivorship, snooping, overfitting, multiple testing, and coverage bias.",150,True,True
+result_claim_boundaries,INCLUDED,"Explicit boundaries ensuring results are treated as research hypotheses, never verified returns.",150,True,True
+metric_claim_boundaries,INCLUDED,"Explicit boundaries ensuring Sharpe, win-rate, and alpha are contract placeholders.",150,True,True
+realism_governance,INCLUDED,"Validating cost, slippage, fill, and liquidity realism assumptions.",150,True,True
+audit_and_evidence,INCLUDED,Logging and evidence preservation standards for reproducibility.,150,True,True
+manual_review_gates,INCLUDED,Human review checkpoints before strategy evaluation progression.,150,True,True
+phase_151_handoff,INCLUDED,Preparing input contracts for Phase 151 benchmark comparison.,150,True,True
+live_trading,EXCLUDED,"Live order execution, routing, or account integration.",150,True,True
+broker_integration,EXCLUDED,"Interactive Brokers, MT5, or broker API interactions.",150,True,True
+signal_generation,EXCLUDED,Producing buy/sell/position trading recommendations.,150,True,True
+real_backtest_execution,EXCLUDED,Running backtest simulation engine on historical bars.,150,True,True
+real_metric_calculation,EXCLUDED,Calculating actual numerical performance metrics.,150,True,True
+strategy_optimization,EXCLUDED,Running grid/random/Bayesian parameter optimizers.,150,True,True
+strategy_approval,EXCLUDED,Issuing production-ready or official approval claims.,150,True,True
+model_training,EXCLUDED,Fitting ML/DL models or generating inference predictions.,150,True,True

@@ -1,0 +1,5 @@
+Bu rapor Phase 158 Full-System Integration and Advanced Acceptance Rehearsal çıktısıdır. Gerçek full-system execution, end-to-end bot run, live trading, broker execution, order generation, signal generation, model training, prediction, backtest, portfolio execution, risk execution, scenario execution, optimizer, metric calculation, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, performance claim, production-ready, broker-ready, deployment, model registry write, artifact persistence, scraping, credential output veya source overwrite değildir.
+Total Rules: 18
+Prohibited Actions: 15
+Allowed Actions: 3
+Status: full_system_integration_ready

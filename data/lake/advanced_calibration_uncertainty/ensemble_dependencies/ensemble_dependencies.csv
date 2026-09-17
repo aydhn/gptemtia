@@ -1,0 +1,5 @@
+dependency_name,source_phase,target_component,description,status,non_signal,phase
+voting_ensemble_strategy_dep,Phase 140,ensemble_strategy_contracts,Voting ensemble strategy contract dependency.,SATISFIED,True,141
+blending_ensemble_strategy_dep,Phase 140,ensemble_strategy_contracts,Blending ensemble strategy contract dependency.,SATISFIED,True,141
+stacking_ensemble_strategy_dep,Phase 140,ensemble_strategy_contracts,Stacking ensemble strategy contract dependency.,SATISFIED,True,141
+dynamic_weighting_strategy_dep,Phase 140,ensemble_strategy_contracts,Dynamic weighting ensemble strategy contract dependency.,SATISFIED,True,141

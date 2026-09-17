@@ -1,0 +1,3 @@
+dependency_id,source_phase,description,status,profile_name,current_phase,domain
+DEP_SQUARE_ROOT_SLIPPAGE_MODEL,146,Almgren-Chriss square root market impact model for trade volume penalty in resampled paths.,SATISFIED,balanced_local_monte_carlo_robustness_contracts,149,dependency_domain
+DEP_VOLATILITY_SCALED_SPREADS,146,Dynamic spread widening models scaling slippage penalties during high-volatility draws.,SATISFIED,balanced_local_monte_carlo_robustness_contracts,149,dependency_domain

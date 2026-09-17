@@ -1,0 +1,7 @@
+{
+  "total_drawdown_control_contracts": 4,
+  "all_contract_only": true,
+  "all_execution_disabled": true,
+  "current_phase": 156,
+  "status": "DRAWDOWN_CONTROL_CONTRACT_READY"
+}

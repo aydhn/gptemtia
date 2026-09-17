@@ -1,0 +1,4 @@
+control_id,name,description,enforcement,status,execution_allowed,non_signal,local_only,phase
+OVF_01_DEGREES_OF_FREEDOM_BOUND,parameter_to_sample_size_ratio_bound,Limit total tunable strategy parameters relative to independent trade observations (e.g. min 50 trades per parameter).,BLOCKING_MANDATORY,ACTIVE,False,True,True,150
+OVF_02_IN_SAMPLE_OUT_SAMPLE_SPREAD,is_oos_performance_degradation_envelope,Flag strategies where simulated out-of-sample degradation exceeds 50% of in-sample performance.,HIGH_AUDIT,ACTIVE,False,True,True,150
+OVF_03_CSC_PROBABILITY_PLACEHOLDER,combinatorial_purged_cross_validation_placeholder,Enforce Combinatorially Symmetric Cross-Validation (CSCV) and Probability of Backtest Overfitting (PBO) framework.,HIGH_AUDIT,ACTIVE,False,True,True,150

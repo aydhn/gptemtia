@@ -1,0 +1,8 @@
+{
+  "profile_name": "balanced_local_backtest_governance_contracts",
+  "current_phase": 150,
+  "target_final_phase": 160,
+  "next_phase": 151,
+  "status": "PHASE_150_COMPLETED_READY_FOR_PHASE_151",
+  "non_signal": true
+}

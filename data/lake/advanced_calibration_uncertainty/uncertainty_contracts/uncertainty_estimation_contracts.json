@@ -1,0 +1,18 @@
+{
+  "total_contracts": 8,
+  "contracts": [
+    "prediction_interval_contract",
+    "confidence_interval_contract",
+    "quantile_interval_contract",
+    "conformal_prediction_contract",
+    "bootstrap_uncertainty_contract",
+    "ensemble_variance_contract",
+    "monte_carlo_dropout_contract",
+    "bayesian_approximation_contract"
+  ],
+  "all_zero_uncertainty": true,
+  "all_zero_prediction_interval": true,
+  "all_zero_conformal": true,
+  "all_non_signal": true,
+  "all_manual_review": true
+}

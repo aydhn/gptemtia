@@ -1,0 +1,13 @@
+{
+  "total_guards": 4,
+  "guard_names": [
+    "candidate_input_temporal_guard",
+    "ensemble_weight_temporal_guard",
+    "meta_model_split_temporal_guard",
+    "holdout_leakage_guard"
+  ],
+  "all_guards_enforced": true,
+  "zero_leakage_guaranteed": true,
+  "dry_run": true,
+  "non_signal": true
+}

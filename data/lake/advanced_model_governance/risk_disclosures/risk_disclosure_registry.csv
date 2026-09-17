@@ -1,0 +1,5 @@
+risk_id,risk_name,description,mitigation,phase,manual_review_required,non_signal
+RSK-01,concept_drift_risk,Macroeconomic regime shifts or commodity shocks can invalidate prior statistical relationships.,"Monitored via Phase 142 drift monitoring contracts (PSI, KS, Wasserstein tests).",144,True,True
+RSK-02,calibration_degradation_risk,Uncertainty intervals and class probabilities may lose calibration under high volatility.,Controlled via Phase 141 reliability diagram contracts and Brier score tracking.,144,True,True
+RSK-03,attribution_instability_risk,Feature attributions may vary across closely correlated features or changing market regimes.,Supervised via Phase 143 XAI stability contracts and Spearman rank drift checks.,144,True,True
+RSK-04,governance_bypass_risk,Premature transition from research contracts to live trading by bypassing approval boundaries.,Strict boundary enforcement and mandatory manual review gates in Phase 144.,144,True,True

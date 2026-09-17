@@ -1,0 +1,9 @@
+{
+  "total_policies": 5,
+  "current_phase": 137,
+  "non_signal": true,
+  "target_label_allowed": false,
+  "target_label_generation_allowed": false,
+  "all_enforced": true,
+  "status": "READY"
+}

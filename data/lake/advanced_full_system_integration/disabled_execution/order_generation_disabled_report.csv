@@ -1,0 +1,3 @@
+item_id,execution_type,is_disabled,blocking_reason,enforcement_layer,status
+OGD-001,order_generation,True,Generating order tickets or executable quantities is prohibited.,contract,DISABLED
+OGD-002,order_routing,True,Routing orders to broker or execution gateways is prohibited.,contract,DISABLED

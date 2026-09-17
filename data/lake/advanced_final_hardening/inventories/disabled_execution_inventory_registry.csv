@@ -1,0 +1,13 @@
+action_name,execution_label,description,is_disabled,bypass_allowed,domain,non_signal,local_only,dry_run,non_production,current_phase,status
+live_trading,execution_blocked_no_live_trading,Canlı piyasa alım/satım işlemleri,True,False,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+broker_integration,execution_blocked_no_broker,Broker API bağlantısı ve emir iletimi,True,False,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+order_generation,execution_blocked_no_order_generation,Gerçek emir nesnesi oluşturma,True,False,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+signal_generation,execution_blocked_no_signal_generation,Doğrudan AL/SAT trade sinyali üretimi,True,False,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+system_execution,execution_blocked_no_system_execution,Gerçek full-system bot işletimi,True,False,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+end_to_end_run,execution_blocked_no_end_to_end_run,Uçtan uca otomatik döngü çalıştırma,True,False,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+production_deployment,execution_blocked_no_production_deployment,Canlı sunucuya deploy etme,True,False,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+release_deployment,execution_blocked_no_release_deployment,Release adresi veya dış sunucuya aktarma,True,False,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+model_training,execution_blocked_no_model_training,Gerçek zamanlı model eğitimi veya fit etme,True,False,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+model_predict,execution_blocked_no_prediction,Canlı model inference ve tahmin yürütme,True,False,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+model_registry_write,execution_blocked_no_model_registry_write,Model registry üzerine kayıt yazma,True,False,inventory_domain,True,True,True,True,159,final_hardening_contract_ready
+artifact_persistence,execution_blocked_no_artifact_persistence,Model ağırlık artifact'ı saklama,True,False,inventory_domain,True,True,True,True,159,final_hardening_contract_ready

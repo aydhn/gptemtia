@@ -1,0 +1,3 @@
+finding_id,domain,severity,description,manual_review_required,status
+FND-156-001,scenario_contract_integrity,INFO,Tum senaryo ve drawdown kontrol sozlesmeleri offline ve contract_only modunda kuruldu,False,RESOLVED
+FND-156-002,non_signal_invariance,INFO,"Sinyal uretilmedi, gercek emir verilmedi, portfoy degistirilmedi",False,RESOLVED

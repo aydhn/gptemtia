@@ -1,0 +1,3 @@
+item_id,execution_type,is_disabled,blocking_reason,enforcement_layer,status
+MTD-001,model_training,True,Fitting ML models is forbidden in Phase 158.,contract,DISABLED
+MTD-002,target_label_generation,True,Generating target labels or supervised targets is forbidden.,contract,DISABLED

@@ -1,0 +1,4 @@
+input_contract_name,source_phase_ref,description,allows_target,allows_prediction,non_signal,phase,status
+candidate_predictions_uncertainty_input,Phase 140 Candidate Model Contracts,Candidate model score vectors as uncertainty inputs.,False,False,True,141,calibration_contract_ready
+calibrated_scores_uncertainty_input,Phase 141 Probability Calibration Contracts,Calibrated score metadata references as uncertainty inputs.,False,False,True,141,calibration_contract_ready
+featurestore_uncertainty_feature_input,Phase 134 FeatureStore Catalog,FeatureStore feature tensors for uncertainty modeling.,False,False,True,141,calibration_contract_ready

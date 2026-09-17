@@ -1,0 +1,10 @@
+{
+  "total_validations": 5,
+  "passed_validations": 5,
+  "all_passed": true,
+  "validation_status": "VALIDATION_PASS",
+  "clean_of_forbidden_claims": true,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false
+}

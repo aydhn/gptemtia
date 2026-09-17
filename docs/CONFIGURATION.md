@@ -1172,7 +1172,314 @@ Phase 109 Macro Provider Configuration
 - `GPU_ML_RUNTIME_TIMEZONE="UTC"`: Standart zaman dilimi.
 
 ### 4. Phase 137 Handoff
-- Phase 136, yerel donanım ve hızlandırıcı keşfini, PyTorch/CUDA ve Scikit-learn/Numpy yeteneklerini, 12 ML güvenlik sözleşmesini, rejim/FeatureStore/no-lookahead girdi sözleşmelerini, MANIFEST_VALID manifestosunu ve Phase 137 (Advanced Feature Transformation, Normalization & Scaling for ML) için 14 doğrulanmış devir önkoşulunu teslim eder (`phase_137_handoff.py`).
+- Phase 136, yerel donanım ve hızlandırıcı keşfini, PyTorch/CUDA ve Scikit-learn/Numpy yeteneklerini, 12 ML güvenlik sözleşmesini, rejim/FeatureStore/no-lookahead girdi sözleşmelerini, MANIFEST_VALID manifestosunu ve Phase 137 (Advanced ML Dataset Contracts and Experiment Registry) için 14 doğrulanmış devir önkoşulunu teslim eder (`phase_137_handoff.py`).
+
+## Phase 137 Advanced ML Dataset Contracts and Experiment Registry Configuration
+### 1. Çalışma Profilleri
+- `DEFAULT_ADVANCED_ML_DATASET_PROFILE`: Çalışma profilini belirler (`balanced_local_ml_dataset_contracts`, `strict_no_materialization_no_training_dataset_safety`, `dry_run_experiment_registry_focus`).
+  - `balanced_local_ml_dataset_contracts`: Varsayılan dengeli yerel profil. 9 veri kümesi sözleşmesi, şema politikaları, sızıntı korumaları, eğitimsiz deney kaydı ve Phase 138 devir hazırlığı.
+  - `strict_no_materialization_no_training_dataset_safety`: Sıfır materyalleştirme, sıfır eğitim ve sıfır çıkarım odaklı sıkı güvenlik profili.
+  - `dry_run_experiment_registry_focus`: Deney şablonları, izin matrisi ve yürütme planı yer tutucularına odaklanan kuru koşum profili.
+
+### 2. Güvenlik, Non-Signal ve Sözleşme Ayarları
+- `ADVANCED_ML_DATASET_REGISTRY_ENABLED=true`: Phase 137 katmanının aktifliği.
+- `ML_DATASET_REGISTRY_CURRENT_PHASE=137`: Mevcut operasyonel faz.
+- `ML_DATASET_REGISTRY_TARGET_FINAL_PHASE=160`: Nihai mimari hedefi.
+- `ML_DATASET_REGISTRY_NEXT_PHASE=138`: Sıradaki faz (Baseline ML Model Contracts and Training Harness Governance).
+- `ML_DATASET_REGISTRY_DRY_RUN_DEFAULT=true`: Varsayılan kuru koşum modu.
+- `ML_DATASET_REGISTRY_LOCAL_ONLY=true`: Yalnızca yerel çevrimdışı ortamda çalışma kısıtı.
+- `ML_DATASET_REGISTRY_RESEARCH_ONLY=true`: Yalnızca araştırma amaçlı çalışma.
+- `ML_DATASET_REGISTRY_ALLOW_LIVE_TRADING=false`: Canlı ticaret kesinlikle yasaktır.
+- `ML_DATASET_REGISTRY_ALLOW_BROKER_INTEGRATION=false`: Broker entegrasyonu kesinlikle yasaktır.
+- `ML_DATASET_REGISTRY_ALLOW_INVESTMENT_ADVICE=false`: Yatırım tavsiyesi kesinlikle yasaktır.
+- `ML_DATASET_REGISTRY_ALLOW_DATASET_AS_SIGNAL=false`: Veri kümesi veya deney çıktılarının trade sinyali olarak kullanımı yasaktır.
+- `ML_DATASET_REGISTRY_ALLOW_DATASET_MATERIALIZATION=false`: Fiziksel veri kümesi materyalleştirmesi yasaktır.
+- `ML_DATASET_REGISTRY_ALLOW_FEATURE_SNAPSHOT_MATERIALIZATION=false`: Fiziksel özellik anlık görüntüsü materyalleştirmesi yasaktır.
+- `ML_DATASET_REGISTRY_ALLOW_MODEL_TRAINING=false`: Model eğitimi veya fit operasyonu yasaktır.
+- `ML_DATASET_REGISTRY_ALLOW_MODEL_PREDICT=false`: Model tahmini veya predict operasyonu yasaktır.
+- `ML_DATASET_REGISTRY_ALLOW_TARGET_LABEL_GENERATION=false`: Hedef ve etiket kolonları türetimi yasaktır.
+- `ML_DATASET_REGISTRY_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `ML_DATASET_REGISTRY_ALLOW_NLP_SENTIMENT_MODEL=false`: NLP duygu modelleri kullanımı yasaktır.
+- `ML_DATASET_REGISTRY_ALLOW_NEGATIVE_SHIFT=false`: Negatif zaman damgası kaydırması (`shift(-1)`) yasaktır.
+- `ML_DATASET_REGISTRY_ALLOW_LOOKAHEAD=false`: Geleceğe bakış sızıntısı yasaktır.
+- `ML_DATASET_REGISTRY_ALLOW_SOURCE_OVERWRITE=false`: Kaynak veri dosyaları ezilemez (`source_preserved: True`).
+- `ML_DATASET_REGISTRY_ALLOW_AUTO_IMPUTATION=false`: Otomatik eksik veri doldurma yasaktır.
+- `ML_DATASET_REGISTRY_ALLOW_AUTO_FEATURE_DROP=false`: Otomatik özellik silme yasaktır.
+
+### 3. Eşik Parametreleri
+- `ML_DATASET_REGISTRY_MIN_READINESS_SCORE=0.45`: Minimum kabul edilebilir hazırlık skoru.
+- `ML_DATASET_REGISTRY_TIMEZONE="UTC"`: Standart zaman dilimi.
+
+### 4. Phase 138 Handoff
+- Phase 137, 9 ML veri kümesi ailesi sözleşmesini, 21 kaynak referansını, şema ve sızıntı korumalarını, eğitimsiz deney kaydını, 10 model ve 7 metrik yer tutucusunu ve Phase 138 (Baseline ML Model Contracts and Training Harness Governance) için 13 doğrulanmış devir önkoşulunu teslim eder (`phase_138_handoff.py`).
+
+## Phase 138 Baseline ML Model Contracts and Dry-Run Training Harness Configuration
+### 1. Çalışma Profilleri
+- `DEFAULT_BASELINE_ML_MODEL_PROFILE`: Çalışma profilini belirler (`balanced_local_baseline_ml_contracts`, `strict_no_real_training_baseline_safety`, `dry_run_harness_contract_focus`).
+  - `balanced_local_baseline_ml_contracts`: Varsayılan dengeli yerel profil. 10 model sözleşmesi, girdi/çıktı sözleşmeleri, dry-run harness, stubs, devre dışı bırakılmış yürütme kontrolleri ve Phase 139 devir hazırlığı.
+  - `strict_no_real_training_baseline_safety`: Sıfır gerçek eğitim, sıfır tahmin, sıfır hedef/etiket ve sıfır artifact kalıcılığı odaklı sıkı güvenlik profili.
+  - `dry_run_harness_contract_focus`: Simüle edilmiş dry-run harness sözleşmeleri, trainer stub'ları ve politikalarına odaklanan kuru koşum profili.
+
+### 2. Güvenlik, Non-Signal ve Sözleşme Ayarları
+- `ADVANCED_BASELINE_ML_MODELS_ENABLED=true`: Phase 138 katmanının aktifliği.
+- `BASELINE_ML_MODEL_CURRENT_PHASE=138`: Mevcut operasyonel faz.
+- `BASELINE_ML_MODEL_TARGET_FINAL_PHASE=160`: Nihai mimari hedefi.
+- `BASELINE_ML_MODEL_NEXT_PHASE=139`: Sıradaki faz (GPU-Accelerated Training Harness and Resource Governance).
+- `BASELINE_ML_MODEL_DRY_RUN_DEFAULT=true`: Varsayılan kuru koşum modu (`would_run=False`, `blocked_by_policy=True`).
+- `BASELINE_ML_MODEL_LOCAL_ONLY=true`: Yalnızca yerel çevrimdışı ortamda çalışma kısıtı.
+- `BASELINE_ML_MODEL_RESEARCH_ONLY=true`: Yalnızca araştırma amaçlı çalışma.
+- `BASELINE_ML_MODEL_ALLOW_LIVE_TRADING=false`: Canlı ticaret kesinlikle yasaktır.
+- `BASELINE_ML_MODEL_ALLOW_BROKER_INTEGRATION=false`: Broker entegrasyonu kesinlikle yasaktır.
+- `BASELINE_ML_MODEL_ALLOW_INVESTMENT_ADVICE=false`: Yatırım tavsiyesi kesinlikle yasaktır.
+- `BASELINE_ML_MODEL_ALLOW_MODEL_AS_SIGNAL=false`: Model veya çıktı sözleşmelerinin trade sinyali olarak kullanımı yasaktır.
+- `BASELINE_ML_MODEL_ALLOW_REAL_MODEL_TRAINING=false`: Gerçek model eğitimi veya parametre optimizasyonu yasaktır.
+- `BASELINE_ML_MODEL_ALLOW_MODEL_FIT=false`: Model `.fit()` operasyonu yasaktır.
+- `BASELINE_ML_MODEL_ALLOW_MODEL_PREDICT=false`: Model `.predict()` operasyonu yasaktır.
+- `BASELINE_ML_MODEL_ALLOW_TARGET_LABEL_GENERATION=false`: Hedef (`target`) ve etiket (`label`) kolonları türetimi yasaktır.
+- `BASELINE_ML_MODEL_ALLOW_ARTIFACT_PERSISTENCE=false`: Model yapay nesnelerinin diske kaydı yasaktır.
+- `BASELINE_ML_MODEL_ALLOW_MODEL_REGISTRY_WRITE=false`: Model kayıt defterlerine veya MLflow'a yazım yasaktır.
+- `BASELINE_ML_MODEL_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `BASELINE_ML_MODEL_ALLOW_NLP_SENTIMENT_MODEL=false`: NLP duygu modelleri kullanımı yasaktır.
+- `BASELINE_ML_MODEL_ALLOW_NEGATIVE_SHIFT=false`: Negatif zaman damgası kaydırması (`shift(-1)`) yasaktır.
+- `BASELINE_ML_MODEL_ALLOW_LOOKAHEAD=false`: Geleceğe bakış sızıntısı yasaktır.
+- `BASELINE_ML_MODEL_ALLOW_SOURCE_OVERWRITE=false`: Kaynak veri dosyaları ezilemez (`source_preserved: True`).
+- `BASELINE_ML_MODEL_ALLOW_AUTO_IMPUTATION=false`: Otomatik eksik veri doldurma yasaktır.
+- `BASELINE_ML_MODEL_ALLOW_AUTO_FEATURE_DROP=false`: Otomatik özellik silme yasaktır.
+
+### 3. Eşik Parametreleri
+- `BASELINE_ML_MODEL_MIN_READINESS_SCORE=0.45`: Minimum kabul edilebilir hazırlık skoru.
+- `BASELINE_ML_MODEL_TIMEZONE="UTC"`: Standart zaman dilimi.
+
+### 4. Phase 139 Handoff
+- Phase 138, 10 temel model ailesi sözleşmesini, dry-run training harness'ını, 15 harness arayüz spesifikasyonunu, 10 trainer stub'ını, devre dışı bırakılmış yürütme raporlarını, metrik/değerlendirme yer tutucularını ve Phase 139 (GPU-Accelerated Training Harness and Resource Governance) için 12 doğrulanmış devir önkoşulunu teslim eder (`phase_139_handoff.py`).
+
+## Phase 139 GPU-Accelerated Training Harness and Resource Governance Configuration
+
+### 1. GPU Training Governance Profili Nasıl Seçilir?
+- `ADVANCED_GPU_TRAINING_GOVERNANCE_ENABLED=true` ile katman aktif edilir.
+- `DEFAULT_GPU_TRAINING_GOVERNANCE_PROFILE="balanced_local_gpu_training_governance"`: Varsayılan dengeli profil.
+- Seçenekler:
+  - `balanced_local_gpu_training_governance`: Standart dengeli yerel profil, GPU eğitim kaynak yönetişimi ve kontrollü kuru koşum (dry-run) harness'ı.
+  - `strict_no_training_resource_governance_safety`: Sıfır gerçek eğitim, engellenmiş yürütme stub'ları ve muhafazakar bellek sınırlarına odaklanan sıkı güvenlik profili.
+  - `dry_run_gpu_resource_contract_focus`: Kuru koşum GPU kaynak politikaları, cihaz seçim doğrulaması ve Phase 140 aday model kayıt defteri hazırlığına odaklanan profil.
+
+### 2. Güvenlik, Non-Signal ve Sözleşme Ayarları
+- `GPU_TRAINING_GOVERNANCE_CURRENT_PHASE=139`: Mevcut operasyonel faz.
+- `GPU_TRAINING_GOVERNANCE_TARGET_FINAL_PHASE=160`: Nihai mimari hedefi.
+- `GPU_TRAINING_GOVERNANCE_NEXT_PHASE=140`: Sıradaki faz (Ensemble Model Contracts and Candidate Model Registry).
+- `GPU_TRAINING_GOVERNANCE_DRY_RUN_DEFAULT=true`: Varsayılan kuru koşum modu (`would_run=False`, `blocked_by_policy=True`).
+- `GPU_TRAINING_GOVERNANCE_LOCAL_ONLY=true`: Yalnızca yerel çevrimdışı ortamda çalışma kısıtı.
+- `GPU_TRAINING_GOVERNANCE_RESEARCH_ONLY=true`: Yalnızca araştırma amaçlı çalışma.
+- `GPU_TRAINING_GOVERNANCE_ALLOW_LIVE_TRADING=false`: Canlı ticaret kesinlikle yasaktır.
+- `GPU_TRAINING_GOVERNANCE_ALLOW_BROKER_INTEGRATION=false`: Broker entegrasyonu kesinlikle yasaktır.
+- `GPU_TRAINING_GOVERNANCE_ALLOW_INVESTMENT_ADVICE=false`: Yatırım tavsiyesi kesinlikle yasaktır.
+- `GPU_TRAINING_GOVERNANCE_ALLOW_SIGNAL_GENERATION=false`: Model veya kaynak yönetişim sözleşmelerinin trade sinyali olarak kullanımı yasaktır.
+- `GPU_TRAINING_GOVERNANCE_ALLOW_REAL_MODEL_TRAINING=false`: Gerçek model eğitimi veya parametre optimizasyonu yasaktır.
+- `GPU_TRAINING_GOVERNANCE_ALLOW_MODEL_FIT=false`: Model `.fit()` operasyonu yasaktır.
+- `GPU_TRAINING_GOVERNANCE_ALLOW_MODEL_PREDICT=false`: Model `.predict()` operasyonu yasaktır.
+- `GPU_TRAINING_GOVERNANCE_ALLOW_TARGET_LABEL_GENERATION=false`: Hedef (`target`) ve etiket (`label`) kolonları türetimi yasaktır.
+- `GPU_TRAINING_GOVERNANCE_ALLOW_ARTIFACT_PERSISTENCE=false`: Model yapay nesnelerinin diske kaydı yasaktır.
+- `GPU_TRAINING_GOVERNANCE_ALLOW_MODEL_REGISTRY_WRITE=false`: Model kayıt defterlerine veya MLflow'a yazım yasaktır.
+- `GPU_TRAINING_GOVERNANCE_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `GPU_TRAINING_GOVERNANCE_ALLOW_NLP_SENTIMENT_MODEL=false`: NLP duygu modelleri kullanımı yasaktır.
+- `GPU_TRAINING_GOVERNANCE_ALLOW_NEGATIVE_SHIFT=false`: Negatif zaman damgası kaydırması (`shift(-1)`) yasaktır.
+- `GPU_TRAINING_GOVERNANCE_ALLOW_LOOKAHEAD=false`: Geleceğe bakış sızıntısı yasaktır.
+- `GPU_TRAINING_GOVERNANCE_ALLOW_SOURCE_OVERWRITE=false`: Kaynak veri dosyaları ezilemez (`source_preserved: True`).
+- `GPU_TRAINING_GOVERNANCE_ALLOW_AUTO_IMPUTATION=false`: Otomatik eksik veri doldurma yasaktır.
+- `GPU_TRAINING_GOVERNANCE_ALLOW_AUTO_FEATURE_DROP=false`: Otomatik özellik silme yasaktır.
+
+### 3. Kaynak ve Eşik Parametreleri
+- `GPU_TRAINING_GOVERNANCE_MAX_MEMORY_FRACTION_LIMIT=0.80`: Maksimum GPU bellek fraksiyon limiti (%80).
+- `GPU_TRAINING_GOVERNANCE_MAX_TIMEOUT_SECONDS_LIMIT=3600`: Maksimum yürütme zaman aşımı tavanı (saniye).
+- `GPU_TRAINING_GOVERNANCE_DEFAULT_BATCH_SIZE_PLACEHOLDER=32`: Varsayılan batch size yer tutucusu.
+- `GPU_TRAINING_GOVERNANCE_MIN_READINESS_SCORE=0.45`: Minimum kabul edilebilir hazırlık skoru.
+
+### 4. Phase 140 Handoff
+- Phase 139, GPU/CPU kaynak yönetişimi kurallarını, cihaz seçim ve CPU fallback politikalarını, bellek bütçesi ve zaman aşımı korumalarını, 15 harness arayüz spesifikasyonunu, 10 trainer stub'ını, 5 devre dışı bırakılmış yürütme raporunu ve Phase 140 (Ensemble Model Contracts and Candidate Model Registry) için 12 doğrulanmış devir önkoşulunu teslim eder (`phase_140_handoff.py`).
+
+## Phase 140 Ensemble Model Contracts and Candidate Model Registry Configuration
+
+### 1. Ensemble Model Registry Profili Nasıl Seçilir?
+- `ADVANCED_ENSEMBLE_MODEL_REGISTRY_ENABLED=true` ile katman aktif edilir.
+- `DEFAULT_ENSEMBLE_MODEL_PROFILE="balanced_local_ensemble_model_registry"`: Varsayılan dengeli profil.
+- Seçenekler:
+  - `balanced_local_ensemble_model_registry`: Standart dengeli yerel profil, topluluk model sözleşmeleri, aday model kayıt defteri ve yürütmesiz ensemble katmanı.
+  - `strict_no_ensemble_execution_safety`: Sıfır ensemble yürütmesi, engellenmiş aday eğitimi/çıkarımı ve katı güvenlik sınırlarına odaklanan profil.
+  - `candidate_registry_contract_focus`: Aday model sözleşmeleri, uyumluluk matrisi ve Phase 141 olasılık kalibrasyonu hazırlığına odaklanan profil.
+
+### 2. Güvenlik, Non-Signal ve Sözleşme Ayarları
+- `ENSEMBLE_MODEL_CURRENT_PHASE=140`: Mevcut operasyonel faz.
+- `ENSEMBLE_MODEL_TARGET_FINAL_PHASE=160`: Nihai mimari hedefi.
+- `ENSEMBLE_MODEL_NEXT_PHASE=141`: Sıradaki faz (Probability Calibration and Uncertainty Estimation).
+- `ENSEMBLE_MODEL_DRY_RUN_DEFAULT=true`: Varsayılan kuru koşum modu (`execution_blocked=True`).
+- `ENSEMBLE_MODEL_LOCAL_ONLY=true`: Yalnızca yerel çevrimdışı ortamda çalışma kısıtı.
+- `ENSEMBLE_MODEL_RESEARCH_ONLY=true`: Yalnızca araştırma amaçlı çalışma.
+- `ENSEMBLE_MODEL_ALLOW_LIVE_TRADING=false`: Canlı ticaret kesinlikle yasaktır.
+- `ENSEMBLE_MODEL_ALLOW_BROKER_INTEGRATION=false`: Broker entegrasyonu kesinlikle yasaktır.
+- `ENSEMBLE_MODEL_ALLOW_INVESTMENT_ADVICE=false`: Yatırım tavsiyesi kesinlikle yasaktır.
+- `ENSEMBLE_MODEL_ALLOW_SIGNAL_GENERATION=false`: Ensemble sözleşmelerinin trade sinyali olarak kullanımı yasaktır.
+- `ENSEMBLE_MODEL_ALLOW_REAL_MODEL_TRAINING=false`: Aday modellerin gerçek eğitimi yasaktır.
+- `ENSEMBLE_MODEL_ALLOW_MODEL_FIT=false`: Model `.fit()` operasyonu yasaktır.
+- `ENSEMBLE_MODEL_ALLOW_MODEL_PREDICT=false`: Model `.predict()` operasyonu yasaktır.
+- `ENSEMBLE_MODEL_ALLOW_ENSEMBLE_EXECUTION=false`: Ensemble stratejilerinin (Voting, Blending, Stacking, Dynamic Weighting) yürütülmesi yasaktır.
+- `ENSEMBLE_MODEL_ALLOW_TARGET_LABEL_GENERATION=false`: Hedef (`target`) ve etiket (`label`) kolonları türetimi yasaktır.
+- `ENSEMBLE_MODEL_ALLOW_ARTIFACT_PERSISTENCE=false`: Model yapay nesnelerinin diske kaydı yasaktır.
+- `ENSEMBLE_MODEL_ALLOW_MODEL_REGISTRY_WRITE=false`: Harici/dahili model kayıt defterlerine veya MLflow'a yazım yasaktır.
+- `ENSEMBLE_MODEL_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `ENSEMBLE_MODEL_ALLOW_NLP_SENTIMENT_MODEL=false`: NLP duygu modelleri kullanımı yasaktır.
+- `ENSEMBLE_MODEL_ALLOW_NEGATIVE_SHIFT=false`: Negatif zaman damgası kaydırması (`shift(-1)`) yasaktır.
+- `ENSEMBLE_MODEL_ALLOW_LOOKAHEAD=false`: Geleceğe bakış sızıntısı yasaktır.
+- `ENSEMBLE_MODEL_ALLOW_SOURCE_OVERWRITE=false`: Kaynak veri dosyaları ezilemez (`source_preserved: True`).
+- `ENSEMBLE_MODEL_ALLOW_AUTO_IMPUTATION=false`: Otomatik eksik veri doldurma yasaktır.
+- `ENSEMBLE_MODEL_ALLOW_AUTO_FEATURE_DROP=false`: Otomatik özellik silme yasaktır.
+
+### 3. Kaynak ve Eşik Parametreleri
+- `ENSEMBLE_MODEL_MIN_READINESS_SCORE=0.45`: Minimum kabul edilebilir hazırlık skoru.
+- `ENSEMBLE_MODEL_TIMEZONE="UTC"`: Standart zaman dilimi.
+
+### 4. Phase 141 Handoff
+- Phase 140, 5 aday model ailesi sözleşmesini, 12 uygunluk kapısını, 10 uyumluluk matrisi sözleşmesini, 4 ensemble strateji sözleşmesini, 6 devre dışı bırakılmış yürütme raporunu, metrik/değerlendirme yer tutucularını ve Phase 141 (Probability Calibration and Uncertainty Estimation) için 12 doğrulanmış devir önkoşulunu teslim eder (`phase_141_handoff.py`).
+
+## Phase 141 Probability Calibration and Uncertainty Estimation Configuration
+
+### 1. Calibration and Uncertainty Profili Nasıl Seçilir?
+- `ADVANCED_CALIBRATION_UNCERTAINTY_ENABLED=true` ile katman aktif edilir.
+- `DEFAULT_CALIBRATION_UNCERTAINTY_PROFILE="balanced_local_calibration_uncertainty_contracts"`: Varsayılan dengeli profil.
+- Seçenekler:
+  - `balanced_local_calibration_uncertainty_contracts`: Standart dengeli yerel profil, kalibrasyon ve belirsizlik sözleşmeleri, yer tutucular ve kalite kapıları.
+  - `strict_non_executing_calibration_safety`: Sıfır kalibrasyon yürütmesi, sıfır belirsizlik kestirimi ve katı güvenlik sınırlarına odaklanan profil.
+  - `dry_run_uncertainty_governance_focus`: Belirsizlik yöntem sözleşmeleri, aralık yer tutucuları ve Phase 142 drift izleme hazırlığına odaklanan profil.
+
+### 2. Güvenlik, Non-Signal ve Sözleşme Ayarları
+- `CALIBRATION_UNCERTAINTY_CURRENT_PHASE=141`: Mevcut operasyonel faz.
+- `CALIBRATION_UNCERTAINTY_TARGET_FINAL_PHASE=160`: Nihai mimari hedefi.
+- `CALIBRATION_UNCERTAINTY_NEXT_PHASE=142`: Sıradaki faz (Model Drift Monitoring and Data/Feature Drift Linkage).
+- `CALIBRATION_UNCERTAINTY_DRY_RUN_DEFAULT=true`: Varsayılan kuru koşum modu (`execution_blocked=True`).
+- `CALIBRATION_UNCERTAINTY_LOCAL_ONLY=true`: Yalnızca yerel çevrimdışı ortamda çalışma kısıtı.
+- `CALIBRATION_UNCERTAINTY_RESEARCH_ONLY=true`: Yalnızca araştırma amaçlı çalışma.
+- `CALIBRATION_UNCERTAINTY_ALLOW_LIVE_TRADING=false`: Canlı ticaret kesinlikle yasaktır.
+- `CALIBRATION_UNCERTAINTY_ALLOW_BROKER_INTEGRATION=false`: Broker entegrasyonu kesinlikle yasaktır.
+- `CALIBRATION_UNCERTAINTY_ALLOW_INVESTMENT_ADVICE=false`: Yatırım tavsiyesi kesinlikle yasaktır.
+- `CALIBRATION_UNCERTAINTY_ALLOW_SIGNAL_GENERATION=false`: Kalibrasyon/belirsizlik çıktılarının trade sinyali olarak kullanımı yasaktır.
+- `CALIBRATION_UNCERTAINTY_ALLOW_MODEL_TRAINING=false`: Gerçek model eğitimi yasaktır.
+- `CALIBRATION_UNCERTAINTY_ALLOW_PROBABILITY_PREDICTION=false`: Olasılık tahmini (`predict_proba`) üretimi yasaktır.
+- `CALIBRATION_UNCERTAINTY_ALLOW_CALIBRATION_EXECUTION=false`: Kalibrasyon algoritmalarının yürütülmesi yasaktır.
+- `CALIBRATION_UNCERTAINTY_ALLOW_UNCERTAINTY_ESTIMATION=false`: Belirsizlik kestirim algoritmalarının yürütülmesi yasaktır.
+- `CALIBRATION_UNCERTAINTY_ALLOW_TARGET_LABEL_GENERATION=false`: Hedef (`target`) ve etiket (`label`) kolonları türetimi yasaktır.
+- `CALIBRATION_UNCERTAINTY_ALLOW_ARTIFACT_PERSISTENCE=false`: Kalibratör nesnelerinin diske kaydı yasaktır.
+- `CALIBRATION_UNCERTAINTY_ALLOW_MODEL_REGISTRY_WRITE=false`: Model kayıt defterlerine yazım yasaktır.
+- `CALIBRATION_UNCERTAINTY_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `CALIBRATION_UNCERTAINTY_ALLOW_NLP_SENTIMENT_MODEL=false`: NLP duygu modelleri kullanımı yasaktır.
+- `CALIBRATION_UNCERTAINTY_ALLOW_NEGATIVE_SHIFT=false`: Negatif zaman damgası kaydırması (`shift(-1)`) yasaktır.
+- `CALIBRATION_UNCERTAINTY_ALLOW_LOOKAHEAD=false`: Geleceğe bakış sızıntısı yasaktır.
+- `CALIBRATION_UNCERTAINTY_ALLOW_SOURCE_OVERWRITE=false`: Kaynak veri dosyaları ezilemez (`source_preserved: True`).
+- `CALIBRATION_UNCERTAINTY_ALLOW_AUTO_IMPUTATION=false`: Otomatik eksik veri doldurma yasaktır.
+- `CALIBRATION_UNCERTAINTY_ALLOW_AUTO_FEATURE_DROP=false`: Otomatik özellik silme yasaktır.
+
+### 3. Kaynak ve Eşik Parametreleri
+- `CALIBRATION_UNCERTAINTY_MIN_READINESS_SCORE=0.45`: Minimum kabul edilebilir hazırlık skoru.
+- `CALIBRATION_UNCERTAINTY_TIMEZONE="UTC"`: Standart zaman dilimi.
+
+### 4. Phase 142 Handoff
+- Phase 141, 7 olasılık kalibrasyon sözleşmesini, 8 belirsizlik tahmin sözleşmesini, 5 devre dışı bırakılmış yürütme raporunu, güven puanı/aralık/metrik yer tutucularını, muhafızları ve Phase 142 (Model Drift Monitoring and Data/Feature Drift Linkage) için 8 doğrulanmış devir önkoşulunu teslim eder (`phase_142_handoff.py`).
+
+## Phase 142 Model Drift Monitoring and Data/Feature Drift Linkage Configuration
+
+### 1. Model Drift Profili Nasıl Seçilir?
+- `ADVANCED_MODEL_DRIFT_MONITORING_ENABLED=true` ile katman aktif edilir.
+- `DEFAULT_MODEL_DRIFT_PROFILE="balanced_local_model_drift_contracts"`: Varsayılan profil.
+- Seçenekler:
+  - `balanced_local_model_drift_contracts`: 59 domain, 24 izleme sözleşmesi, 10 metrik yer tutucu kategorisi ve tam bağlantı doğrulaması için varsayılan dengeli yerel profil.
+  - `strict_non_executing_drift_safety`: Sıfır drift hesabı, sıfır canlı izleme, sıfır uyarı ve katı güvenlik sınırlarına odaklanan profil.
+  - `dry_run_linkage_governance_focus`: Phase 123, 124, 126-135 bağlantıları, pencere politikaları ve Phase 143 devir hazırlığına odaklanan profil.
+
+### 2. Güvenlik, Non-Signal ve Sözleşme Ayarları
+- `MODEL_DRIFT_CURRENT_PHASE=142`: Mevcut operasyonel faz.
+- `MODEL_DRIFT_TARGET_FINAL_PHASE=160`: Nihai mimari hedefi.
+- `MODEL_DRIFT_NEXT_PHASE=143`: Sıradaki faz (Explainability and Feature Attribution Reports).
+- `MODEL_DRIFT_DRY_RUN_DEFAULT=true`: Varsayılan kuru koşum modu (`execution_blocked=True`).
+- `MODEL_DRIFT_LOCAL_ONLY=true`: Yalnızca yerel çevrimdışı ortamda çalışma kısıtı.
+- `MODEL_DRIFT_RESEARCH_ONLY=true`: Yalnızca araştırma amaçlı çalışma.
+- `MODEL_DRIFT_ALLOW_LIVE_TRADING=false`: Canlı ticaret kesinlikle yasaktır.
+- `MODEL_DRIFT_ALLOW_BROKER_INTEGRATION=false`: Broker entegrasyonu kesinlikle yasaktır.
+- `MODEL_DRIFT_ALLOW_INVESTMENT_ADVICE=false`: Yatırım tavsiyesi kesinlikle yasaktır.
+- `MODEL_DRIFT_ALLOW_SIGNAL_GENERATION=false`: Drift çıktılarının trade sinyali olarak kullanımı yasaktır.
+- `MODEL_DRIFT_ALLOW_MODEL_TRAINING=false`: Gerçek model eğitimi yasaktır.
+- `MODEL_DRIFT_ALLOW_MODEL_PREDICTION=false`: Model tahmini üretimi yasaktır.
+- `MODEL_DRIFT_ALLOW_DRIFT_CALCULATION=false`: Canlı veride gerçek drift metriği hesaplanması yasaktır.
+- `MODEL_DRIFT_ALLOW_DRIFT_ALERTING=false`: Otomatik alarm ve bildirim üretimi yasaktır.
+- `MODEL_DRIFT_ALLOW_RETRAINING_TRIGGER=false`: Drift kaynaklı otomatik yeniden eğitim tetiklemesi yasaktır.
+- `MODEL_DRIFT_ALLOW_MODEL_ACTION=false`: Model değiştirme veya yayından kaldırma aksiyonları yasaktır.
+- `MODEL_DRIFT_ALLOW_DATASET_MATERIALIZATION=false`: Veri kümesi materyalizasyonu yasaktır.
+- `MODEL_DRIFT_ALLOW_MODEL_REGISTRY_WRITE=false`: Model kayıt defterlerine yazım yasaktır.
+- `MODEL_DRIFT_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `MODEL_DRIFT_ALLOW_NLP_SENTIMENT_MODEL=false`: NLP duygu modelleri kullanımı yasaktır.
+- `MODEL_DRIFT_ALLOW_NEGATIVE_SHIFT=false`: Negatif zaman damgası kaydırması (`shift(-1)`) yasaktır.
+- `MODEL_DRIFT_ALLOW_LOOKAHEAD=false`: Geleceğe bakış sızıntısı yasaktır.
+- `MODEL_DRIFT_ALLOW_SOURCE_OVERWRITE=false`: Kaynak veri dosyaları ezilemez (`source_preserved: True`).
+- `MODEL_DRIFT_ALLOW_AUTO_IMPUTATION=false`: Otomatik eksik veri doldurma yasaktır.
+- `MODEL_DRIFT_ALLOW_AUTO_FEATURE_DROP=false`: Otomatik özellik silme yasaktır.
+
+### 3. Drift Eşikleri ve Parametreleri
+- `MODEL_DRIFT_WARNING_PSI_THRESHOLD=0.10`: PSI uyarı eşiği.
+- `MODEL_DRIFT_CRITICAL_PSI_THRESHOLD=0.25`: PSI kritik eşiği.
+- `MODEL_DRIFT_WARNING_KS_PVALUE_THRESHOLD=0.05`: KS p-değeri uyarı eşiği.
+- `MODEL_DRIFT_CRITICAL_KS_PVALUE_THRESHOLD=0.01`: KS p-değeri kritik eşiği.
+- `MODEL_DRIFT_WARNING_WASSERSTEIN_THRESHOLD=0.15`: Wasserstein uyarı eşiği.
+- `MODEL_DRIFT_CRITICAL_WASSERSTEIN_THRESHOLD=0.30`: Wasserstein kritik eşiği.
+- `MODEL_DRIFT_MIN_READINESS_SCORE=0.45`: Minimum kabul edilebilir hazırlık skoru.
+- `MODEL_DRIFT_TIMEZONE="UTC"`: Standart zaman dilimi.
+
+### 4. Phase 143 Handoff
+- Phase 142, 24 izleme sözleşmesini, 4 bağlantı sözleşme grubunu, pencere ve eşik politikalarını, 10 metrik yer tutucu kategorisini, 6 devre dışı bırakılmış yürütme raporunu, muhafızları ve Phase 143 (Explainability and Feature Attribution Reports) için 8 doğrulanmış devir önkoşulunu teslim eder (`phase_143_handoff.py`).
+
+## Phase 143 Explainability and Feature Attribution Reports Configuration
+
+### 1. Açıklanabilirlik Profili Nasıl Seçilir?
+- `ADVANCED_EXPLAINABILITY_ATTRIBUTION_ENABLED=true` ile katman aktif edilir.
+- `DEFAULT_EXPLAINABILITY_PROFILE="balanced_local_explainability_contracts"`: Varsayılan profil.
+- Seçenekler:
+  - `balanced_local_explainability_contracts`: 31 domain, 7 rapor sözleşmesi, 8 atıf sözleşmesi, 8 yöntem politikası, 4 kapsam politikası ve tam bağlantı doğrulaması için varsayılan dengeli yerel profil.
+  - `strict_non_executing_xai_safety`: Sıfır XAI hesabı, sıfır SHAP/LIME, sıfır permütasyon/PDP, sıfır vekil model, sıfır model aksiyonu ve katı güvenlik sınırlarına odaklanan profil.
+  - `dry_run_attribution_report_governance_focus`: FeatureStore, Rejim, Drift, Kalibrasyon bağlantıları ve Phase 144 devir hazırlığına odaklanan profil.
+
+### 2. Güvenlik, Non-Signal ve Sözleşme Ayarları
+- `EXPLAINABILITY_CURRENT_PHASE=143`: Mevcut operasyonel faz.
+- `EXPLAINABILITY_TARGET_FINAL_PHASE=160`: Nihai mimari hedefi.
+- `EXPLAINABILITY_NEXT_PHASE=144`: Sıradaki faz (Model Governance, Model Cards and Audit Trail).
+- `EXPLAINABILITY_DRY_RUN_DEFAULT=true`: Varsayılan kuru koşum modu (`execution_blocked=True`).
+- `EXPLAINABILITY_LOCAL_ONLY=true`: Yalnızca yerel çevrimdışı ortamda çalışma kısıtı.
+- `EXPLAINABILITY_RESEARCH_ONLY=true`: Yalnızca araştırma amaçlı çalışma.
+- `EXPLAINABILITY_ALLOW_LIVE_TRADING=false`: Canlı ticaret kesinlikle yasaktır.
+- `EXPLAINABILITY_ALLOW_BROKER_INTEGRATION=false`: Broker entegrasyonu kesinlikle yasaktır.
+- `EXPLAINABILITY_ALLOW_INVESTMENT_ADVICE=false`: Yatırım tavsiyesi kesinlikle yasaktır.
+- `EXPLAINABILITY_ALLOW_SIGNAL_GENERATION=false`: Açıklanabilirlik çıktılarının trade sinyali olarak kullanımı yasaktır.
+- `EXPLAINABILITY_ALLOW_MODEL_TRAINING=false`: Gerçek model eğitimi yasaktır.
+- `EXPLAINABILITY_ALLOW_MODEL_PREDICTION=false`: Model tahmini üretimi yasaktır.
+- `EXPLAINABILITY_ALLOW_XAI_CALCULATION=false`: Canlı veride gerçek açıklanabilirlik hesaplanması yasaktır.
+- `EXPLAINABILITY_ALLOW_SHAP_EXECUTION=false`: SHAP kütüphanesi çağrımı ve hesaplaması yasaktır.
+- `EXPLAINABILITY_ALLOW_LIME_EXECUTION=false`: LIME pertürbasyon örneklemesi ve hesaplaması yasaktır.
+- `EXPLAINABILITY_ALLOW_PERMUTATION_IMPORTANCE=false`: Permütasyon önem derecesi hesaplaması yasaktır.
+- `EXPLAINABILITY_ALLOW_PDP_ICE_EXECUTION=false`: Kısmi bağımlılık ve ICE ızgara eğrisi hesaplaması yasaktır.
+- `EXPLAINABILITY_ALLOW_SURROGATE_MODEL=false`: Karar ağacı vekil modelleri eğitimi yasaktır.
+- `EXPLAINABILITY_ALLOW_COUNTERFACTUAL_GENERATION=false`: Karşıgözlemsel optimizasyon ve arama yasaktır.
+- `EXPLAINABILITY_ALLOW_MODEL_ACTION=false`: Açıklamaya dayalı model budama, silme veya değiştirme aksiyonları yasaktır.
+- `EXPLAINABILITY_ALLOW_DATASET_MATERIALIZATION=false`: Veri kümesi materyalizasyonu yasaktır.
+- `EXPLAINABILITY_ALLOW_MODEL_REGISTRY_WRITE=false`: Model kayıt defterlerine yazım yasaktır.
+- `EXPLAINABILITY_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `EXPLAINABILITY_ALLOW_NLP_SENTIMENT_MODEL=false`: NLP duygu modelleri kullanımı yasaktır.
+- `EXPLAINABILITY_ALLOW_NEGATIVE_SHIFT=false`: Negatif zaman damgası kaydırması (`shift(-1)`) yasaktır.
+- `EXPLAINABILITY_ALLOW_LOOKAHEAD=false`: Geleceğe bakış sızıntısı yasaktır.
+- `EXPLAINABILITY_ALLOW_SOURCE_OVERWRITE=false`: Kaynak veri dosyaları ezilemez (`source_preserved: True`).
+- `EXPLAINABILITY_ALLOW_AUTO_IMPUTATION=false`: Otomatik eksik veri doldurma yasaktır.
+- `EXPLAINABILITY_ALLOW_AUTO_FEATURE_DROP=false`: Otomatik özellik silme yasaktır.
+
+### 3. Açıklanabilirlik Parametreleri ve Eşikleri
+- `EXPLAINABILITY_MIN_READINESS_SCORE=0.45`: Minimum kabul edilebilir hazırlık skoru.
+- `EXPLAINABILITY_TIMEZONE="UTC"`: Standart zaman dilimi.
+
+### 4. Phase 144 Handoff
+- Phase 143, 7 rapor sözleşmesini, 8 atıf sözleşmesini, 8 yöntem politikasını, 4 kapsam politikasını, 9 devre dışı bırakılmış yürütme raporunu, muhafızları ve Phase 144 (Model Governance, Model Cards and Audit Trail) için 8 doğrulanmış devir önkoşulunu teslim eder (`phase_144_handoff.py`).
 
 
 
@@ -1180,6 +1487,796 @@ Phase 109 Macro Provider Configuration
 
 
 
+## Phase 144 Model Governance, Model Cards and Audit Trail Configuration
 
+### 1. Model Governance Profili Nasıl Seçilir?
+- `ADVANCED_MODEL_GOVERNANCE_ENABLED=true` ile katman aktif edilir.
+- `DEFAULT_MODEL_GOVERNANCE_PROFILE="balanced_local_model_governance_contracts"`: Varsayılan profil.
+- Seçenekler:
+  - `balanced_local_model_governance_contracts`: 62 domain, model card şablonları, sınır kayıt defterleri, devre dışı yürütme raporları ve yerel denetim izi yer tutucuları için varsayılan dengeli yerel profil.
+  - `strict_non_production_governance_safety`: Sıfır canlı onay, sıfır dağıtım yetkilendirmesi, sıfır model eğitimi/çıkarımı, sıfır registry yazımı ve katı güvenlik sınırlarına odaklanan profil.
+  - `dry_run_model_governance_manifest_focus`: Sınır denetimleri, doğrulama manifestoları ve Phase 145 devir hazırlığına odaklanan profil.
 
+### 2. Güvenlik, Non-Signal ve Sözleşme Ayarları
+- `MODEL_GOVERNANCE_CURRENT_PHASE=144`: Mevcut operasyonel faz.
+- `MODEL_GOVERNANCE_TARGET_FINAL_PHASE=160`: Nihai mimari hedefi.
+- `MODEL_GOVERNANCE_NEXT_PHASE=145`: Sıradaki faz (Advanced ML Acceptance Report and Candidate Finalization).
+- `MODEL_GOVERNANCE_DRY_RUN_DEFAULT=true`: Varsayılan kuru koşum modu (`execution_blocked=True`).
+- `MODEL_GOVERNANCE_LOCAL_ONLY=true`: Yalnızca yerel çevrimdışı ortamda çalışma kısıtı.
+- `MODEL_GOVERNANCE_RESEARCH_ONLY=true`: Yalnızca araştırma amaçlı çalışma.
+- `MODEL_GOVERNANCE_ALLOW_LIVE_TRADING=false`: Canlı ticaret kesinlikle yasaktır.
+- `MODEL_GOVERNANCE_ALLOW_BROKER_INTEGRATION=false`: Broker entegrasyonu kesinlikle yasaktır.
+- `MODEL_GOVERNANCE_ALLOW_INVESTMENT_ADVICE=false`: Yatırım tavsiyesi kesinlikle yasaktır.
+- `MODEL_GOVERNANCE_ALLOW_SIGNAL_GENERATION=false`: Model yönetişimi çıktılarının trade sinyali olarak kullanımı yasaktır.
+- `MODEL_GOVERNANCE_ALLOW_MODEL_TRAINING=false`: Gerçek model eğitimi yasaktır.
+- `MODEL_GOVERNANCE_ALLOW_MODEL_PREDICTION=false`: Model tahmini üretimi yasaktır.
+- `MODEL_GOVERNANCE_ALLOW_PRODUCTION_APPROVAL=false`: Gerçek production veya canlıya geçiş onayı yasaktır.
+- `MODEL_GOVERNANCE_ALLOW_DEPLOYMENT=false`: Dağıtım veya servis etme işlemleri yasaktır.
+- `MODEL_GOVERNANCE_ALLOW_BROKER_READY_CLAIM=false`: Broker-ready veya canlı işlem onay iddiaları yasaktır.
+- `MODEL_GOVERNANCE_ALLOW_MODEL_REGISTRY_WRITE=false`: Model kayıt defterlerine (MLflow/S3 vb.) yazım yasaktır.
+- `MODEL_GOVERNANCE_ALLOW_REAL_AUDIT_LOG=false`: Gerçek SIEM veya harici denetim loglaması yasaktır (`mock_offline_audit_placeholder`).
+- `MODEL_GOVERNANCE_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `MODEL_GOVERNANCE_ALLOW_NLP_SENTIMENT_MODEL=false`: NLP duygu modelleri kullanımı yasaktır.
+- `MODEL_GOVERNANCE_ALLOW_NEGATIVE_SHIFT=false`: Negatif zaman damgası kaydırması (`shift(-1)`) yasaktır.
+- `MODEL_GOVERNANCE_ALLOW_LOOKAHEAD=false`: Geleceğe bakış sızıntısı yasaktır.
+- `MODEL_GOVERNANCE_ALLOW_SOURCE_OVERWRITE=false`: Kaynak veri dosyaları ezilemez (`source_preserved: True`).
+- `MODEL_GOVERNANCE_ALLOW_AUTO_IMPUTATION=false`: Otomatik eksik veri doldurma yasaktır.
+- `MODEL_GOVERNANCE_ALLOW_AUTO_FEATURE_DROP=false`: Otomatik özellik silme yasaktır.
 
+### 3. Model Governance Parametreleri ve Eşikleri
+- `MODEL_GOVERNANCE_MIN_READINESS_SCORE=0.45`: Minimum kabul edilebilir hazırlık skoru.
+- `MODEL_GOVERNANCE_TIMEZONE="UTC"`: Standart zaman dilimi.
+
+### 4. Phase 145 Handoff
+- Phase 144, 48 çekirdek modülü, model kart sözleşmelerini, sınır kayıt defterlerini, devre dışı bırakılmış yürütme raporlarını, bağımlılık muhafızlarını ve Phase 145 (Advanced ML Acceptance Report and Candidate Finalization) için 8 doğrulanmış devir önkoşulunu teslim eder (`phase_145_handoff.py`).
+
+## Phase 145 Advanced ML Acceptance Report Configuration
+
+### 1. Advanced ML Acceptance Profili Nasıl Seçilir?
+- `ADVANCED_ML_ACCEPTANCE_ENABLED=true` ile katman aktif edilir.
+- `DEFAULT_ADVANCED_ML_ACCEPTANCE_PROFILE="balanced_local_advanced_ml_acceptance"`: Varsayılan profil.
+- Seçenekler:
+  - `balanced_local_advanced_ml_acceptance`: 30 domain, bileşen kayıt defteri, konsolide faz kabul denetimleri (Phases 136-144), bağımlılık/kanıt kontrolü ve Phase 146 devir hazırlığı için dengeli yerel profil.
+  - `strict_safety_governance_acceptance`: Sıfır canlı işlem, sıfır broker entegrasyonu, sıfır model eğitimi/tahmini, sıfır registry yazımı ve 34 No-Go güvenlik sınırına odaklanan profil.
+  - `dry_run_audit_acceptance`: Yalnızca denetim, sağlık kontrolü ve doğrulama raporlarına odaklanan profil.
+
+### 2. Güvenlik, Non-Signal ve Kabul Sözleşmesi Ayarları
+- `ADVANCED_ML_ACCEPTANCE_CURRENT_PHASE=145`: Mevcut operasyonel faz.
+- `ADVANCED_ML_ACCEPTANCE_TARGET_FINAL_PHASE=160`: Nihai mimari hedefi.
+- `ADVANCED_ML_ACCEPTANCE_NEXT_PHASE=146`: Sıradaki faz (Realistic Backtest, Transaction Cost and Slippage Modeling).
+- `ADVANCED_ML_ACCEPTANCE_DRY_RUN_DEFAULT=true`: Varsayılan kuru koşum modu (`execution_blocked=True`).
+- `ADVANCED_ML_ACCEPTANCE_LOCAL_ONLY=true`: Yalnızca yerel çevrimdışı ortamda çalışma kısıtı.
+- `ADVANCED_ML_ACCEPTANCE_RESEARCH_ONLY=true`: Yalnızca araştırma amaçlı çalışma.
+- `ADVANCED_ML_ACCEPTANCE_ALLOW_LIVE_TRADING=false`: Canlı ticaret kesinlikle yasaktır.
+- `ADVANCED_ML_ACCEPTANCE_ALLOW_BROKER_INTEGRATION=false`: Broker entegrasyonu kesinlikle yasaktır.
+- `ADVANCED_ML_ACCEPTANCE_ALLOW_INVESTMENT_ADVICE=false`: Yatırım tavsiyesi kesinlikle yasaktır.
+- `ADVANCED_ML_ACCEPTANCE_ALLOW_SIGNAL_GENERATION=false`: Kabul çıktılarının sinyal olarak kullanımı yasaktır.
+- `ADVANCED_ML_ACCEPTANCE_ALLOW_REAL_TRAINING=false`: Gerçek model eğitimi yasaktır.
+- `ADVANCED_ML_ACCEPTANCE_ALLOW_MODEL_PREDICTION=false`: Model tahmini üretimi yasaktır.
+- `ADVANCED_ML_ACCEPTANCE_ALLOW_PRODUCTION_APPROVAL=false`: Gerçek production veya canlıya geçiş onayı yasaktır.
+- `ADVANCED_ML_ACCEPTANCE_ALLOW_BROKER_READY_APPROVAL=false`: Broker-ready onay iddiaları yasaktır.
+- `ADVANCED_ML_ACCEPTANCE_ALLOW_MODEL_REGISTRY_WRITE=false`: Model kayıt defterlerine yazım yasaktır.
+- `ADVANCED_ML_ACCEPTANCE_ALLOW_ARTIFACT_PERSISTENCE=false`: Model ağırlıklarının diske kaydedilmesi yasaktır.
+- `ADVANCED_ML_ACCEPTANCE_ALLOW_DATASET_MATERIALIZATION=false`: Veri seti materyalizasyonu yasaktır.
+- `ADVANCED_ML_ACCEPTANCE_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `ADVANCED_ML_ACCEPTANCE_ALLOW_NLP_SENTIMENT_MODEL=false`: NLP duygu modelleri kullanımı yasaktır.
+- `ADVANCED_ML_ACCEPTANCE_ALLOW_NEGATIVE_SHIFT=false`: Negatif zaman damgası kaydırması (`shift(-1)`) yasaktır.
+- `ADVANCED_ML_ACCEPTANCE_ALLOW_LOOKAHEAD=false`: Geleceğe bakış sızıntısı yasaktır.
+- `ADVANCED_ML_ACCEPTANCE_ALLOW_SOURCE_OVERWRITE=false`: Kaynak veri dosyaları ezilemez (`source_preserved: True`).
+- `ADVANCED_ML_ACCEPTANCE_ALLOW_AUTO_IMPUTATION=false`: Otomatik eksik veri doldurma yasaktır.
+- `ADVANCED_ML_ACCEPTANCE_ALLOW_AUTO_FEATURE_DROP=false`: Otomatik özellik silme yasaktır.
+
+### 3. Kabul Parametreleri ve Eşikleri
+- `ADVANCED_ML_ACCEPTANCE_MIN_READINESS_SCORE=0.50`: Minimum kabul edilebilir hazırlık skoru.
+- `ADVANCED_ML_ACCEPTANCE_SAVE_REPORTS=true`: Kabul raporlarının diske kaydedilmesi ayarı.
+
+### 4. Phase 146 Handoff
+- Phase 145, Advanced ML bloğu (Phases 136-145) kapanış kabulünü, 10 bileşen kaydını, 72 faz kabul kontrolünü, 14 bağımlılık kabulünü, 12 doğrulama kanıtını, güvenlik sınırlarını ve Phase 146 (Realistic Backtest, Transaction Cost and Slippage Modeling) için 13 doğrulanmış devir önkoşulunu teslim eder (`phase_146_handoff.py`).
+
+## Phase 146 Realistic Backtest, Transaction Cost and Slippage Modeling Configuration
+
+### 1. Realistic Backtest Profili Nasıl Seçilir?
+- `ADVANCED_REALISTIC_BACKTEST_ENABLED=true` ile katman aktif edilir.
+- `DEFAULT_REALISTIC_BACKTEST_PROFILE="balanced_local_realistic_backtest"`: Varsayılan profil.
+- Seçenekler:
+  - `balanced_local_realistic_backtest`: 68 domain, motor sözleşmeleri, maliyet modelleri, muhasebe sözleşmeleri, muhafızlar ve Phase 147 devir hazırlığı için dengeli yerel profil.
+  - `strict_non_executing_backtest_safety`: Sıfır canlı işlem, sıfır broker entegrasyonu, sıfır backtest/optimizasyon yürütmesi ve 35 No-Go kuralına odaklanan sıkı güvenlik profili.
+  - `dry_run_backtest_contracts_focus`: Yalnızca sözleşme doğrulaması, sağlık kontrolleri ve manifest üretimine odaklanan kuru koşum profili.
+
+### 2. Güvenlik, Non-Signal ve Sözleşme Ayarları
+- `REALISTIC_BACKTEST_CURRENT_PHASE=146`: Mevcut operasyonel faz.
+- `REALISTIC_BACKTEST_TARGET_FINAL_PHASE=160`: Nihai mimari hedefi.
+- `REALISTIC_BACKTEST_NEXT_PHASE=147`: Sıradaki faz (Walk-Forward Validation and Out-of-Sample Testing).
+- `REALISTIC_BACKTEST_DRY_RUN_DEFAULT=true`: Varsayılan kuru koşum modu (`execution_blocked=True`).
+- `REALISTIC_BACKTEST_LOCAL_ONLY=true`: Yalnızca yerel çevrimdışı ortamda çalışma kısıtı.
+- `REALISTIC_BACKTEST_RESEARCH_ONLY=true`: Yalnızca araştırma ve modelleme amaçlı çalışma.
+- `REALISTIC_BACKTEST_ALLOW_LIVE_TRADING=false`: Canlı ticaret kesinlikle yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_BROKER_INTEGRATION=false`: Broker entegrasyonu kesinlikle yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_BROKER_EXECUTION=false`: Broker emir iletimi kesinlikle yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_INVESTMENT_ADVICE=false`: Yatırım tavsiyesi kesinlikle yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_SIGNAL_GENERATION=false`: Backtest çıktılarının canlı sinyal olarak kullanımı yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_DIRECTIONAL_CLAIM=false`: Yönlü piyasa iddiası yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_BACKTEST_EXECUTION=false`: Canlı backtest motoru yürütmesi yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_OPTIMIZER_EXECUTION=false`: Parametre optimizasyon yürütmesi yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_WALK_FORWARD_EXECUTION=false`: Walk-forward simülasyonu yürütmesi yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_BENCHMARK_EXECUTION=false`: Benchmark karşılaştırma yürütmesi yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_STRESS_TEST_EXECUTION=false`: Stres testi / Monte Carlo yürütmesi yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_REAL_TRAINING=false`: Gerçek model eğitimi yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_MODEL_PREDICTION=false`: Model tahmini üretimi yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_TARGET_LABEL_GENERATION=false`: Hedef / etiket kolon türetimi yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_PRODUCTION_APPROVAL=false`: Üretim onay iddiaları yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_BROKER_READY_APPROVAL=false`: Broker-ready onay iddiaları yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_OFFICIAL_APPROVAL_CLAIM=false`: Resmi onay iddiası yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_PRODUCTION_READY_CLAIM=false`: Üretime hazır iddiası yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_PERFORMANCE_CLAIM=false`: Performans veya kârlılık iddiaları yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_MODEL_REGISTRY_WRITE=false`: Model kayıt defterlerine yazım yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_ARTIFACT_PERSISTENCE=false`: Model ağırlıklarının diske kaydedilmesi yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_DATASET_MATERIALIZATION=false`: Veri seti materyalizasyonu yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `REALISTIC_BACKTEST_ALLOW_NLP_SENTIMENT_MODEL=false`: NLP duygu modelleri kullanımı yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_NEGATIVE_SHIFT=false`: Negatif zaman damgası kaydırması (`shift(-1)`) yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_LOOKAHEAD=false`: Geleceğe bakış sızıntısı yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_SOURCE_OVERWRITE=false`: Kaynak veri dosyaları ezilemez (`source_preserved: True`).
+- `REALISTIC_BACKTEST_ALLOW_AUTO_IMPUTATION=false`: Otomatik eksik veri doldurma yasaktır.
+- `REALISTIC_BACKTEST_ALLOW_AUTO_FEATURE_DROP=false`: Otomatik özellik silme yasaktır.
+
+### 3. Backtest ve Maliyet Parametreleri
+- `REALISTIC_BACKTEST_MIN_READINESS_SCORE=0.50`: Minimum kabul edilebilir hazırlık skoru.
+- `REALISTIC_BACKTEST_INITIAL_CASH=100000.0`: Varsayılan başlangıç nakit sermayesi.
+- `REALISTIC_BACKTEST_DEFAULT_CURRENCY="USD"`: Varsayılan baz para birimi.
+- `REALISTIC_BACKTEST_MAX_LEVERAGE=1.0`: Varsayılan maksimum kaldıraç oranı (1.0 = kaldıraçsız).
+- `REALISTIC_BACKTEST_DEFAULT_LATENCY_MS=50`: Varsayılan simüle edilmiş gecikme (ms).
+- `REALISTIC_BACKTEST_MAX_VOLUME_PARTICIPATION=0.05`: Varsayılan maksimum hacim katılım oranı (%5).
+- `REALISTIC_BACKTEST_SAVE_REPORTS=true`: Raporların diske kaydedilmesi ayarı.
+
+### 4. Phase 147 Handoff
+- Phase 146, gerçekçi backtest motor sözleşmelerini, işlem maliyeti ve kayma modellerini, muhasebe ve yaşam döngüsü kurallarını, bias muhafızlarını, 9 devre dışı bırakılmış yürütme raporunu, master bütünlük manifestosunu ve Phase 147 (Walk-Forward Validation and Out-of-Sample Testing) için 14 doğrulanmış devir önkoşulunu teslim eder (`phase_147_handoff.py`).
+
+## Phase 147 Walk-Forward Validation and Out-of-Sample Benchmarking Configuration
+
+### 1. Walk-Forward Validation Profili Nasıl Seçilir?
+- `ADVANCED_WALK_FORWARD_VALIDATION_ENABLED=true` ile katman aktif edilir.
+- `DEFAULT_WALK_FORWARD_PROFILE="balanced_local_walk_forward_validation"`: Varsayılan profil.
+- Seçenekler:
+  - `balanced_local_walk_forward_validation`: 68 domain, split sözleşmeleri, OOS benchmark sözleşmeleri, metrik yer tutucuları, muhafızlar ve Phase 148 devir hazırlığı için dengeli yerel profil.
+  - `strict_non_executing_validation_safety`: Sıfır canlı işlem, sıfır broker entegrasyonu, sıfır walk-forward/benchmark yürütmesi ve 35 No-Go kuralına odaklanan sıkı güvenlik profili.
+  - `dry_run_walk_forward_contracts_focus`: Yalnızca sözleşme doğrulaması, sağlık kontrolleri ve manifest üretimine odaklanan kuru koşum profili.
+
+### 2. Güvenlik, Non-Signal ve Sözleşme Ayarları
+- `WALK_FORWARD_CURRENT_PHASE=147`: Mevcut operasyonel faz.
+- `WALK_FORWARD_TARGET_FINAL_PHASE=160`: Nihai mimari hedefi.
+- `WALK_FORWARD_NEXT_PHASE=148`: Sıradaki faz (Stress Testing, Scenario Simulation and Robustness).
+- `WALK_FORWARD_DRY_RUN_DEFAULT=true`: Varsayılan kuru koşum modu (`execution_blocked=True`).
+- `WALK_FORWARD_LOCAL_ONLY=true`: Yalnızca yerel çevrimdışı ortamda çalışma kısıtı.
+- `WALK_FORWARD_RESEARCH_ONLY=true`: Yalnızca araştırma ve doğrulama modelleme amaçlı çalışma.
+- `WALK_FORWARD_ALLOW_LIVE_TRADING=false`: Canlı ticaret kesinlikle yasaktır.
+- `WALK_FORWARD_ALLOW_BROKER_INTEGRATION=false`: Broker entegrasyonu kesinlikle yasaktır.
+- `WALK_FORWARD_ALLOW_BROKER_EXECUTION=false`: Broker emir iletimi kesinlikle yasaktır.
+- `WALK_FORWARD_ALLOW_INVESTMENT_ADVICE=false`: Yatırım tavsiyesi kesinlikle yasaktır.
+- `WALK_FORWARD_ALLOW_SIGNAL_GENERATION=false`: Doğrulama çıktılarının canlı sinyal olarak kullanımı yasaktır.
+- `WALK_FORWARD_ALLOW_DIRECTIONAL_CLAIM=false`: Yönlü piyasa iddiası yasaktır.
+- `WALK_FORWARD_ALLOW_WALK_FORWARD_EXECUTION=false`: Canlı walk-forward yürütmesi yasaktır.
+- `WALK_FORWARD_ALLOW_OPTIMIZER_EXECUTION=false`: Parametre optimizasyon yürütmesi yasaktır.
+- `WALK_FORWARD_ALLOW_BENCHMARK_EXECUTION=false`: Benchmark karşılaştırma yürütmesi yasaktır.
+- `WALK_FORWARD_ALLOW_METRIC_CALCULATION=false`: Gerçek metrik hesaplama koşturulması yasaktır.
+- `WALK_FORWARD_ALLOW_STRESS_TEST_EXECUTION=false`: Stres testi / Monte Carlo yürütmesi yasaktır.
+- `WALK_FORWARD_ALLOW_REAL_TRAINING=false`: Gerçek model eğitimi yasaktır.
+- `WALK_FORWARD_ALLOW_MODEL_PREDICTION=false`: Model tahmini üretimi yasaktır.
+- `WALK_FORWARD_ALLOW_TARGET_LABEL_GENERATION=false`: Hedef / etiket kolon türetimi yasaktır.
+- `WALK_FORWARD_ALLOW_PRODUCTION_APPROVAL=false`: Üretim onay iddiaları yasaktır.
+- `WALK_FORWARD_ALLOW_BROKER_READY_APPROVAL=false`: Broker-ready onay iddiaları yasaktır.
+- `WALK_FORWARD_ALLOW_OFFICIAL_APPROVAL_CLAIM=false`: Resmi onay iddiası yasaktır.
+- `WALK_FORWARD_ALLOW_PRODUCTION_READY_CLAIM=false`: Üretime hazır iddiası yasaktır.
+- `WALK_FORWARD_ALLOW_PERFORMANCE_CLAIM=false`: Performans veya kârlılık iddiaları yasaktır.
+- `WALK_FORWARD_ALLOW_MODEL_REGISTRY_WRITE=false`: Model kayıt defterlerine yazım yasaktır.
+- `WALK_FORWARD_ALLOW_ARTIFACT_PERSISTENCE=false`: Model ağırlıklarının diske kaydedilmesi yasaktır.
+- `WALK_FORWARD_ALLOW_DATASET_MATERIALIZATION=false`: Veri seti materyalizasyonu yasaktır.
+- `WALK_FORWARD_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `WALK_FORWARD_ALLOW_NLP_SENTIMENT_MODEL=false`: NLP duygu modelleri kullanımı yasaktır.
+- `WALK_FORWARD_ALLOW_NEGATIVE_SHIFT=false`: Negatif zaman damgası kaydırması (`shift(-1)`) yasaktır.
+- `WALK_FORWARD_ALLOW_LOOKAHEAD=false`: Geleceğe bakış sızıntısı yasaktır.
+- `WALK_FORWARD_ALLOW_SOURCE_OVERWRITE=false`: Kaynak veri dosyaları ezilemez (`source_preserved: True`).
+- `WALK_FORWARD_ALLOW_AUTO_IMPUTATION=false`: Otomatik eksik veri doldurma yasaktır.
+- `WALK_FORWARD_ALLOW_AUTO_FEATURE_DROP=false`: Otomatik özellik silme yasaktır.
+
+### 3. Walk-Forward ve Doğrulama Parametreleri
+- `WALK_FORWARD_MIN_READINESS_SCORE=0.50`: Minimum kabul edilebilir hazırlık skoru.
+- `WALK_FORWARD_DEFAULT_SPLIT_MODE="rolling_window"`: Varsayılan pencere bölme modu (`rolling_window`, `expanding_window`, `anchored_walk_forward`).
+- `WALK_FORWARD_DEFAULT_EMBARGO_PERIODS=5`: Varsayılan sızıntı önleme ambargo bar periyodu.
+- `WALK_FORWARD_DEFAULT_PURGE_PERIODS=2`: Varsayılan etiket örtüşmesi temizleme (purge) bar periyodu.
+- `WALK_FORWARD_SAVE_REPORTS=true`: Raporların diske kaydedilmesi ayarı.
+
+### 4. Phase 148 Handoff
+- Phase 147, walk-forward split sözleşmelerini, out-of-sample benchmark sözleşmelerini, metrik yer tutucularını, bias muhafızlarını, 9 devre dışı bırakılmış yürütme raporunu, master bütünlük manifestosunu ve Phase 148 (Stress Testing, Scenario Simulation and Robustness) için 14 doğrulanmış devir önkoşulunu teslim eder (`phase_148_handoff.py`).
+
+## Phase 148 Stress Testing and Scenario Simulation Configuration
+
+### 1. Stress Testing Profili Nasıl Seçilir?
+- `ADVANCED_STRESS_TESTING_ENABLED=true` ile katman aktif edilir.
+- `DEFAULT_STRESS_TESTING_PROFILE="balanced_local_stress_testing_contracts"`: Varsayılan profil.
+- Seçenekler:
+  - `balanced_local_stress_testing_contracts`: 35 domain, tarihsel/hipotetik/rejim senaryo sözleşmeleri, şok yer tutucuları, stres metrik formülleri, muhafızlar ve Phase 149 devir hazırlığı için dengeli yerel profil.
+  - `strict_safety_stress_contracts`: Sıfır canlı işlem, sıfır broker entegrasyonu, sıfır stres simülasyonu yürütmesi ve 14 No-Go kuralına odaklanan sıkı güvenlik profili.
+  - `dry_run_scenario_simulation_contracts`: Yalnızca sözleşme doğrulaması, sağlık kontrolleri ve manifest üretimine odaklanan kuru koşum profili.
+
+### 2. Güvenlik, Non-Signal ve Sözleşme Ayarları
+- `STRESS_TESTING_CURRENT_PHASE=148`: Mevcut operasyonel faz.
+- `STRESS_TESTING_TARGET_FINAL_PHASE=160`: Nihai mimari hedefi.
+- `STRESS_TESTING_NEXT_PHASE=149`: Sıradaki faz (Monte Carlo Robustness and Parameter Stability).
+- `STRESS_TESTING_DRY_RUN_DEFAULT=true`: Varsayılan kuru koşum modu (`execution_blocked=True`).
+- `STRESS_TESTING_LOCAL_ONLY=true`: Yalnızca yerel çevrimdışı ortamda çalışma kısıtı.
+- `STRESS_TESTING_RESEARCH_ONLY=true`: Yalnızca araştırma ve senaryo modelleme amaçlı çalışma.
+- `STRESS_TESTING_ALLOW_LIVE_TRADING=false`: Canlı ticaret kesinlikle yasaktır.
+- `STRESS_TESTING_ALLOW_BROKER_INTEGRATION=false`: Broker entegrasyonu kesinlikle yasaktır.
+- `STRESS_TESTING_ALLOW_BROKER_EXECUTION=false`: Broker emir iletimi kesinlikle yasaktır.
+- `STRESS_TESTING_ALLOW_INVESTMENT_ADVICE=false`: Yatırım tavsiyesi kesinlikle yasaktır.
+- `STRESS_TESTING_ALLOW_SIGNAL_GENERATION=false`: Stres çıktılarının canlı sinyal olarak kullanımı yasaktır.
+- `STRESS_TESTING_ALLOW_DIRECTIONAL_CLAIM=false`: Yönlü piyasa iddiası yasaktır.
+- `STRESS_TESTING_ALLOW_STRESS_TEST_EXECUTION=false`: Canlı stres testi yürütmesi yasaktır.
+- `STRESS_TESTING_ALLOW_SCENARIO_SIMULATION=false`: Gerçek senaryo simülasyonu yürütmesi yasaktır.
+- `STRESS_TESTING_ALLOW_MONTE_CARLO_EXECUTION=false`: Monte Carlo simülasyonu yürütmesi yasaktır.
+- `STRESS_TESTING_ALLOW_OPTIMIZER_EXECUTION=false`: Parametre optimizasyon yürütmesi yasaktır.
+- `STRESS_TESTING_ALLOW_METRIC_CALCULATION=false`: Gerçek metrik hesaplama koşturulması yasaktır.
+- `STRESS_TESTING_ALLOW_REAL_TRAINING=false`: Gerçek model eğitimi yasaktır.
+- `STRESS_TESTING_ALLOW_MODEL_PREDICTION=false`: Model tahmini üretimi yasaktır.
+- `STRESS_TESTING_ALLOW_TARGET_LABEL_GENERATION=false`: Hedef / etiket kolon türetimi yasaktır.
+- `STRESS_TESTING_ALLOW_PRODUCTION_APPROVAL=false`: Üretim onay iddiaları yasaktır.
+- `STRESS_TESTING_ALLOW_BROKER_READY_APPROVAL=false`: Broker-ready onay iddiaları yasaktır.
+- `STRESS_TESTING_ALLOW_OFFICIAL_APPROVAL_CLAIM=false`: Resmi onay iddiası yasaktır.
+- `STRESS_TESTING_ALLOW_PRODUCTION_READY_CLAIM=false`: Üretime hazır iddiası yasaktır.
+- `STRESS_TESTING_ALLOW_PERFORMANCE_CLAIM=false`: Performans veya kârlılık iddiaları yasaktır.
+- `STRESS_TESTING_ALLOW_MODEL_REGISTRY_WRITE=false`: Model kayıt defterlerine yazım yasaktır.
+- `STRESS_TESTING_ALLOW_ARTIFACT_PERSISTENCE=false`: Model ağırlıklarının diske kaydedilmesi yasaktır.
+- `STRESS_TESTING_ALLOW_DATASET_MATERIALIZATION=false`: Veri seti materyalizasyonu yasaktır.
+- `STRESS_TESTING_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `STRESS_TESTING_ALLOW_NLP_SENTIMENT_MODEL=false`: NLP duygu modelleri kullanımı yasaktır.
+- `STRESS_TESTING_ALLOW_NEGATIVE_SHIFT=false`: Negatif zaman damgası kaydırması (`shift(-1)`) yasaktır.
+- `STRESS_TESTING_ALLOW_LOOKAHEAD=false`: Geleceğe bakış sızıntısı yasaktır.
+- `STRESS_TESTING_ALLOW_SOURCE_OVERWRITE=false`: Kaynak veri dosyaları ezilemez (`source_preserved: True`).
+- `STRESS_TESTING_ALLOW_AUTO_IMPUTATION=false`: Otomatik eksik veri doldurma yasaktır.
+- `STRESS_TESTING_ALLOW_AUTO_FEATURE_DROP=false`: Otomatik özellik silme yasaktır.
+
+### 3. Senaryo ve Şok Parametreleri
+- `STRESS_TESTING_MIN_READINESS_SCORE=0.50`: Minimum kabul edilebilir hazırlık skoru.
+- `STRESS_TESTING_DEFAULT_MARKET_SHOCK_PCT=-0.20`: Varsayılan piyasa şok büyüklüğü (-%20).
+- `STRESS_TESTING_DEFAULT_VOLATILITY_SHOCK_PCT=1.00`: Varsayılan volatilite şoku (+%100 artış).
+- `STRESS_TESTING_DEFAULT_SPREAD_WIDENING_MULT=3.0`: Varsayılan spread genişleme katsayısı (3x).
+- `STRESS_TESTING_DEFAULT_LIQUIDITY_DROP_PCT=0.50`: Varsayılan likidite düşüş oranı (-%50).
+- `STRESS_TESTING_SAVE_REPORTS=true`: Raporların diske kaydedilmesi ayarı.
+
+### 4. Phase 149 Handoff
+- Phase 148, senaryo sözleşmelerini, şok taksonomisini ve yer tutucularını, stres metrik sözleşmelerini, bias ve senaryo sızıntı muhafızlarını, 9 devre dışı bırakılmış yürütme raporunu, master bütünlük manifestosunu ve Phase 149 (Monte Carlo Robustness and Parameter Stability) için 14 doğrulanmış devir önkoşulunu teslim eder (`phase_149_handoff.py`).
+
+## Phase 149 Monte Carlo Robustness and Parameter Stability Configuration
+
+### 1. Monte Carlo Robustness Profili Nasıl Seçilir?
+- `ADVANCED_MONTE_CARLO_ENABLED=true` ile katman aktif edilir.
+- `DEFAULT_MONTE_CARLO_PROFILE="balanced_local_monte_carlo_contracts"`: Varsayılan profil.
+- Seçenekler:
+  - `balanced_local_monte_carlo_contracts`: Bootstrap simülasyon yer tutucuları, getiri yolu yeniden örnekleme, işlem sırası karıştırma, parametre pertürbasyon/duyarlılık sözleşmeleri, dayanıklılık zarfı, stabilite bantları, kırılganlık bayrakları ve Phase 150 devir hazırlığı için dengeli yerel profil.
+  - `strict_safety_monte_carlo_contracts`: Sıfır canlı işlem, sıfır broker entegrasyonu, sıfır Monte Carlo simülasyonu yürütmesi, sıfır parametre optimizasyonu ve 14 No-Go kuralına odaklanan sıkı güvenlik profili.
+  - `dry_run_resampling_simulation_contracts`: Yalnızca sözleşme doğrulaması, sağlık kontrolleri ve manifest üretimine odaklanan kuru koşum profili.
+
+### 2. Güvenlik, Non-Signal ve Sözleşme Ayarları
+- `MONTE_CARLO_CURRENT_PHASE=149`: Mevcut operasyonel faz.
+- `MONTE_CARLO_TARGET_FINAL_PHASE=160`: Nihai mimari hedefi.
+- `MONTE_CARLO_NEXT_PHASE=150`: Sıradaki faz (Backtest Governance, Bias Control and Overfitting Safeguards).
+- `MONTE_CARLO_DRY_RUN_DEFAULT=true`: Varsayılan kuru koşum modu (`execution_blocked=True`).
+- `MONTE_CARLO_LOCAL_ONLY=true`: Yalnızca yerel çevrimdışı ortamda çalışma kısıtı.
+- `MONTE_CARLO_RESEARCH_ONLY=true`: Yalnızca araştırma ve dayanıklılık modelleme amaçlı çalışma.
+- `MONTE_CARLO_ALLOW_LIVE_TRADING=false`: Canlı ticaret kesinlikle yasaktır.
+- `MONTE_CARLO_ALLOW_BROKER_INTEGRATION=false`: Broker entegrasyonu kesinlikle yasaktır.
+- `MONTE_CARLO_ALLOW_BROKER_EXECUTION=false`: Broker emir iletimi kesinlikle yasaktır.
+- `MONTE_CARLO_ALLOW_INVESTMENT_ADVICE=false`: Yatırım tavsiyesi kesinlikle yasaktır.
+- `MONTE_CARLO_ALLOW_SIGNAL_GENERATION=false`: Dayanıklılık çıktılarının canlı sinyal olarak kullanımı yasaktır.
+- `MONTE_CARLO_ALLOW_DIRECTIONAL_CLAIM=false`: Yönlü piyasa iddiası yasaktır.
+- `MONTE_CARLO_ALLOW_MONTE_CARLO_EXECUTION=false`: Canlı Monte Carlo yürütmesi yasaktır.
+- `MONTE_CARLO_ALLOW_BOOTSTRAP_SAMPLING=false`: Gerçek bootstrap örnekleme yürütmesi yasaktır.
+- `MONTE_CARLO_ALLOW_PARAMETER_OPTIMIZATION=false`: Parametre optimizasyon yürütmesi yasaktır.
+- `MONTE_CARLO_ALLOW_PARAMETER_GRID_SWEEP=false`: Parametre ızgara taraması yürütmesi yasaktır.
+- `MONTE_CARLO_ALLOW_METRIC_CALCULATION=false`: Gerçek metrik hesaplama koşturulması yasaktır.
+- `MONTE_CARLO_ALLOW_REAL_TRAINING=false`: Gerçek model eğitimi yasaktır.
+- `MONTE_CARLO_ALLOW_MODEL_PREDICTION=false`: Model tahmini üretimi yasaktır.
+- `MONTE_CARLO_ALLOW_TARGET_LABEL_GENERATION=false`: Hedef / etiket kolon türetimi yasaktır.
+- `MONTE_CARLO_ALLOW_PRODUCTION_APPROVAL=false`: Üretim onay iddiaları yasaktır.
+- `MONTE_CARLO_ALLOW_BROKER_READY_APPROVAL=false`: Broker-ready onay iddiaları yasaktır.
+- `MONTE_CARLO_ALLOW_OFFICIAL_APPROVAL_CLAIM=false`: Resmi onay iddiası yasaktır.
+- `MONTE_CARLO_ALLOW_PRODUCTION_READY_CLAIM=false`: Üretime hazır iddiası yasaktır.
+- `MONTE_CARLO_ALLOW_PERFORMANCE_CLAIM=false`: Performans veya kârlılık iddiaları yasaktır.
+- `MONTE_CARLO_ALLOW_MODEL_REGISTRY_WRITE=false`: Model kayıt defterlerine yazım yasaktır.
+- `MONTE_CARLO_ALLOW_ARTIFACT_PERSISTENCE=false`: Model ağırlıklarının diske kaydedilmesi yasaktır.
+- `MONTE_CARLO_ALLOW_DATASET_MATERIALIZATION=false`: Veri seti materyalizasyonu yasaktır.
+- `MONTE_CARLO_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `MONTE_CARLO_ALLOW_NLP_SENTIMENT_MODEL=false`: NLP duygu modelleri kullanımı yasaktır.
+- `MONTE_CARLO_ALLOW_NEGATIVE_SHIFT=false`: Negatif zaman damgası kaydırması (`shift(-1)`) yasaktır.
+- `MONTE_CARLO_ALLOW_LOOKAHEAD=false`: Geleceğe bakış sızıntısı yasaktır.
+- `MONTE_CARLO_ALLOW_SOURCE_OVERWRITE=false`: Kaynak veri dosyaları ezilemez (`source_preserved: True`).
+- `MONTE_CARLO_ALLOW_AUTO_IMPUTATION=false`: Otomatik eksik veri doldurma yasaktır.
+- `MONTE_CARLO_ALLOW_AUTO_FEATURE_DROP=false`: Otomatik özellik silme yasaktır.
+
+### 3. Simülasyon, Pertürbasyon ve Dayanıklılık Parametreleri
+- `MONTE_CARLO_MIN_READINESS_SCORE=0.50`: Minimum kabul edilebilir hazırlık skoru.
+- `MONTE_CARLO_DEFAULT_BOOTSTRAP_REPLICATIONS=1000`: Varsayılan bootstrap tekrar sayısı sözleşme metaverisi.
+- `MONTE_CARLO_DEFAULT_CONFIDENCE_INTERVAL=0.95`: Varsayılan güven aralığı metaverisi.
+- `MONTE_CARLO_DEFAULT_BLOCK_SIZE=10`: Varsayılan blok büyüklüğü (Block Bootstrap).
+- `MONTE_CARLO_DEFAULT_PERTURBATION_PCT=0.10`: Varsayılan parametre pertürbasyon yüzdesi (%10).
+- `MONTE_CARLO_SAVE_REPORTS=true`: Raporların diske kaydedilmesi ayarı.
+
+### 4. Phase 150 Handoff
+- Phase 149, Monte Carlo simülasyon sözleşmelerini, bootstrap ve yeniden örnekleme yer tutucularını, parametre kararlılık sözleşmelerini, dayanıklılık zarfı şablonlarını, bias ve sızıntı muhafızlarını, 9 devre dışı bırakılmış yürütme raporunu, master bütünlük manifestosunu ve Phase 150 (Backtest Governance, Bias Control and Overfitting Safeguards) için 10 doğrulanmış devir önkoşulunu teslim eder (`phase_150_handoff.py`).
+
+## Phase 150 Backtest Governance and Bias Control Configuration
+
+### 1. Backtest Governance Profili Nasıl Seçilir?
+- `ADVANCED_BACKTEST_GOVERNANCE_ENABLED=true` ile katman aktif edilir.
+- `DEFAULT_BACKTEST_GOVERNANCE_PROFILE="balanced_local_backtest_governance"`: Varsayılan profil.
+- Seçenekler:
+  - `balanced_local_backtest_governance`: 53 domain, 9 yanlılık kontrol sözleşmesi, sonuç iddia sınırları, gerçekçilik yönetişim sözleşmeleri, manuel inceleme kapıları ve Phase 151 devir hazırlığı için dengeli yerel profil.
+  - `strict_bias_control_governance`: Sıfır toleranslı yanlılık denetimi, katı p-değeri ayarlamaları, sıfır sonuç iddiası ve 10 No-Go kuralına odaklanan sıkı güvenlik profili.
+  - `dry_run_governance_contracts_focus`: Yalnızca yönetişim sözleşmesi doğrulaması, sağlık kontrolleri ve manifest üretimine odaklanan kuru koşum profili.
+
+### 2. Güvenlik, Non-Signal ve Sözleşme Ayarları
+- `BACKTEST_GOVERNANCE_CURRENT_PHASE=150`: Mevcut operasyonel faz.
+- `BACKTEST_GOVERNANCE_TARGET_FINAL_PHASE=160`: Nihai mimari hedefi.
+- `BACKTEST_GOVERNANCE_NEXT_PHASE=151`: Sıradaki faz (Backtest Performance Diagnostics, Deflated Sharpe and Haircut Metrics).
+- `BACKTEST_GOVERNANCE_DRY_RUN_DEFAULT=true`: Varsayılan kuru koşum modu (`execution_blocked=True`).
+- `BACKTEST_GOVERNANCE_LOCAL_ONLY=true`: Yalnızca yerel çevrimdışı ortamda çalışma kısıtı.
+- `BACKTEST_GOVERNANCE_RESEARCH_ONLY=true`: Yalnızca araştırma ve yönetişim modelleme amaçlı çalışma.
+- `BACKTEST_GOVERNANCE_ALLOW_LIVE_TRADING=false`: Canlı ticaret kesinlikle yasaktır.
+- `BACKTEST_GOVERNANCE_ALLOW_BROKER_INTEGRATION=false`: Broker entegrasyonu kesinlikle yasaktır.
+- `BACKTEST_GOVERNANCE_ALLOW_BROKER_EXECUTION=false`: Broker emir iletimi kesinlikle yasaktır.
+- `BACKTEST_GOVERNANCE_ALLOW_INVESTMENT_ADVICE=false`: Yatırım tavsiyesi kesinlikle yasaktır.
+- `BACKTEST_GOVERNANCE_ALLOW_SIGNAL_GENERATION=false`: Yönetişim çıktılarının canlı sinyal olarak kullanımı yasaktır.
+- `BACKTEST_GOVERNANCE_ALLOW_DIRECTIONAL_CLAIM=false`: Yönlü piyasa iddiası yasaktır.
+- `BACKTEST_GOVERNANCE_ALLOW_BACKTEST_EXECUTION=false`: Canlı backtest motoru yürütmesi yasaktır.
+- `BACKTEST_GOVERNANCE_ALLOW_SIMULATION_EXECUTION=false`: Gerçek simülasyon yürütmesi yasaktır.
+- `BACKTEST_GOVERNANCE_ALLOW_OPTIMIZER_EXECUTION=false`: Parametre optimizasyon yürütmesi yasaktır.
+- `BACKTEST_GOVERNANCE_ALLOW_METRIC_CALCULATION=false`: Gerçek metrik hesaplama koşturulması yasaktır.
+- `BACKTEST_GOVERNANCE_ALLOW_RESULT_CLAIM=false`: Backtest sonuç iddiası yasaktır.
+- `BACKTEST_GOVERNANCE_ALLOW_PERFORMANCE_CLAIM=false`: Performans veya kârlılık iddiaları yasaktır.
+- `BACKTEST_GOVERNANCE_ALLOW_APPROVAL_CLAIM=false`: Üretim veya resmi onay iddiaları yasaktır.
+- `BACKTEST_GOVERNANCE_ALLOW_REAL_TRAINING=false`: Gerçek model eğitimi yasaktır.
+- `BACKTEST_GOVERNANCE_ALLOW_MODEL_PREDICTION=false`: Model tahmini üretimi yasaktır.
+- `BACKTEST_GOVERNANCE_ALLOW_TARGET_LABEL_GENERATION=false`: Hedef / etiket kolon türetimi yasaktır.
+- `BACKTEST_GOVERNANCE_ALLOW_MODEL_REGISTRY_WRITE=false`: Model kayıt defterlerine yazım yasaktır.
+- `BACKTEST_GOVERNANCE_ALLOW_ARTIFACT_PERSISTENCE=false`: Model ağırlıklarının diske kaydedilmesi yasaktır.
+- `BACKTEST_GOVERNANCE_ALLOW_DATASET_MATERIALIZATION=false`: Veri seti materyalizasyonu yasaktır.
+- `BACKTEST_GOVERNANCE_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `BACKTEST_GOVERNANCE_ALLOW_NLP_SENTIMENT_MODEL=false`: NLP duygu modelleri kullanımı yasaktır.
+- `BACKTEST_GOVERNANCE_ALLOW_NEGATIVE_SHIFT=false`: Negatif zaman damgası kaydırması (`shift(-1)`) yasaktır.
+- `BACKTEST_GOVERNANCE_ALLOW_LOOKAHEAD=false`: Geleceğe bakış sızıntısı yasaktır.
+- `BACKTEST_GOVERNANCE_ALLOW_SOURCE_OVERWRITE=false`: Kaynak veri dosyaları ezilemez (`source_preserved: True`).
+- `BACKTEST_GOVERNANCE_ALLOW_AUTO_IMPUTATION=false`: Otomatik eksik veri doldurma yasaktır.
+- `BACKTEST_GOVERNANCE_ALLOW_AUTO_FEATURE_DROP=false`: Otomatik özellik silme yasaktır.
+
+### 3. Yönetişim ve Yanlılık Kontrol Parametreleri
+- `BACKTEST_GOVERNANCE_MIN_READINESS_SCORE=0.50`: Minimum kabul edilebilir hazırlık skoru.
+- `BACKTEST_GOVERNANCE_AUDIT_TRAIL_RETENTION_DAYS=365`: Denetim izi saklama süresi (gün).
+- `BACKTEST_GOVERNANCE_LOOKAHEAD_GUARD_STRICTNESS="strict"`: Geleceğe bakış muhafızı katılık seviyesi (`strict`, `moderate`).
+- `BACKTEST_GOVERNANCE_SNOOPING_PENALTY_RATE=0.25`: Veri gözetleme cezalandırma katsayısı (%25).
+- `BACKTEST_GOVERNANCE_MAX_ALLOWABLE_MULTIPLE_TESTS=50`: İzin verilen maksimum çoklu hipotez testi sayısı.
+- `BACKTEST_GOVERNANCE_SAVE_REPORTS=true`: Raporların diske kaydedilmesi ayarı.
+
+### 4. Phase 151 Handoff
+- Phase 150, backtest yönetişim profillerini, 9 yanlılık kontrol sözleşmesini, sonuç ve metrik iddia sınırlarını, gerçekçilik ve bölme yönetişimini, 9 devre dışı bırakılmış yürütme raporunu, master bütünlük manifestosunu ve Phase 151 (Benchmark Comparison and Strategy Evaluation Reports) için 10 doğrulanmış devir önkoşulunu teslim eder (`phase_151_handoff.py`).
+
+## Phase 151 Benchmark Comparison and Strategy Evaluation Reports Configuration
+
+### 1. Benchmark Evaluation Profili Nasıl Seçilir?
+- `ADVANCED_BENCHMARK_EVALUATION_ENABLED=true` ile katman aktif edilir.
+- `DEFAULT_BENCHMARK_EVALUATION_PROFILE="balanced_local_benchmark_evaluation_contracts"`: Varsayılan profil.
+- Seçenekler:
+  - `balanced_local_benchmark_evaluation_contracts`: 36 etki alanı, 16 rapor sözleşmesi, 11 özet şablonu, 6 metrik yer tutucusu ve Phase 152 devir hazırlığı için dengeli yerel araştırma profili.
+  - `conservative_local_benchmark_evaluation_contracts`: Yüksek güvenlik, sıkı yanlılık kontrolleri ve sıfır toleranslı kısıtlamalara odaklanan muhafazakâr profil.
+  - `institutional_local_benchmark_evaluation_contracts`: Kurumsal denetim izi, risk açıklamaları ve çoklu rejim kapsamına odaklanan kurumsal profil.
+
+### 2. Güvenlik, Non-Signal ve Sözleşme Ayarları
+- `BENCHMARK_EVALUATION_CURRENT_PHASE=151`: Mevcut operasyonel faz.
+- `BENCHMARK_EVALUATION_TARGET_FINAL_PHASE=160`: Nihai mimari hedefi.
+- `BENCHMARK_EVALUATION_NEXT_PHASE=152`: Sıradaki faz (Backtest Acceptance Report).
+- `BENCHMARK_EVALUATION_DRY_RUN_DEFAULT=true`: Varsayılan kuru koşum modu (`execution_blocked=True`).
+- `BENCHMARK_EVALUATION_LOCAL_ONLY=true`: Yalnızca yerel çevrimdışı ortamda çalışma kısıtı.
+- `BENCHMARK_EVALUATION_RESEARCH_ONLY=true`: Yalnızca araştırma ve değerlendirme sözleşme modellemesi amaçlı çalışma.
+- `BENCHMARK_EVALUATION_ALLOW_LIVE_TRADING=false`: Canlı ticaret kesinlikle yasaktır.
+- `BENCHMARK_EVALUATION_ALLOW_BROKER_INTEGRATION=false`: Broker entegrasyonu kesinlikle yasaktır.
+- `BENCHMARK_EVALUATION_ALLOW_BACKTEST_EXECUTION=false`: Canlı backtest motoru yürütmesi yasaktır.
+- `BENCHMARK_EVALUATION_ALLOW_BENCHMARK_EXECUTION=false`: Gerçek benchmark simülasyonu yürütmesi yasaktır.
+- `BENCHMARK_EVALUATION_ALLOW_METRIC_CALCULATION=false`: Gerçek metrik hesaplama koşturulması yasaktır.
+- `BENCHMARK_EVALUATION_ALLOW_RESULT_CLAIM=false`: Backtest veya benchmark sonuç iddiası yasaktır.
+- `BENCHMARK_EVALUATION_ALLOW_PERFORMANCE_CLAIM=false`: Performans veya kârlılık iddiaları yasaktır.
+- `BENCHMARK_EVALUATION_ALLOW_STRATEGY_APPROVAL=false`: Strateji onayı veya sermaye tahsisatı yasaktır.
+- `BENCHMARK_EVALUATION_ALLOW_REAL_TRAINING=false`: Gerçek model eğitimi yasaktır.
+- `BENCHMARK_EVALUATION_ALLOW_MODEL_PREDICTION=false`: Model tahmini üretimi yasaktır.
+- `BENCHMARK_EVALUATION_ALLOW_TARGET_LABEL_GENERATION=false`: Hedef / etiket kolon türetimi yasaktır.
+- `BENCHMARK_EVALUATION_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `BENCHMARK_EVALUATION_ALLOW_SOURCE_OVERWRITE=false`: Kaynak veri dosyaları ezilemez (`source_preserved: True`).
+
+### 3. Değerlendirme Parametreleri ve Eşikleri
+- `BENCHMARK_EVALUATION_MIN_READINESS_SCORE=0.50`: Minimum kabul edilebilir hazırlık skoru.
+- `BENCHMARK_EVALUATION_BENCHMARK_SELECTION_BIAS_TOLERANCE=0.05`: Benchmark seçim yanlılığı toleransı.
+- `BENCHMARK_EVALUATION_SNOOPING_PENALTY_RATIO=0.25`: Veri gözetleme cezalandırma katsayısı (%25).
+- `BENCHMARK_EVALUATION_MAX_MULTIPLE_TESTS=50`: İzin verilen maksimum çoklu test sayısı.
+- `BENCHMARK_EVALUATION_SAVE_REPORTS=true`: Raporların diske kaydedilmesi ayarı.
+
+### 4. Phase 152 Handoff
+- Phase 151, 16 rapor sözleşmesini, 11 özet şablonunu, 6 metrik yer tutucusunu, 11 muhafızı, 11 devre dışı bırakılmış yürütme raporunu, master bütünlük manifestosunu ve Phase 152 (Backtest Acceptance Report) için 10 doğrulanmış devir önkoşulunu teslim eder (`phase_152_handoff.py`).
+
+## Phase 152 Backtest Acceptance Report Configuration
+
+### 1. Backtest Acceptance Profili Nasıl Seçilir?
+- `ADVANCED_BACKTEST_ACCEPTANCE_ENABLED=true` ile katman aktif edilir.
+- `DEFAULT_BACKTEST_ACCEPTANCE_PROFILE="balanced_local_backtest_acceptance_contracts"`: Varsayılan profil.
+- Seçenekler:
+  - `balanced_local_backtest_acceptance_contracts`: 27 etki alanı, 7 bileşen, Phase 146-151 konsolide kabulü ve Phase 153 devir hazırlığı için dengeli yerel kabul profili.
+  - `strict_non_production_backtest_acceptance_safety`: Sıkı güvenlik sınırları, sıfır-backtest yürütme ve sıfır-canlı ticaret denetimini en üst seviyede tutan profil.
+  - `dry_run_phase_146_152_acceptance_focus`: Dry-run uyumlu sözleşme doğrulama ve Phase 153 devir odaklı kuru koşum profili.
+
+### 2. Güvenlik, Non-Signal ve Kabul Ayarları
+- `BACKTEST_ACCEPTANCE_CURRENT_PHASE=152`: Mevcut operasyonel faz.
+- `BACKTEST_ACCEPTANCE_TARGET_FINAL_PHASE=160`: Nihai mimari hedefi.
+- `BACKTEST_ACCEPTANCE_NEXT_PHASE=153`: Sıradaki faz (Portfolio Construction, Position Sizing and Risk Budgeting).
+- `BACKTEST_ACCEPTANCE_DRY_RUN_DEFAULT=true`: Varsayılan kuru koşum modu (`execution_blocked=True`).
+- `BACKTEST_ACCEPTANCE_LOCAL_ONLY=true`: Yalnızca yerel çevrimdışı ortamda çalışma kısıtı.
+- `BACKTEST_ACCEPTANCE_NON_PRODUCTION=true`: Non-production araştırma kabul modu.
+- `BACKTEST_ACCEPTANCE_RESEARCH_ONLY=true`: Araştırma ve sözleşme kabulü amaçlı çalışma.
+- `BACKTEST_ACCEPTANCE_ALLOW_LIVE_TRADING=false`: Canlı ticaret kesinlikle yasaktır.
+- `BACKTEST_ACCEPTANCE_ALLOW_BROKER_INTEGRATION=false`: Broker entegrasyonu kesinlikle yasaktır.
+- `BACKTEST_ACCEPTANCE_ALLOW_REAL_ORDER=false`: Gerçek emir gönderimi yasaktır.
+- `BACKTEST_ACCEPTANCE_ALLOW_INVESTMENT_ADVICE=false`: Yatırım tavsiyesi yasaktır.
+- `BACKTEST_ACCEPTANCE_ALLOW_SIGNAL_GENERATION=false`: Sinyal üretimi yasaktır.
+- `BACKTEST_ACCEPTANCE_ALLOW_BACKTEST_EXECUTION=false`: Gerçek backtest yürütmesi yasaktır.
+- `BACKTEST_ACCEPTANCE_ALLOW_BENCHMARK_EXECUTION=false`: Gerçek benchmark simülasyonu yasaktır.
+- `BACKTEST_ACCEPTANCE_ALLOW_METRIC_CALCULATION=false`: Gerçek metrik hesaplama yasaktır.
+- `BACKTEST_ACCEPTANCE_ALLOW_RESULT_CLAIM=false`: Sonuç iddiası yasaktır.
+- `BACKTEST_ACCEPTANCE_ALLOW_PERFORMANCE_CLAIM=false`: Performans iddiası yasaktır.
+- `BACKTEST_ACCEPTANCE_ALLOW_STRATEGY_APPROVAL=false`: Strateji onayı yasaktır.
+- `BACKTEST_ACCEPTANCE_ALLOW_CAPITAL_ALLOCATION=false`: Sermaye tahsisi yasaktır.
+- `BACKTEST_ACCEPTANCE_ALLOW_PORTFOLIO_CONSTRUCTION=false`: Portföy oluşturma yasaktır.
+- `BACKTEST_ACCEPTANCE_ALLOW_POSITION_SIZING=false`: Pozisyon büyüklüğü üretimi yasaktır.
+- `BACKTEST_ACCEPTANCE_ALLOW_OPTIMIZER_EXECUTION=false`: Optimizasyon yasaktır.
+- `BACKTEST_ACCEPTANCE_ALLOW_MODEL_TRAINING=false`: Model eğitimi yasaktır.
+- `BACKTEST_ACCEPTANCE_ALLOW_MODEL_PREDICT=false`: Model tahmini yasaktır.
+- `BACKTEST_ACCEPTANCE_ALLOW_TARGET_LABEL_GENERATION=false`: Hedef etiket türetimi yasaktır.
+- `BACKTEST_ACCEPTANCE_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `BACKTEST_ACCEPTANCE_ALLOW_SOURCE_OVERWRITE=false`: Kaynak veri dosyaları ezilemez (`source_preserved: True`).
+
+### 3. Kabul Parametreleri ve Eşikleri
+- `BACKTEST_ACCEPTANCE_MIN_READINESS_SCORE=0.50`: Minimum kabul edilebilir hazırlık skoru.
+- `BACKTEST_ACCEPTANCE_ENABLE_COMPONENT_CHECKPOINTS=true`: Bileşen kontrol noktaları etkinliği.
+- `BACKTEST_ACCEPTANCE_ENABLE_PHASE_ACCEPTANCE=true`: Faz kabul tescilleri etkinliği.
+- `BACKTEST_ACCEPTANCE_ENABLE_DEPENDENCY_EVIDENCE=true`: Bağımlılık ve kanıt tescilleri etkinliği.
+- `BACKTEST_ACCEPTANCE_ENABLE_BOUNDARIES=true`: Güvenlik ve Go/No-Go sınırları etkinliği.
+- `BACKTEST_ACCEPTANCE_ENABLE_FINDINGS=true`: Bulgular tescili etkinliği.
+- `BACKTEST_ACCEPTANCE_ENABLE_MANIFEST=true`: Kabul manifestosu etkinliği.
+- `BACKTEST_ACCEPTANCE_ENABLE_PHASE_153_HANDOFF=true`: Phase 153 devri etkinliği.
+- `BACKTEST_ACCEPTANCE_SAVE_REPORTS=true`: Raporların diske kaydedilmesi ayarı.
+
+### 4. Phase 153 Handoff
+- Phase 152, 7 bileşenin kabul tescillerini, 60 faz düzeyi kontrolünü, 11 bağımlılığı, 8 doğrulama kanıtını, 12 güvenlik sınırını, 7 inceleme kapısını, 22 Go/No-Go kuralını, master kabul manifestosunu ve Phase 153 (Portfolio Construction, Position Sizing and Risk Budgeting) için 13 doğrulanmış devir önkoşulunu teslim eder (`phase_153_handoff.py`).
+
+## Phase 153 Portfolio Construction, Position Sizing and Risk Budgeting Configuration
+
+### 1. Portföy İnşa ve Risk Bütçeleme Profilleri
+- `PORTFOLIO_CONSTRUCTION_PROFILE="balanced"`: Varsayılan portföy inşa profili (`balanced`, `conservative`, `institutional`).
+  - `balanced_local_portfolio_construction_contracts`: 36 etki alanı, 12 portföy sözleşmesi, 10 evren varlığı, 9 pozisyon boyutlandırma şablonu, 9 risk bütçeleme şablonu ve Phase 154 devir hazırlığı için dengeli yerel araştırma profili.
+  - `conservative_portfolio_risk_budgeting_safety`: Düşük kaldıraç (1.0x) ve sıkı risk sınırları (%15 varlık, %30 sektör) odaklı muhafazakâr profil.
+  - `institutional_governed_allocation_contracts`: Kurumsal standartlarda yönetişim, korelasyon ve likidite kontrolleri içeren profil.
+
+### 2. Güvenlik, Çalışma Rejimi ve Sınır Parametreleri
+- `ADVANCED_PORTFOLIO_CONSTRUCTION_ENABLED=true`: Phase 153 modül etkinliği.
+- `PORTFOLIO_CONSTRUCTION_DRY_RUN_DEFAULT=true`: Varsayılan simülasyon ve dry-run modu.
+- `PORTFOLIO_CONSTRUCTION_LOCAL_ONLY=true`: Çevrimdışı ve yerel kısıt; harici API/ağ çağrısı yapılamaz.
+- `PORTFOLIO_CONSTRUCTION_RESEARCH_ONLY=true`: Sadece araştırma ve sözleşme tasarımı amaçlı çalışma kısıtı.
+- `PORTFOLIO_CONSTRUCTION_ALLOW_LIVE_TRADING=false`: Canlı borsa bağlantısı kesinlikle engellenmiştir.
+- `PORTFOLIO_CONSTRUCTION_ALLOW_BROKER_EXECUTION=false`: Broker API entegrasyonu kesinlikle engellenmiştir.
+- `PORTFOLIO_CONSTRUCTION_ALLOW_REAL_ORDER=false`: Gerçek emir oluşturma engellenmiştir.
+- `PORTFOLIO_CONSTRUCTION_ALLOW_REAL_LOT_SIZING=false`: Gerçek lot/kontrat boyutlandırması engellenmiştir.
+- `PORTFOLIO_CONSTRUCTION_ALLOW_REAL_CAPITAL_ALLOCATION=false`: Gerçek sermaye tahsisi engellenmiştir.
+- `PORTFOLIO_CONSTRUCTION_ALLOW_REAL_PORTFOLIO_WEIGHTS=false`: Gerçek portföy ağırlığı üretimi engellenmiştir.
+- `PORTFOLIO_CONSTRUCTION_ALLOW_REAL_OPTIMIZATION=false`: Sayısal portföy optimizasyonu engellenmiştir.
+- `PORTFOLIO_CONSTRUCTION_ALLOW_METRIC_CALCULATION=false`: Portföy metrik hesabı engellenmiştir.
+- `PORTFOLIO_CONSTRUCTION_ALLOW_TRAINING=false`: Model eğitimi engellenmiştir.
+- `PORTFOLIO_CONSTRUCTION_ALLOW_PREDICTION=false`: Tahmin üretimi engellenmiştir.
+- `PORTFOLIO_CONSTRUCTION_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `PORTFOLIO_CONSTRUCTION_ALLOW_SOURCE_OVERWRITE=false`: Kaynak veri dosyaları ezilemez (`source_preserved: True`).
+
+### 3. Portföy İnşa Parametreleri ve Eşikleri
+- `PORTFOLIO_CONSTRUCTION_MIN_READINESS_SCORE=0.50`: Minimum kabul edilebilir hazırlık skoru.
+- `PORTFOLIO_CONSTRUCTION_MAX_ASSET_WEIGHT=0.20`: Tek varlık maksimum portföy ağırlığı sınırı (%20).
+- `PORTFOLIO_CONSTRUCTION_MAX_SECTOR_WEIGHT=0.40`: Sektör/grup maksimum ağırlığı sınırı (%40).
+- `PORTFOLIO_CONSTRUCTION_MAX_LEVERAGE=1.0`: Maksimum brüt kaldıraç sınırı (1.0x).
+- `PORTFOLIO_CONSTRUCTION_MAX_DRAWDOWN_BUDGET=0.15`: Maksimum portföy drawdown bütçesi (%15).
+- `PORTFOLIO_CONSTRUCTION_TARGET_VOLATILITY=0.12`: Yıllık hedef volatilite bütçesi (%12).
+- `PORTFOLIO_CONSTRUCTION_SAVE_REPORTS=true`: Raporların diske kaydedilmesi ayarı.
+
+### 4. Phase 154 Handoff
+- Phase 153, 12 portföy sözleşmesini, 10 evren varlığını, 9 boyutlandırma şablonunu, 9 risk bütçeleme şablonunu, 10 limit modülünü, 11 muhafızı, 11 devre dışı bırakılmış yürütme raporunu, master bütünlük manifestosunu ve Phase 154 (Portfolio Optimization Contracts) için 14 doğrulanmış devir önkoşulunu teslim eder (`phase_154_handoff.py`).
+
+## Phase 154 Portfolio Optimization and Allocation Constraints Configuration
+
+### 1. Portföy Optimizasyonu Profilleri
+- `PORTFOLIO_OPTIMIZATION_PROFILE="balanced_local_portfolio_optimization_contracts"`: Varsayılan optimizasyon sözleşme profili (`balanced_local_portfolio_optimization_contracts`, `strict_non_production_portfolio_optimization_safety`, `dry_run_phase_154_optimization_contracts_focus`).
+  - `balanced_local_portfolio_optimization_contracts`: 34 etki alanı, 11 optimizasyon sözleşmesi, 11 amaç fonksiyonu şablonu, 22 tahsis kısıtı şablonu ve Phase 155 devir hazırlığı için dengeli yerel araştırma profili.
+  - `strict_non_production_portfolio_optimization_safety`: Yüksek hazırlık eşiği (0.65) ve katı non-production güvenlik kontrolleri içeren profil.
+  - `dry_run_phase_154_optimization_contracts_focus`: Çözücü yer tutucuları ve kısıt şablonu doğrulama odaklı kuru koşum profili.
+
+### 2. Güvenlik, Çalışma Rejimi ve Sınır Parametreleri
+- `ADVANCED_PORTFOLIO_OPTIMIZATION_ENABLED=true`: Phase 154 modül etkinliği.
+- `PORTFOLIO_OPTIMIZATION_DRY_RUN_DEFAULT=true`: Varsayılan simülasyon ve dry-run modu.
+- `PORTFOLIO_OPTIMIZATION_LOCAL_ONLY=true`: Çevrimdışı ve yerel kısıt; harici API/ağ çağrısı yapılamaz.
+- `PORTFOLIO_OPTIMIZATION_RESEARCH_ONLY=true`: Sadece araştırma ve sözleşme tasarımı amaçlı çalışma kısıtı.
+- `PORTFOLIO_OPTIMIZATION_ALLOW_LIVE_TRADING=false`: Canlı borsa bağlantısı kesinlikle engellenmiştir.
+- `PORTFOLIO_OPTIMIZATION_ALLOW_BROKER_INTEGRATION=false`: Broker API entegrasyonu kesinlikle engellenmiştir.
+- `PORTFOLIO_OPTIMIZATION_ALLOW_REAL_ORDER=false`: Gerçek emir oluşturma engellenmiştir.
+- `PORTFOLIO_OPTIMIZATION_ALLOW_PORTFOLIO_OPTIMIZATION=false`: Sayısal portföy optimizasyonu engellenmiştir.
+- `PORTFOLIO_OPTIMIZATION_ALLOW_WEIGHT_GENERATION=false`: Gerçek optimal portföy ağırlığı üretimi engellenmiştir.
+- `PORTFOLIO_OPTIMIZATION_ALLOW_CAPITAL_ALLOCATION=false`: Gerçek sermaye tahsisatı üretimi engellenmiştir.
+- `PORTFOLIO_OPTIMIZATION_ALLOW_REBALANCE_GENERATION=false`: Yeniden dengeleme emirleri üretimi engellenmiştir.
+- `PORTFOLIO_OPTIMIZATION_ALLOW_SOLVER_EXECUTION=false`: Sayısal çözücü kütüphaneleri (CVXPY, SciPy vb.) koşturulamaz.
+- `PORTFOLIO_OPTIMIZATION_ALLOW_EFFICIENT_FRONTIER_GENERATION=false`: Gerçek etkin sınır hesaplaması engellenmiştir.
+- `PORTFOLIO_OPTIMIZATION_ALLOW_METRIC_CALCULATION=false`: Optimizasyon metrik hesaplaması engellenmiştir.
+- `PORTFOLIO_OPTIMIZATION_ALLOW_MODEL_TRAINING=false`: Model eğitimi engellenmiştir.
+- `PORTFOLIO_OPTIMIZATION_ALLOW_MODEL_PREDICT=false`: Model tahmini engellenmiştir.
+- `PORTFOLIO_OPTIMIZATION_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `PORTFOLIO_OPTIMIZATION_ALLOW_SOURCE_OVERWRITE=false`: Kaynak veri dosyaları ezilemez (`source_preserved: True`).
+
+### 3. Optimizasyon Parametreleri ve Eşikleri
+- `PORTFOLIO_OPTIMIZATION_MIN_READINESS_SCORE=0.50`: Minimum kabul edilebilir hazırlık skoru.
+- `PORTFOLIO_OPTIMIZATION_MAX_ASSET_WEIGHT=0.20`: Tek varlık maksimum portföy ağırlığı sınırı (%20).
+- `PORTFOLIO_OPTIMIZATION_MIN_ASSET_WEIGHT=0.00`: Tek varlık minimum portföy ağırlığı sınırı (%0 - long only).
+- `PORTFOLIO_OPTIMIZATION_MAX_GROUP_WEIGHT=0.40`: Grup/sektör maksimum ağırlığı sınırı (%40).
+- `PORTFOLIO_OPTIMIZATION_MAX_GROSS_EXPOSURE=1.00`: Maksimum brüt maruziyet / kaldıraç sınırı (1.0x).
+- `PORTFOLIO_OPTIMIZATION_MAX_TURNOVER=0.30`: Maksimum portföy turnover sınırı (%30).
+- `PORTFOLIO_OPTIMIZATION_SAVE_REPORTS=true`: Raporların diske kaydedilmesi ayarı.
+
+### 4. Phase 155 Handoff
+- Phase 154; 11 optimizasyon sözleşmesini, 11 amaç fonksiyonu şablonunu, 22 tahsis kısıtı şablonunu, 5 çözücü yer tutucusunu, 7 çıktı sözleşmesini, 6 yukarı akış bağımlılığını, 11 güvenlik muhafızını, 52 yasaklı kolon politikasını, 10 devre dışı bırakılmış yürütme raporunu, master optimizasyon manifestosunu ve Phase 155 (Portfolio Risk Attribution and Reporting) için 15 doğrulanmış devir önkoşulunu teslim eder (`phase_155_handoff.py`).
+
+## Phase 155 Risk Reporting, Exposure Attribution and Limit Monitoring Configuration
+
+### 1. Risk Raporlama Profilleri
+- `RISK_REPORTING_PROFILE="balanced_local_risk_reporting_contracts"`: Varsayılan risk raporlama sözleşme profili (`balanced_local_risk_reporting_contracts`, `conservative_risk_reporting_contracts`, `institutional_risk_reporting_contracts`, `audit_risk_reporting_contracts`).
+  - `balanced_local_risk_reporting_contracts`: 28 etki alanı, 15 araştırma kapsamı, 9 risk rapor sözleşmesi, 10 exposure sözleşmesi, 9 limit izleme sözleşmesi ve Phase 156 devir hazırlığı için dengeli yerel araştırma profili.
+  - `conservative_risk_reporting_contracts`: Düşük eşikler (0.05 drawdown, 0.08 volatilite) ve sıkı risk sınırları odaklı muhafazakâr profil.
+  - `institutional_risk_reporting_contracts`: Kurumsal standartlarda çoklu varlık, rejim ve konsantrasyon sınırları içeren profil.
+  - `audit_risk_reporting_contracts`: Bağımsız iç/dış denetim ve model yönetişimi gereksinimlerine uygun doğrulama profili.
+
+### 2. Güvenlik, Çalışma Rejimi ve Sınır Parametreleri
+- `ADVANCED_RISK_REPORTING_ENABLED=true`: Phase 155 modül etkinliği.
+- `RISK_REPORTING_DRY_RUN_DEFAULT=true`: Varsayılan simülasyon ve dry-run modu.
+- `RISK_REPORTING_LOCAL_ONLY=true`: Çevrimdışı ve yerel kısıt; harici API/ağ çağrısı yapılamaz.
+- `RISK_REPORTING_RESEARCH_ONLY=true`: Sadece araştırma ve sözleşme tasarımı amaçlı çalışma kısıtı.
+- `RISK_REPORTING_ALLOW_LIVE_TRADING=false`: Canlı borsa bağlantısı kesinlikle engellenmiştir.
+- `RISK_REPORTING_ALLOW_BROKER_INTEGRATION=false`: Broker API entegrasyonu kesinlikle engellenmiştir.
+- `RISK_REPORTING_ALLOW_REAL_ORDER=false`: Gerçek emir oluşturma engellenmiştir.
+- `RISK_REPORTING_ALLOW_RISK_REPORT_EXECUTION=false`: Gerçek risk raporu derlemesi engellenmiştir.
+- `RISK_REPORTING_ALLOW_EXPOSURE_ATTRIBUTION_EXECUTION=false`: Gerçek maruziyet hesaplaması engellenmiştir.
+- `RISK_REPORTING_ALLOW_LIMIT_MONITORING_EXECUTION=false`: Gerçek limit izleme döngüsü engellenmiştir.
+- `RISK_REPORTING_ALLOW_METRIC_CALCULATION=false`: Risk metrik hesabı engellenmiştir.
+- `RISK_REPORTING_ALLOW_VAR_CALCULATION=false`: VaR hesabı engellenmiştir.
+- `RISK_REPORTING_ALLOW_EXPECTED_SHORTFALL_CALCULATION=false`: ES hesabı engellenmiştir.
+- `RISK_REPORTING_ALLOW_EXPOSURE_CALCULATION=false`: Exposure hesabı engellenmiştir.
+- `RISK_REPORTING_ALLOW_LIMIT_BREACH_GENERATION=false`: Limit ihlali tetiklemesi engellenmiştir.
+- `RISK_REPORTING_ALLOW_ALERT_GENERATION=false`: Canlı alarm/uyarı üretimi engellenmiştir.
+- `RISK_REPORTING_ALLOW_DASHBOARD_GENERATION=false`: Dashboard üretimi engellenmiştir.
+- `RISK_REPORTING_ALLOW_PORTFOLIO_ADJUSTMENT=false`: Otomatik portföy düzeltmesi/rebalance engellenmiştir.
+- `RISK_REPORTING_ALLOW_MODEL_TRAINING=false`: Model eğitimi engellenmiştir.
+- `RISK_REPORTING_ALLOW_PREDICTION=false`: Model tahmini engellenmiştir.
+- `RISK_REPORTING_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `RISK_REPORTING_ALLOW_SOURCE_OVERWRITE=false`: Kaynak veri dosyaları ezilemez (`source_preserved: True`).
+
+### 3. Risk Raporlama Parametreleri ve Eşikleri
+- `RISK_REPORTING_MIN_READINESS_SCORE=0.50`: Minimum kabul edilebilir hazırlık skoru.
+- `RISK_REPORTING_MAX_GROSS_EXPOSURE=1.0`: Maksimum brüt maruziyet sınırı (1.0x).
+- `RISK_REPORTING_MAX_NET_EXPOSURE=1.0`: Maksimum net maruziyet sınırı (%100).
+- `RISK_REPORTING_MAX_CONCENTRATION_RATIO=0.25`: Tek varlık maksimum konsantrasyon sınırı (%25).
+- `RISK_REPORTING_MAX_DRAWDOWN_LIMIT=0.15`: Maksimum portföy drawdown sınırı (%15).
+- `RISK_REPORTING_MAX_VOLATILITY_LIMIT=0.20`: Yıllık maksimum volatilite sınırı (%20).
+- `RISK_REPORTING_SAVE_REPORTS=true`: Raporların diske kaydedilmesi ayarı.
+
+### 4. Phase 156 Handoff
+- Phase 155; 9 risk raporu sözleşmesini, 10 exposure sözleşmesini, 13 exposure yer tutucusunu, 10 risk katkı ve izleme yer tutucusunu, 10 limit izleme sözleşmesini, 12 muhafızı, 48 yasaklı kolon politikasını, 12 devre dışı bırakılmış yürütme raporunu, master risk rapor bütünlük manifestosunu ve Phase 156 (Portfolio Scenario Testing and Drawdown Control) için 10 doğrulanmış devir önkoşulunu teslim eder (`phase_156_handoff.py`).
+
+## Phase 156 Portfolio Scenario Testing and Drawdown Control Configuration
+
+### 1. Senaryo Testi ve Drawdown Kontrol Profilleri
+- `PORTFOLIO_SCENARIO_CONTROL_PROFILE="balanced_local_portfolio_scenario_control_contracts"`: Varsayılan profil (`balanced_local_portfolio_scenario_control_contracts`, `conservative_portfolio_scenario_control_contracts`, `institutional_portfolio_scenario_control_contracts`, `audit_portfolio_scenario_control_contracts`).
+  - `balanced_local_portfolio_scenario_control_contracts`: 30 etki alanı, 18 araştırma kapsamı, 13 senaryo testi sözleşmesi, 7 drawdown kontrol sözleşmesi, 7 portföy kontrol aksiyonu yer tutucusu ve Phase 157 devir hazırlığı için dengeli yerel araştırma profili.
+  - `conservative_portfolio_scenario_control_contracts`: Düşük eşikler (0.05 uyarı, 0.10 ihlal) ve sıkı kontrol kuralları odaklı muhafazakâr profil.
+  - `institutional_portfolio_scenario_control_contracts`: Kurumsal stres senaryoları, rejim geçişleri ve likidite krizleri odaklı profil.
+  - `audit_portfolio_scenario_control_contracts`: Bağımsız denetim ve model yönetişimi gereksinimlerine uygun doğrulama profili.
+
+### 2. Güvenlik, Çalışma Rejimi ve Sınır Parametreleri
+- `ADVANCED_PORTFOLIO_SCENARIO_CONTROL_ENABLED=true`: Phase 156 modül etkinliği.
+- `PORTFOLIO_SCENARIO_CONTROL_DRY_RUN_DEFAULT=true`: Varsayılan simülasyon ve dry-run modu.
+- `PORTFOLIO_SCENARIO_CONTROL_LOCAL_ONLY=true`: Çevrimdışı ve yerel kısıt; harici API/ağ çağrısı yapılamaz.
+- `PORTFOLIO_SCENARIO_CONTROL_RESEARCH_ONLY=true`: Sadece araştırma ve sözleşme tasarımı amaçlı çalışma kısıtı.
+- `PORTFOLIO_SCENARIO_CONTROL_ALLOW_LIVE_TRADING=false`: Canlı borsa bağlantısı kesinlikle engellenmiştir.
+- `PORTFOLIO_SCENARIO_CONTROL_ALLOW_BROKER_INTEGRATION=false`: Broker API entegrasyonu kesinlikle engellenmiştir.
+- `PORTFOLIO_SCENARIO_CONTROL_ALLOW_REAL_ORDER=false`: Gerçek emir oluşturma engellenmiştir.
+- `PORTFOLIO_SCENARIO_CONTROL_ALLOW_SCENARIO_EXECUTION=false`: Gerçek senaryo simülasyonu engellenmiştir.
+- `PORTFOLIO_SCENARIO_CONTROL_ALLOW_DRAWDOWN_CONTROL_EXECUTION=false`: Gerçek drawdown kontrol döngüsü engellenmiştir.
+- `PORTFOLIO_SCENARIO_CONTROL_ALLOW_PORTFOLIO_ADJUSTMENT=false`: Otomatik portföy müdahalesi engellenmiştir.
+- `PORTFOLIO_SCENARIO_CONTROL_ALLOW_HEDGE_EXECUTION=false`: Otomatik hedge açma engellenmiştir.
+- `PORTFOLIO_SCENARIO_CONTROL_ALLOW_DERISK_EXECUTION=false`: Otomatik de-risking engellenmiştir.
+- `PORTFOLIO_SCENARIO_CONTROL_ALLOW_REBALANCE_EXECUTION=false`: Otomatik rebalance engellenmiştir.
+- `PORTFOLIO_SCENARIO_CONTROL_ALLOW_METRIC_CALCULATION=false`: Senaryo/drawdown metrik hesabı engellenmiştir.
+- `PORTFOLIO_SCENARIO_CONTROL_ALLOW_ALERT_GENERATION=false`: Canlı alarm/uyarı üretimi engellenmiştir.
+- `PORTFOLIO_SCENARIO_CONTROL_ALLOW_DASHBOARD_GENERATION=false`: Dashboard üretimi engellenmiştir.
+- `PORTFOLIO_SCENARIO_CONTROL_ALLOW_MODEL_TRAINING=false`: Model eğitimi engellenmiştir.
+- `PORTFOLIO_SCENARIO_CONTROL_ALLOW_PREDICTION=false`: Model tahmini engellenmiştir.
+- `PORTFOLIO_SCENARIO_CONTROL_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `PORTFOLIO_SCENARIO_CONTROL_ALLOW_SOURCE_OVERWRITE=false`: Kaynak veri dosyaları ezilemez (`source_preserved: True`).
+
+### 3. Senaryo ve Kontrol Parametreleri ve Eşikleri
+- `PORTFOLIO_SCENARIO_CONTROL_MIN_READINESS_SCORE=0.50`: Minimum kabul edilebilir hazırlık skoru.
+- `PORTFOLIO_SCENARIO_CONTROL_DRAWDOWN_WARNING_THRESHOLD=0.08`: Drawdown uyarı eşiği (%8).
+- `PORTFOLIO_SCENARIO_CONTROL_DRAWDOWN_BREACH_THRESHOLD=0.15`: Drawdown ihlal eşiği (%15).
+- `PORTFOLIO_SCENARIO_CONTROL_MAX_RECOVERY_DAYS=60`: Azami toparlanma süresi hedefi (60 gün).
+- `PORTFOLIO_SCENARIO_CONTROL_MIN_RESILIENCE_SCORE=0.60`: Asgari dayanıklılık skoru hedefi (0.60).
+- `PORTFOLIO_SCENARIO_CONTROL_SAVE_REPORTS=true`: Raporların diske kaydedilmesi ayarı.
+
+### 4. Phase 157 Handoff
+- Phase 156; 13 senaryo testi sözleşmesini, 7 drawdown kontrol sözleşmesini, 7 portföy kontrol aksiyonu yer tutucusunu, 8 çıktı sözleşmesini, 10 yukarı akış bağımlılığını, 14 muhafızı, 52 yasaklı kolon politikasını, 14 devre dışı bırakılmış yürütme raporunu, master senaryo kontrol bütünlük manifestosunu ve Phase 157 (Portfolio Acceptance Report) için 10 doğrulanmış devir önkoşulunu teslim eder (`phase_157_handoff.py`).
+
+## Phase 157 Portfolio Acceptance Report and Phase 153-157 Consolidated Acceptance Configuration
+
+### 1. Portföy Kabul Profilleri
+- `PORTFOLIO_ACCEPTANCE_PROFILE="balanced_local_portfolio_acceptance_contracts"`: Varsayılan kabul profili (`balanced_local_portfolio_acceptance_contracts`, `conservative_portfolio_acceptance_contracts`, `institutional_portfolio_acceptance_contracts`, `audit_portfolio_acceptance_contracts`).
+  - `balanced_local_portfolio_acceptance_contracts`: 32 etki alanı, 20 araştırma kapsamı, 24 bileşen checkpoint sözleşmesi, Phase 153-156 faz kabul sözleşmeleri, go/no-go sınırları ve Phase 158 devir hazırlığı için dengeli yerel araştırma profili.
+  - `conservative_portfolio_acceptance_contracts`: Sıkı kabul eşikleri (%90 checkpoint tamlığı, sıfır blocker, sıfır warning) odaklı muhafazakâr profil.
+  - `institutional_portfolio_acceptance_contracts`: Kurumsal denetim izleri, bağımsız doğrulama kanıtları ve model yönetişimi odaklı profil.
+  - `audit_portfolio_acceptance_contracts`: Tam bağımsız denetim, gap analizi ve regülasyon uyum odaklı profil.
+
+### 2. Güvenlik, Çalışma Rejimi ve Sınır Parametreleri
+- `ADVANCED_PORTFOLIO_ACCEPTANCE_ENABLED=true`: Phase 157 modül etkinliği.
+- `PORTFOLIO_ACCEPTANCE_DRY_RUN_DEFAULT=true`: Varsayılan simülasyon ve dry-run modu.
+- `PORTFOLIO_ACCEPTANCE_LOCAL_ONLY=true`: Çevrimdışı ve yerel kısıt; harici API/ağ çağrısı yapılamaz.
+- `PORTFOLIO_ACCEPTANCE_RESEARCH_ONLY=true`: Sadece araştırma ve kabul sözleşmesi tasarımı amaçlı çalışma kısıtı.
+- `PORTFOLIO_ACCEPTANCE_ALLOW_LIVE_TRADING=false`: Canlı borsa bağlantısı kesinlikle engellenmiştir.
+- `PORTFOLIO_ACCEPTANCE_ALLOW_BROKER_INTEGRATION=false`: Broker API entegrasyonu kesinlikle engellenmiştir.
+- `PORTFOLIO_ACCEPTANCE_ALLOW_REAL_ORDER=false`: Gerçek emir oluşturma engellenmiştir.
+- `PORTFOLIO_ACCEPTANCE_ALLOW_PORTFOLIO_CONSTRUCTION=false`: Gerçek portföy oluşturma engellenmiştir.
+- `PORTFOLIO_ACCEPTANCE_ALLOW_POSITION_SIZING=false`: Gerçek pozisyon büyüklüğü hesaplama engellenmiştir.
+- `PORTFOLIO_ACCEPTANCE_ALLOW_PORTFOLIO_OPTIMIZATION=false`: Gerçek optimizasyon engellenmiştir.
+- `PORTFOLIO_ACCEPTANCE_ALLOW_RISK_REPORTING=false`: Gerçek risk raporlama engellenmiştir.
+- `PORTFOLIO_ACCEPTANCE_ALLOW_SCENARIO_EXECUTION=false`: Gerçek senaryo simülasyonu engellenmiştir.
+- `PORTFOLIO_ACCEPTANCE_ALLOW_DRAWDOWN_CONTROL=false`: Gerçek drawdown kontrolü engellenmiştir.
+- `PORTFOLIO_ACCEPTANCE_ALLOW_PORTFOLIO_ADJUSTMENT=false`: Otomatik portföy müdahalesi engellenmiştir.
+- `PORTFOLIO_ACCEPTANCE_ALLOW_REBALANCE_EXECUTION=false`: Otomatik rebalance engellenmiştir.
+- `PORTFOLIO_ACCEPTANCE_ALLOW_METRIC_CALCULATION=false`: Gerçek metrik hesabı engellenmiştir.
+- `PORTFOLIO_ACCEPTANCE_ALLOW_ALERT_GENERATION=false`: Canlı alarm/uyarı üretimi engellenmiştir.
+- `PORTFOLIO_ACCEPTANCE_ALLOW_DASHBOARD_GENERATION=false`: Dashboard üretimi engellenmiştir.
+- `PORTFOLIO_ACCEPTANCE_ALLOW_MODEL_TRAINING=false`: Model eğitimi engellenmiştir.
+- `PORTFOLIO_ACCEPTANCE_ALLOW_PREDICTION=false`: Model tahmini engellenmiştir.
+- `PORTFOLIO_ACCEPTANCE_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `PORTFOLIO_ACCEPTANCE_ALLOW_SOURCE_OVERWRITE=false`: Kaynak veri dosyaları ezilemez (`source_preserved: True`).
+
+### 3. Kabul Eşikleri ve Parametreleri
+- `PORTFOLIO_ACCEPTANCE_MIN_READINESS_SCORE=0.50`: Asgari kabul edilebilir hazırlık skoru.
+- `PORTFOLIO_ACCEPTANCE_MIN_CHECKPOINT_COMPLETION=0.80`: Asgari checkpoint tamamlanma oranı (%80).
+- `PORTFOLIO_ACCEPTANCE_MAX_BLOCKERS_ALLOWED=0`: İzin verilen azami blocker sayısı (0).
+- `PORTFOLIO_ACCEPTANCE_MAX_GAPS_ALLOWED=5`: İzin verilen azami gap sayısı (5).
+- `PORTFOLIO_ACCEPTANCE_SAVE_REPORTS=true`: Raporların diske kaydedilmesi ayarı.
+
+### 4. Phase 158 Handoff
+- Phase 157; 24 bileşen checkpoint sözleşmesini, Phase 153-156 faz kabul sözleşmelerini, 12 bağımlılık sözleşmesini, 12 doğrulama kanıtı sözleşmesini, 32 NO-GO ve 28 SAFE-GO sınırını, 16 devre dışı bırakılmış yürütme raporunu, 56 yasaklı kolon politikasını, master portföy kabul manifestosunu ve Phase 158 için 12 doğrulanmış devir önkoşulunu teslim eder (`phase_158_handoff.py`).
+
+## Phase 158 Full-System Integration and Advanced Acceptance Rehearsal Configuration
+
+### 1. Sistem Entegrasyon Profilleri
+- `FULL_SYSTEM_INTEGRATION_PROFILE="balanced_local_full_system_integration_contracts"`: Varsayılan tam sistem entegrasyon profili (`balanced_local_full_system_integration_contracts`, `strict_non_production_system_integration_safety`, `dry_run_acceptance_rehearsal_focus`).
+  - `balanced_local_full_system_integration_contracts`: 36 sistem bileşeni, 32 bağımlılık, 13 checkpoint, 11 sözleşme, 13 manifest, 11 kabul provası ve Phase 159 devir hazırlığı için dengeli yerel entegrasyon profili.
+  - `strict_non_production_system_integration_safety`: Sıkı kabul eşikleri, sıfır tolerans (%100 checkpoint tamlığı, sıfır blocker, sıfır gap) ve mutlak güvenlik sınırları odaklı profil.
+  - `dry_run_acceptance_rehearsal_focus`: Kuru koşum, sentetik senaryo tatbikatları ve kabul provası simülasyonu odaklı profil.
+
+### 2. Güvenlik, Çalışma Rejimi ve Sınır Parametreleri
+- `ADVANCED_FULL_SYSTEM_INTEGRATION_ENABLED=true`: Phase 158 modül etkinliği.
+- `FULL_SYSTEM_INTEGRATION_DRY_RUN_DEFAULT=true`: Varsayılan simülasyon ve dry-run modu.
+- `FULL_SYSTEM_INTEGRATION_LOCAL_ONLY=true`: Çevrimdışı ve yerel kısıt; harici API/ağ çağrısı yapılamaz.
+- `FULL_SYSTEM_INTEGRATION_RESEARCH_ONLY=true`: Sadece araştırma ve entegrasyon sözleşmesi tasarımı amaçlı çalışma kısıtı.
+- `FULL_SYSTEM_INTEGRATION_ALLOW_LIVE_TRADING=false`: Canlı borsa bağlantısı kesinlikle engellenmiştir.
+- `FULL_SYSTEM_INTEGRATION_ALLOW_BROKER_INTEGRATION=false`: Broker API entegrasyonu kesinlikle engellenmiştir.
+- `FULL_SYSTEM_INTEGRATION_ALLOW_REAL_ORDER=false`: Gerçek emir oluşturma engellenmiştir.
+- `FULL_SYSTEM_INTEGRATION_ALLOW_PORTFOLIO_CONSTRUCTION=false`: Gerçek portföy oluşturma engellenmiştir.
+- `FULL_SYSTEM_INTEGRATION_ALLOW_POSITION_SIZING=false`: Gerçek pozisyon büyüklüğü hesaplama engellenmiştir.
+- `FULL_SYSTEM_INTEGRATION_ALLOW_PORTFOLIO_OPTIMIZATION=false`: Gerçek optimizasyon engellenmiştir.
+- `FULL_SYSTEM_INTEGRATION_ALLOW_RISK_REPORTING=false`: Gerçek risk raporlama engellenmiştir.
+- `FULL_SYSTEM_INTEGRATION_ALLOW_SCENARIO_EXECUTION=false`: Gerçek senaryo simülasyonu engellenmiştir.
+- `FULL_SYSTEM_INTEGRATION_ALLOW_DRAWDOWN_CONTROL=false`: Gerçek drawdown kontrolü engellenmiştir.
+- `FULL_SYSTEM_INTEGRATION_ALLOW_PORTFOLIO_ADJUSTMENT=false`: Otomatik portföy müdahalesi engellenmiştir.
+- `FULL_SYSTEM_INTEGRATION_ALLOW_REBALANCE_EXECUTION=false`: Otomatik rebalance engellenmiştir.
+- `FULL_SYSTEM_INTEGRATION_ALLOW_REHEARSAL_EXECUTION=false`: Gerçek kabul provası/tatbikat yürütmesi engellenmiştir.
+- `FULL_SYSTEM_INTEGRATION_ALLOW_METRIC_CALCULATION=false`: Gerçek metrik hesabı engellenmiştir.
+- `FULL_SYSTEM_INTEGRATION_ALLOW_ALERT_GENERATION=false`: Canlı alarm/uyarı üretimi engellenmiştir.
+- `FULL_SYSTEM_INTEGRATION_ALLOW_DASHBOARD_GENERATION=false`: Dashboard üretimi engellenmiştir.
+- `FULL_SYSTEM_INTEGRATION_ALLOW_MODEL_TRAINING=false`: Model eğitimi engellenmiştir.
+- `FULL_SYSTEM_INTEGRATION_ALLOW_PREDICTION=false`: Model tahmini engellenmiştir.
+- `FULL_SYSTEM_INTEGRATION_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `FULL_SYSTEM_INTEGRATION_ALLOW_SOURCE_OVERWRITE=false`: Kaynak veri dosyaları ezilemez (`source_preserved: True`).
+
+### 3. Kabul Provası, Eşik ve Denetim Parametreleri
+- `FULL_SYSTEM_INTEGRATION_MIN_READINESS_SCORE=0.50`: Asgari kabul edilebilir hazırlık skoru.
+- `FULL_SYSTEM_INTEGRATION_MIN_CHECKPOINT_COMPLETION=0.80`: Asgari checkpoint tamamlanma oranı (%80).
+- `FULL_SYSTEM_INTEGRATION_MAX_BLOCKERS_ALLOWED=0`: İzin verilen azami blocker sayısı (0).
+- `FULL_SYSTEM_INTEGRATION_MAX_GAPS_ALLOWED=5`: İzin verilen azami gap sayısı (5).
+- `FULL_SYSTEM_INTEGRATION_SAVE_REPORTS=true`: Raporların diske kaydedilmesi ayarı.
+
+### 4. Phase 159 Handoff
+- Phase 158; 36 sistem bileşeni kaydını, 32 sistem bağımlılığı kaydını, 13 checkpoint sözleşmesini, 11 sistemler arası entegrasyon sözleşmesini, 13 alt sistem manifestosunu, 8 doğrulama kanıtı sözleşmesini, 18 NO-GO, 6 non-production, 5 dry-run ve 10 inceleme kapısı sınırını, 11 kabul provası sözleşmesini, 8 prova checkpoint'ini, 11 alt sistem tanımını, 11 özel sınır politikasını, 13 devre dışı bırakılmış yürütme raporunu, master entegrasyon manifestosunu ve Phase 159 (Final Hardening, Operator Runbook and Release Candidate) için 13 doğrulanmış devir önkoşulunu teslim eder (`phase_159_handoff.py`).
+
+## Phase 159 Final Hardening, Operator Runbook and Release Candidate Configuration
+
+### 1. Hardening ve Release Candidate Profilleri
+- `FINAL_HARDENING_PROFILE="balanced_local_final_hardening"`: Varsayılan final hardening profili (`balanced_local_final_hardening`, `strict_release_candidate_hardening`, `dry_run_freeze_focus`).
+  - `balanced_local_final_hardening`: 10 bileşen, 7 freeze denetimi, 10 envanter, 16 operatör kılavuzu, 8 RC checklist'i ve Phase 160 devir hazırlığı için dengeli yerel hardening profili.
+  - `strict_release_candidate_hardening`: Sıkı doğrulama, sıfır tolerans (%100 checklist tamlığı, sıfır blocker, sıfır gap) ve katı freeze kuralları odaklı profil.
+  - `dry_run_freeze_focus`: Kuru koşum, sentetik senaryolar ve freeze doğrulama provaları odaklı profil.
+
+### 2. Güvenlik, Çalışma Rejimi ve Sınır Parametreleri
+- `ADVANCED_FINAL_HARDENING_ENABLED=true`: Phase 159 modül etkinliği.
+- `FINAL_HARDENING_DRY_RUN_DEFAULT=true`: Varsayılan simülasyon ve dry-run modu.
+- `FINAL_HARDENING_LOCAL_ONLY=true`: Çevrimdışı ve yerel kısıt; harici API/ağ çağrısı yapılamaz.
+- `FINAL_HARDENING_RESEARCH_ONLY=true`: Sadece araştırma ve sözleşme tasarımı amaçlı çalışma kısıtı.
+- `FINAL_HARDENING_ALLOW_LIVE_TRADING=false`: Canlı borsa bağlantısı kesinlikle engellenmiştir.
+- `FINAL_HARDENING_ALLOW_BROKER_INTEGRATION=false`: Broker API entegrasyonu kesinlikle engellenmiştir.
+- `FINAL_HARDENING_ALLOW_REAL_ORDER=false`: Gerçek emir oluşturma engellenmiştir.
+- `FINAL_HARDENING_ALLOW_SIGNAL_GENERATION=false`: AL/SAT sinyali üretimi engellenmiştir.
+- `FINAL_HARDENING_ALLOW_INVESTMENT_ADVICE=false`: Yatırım tavsiyesi üretimi engellenmiştir.
+- `FINAL_HARDENING_ALLOW_PRODUCTION_DEPLOYMENT=false`: Üretim ortamına deploy engellenmiştir.
+- `FINAL_HARDENING_ALLOW_RELEASE_PUBLISH=false`: Harici release yayını engellenmiştir.
+- `FINAL_HARDENING_ALLOW_REAL_INCIDENT_RESPONSE=false`: Gerçek sistem olay müdahalesi engellenmiştir.
+- `FINAL_HARDENING_ALLOW_REAL_RECOVERY=false`: Gerçek sistem kurtarma/restart engellenmiştir.
+- `FINAL_HARDENING_ALLOW_BACKTEST_EXECUTION=false`: Gerçek backtest motoru engellenmiştir.
+- `FINAL_HARDENING_ALLOW_OPTIMIZER_EXECUTION=false`: Gerçek portföy optimizasyonu engellenmiştir.
+- `FINAL_HARDENING_ALLOW_MODEL_TRAINING=false`: Model eğitimi engellenmiştir.
+- `FINAL_HARDENING_ALLOW_PREDICTION=false`: Model tahmini engellenmiştir.
+- `FINAL_HARDENING_ALLOW_FULL_ARTICLE_USAGE=false`: Haber tam metni kullanımı yasaktır (`metadata_only: True`).
+- `FINAL_HARDENING_ALLOW_SOURCE_OVERWRITE=false`: Kaynak veri dosyaları ezilemez (`source_preserved: True`).
+
+### 3. Release Candidate Eşikleri ve Denetim Parametreleri
+- `FINAL_HARDENING_MIN_READINESS_SCORE=0.80`: Asgari kabul edilebilir RC hazırlık skoru.
+- `FINAL_HARDENING_MIN_CHECKPOINT_COMPLETION=0.85`: Asgari checkpoint tamamlanma oranı (%85).
+- `FINAL_HARDENING_MAX_BLOCKERS_ALLOWED=0`: İzin verilen azami blocker sayısı (0).
+- `FINAL_HARDENING_MAX_GAPS_ALLOWED=5`: İzin verilen azami gap sayısı (5).
+- `FINAL_HARDENING_SAVE_REPORTS=true`: Raporların diske kaydedilmesi ayarı.
+
+### 4. Phase 160 Handoff
+- Phase 159; 10 nihai hardening sözleşmesini, 16 operatör prosedürünü (runbook), 8 release candidate kontrol listesini (checklist), 7 dondurma (freeze) denetimini, 10 sistem envanterini, 10 NO-GO ve 8 Safe-Go sınırını, 10 operatör inceleme kapısını, 8 RC kontrol noktasını, RC bulgular manifestosunu ve Phase 160 (Full Advanced Bot Final Delivery) için 14 doğrulanmış devir önkoşulunu teslim eder (`phase_160_handoff.py`).
+
+## Phase 160 Full Advanced Bot Final Delivery Configuration
+
+### 1. Nihai Teslimat Profilleri
+- `FINAL_DELIVERY_PROFILE="balanced_local_final_delivery_package"`: Varsayılan teslimat profili (`balanced_local_final_delivery_package`, `strict_non_production_final_delivery_package`, `dry_run_audit_delivery_package`).
+  - `balanced_local_final_delivery_package`: 160 fazlık sistemin tüm envanter, kanıt ve sözleşmelerini yerel dengeli teslimat standartlarında sunar.
+  - `strict_non_production_final_delivery_package`: Sıkı güvenlik eşikleri, sıfır blocker (0), sıfır gap (0) ve katı No-Go kuralları odaklı teslimat profili.
+  - `dry_run_audit_delivery_package`: Denetim ve kanıt doğrulama odaklı teslimat profili.
+
+### 2. Güvenlik, Çalışma Rejimi ve Sınır Parametreleri
+- `ADVANCED_FINAL_DELIVERY_ENABLED=true`: Phase 160 modül etkinliği.
+- `FINAL_DELIVERY_DRY_RUN_DEFAULT=true`: Varsayılan simülasyon ve dry-run modu.
+- `FINAL_DELIVERY_LOCAL_ONLY=true`: Çevrimdışı ve yerel kısıt; harici ağ çağrısı yapılamaz.
+- `FINAL_DELIVERY_RESEARCH_ONLY=true`: Sadece araştırma ve sözleşme tasarımı amaçlı çalışma kısıtı.
+- `FINAL_DELIVERY_ALLOW_LIVE_TRADING=false`: Canlı borsa bağlantısı kesinlikle engellenmiştir.
+- `FINAL_DELIVERY_ALLOW_BROKER_INTEGRATION=false`: Broker API entegrasyonu kesinlikle engellenmiştir.
+- `FINAL_DELIVERY_ALLOW_REAL_ORDER=false`: Gerçek emir oluşturma engellenmiştir.
+- `FINAL_DELIVERY_ALLOW_SIGNAL_GENERATION=false`: AL/SAT sinyali üretimi engellenmiştir.
+- `FINAL_DELIVERY_ALLOW_INVESTMENT_ADVICE=false`: Yatırım tavsiyesi üretimi engellenmiştir.
+- `FINAL_DELIVERY_ALLOW_PRODUCTION_DEPLOYMENT=false`: Üretim ortamına deploy engellenmiştir.
+- `FINAL_DELIVERY_ALLOW_MODEL_TRAINING=false`: Model eğitimi engellenmiştir.
+- `FINAL_DELIVERY_ALLOW_PREDICTION=false`: Model tahmini engellenmiştir.
+- `FINAL_DELIVERY_ALLOW_BACKTEST_EXECUTION=false`: Gerçek backtest motoru engellenmiştir.
+- `FINAL_DELIVERY_ALLOW_PORTFOLIO_EXECUTION=false`: Gerçek portföy optimizasyonu engellenmiştir.
+- `FINAL_DELIVERY_ALLOW_SOURCE_OVERWRITE=false`: Kaynak veri dosyaları ezilemez (`source_preserved: True`).
+
+### 3. Teslimat ve Plan Kapanış Eşikleri
+- `FINAL_DELIVERY_MIN_READINESS_SCORE=0.90`: Asgari kabul edilebilir nihai hazırlık skoru.
+- `FINAL_DELIVERY_MAX_BLOCKERS_ALLOWED=0`: İzin verilen azami blocker sayısı (0).
+- `FINAL_DELIVERY_MAX_GAPS_ALLOWED=0`: İzin verilen azami gap sayısı (0).
+- `FINAL_DELIVERY_SAVE_REPORTS=true`: Raporların diske kaydedilmesi ayarı.
+
+### 4. 160 Fazlık Plan Kapanışı
+- Mevcut faz: 160
+- Hedef final faz: 160
+- Sonraki faz: Yok (`None`)
+- 160 Fazlık Plan Durumu: `CLOSED` (`final_plan_closed=True`)

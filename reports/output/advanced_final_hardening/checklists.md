@@ -1,0 +1,37 @@
+# Phase 159: Release Candidate Checkpoints Report
+
+> [!WARNING]
+> **YASAL VE GÜVENLİK FERAGATNAMESİ (PHASE 159)**:
+> Bu çıktı Phase 159 Final Hardening, Operator Runbook and Release Candidate çıktısıdır. > Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, final-hardening/release-candidate/readiness/runbook > değerini trade sinyali veya production-ready/broker-ready/onay olarak kullanma, gerçek full-system execution, > end-to-end bot run, live trading, broker execution, order generation, signal generation, model training, > model fit/predict/inference, target/label/prediction üretimi, backtest, benchmark, optimizer, portfolio construction, > risk reporting, scenario execution, metric calculation, release deployment, production deployment, model deployment, > model registry write, model artifact persistence, scraping, haber tam metni/article body/raw content/scraped HTML/> embedding/vector kullanımı veya gerçek provider API çağrısı değildir.
+
+## Checkpoint Summary
+
+- **Checkpoint Count**: 0
+- **All Passed / Available**: True
+- **Status**: `release_candidate_contract_ready`
+
+## Checkpoints Table
+
+| checklist_item | description | passed | manual_review_required | production_ready | broker_ready | live_ready | deployment_ready | signal_ready | domain | non_signal | local_only | dry_run | non_production | current_phase | status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| component_presence_check | Tüm sistem bileşenlerinin ve faz paketlerinin varlığı | True | True | False | False | False | False | False | release_candidate_checkpoint_domain | True | True | True | True | 159 | release_candidate_contract_ready |
+| dependency_presence_check | Temel kütüphanelerin (pandas, numpy, pytest) varlığı | True | True | False | False | False | False | False | release_candidate_checkpoint_domain | True | True | True | True | 159 | release_candidate_contract_ready |
+| configuration_check | config/settings.py ayarlarının dry-run uyumluluğu | True | True | False | False | False | False | False | release_candidate_checkpoint_domain | True | True | True | True | 159 | release_candidate_contract_ready |
+| env_template_check | .env.example şablonunun güncelliği | True | True | False | False | False | False | False | release_candidate_checkpoint_domain | True | True | True | True | 159 | release_candidate_contract_ready |
+| path_check | config/paths.py dizin tanımlarının eksiksizliği | True | True | False | False | False | False | False | release_candidate_checkpoint_domain | True | True | True | True | 159 | release_candidate_contract_ready |
+| documentation_check | Operatör, mimari ve güvenlik rehberlerinin varlığı | True | True | False | False | False | False | False | release_candidate_checkpoint_domain | True | True | True | True | 159 | release_candidate_contract_ready |
+| test_inventory_check | Tüm faz testlerinin test envanterinde yer alması | True | True | False | False | False | False | False | release_candidate_checkpoint_domain | True | True | True | True | 159 | release_candidate_contract_ready |
+| script_inventory_check | Tüm faz betiklerinin betik envanterinde yer alması | True | True | False | False | False | False | False | release_candidate_checkpoint_domain | True | True | True | True | 159 | release_candidate_contract_ready |
+| report_inventory_check | Raporlama şablonlarının ve dizinlerinin eksiksizliği | True | True | False | False | False | False | False | release_candidate_checkpoint_domain | True | True | True | True | 159 | release_candidate_contract_ready |
+| safety_boundary_check | Güvenlik sınırlarının sistem seviyesinde işletilmesi | True | True | False | False | False | False | False | release_candidate_checkpoint_domain | True | True | True | True | 159 | release_candidate_contract_ready |
+| disabled_execution_check | Canlı işlem/broker/tahmin çalıştırma kilitlerinin teyidi | True | True | False | False | False | False | False | release_candidate_checkpoint_domain | True | True | True | True | 159 | release_candidate_contract_ready |
+| no_secret_output_check | Hiçbir rapor ve logda API anahtarı veya secret bulunmaması | True | True | False | False | False | False | False | release_candidate_checkpoint_domain | True | True | True | True | 159 | release_candidate_contract_ready |
+| no_scraping_check | Web kazıma ve harici API isteklerinin devre dışılığı | True | True | False | False | False | False | False | release_candidate_checkpoint_domain | True | True | True | True | 159 | release_candidate_contract_ready |
+| no_live_trading_check | Canlı piyasaya emir gönderiminin kesinlikle engellenmesi | True | True | False | False | False | False | False | release_candidate_checkpoint_domain | True | True | True | True | 159 | release_candidate_contract_ready |
+| no_broker_check | Broker API bağlantılarının kesinlikle engellenmesi | True | True | False | False | False | False | False | release_candidate_checkpoint_domain | True | True | True | True | 159 | release_candidate_contract_ready |
+| no_prediction_check | Gerçek model tahmini ve inference'ın engellenmesi | True | True | False | False | False | False | False | release_candidate_checkpoint_domain | True | True | True | True | 159 | release_candidate_contract_ready |
+| no_target_label_check | Hedef/etiket üretiminin engellenmesi | True | True | False | False | False | False | False | release_candidate_checkpoint_domain | True | True | True | True | 159 | release_candidate_contract_ready |
+| no_model_registry_write_check | Model registry'ye kayıt yazmanın engellenmesi | True | True | False | False | False | False | False | release_candidate_checkpoint_domain | True | True | True | True | 159 | release_candidate_contract_ready |
+| no_artifact_persistence_check | Model ağırlık dosyası saklamanın engellenmesi | True | True | False | False | False | False | False | release_candidate_checkpoint_domain | True | True | True | True | 159 | release_candidate_contract_ready |
+| phase_160_handoff_check | Phase 160 nihai bot teslimat devir şartlarının hazır oluşu | True | True | False | False | False | False | False | release_candidate_checkpoint_domain | True | True | True | True | 159 | release_candidate_contract_ready |
+

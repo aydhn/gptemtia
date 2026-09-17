@@ -1,0 +1,4 @@
+decision_id,topic,decision,rationale,phase,is_placeholder,non_signal
+DEC-01,non_production_boundary,Keep all models in contract-only state with zero weight persistence.,Prevents unauthorized production deployment.,144,True,True
+DEC-02,prohibited_use_policy,"Strictly block all live trading, broker execution, and financial advice.",Enforces regulatory safety and local research mandate.,144,True,True
+DEC-03,explainability_attribution_usage,Forbid automatic retraining or pruning based on attribution scores.,Prevents attribution feedback loops and instability.,144,True,True

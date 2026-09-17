@@ -1,0 +1,3 @@
+contract_name,description,required_columns,point_in_time_enforced,monotonic_timestamp,is_active,non_signal
+ohlcv_bar_data_contract,"Zaman damgali OHLCV bar verisi (Open, High, Low, Close, Volume).","['timestamp', 'open', 'high', 'low', 'close', 'volume']",True,True,True,True
+bid_ask_quote_data_contract,"Zaman damgali teklif ve talep verisi (Bid, Ask, BidSize, AskSize).","['timestamp', 'bid', 'ask', 'bid_size', 'ask_size']",True,True,True,True

@@ -1,0 +1,12 @@
+{
+  "handoff_status": "READY_FOR_PHASE_138",
+  "source_phase": 137,
+  "next_phase": 138,
+  "target_final_phase": 160,
+  "total_prerequisites": 13,
+  "satisfied_prerequisites": 13,
+  "all_satisfied": true,
+  "live_trading_prohibited": true,
+  "broker_integration_blocked": true,
+  "non_signal": true
+}

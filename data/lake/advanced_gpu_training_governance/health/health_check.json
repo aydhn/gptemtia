@@ -1,0 +1,9 @@
+{
+  "total_checks": 12,
+  "healthy_count": 12,
+  "health_status": "SYSTEM_HEALTHY",
+  "all_healthy": true,
+  "current_phase": 139,
+  "non_signal": true,
+  "active_profile": "balanced_local_gpu_training_governance"
+}

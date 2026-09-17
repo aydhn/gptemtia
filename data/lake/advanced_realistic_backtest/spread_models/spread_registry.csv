@@ -1,0 +1,5 @@
+spread_model_name,category,description,formula,default_value,is_dynamic,is_active,non_signal
+fixed_pip_spread_model,FIXED,"Sabit pip veya cent alis-satis araligi sozlesmesi (orn: EUR/USD 1.2 pip, Petrol $0.03).",spread_in_pips * pip_size,1.5,False,True,True
+percentage_spread_model,PERCENTAGE,Varlik fiyatinin belirli bir yuzdesi kadar alis-satis farki (orn: 0.02%).,price * (spread_pct / 100.0),0.02,False,True,True
+historical_quote_spread_model,HISTORICAL,Gecmis gercek quote verisindeki (Ask - Bid) farkinin dogrudan kullanimi.,ask_quote - bid_quote,,True,True,True
+volatility_dependent_spread_model,DYNAMIC,Yuksek volatilite ve haber donemlerinde genisleyen alis-satis farki modeli.,base_spread * (1.0 + k * normalized_volatility),2.0,True,True,True

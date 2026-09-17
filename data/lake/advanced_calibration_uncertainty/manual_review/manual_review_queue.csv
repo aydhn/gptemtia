@@ -1,0 +1,8 @@
+review_id,task_name,description,suggested_action,auto_action_allowed,auto_fix_allowed,non_signal,status,phase
+REV_CALIB_001,inspect_probability_calibration_contracts,Inspect probability calibration contracts ensuring fit and prediction are disabled.,inspect calibration contracts,False,False,True,PENDING_OPERATOR_REVIEW,141
+REV_UNCERT_002,inspect_uncertainty_estimation_contracts,Inspect uncertainty estimation contracts ensuring intervals and conformal sets are uncomputed.,inspect uncertainty contracts,False,False,True,PENDING_OPERATOR_REVIEW,141
+REV_METH_003,inspect_calibration_method_placeholders,Inspect calibration method placeholders ensuring zero fitting or optimization occurred.,inspect calibration method placeholders,False,False,True,PENDING_OPERATOR_REVIEW,141
+REV_UMETH_004,inspect_uncertainty_method_placeholders,Inspect uncertainty method placeholders ensuring zero resampling or estimation occurred.,inspect uncertainty method placeholders,False,False,True,PENDING_OPERATOR_REVIEW,141
+REV_DIS_005,inspect_disabled_execution_reports,Inspect disabled execution reports confirming all runtime interceptors are active.,inspect disabled probability/calibration/uncertainty reports,False,False,True,PENDING_OPERATOR_REVIEW,141
+REV_GATE_006,inspect_quality_gates,Inspect calibration and uncertainty quality gates to verify blocking policies.,inspect calibration/uncertainty quality gates,False,False,True,PENDING_OPERATOR_REVIEW,141
+REV_DRIFT_007,inspect_phase_142_drift_monitoring_blockers,Inspect handoff prerequisites for Phase 142 Model Drift Monitoring.,inspect Phase 142 drift monitoring blockers,False,False,True,PENDING_OPERATOR_REVIEW,141

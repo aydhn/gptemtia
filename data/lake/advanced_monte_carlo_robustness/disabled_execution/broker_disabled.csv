@@ -1,0 +1,2 @@
+capability,execution_allowed,policy_reference,status,description
+broker_order_transmission,False,POLICY_PHASE_149_ZERO_BROKER,execution_blocked_no_broker,Prohibits transmitting order payloads to external broker or exchange endpoints.

@@ -1,0 +1,4 @@
+policy_name,description,destructive_overwrite_allowed,production_tag_allowed,broker_tag_allowed,live_tag_allowed,non_signal,manual_review_required,current_phase
+contract_version_only_policy,Only contract versioning is allowed. No dataset materialization versioning.,False,False,False,False,True,True,137
+snapshot_placeholder_only_policy,Snapshot versioning is placeholder only. No real snapshot materialization.,False,False,False,False,True,True,137
+append_only_metadata_policy,Append-only metadata versioning. No destructive overwrite.,False,False,False,False,True,True,137

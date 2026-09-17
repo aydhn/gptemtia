@@ -1,0 +1,8 @@
+{
+  "domain": "multiple_testing_bias_domain",
+  "total_controls": 3,
+  "status": "governance_contract_ready",
+  "max_allowable_multiple_tests": 20,
+  "non_signal": true,
+  "local_only": true
+}

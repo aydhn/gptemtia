@@ -1,0 +1,5 @@
+resilience_contract_id,resilience_dimension,description,target_metric,threshold_limit_pct,contract_status,evaluation_enabled
+RES-CON-156-001,CAPITAL_PRESERVATION,Ekstrem senaryolarda sermaye erimesini sinirlama sozlesmesi,MAX_CAPITAL_EROSION_PCT,20.0,CONTRACT_ONLY,False
+RES-CON-156-002,LIQUIDITY_BUFFER,Piyasa tikanmalarinda nakit ve teminat tamponu sozlesmesi,MIN_LIQUIDITY_BUFFER_PCT,25.0,CONTRACT_ONLY,False
+RES-CON-156-003,MARGIN_HEADROOM,Margin call riskine karsi serbest teminat payi sozlesmesi,MIN_MARGIN_HEADROOM_PCT,35.0,CONTRACT_ONLY,False
+RES-CON-156-004,RECOVERY_TRAJECTORY,Sok sonrasi toparlanma suresi ve patikasi sozlesmesi,MAX_RECOVERY_HORIZON_DAYS,60.0,CONTRACT_ONLY,False

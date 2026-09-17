@@ -1,0 +1,12 @@
+{
+  "total_items": 3,
+  "review_ids": [
+    "REV-140-001",
+    "REV-140-002",
+    "REV-140-003"
+  ],
+  "all_auto_fix_blocked": true,
+  "all_destructive_blocked": true,
+  "all_non_signal": true,
+  "dry_run": true
+}

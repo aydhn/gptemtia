@@ -1,0 +1,13 @@
+{
+  "total_contracts": 10,
+  "unique_model_families": 10,
+  "all_real_training_blocked": true,
+  "all_prediction_blocked": true,
+  "all_target_label_blocked": true,
+  "all_artifact_blocked": true,
+  "all_registry_write_blocked": true,
+  "all_manual_review_required": true,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false
+}

@@ -1,0 +1,11 @@
+{
+  "domain": "position_sizing_domain",
+  "active_profile": "balanced_local_portfolio_construction_contracts",
+  "total_contracts": 9,
+  "all_sizing_blocked": true,
+  "all_allocation_blocked": true,
+  "all_order_generation_blocked": true,
+  "all_broker_execution_blocked": true,
+  "all_manual_review_required": true,
+  "status": "portfolio_contract_ready"
+}

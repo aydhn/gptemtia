@@ -1,0 +1,3 @@
+guard_name,scope,rule,status,profile_name,current_phase,domain
+point_in_time_commodity_contracts_guard,Historical expired futures contracts,"Resampled paths must draw from contemporaneous tradable contracts, not backward-looking continuous splices only.",ACTIVE,balanced_local_monte_carlo_robustness_contracts,149,bias_guard_domain
+delisted_fx_pair_inclusion_guard,Peg breakages and currency reorganizations,Historical FX series must retain peg breakdowns and re-denominations to avoid survivor skew.,ACTIVE,balanced_local_monte_carlo_robustness_contracts,149,bias_guard_domain

@@ -1,0 +1,4 @@
+placeholder_name,shock_type,description,magnitude_spec,parameters,real_execution_allowed,non_signal,contains_trading_recommendation,manual_review_required
+weekend_opening_gap_placeholder,PRICE_DISCONTINUITY,Hafta sonu haber akışından kaynaklanan Pazar akşamı açılış fiyat boşluğu yer tutucusu.,3x_standard_daily_atr,"{'gap_direction': 'BIDIRECTIONAL', 'bypass_stop_loss': True}",False,True,False,True
+overnight_session_gap_placeholder,OVERNIGHT_GAP,Seans kapanış ile ertesi gün açılışı arasındaki fiyat boşluğu yer tutucusu.,1.5x_standard_daily_atr,"{'gap_direction': 'ADVERSE', 'bypass_stop_loss': True}",False,True,False,True
+macro_announcement_intraday_gap_placeholder,INTRADAY_JUMP,Veri açıklanma anındaki ardışık çubuksuz dikey fiyat atlaması yer tutucusu.,2.0x_standard_daily_atr,"{'jump_latency_ms': 50, 'liquidity_void': True}",False,True,False,True

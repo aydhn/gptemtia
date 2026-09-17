@@ -1,0 +1,4 @@
+contract_id,contract_name,description,execution_allowed,is_active,non_signal
+PORT-01,capital_allocation_contract,Portfoy sermayesinin varliklar ve nakit arasinda tahsisi kurali.,False,True,True
+PORT-02,asset_weight_constraint_contract,Tekil varlik basina maksimum pozisyon agirligi siniri (%25 max).,False,True,True
+PORT-03,turnover_constraint_contract,Asiri islem ve yuksek maliyet olusumunu onleyen portfoy devir hizi siniri.,False,True,True

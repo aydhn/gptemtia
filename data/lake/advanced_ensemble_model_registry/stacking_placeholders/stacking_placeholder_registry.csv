@@ -1,0 +1,3 @@
+placeholder_id,stacking_type,description,execution_blocked,stacking_executed,non_signal,source_preserved,manual_review_required
+oof_stacking_placeholder,out_of_fold,Out-of-fold cross-validated meta-feature stacking placeholder contract (execution blocked).,True,False,True,True,True
+multi_level_stacking_placeholder,hierarchical_stacking,Two-level hierarchical candidate stacking placeholder contract (execution blocked).,True,False,True,True,True

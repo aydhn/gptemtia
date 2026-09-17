@@ -1,0 +1,3 @@
+dependency_id,source_phase,description,status,profile_name,current_phase,domain
+DEP_MODEL_GOVERNANCE_POLICIES,144,"Model governance risk tiering, non-production sign-off, and audit logging specifications.",SATISFIED,balanced_local_monte_carlo_robustness_contracts,149,dependency_domain
+DEP_ML_ACCEPTANCE_CRITERIA,145,Advanced ML model acceptance report gating requirements.,SATISFIED,balanced_local_monte_carlo_robustness_contracts,149,dependency_domain

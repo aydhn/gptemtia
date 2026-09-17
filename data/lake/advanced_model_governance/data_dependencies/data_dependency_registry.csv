@@ -1,0 +1,4 @@
+dep_id,name,phase_ref,role,phase,status,non_signal
+DDEP-01,ml_dataset_contract_source,Phase 137,Contract schemas for dataset partitions and splits.,144,SATISFIED,True
+DDEP-02,time_index_policy_source,Phase 137,Point-in-time chronological time index requirements.,144,SATISFIED,True
+DDEP-03,purged_split_policy_source,Phase 137,Embargo and purge requirements preventing leakage.,144,SATISFIED,True

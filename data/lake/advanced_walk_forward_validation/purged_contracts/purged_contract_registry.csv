@@ -1,0 +1,3 @@
+split_name,purge_mechanism,purge_window_bars,embargo_window_bars,description,execution_allowed,purge_executed,non_signal
+standard_purged_walk_forward_contract,LABEL_OVERLAP_PURGE,5,10,Egitim ve test araligi arasindaki etiket cakismasini onlemek icin 5 bar temizleme (purge) ve 10 bar embargo uygulayan sozlesme.,False,False,True
+extended_purged_walk_forward_contract,SERIAL_CORRELATION_PURGE,15,21,Otoregresif kalinti ve yuksek gecikmeli etiketler icin 15 bar purge ve 21 bar embargo sozlesmesi.,False,False,True

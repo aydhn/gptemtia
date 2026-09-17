@@ -1,0 +1,3 @@
+guard_name,description,enforcement,active,non_signal
+delisted_asset_tracking_guard,Tarihsel evrende islemi sonlanan veya delist olan varliklarin analize dahil edilmesi zorunlulugu.,STRICT,True,True
+point_in_time_universe_guard,Her tarihte yalnizca o gun piyasada mevcut olan sembollerin secilebilmesi kurali.,STRICT,True,True

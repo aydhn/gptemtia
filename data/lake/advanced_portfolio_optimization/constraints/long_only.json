@@ -1,0 +1,6 @@
+{
+  "constraint_name": "long_only_constraint",
+  "is_placeholder": true,
+  "is_enforced_live": false,
+  "actual_weights_generated": false
+}

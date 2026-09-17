@@ -1,0 +1,5 @@
+item_id,pipeline_component,contract_type,status,scraping_allowed,verified
+DPI-001,data_providers,ingestion,INTEGRATED,False,True
+DPI-002,economic_calendar,events,INTEGRATED,False,True
+DPI-003,news_sentiment_metadata,metadata_only,INTEGRATED,False,True
+DPI-004,data_lake_storage,storage,INTEGRATED,False,True

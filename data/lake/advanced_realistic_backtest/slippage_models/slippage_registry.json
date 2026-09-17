@@ -1,0 +1,14 @@
+{
+  "total_slippage_models": 6,
+  "all_zero_guarantee": true,
+  "all_real_calculation_blocked": true,
+  "slippage_types": [
+    "FIXED_BPS",
+    "SPREAD_BASED",
+    "VOLATILITY_BASED",
+    "LIQUIDITY_BASED",
+    "PARTICIPATION_RATE",
+    "REGIME_AWARE"
+  ],
+  "non_signal": true
+}

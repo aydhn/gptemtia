@@ -1,0 +1,6 @@
+{
+  "objective_name": "min_variance_objective",
+  "is_placeholder": true,
+  "is_calculated": false,
+  "actual_weights_generated": false
+}

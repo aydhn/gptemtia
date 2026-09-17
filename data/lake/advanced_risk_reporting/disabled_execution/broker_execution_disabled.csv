@@ -1,0 +1,2 @@
+component_name,prohibited_actions,enforcement_mechanism,is_disabled,status,current_phase,target_final_phase,next_phase
+broker_execution_bridge,"['connect_broker_api', 'send_broker_order', 'query_live_account']",STRICT_SAFETY_GATE_BROKER_BLOCKED,True,execution_contract_only,155,160,156

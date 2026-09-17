@@ -1,0 +1,8 @@
+{
+  "domain": "strategy_vs_benchmark_report_domain",
+  "total_comparisons": 5,
+  "all_execution_disabled": true,
+  "all_claims_disabled": true,
+  "status": "evaluation_contract_ready",
+  "non_signal": true
+}

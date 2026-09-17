@@ -1,0 +1,2 @@
+operation,is_disabled,policy_code,reason,status,non_signal
+strategy_evaluation_execution,True,execution_blocked_no_strategy_evaluation,Phase 151 defines evaluation report contracts only; zero execution permitted.,evaluation_contract_ready,True

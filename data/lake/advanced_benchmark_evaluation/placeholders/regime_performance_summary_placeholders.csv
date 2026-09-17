@@ -1,0 +1,5 @@
+regime_summary_id,regime_state,title,description,is_calculated,status,non_signal
+REG_SUM_BULL_TREND,bullish_trending,Bullish Trend Market State Performance Placeholder,Güçlü yukarı yönlü trend rejiminde getiri ve risk davranışı özeti.,False,evaluation_contract_ready,True
+REG_SUM_BEAR_TREND,bearish_trending,Bearish Trend Market State Performance Placeholder,Aşağı yönlü trend rejiminde sermaye koruma veya kısa pozisyon davranışı özeti.,False,evaluation_contract_ready,True
+REG_SUM_HIGH_VOL,high_volatility,High Volatility Regime Performance Placeholder,Piyasa çalkantısı ve yüksek volatilite rejiminde risk profili özeti.,False,evaluation_contract_ready,True
+REG_SUM_LOW_VOL_RANGE,low_volatility_ranging,Low Volatility Range-Bound Regime Performance Placeholder,Düşük oynaklıklı yatay piyasa rejiminde sahte sinyal (whipsaw) direnci özeti.,False,evaluation_contract_ready,True

@@ -1,0 +1,8 @@
+{
+  "total_policies": 3,
+  "all_dry_run": true,
+  "max_fraction_limit": 0.8,
+  "current_phase": 139,
+  "non_signal": true,
+  "active_profile": "balanced_local_gpu_training_governance"
+}

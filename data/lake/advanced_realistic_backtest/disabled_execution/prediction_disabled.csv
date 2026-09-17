@@ -1,0 +1,2 @@
+execution_type,status,reason,blocked_actions,is_blocked,non_signal
+MODEL_PREDICTION_EXECUTION,BLOCKED_BY_POLICY,Model prediction and target label generation are strictly disabled.,"['predict', 'inference', 'forecast', 'generate_target', 'generate_label', 'target', 'label']",True,True

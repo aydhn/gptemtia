@@ -1,0 +1,37 @@
+domain_id,domain_name,description,is_active,local_only,non_production
+portfolio_optimization_profile_domain,Profil Yonetimi,Yerel ve cevrimdisi portfoy optimizasyon profil tescili,True,True,True
+portfolio_optimization_domain,Portfoy Optimizasyonu,Portfoy optimizasyon sozlesme ve mimari etki alani,True,True,True
+portfolio_optimization_scope_domain,Arastirma Kapsami,Cevrimdisi calisma ve arastirma sinirlari,True,True,True
+optimization_contract_domain,Optimizasyon Sozlesmeleri,Optimizasyon problem tanim sozlesmeleri,True,True,True
+objective_contract_domain,Amac Fonksiyonu Sozlesmeleri,Optimizasyon amac sozlesmeleri,True,True,True
+objective_placeholder_domain,Amac Yer Tutuculari,"Mean-variance, Sharpe, CVaR vb. yer tutuculari",True,True,True
+allocation_constraint_domain,Tahsisat Kisit Sozlesmeleri,Portfoy tahsisat ve agirlik kisitlari,True,True,True
+exposure_constraint_domain,Maruziyet Kisitlari,Brut ve net maruziyet kisit yer tutuculari,True,True,True
+turnover_constraint_domain,Devir Hizi Kisitlari,Portfoy devir hizi tavan kisitlari,True,True,True
+risk_budget_constraint_domain,Risk Butcesi Kisitlari,Risk butcesi uyum kisitlari,True,True,True
+volatility_constraint_domain,Volatilite Kisitlari,Hedef ve tavan volatilite kisitlari,True,True,True
+drawdown_constraint_domain,Dususe Duyarli Kisitlar,Maksimum drawdown bütçesi kisitlari,True,True,True
+leverage_margin_constraint_domain,Kaldirac ve Teminat Kisitlari,Maksimum kaldirac ve teminat kisitlari,True,True,True
+solver_contract_domain,Cozucu Sozlesmeleri,Optimizasyon cozucu arayuz sozlesmeleri,True,True,True
+solver_placeholder_domain,Cozucu Yer Tutuculari,Konveks ve sezgisel cozucu yer tutuculari,True,True,True
+efficient_frontier_placeholder_domain,Etkin Sinir Yer Tutuculari,Efficient frontier sema ve yer tutuculari,True,True,True
+output_contract_domain,Cikti Sozlesmeleri,Optimizasyon sonuc ve rebalance cikti semalari,True,True,True
+metric_placeholder_domain,Metrik Yer Tutuculari,Hesaplamasiz metrik ve formuller,True,True,True
+dependency_domain,Yukari Akis Bagimliliklari,Phase 153-130 faz bagimlilik tescili,True,True,True
+claim_guard_domain,Iddia Muhafizlari,"Tahsisat, agirlik ve rebalance iddia engelleri",True,True,True
+disabled_execution_domain,Devre Disi Yurutme,Gercek yurutme engelleme tescili,True,True,True
+finding_domain,Teshis Bulgulari,Teshis bulgulari ve otomatik aksiyon yasaklari,True,True,True
+readiness_score_domain,Hazirlik Puani,1.00 sozlesme hazirlik skoru,True,True,True
+manifest_domain,Master Manifesto,Bütünlük ve negatif degismez manifestosu,True,True,True
+health_domain,Sistem Saglik Kontrolu,Modul ve bagimlilik saglik testi,True,True,True
+validation_domain,Validasyon Raporu,6 asamali sozlesme dogrulama,True,True,True
+safety_domain,Guvenlik Sinirlari,21 NO-GO ve 8 SAFE-GO kurallari,True,True,True
+phase_155_handoff_domain,Phase 155 Devri,Phase 155 Risk Reporting devir paketi,True,True,True
+mean_variance_objective_domain,Mean-Variance Amac,Ortalama-varyans optimizasyon amaci,True,True,True
+minimum_variance_objective_domain,Min-Variance Amac,Minimum varyans optimizasyon amaci,True,True,True
+maximum_sharpe_objective_domain,Max-Sharpe Amac,Maksimum Sharpe orani amaci,True,True,True
+risk_parity_objective_domain,Risk Parity Amac,Risk paritesi dengeleme amaci,True,True,True
+cvar_objective_domain,CVaR Amac,Kosullu Riske Maruz Deger amaci,True,True,True
+drawdown_minimization_domain,Drawdown Minimizasyonu,Maksimum drawdown minimizasyon amaci,True,True,True
+cost_slippage_aware_domain,Maliyet/Kayma Duyarli,Maliyet ve kayma duyarlilik amaci,True,True,True
+regime_aware_optimization_domain,Rejim Duyarli Optimizasyon,Piyasa rejimi duyarlilik amaci,True,True,True

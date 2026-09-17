@@ -1,0 +1,40 @@
+{
+  "status": "success",
+  "phase": 142,
+  "profile": "balanced_local_model_drift_contracts",
+  "manifest_id": "drift_manifest_p142_balanced_local_model_drift_contracts_20260913_214727",
+  "validation": {
+    "valid": true,
+    "manifest_id": "drift_manifest_p142_balanced_local_model_drift_contracts_20260913_214727",
+    "errors": [],
+    "total_contracts": 32,
+    "total_linkages": 16,
+    "total_metrics": 24,
+    "total_guards": 5,
+    "total_findings": 5
+  },
+  "summary": {
+    "manifest_id": "drift_manifest_p142_balanced_local_model_drift_contracts_20260913_214727",
+    "phase": 142,
+    "profile": "balanced_local_model_drift_contracts",
+    "generated_at": "2026-09-13T21:47:27.147137+00:00",
+    "contracts_count": 32,
+    "linkages_count": 16,
+    "window_policies_count": 21,
+    "thresholds_count": 6,
+    "metrics_count": 24,
+    "disabled_safeguards_count": 7,
+    "guards_count": 5,
+    "findings_count": 5,
+    "readiness_scores_count": 6,
+    "all_calculation_disabled": true,
+    "all_window_execution_disabled": true,
+    "non_executing_compliance": true
+  },
+  "text_summary": "Phase 142 Model Drift Monitoring Summary:\nManifest ID: drift_manifest_p142_balanced_local_model_drift_contracts_20260913_214727\nProfile: balanced_local_model_drift_contracts\nContracts: 32 | Linkages: 16\nWindow Policies: 21 | Thresholds: 6\nMetric Placeholders: 24 | Disabled Safeguards: 7\nGuards: 5 | Findings: 5\nNon-Executing Compliance: TRUE | Dry-Run: TRUE | Next Phase: 143",
+  "saved_files": [
+    "reports\\output\\advanced_model_drift_monitoring\\model_drift_monitoring_report_20260913_214727.md",
+    "reports\\output\\advanced_model_drift_monitoring\\model_drift_manifest_20260913_214727.json"
+  ],
+  "next_phase": 143
+}

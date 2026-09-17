@@ -1,0 +1,4 @@
+check_item,status,is_disabled,description
+target_label_generation,PASS_DISABLED,True,Verification that no target labels were generated or materialized
+future_return_calculation,PASS_DISABLED,True,Verification that shift(-1) / future returns were blocked
+supervised_labels_absence,PASS_DISABLED,True,Verification that datasets contain zero supervised learning labels

@@ -1,0 +1,11 @@
+gate_name,description,passed,non_signal,current_phase
+source_catalog_present_gate,Source catalog must be present.,False,True,137
+schema_contract_present_gate,Schema contract must be present.,False,True,137
+time_index_policy_present_gate,Time index policy must be present.,False,True,137
+split_policy_present_gate,Split policy must be present.,False,True,137
+no_lookahead_guard_present_gate,No-lookahead guard must be present.,False,True,137
+metadata_only_news_guard_present_gate,Metadata-only news guard must be present.,False,True,137
+source_preservation_guard_present_gate,Source preservation guard must be present.,False,True,137
+target_label_disabled_gate,Target/label generation must be disabled.,False,True,137
+training_disabled_gate,Model training must be disabled.,False,True,137
+manual_review_gate,Manual review must be required.,False,True,137

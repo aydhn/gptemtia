@@ -1,0 +1,6 @@
+{
+  "total_guards": 2,
+  "all_active": true,
+  "lookahead_strictly_prohibited": true,
+  "non_signal": true
+}

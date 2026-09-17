@@ -1,0 +1,7 @@
+{
+  "total_lineage_stages": 5,
+  "all_source_preserved": true,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false
+}

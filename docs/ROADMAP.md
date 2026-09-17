@@ -267,10 +267,55 @@
 - 135 completed/Regime Classification Acceptance Report ready
 ## Completed: Phase 136 GPU Acceleration and Advanced ML Runtime Foundation, Local Hardware Discovery, ML Experiment Safety Contracts ve Phase 137 Handoff
 - 136 completed/GPU Acceleration and Advanced ML Runtime Foundation ready
-- 137 Advanced ML Dataset Contracts and Experiment Registry sıradaki faz
-## Target Final Phase: 160
-
-
-
-
-
+## Completed: Phase 137 Advanced ML Dataset Contracts and Experiment Registry, Feature Snapshot Governance, No-Training Experiment Contracts ve Phase 138 Handoff
+- 137 completed/Advanced ML Dataset Contracts and Experiment Registry ready
+## Completed: Phase 138 Baseline ML Model Contracts and Dry-Run Training Harness, No-Real-Training Harness Layer, Baseline Model Registry ve Phase 139 Handoff
+- 138 completed/Baseline ML Model Contracts and Dry-Run Training Harness ready
+## Completed: Phase 139 GPU-Accelerated Training Harness and Resource Governance, Controlled Dry-Run Resource Layer, No-Live-Execution ML Harness ve Phase 140 Handoff
+- 139 completed/GPU-Accelerated Training Harness and Resource Governance ready
+## Completed: Phase 140 Ensemble Model Contracts and Candidate Model Registry, Non-Executing Ensemble Layer, Candidate Model Governance ve Phase 141 Handoff
+- 140 completed/Ensemble Model Contracts and Candidate Model Registry ready
+## Completed: Phase 141 Probability Calibration and Uncertainty Estimation Contracts, Non-Executing Calibration Layer, Uncertainty Governance ve Phase 142 Handoff
+- 141 completed/Probability Calibration and Uncertainty Estimation Contracts ready
+## Completed: Phase 142 Model Drift Monitoring and Data/Feature Drift Linkage Contracts, Non-Executing Drift Layer, Drift Governance ve Phase 143 Handoff
+- 142 completed/Model Drift Monitoring and Data/Feature Drift Linkage Contracts ready
+## Completed: Phase 143 Explainability and Feature Attribution Reports, Non-Executing XAI Contract Layer, Attribution Governance ve Phase 144 Handoff
+- 143 completed/Explainability and Feature Attribution Reports ready
+## Completed: Phase 144 Model Governance, Model Cards and Audit Trail, Non-Production Governance Layer, Approval Boundary Registry ve Phase 145 Handoff
+## Completed: Phase 145 Advanced ML Acceptance Report, Phase 136-144 Consolidated Acceptance Layer, Non-Production ML Readiness Boundary ve Phase 146 Handoff
+- 145 completed/Advanced ML Acceptance Report and Consolidated Acceptance Layer ready
+## Completed: Phase 146 Realistic Backtest, Transaction Cost and Slippage Modeling, Local/Offline Backtest Contract Layer ve Phase 147 Handoff
+- 146 completed/Realistic Backtest, Transaction Cost and Slippage Modeling contract layer ready
+## Completed: Phase 147 Walk-Forward Validation and Out-of-Sample Benchmarking, Local/Offline Validation Contract Layer ve Phase 148 Handoff
+- 147 completed/Walk-Forward Validation and Out-of-Sample Benchmarking contract layer ready
+## Completed: Phase 148 Stress Testing and Scenario Simulation, Local/Offline Scenario Contract Layer ve Phase 149 Handoff
+- 148 completed/Stress Testing and Scenario Simulation contract layer ready
+## Completed: Phase 149 Monte Carlo Robustness and Parameter Stability, Local/Offline Robustness Contract Layer ve Phase 150 Handoff
+- 149 completed/Monte Carlo Robustness and Parameter Stability contract layer ready
+## Completed: Phase 150 Backtest Governance and Bias Control, Local/Offline Backtest Governance Layer ve Phase 151 Handoff
+- 150 completed/Backtest Governance and Bias Control contract layer ready
+## Completed: Phase 151 Benchmark Comparison and Strategy Evaluation Reports, Local/Offline Evaluation Report Contract Layer ve Phase 152 Handoff
+- 151 completed/Benchmark Comparison and Strategy Evaluation Reports contract layer ready
+## Completed: Phase 152 Backtest Acceptance Report, Phase 146-152 Consolidated Acceptance Layer ve Phase 153 Handoff
+- 152 completed/Backtest Acceptance Report, Consolidated Acceptance Layer and Phase 153 Handoff ready
+## Completed: Phase 153 Portfolio Construction, Position Sizing and Risk Budgeting, Local/Offline Portfolio Contract Layer ve Phase 154 Handoff
+- 153 completed/Portfolio Construction, Position Sizing and Risk Budgeting contract layer ready
+## Completed: Phase 154 Portfolio Optimization and Allocation Constraints, Local/Offline Optimization Contract Layer ve Phase 155 Handoff
+- 154 completed/Portfolio Optimization and Allocation Constraints contract layer ready
+## Completed: Phase 155 Risk Reporting, Exposure Attribution and Limit Monitoring, Local/Offline Risk Report Contract Layer ve Phase 156 Handoff
+- 155 completed/Risk Reporting, Exposure Attribution and Limit Monitoring contract layer ready
+## Completed: Phase 156 Portfolio Scenario Testing and Drawdown Control, Local/Offline Scenario-Control Contract Layer ve Phase 157 Handoff
+- 156 completed/Portfolio Scenario Testing and Drawdown Control contract layer ready
+## Completed: Phase 157 Portfolio Acceptance Report, Phase 153-157 Consolidated Portfolio Acceptance Layer ve Phase 158 Handoff
+- 157 completed/Portfolio Acceptance Report, Consolidated Portfolio Acceptance Layer and Phase 158 Handoff ready
+## Completed: Phase 158 Full-System Integration and Advanced Acceptance Rehearsal, Local/Offline System-Wide Integration Layer ve Phase 159 Handoff
+- 158 completed/Full-System Integration and Advanced Acceptance Rehearsal, System-Wide Integration Layer and Phase 159 Handoff ready
+## Completed: Phase 159 Final Hardening, Operator Runbook and Release Candidate, Local/Offline Release-Candidate Contract Layer ve Phase 160 Handoff
+- 159 completed/Final Hardening, Operator Runbook and Release Candidate contract layer ready
+## Completed: Phase 160 Full Advanced Bot Final Delivery, Final Local/Offline Delivery Package ve 160 Fazlık Plan Kapanışı
+- 160 completed/Full Advanced Bot Final Delivery, Final Local/Offline Delivery Package and 160-Phase Plan Closure ready
+- Current Phase: 160
+- Target Final Phase: 160
+- Next Phase: None (Plan Successfully Closed)
+- Final Plan Closed: True
+- Plan Status: FULLY DELIVERED & CLOSED

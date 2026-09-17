@@ -1,0 +1,9 @@
+stage,component,description,non_signal,verified,phase
+Phase 116-125 Feature & Factor Engine,FeatureStore & Quality Drift,"Deterministic time-series indicators, factor metadata, and quality boundaries.",True,True,141
+Phase 126-135 Market Regime Context,Regime Classification Acceptance,Unsupervised market behavior context and regime state acceptance.,True,True,141
+Phase 136 ML Runtime Foundation,Hardware Discovery & Runtime,"Hardware discovery, CUDA/Torch capability mapping, and non-execution safety.",True,True,141
+Phase 137 ML Dataset Contracts,Dataset Registry & Snapshot Governance,"Temporal partition contracts, feature snapshot governance, and experiment registry.",True,True,141
+Phase 138 Baseline ML Model Contracts,Baseline Models & Dry-Run Harness,"Linear, Tree, and MLP baseline model contracts with dry-run training stubs.",True,True,141
+Phase 139 GPU Resource Governance,Controlled Dry-Run Resource Layer,"Device selection, memory budgeting, and timeout policies.",True,True,141
+Phase 140 Ensemble Model Contracts,Candidate Model Registry & Ensemble Contracts,"Candidate model families, compatibility matrix, and non-executing ensemble contracts.",True,True,141
+Phase 141 Calibration & Uncertainty,Probability Calibration & Uncertainty Contracts,"Probability calibration contracts, uncertainty estimation contracts, quality gates, and drift handoff.",True,True,141

@@ -1,0 +1,14 @@
+scope_name,allowed,description,enforced,non_signal
+local_offline_split_contract_framework,True,"Zaman serisi bolumleme, rolling/expanding pencere sozlesmeleri tanimlanabilir.",True,True
+purge_embargo_policy_contracts,True,Bilgi sizintisini ve overlap etkisini onleyen embargo ve purge sozlesmeleri tanimlanabilir.,True,True
+oos_benchmark_comparison_framework,True,"Benchmark evreni, Buy & Hold, nakit ve esit agirlikli referans sozlesmeleri olusturulabilir.",True,True
+validation_and_benchmark_metric_placeholders,True,"Metrik formulleri, hesaplama mantigi ve yer tutuculari tanimlanabilir.",True,True
+bias_and_no_lookahead_guards,True,"Data snooping, lookahead ve survivorship bias engelleyici muhafizlar calisabilir.",True,True
+live_order_execution,False,Canli emir gonderimi kesinlikle yasaktir.,True,True
+broker_api_integration,False,Broker API entegrasyonu kesinlikle yasaktir.,True,True
+actual_model_training_or_inference,False,Gercek model egitimi (fit) veya cikarim (predict) kesinlikle yasaktir.,True,True
+optimizer_or_hyperparameter_search,False,Optimizasyon veya hiperparametre arama kesinlikle yasaktir.,True,True
+actual_walk_forward_execution,False,Gercek walk-forward backtest simülasyonu calistirilamaz.,True,True
+actual_benchmark_metric_calculation,False,"Gercek Sharpe, alpha, beta veya getiri hesaplanamaz.",True,True
+performance_or_return_guarantee,False,Performans veya getiri garantisi iddiasinda bulunulamaz.,True,True
+live_trading_or_broker_approval,False,Canli islem veya broker onay beyani verilemez.,True,True

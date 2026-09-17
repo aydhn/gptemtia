@@ -1,0 +1,7 @@
+PHASE 148: STRESS TESTING & SCENARIO SIMULATION CONTRACT LAYER
+NON-PRODUCTION | RESEARCH ONLY | ZERO LIVE TRADING | ZERO BROKER EXECUTION | NON-SIGNAL
+Bu cikti sozlesme ve metadata spesifikasyonudur; canli emir, trade sinyali veya kesin getiri icermez.
+Total Metric Placeholders: 11
+Real Calculations Disabled: True
+Formulas and Metadata Defined: True
+Zero Stressed PnL / Zero Drawdown Claimed: True

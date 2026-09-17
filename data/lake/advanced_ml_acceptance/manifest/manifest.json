@@ -1,0 +1,18 @@
+{
+  "domain": "manifest_domain",
+  "manifest_name": "manifest_phase_145_advanced_ml_acceptance",
+  "manifest_id": "manifest_phase_145_advanced_ml_acceptance",
+  "current_phase": 145,
+  "target_final_phase": 160,
+  "next_phase": 146,
+  "advanced_ml_block_completed": true,
+  "component_count": 10,
+  "accepted_component_count": 10,
+  "readiness_score": 1.0,
+  "manual_review_required": true,
+  "production_ready": false,
+  "broker_ready": false,
+  "non_signal": true,
+  "phase_146_handoff_ready": true,
+  "status": "acceptance_ready"
+}

@@ -1,0 +1,43 @@
+condition,category,enforced,current_phase,target_final_phase,next_phase,status,non_signal
+live trading,NO_GO,True,145,160,146,acceptance_ready,True
+broker integration,NO_GO,True,145,160,146,acceptance_ready,True
+real order,NO_GO,True,145,160,146,acceptance_ready,True
+investment advice,NO_GO,True,145,160,146,acceptance_ready,True
+signal generation,NO_GO,True,145,160,146,acceptance_ready,True
+directional certainty,NO_GO,True,145,160,146,acceptance_ready,True
+dataset materialization,NO_GO,True,145,160,146,acceptance_ready,True
+feature snapshot materialization,NO_GO,True,145,160,146,acceptance_ready,True
+strategy/backtest/walk-forward/benchmark/transaction-cost/slippage/optimizer execution,NO_GO,True,145,160,146,acceptance_ready,True
+real model training/model fit/model predict/model inference/model transform,NO_GO,True,145,160,146,acceptance_ready,True
+probability prediction,NO_GO,True,145,160,146,acceptance_ready,True
+calibration execution,NO_GO,True,145,160,146,acceptance_ready,True
+uncertainty estimation,NO_GO,True,145,160,146,acceptance_ready,True
+drift calculation,NO_GO,True,145,160,146,acceptance_ready,True
+explainability calculation,NO_GO,True,145,160,146,acceptance_ready,True
+feature attribution calculation,NO_GO,True,145,160,146,acceptance_ready,True
+target/label/prediction,NO_GO,True,145,160,146,acceptance_ready,True
+metric calculation/performance claim,NO_GO,True,145,160,146,acceptance_ready,True
+model artifact persistence,NO_GO,True,145,160,146,acceptance_ready,True
+model registry write,NO_GO,True,145,160,146,acceptance_ready,True
+model deployment,NO_GO,True,145,160,146,acceptance_ready,True
+production deployment,NO_GO,True,145,160,146,acceptance_ready,True
+production approval,NO_GO,True,145,160,146,acceptance_ready,True
+broker-ready approval,NO_GO,True,145,160,146,acceptance_ready,True
+live-trading approval,NO_GO,True,145,160,146,acceptance_ready,True
+release approval,NO_GO,True,145,160,146,acceptance_ready,True
+official approval,NO_GO,True,145,160,146,acceptance_ready,True
+real audit log,NO_GO,True,145,160,146,acceptance_ready,True
+full article/article body/raw content/scraped HTML usage,NO_GO,True,145,160,146,acceptance_ready,True
+embedding/vector generation,NO_GO,True,145,160,146,acceptance_ready,True
+source overwrite/destructive cleaning,NO_GO,True,145,160,146,acceptance_ready,True
+auto-imputation/auto-feature-drop,NO_GO,True,145,160,146,acceptance_ready,True
+scraping,NO_GO,True,145,160,146,acceptance_ready,True
+credential output,NO_GO,True,145,160,146,acceptance_ready,True
+local/offline Advanced ML acceptance report generation,SAFE_GO,True,145,160,146,acceptance_ready,True
+Phase 136-144 component contract completeness checks,SAFE_GO,True,145,160,146,acceptance_ready,True
+non-production readiness score,SAFE_GO,True,145,160,146,acceptance_ready,True
+manual review queue,SAFE_GO,True,145,160,146,acceptance_ready,True
+blocker/gap/warning registry,SAFE_GO,True,145,160,146,acceptance_ready,True
+validation evidence summary,SAFE_GO,True,145,160,146,acceptance_ready,True
+safety boundary summary,SAFE_GO,True,145,160,146,acceptance_ready,True
+Phase 146 realistic backtest contract handoff,SAFE_GO,True,145,160,146,acceptance_ready,True

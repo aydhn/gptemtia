@@ -1,0 +1,2 @@
+metric,score,classification,meets_threshold,broker_ready,production_ready,live_trading_ready,official_approval,profile_name,current_phase,target_final_phase,non_signal,local_only
+readiness_score,1.0,backtest_governance_contract_ready_non_production,True,False,False,False,False,balanced_local_backtest_governance_contracts,150,160,True,True

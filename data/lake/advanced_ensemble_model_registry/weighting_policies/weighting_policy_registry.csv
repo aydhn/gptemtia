@@ -1,0 +1,4 @@
+policy_id,weighting_type,description,calculation_blocked,weights_calculated,non_signal,source_preserved,manual_review_required
+uniform_weighting_policy,uniform,Equal weight allocation placeholder across candidate models (calculation blocked).,True,False,True,True,True
+validation_loss_weighting_policy,inverse_validation_loss,Inverse validation error weighting placeholder contract (calculation blocked).,True,False,True,True,True
+information_ratio_weighting_policy,metric_scaled,Cross-validation stability weighting placeholder contract (calculation blocked).,True,False,True,True,True

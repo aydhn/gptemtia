@@ -1,0 +1,15 @@
+{
+  "domain": "phase_146_handoff_domain",
+  "active_profile": "balanced_local_advanced_ml_acceptance",
+  "source_phase": 145,
+  "next_phase": 146,
+  "target_final_phase": 160,
+  "next_phase_title": "Realistic Backtest, Transaction Cost and Slippage Modeling",
+  "total_prerequisites": 13,
+  "satisfied_prerequisites": 13,
+  "all_satisfied": true,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false,
+  "status": "READY"
+}

@@ -1,0 +1,8 @@
+{
+  "total_findings": 0,
+  "critical_blockers": 0,
+  "clean_baseline_contracts": true,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false
+}

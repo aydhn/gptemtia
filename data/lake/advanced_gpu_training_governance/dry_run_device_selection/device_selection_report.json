@@ -1,0 +1,8 @@
+{
+  "total_simulations": 3,
+  "all_dry_run": true,
+  "all_zero_allocation": true,
+  "current_phase": 139,
+  "non_signal": true,
+  "active_profile": "balanced_local_gpu_training_governance"
+}

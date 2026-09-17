@@ -1,0 +1,4 @@
+check_item,status,is_disabled,description
+model_predict_executed,PASS_DISABLED,True,Verification that model .predict() calls were not executed
+inference_executed,PASS_DISABLED,True,Verification that model forward inference was not executed
+prediction_generation,PASS_DISABLED,True,Verification that no output predictions were generated

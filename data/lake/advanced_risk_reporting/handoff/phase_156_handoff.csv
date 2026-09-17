@@ -1,0 +1,13 @@
+item_id,category,requirement,status,target_phase,current_phase,target_final_phase,next_phase
+HND-155-001,portfolio_scenario_testing_prerequisites,Verify scenario simulation hooks and stress matrices from Phase 148 and risk contracts from Phase 155 are ready,SATISFIED,156,155,160,156
+HND-155-002,drawdown_control_prerequisites,Verify drawdown monitor placeholders and drawdown limit monitoring contracts from Phase 155 are established,SATISFIED,156,155,160,156
+HND-155-003,risk_reporting_prerequisites,Verify 9 local risk report contracts and metadata definitions are registered,SATISFIED,156,155,160,156
+HND-155-004,exposure_attribution_prerequisites,Verify gross/net/currency/cross-asset/concentration/liquidity exposure placeholders are available,SATISFIED,156,155,160,156
+HND-155-005,limit_monitoring_prerequisites,"Verify limit monitoring contracts, warning thresholds, and disabled alerting registries are active",SATISFIED,156,155,160,156
+HND-155-006,portfolio_optimization_prerequisites,Verify Phase 154 optimization contracts and allocation constraints are integrated,SATISFIED,156,155,160,156
+HND-155-007,portfolio_construction_prerequisites,"Verify Phase 153 portfolio construction, position sizing, and risk budgeting contracts are integrated",SATISFIED,156,155,160,156
+HND-155-008,risk_budget_prerequisites,Verify component risk contribution placeholders and risk parity specs are available,SATISFIED,156,155,160,156
+HND-155-009,backtest_acceptance_prerequisites,Verify Phase 152 backtest acceptance reports are accessible via DataLake/FeatureStore,SATISFIED,156,155,160,156
+HND-155-010,stress_monte_carlo_prerequisites,Verify Phase 148 stress testing and Phase 149 Monte Carlo robustness foundations are preserved,SATISFIED,156,155,160,156
+HND-155-011,manual_review_blockers,Ensure operator manual review queue is inspected prior to beginning Phase 156 execution,SATISFIED,156,155,160,156
+HND-155-012,safety_boundary_continuity,"Maintain strict non-production, dry-run, no-live-trading, and no-broker-execution boundary in Phase 156",SATISFIED,156,155,160,156

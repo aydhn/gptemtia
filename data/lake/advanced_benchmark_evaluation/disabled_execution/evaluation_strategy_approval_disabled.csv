@@ -1,0 +1,2 @@
+operation,is_disabled,policy_code,reason,status,non_signal
+strategy_approval,True,execution_blocked_no_strategy_approval,Phase 151 does not grant commercial or trading approvals.,evaluation_contract_ready,True

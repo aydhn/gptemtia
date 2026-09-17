@@ -1,0 +1,11 @@
+{
+  "domain": "phase_147_walk_forward_oos_acceptance_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "phase_ref": "Phase 147",
+  "phase_title": "Walk-Forward Validation and Out-of-Sample Benchmarking",
+  "total_checks": 10,
+  "passed_checks": 10,
+  "all_passed": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

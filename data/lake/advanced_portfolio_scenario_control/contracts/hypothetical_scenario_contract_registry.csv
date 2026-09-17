@@ -1,0 +1,5 @@
+scenario_id,scenario_title,rationale,shock_vector,extreme_tail_probability,contract_status,execution_allowed
+HYPO-SCN-001,Severe Stagflation Multi-Asset Shock,Durgunluk ve yuksek enflasyonun ayni anda gelismesi,"Emtia +30%, Buyume duyarliligi -25%, FX volatilite 2.5x",1_IN_50_YEARS,CONTRACT_ONLY,False
+HYPO-SCN-002,Commodity Supply Chain Freeze,Kritik deniz gecitlerinde tikanma ve lojistik durma,"Navlun +200%, Enerji +45%, Tarim +35%",1_IN_25_YEARS,CONTRACT_ONLY,False
+HYPO-SCN-003,Sudden Global Dollar Shortage,Bankalararasi USD likidite krizinin bas gostermesi,"DXY +15%, Gelismekte olan FX -20%, Emtia -18%",1_IN_20_YEARS,CONTRACT_ONLY,False
+HYPO-SCN-004,Coordinated Central Bank Tightening Shock,Beklenmedik 150 bps eszamanli faiz artisi,"Tahvil getirileri +120 bps, Emtia -22%, Volatilite +80%",1_IN_30_YEARS,CONTRACT_ONLY,False

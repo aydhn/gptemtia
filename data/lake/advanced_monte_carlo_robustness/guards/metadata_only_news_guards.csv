@@ -1,0 +1,2 @@
+guard_id,guard_type,description,enforcement_action,profile_name,current_phase,status,violations_found,domain
+GUARD_METADATA_ONLY_NEWS_149_01,text_payload_filter,"Quarantines any DataFrame column containing article bodies, scraped HTML, or NLP embeddings.",DROP_AND_AUDIT,balanced_local_monte_carlo_robustness_contracts,149,ACTIVE,0,bias_guard_domain

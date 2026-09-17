@@ -1,0 +1,4 @@
+item_id,portfolio_layer,status,execution_allowed,verified
+PAI-001,portfolio_construction,INTEGRATED,False,True
+PAI-002,portfolio_optimization,INTEGRATED,False,True
+PAI-003,portfolio_acceptance_report,INTEGRATED,False,True

@@ -1,0 +1,2 @@
+placeholder_name,exposure_type,formula_description,dimension,is_placeholder,is_calculated,current_phase,target_final_phase,next_phase
+leverage_ratio_placeholder,leverage,Ratio of gross notional exposure to portfolio net asset value: Gross / NAV,ratio,True,False,155,160,156

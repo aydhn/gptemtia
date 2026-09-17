@@ -1,0 +1,15 @@
+{
+  "manifest_id": "manifest_phase_147_balanced_local_walk_forward_validation_contracts",
+  "current_phase": 147,
+  "target_final_phase": 160,
+  "next_phase": 148,
+  "walk_forward_executed": false,
+  "oos_benchmark_executed": false,
+  "benchmark_metric_calculated": false,
+  "validation_metric_calculated": false,
+  "live_trading_ready": false,
+  "broker_ready": false,
+  "production_ready": false,
+  "phase_148_handoff_ready": true,
+  "non_signal": true
+}

@@ -1,0 +1,8 @@
+{
+  "domain": "asset_eligibility_domain",
+  "active_profile": "balanced_local_portfolio_construction_contracts",
+  "total_rules": 6,
+  "all_contract_only": true,
+  "no_actual_trade_decision": true,
+  "status": "portfolio_contract_ready"
+}

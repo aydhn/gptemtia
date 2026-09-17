@@ -1,0 +1,2 @@
+contract_name,limit_family,description,limit_type,threshold_metadata,is_placeholder,is_enforced_live,allows_execution,allows_alerting,current_phase,target_final_phase,next_phase
+portfolio_max_leverage_limit,leverage_limit,Maksimum kaldirac orani tavan izleme sozlesmesi,hard_limit,leverage_ratio <= 2.0,True,False,False,False,155,160,156

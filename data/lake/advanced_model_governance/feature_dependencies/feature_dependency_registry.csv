@@ -1,0 +1,4 @@
+feat_id,name,phase_ref,role,phase,status,non_signal
+FDEP-01,technical_feature_catalog,Phase 116-125,"Momentum, volatility, and trend technical indicator space.",144,SATISFIED,True
+FDEP-02,macro_calendar_feature_catalog,Phase 120,Macro surprise and event release timestamps.,144,SATISFIED,True
+FDEP-03,regime_feature_store_catalog,Phase 134,Rule-free market state and behavior diagnostic vectors.,144,SATISFIED,True

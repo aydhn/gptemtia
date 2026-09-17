@@ -1,0 +1,2 @@
+report_name,phase,model_registry_write_executed,external_registry_writes,mlflow_runs_logged,wandb_runs_logged,remote_models_registered,production_stage_transitions,non_signal,dry_run,status,policy_reason,manual_review_required
+candidate_model_registry_write_disabled_report,140,False,0,0,0,0,0,True,True,MODEL_REGISTRY_WRITE_BLOCKED_BY_POLICY,Phase 140 is contract-only; external registry writes are prohibited.,True

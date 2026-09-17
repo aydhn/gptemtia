@@ -1,0 +1,4 @@
+contract_name,description,is_placeholder,is_calculated,allows_execution,current_phase,target_final_phase,next_phase
+portfolio_total_risk_summary,"Portfoy toplam volatilite, VaR, ES ve drawdown metriklerini konsolide eden sozlesme",True,False,False,155,160,156
+portfolio_component_risk_summary,Varlik ve faktor bazli risk katkisi ozet sozlesmesi,True,False,False,155,160,156
+portfolio_tail_risk_summary,Kuyruk riski ve asiri stres senaryosu ozet sozlesmesi,True,False,False,155,160,156

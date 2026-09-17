@@ -1,0 +1,5 @@
+metric_name,category,formula_spec,target_role,description,is_calculated,actual_value,performance_claim_allowed,status,non_signal
+information_ratio_placeholder,relative_efficiency,(annualized_strategy_return - annualized_benchmark_return) / tracking_error,active_management_efficiency_hypothesis,Bilgi oranı (Information Ratio) yer tutucusu (hesaplanmamış).,False,,False,evaluation_contract_ready,True
+up_capture_placeholder,market_capture,mean(strategy_return[bench > 0]) / mean(bench_return[bench > 0]),bull_market_capture_hypothesis,Yükseliş piyasası katılım oranı yer tutucusu (hesaplanmamış).,False,,False,evaluation_contract_ready,True
+down_capture_placeholder,market_capture,mean(strategy_return[bench < 0]) / mean(bench_return[bench < 0]),bear_market_capture_hypothesis,Düşüş piyasası katılım oranı yer tutucusu (hesaplanmamış).,False,,False,evaluation_contract_ready,True
+relative_drawdown_spread_placeholder,relative_risk,max_drawdown_strategy - max_drawdown_benchmark,relative_drawdown_differential_hypothesis,Benchmark ile strateji arasındaki azami kayıp farkı yer tutucusu (hesaplanmamış).,False,,False,evaluation_contract_ready,True

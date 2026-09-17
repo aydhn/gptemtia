@@ -1,0 +1,3 @@
+dependency,required_phase,contract_type,status,source_module
+phase_138_baseline_models,138,baseline_model_registry,satisfied,advanced_baseline_models.baseline_contracts
+phase_140_candidate_models,140,candidate_model_registry,satisfied,advanced_ensemble_model_registry.candidate_model_registry

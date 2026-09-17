@@ -1,0 +1,8 @@
+{
+  "domain": "data_snooping_bias_domain",
+  "total_controls": 3,
+  "status": "governance_contract_ready",
+  "snooping_penalty_rate": 0.05,
+  "non_signal": true,
+  "local_only": true
+}

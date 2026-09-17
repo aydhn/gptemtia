@@ -1,0 +1,5 @@
+metric_name,metric_domain,formula_description,unit,is_placeholder,actual_value,is_calculated,current_phase,target_final_phase,next_phase
+portfolio_realized_volatility,risk_metrics,Annualized standard deviation of daily portfolio returns: std(r_p) * sqrt(252),ratio,True,,False,155,160,156
+parametric_var_95,risk_metrics,1-day 95% Parametric Value at Risk: 1.645 * sigma_p,ratio_to_nav,True,,False,155,160,156
+expected_shortfall_95,risk_metrics,1-day 95% Expected Shortfall (CVaR): conditional mean beyond VaR_95,ratio_to_nav,True,,False,155,160,156
+current_drawdown,risk_metrics,Percentage decline from historical peak NAV to current NAV,ratio,True,,False,155,160,156

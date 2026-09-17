@@ -1,0 +1,9 @@
+{
+  "total_purged_split_placeholders": 2,
+  "total_purged_policies": 2,
+  "current_phase": 137,
+  "non_signal": true,
+  "materialized": false,
+  "purging_execution_allowed": false,
+  "status": "READY"
+}

@@ -1,0 +1,12 @@
+{
+  "total_evaluations": 4,
+  "evaluations": [
+    "interval_coverage_evaluation_placeholder",
+    "interval_efficiency_evaluation_placeholder",
+    "conformal_validity_evaluation_placeholder",
+    "ood_detection_evaluation_placeholder"
+  ],
+  "all_unexecuted": true,
+  "all_zero_performance_claim": true,
+  "all_non_signal": true
+}

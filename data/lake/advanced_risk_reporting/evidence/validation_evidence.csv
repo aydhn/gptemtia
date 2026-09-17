@@ -1,0 +1,13 @@
+evidence_id,evidence_name,status,details,current_phase,target_final_phase,next_phase
+EVD-155-001,risk_report_contracts_present,SATISFIED,All 9 risk report contracts configured with zero execution,155,160,156
+EVD-155-002,exposure_attribution_contracts_present,SATISFIED,All 10 exposure attribution contracts configured as placeholders,155,160,156
+EVD-155-003,limit_monitoring_contracts_present,SATISFIED,All 9 limit monitoring contracts configured without live loops,155,160,156
+EVD-155-004,risk_metric_placeholders_present,SATISFIED,"Formula metadata defined for VaR, ES, Volatility, Drawdown",155,160,156
+EVD-155-005,exposure_claim_guard_active,SATISFIED,Real exposure assertions strictly intercepted,155,160,156
+EVD-155-006,limit_breach_claim_guard_active,SATISFIED,Live alarm/breach claims strictly blocked,155,160,156
+EVD-155-007,investment_advice_guard_active,SATISFIED,Trade recommendations strictly blocked,155,160,156
+EVD-155-008,portfolio_adjustment_guard_active,SATISFIED,Automatic rebalance and de-risking blocked,155,160,156
+EVD-155-009,alerting_disabled_active,SATISFIED,Alert routing completely disabled,155,160,156
+EVD-155-010,dashboard_disabled_active,SATISFIED,Dashboard generation completely disabled,155,160,156
+EVD-155-011,disabled_execution_reports_present,SATISFIED,12 disabled execution reports documented,155,160,156
+EVD-155-012,phase_156_handoff_present,SATISFIED,Phase 156 scenario testing handoff specifications defined,155,160,156

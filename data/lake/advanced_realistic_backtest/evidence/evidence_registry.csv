@@ -1,0 +1,7 @@
+evidence_id,name,verifiable_fact,verified,non_signal
+EVD-146-01,engine_contracts_registered,6 backtest motoru sozlesmesi tanimlandi ve hepsi execution_allowed=False.,True,True
+EVD-146-02,order_simulation_contracts_registered,"6 emir simule sozlesmesi tanimlandi; sifir broker emri, sifir gercek emir.",True,True
+EVD-146-03,transaction_cost_models_registered,"Komisyon, ucret, spread ve kayma modelleri sozlesme duzeyinde tanimlandi.",True,True
+EVD-146-04,slippage_models_registered,6 kayma modeli tanimlandi; gercek hesaplama ve getiri garantisi engellendi.,True,True
+EVD-146-05,guards_and_policies_enforced,"Lookahead, survivorship, snooping, overfitting ve yasakli kolon muhafizlari aktif.",True,True
+EVD-146-06,disabled_execution_reports_active,"Canli islem, broker, optimizer, walk-forward, model egitim ve tahmin yasaklari devrede.",True,True

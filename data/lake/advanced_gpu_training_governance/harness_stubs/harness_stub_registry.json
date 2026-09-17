@@ -1,0 +1,11 @@
+{
+  "total_stubs": 3,
+  "all_dry_run": true,
+  "all_real_training_disabled": true,
+  "all_model_fit_disabled": true,
+  "all_model_predict_disabled": true,
+  "all_blocked_by_policy": true,
+  "current_phase": 139,
+  "non_signal": true,
+  "active_profile": "balanced_local_gpu_training_governance"
+}

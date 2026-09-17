@@ -1,0 +1,3 @@
+item_id,execution_type,is_disabled,blocking_reason,enforcement_layer,status
+BED-001,broker_api_calls,True,Broker execution interfaces are not connected.,contract,DISABLED
+BED-002,broker_authentication,True,No broker credentials or tokens permitted.,contract,DISABLED

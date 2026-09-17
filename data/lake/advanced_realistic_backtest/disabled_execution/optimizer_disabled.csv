@@ -1,0 +1,2 @@
+execution_type,status,reason,blocked_actions,is_blocked,non_signal
+STRATEGY_OPTIMIZER_EXECUTION,BLOCKED_BY_POLICY,Parameter search and strategy optimization are strictly disabled in Phase 146.,"['optimize', 'run_optimizer', 'grid_search', 'bayesian_optimization', 'genetic_algorithm']",True,True

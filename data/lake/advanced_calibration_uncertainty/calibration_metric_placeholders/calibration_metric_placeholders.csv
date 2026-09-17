@@ -1,0 +1,8 @@
+metric_name,metric_family,formula_description,calculated,metric_value,performance_claim,non_signal,phase,status
+expected_calibration_error_placeholder,binned_difference,Weighted average of difference between confidence and accuracy per bin; uncalculated.,False,,False,True,141,calibration_contract_placeholder_only
+maximum_calibration_error_placeholder,worst_case_bin_difference,Maximum absolute deviation across all probability bins; uncalculated.,False,,False,True,141,calibration_contract_placeholder_only
+brier_score_placeholder,mean_squared_probability_error,Mean squared error between predicted probabilities and binary outcomes; uncalculated.,False,,False,True,141,calibration_contract_placeholder_only
+reliability_curve_placeholder,visual_calibration_diagram,Reliability diagram coordinates (mean predicted prob vs fraction of positives); unplotted.,False,,False,True,141,calibration_contract_placeholder_only
+log_loss_placeholder,negative_log_likelihood,Cross-entropy loss of predicted class probabilities; uncalculated.,False,,False,True,141,calibration_contract_placeholder_only
+calibration_slope_placeholder,logistic_calibration_curve,Slope of logistic calibration curve (ideal = 1.0); uncalculated.,False,,False,True,141,calibration_contract_placeholder_only
+calibration_intercept_placeholder,logistic_calibration_curve,Intercept of logistic calibration curve (ideal = 0.0); uncalculated.,False,,False,True,141,calibration_contract_placeholder_only

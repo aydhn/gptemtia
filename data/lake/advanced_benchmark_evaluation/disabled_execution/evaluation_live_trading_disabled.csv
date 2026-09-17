@@ -1,0 +1,2 @@
+operation,is_disabled,policy_code,reason,status,non_signal
+live_trading,True,execution_blocked_no_live_trading,Phase 151 is an offline/local research phase; live trading is strictly prohibited.,evaluation_contract_ready,True

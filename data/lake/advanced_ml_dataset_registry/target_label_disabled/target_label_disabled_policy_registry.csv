@@ -1,0 +1,6 @@
+policy_name,description,forbidden_keywords,target_label_allowed,future_return_allowed,non_signal,manual_review_required,current_phase
+target_label_generation_blocked,Target/label generation is blocked in Phase 137.,"target, label, future_return, forward_return, next_return, classification_label, regression_target, directional_label, signal, prediction",False,False,True,True,137
+future_return_label_blocked,"Future return label is blocked. No forward_return, next_return or shift(-1) usage.","target, label, future_return, forward_return, next_return, classification_label, regression_target, directional_label, signal, prediction",False,False,True,True,137
+directional_label_blocked,Directional label generation is blocked.,"target, label, future_return, forward_return, next_return, classification_label, regression_target, directional_label, signal, prediction",False,False,True,True,137
+classification_label_blocked,Classification label generation is blocked.,"target, label, future_return, forward_return, next_return, classification_label, regression_target, directional_label, signal, prediction",False,False,True,True,137
+regression_target_blocked,Regression target generation is blocked.,"target, label, future_return, forward_return, next_return, classification_label, regression_target, directional_label, signal, prediction",False,False,True,True,137

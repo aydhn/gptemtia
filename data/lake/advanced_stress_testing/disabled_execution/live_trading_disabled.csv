@@ -1,0 +1,2 @@
+execution_name,prohibited_reason,blocked_actions,is_blocked,enforced,non_signal,local_only
+stress_live_trading,Phase 148 is local/offline research only; live trading is strictly prohibited.,"live_trade, open_position, execute_trade, buy, sell, long, short",True,True,True,True

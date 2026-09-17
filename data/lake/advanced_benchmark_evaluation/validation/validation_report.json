@@ -1,0 +1,8 @@
+{
+  "domain": "validation_domain",
+  "total_checks": 4,
+  "all_passed": true,
+  "validation_status": "VALIDATION_PASS",
+  "status": "evaluation_contract_ready",
+  "non_signal": true
+}

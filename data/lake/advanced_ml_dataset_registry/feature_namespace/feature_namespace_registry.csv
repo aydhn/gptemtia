@@ -1,0 +1,9 @@
+namespace,description,source_phase,prefix_required,forbidden_words,non_signal,manual_review_required,current_phase
+ml_feature_regime_metadata,Regime metadata features,phase_126-135,ml_feature_,"signal, buy, sell, long, short, position, target, label, prediction, recommendation",True,True,137
+ml_feature_technical,Technical indicator features,phase_116-118,ml_feature_,"signal, buy, sell, long, short, position, target, label, prediction, recommendation",True,True,137
+ml_feature_factor,Factor features,phase_122-125,ml_feature_,"signal, buy, sell, long, short, position, target, label, prediction, recommendation",True,True,137
+ml_feature_cross_asset,Cross-asset features,phase_119-120,ml_feature_,"signal, buy, sell, long, short, position, target, label, prediction, recommendation",True,True,137
+ml_feature_macro_event_metadata,Macro event metadata features,phase_126-132,ml_feature_,"signal, buy, sell, long, short, position, target, label, prediction, recommendation",True,True,137
+ml_feature_featurestore,FeatureStore features,phase_124-125,ml_feature_,"signal, buy, sell, long, short, position, target, label, prediction, recommendation",True,True,137
+ml_feature_validation_accepted,Validation accepted features,phase_133-135,ml_feature_,"signal, buy, sell, long, short, position, target, label, prediction, recommendation",True,True,137
+ml_feature_dry_run_baseline,Dry-run baseline model input features,phase_136,ml_feature_,"signal, buy, sell, long, short, position, target, label, prediction, recommendation",True,True,137

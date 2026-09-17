@@ -1,0 +1,2 @@
+solver_name,solver_backend,convergence_tolerance,is_placeholder,solver_executed,actual_weights_generated,status
+convex_solver,osqp_or_clarabel_interface_stub,1e-06,True,False,False,solver_contract_only

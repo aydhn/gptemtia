@@ -1,0 +1,8 @@
+{
+  "domain": "benchmark_universe_report_domain",
+  "total_universes": 5,
+  "total_symbols_covered": 17,
+  "all_execution_disabled": true,
+  "status": "evaluation_contract_ready",
+  "non_signal": true
+}

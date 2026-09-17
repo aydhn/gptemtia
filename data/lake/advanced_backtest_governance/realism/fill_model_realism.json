@@ -1,0 +1,9 @@
+{
+  "domain": "realism_governance_domain",
+  "subdomain": "fill_model_realism",
+  "total_rules": 3,
+  "instant_fill_strictly_prohibited": true,
+  "status": "governance_contract_ready",
+  "non_signal": true,
+  "local_only": true
+}

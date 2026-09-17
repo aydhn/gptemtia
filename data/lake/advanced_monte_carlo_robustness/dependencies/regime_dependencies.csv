@@ -1,0 +1,3 @@
+dependency_id,source_phase,description,status,profile_name,current_phase,domain
+DEP_REGIME_CLASSIFICATION_CONTRACTS,135,"Regime acceptance classifications (Bullish Trend, Bearish Trend, Mean-Reverting, High-Vol Crisis).",SATISFIED,balanced_local_monte_carlo_robustness_contracts,149,dependency_domain
+DEP_REGIME_TRANSITION_PROBABILITIES,135,Markov transition matrices conditioning block bootstrap sequence generation.,SATISFIED,balanced_local_monte_carlo_robustness_contracts,149,dependency_domain

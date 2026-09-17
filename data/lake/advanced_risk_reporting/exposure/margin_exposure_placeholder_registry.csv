@@ -1,0 +1,2 @@
+placeholder_name,exposure_type,formula_description,dimension,is_placeholder,is_calculated,current_phase,target_final_phase,next_phase
+margin_utilization_placeholder,margin,Ratio of total maintenance/initial margin requirements to total portfolio equity,percentage,True,False,155,160,156

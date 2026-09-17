@@ -1,0 +1,8 @@
+{
+  "total_keywords_checked": 18,
+  "all_blocked": true,
+  "all_dry_run": true,
+  "current_phase": 139,
+  "non_signal": true,
+  "active_profile": "balanced_local_gpu_training_governance"
+}

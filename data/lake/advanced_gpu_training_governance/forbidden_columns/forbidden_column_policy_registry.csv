@@ -1,0 +1,24 @@
+forbidden_column,category,enforced,non_signal,description,status
+signal,signal,True,True,Column 'signal' is strictly forbidden in Phase 139 ML training contracts.,gpu_governance_ready
+buy,signal,True,True,Column 'buy' is strictly forbidden in Phase 139 ML training contracts.,gpu_governance_ready
+sell,signal,True,True,Column 'sell' is strictly forbidden in Phase 139 ML training contracts.,gpu_governance_ready
+long,signal,True,True,Column 'long' is strictly forbidden in Phase 139 ML training contracts.,gpu_governance_ready
+short,signal,True,True,Column 'short' is strictly forbidden in Phase 139 ML training contracts.,gpu_governance_ready
+position,signal,True,True,Column 'position' is strictly forbidden in Phase 139 ML training contracts.,gpu_governance_ready
+target,target_prediction,True,True,Column 'target' is strictly forbidden in Phase 139 ML training contracts.,gpu_governance_ready
+label,target_prediction,True,True,Column 'label' is strictly forbidden in Phase 139 ML training contracts.,gpu_governance_ready
+prediction,target_prediction,True,True,Column 'prediction' is strictly forbidden in Phase 139 ML training contracts.,gpu_governance_ready
+recommendation,signal,True,True,Column 'recommendation' is strictly forbidden in Phase 139 ML training contracts.,gpu_governance_ready
+future_return,target_prediction,True,True,Column 'future_return' is strictly forbidden in Phase 139 ML training contracts.,gpu_governance_ready
+forward_return,target_prediction,True,True,Column 'forward_return' is strictly forbidden in Phase 139 ML training contracts.,gpu_governance_ready
+next_return,target_prediction,True,True,Column 'next_return' is strictly forbidden in Phase 139 ML training contracts.,gpu_governance_ready
+full_text,unprocessed_nlp,True,True,Column 'full_text' is strictly forbidden in Phase 139 ML training contracts.,gpu_governance_ready
+article_body,unprocessed_nlp,True,True,Column 'article_body' is strictly forbidden in Phase 139 ML training contracts.,gpu_governance_ready
+raw_content,unprocessed_nlp,True,True,Column 'raw_content' is strictly forbidden in Phase 139 ML training contracts.,gpu_governance_ready
+scraped_html,unprocessed_nlp,True,True,Column 'scraped_html' is strictly forbidden in Phase 139 ML training contracts.,gpu_governance_ready
+page_html,unprocessed_nlp,True,True,Column 'page_html' is strictly forbidden in Phase 139 ML training contracts.,gpu_governance_ready
+html,unprocessed_nlp,True,True,Column 'html' is strictly forbidden in Phase 139 ML training contracts.,gpu_governance_ready
+embedding,unprocessed_nlp,True,True,Column 'embedding' is strictly forbidden in Phase 139 ML training contracts.,gpu_governance_ready
+vector,unprocessed_nlp,True,True,Column 'vector' is strictly forbidden in Phase 139 ML training contracts.,gpu_governance_ready
+sentiment,unprocessed_nlp,True,True,Column 'sentiment' is strictly forbidden in Phase 139 ML training contracts.,gpu_governance_ready
+sentiment_score,unprocessed_nlp,True,True,Column 'sentiment_score' is strictly forbidden in Phase 139 ML training contracts.,gpu_governance_ready

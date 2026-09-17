@@ -1,0 +1,16 @@
+{
+  "domain": "component_registry_domain",
+  "total_components": 5,
+  "phases_covered": [
+    153,
+    154,
+    155,
+    156,
+    157
+  ],
+  "all_contract_only": true,
+  "all_non_production": true,
+  "none_production_ready": true,
+  "none_broker_ready": true,
+  "status": "portfolio_acceptance_ready"
+}

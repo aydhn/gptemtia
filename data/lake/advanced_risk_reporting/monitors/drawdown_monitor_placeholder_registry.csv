@@ -1,0 +1,3 @@
+metric_name,metric_domain,formula_description,unit,is_placeholder,actual_value,is_calculated,current_phase,target_final_phase,next_phase
+current_drawdown_placeholder,drawdown,DD_t = (Peak_t - NAV_t) / Peak_t,ratio,True,,False,155,160,156
+max_drawdown_placeholder,drawdown,MDD = max_{t}(DD_t),ratio,True,,False,155,160,156

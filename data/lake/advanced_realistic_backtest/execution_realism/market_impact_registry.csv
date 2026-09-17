@@ -1,0 +1,3 @@
+model_name,description,formula_placeholder,is_placeholder,execution_allowed,is_active,non_signal
+square_root_market_impact_placeholder,Emir boyutunun gunluk hacme oraninin karekoku ile olceklenen standart piyasa etki kurali.,Y * sigma * sqrt(order_size / ADV),True,False,True,True
+linear_temporary_impact_placeholder,Islem aninda piyasayi gecici olarak iten dogrusal etki modeli.,eta * (order_size / bar_volume),True,False,True,True

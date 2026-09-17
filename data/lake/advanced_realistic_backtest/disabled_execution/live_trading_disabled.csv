@@ -1,0 +1,2 @@
+execution_type,status,reason,blocked_actions,is_blocked,non_signal
+LIVE_TRADING_EXECUTION,STRICTLY_PROHIBITED,Live trading is categorically prohibited across all development and research phases.,"['live_trade', 'live_trading', 'real_money', 'deploy_capital', 'open_real_position', 'buy', 'sell', 'long', 'short']",True,True

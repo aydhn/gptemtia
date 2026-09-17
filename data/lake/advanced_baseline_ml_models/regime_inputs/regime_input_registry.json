@@ -1,0 +1,8 @@
+{
+  "total_regime_inputs": 5,
+  "all_certified_non_signal": true,
+  "all_materialization_blocked": true,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false
+}

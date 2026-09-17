@@ -1,0 +1,4 @@
+control_id,name,description,enforcement,status,execution_allowed,non_signal,local_only,phase
+SMP_01_MINIMUM_OBSERVATION_SPAN,minimum_observation_span_policy,Enforce minimum sample duration (e.g. at least 5 years of daily bars or equivalent tick density).,BLOCKING_MANDATORY,ACTIVE,False,True,True,150
+SMP_02_CALENDAR_ANOMALY_AUDIT,holiday_weekend_session_gap_audit,"Verify treatment of market holidays, session closures, and non-trading intervals.",HIGH_AUDIT,ACTIVE,False,True,True,150
+SMP_03_SELECTIVE_CHOPPING_BAN,selective_period_chopping_prohibition,"Prohibit carving out unpalatable market episodes (e.g. flash crashes, liquidity droughts) from evaluation.",BLOCKING_ZERO_TOLERANCE,ACTIVE,False,True,True,150

@@ -1,0 +1,9 @@
+evidence_id,source_phase,component,evidence_type,status,current_phase,is_valid,non_signal
+EVD-136,136,GPU ML Runtime Foundation,device_enumeration_contract,VERIFIED,144,True,True
+EVD-137,137,ML Dataset Contracts,schema_and_leakage_guards,VERIFIED,144,True,True
+EVD-138,138,Baseline ML Model Contracts,interface_stubs_and_disabled_execution,VERIFIED,144,True,True
+EVD-139,139,GPU Resource Governance,memory_budget_and_timeout_policies,VERIFIED,144,True,True
+EVD-140,140,Ensemble & Candidate Registry,strategy_contracts_and_eligibility_gates,VERIFIED,144,True,True
+EVD-141,141,Calibration & Uncertainty Contracts,calibration_curves_and_conformal_stubs,VERIFIED,144,True,True
+EVD-142,142,Model Drift Monitoring,statistical_test_contracts_and_linkage,VERIFIED,144,True,True
+EVD-143,143,Explainability & Attribution,xai_report_contracts_and_stability_stubs,VERIFIED,144,True,True

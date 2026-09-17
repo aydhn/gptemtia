@@ -1,0 +1,11 @@
+{
+  "domain": "validation_domain",
+  "validation_status": "VALIDATED",
+  "all_validations_passed": true,
+  "total_suites": 4,
+  "passed_suites": 4,
+  "profile_name": "balanced_local_backtest_governance_contracts",
+  "status": "governance_contract_ready",
+  "non_signal": true,
+  "local_only": true
+}

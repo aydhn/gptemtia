@@ -1,0 +1,2 @@
+report_name,phase,target_label_generation_executed,forward_return_targets_created,classification_labels_created,pseudo_labels_created,target_columns_added,non_signal,dry_run,status,policy_reason,manual_review_required
+candidate_model_target_label_disabled_report,140,False,0,0,0,0,True,True,TARGET_LABEL_GENERATION_BLOCKED_BY_POLICY,Phase 140 is contract-only; target/label generation is strictly prohibited.,True

@@ -1,0 +1,28 @@
+> [!CAUTION]
+> **YASAL UYARI VE GÜVENLİK BİLDİRİMİ (PHASE 152 BACKTEST ACCEPTANCE REPORT)**:
+> Bu çıktı Phase 152 Backtest Acceptance Report çıktısıdır. Canlı emir, broker talimatı, > kesin AL/SAT, yatırım tavsiyesi, backtest/acceptance/readiness değerini trade sinyali veya > production-ready/broker-ready/onay olarak kullanma, gerçek backtest execution, benchmark > execution, metric calculation, optimizer, model training, model fit/predict/inference, > dataset materialization, target/label/prediction üretimi, gerçek Sharpe/win-rate/return/> alpha/beta/drawdown/VaR/ES hesaplama, performans garantisi, strategy approval, capital > allocation, portfolio construction, position sizing, model deployment, model registry write, > model artifact persistence, scraping, haber tam metni/article body/raw content/scraped HTML/> embedding/vector kullanımı veya gerçek provider API çağrısı değildir.
+
+## Backtest Acceptance Boundaries & Invariants
+- **Domain**: `health_domain`
+- **Total Rules**: 0
+- **Status**: `ACCEPTED`
+
+                               component      type                                     path  healthy                       details  current_phase  target_final_phase  next_phase           status  non_signal  non_production  local_only
+           advanced_benchmark_evaluation    module            advanced_benchmark_evaluation     True Module imported successfully.            152                 160         153 acceptance_ready        True            True        True
+            advanced_backtest_governance    module             advanced_backtest_governance     True Module imported successfully.            152                 160         153 acceptance_ready        True            True        True
+         advanced_monte_carlo_robustness    module          advanced_monte_carlo_robustness     True Module imported successfully.            152                 160         153 acceptance_ready        True            True        True
+                 advanced_stress_testing    module                  advanced_stress_testing     True Module imported successfully.            152                 160         153 acceptance_ready        True            True        True
+        advanced_walk_forward_validation    module         advanced_walk_forward_validation     True Module imported successfully.            152                 160         153 acceptance_ready        True            True        True
+             advanced_realistic_backtest    module              advanced_realistic_backtest     True Module imported successfully.            152                 160         153 acceptance_ready        True            True        True
+                  advanced_ml_acceptance    module                   advanced_ml_acceptance     True Module imported successfully.            152                 160         153 acceptance_ready        True            True        True
+               advanced_model_governance    module                advanced_model_governance     True Module imported successfully.            152                 160         153 acceptance_ready        True            True        True
+            advanced_ml_dataset_registry    module             advanced_ml_dataset_registry     True Module imported successfully.            152                 160         153 acceptance_ready        True            True        True
+              advanced_regime_acceptance    module               advanced_regime_acceptance     True Module imported successfully.            152                 160         153 acceptance_ready        True            True        True
+advanced_regime_featurestore_integration    module advanced_regime_featurestore_integration     True Module imported successfully.            152                 160         153 acceptance_ready        True            True        True
+                           feature_store    module                         ml.feature_store     True Module imported successfully.            152                 160         153 acceptance_ready        True            True        True
+                               data_lake    module                   data.storage.data_lake     True Module imported successfully.            152                 160         153 acceptance_ready        True            True        True
+            advanced_backtest_acceptance    module             advanced_backtest_acceptance     True Module imported successfully.            152                 160         153 acceptance_ready        True            True        True
+                        config_directory directory                                   config     True           Directory verified.            152                 160         153 acceptance_ready        True            True        True
+                       scripts_directory directory                                  scripts     True           Directory verified.            152                 160         153 acceptance_ready        True            True        True
+                         tests_directory directory                                    tests     True           Directory verified.            152                 160         153 acceptance_ready        True            True        True
+                          docs_directory directory                                     docs     True           Directory verified.            152                 160         153 acceptance_ready        True            True        True

@@ -1,0 +1,6 @@
+{
+  "total_boundaries": 3,
+  "zero_future_data_allowed": true,
+  "all_chronological": true,
+  "non_signal": true
+}

@@ -1,0 +1,6 @@
+limit_id,limit_name,max_allowed,description,current_phase,contract_only,non_production,actual_limits_assigned,investment_advice,manual_review_required,status
+EXP_GROSS_MAX,Gross Exposure Contract Limit,1.5,Toplam brut pozisyon maruziyetinin en fazla %150 olabilecegini tanimlar.,153,True,True,False,False,True,portfolio_contract_ready
+EXP_NET_MAX,Net Exposure Contract Limit,0.8,Toplam net pozisyon maruziyetinin en fazla %80 olabilecegini tanimlar.,153,True,True,False,False,True,portfolio_contract_ready
+EXP_ASSET_CLASS_MAX,Asset Class Exposure Contract Limit,0.7,Tek bir varlik sinifina maksimum %70 brut maruziyet limiti tanimlar.,153,True,True,False,False,True,portfolio_contract_ready
+EXP_DIRECTIONAL_LONG_MAX,Long Directional Exposure Limit,1.0,Toplam long yonlu pozisyon maruziyet sinirini tanimlar.,153,True,True,False,False,True,portfolio_contract_ready
+EXP_DIRECTIONAL_SHORT_MAX,Short Directional Exposure Limit,0.5,Toplam short yonlu pozisyon maruziyet sinirini tanimlar.,153,True,True,False,False,True,portfolio_contract_ready

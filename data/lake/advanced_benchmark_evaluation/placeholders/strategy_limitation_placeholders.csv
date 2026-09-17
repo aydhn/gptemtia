@@ -1,0 +1,4 @@
+limitation_id,title,category,description,status,non_signal
+STRAT_LIM_REGIME_DEPENDENCE,Unfavorable Market Regime Fragility Limitation,regime_limitation,Stratejinin optimize edilmediği veya test edilmediği rejimlerdeki kırılganlık bildirimi.,evaluation_contract_ready,True
+STRAT_LIM_CAPACITY_CONSTRAINTS,Strategy Capacity and Asset Liquidity Limitation,capacity_limitation,Yüksek sermaye tahsisinde piyasa etkisinin getiriyi eritme riski bildirimi.,evaluation_contract_ready,True
+STRAT_LIM_STATIONARITY_ASSUMPTION,Non-Stationarity and Structural Shift Limitation,statistical_limitation,Piyasa dinamiklerinin ve parametre ilişkilerinin zamanla değişebileceğine dair kısıt.,evaluation_contract_ready,True

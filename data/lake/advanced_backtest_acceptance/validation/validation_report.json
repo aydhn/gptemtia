@@ -1,0 +1,10 @@
+{
+  "domain": "validation_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "total_checks": 6,
+  "passed_checks": 6,
+  "all_passed": true,
+  "validation_status": "VALIDATION_PASS",
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

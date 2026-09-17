@@ -1,0 +1,9 @@
+{
+  "domain": "go_no_go_boundary_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "total_rules": 22,
+  "go_count": 4,
+  "no_go_count": 18,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

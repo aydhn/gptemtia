@@ -1,0 +1,17 @@
+# Phase 150: Backtest Governance Profile Registry Report
+
+> **Disclaimer**: Bu çıktı Phase 150 Backtest Governance and Bias Control raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, backtest/governance/bias-control/readiness değerini trade sinyali veya production-ready/broker-ready/onay olarak kullanma, gerçek backtest execution, benchmark execution, metric calculation, optimizer, model training, model fit/predict/inference, dataset materialization, target/label/prediction üretimi, gerçek Sharpe/win-rate/return/alpha/drawdown hesaplama, performans garantisi, strategy approval, model deployment, model registry write, model artifact persistence, scraping, haber tam metni/article body/raw content/scraped HTML/embedding/vector kullanımı veya gerçek provider API çağrısı değildir.
+
+- **Domain**: `backtest_governance_profile_domain`
+- **Active Profile**: `balanced_local_backtest_governance_contracts`
+- **Total Profiles**: `3`
+- **All Local Only**: `True`
+- **All Zero Execution**: `None`
+- **Status**: `governance_contract_ready`
+
+## Registered Profiles
+
+                                    profile_name                                                                                                   description  current_phase  target_final_phase  next_phase  local_only  non_production  dry_run_default  research_only  allow_live_trading  allow_broker_integration  allow_backtest_execution  allow_metric_calculation  allow_result_claim  allow_performance_claim  allow_strategy_approval  min_readiness_score lookahead_guard_strictness     survivorship_policy_mode  snooping_penalty_rate  max_allowable_multiple_tests  non_signal
+    balanced_local_backtest_governance_contracts                        Standard balanced local/offline backtest governance and bias control contract profile.            150                 160         151        True            True             True           True               False                     False                     False                     False               False                    False                    False                 0.50    absolute_zero_tolerance point_in_time_reconstitution                   0.05                            20        True
+conservative_local_backtest_governance_contracts        Conservative backtest governance profile with stricter bias thresholds and manual review requirements.            150                 160         151        True            True             True           True               False                     False                     False                     False               False                    False                    False                 0.60    absolute_zero_tolerance point_in_time_reconstitution                   0.10                            10        True
+      strict_audit_backtest_governance_contracts Strict audit backtest governance profile requiring exhaustive evidence preservation and zero claim tolerance.            150                 160         151        True            True             True           True               False                     False                     False                     False               False                    False                    False                 0.75    absolute_zero_tolerance point_in_time_reconstitution                   0.15                             5        True

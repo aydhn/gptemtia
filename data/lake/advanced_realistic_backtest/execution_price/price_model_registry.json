@@ -1,0 +1,6 @@
+{
+  "total_price_models": 3,
+  "mid_only_forbidden": true,
+  "spread_and_slippage_included": true,
+  "non_signal": true
+}

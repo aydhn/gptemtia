@@ -1,0 +1,4 @@
+policy_id,policy_name,placeholder_batch_size,min_batch_size,max_batch_size,execution_allowed,dry_run_only,non_signal,description,status
+BAT_POL_001,small_batch_placeholder_policy,16,8,32,False,True,True,Small batch size configuration contract for low memory environments.,gpu_governance_ready
+BAT_POL_002,standard_batch_placeholder_policy,32,16,64,False,True,True,Standard batch size configuration contract for baseline tabular/sequence architectures.,gpu_governance_ready
+BAT_POL_003,large_batch_placeholder_policy,64,32,128,False,True,True,Large batch placeholder contract with gradient accumulation placeholder metadata.,gpu_governance_ready

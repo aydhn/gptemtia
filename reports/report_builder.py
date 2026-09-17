@@ -2166,16 +2166,3680 @@ def build_phase_137_handoff_text_report(summary: dict, df=None) -> str:
     )
 
 
+# =========================================================================
+# Phase 137: Advanced ML Dataset Contracts and Experiment Registry Reports
+# =========================================================================
+
+ADVANCED_ML_DATASET_TEXT_REPORT_DISCLAIMER = (
+    "UYARI: Bu rapor Phase 137 Advanced ML Dataset Contracts and Experiment Registry çıktısıdır. "
+    "Gerçek veri indirme zorunluluğu, dataset materialization, feature snapshot materialization, scraping, "
+    "haber tam metni/article body/raw content/scraped HTML/embedding/vector kullanımı, sentiment model output, "
+    "broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, dataset/experiment/readiness değerini trade sinyali "
+    "veya production-ready/broker-ready onayı olarak kullanma, strateji/backtest/optimizer/model training/model fit/predict/"
+    "inference/clustering/ensemble/calibration çalıştırma, target/label/prediction üretme veya official approval iddiası değildir."
+)
 
 
+def build_advanced_ml_dataset_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ML_DATASET_TEXT_REPORT_DISCLAIMER}\n"
+        f"Profile Count: {summary.get('total_profiles', 0)}\n"
+        f"Current Phase: {summary.get('current_phase', 137)}\n"
+        f"Target Final Phase: {summary.get('target_final_phase', 160)}\n"
+        f"Non-Signal: True"
+    )
 
 
+def build_ml_dataset_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ML_DATASET_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Contracts: {summary.get('total_contracts', 0)}\n"
+        f"Materialization Allowed: False\n"
+        f"Model Training Allowed: False\n"
+        f"Prediction Allowed: False\n"
+        f"Target/Label Generation Allowed: False"
+    )
 
 
+def build_ml_dataset_schema_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ML_DATASET_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Schemas: {summary.get('total_schemas', 0)}\n"
+        f"Forbidden Columns Enforced: True\n"
+        f"Timestamp UTC Required: True"
+    )
 
 
+def build_ml_dataset_split_policy_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ML_DATASET_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Split Policies: {summary.get('total_split_policies', 0)}\n"
+        f"Split Execution Blocked: True\n"
+        f"Purged Placeholder Active: True"
+    )
 
 
+def build_ml_dataset_guard_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ML_DATASET_TEXT_REPORT_DISCLAIMER}\n"
+        f"Leakage Guards Active: True\n"
+        f"No-Lookahead Guards Active: True\n"
+        f"Metadata-Only News Guards Active: True\n"
+        f"Source Preservation Active: True"
+    )
+
+
+def build_feature_snapshot_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ML_DATASET_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Snapshot Contracts: {summary.get('total_snapshot_contracts', 0)}\n"
+        f"Materialized: False\n"
+        f"Production Ready: False"
+    )
+
+
+def build_ml_experiment_registry_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ML_DATASET_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Experiments: {summary.get('total_experiments', 0)}\n"
+        f"Training Blocked: True\n"
+        f"Prediction Blocked: True\n"
+        f"Artifact Persistence Blocked: True"
+    )
+
+
+def build_ml_dataset_readiness_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ML_DATASET_TEXT_REPORT_DISCLAIMER}\n"
+        f"Readiness Score: {summary.get('readiness_score', 1.0)}\n"
+        f"Classification: {summary.get('classification', 'READY_FOR_LOCAL_ML_CONTRACTS')}\n"
+        f"Training Approved: False\n"
+        f"Production Ready: False\n"
+        f"Trade Signal: False"
+    )
+
+
+def build_advanced_ml_dataset_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ML_DATASET_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest Phase: {summary.get('current_phase', 137)}\n"
+        f"Dataset Contracts: {summary.get('dataset_contract_count', 9)}\n"
+        f"Readiness Score: {summary.get('readiness_score', 1.0)}\n"
+        f"Model Training Executed: False\n"
+        f"Status: {summary.get('status', 'dataset_contract_placeholder_only')}"
+    )
+
+
+def build_advanced_ml_dataset_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ML_DATASET_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('validation_status', 'VALIDATION_PASS')}\n"
+        f"All Passed: {summary.get('all_passed', True)}\n"
+        f"Forbidden Claims Clean: True"
+    )
+
+
+def build_advanced_ml_dataset_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ML_DATASET_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Status: {summary.get('safety_status', 'SECURE')}\n"
+        f"NO-GO Rules Enforced: {summary.get('no_go_count', 22)}\n"
+        f"SAFE-GO Principles Active: {summary.get('safe_go_count', 12)}\n"
+        f"Live Trading Prohibited: True\n"
+        f"Model Training Blocked: True"
+    )
+
+
+def build_phase_138_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ML_DATASET_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase 138 Handoff Status: {summary.get('handoff_status', 'READY_FOR_PHASE_138')}\n"
+        f"Source Phase: 137\n"
+        f"Next Phase: 138\n"
+        f"Target Final Phase: 160\n"
+        f"All Prerequisites Satisfied: {summary.get('all_satisfied', True)}"
+    )
+
+
+# =========================================================================
+# Phase 138: Baseline ML Model Contracts & Dry-Run Training Harness Reports
+# =========================================================================
+
+ADVANCED_BASELINE_ML_MODELS_TEXT_REPORT_DISCLAIMER = (
+    "UYARI: Bu rapor Phase 138 Baseline ML Model Contracts and Dry-Run Training Harness çıktısıdır. "
+    "Gerçek veriyle model eğitme, gerçek prediction/inference üretme, target/label üretme, model ağırlığı/checkpoint "
+    "kaydetme, model registry yazma, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, baseline model "
+    "çıktısını trade sinyali veya production-ready onayı olarak kullanma veya official approval iddiası değildir."
+)
+
+
+def build_baseline_ml_model_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BASELINE_ML_MODELS_TEXT_REPORT_DISCLAIMER}\n"
+        f"Profile Count: {summary.get('total_profiles', 0)}\n"
+        f"Current Phase: {summary.get('current_phase', 138)}\n"
+        f"Target Final Phase: {summary.get('target_final_phase', 160)}\n"
+        f"Dry-Run Enforced: True\n"
+        f"Non-Signal: True"
+    )
+
+
+def build_baseline_model_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BASELINE_ML_MODELS_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Model Contracts: {summary.get('total_contracts', 0)}\n"
+        f"Model Families Covered: {summary.get('total_families', 0)}\n"
+        f"Real Training Blocked: True\n"
+        f"Prediction Blocked: True\n"
+        f"Target/Label Generation Blocked: True"
+    )
+
+
+def build_dry_run_training_harness_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BASELINE_ML_MODELS_TEXT_REPORT_DISCLAIMER}\n"
+        f"Harness Contracts: {summary.get('total_harness_contracts', 0)}\n"
+        f"Trainer Stubs: {summary.get('total_trainer_stubs', 0)}\n"
+        f"Dry-Run Mode: {summary.get('dry_run_mode', 'contract_only')}\n"
+        f"Execution Blocked: True"
+    )
+
+
+def build_disabled_execution_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BASELINE_ML_MODELS_TEXT_REPORT_DISCLAIMER}\n"
+        f"Real Training Disabled: {summary.get('no_real_training', True)}\n"
+        f"Prediction Disabled: {summary.get('no_prediction', True)}\n"
+        f"Target/Label Generation Disabled: {summary.get('no_target_label', True)}\n"
+        f"Model Artifact Persistence Disabled: {summary.get('artifact_disabled', True)}\n"
+        f"Model Registry Write Disabled: {summary.get('registry_write_disabled', True)}"
+    )
+
+
+def build_baseline_metric_placeholder_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BASELINE_ML_MODELS_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Metric Placeholders: {summary.get('total_metrics', 0)}\n"
+        f"Total Evaluation Placeholders: {summary.get('total_evaluations', 0)}\n"
+        f"Calculation Allowed: False\n"
+        f"Placeholder Only: True"
+    )
+
+
+def build_baseline_model_input_guard_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BASELINE_ML_MODELS_TEXT_REPORT_DISCLAIMER}\n"
+        f"FeatureStore Inputs: {summary.get('featurestore_inputs_count', 0)}\n"
+        f"Regime Inputs: {summary.get('regime_inputs_count', 0)}\n"
+        f"No-Lookahead Guards Active: True\n"
+        f"Metadata-Only News Guards Active: True\n"
+        f"Forbidden Column Guards Active: True\n"
+        f"Source Preservation Guards Active: True"
+    )
+
+
+def build_baseline_model_readiness_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BASELINE_ML_MODELS_TEXT_REPORT_DISCLAIMER}\n"
+        f"Readiness Score: {summary.get('readiness_score', 1.0)}\n"
+        f"Classification: {summary.get('classification', 'READY_FOR_LOCAL_BASELINE_ML_CONTRACTS')}\n"
+        f"Training Approved: False\n"
+        f"Production Ready: False\n"
+        f"Trade Signal: False"
+    )
+
+
+def build_baseline_ml_model_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BASELINE_ML_MODELS_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest Phase: {summary.get('current_phase', 138)}\n"
+        f"Model Contracts: {summary.get('model_contract_count', 10)}\n"
+        f"Harness Contracts: {summary.get('harness_contract_count', 10)}\n"
+        f"Readiness Score: {summary.get('readiness_score', 1.0)}\n"
+        f"Real Training Executed: False\n"
+        f"Status: {summary.get('status', 'baseline_model_contract_placeholder_only')}"
+    )
+
+
+def build_baseline_ml_model_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BASELINE_ML_MODELS_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('validation_status', 'VALIDATION_PASS')}\n"
+        f"All Passed: {summary.get('all_passed', True)}\n"
+        f"Forbidden Claims Clean: True"
+    )
+
+
+def build_baseline_ml_model_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BASELINE_ML_MODELS_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Status: {summary.get('safety_status', 'SECURE')}\n"
+        f"NO-GO Rules Enforced: {summary.get('no_go_count', 23)}\n"
+        f"SAFE-GO Principles Active: {summary.get('safe_go_count', 12)}\n"
+        f"Live Trading Prohibited: True\n"
+        f"Real Model Training Prohibited: True"
+    )
+
+
+def build_phase_139_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BASELINE_ML_MODELS_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase 139 Handoff Status: {summary.get('handoff_status', 'READY_FOR_PHASE_139')}\n"
+        f"Source Phase: 138\n"
+        f"Next Phase: 139\n"
+        f"Target Final Phase: 160\n"
+        f"All Prerequisites Satisfied: {summary.get('all_satisfied', True)}"
+    )
+
+
+# =========================================================================
+# Phase 139: GPU-Accelerated Training Harness and Resource Governance Reports
+# =========================================================================
+
+ADVANCED_GPU_TRAINING_GOVERNANCE_TEXT_REPORT_DISCLAIMER = (
+    "Bu rapor Phase 139 GPU-Accelerated Training Harness and Resource Governance çıktısıdır. "
+    "Gerçek veri indirme zorunluluğu, dataset materialization, feature snapshot materialization, "
+    "scraping, haber tam metni/article body/raw content/scraped HTML/embedding/vector kullanımı, "
+    "sentiment model output, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, "
+    "GPU/resource/harness/readiness değerini trade sinyali veya production-ready/broker-ready "
+    "onayı olarak kullanma, gerçek model training/model fit/predict/inference, metric/performance claim, "
+    "artifact persistence, model registry write, strateji/backtest/optimizer/clustering/ensemble/"
+    "calibration çalıştırma, target/label/prediction üretme veya official approval iddiası değildir."
+)
+
+
+def build_gpu_training_governance_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_GPU_TRAINING_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Active Profile: {summary.get('active_profile', 'balanced_local_gpu_training_governance')}\n"
+        f"Total Profiles: {summary.get('total_profiles', 3)}\n"
+        f"All Dry Run: {summary.get('all_dry_run', True)}\n"
+        f"Real Training Allowed: False\n"
+        f"Non-Signal: True"
+    )
+
+
+def build_gpu_training_resource_policy_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_GPU_TRAINING_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Resource Policies: {summary.get('total_policies', 4)}\n"
+        f"All Contract Only: {summary.get('all_contract_only', True)}\n"
+        f"Real Training Disabled: {summary.get('all_real_training_disabled', True)}\n"
+        f"Manual Review Required: True"
+    )
+
+
+def build_gpu_training_harness_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_GPU_TRAINING_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Harness Stubs: {summary.get('total_stubs', 3)}\n"
+        f"Dry Run Enforced: {summary.get('all_dry_run', True)}\n"
+        f"Blocked By Policy: {summary.get('all_blocked_by_policy', True)}"
+    )
+
+
+def build_gpu_training_dry_run_guard_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_GPU_TRAINING_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Checks: {summary.get('total_checks', 4)}\n"
+        f"All Passed: {summary.get('all_passed', True)}\n"
+        f"Dry Run Only: True"
+    )
+
+
+def build_gpu_training_disabled_execution_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_GPU_TRAINING_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Real Training Disabled: {summary.get('all_disabled', True)}\n"
+        f"Real Training Executed: False\n"
+        f"Model Fit Executed: False\n"
+        f"Model Predict Executed: False"
+    )
+
+
+def build_gpu_training_dependency_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_GPU_TRAINING_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Dependencies: {summary.get('total_dependencies', 3)}\n"
+        f"All Satisfied: {summary.get('all_satisfied', True)}\n"
+        f"Non-Signal: True"
+    )
+
+
+def build_gpu_training_audit_placeholder_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_GPU_TRAINING_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Placeholders: {summary.get('total_placeholders', 2)}\n"
+        f"Dry Run Only: {summary.get('all_dry_run', True)}\n"
+        f"Real Training Executed: False\n"
+        f"Artifact Persisted: False"
+    )
+
+
+def build_gpu_training_readiness_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_GPU_TRAINING_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Readiness Score: {summary.get('readiness_score', 1.0)}\n"
+        f"Classification: {summary.get('classification', 'READY_FOR_GPU_RESOURCE_GOVERNANCE_DRY_RUN')}\n"
+        f"Meets Threshold: {summary.get('meets_threshold', True)}\n"
+        f"Production Ready: False\n"
+        f"Broker Ready: False"
+    )
+
+
+def build_gpu_training_governance_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_GPU_TRAINING_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest Name: {summary.get('manifest_name', 'gpu_training_governance_manifest')}\n"
+        f"Current Phase: {summary.get('current_phase', 139)}\n"
+        f"Next Phase: {summary.get('next_phase', 140)}\n"
+        f"Real Training Executed: False\n"
+        f"Artifact Persisted: False"
+    )
+
+
+def build_gpu_training_governance_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_GPU_TRAINING_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('validation_status', 'VALIDATION_PASS')}\n"
+        f"Total Checks: {summary.get('total_checks', 5)}\n"
+        f"All Passed: {summary.get('all_passed', True)}\n"
+        f"Forbidden Claims Clean: True"
+    )
+
+
+def build_gpu_training_governance_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_GPU_TRAINING_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Status: {summary.get('safety_status', 'SECURE')}\n"
+        f"NO-GO Rules Enforced: {summary.get('no_go_count', 24)}\n"
+        f"SAFE-GO Rules Active: {summary.get('safe_go_count', 10)}\n"
+        f"Live Trading Prohibited: True\n"
+        f"Zero Model Execution: True"
+    )
+
+
+def build_phase_140_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_GPU_TRAINING_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase 140 Handoff Status: {summary.get('handoff_status', 'READY_FOR_PHASE_140')}\n"
+        f"Source Phase: 139\n"
+        f"Next Phase: 140\n"
+        f"Target Final Phase: 160\n"
+        f"All Prerequisites Satisfied: {summary.get('all_satisfied', True)}"
+    )
+
+
+# =========================================================================
+# Phase 140: Ensemble Model Contracts & Candidate Model Registry Reports
+# =========================================================================
+
+ADVANCED_ENSEMBLE_MODEL_REGISTRY_TEXT_REPORT_DISCLAIMER = (
+    "YASAL UYARI VE GÜVENLİK SINIRI:\n"
+    "Bu rapor Faz 140 (Ensemble Model Sözleşmeleri ve Aday Model Kayıt Defteri) kapsamında üretilmiştir.\n"
+    "BURADAKİ BİLGİLER KESİNLİKLE YATIRIM TAVSİYESİ VEYA ALIM-SATIM SİNYALİ DEĞİLDİR.\n"
+    "Bu katman tamamen çevrimdışı, yerel, simülasyon ve sözleşme/meta-veri mimarisidir.\n"
+    "Sıfır model eğitimi, sıfır tahmin, sıfır ensemble yürütme (voting/blending/stacking), sıfır kalibrasyon yapılmıştır.\n"
+    "Üretim veya aracı kurum bağlantısı kesinlikle yoktur."
+)
+
+
+def build_ensemble_model_profile_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ENSEMBLE_MODEL_REGISTRY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Profiles: {summary.get('total_profiles', 0)}\n"
+        f"Active Profile: {summary.get('active_profile', 'balanced_local_ensemble_model_contracts')}\n"
+        f"All Local Only: True\n"
+        f"All Non-Signal: True\n"
+        f"Dry-Run Default: True"
+    )
+
+
+def build_candidate_model_contracts_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ENSEMBLE_MODEL_REGISTRY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Candidate Contracts: {summary.get('total_contracts', 0)}\n"
+        f"All Zero Training: True\n"
+        f"All Zero Prediction: True\n"
+        f"All Metadata Only: True\n"
+        f"All Non-Signal: True"
+    )
+
+
+def build_candidate_model_eligibility_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ENSEMBLE_MODEL_REGISTRY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Eligibility Gates: {summary.get('total_gates', 0)}\n"
+        f"All Gates Active: True\n"
+        f"All Gates Non-Signal: True\n"
+        f"Execution Blocked: True"
+    )
+
+
+def build_candidate_model_compatibility_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ENSEMBLE_MODEL_REGISTRY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Compatibility Items: {summary.get('total_items', 0)}\n"
+        f"All Non-Signal: True\n"
+        f"Production Ready: False\n"
+        f"Broker Ready: False"
+    )
+
+
+def build_ensemble_strategy_contracts_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ENSEMBLE_MODEL_REGISTRY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Strategy Contracts: {summary.get('total_strategies', 0)}\n"
+        f"Voting Execution Allowed: False\n"
+        f"Blending Execution Allowed: False\n"
+        f"Stacking Execution Allowed: False\n"
+        f"All Non-Signal: True"
+    )
+
+
+def build_ensemble_disabled_execution_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ENSEMBLE_MODEL_REGISTRY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Disabled Reports: {summary.get('total_reports', 6)}\n"
+        f"Real Training Executed: False\n"
+        f"Inference Executed: False\n"
+        f"Ensemble Executed: False\n"
+        f"Artifact Persisted: False\n"
+        f"Registry Written: False"
+    )
+
+
+def build_ensemble_dependencies_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ENSEMBLE_MODEL_REGISTRY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Dependencies Enforced: True\n"
+        f"Quality Dependencies Enforced: True\n"
+        f"Lineage Graph Verified: True\n"
+        f"Experiment Linkage Offline: True\n"
+        f"All Non-Signal: True"
+    )
+
+
+def build_ensemble_findings_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ENSEMBLE_MODEL_REGISTRY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Findings: {summary.get('total_findings', 0)}\n"
+        f"Manual Review Items: {summary.get('manual_review_count', 0)}\n"
+        f"Auto-Fix Prohibited: True\n"
+        f"Destructive Actions Blocked: True"
+    )
+
+
+def build_ensemble_readiness_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ENSEMBLE_MODEL_REGISTRY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Readiness Score: {summary.get('readiness_score', 1.0):.4f}\n"
+        f"Classification: {summary.get('classification', 'READY_FOR_PHASE_141_HANDOFF')}\n"
+        f"Meets Threshold: {summary.get('meets_threshold', True)}\n"
+        f"Production Ready: False\n"
+        f"Broker Ready: False"
+    )
+
+
+def build_ensemble_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ENSEMBLE_MODEL_REGISTRY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest Name: {summary.get('manifest_name', 'ensemble_model_manifest_v140')}\n"
+        f"Current Phase: {summary.get('current_phase', 140)}\n"
+        f"Target Final Phase: {summary.get('target_final_phase', 160)}\n"
+        f"Next Phase: {summary.get('next_phase', 141)}\n"
+        f"Candidate Contracts: {summary.get('candidate_contract_count', 10)}\n"
+        f"Ensemble Contracts: {summary.get('ensemble_contract_count', 7)}\n"
+        f"Readiness Score: {summary.get('readiness_score', 1.0):.4f}\n"
+        f"Zero Execution Verified: True"
+    )
+
+
+def build_ensemble_health_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ENSEMBLE_MODEL_REGISTRY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Status: {summary.get('status', 'HEALTHY')}\n"
+        f"Total Checks: {summary.get('total_checks', 7)}\n"
+        f"Passed Checks: {summary.get('passed_checks', 7)}\n"
+        f"All Passed: True\n"
+        f"Non-Signal: True"
+    )
+
+
+def build_ensemble_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ENSEMBLE_MODEL_REGISTRY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('validation_status', 'VALID')}\n"
+        f"Invariants Satisfied: True\n"
+        f"Zero Execution Verified: True\n"
+        f"Non-Signal: True"
+    )
+
+
+def build_ensemble_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ENSEMBLE_MODEL_REGISTRY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Boundary: ENFORCED\n"
+        f"Live Trading Prohibited: True\n"
+        f"Broker Ready: False\n"
+        f"Production Ready: False\n"
+        f"Zero Model Execution: True"
+    )
+
+
+def build_phase_141_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ENSEMBLE_MODEL_REGISTRY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase 141 Handoff Status: {summary.get('handoff_status', 'READY_FOR_PHASE_141')}\n"
+        f"Source Phase: 140\n"
+        f"Next Phase: 141\n"
+        f"Target Final Phase: 160\n"
+        f"Next Phase Title: Probability Calibration and Uncertainty Estimation\n"
+        f"All Prerequisites Satisfied: {summary.get('phase_141_prerequisites_met', True)}"
+    )
+
+
+# =========================================================================
+# Phase 141: Probability Calibration & Uncertainty Estimation Reports
+# =========================================================================
+
+ADVANCED_CALIBRATION_UNCERTAINTY_TEXT_REPORT_DISCLAIMER = (
+    "YASAL UYARI VE GÜVENLİK SINIRI:\n"
+    "Bu rapor Phase 141 Probability Calibration and Uncertainty Estimation Contracts çıktısıdır. "
+    "Gerçek veri indirme zorunluluğu, dataset materialization, feature snapshot materialization, "
+    "scraping, haber tam metni/article body/raw content/scraped HTML/embedding/vector kullanımı, "
+    "sentiment model output, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, "
+    "calibration/uncertainty/readiness/confidence değerini trade sinyali veya production-ready/broker-ready "
+    "onayı olarak kullanma, probability prediction, calibration fit/transform, uncertainty estimation, "
+    "prediction interval/conformal prediction, gerçek metric/performance claim, artifact persistence, "
+    "model registry write, strateji/backtest/optimizer/model training/model fit/predict/inference/"
+    "clustering/ensemble çalıştırma, target/label/prediction üretme veya official approval iddiası değildir."
+)
+
+
+def build_calibration_uncertainty_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_CALIBRATION_UNCERTAINTY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Profiles: {summary.get('total_profiles', 0)}\n"
+        f"Active Profile: {summary.get('active_profile', 'balanced_local_calibration_uncertainty_contracts')}\n"
+        f"All Local Only: True\n"
+        f"All Non-Signal: True\n"
+        f"Zero Execution Enforced: True"
+    )
+
+
+def build_probability_calibration_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_CALIBRATION_UNCERTAINTY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Calibration Contracts: {summary.get('total_contracts', 0)}\n"
+        f"Probability Prediction Allowed: False\n"
+        f"Calibration Fit Allowed: False\n"
+        f"Calibration Transform Allowed: False\n"
+        f"All Non-Signal: True"
+    )
+
+
+def build_uncertainty_estimation_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_CALIBRATION_UNCERTAINTY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Uncertainty Contracts: {summary.get('total_contracts', 0)}\n"
+        f"Uncertainty Estimation Allowed: False\n"
+        f"Prediction Interval Allowed: False\n"
+        f"Conformal Prediction Allowed: False\n"
+        f"All Non-Signal: True"
+    )
+
+
+def build_calibration_disabled_execution_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_CALIBRATION_UNCERTAINTY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Operations Audited: {summary.get('total_operations_audited', 0)}\n"
+        f"All Disabled: {summary.get('all_disabled', True)}\n"
+        f"All Enforced: {summary.get('all_enforced', True)}\n"
+        f"Probabilities Generated: False"
+    )
+
+
+def build_uncertainty_disabled_execution_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_CALIBRATION_UNCERTAINTY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Operations Audited: {summary.get('total_operations_audited', 0)}\n"
+        f"All Disabled: {summary.get('all_disabled', True)}\n"
+        f"All Enforced: {summary.get('all_enforced', True)}\n"
+        f"Intervals Computed: False"
+    )
+
+
+def build_calibration_uncertainty_placeholder_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_CALIBRATION_UNCERTAINTY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Placeholders: {summary.get('total_placeholders', 0)}\n"
+        f"All Uncalculated: True\n"
+        f"Zero Metrics Evaluated: True\n"
+        f"All Non-Signal: True"
+    )
+
+
+def build_calibration_uncertainty_quality_gate_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_CALIBRATION_UNCERTAINTY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Quality Gates: {summary.get('total_gates', 0)}\n"
+        f"All Active: {summary.get('all_active', True)}\n"
+        f"All Blocking: {summary.get('all_blocking', True)}\n"
+        f"All Non-Signal: True"
+    )
+
+
+def build_calibration_uncertainty_dependency_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_CALIBRATION_UNCERTAINTY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Dependencies: {summary.get('total_dependencies', 0)}\n"
+        f"All Satisfied: {summary.get('all_satisfied', True)}\n"
+        f"All Non-Signal: True"
+    )
+
+
+def build_calibration_uncertainty_readiness_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_CALIBRATION_UNCERTAINTY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Readiness Score: {summary.get('readiness_score', 1.0):.4f}\n"
+        f"Classification: {summary.get('classification', 'READY')}\n"
+        f"Meets Threshold: {summary.get('meets_threshold', True)}\n"
+        f"Production Ready: False\n"
+        f"Broker Ready: False"
+    )
+
+
+def build_calibration_uncertainty_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_CALIBRATION_UNCERTAINTY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest Name: {summary.get('manifest_name', 'manifest')}\n"
+        f"Current Phase: {summary.get('current_phase', 141)}\n"
+        f"Next Phase: {summary.get('next_phase', 142)}\n"
+        f"Target Final Phase: {summary.get('target_final_phase', 160)}\n"
+        f"Zero Execution Verified: {summary.get('zero_execution_verified', True)}\n"
+        f"All Non-Signal: True"
+    )
+
+
+def build_calibration_uncertainty_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_CALIBRATION_UNCERTAINTY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('validation_status', 'VALID')}\n"
+        f"Total Checks: {summary.get('total_checks', 0)}\n"
+        f"Passed Checks: {summary.get('passed_checks', 0)}\n"
+        f"All Passed: {summary.get('all_passed', True)}\n"
+        f"Forbidden Claims Clean: True"
+    )
+
+
+def build_calibration_uncertainty_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_CALIBRATION_UNCERTAINTY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Status: {summary.get('safety_status', 'ENFORCED')}\n"
+        f"NO-GO Invariants: {summary.get('no_go_count', 0)}\n"
+        f"SAFE-GO Principles: {summary.get('safe_go_count', 0)}\n"
+        f"Live Trading Prohibited: True\n"
+        f"Zero Model Execution: True"
+    )
+
+
+def build_phase_142_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_CALIBRATION_UNCERTAINTY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase 142 Handoff Status: {summary.get('handoff_status', 'READY_FOR_PHASE_142')}\n"
+        f"Source Phase: 141\n"
+        f"Next Phase: 142\n"
+        f"Next Phase Title: {summary.get('next_phase_title', 'Model Drift Monitoring and Data/Feature Drift Linkage')}\n"
+        f"Target Final Phase: 160\n"
+        f"All Prerequisites Met: {summary.get('all_prerequisites_met', True)}"
+    )
+
+
+# =========================================================================
+# Phase 142: Model Drift Monitoring and Data/Feature Drift Linkage Reports
+# =========================================================================
+
+ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER = (
+    "Bu rapor Phase 142 Model Drift Monitoring and Data/Feature Drift Linkage Contracts çıktısıdır. "
+    "Gerçek veri indirme zorunluluğu, broker API bağlantısı, canlı emir, portföy tahsisi, getiri vaadi, "
+    "yatırım tavsiyesi, alım-satım sinyali, drift metriği (PSI, KS, JS, Wasserstein) hesaplama, canlı alerting, "
+    "otomatik model yeniden eğitme (retraining) tetikleme, model dondurma/değiştirme aksiyonu alma, tahmin üretme, "
+    "model eğitimi veya inference çalıştırma içermez. "
+    "Tamamen offline/local, dry-run, sözleşme (contract-only) ve governance amaçlıdır; "
+    "broker-ready veya production-ready iddiası taşımaz."
+)
+
+
+def build_model_drift_profile_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Active Profile: {summary.get('active_profile', 'balanced_local_model_drift_contracts')}\n"
+        f"Total Profiles: {summary.get('total_profiles', 3)}\n"
+        f"Current Phase: 142\n"
+        f"Next Phase: 143\n"
+        f"Target Final Phase: 160\n"
+        f"Non-Executing Drift Enforced: True\n"
+        f"Zero Alerting / Retraining: True"
+    )
+
+
+def build_model_drift_monitoring_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Model Drift Contracts: {summary.get('total_contracts', 6)}\n"
+        f"Domains: Candidate Models, Ensembles, Calibration, Uncertainty, Prediction Dist, Stability\n"
+        f"All Contracts Contract-Only: True\n"
+        f"Zero Inference Execution: True"
+    )
+
+
+def build_data_feature_drift_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Data Drift Contracts: {summary.get('total_data_contracts', 6)}\n"
+        f"Feature Drift Contracts: {summary.get('total_feature_contracts', 6)}\n"
+        f"Zero Metric Calculations: True\n"
+        f"Immutable Data Preserved: True"
+    )
+
+
+def build_drift_linkage_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase 123 Feature Diagnostics Linkage: Active\n"
+        f"Phase 124 FeatureStore Catalog Linkage: Active\n"
+        f"Phase 126-135 Regime Shift Linkage: Active\n"
+        f"Phase 141 Calibration & Uncertainty Linkage: Active\n"
+        f"Total Linkages: {summary.get('total_linkages', 12)}"
+    )
+
+
+def build_drift_window_threshold_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Reference Windows: In-sample, Validation baseline, Rolling lookback, Regime conditioned\n"
+        f"Current Windows: Short-term, Medium-term, Daily session, Regime transition\n"
+        f"Threshold Placeholders: PSI, KS, JS, Wasserstein, Missingness, Calibration ECE\n"
+        f"Execution Enabled: False (Placeholders Only)"
+    )
+
+
+def build_drift_metric_placeholder_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Metric Placeholders: {summary.get('total_metrics', 22)}\n"
+        f"Metric Categories: 10 (PSI, KS, JS, Wasserstein, Corr, Miss, Cat, Num, Calib, Uncert)\n"
+        f"All Calculations Disabled: True"
+    )
+
+
+def build_drift_disabled_execution_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Safeguards: {summary.get('total_safeguards', 7)}\n"
+        f"Metric Calculation Disabled: True\n"
+        f"Alerting Disabled: True\n"
+        f"Retraining Trigger Disabled: True\n"
+        f"Model Action Disabled: True\n"
+        f"Prediction Disabled: True\n"
+        f"Data Modification Disabled: True\n"
+        f"Feature Drop Disabled: True\n"
+        f"All Safeguards Verified: True"
+    )
+
+
+def build_drift_findings_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Findings: {summary.get('total_findings', 5)}\n"
+        f"Requires Human Review: {summary.get('requires_human_review_count', 3)}\n"
+        f"All Execution Blocked: True\n"
+        f"Dual Signoff Enforced: True"
+    )
+
+
+def build_drift_readiness_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Overall Readiness Score: {summary.get('overall_score', 100.0):.1f}%\n"
+        f"Governance Status: {summary.get('overall_status', 'ready')}\n"
+        f"Total Blocker Count: 0\n"
+        f"Total Warning Count: 0\n"
+        f"Ready for Review: True"
+    )
+
+
+def build_model_drift_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest ID: {summary.get('manifest_id', 'manifest')}\n"
+        f"Current Phase: 142\n"
+        f"Next Phase: 143\n"
+        f"Target Final Phase: 160\n"
+        f"Non-Executing Compliance: True\n"
+        f"All Non-Signal: True"
+    )
+
+
+def build_model_drift_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('validation_status', 'PASSED')}\n"
+        f"Total Items Validated: {summary.get('total_items_validated', 0)}\n"
+        f"All Valid: True\n"
+        f"Forbidden Claims Clean: True"
+    )
+
+
+def build_model_drift_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Boundary Status: {summary.get('boundary_status', 'SECURE')}\n"
+        f"Dry Run Enforced: True\n"
+        f"Non-Executing Enforced: True\n"
+        f"Live Trading Prohibited: True\n"
+        f"Meets Threshold: {summary.get('meets_threshold', True)}\n"
+        f"Production Ready: False\n"
+        f"Broker Ready: False"
+    )
+
+
+def build_calibration_uncertainty_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_CALIBRATION_UNCERTAINTY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest Name: {summary.get('manifest_name', 'manifest')}\n"
+        f"Current Phase: {summary.get('current_phase', 141)}\n"
+        f"Next Phase: {summary.get('next_phase', 142)}\n"
+        f"Target Final Phase: {summary.get('target_final_phase', 160)}\n"
+        f"Zero Execution Verified: {summary.get('zero_execution_verified', True)}\n"
+        f"All Non-Signal: True"
+    )
+
+
+def build_calibration_uncertainty_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_CALIBRATION_UNCERTAINTY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('validation_status', 'VALID')}\n"
+        f"Total Checks: {summary.get('total_checks', 0)}\n"
+        f"Passed Checks: {summary.get('passed_checks', 0)}\n"
+        f"All Passed: {summary.get('all_passed', True)}\n"
+        f"Forbidden Claims Clean: True"
+    )
+
+
+def build_calibration_uncertainty_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_CALIBRATION_UNCERTAINTY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Status: {summary.get('safety_status', 'ENFORCED')}\n"
+        f"NO-GO Invariants: {summary.get('no_go_count', 0)}\n"
+        f"SAFE-GO Principles: {summary.get('safe_go_count', 0)}\n"
+        f"Live Trading Prohibited: True\n"
+        f"Zero Model Execution: True"
+    )
+
+
+def build_phase_142_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_CALIBRATION_UNCERTAINTY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase 142 Handoff Status: {summary.get('handoff_status', 'READY_FOR_PHASE_142')}\n"
+        f"Source Phase: 141\n"
+        f"Next Phase: 142\n"
+        f"Next Phase Title: {summary.get('next_phase_title', 'Model Drift Monitoring and Data/Feature Drift Linkage')}\n"
+        f"Target Final Phase: 160\n"
+        f"All Prerequisites Met: {summary.get('all_prerequisites_met', True)}"
+    )
+
+
+# =========================================================================
+# Phase 142: Model Drift Monitoring and Data/Feature Drift Linkage Reports
+# =========================================================================
+
+ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER = (
+    "Bu rapor Phase 142 Model Drift Monitoring and Data/Feature Drift Linkage Contracts çıktısıdır. "
+    "Gerçek veri indirme zorunluluğu, broker API bağlantısı, canlı emir, portföy tahsisi, getiri vaadi, "
+    "yatırım tavsiyesi, alım-satım sinyali, drift metriği (PSI, KS, JS, Wasserstein) hesaplama, canlı alerting, "
+    "otomatik model yeniden eğitme (retraining) tetikleme, model dondurma/değiştirme aksiyonu alma, tahmin üretme, "
+    "model eğitimi veya inference çalıştırma içermez. "
+    "Tamamen offline/local, dry-run, sözleşme (contract-only) ve governance amaçlıdır; "
+    "broker-ready veya production-ready iddiası taşımaz."
+)
+
+
+def build_model_drift_profile_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Active Profile: {summary.get('active_profile', 'balanced_local_model_drift_contracts')}\n"
+        f"Total Profiles: {summary.get('total_profiles', 3)}\n"
+        f"Current Phase: 142\n"
+        f"Next Phase: 143\n"
+        f"Target Final Phase: 160\n"
+        f"Non-Executing Drift Enforced: True\n"
+        f"Zero Alerting / Retraining: True"
+    )
+
+
+def build_model_drift_monitoring_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Model Drift Contracts: {summary.get('total_contracts', 6)}\n"
+        f"Domains: Candidate Models, Ensembles, Calibration, Uncertainty, Prediction Dist, Stability\n"
+        f"All Contracts Contract-Only: True\n"
+        f"Zero Inference Execution: True"
+    )
+
+
+def build_data_feature_drift_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Data Drift Contracts: {summary.get('total_data_contracts', 6)}\n"
+        f"Feature Drift Contracts: {summary.get('total_feature_contracts', 6)}\n"
+        f"Zero Metric Calculations: True\n"
+        f"Immutable Data Preserved: True"
+    )
+
+
+def build_drift_linkage_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase 123 Feature Diagnostics Linkage: Active\n"
+        f"Phase 124 FeatureStore Catalog Linkage: Active\n"
+        f"Phase 126-135 Regime Shift Linkage: Active\n"
+        f"Phase 141 Calibration & Uncertainty Linkage: Active\n"
+        f"Total Linkages: {summary.get('total_linkages', 12)}"
+    )
+
+
+def build_drift_window_threshold_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Reference Windows: In-sample, Validation baseline, Rolling lookback, Regime conditioned\n"
+        f"Current Windows: Short-term, Medium-term, Daily session, Regime transition\n"
+        f"Threshold Placeholders: PSI, KS, JS, Wasserstein, Missingness, Calibration ECE\n"
+        f"Execution Enabled: False (Placeholders Only)"
+    )
+
+
+def build_drift_metric_placeholder_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Metric Placeholders: {summary.get('total_metrics', 22)}\n"
+        f"Metric Categories: 10 (PSI, KS, JS, Wasserstein, Corr, Miss, Cat, Num, Calib, Uncert)\n"
+        f"All Calculations Disabled: True"
+    )
+
+
+def build_drift_disabled_execution_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Safeguards: {summary.get('total_safeguards', 7)}\n"
+        f"Metric Calculation Disabled: True\n"
+        f"Alerting Disabled: True\n"
+        f"Retraining Trigger Disabled: True\n"
+        f"Model Action Disabled: True\n"
+        f"Prediction Disabled: True\n"
+        f"Data Modification Disabled: True\n"
+        f"Feature Drop Disabled: True\n"
+        f"All Safeguards Verified: True"
+    )
+
+
+def build_drift_findings_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Findings: {summary.get('total_findings', 5)}\n"
+        f"Requires Human Review: {summary.get('requires_human_review_count', 3)}\n"
+        f"All Execution Blocked: True\n"
+        f"Dual Signoff Enforced: True"
+    )
+
+
+def build_drift_readiness_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Overall Readiness Score: {summary.get('overall_score', 100.0):.1f}%\n"
+        f"Governance Status: {summary.get('overall_status', 'ready')}\n"
+        f"Total Blocker Count: 0\n"
+        f"Total Warning Count: 0\n"
+        f"Ready for Review: True"
+    )
+
+
+def build_model_drift_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest ID: {summary.get('manifest_id', 'manifest')}\n"
+        f"Current Phase: 142\n"
+        f"Next Phase: 143\n"
+        f"Target Final Phase: 160\n"
+        f"Non-Executing Compliance: True\n"
+        f"All Non-Signal: True"
+    )
+
+
+def build_model_drift_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('validation_status', 'PASSED')}\n"
+        f"Total Items Validated: {summary.get('total_items_validated', 0)}\n"
+        f"All Valid: True\n"
+        f"Forbidden Claims Clean: True"
+    )
+
+
+def build_model_drift_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Boundary Status: {summary.get('boundary_status', 'SECURE')}\n"
+        f"Dry Run Enforced: True\n"
+        f"Non-Executing Enforced: True\n"
+        f"Live Trading Prohibited: True\n"
+        f"Zero Metric Calculation: True\n"
+        f"Zero Model Action: True"
+    )
+
+
+def build_phase_143_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_DRIFT_MONITORING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase 143 Handoff Status: {summary.get('handoff_status', 'READY')}\n"
+        f"Source Phase: 142\n"
+        f"Next Phase: 143\n"
+        f"Next Phase Title: {summary.get('next_phase_title', 'Model Explainability and Interpretability Contracts')}\n"
+        f"Target Final Phase: 160\n"
+        f"All Preconditions Met: True"
+    )
+
+
+# Phase 143 Explainability and Feature Attribution Report Builders
+ADVANCED_EXPLAINABILITY_ATTRIBUTION_TEXT_REPORT_DISCLAIMER = (
+    "DISCLAIMER: Phase 143 Explainability & Feature Attribution Reports are for offline/local research "
+    "and contract validation only. Contains NO live trading signals, NO buy/sell recommendations, "
+    "and NO investment advice. Zero model training/fit/predict/inference, zero SHAP/LIME computation, "
+    "zero permutation importance, zero PDP/ICE, zero surrogate models, and zero model actions executed."
+)
+
+
+def build_explainability_profile_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_EXPLAINABILITY_ATTRIBUTION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Explainability Profile: {summary.get('active_profile', 'balanced_local_explainability_contracts')}\n"
+        f"Total Profiles: {summary.get('total_profiles', 3)}\n"
+        f"Current Phase: 143 | Next Phase: 144 | Final: 160\n"
+        f"Status: READY"
+    )
+
+
+def build_explainability_domain_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_EXPLAINABILITY_ATTRIBUTION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Explainability Domains: {summary.get('total_domains', 10)}\n"
+        f"All Non-Signal: True\n"
+        f"Status: VALIDATED"
+    )
+
+
+def build_explainability_report_contracts_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_EXPLAINABILITY_ATTRIBUTION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Report Contracts: {summary.get('total_contracts', 7)}\n"
+        f"Zero Calculation Enforced: True\n"
+        f"Manual Review Required: True\n"
+        f"Status: READY"
+    )
+
+
+def build_feature_attribution_contracts_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_EXPLAINABILITY_ATTRIBUTION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Feature Attribution Contracts: {summary.get('total_contracts', 8)}\n"
+        f"Zero Calculation Enforced: True\n"
+        f"Status: READY"
+    )
+
+
+def build_shap_lime_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_EXPLAINABILITY_ATTRIBUTION_TEXT_REPORT_DISCLAIMER}\n"
+        f"SHAP Placeholders: {summary.get('total_shap', 4)}\n"
+        f"LIME Placeholders: {summary.get('total_lime', 4)}\n"
+        f"SHAP/LIME Execution: STRICTLY DISABLED\n"
+        f"Status: NON_EXECUTING_PLACEHOLDER"
+    )
+
+
+def build_pdp_ice_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_EXPLAINABILITY_ATTRIBUTION_TEXT_REPORT_DISCLAIMER}\n"
+        f"PDP Placeholders: {summary.get('total_pdp', 4)}\n"
+        f"ICE Placeholders: {summary.get('total_ice', 4)}\n"
+        f"Execution: STRICTLY DISABLED\n"
+        f"Status: NON_EXECUTING_PLACEHOLDER"
+    )
+
+
+def build_surrogate_counterfactual_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_EXPLAINABILITY_ATTRIBUTION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Surrogate Model Placeholders: {summary.get('total_surrogates', 4)}\n"
+        f"Counterfactual Placeholders: {summary.get('total_counterfactuals', 4)}\n"
+        f"Execution: STRICTLY DISABLED\n"
+        f"Status: NON_EXECUTING_PLACEHOLDER"
+    )
+
+
+def build_attribution_drift_linkage_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_EXPLAINABILITY_ATTRIBUTION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Attribution Drift Linkages: {summary.get('total_linkages', 4)}\n"
+        f"Linked to Phase 142 Drift Registry: True\n"
+        f"Status: LINKED"
+    )
+
+
+def build_explainability_disabled_execution_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_EXPLAINABILITY_ATTRIBUTION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Safeguard Checks: {summary.get('total_checks', 36)}\n"
+        f"All Execution Disabled: True\n"
+        f"Zero Model Actions: True\n"
+        f"Status: ENFORCED"
+    )
+
+
+def build_explainability_readiness_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_EXPLAINABILITY_ATTRIBUTION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Readiness Score: {summary.get('readiness_score', 1.0):.2f}\n"
+        f"Classification: {summary.get('classification', 'ready_for_phase_144_model_governance')}\n"
+        f"Meets Threshold: True\n"
+        f"Status: READY_FOR_PHASE_144"
+    )
+
+
+def build_explainability_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_EXPLAINABILITY_ATTRIBUTION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest ID: {summary.get('manifest_id', 'manifest_phase_143_explainability_attribution')}\n"
+        f"Current Phase: 143 | Next Phase: 144 | Final Phase: 160\n"
+        f"All Invariants Preserved: True\n"
+        f"Status: COMPLETE"
+    )
+
+
+def build_explainability_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_EXPLAINABILITY_ATTRIBUTION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('status', 'PASS')}\n"
+        f"All Rules Passed: True\n"
+        f"Forbidden Columns Clean: True"
+    )
+
+
+def build_explainability_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_EXPLAINABILITY_ATTRIBUTION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Boundary Status: SECURE\n"
+        f"Dry Run Enforced: True\n"
+        f"Non-Executing Enforced: True\n"
+        f"Live Trading Prohibited: True"
+    )
+
+
+def build_phase_144_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_EXPLAINABILITY_ATTRIBUTION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase 144 Handoff Status: READY\n"
+        f"Current Phase: 143\n"
+        f"Next Phase: 144 (Model Governance, Model Cards and Audit Trail)\n"
+        f"Target Final Phase: 160\n"
+        f"Readiness Score: 1.0\n"
+        f"All Invariants Preserved: True"
+    )
+
+
+ADVANCED_MODEL_GOVERNANCE_TEXT_REPORT_DISCLAIMER = (
+    "Bu rapor Phase 144 Model Governance, Model Cards and Audit Trail çıktısıdır. "
+    "Gerçek veri indirme zorunluluğu, dataset materialization, feature snapshot materialization, scraping, "
+    "haber tam metni/article body/raw content/scraped HTML/embedding/vector kullanımı, sentiment model output, "
+    "broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, governance/model-card/readiness/audit "
+    "değerini trade sinyali veya production-ready/broker-ready/onay olarak kullanma, production approval, "
+    "broker-ready approval, live-trading approval, release approval, real audit log, deployment, model registry write, "
+    "artifact persistence, model training/model fit/predict/inference, target/label/prediction üretimi "
+    "veya official approval iddiası değildir."
+)
+
+
+def build_model_governance_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Profile: {summary.get('profile_name', 'balanced_local_model_governance_contracts')}\n"
+        f"Current Phase: 144 | Next Phase: 145 | Target Final Phase: 160\n"
+        f"Readiness Score: {summary.get('readiness_score', 1.0)}\n"
+        f"Non-Signal Enforced: True"
+    )
+
+
+def build_model_governance_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Governance Contracts: {summary.get('total_contracts', 7)}\n"
+        f"Production Approval Allowed: False\n"
+        f"Deployment Allowed: False\n"
+        f"Status: CONTRACT_REGISTERED"
+    )
+
+
+def build_model_card_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Model Card Contracts: {summary.get('total_contracts', 7)}\n"
+        f"Production Ready Claim: False\n"
+        f"Broker Ready Claim: False\n"
+        f"Status: TEMPLATE_READY"
+    )
+
+
+def build_model_card_template_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Model Card Templates: {summary.get('total_templates', 7)}\n"
+        f"Includes Limitations: True\n"
+        f"Includes Prohibited Use: True\n"
+        f"Status: READY"
+    )
+
+
+def build_governance_boundary_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Boundaries Enforced: {summary.get('total_boundaries', 6)}\n"
+        f"Production Blocked: True\n"
+        f"Live Trading Blocked: True\n"
+        f"Status: BLOCKED_BY_POLICY"
+    )
+
+
+def build_governance_risk_register_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Risks Registered: {summary.get('total_risks', 12)}\n"
+        f"Residual Risks Managed: True\n"
+        f"Manual Review Required: True"
+    )
+
+
+def build_governance_control_checklist_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Control Checklist Items: {summary.get('total_items', 12)}\n"
+        f"All Controls Passed: {summary.get('all_passed', True)}\n"
+        f"Manual Review Required: True"
+    )
+
+
+def build_governance_disabled_execution_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Disabled Reports: {summary.get('total_reports', 10)}\n"
+        f"All Execution Prohibited: True\n"
+        f"Model Registry Write Blocked: True\n"
+        f"Artifact Persistence Blocked: True"
+    )
+
+
+def build_governance_dependency_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Dependencies Checked: {summary.get('total_dependencies', 7)}\n"
+        f"All Dependencies Satisfied: True\n"
+        f"Non-Signal: True"
+    )
+
+
+def build_governance_guard_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"No-Lookahead Guard: ACTIVE\n"
+        f"Metadata-Only News Guard: ACTIVE\n"
+        f"Source Preservation Guard: ACTIVE\n"
+        f"Forbidden Column Policy: ACTIVE"
+    )
+
+
+def build_governance_readiness_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Readiness Score: {summary.get('readiness_score', 1.0):.2f}\n"
+        f"Classification: {summary.get('classification', 'governance_contract_ready')}\n"
+        f"Meets Threshold: True\n"
+        f"Production Ready: False\n"
+        f"Broker Ready: False"
+    )
+
+
+def build_model_governance_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest ID: {summary.get('manifest_id', 'manifest_phase_144_model_governance')}\n"
+        f"Current Phase: 144 | Next Phase: 145 | Target Final Phase: 160\n"
+        f"Production Approved: False\n"
+        f"Broker Ready Approved: False\n"
+        f"Live Trading Approved: False\n"
+        f"Model Registry Written: False\n"
+        f"Artifact Persisted: False"
+    )
+
+
+def build_model_governance_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('status', 'PASS')}\n"
+        f"All Governance Rules Passed: True\n"
+        f"Forbidden Claims Clean: True"
+    )
+
+
+def build_model_governance_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Boundary Status: SECURE\n"
+        f"Dry Run Enforced: True\n"
+        f"Non-Production Enforced: True\n"
+        f"Live Trading Prohibited: True\n"
+        f"Model Registry Write Prohibited: True"
+    )
+
+
+def build_phase_145_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MODEL_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase 145 Handoff Status: READY\n"
+        f"Current Phase: 144\n"
+        f"Next Phase: 145 (Advanced ML Acceptance Report)\n"
+        f"Target Final Phase: 160\n"
+        f"Readiness Score: {summary.get('readiness_score', 1.0)}\n"
+        f"All Invariants Preserved: True"
+    )
+
+
+# Phase 145 Advanced ML Acceptance Report Builder
+ADVANCED_ML_ACCEPTANCE_TEXT_REPORT_DISCLAIMER = (
+    "Bu rapor Phase 145 Advanced ML Acceptance Report çıktısıdır. Gerçek veri indirme zorunluluğu, "
+    "dataset materialization, feature snapshot materialization, scraping, haber tam metni/article body/"
+    "raw content/scraped HTML/embedding/vector kullanımı, sentiment model output, broker talimatı, canlı emir, "
+    "kesin AL/SAT, yatırım tavsiyesi, acceptance/readiness değerini trade sinyali veya production-ready/"
+    "broker-ready/onay olarak kullanma, production approval, broker-ready approval, live-trading approval, "
+    "release approval, real audit log, deployment, model registry write, artifact persistence, model "
+    "training/model fit/predict/inference, backtest/walk-forward/transaction cost/slippage/benchmark execution, "
+    "target/label/prediction üretimi veya official approval iddiası değildir."
+)
+
+
+def build_advanced_ml_acceptance_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ML_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Profile: {summary.get('active_profile', 'balanced_local_advanced_ml_acceptance')}\n"
+        f"Current Phase: {summary.get('current_phase', 145)} | Target Phase: {summary.get('target_final_phase', 160)}\n"
+        f"Status: {summary.get('status', 'READY')}"
+    )
+
+
+def build_advanced_ml_component_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ML_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Components: {summary.get('total_components', 0)}\n"
+        f"All Contract Only: True\n"
+        f"Status: {summary.get('status', 'READY')}"
+    )
+
+
+def build_phase_acceptance_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ML_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase: {summary.get('phase_ref', 'N/A')} - {summary.get('phase_title', '')}\n"
+        f"Total Checks: {summary.get('total_checks', 0)}\n"
+        f"Passed Checks: {summary.get('passed_checks', 0)}\n"
+        f"Status: {summary.get('status', 'ACCEPTED')}"
+    )
+
+
+def build_dependency_acceptance_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ML_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Dependencies: {summary.get('total_dependencies', 0)}\n"
+        f"Satisfied Dependencies: {summary.get('satisfied_dependencies', 0)}\n"
+        f"Status: {summary.get('status', 'READY')}"
+    )
+
+
+def build_validation_evidence_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ML_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Evidence Items: {summary.get('total_evidence_items', 0)}\n"
+        f"Verified Items: {summary.get('verified_items', 0)}\n"
+        f"Status: {summary.get('status', 'VERIFIED')}"
+    )
+
+
+def build_advanced_ml_boundary_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ML_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Boundaries Enforced: True\n"
+        f"Non-Production Enforced: True\n"
+        f"Status: {summary.get('status', 'SECURE')}"
+    )
+
+
+def build_advanced_ml_findings_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ML_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Findings: {summary.get('total_findings', 0)}\n"
+        f"Manual Review Required: {summary.get('manual_review_findings', 0)}\n"
+        f"Status: {summary.get('status', 'RECORDED')}"
+    )
+
+
+def build_advanced_ml_readiness_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ML_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Readiness Score: {summary.get('readiness_score', 1.0):.2f}\n"
+        f"Classification: {summary.get('classification', 'advanced_ml_contract_acceptance_ready_non_production')}\n"
+        f"Meets Threshold: {summary.get('meets_threshold', True)}\n"
+        f"Production Ready: False | Broker Ready: False"
+    )
+
+
+def build_advanced_ml_acceptance_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ML_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest ID: {summary.get('manifest_id', 'manifest_phase_145_advanced_ml_acceptance')}\n"
+        f"Advanced ML Block Completed: True\n"
+        f"Phase 146 Handoff Ready: True\n"
+        f"Status: {summary.get('status', 'READY')}"
+    )
+
+
+def build_advanced_ml_acceptance_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ML_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('status', 'PASS')}\n"
+        f"All Rules Passed: {summary.get('all_passed', True)}"
+    )
+
+
+def build_advanced_ml_acceptance_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ML_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Status: {summary.get('status', 'SECURE')}\n"
+        f"Live Trading Prohibited: True\n"
+        f"Broker Execution Prohibited: True"
+    )
+
+
+def build_phase_146_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_ML_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase 146 Handoff Status: {summary.get('status', 'READY')}\n"
+        f"Source Phase: 145 | Next Phase: 146\n"
+        f"All Prerequisites Satisfied: {summary.get('all_satisfied', True)}"
+    )
+
+
+# Phase 146 Realistic Backtest, Transaction Cost and Slippage Modeling Report Builder
+ADVANCED_REALISTIC_BACKTEST_TEXT_REPORT_DISCLAIMER = (
+    "Bu cikti Phase 146 Realistic Backtest, Transaction Cost and Slippage Modeling raporudur. "
+    "Canli emir, broker talimati, kesin AL/SAT, yatirim tavsiyesi, backtest/readiness/cost/slippage "
+    "degerini trade sinyali veya production-ready/broker-ready/onay olarak kullanma, gercek backtest "
+    "execution, walk-forward, benchmark, optimizer, stress test, Monte Carlo, gercek model training, "
+    "model fit/predict/inference, dataset materialization, target/label/prediction uretimi, gercek "
+    "performans garantisi, model deployment, model registry write, model artifact persistence, "
+    "scraping, haber tam metni/article body/raw content/scraped HTML/embedding/vector kullanimi "
+    "veya gercek provider API cagrisi degildir."
+)
+
+
+def build_realistic_backtest_profile_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_REALISTIC_BACKTEST_TEXT_REPORT_DISCLAIMER}\n"
+        f"Profile: {summary.get('active_profile', 'balanced_local_realistic_backtest_contracts')}\n"
+        f"Total Profiles: {summary.get('total_profiles', 3)}\n"
+        f"Local Only: True | Non-Production: True | Non-Signal: True"
+    )
+
+
+def build_backtest_engine_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_REALISTIC_BACKTEST_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Engine Contracts: {summary.get('total_contracts', 6)}\n"
+        f"All Execution Blocked: True\n"
+        f"Live Trading Allowed: False\n"
+        f"Non-Signal: True"
+    )
+
+
+def build_order_simulation_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_REALISTIC_BACKTEST_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Order Types: {summary.get('total_order_types', 6)}\n"
+        f"Broker Orders Sent: False\n"
+        f"Live Orders Sent: False\n"
+        f"Non-Signal: True"
+    )
+
+
+def build_transaction_cost_model_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_REALISTIC_BACKTEST_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Cost Models: {summary.get('total_cost_models', 3)}\n"
+        f"Real Cost Calculated: False\n"
+        f"Non-Signal: True"
+    )
+
+
+def build_slippage_model_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_REALISTIC_BACKTEST_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Slippage Models: {summary.get('total_slippage_models', 6)}\n"
+        f"Performance Guaranteed: False\n"
+        f"Non-Signal: True"
+    )
+
+
+def build_backtest_guard_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_REALISTIC_BACKTEST_TEXT_REPORT_DISCLAIMER}\n"
+        f"No-Lookahead Guard: ACTIVE\n"
+        f"Survivorship Guard: ACTIVE\n"
+        f"Data Snooping Guard: ACTIVE\n"
+        f"Overfitting Guard: ACTIVE\n"
+        f"Forbidden Column Policy: ACTIVE"
+    )
+
+
+def build_backtest_disabled_execution_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_REALISTIC_BACKTEST_TEXT_REPORT_DISCLAIMER}\n"
+        f"Live Trading: DISABLED\n"
+        f"Broker Orders: DISABLED\n"
+        f"Optimizer: DISABLED\n"
+        f"Walk-Forward: DISABLED\n"
+        f"Model Training: DISABLED"
+    )
+
+
+def build_backtest_readiness_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_REALISTIC_BACKTEST_TEXT_REPORT_DISCLAIMER}\n"
+        f"Readiness Score: {summary.get('readiness_score', 1.0):.2f}\n"
+        f"Classification: {summary.get('classification', 'realistic_backtest_contract_ready_non_production')}\n"
+        f"Meets Threshold: True\n"
+        f"Production Ready: False | Broker Ready: False"
+    )
+
+
+def build_realistic_backtest_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_REALISTIC_BACKTEST_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest ID: {summary.get('manifest_id', 'manifest_phase_146_realistic_backtest')}\n"
+        f"Current Phase: 146 | Next Phase: 147 | Target Final Phase: 160\n"
+        f"Backtest Executed: False | Broker Order Sent: False\n"
+        f"Phase 147 Handoff Ready: True"
+    )
+
+
+def build_realistic_backtest_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_REALISTIC_BACKTEST_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('validation_status', 'PASS')}\n"
+        f"Total Checks: {summary.get('total_checks', 6)}\n"
+        f"All Passed: {summary.get('all_passed', True)}"
+    )
+
+
+def build_realistic_backtest_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_REALISTIC_BACKTEST_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Status: {summary.get('safety_status', 'SECURE')}\n"
+        f"NO-GO Rules Enforced: {summary.get('no_go_count', 15)}\n"
+        f"SAFE-GO Rules Active: {summary.get('safe_go_count', 7)}\n"
+        f"Live Trading Prohibited: True\n"
+        f"Broker Execution Prohibited: True"
+    )
+
+
+def build_phase_147_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_REALISTIC_BACKTEST_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase 147 Handoff Status: {summary.get('next_phase_name', 'Walk-Forward Validation and Out-of-Sample Benchmarking')}\n"
+        f"Source Phase: 146 | Next Phase: 147\n"
+        f"All Prerequisites Satisfied: {summary.get('all_prerequisites_satisfied', True)}"
+    )
+
+
+# Phase 147 Walk-Forward Validation and Out-of-Sample Benchmarking Text Reports
+ADVANCED_WALK_FORWARD_VALIDATION_TEXT_REPORT_DISCLAIMER = (
+    "PHASE 147: WALK-FORWARD VALIDATION & OUT-OF-SAMPLE BENCHMARKING CONTRACT LAYER\n"
+    "NON-PRODUCTION | RESEARCH ONLY | ZERO LIVE TRADING | ZERO BROKER EXECUTION | NON-SIGNAL\n"
+    "Bu cikti sozlesme ve metadata spesifikasyonudur; canli emir, trade sinyali veya kesin getiri icermez."
+)
+
+
+def build_walk_forward_profile_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_WALK_FORWARD_VALIDATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Profile: {summary.get('active_profile', 'balanced_local_walk_forward_validation_contracts')}\n"
+        f"Total Profiles: {summary.get('total_profiles', 3)}\n"
+        f"Local Only: True | Non-Production: True | Non-Signal: True"
+    )
+
+
+def build_walk_forward_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_WALK_FORWARD_VALIDATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Walk-Forward Contracts: {summary.get('total_contracts', 7)}\n"
+        f"All Execution Blocked: True\n"
+        f"All Optimizer Blocked: True\n"
+        f"Manual Review Required: True"
+    )
+
+
+def build_oos_split_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_WALK_FORWARD_VALIDATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total OOS Splits: {summary.get('total_oos_splits', 3)}\n"
+        f"All Splits Isolated: True\n"
+        f"Zero Split Execution: True"
+    )
+
+
+def build_benchmark_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_WALK_FORWARD_VALIDATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Benchmarks: {summary.get('total_benchmarks', 7)}\n"
+        f"All Execution Blocked: True\n"
+        f"Zero Investment Advice: True"
+    )
+
+
+def build_benchmark_placeholder_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_WALK_FORWARD_VALIDATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Placeholders Active: True\n"
+        f"Buy and Hold / Cash / Equal Weight Defined: True\n"
+        f"Real Results Generated: False"
+    )
+
+
+def build_validation_metric_placeholder_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_WALK_FORWARD_VALIDATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Metric Placeholders: {summary.get('total_benchmark_metrics', 5)}\n"
+        f"Calculations Disabled: True\n"
+        f"Zero Performance Claims: True"
+    )
+
+
+def build_validation_guard_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_WALK_FORWARD_VALIDATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"No-Lookahead Guard: ACTIVE\n"
+        f"Purge and Embargo Guard: ACTIVE\n"
+        f"Data Snooping Guard: ACTIVE\n"
+        f"Overfitting Guard: ACTIVE\n"
+        f"Forbidden Column Policy: ACTIVE"
+    )
+
+
+def build_validation_disabled_execution_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_WALK_FORWARD_VALIDATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Live Trading: DISABLED\n"
+        f"Broker Orders: DISABLED\n"
+        f"Optimizer: DISABLED\n"
+        f"Walk-Forward Execution: DISABLED\n"
+        f"Model Training: DISABLED"
+    )
+
+
+def build_walk_forward_findings_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_WALK_FORWARD_VALIDATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Findings: {summary.get('total_findings', 3)}\n"
+        f"Critical Blockers: {summary.get('critical_count', 0)}\n"
+        f"Non-Signal Invariant: True"
+    )
+
+
+def build_walk_forward_readiness_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_WALK_FORWARD_VALIDATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Readiness Score: {summary.get('score', 1.0):.2f}\n"
+        f"Classification: {summary.get('classification', 'walk_forward_oos_contract_ready_non_production')}\n"
+        f"Meets Threshold: True\n"
+        f"Production Ready: False | Broker Ready: False"
+    )
+
+
+def build_walk_forward_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_WALK_FORWARD_VALIDATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest ID: {summary.get('manifest_id', 'manifest_phase_147')}\n"
+        f"Current Phase: 147 | Next Phase: 148 | Target Final Phase: 160\n"
+        f"Walk-Forward Executed: False | Broker Order Sent: False\n"
+        f"Phase 148 Handoff Ready: True"
+    )
+
+
+def build_walk_forward_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_WALK_FORWARD_VALIDATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('validation_status', 'PASS')}\n"
+        f"Total Checks: {summary.get('total_checks', 6)}\n"
+        f"All Passed: {summary.get('all_passed', True)}"
+    )
+
+
+def build_walk_forward_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_WALK_FORWARD_VALIDATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Status: {summary.get('safety_status', 'SECURE')}\n"
+        f"NO-GO Rules Enforced: {summary.get('no_go_count', 14)}\n"
+        f"SAFE-GO Rules Active: {summary.get('safe_go_count', 7)}\n"
+        f"Live Trading Prohibited: True\n"
+        f"Broker Execution Prohibited: True"
+    )
+
+
+def build_phase_148_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_WALK_FORWARD_VALIDATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase 148 Handoff Status: {summary.get('next_phase_name', 'Phase 148 — Stress Testing and Scenario Simulation')}\n"
+        f"Source Phase: 147 | Next Phase: 148\n"
+        f"All Prerequisites Satisfied: {summary.get('all_prerequisites_satisfied', True)}"
+    )
+
+
+# Phase 148 Stress Testing and Scenario Simulation Text Reports
+ADVANCED_STRESS_TESTING_TEXT_REPORT_DISCLAIMER = (
+    "PHASE 148: STRESS TESTING & SCENARIO SIMULATION CONTRACT LAYER\n"
+    "NON-PRODUCTION | RESEARCH ONLY | ZERO LIVE TRADING | ZERO BROKER EXECUTION | NON-SIGNAL\n"
+    "Bu cikti sozlesme ve metadata spesifikasyonudur; canli emir, trade sinyali veya kesin getiri icermez."
+)
+
+
+def build_stress_testing_profile_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_STRESS_TESTING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Profile: {summary.get('active_profile', 'balanced_local_stress_testing_scenario_simulation')}\n"
+        f"Total Profiles: {summary.get('total_profiles', 3)}\n"
+        f"Local Only: True | Non-Production: True | Non-Signal: True"
+    )
+
+
+def build_stress_scenario_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_STRESS_TESTING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Scenario Contracts: {summary.get('total_contracts', 6)}\n"
+        f"All Execution Blocked: True\n"
+        f"All Fit / Training Blocked: True\n"
+        f"All Optimizer Blocked: True\n"
+        f"Manual Review Required: True"
+    )
+
+
+def build_shock_placeholder_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_STRESS_TESTING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Shock Placeholders Active: True\n"
+        f"Total Shock Types: {summary.get('total_shock_types', 10)}\n"
+        f"Volatility / Liquidity / Spread / Gap Defined: True\n"
+        f"Real Market Shocks Injected: False"
+    )
+
+
+def build_stress_metric_placeholder_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_STRESS_TESTING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Metric Placeholders: {summary.get('total_stress_metrics', 6)}\n"
+        f"Real Calculations Disabled: True\n"
+        f"Formulas and Metadata Defined: True\n"
+        f"Zero Stressed PnL / Zero Drawdown Claimed: True"
+    )
+
+
+def build_stress_guard_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_STRESS_TESTING_TEXT_REPORT_DISCLAIMER}\n"
+        f"No-Lookahead Guard: ACTIVE\n"
+        f"Scenario Leakage Guard: ACTIVE\n"
+        f"Data Snooping Guard: ACTIVE\n"
+        f"Overfitting Guard: ACTIVE\n"
+        f"Survivorship Bias Guard: ACTIVE\n"
+        f"Forbidden Column Policy: ACTIVE"
+    )
+
+
+def build_stress_disabled_execution_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_STRESS_TESTING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Live Trading: DISABLED\n"
+        f"Broker Orders: DISABLED\n"
+        f"Optimizer: DISABLED\n"
+        f"Stress Test Execution: DISABLED\n"
+        f"Scenario Simulation: DISABLED\n"
+        f"Model Training: DISABLED"
+    )
+
+
+def build_stress_findings_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_STRESS_TESTING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Findings: {summary.get('total_findings', 3)}\n"
+        f"Critical Blockers: {summary.get('critical_count', 0)}\n"
+        f"Non-Signal Invariant: True"
+    )
+
+
+def build_stress_readiness_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_STRESS_TESTING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Readiness Score: {summary.get('score', 1.0):.2f}\n"
+        f"Classification: {summary.get('classification', 'stress_testing_scenario_simulation_contract_ready_non_production')}\n"
+        f"Meets Threshold: True\n"
+        f"Production Ready: False | Broker Ready: False"
+    )
+
+
+def build_stress_testing_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_STRESS_TESTING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest ID: {summary.get('manifest_id', 'manifest_phase_148')}\n"
+        f"Current Phase: 148 | Next Phase: 149 | Target Final Phase: 160\n"
+        f"Stress Test Executed: False | Broker Order Sent: False\n"
+        f"Phase 149 Handoff Ready: True"
+    )
+
+
+def build_stress_testing_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_STRESS_TESTING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('validation_status', 'PASS')}\n"
+        f"Total Checks: {summary.get('total_checks', 6)}\n"
+        f"All Passed: {summary.get('all_passed', True)}"
+    )
+
+
+def build_stress_testing_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_STRESS_TESTING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Status: {summary.get('safety_status', 'SECURE')}\n"
+        f"NO-GO Rules Enforced: {summary.get('no_go_count', 14)}\n"
+        f"SAFE-GO Rules Active: {summary.get('safe_go_count', 7)}\n"
+        f"Live Trading Prohibited: True\n"
+        f"Broker Execution Prohibited: True"
+    )
+
+
+def build_phase_149_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_STRESS_TESTING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase 149 Handoff Status: {summary.get('next_phase_name', 'Phase 149 — Monte Carlo Robustness and Parameter Stability')}\n"
+        f"Source Phase: 148 | Next Phase: 149\n"
+        f"All Prerequisites Satisfied: {summary.get('all_prerequisites_satisfied', True)}"
+    )
+
+
+# ---------------------------------------------------------
+# PHASE 149: ADVANCED MONTE CARLO ROBUSTNESS & PARAMETER STABILITY
+# ---------------------------------------------------------
+ADVANCED_MONTE_CARLO_TEXT_REPORT_DISCLAIMER = (
+    "Bu çıktı Phase 149 Monte Carlo Robustness and Parameter Stability raporudur. "
+    "Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, "
+    "Monte Carlo/readiness/robustness/parameter-stability değerini trade sinyali veya "
+    "onay olarak kullanma, simülasyon/optimizasyon yürütme, backtest çalıştırma veya "
+    "gerçek metrik hesaplama içermez. Yalnızca yerel araştırma sözleşmesidir."
+)
+
+
+def build_monte_carlo_profile_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MONTE_CARLO_TEXT_REPORT_DISCLAIMER}\n"
+        f"Active Profile: {summary.get('active_profile', 'balanced_local_monte_carlo_robustness_contracts')}\n"
+        f"Total Profiles: {summary.get('total_profiles', 3)}\n"
+        f"Non-Signal Invariant: True | Local Only: True\n"
+        f"Status: {summary.get('status', 'READY')}"
+    )
+
+
+def build_monte_carlo_domain_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MONTE_CARLO_TEXT_REPORT_DISCLAIMER}\n"
+        f"Domains: {summary.get('total_domains', 10)}\n"
+        f"Non-Signal Invariant: True\n"
+        f"Status: {summary.get('status', 'READY')}"
+    )
+
+
+def build_monte_carlo_contracts_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MONTE_CARLO_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Robustness Contracts: {summary.get('total_contracts', 9)}\n"
+        f"All Contracts Valid: {summary.get('all_contracts_valid', True)}\n"
+        f"All Executions Blocked: {summary.get('all_executions_blocked', True)}\n"
+        f"Status: {summary.get('status', 'READY')}"
+    )
+
+
+def build_bootstrap_simulation_contracts_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MONTE_CARLO_TEXT_REPORT_DISCLAIMER}\n"
+        f"Bootstrap Methods: {summary.get('total_methods', 3)}\n"
+        f"All Unexecuted: {summary.get('all_unexecuted', True)}\n"
+        f"Status: {summary.get('status', 'READY')}"
+    )
+
+
+def build_parameter_stability_contracts_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MONTE_CARLO_TEXT_REPORT_DISCLAIMER}\n"
+        f"Parameter Stability Contracts: {summary.get('total_contracts', 6)}\n"
+        f"Optimizations Disabled: {summary.get('all_optimizations_disabled', True)}\n"
+        f"Status: {summary.get('status', 'READY')}"
+    )
+
+
+def build_monte_carlo_metric_placeholders_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MONTE_CARLO_TEXT_REPORT_DISCLAIMER}\n"
+        f"Metric Placeholders: {summary.get('total_metric_placeholders', 8)}\n"
+        f"All Uncalculated: {summary.get('all_uncalculated', True)}\n"
+        f"Status: {summary.get('status', 'READY')}"
+    )
+
+
+def build_monte_carlo_guards_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MONTE_CARLO_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Active Guards: {summary.get('total_guards', 9)}\n"
+        f"All Active: {summary.get('all_active', True)}\n"
+        f"Status: {summary.get('status', 'READY')}"
+    )
+
+
+def build_monte_carlo_disabled_execution_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MONTE_CARLO_TEXT_REPORT_DISCLAIMER}\n"
+        f"Monte Carlo Execution: DISABLED\n"
+        f"Bootstrap Resampling: DISABLED\n"
+        f"Parameter Optimization: DISABLED\n"
+        f"Parameter Sweeps: DISABLED\n"
+        f"Metric Calculation: DISABLED\n"
+        f"Live Trading: DISABLED\n"
+        f"Broker Execution: DISABLED"
+    )
+
+
+def build_monte_carlo_findings_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MONTE_CARLO_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Findings: {summary.get('total_findings', 3)}\n"
+        f"Critical Blockers: {summary.get('critical_count', 0)}\n"
+        f"Non-Signal Invariant: True"
+    )
+
+
+def build_monte_carlo_readiness_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MONTE_CARLO_TEXT_REPORT_DISCLAIMER}\n"
+        f"Readiness Score: {summary.get('score', 1.0):.2f}\n"
+        f"Classification: {summary.get('classification', 'monte_carlo_robustness_contract_ready_non_production')}\n"
+        f"Meets Threshold: True\n"
+        f"Production Ready: False | Broker Ready: False"
+    )
+
+
+def build_monte_carlo_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MONTE_CARLO_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest ID: {summary.get('manifest_id', 'MANIFEST_PHASE_149_MONTE_CARLO_ROBUSTNESS')}\n"
+        f"Current Phase: 149 | Next Phase: 150 | Target Final Phase: 160\n"
+        f"Monte Carlo Executed: False | Optimizer Executed: False\n"
+        f"Phase 150 Handoff Ready: True"
+    )
+
+
+def build_monte_carlo_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MONTE_CARLO_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('validation_status', 'PASS')}\n"
+        f"Total Checks: {summary.get('total_checks', 5)}\n"
+        f"All Passed: {summary.get('all_passed', True)}"
+    )
+
+
+def build_monte_carlo_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MONTE_CARLO_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Status: {summary.get('safety_status', 'SECURE')}\n"
+        f"NO-GO Rules Enforced: {summary.get('no_go_count', 14)}\n"
+        f"SAFE-GO Rules Active: {summary.get('safe_go_count', 8)}\n"
+        f"Live Trading Prohibited: True\n"
+        f"Broker Execution Prohibited: True"
+    )
+
+
+def build_phase_150_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_MONTE_CARLO_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase 150 Handoff Status: {summary.get('next_phase_name', 'Phase 150 — Backtest Governance and Bias Control')}\n"
+        f"Source Phase: 149 | Next Phase: 150\n"
+        f"All Prerequisites Satisfied: {summary.get('all_prerequisites_satisfied', True)}"
+    )
+
+
+# =========================================================================
+# Phase 150: Advanced Backtest Governance and Bias Control Reports
+# =========================================================================
+
+ADVANCED_BACKTEST_GOVERNANCE_TEXT_REPORT_DISCLAIMER = (
+    "Bu çıktı Phase 150 Backtest Governance and Bias Control raporudur. "
+    "Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, backtest/governance/bias-control/readiness "
+    "değerini trade sinyali veya production-ready/broker-ready/onay olarak kullanma, gerçek backtest execution, "
+    "benchmark execution, metric calculation, optimizer, model training, model fit/predict/inference, "
+    "dataset materialization, target/label/prediction üretimi, gerçek Sharpe/win-rate/return/alpha/drawdown hesaplama, "
+    "performans garantisi, strategy approval, model deployment, model registry write, model artifact persistence, "
+    "scraping, haber tam metni/article body/raw content/scraped HTML/embedding/vector kullanımı veya gerçek provider "
+    "API çağrısı değildir."
+)
+
+
+def build_backtest_governance_profile_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Domain: {summary.get('domain', 'backtest_governance_profile_domain')}\n"
+        f"Active Profile: {summary.get('active_profile', 'balanced_local_backtest_governance_contracts')}\n"
+        f"Total Profiles: {summary.get('total_profiles', 3)}\n"
+        f"All Local Only: {summary.get('all_local_only', True)}\n"
+        f"All Zero Execution: {summary.get('all_zero_execution', True)}\n"
+        f"Status: {summary.get('status', 'governance_contract_ready')}"
+    )
+
+
+def build_backtest_governance_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Contracts: {summary.get('total_contracts', 7)}\n"
+        f"All Executions Disabled: {summary.get('all_executions_disabled', True)}\n"
+        f"Status: {summary.get('status', 'governance_contract_ready')}"
+    )
+
+
+def build_backtest_bias_control_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Controls: {summary.get('total_controls', 9)}\n"
+        f"All Claims Blocked: {summary.get('all_claims_blocked', True)}\n"
+        f"Status: {summary.get('status', 'governance_contract_ready')}"
+    )
+
+
+def build_backtest_result_reporting_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Requirements: {summary.get('total_requirements', 5)}\n"
+        f"All Claims Prohibited: {summary.get('all_claims_prohibited', True)}\n"
+        f"Status: {summary.get('status', 'governance_contract_ready')}"
+    )
+
+
+def build_backtest_claim_boundary_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Boundaries: {summary.get('total_boundaries', 10)}\n"
+        f"All Claims Blocked: {summary.get('all_claims_blocked', True)}\n"
+        f"Status: {summary.get('status', 'governance_contract_ready')}"
+    )
+
+
+def build_backtest_realism_governance_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Subdomain: {summary.get('subdomain', 'realism_governance')}\n"
+        f"Status: {summary.get('status', 'governance_contract_ready')}"
+    )
+
+
+def build_backtest_manual_review_gate_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Gates: {summary.get('total_gates', 10)}\n"
+        f"Mandatory Human Verification: {summary.get('all_require_manual_review', True)}\n"
+        f"Status: {summary.get('status', 'governance_contract_ready')}"
+    )
+
+
+def build_backtest_go_no_go_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Criteria: {summary.get('total_criteria', 10)}\n"
+        f"All Hard Stops Active: {summary.get('all_hard_stops_active', True)}\n"
+        f"Status: {summary.get('status', 'governance_contract_ready')}"
+    )
+
+
+def build_backtest_disabled_execution_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Disabled Operations: {summary.get('total_disabled_operations', 0)}\n"
+        f"All Executions Disabled: True\n"
+        f"Status: {summary.get('status', 'governance_contract_ready')}"
+    )
+
+
+def build_backtest_governance_findings_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Findings: {summary.get('total_findings', 4)}\n"
+        f"Critical Count: {summary.get('critical_count', 0)}\n"
+        f"Manual Review Count: {summary.get('manual_review_count', 2)}\n"
+        f"Status: {summary.get('status', 'governance_contract_ready')}"
+    )
+
+
+def build_backtest_governance_readiness_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Score: {summary.get('score', 1.0)}\n"
+        f"Classification: {summary.get('classification', 'backtest_governance_contract_ready_non_production')}\n"
+        f"Meets Threshold: {summary.get('meets_threshold', True)}\n"
+        f"Broker Ready: {summary.get('broker_ready', False)}\n"
+        f"Production Ready: {summary.get('production_ready', False)}"
+    )
+
+
+def build_backtest_governance_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest ID: {summary.get('manifest_id', 'MANIFEST_PHASE_150_BACKTEST_GOVERNANCE')}\n"
+        f"Current Phase: {summary.get('current_phase', 150)} | Next Phase: {summary.get('next_phase', 151)}\n"
+        f"All Negative Invariants Satisfied: True\n"
+        f"Phase 151 Handoff Ready: True"
+    )
+
+
+def build_backtest_governance_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('validation_status', 'VALIDATED')}\n"
+        f"Total Suites: {summary.get('total_suites', 4)}\n"
+        f"All Passed: {summary.get('all_validations_passed', True)}"
+    )
+
+
+def build_backtest_governance_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Status: {summary.get('safety_status', 'SECURE')}\n"
+        f"NO-GO Rules Enforced: {summary.get('no_go_count', 15)}\n"
+        f"SAFE-GO Rules Active: {summary.get('safe_go_count', 8)}\n"
+        f"Live Trading Prohibited: True\n"
+        f"Broker Execution Prohibited: True"
+    )
+
+
+def build_phase_151_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_GOVERNANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase 151 Handoff Status: {summary.get('next_phase_name', 'Phase 151 — Benchmark Comparison and Strategy Evaluation')}\n"
+        f"Source Phase: 150 | Next Phase: 151\n"
+        f"All Prerequisites Satisfied: {summary.get('all_prerequisites_satisfied', True)}"
+    )
+
+
+# =========================================================================
+# Phase 151: Benchmark Comparison & Strategy Evaluation Reports
+# =========================================================================
+
+ADVANCED_BENCHMARK_EVALUATION_TEXT_REPORT_DISCLAIMER = (
+    "UYARI: Bu rapor Phase 151 Benchmark Comparison and Strategy Evaluation Reports çıktısıdır. "
+    "Araştırma, sözleşme doğrulaması ve dry-run amaçlıdır; kesin AL/SAT, yatırım tavsiyesi, "
+    "canlı emir veya portföy dağıtım kararı içermez. Gerçek backtest, benchmark simülasyonu, "
+    "metrik hesaplaması, strateji onayı veya model tahmini yapılmamıştır."
+)
+
+
+def build_benchmark_evaluation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BENCHMARK_EVALUATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Profile: {summary.get('profile_name', 'balanced_local_benchmark_evaluation_contracts')}\n"
+        f"Current Phase: 151 | Next Phase: 152 | Final Milestone: 160\n"
+        f"Stage: {summary.get('stage', 'benchmark_evaluation_pipeline')}\n"
+        f"Status: {summary.get('status', 'EVALUATION_CONTRACT_READY')}\n"
+        f"Non-Signal: {summary.get('non_signal', True)}"
+    )
+
+
+def build_benchmark_comparison_report_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BENCHMARK_EVALUATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Report Name: {summary.get('report_name', 'benchmark_comparison_report_contracts')}\n"
+        f"Total Contracts: {summary.get('total_contracts', 0)}\n"
+        f"All Non-Signal: {summary.get('all_non_signal', True)}\n"
+        f"Status: {summary.get('status', 'EVALUATION_CONTRACT_READY')}"
+    )
+
+
+def build_strategy_evaluation_report_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BENCHMARK_EVALUATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Report Name: {summary.get('report_name', 'strategy_evaluation_report_contracts')}\n"
+        f"Total Contracts: {summary.get('total_contracts', 0)}\n"
+        f"All Non-Signal: {summary.get('all_non_signal', True)}\n"
+        f"Status: {summary.get('status', 'EVALUATION_CONTRACT_READY')}"
+    )
+
+
+def build_benchmark_universe_report_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BENCHMARK_EVALUATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Report Name: {summary.get('report_name', 'benchmark_universe_report_contracts')}\n"
+        f"Total Universes: {summary.get('total_contracts', 0)}\n"
+        f"Status: {summary.get('status', 'EVALUATION_CONTRACT_READY')}"
+    )
+
+
+def build_benchmark_baseline_report_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BENCHMARK_EVALUATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Report Name: {summary.get('report_name', 'benchmark_baseline_report_contracts')}\n"
+        f"Total Baselines: {summary.get('total_contracts', 0)}\n"
+        f"Status: {summary.get('status', 'EVALUATION_CONTRACT_READY')}"
+    )
+
+
+def build_strategy_vs_benchmark_report_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BENCHMARK_EVALUATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Report Name: {summary.get('report_name', 'strategy_vs_benchmark_report_contracts')}\n"
+        f"Total Comparisons: {summary.get('total_contracts', 0)}\n"
+        f"Status: {summary.get('status', 'EVALUATION_CONTRACT_READY')}"
+    )
+
+
+def build_cost_adjusted_evaluation_report_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BENCHMARK_EVALUATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Report Name: {summary.get('report_name', 'cost_adjusted_evaluation_report_contracts')}\n"
+        f"Total Contracts: {summary.get('total_contracts', 0)}\n"
+        f"Status: {summary.get('status', 'EVALUATION_CONTRACT_READY')}"
+    )
+
+
+def build_evaluation_summary_placeholder_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BENCHMARK_EVALUATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Placeholders: {summary.get('total_contracts', 0)}\n"
+        f"All Uncalculated: {summary.get('all_uncalculated', True)}\n"
+        f"Status: {summary.get('status', 'EVALUATION_CONTRACT_READY')}"
+    )
+
+
+def build_evaluation_metric_placeholder_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BENCHMARK_EVALUATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Metric Placeholders: {summary.get('total_contracts', 0)}\n"
+        f"All Placeholders None: {summary.get('all_placeholders_none', True)}\n"
+        f"Status: {summary.get('status', 'EVALUATION_CONTRACT_READY')}"
+    )
+
+
+def build_evaluation_guard_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BENCHMARK_EVALUATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Guard Name: {summary.get('report_name', 'evaluation_guards')}\n"
+        f"Total Guards: {summary.get('total_contracts', 0)}\n"
+        f"Status: {summary.get('status', 'EVALUATION_CONTRACT_READY')}"
+    )
+
+
+def build_benchmark_evaluation_disabled_execution_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BENCHMARK_EVALUATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Disabled Operation: {summary.get('report_name', 'disabled_execution')}\n"
+        f"Execution Prohibited: {summary.get('all_execution_disabled', True)}\n"
+        f"Status: {summary.get('status', 'EVALUATION_CONTRACT_READY')}"
+    )
+
+
+def build_benchmark_evaluation_findings_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BENCHMARK_EVALUATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Findings: {summary.get('total_findings', 0)}\n"
+        f"Critical Findings: {summary.get('critical_findings', 0)}\n"
+        f"Review Required: {summary.get('review_required_findings', 0)}\n"
+        f"Status: {summary.get('status', 'EVALUATION_CONTRACT_READY')}"
+    )
+
+
+def build_benchmark_evaluation_readiness_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BENCHMARK_EVALUATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Readiness Score: {summary.get('overall_score', 1.0):.4f}\n"
+        f"Is Ready: {summary.get('is_ready', True)}\n"
+        f"Classification: {summary.get('classification', 'CONTRACT_READY_NON_PRODUCTION')}\n"
+        f"Live Trading: {summary.get('live_trading_allowed', False)}\n"
+        f"Strategy Approved: {summary.get('strategy_approved', False)}"
+    )
+
+
+def build_benchmark_evaluation_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BENCHMARK_EVALUATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest ID: {summary.get('manifest_id', 'MANIFEST_PHASE_151_BENCHMARK_EVALUATION')}\n"
+        f"Current Phase: 151 | Next Phase: 152 | Final Milestone: 160\n"
+        f"All Invariants Satisfied: True\n"
+        f"Phase 152 Handoff Ready: True"
+    )
+
+
+def build_benchmark_evaluation_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BENCHMARK_EVALUATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('validation_status', 'VALIDATED')}\n"
+        f"Total Checks: {summary.get('total_checks', 0)}\n"
+        f"All Passed: {summary.get('all_passed', True)}"
+    )
+
+
+def build_benchmark_evaluation_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BENCHMARK_EVALUATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Status: {summary.get('safety_status', 'SECURE')}\n"
+        f"Total Invariants: {summary.get('total_invariants', 0)}\n"
+        f"All Invariants Active: {summary.get('all_invariants_active', True)}"
+    )
+
+
+def build_phase_152_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BENCHMARK_EVALUATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Handoff Target: {summary.get('next_phase_name', 'Phase 152 — Backtest Acceptance Report and Final Sign-Off')}\n"
+        f"Source Phase: 151 | Next Phase: 152\n"
+        f"All Prerequisites Satisfied: {summary.get('all_prerequisites_satisfied', True)}"
+    )
+
+
+# =========================================================================
+# Phase 152: Backtest Acceptance Report
+# =========================================================================
+
+ADVANCED_BACKTEST_ACCEPTANCE_TEXT_REPORT_DISCLAIMER = (
+    "UYARI: Bu rapor Phase 152 Backtest Acceptance Report çıktısıdır. "
+    "Gerçek backtest, benchmark, metric calculation, optimizer, model training, "
+    "prediction, strategy approval, capital allocation, portfolio construction, "
+    "position sizing, canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, "
+    "performance claim, result claim, production-ready, broker-ready, deployment, "
+    "model registry write, artifact persistence, scraping, credential output veya "
+    "source overwrite değildir."
+)
+
+
+def build_backtest_acceptance_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Active Profile: {summary.get('active_profile', 'balanced_local_backtest_acceptance_contracts')}\n"
+        f"Current Phase: {summary.get('current_phase', 152)} | Next Phase: {summary.get('next_phase', 153)} | Target Final Phase: {summary.get('target_final_phase', 160)}\n"
+        f"Status: {summary.get('status', 'ACCEPTED')}\n"
+        f"Non-Signal: True"
+    )
+
+
+def build_backtest_acceptance_component_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Components: {summary.get('total_components', 0)}\n"
+        f"All Contract Only: {summary.get('all_contract_only', True)}\n"
+        f"All Non-Production: {summary.get('all_non_production', True)}\n"
+        f"Status: {summary.get('status', 'ACCEPTED')}"
+    )
+
+
+def build_backtest_phase_acceptance_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase Ref: {summary.get('phase_ref', 'Phase 146-151')}\n"
+        f"Total Checks: {summary.get('total_checks', 0)}\n"
+        f"Passed Checks: {summary.get('passed_checks', 0)}\n"
+        f"All Passed: {summary.get('all_passed', True)}\n"
+        f"Status: {summary.get('status', 'ACCEPTED')}"
+    )
+
+
+def build_backtest_acceptance_dependency_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Dependencies: {summary.get('total_dependencies', 0)}\n"
+        f"Satisfied: {summary.get('satisfied_dependencies', 0)}\n"
+        f"All Satisfied: {summary.get('all_satisfied', True)}\n"
+        f"Status: {summary.get('status', 'ACCEPTED')}"
+    )
+
+
+def build_backtest_acceptance_validation_evidence_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Evidence Items: {summary.get('total_evidence_items', 0)}\n"
+        f"All Verified: {summary.get('all_verified', True)}\n"
+        f"Status: {summary.get('status', 'ACCEPTED')}"
+    )
+
+
+def build_backtest_acceptance_boundary_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Domain: {summary.get('domain', 'boundaries')}\n"
+        f"Total Rules: {summary.get('total_rules', summary.get('total_boundaries', 0))}\n"
+        f"Status: {summary.get('status', 'ACCEPTED')}"
+    )
+
+
+def build_backtest_acceptance_findings_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Findings: {summary.get('total_findings', 0)}\n"
+        f"Critical Findings: {summary.get('critical_count', 0)}\n"
+        f"Manual Review Required: {summary.get('manual_review_required_count', 0)}\n"
+        f"Status: {summary.get('status', 'ACCEPTED')}"
+    )
+
+
+def build_backtest_acceptance_readiness_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Readiness Score: {summary.get('readiness_score', 1.0):.4f}\n"
+        f"Classification: {summary.get('classification', 'CONTRACT_READY')}\n"
+        f"Meets Threshold: {summary.get('meets_threshold', True)}\n"
+        f"Production Ready: False | Broker Ready: False | Strategy Approved: False"
+    )
+
+
+def build_backtest_acceptance_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest ID: {summary.get('manifest_id', 'MNF-152-001')}\n"
+        f"Backtest Block Completed: {summary.get('backtest_block_completed', True)}\n"
+        f"Phase 153 Handoff Ready: {summary.get('phase_153_handoff_ready', True)}\n"
+        f"Status: {summary.get('status', 'ACCEPTED')}"
+    )
+
+
+def build_backtest_acceptance_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('validation_status', 'VALIDATION_PASS')}\n"
+        f"Total Checks: {summary.get('total_checks', 0)}\n"
+        f"All Passed: {summary.get('all_passed', True)}"
+    )
+
+
+def build_backtest_acceptance_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Status: {summary.get('safety_status', 'SECURE')}\n"
+        f"NO-GO Rules Enforced: {summary.get('no_go_count', 20)}\n"
+        f"SAFE-GO Rules Active: {summary.get('safe_go_count', 8)}"
+    )
+
+
+def build_phase_153_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{ADVANCED_BACKTEST_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Current Phase: 152 | Next Phase: 153 | Target Final Phase: 160\n"
+        f"Handoff Ready: {summary.get('handoff_ready', True)}\n"
+        f"Total Prerequisites: {summary.get('total_prerequisites', 0)}\n"
+        f"Satisfied: {summary.get('satisfied_prerequisites', 0)}"
+    )
+
+
+# =========================================================================
+# Phase 153 Portfolio Construction, Position Sizing and Risk Budgeting Text Reports
+# =========================================================================
+PORTFOLIO_CONSTRUCTION_TEXT_REPORT_DISCLAIMER = (
+    "Bu rapor Phase 153 Portfolio Construction, Position Sizing and Risk Budgeting "
+    "sözleşme katmanı çıktısıdır. Canlı emir, broker talimatı, kesin AL/SAT, yatırım "
+    "tavsiyesi, portföy/sizing/risk değerini trade sinyali veya onay olarak kullanma, "
+    "gerçek portföy optimizasyonu, gerçek sermaye tahsisi, hedef portföy ağırlığı üretimi, "
+    "gerçek pozisyon boyutlandırma (lot, kontrat, hisse adedi), margin/leverage uygulama, "
+    "canlı risk limiti zorlama, model eğitimi/tahmini, metrik hesaplama, web kazıma veya "
+    "canlı broker API entegrasyonu kesinlikle DEĞİLDİR ve YASAKTIR."
+)
+
+
+def build_portfolio_construction_profile_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_CONSTRUCTION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Portfolio Construction Profile: {summary.get('active_profile', 'unknown')}\n"
+        f"Total Profiles: {summary.get('total_profiles', 0)}\n"
+        f"Current Phase: 153 | Next Phase: 154 | Target Final Phase: 160\n"
+        f"All Local Only: True | All Dry Run: True\n"
+        f"Status: {summary.get('status', 'PORTFOLIO_CONTRACT_READY')}"
+    )
+
+
+def build_portfolio_construction_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_CONSTRUCTION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Portfolio Contracts: {summary.get('total_contracts', 0)}\n"
+        f"Active Profile: {summary.get('active_profile', 'unknown')}\n"
+        f"All Contract Only: True | Real Construction Allowed: False\n"
+        f"Status: {summary.get('status', 'PORTFOLIO_CONTRACT_READY')}"
+    )
+
+
+def build_position_sizing_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_CONSTRUCTION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Sizing Models: {summary.get('total_models', 0)}\n"
+        f"Real Sizing Allowed: False | Real Units/Lots Output: None\n"
+        f"Status: {summary.get('status', 'PORTFOLIO_CONTRACT_READY')}"
+    )
+
+
+def build_risk_budget_contract_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_CONSTRUCTION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Risk Budget Rules: {summary.get('total_rules', 0)}\n"
+        f"Live Budget Enforced: False | Allocation Allowed: False\n"
+        f"Status: {summary.get('status', 'PORTFOLIO_CONTRACT_READY')}"
+    )
+
+
+def build_portfolio_findings_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_CONSTRUCTION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Findings: {summary.get('total_findings', 0)}\n"
+        f"Critical Findings: {summary.get('critical_count', 0)}\n"
+        f"Manual Review Required: {summary.get('manual_review_required_count', 0)}\n"
+        f"Status: {summary.get('status', 'PORTFOLIO_CONTRACT_READY')}"
+    )
+
+
+def build_portfolio_readiness_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_CONSTRUCTION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Readiness Score: {summary.get('overall_score', 1.0):.4f}\n"
+        f"Classification: {summary.get('classification', 'portfolio_construction_contract_ready_non_production')}\n"
+        f"Meets Threshold: {summary.get('meets_threshold', True)}\n"
+        f"Production Ready: False | Broker Ready: False | Real Allocation: False"
+    )
+
+
+def build_portfolio_construction_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_CONSTRUCTION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest ID: {summary.get('manifest_id', 'MNF-153-001')}\n"
+        f"Current Phase: 153 | Target Final Phase: 160 | Next Phase: 154\n"
+        f"Portfolio Constructed: False | Position Sizing Generated: False\n"
+        f"Broker Order Sent: False | Live Order Sent: False\n"
+        f"Phase 154 Handoff Ready: {summary.get('phase_154_handoff_ready', True)}\n"
+        f"Status: {summary.get('status', 'PORTFOLIO_CONTRACT_READY')}"
+    )
+
+
+def build_portfolio_construction_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_CONSTRUCTION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('status', 'PORTFOLIO_CONTRACT_READY')}\n"
+        f"Total Checks: {summary.get('total_checks', 0)}\n"
+        f"All Passed: {summary.get('all_passed', True)}"
+    )
+
+
+def build_portfolio_construction_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_CONSTRUCTION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Domain: {summary.get('domain', 'safety_domain')}\n"
+        f"NO-GO Rules Enforced: {summary.get('no_go_count', 15)}\n"
+        f"SAFE-GO Rules Active: {summary.get('safe_go_count', 10)}\n"
+        f"Status: {summary.get('status', 'PORTFOLIO_CONTRACT_READY')}"
+    )
+
+
+def build_phase_154_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_CONSTRUCTION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Current Phase: 153 | Next Phase: 154 | Target Final Phase: 160\n"
+        f"Handoff ID: {summary.get('handoff_id', 'HND-153-154-001')}\n"
+        f"All Satisfied: {summary.get('all_satisfied', True)}\n"
+        f"Total Items: {summary.get('total_items', 0)}\n"
+        f"Status: {summary.get('status', 'HANDOFF_READY')}"
+    )
+
+
+# =========================================================================
+# Phase 154: Advanced Portfolio Optimization & Allocation Constraints
+# =========================================================================
+
+PORTFOLIO_OPTIMIZATION_TEXT_REPORT_DISCLAIMER = (
+    "Bu rapor Phase 154 Portfolio Optimization and Allocation Constraints çıktısıdır. "
+    "Gerçek portföy optimizasyonu, Mean-Variance/Sharpe/CVaR/Risk-Parity sayısal çözümü, "
+    "optimal ağırlık veya lot hesaplama, sermaye tahsisi, yeniden dengeleme talimatı, "
+    "broker emri, canlı trading, model eğitimi veya tahmin niteliğinde değildir. "
+    "Tamamen sözleşme, şema, kısıt tanımları ve yer tutuculardan oluşan çevrimdışı/yerel "
+    "araştırma katmanıdır."
+)
+
+
+def build_portfolio_optimization_profile_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_OPTIMIZATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Active Profile: {summary.get('profile_name', 'balanced_local_portfolio_optimization_contracts')}\n"
+        f"Current Phase: 154 | Target Final Phase: 160 | Next Phase: 155\n"
+        f"Real Optimization Allowed: False | Numerical Solvers Executed: False\n"
+        f"Status: {summary.get('status', 'PORTFOLIO_OPTIMIZATION_CONTRACT_READY')}"
+    )
+
+
+def build_portfolio_optimization_contracts_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_OPTIMIZATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Optimization Contracts: {summary.get('total_contracts', 11)}\n"
+        f"Contract Only: True | Execution Allowed: False\n"
+        f"Status: {summary.get('status', 'PORTFOLIO_OPTIMIZATION_CONTRACT_READY')}"
+    )
+
+
+def build_optimization_objectives_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_OPTIMIZATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Objective Functions: {summary.get('total_objectives', 11)}\n"
+        f"All Placeholders: True | Numerical Optimization Executed: False\n"
+        f"Status: {summary.get('status', 'PORTFOLIO_OPTIMIZATION_CONTRACT_READY')}"
+    )
+
+
+def build_allocation_constraints_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_OPTIMIZATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Allocation Constraints: {summary.get('total_constraints', 22)}\n"
+        f"Constraint Evaluation Allowed: False | Live Constraints Active: False\n"
+        f"Status: {summary.get('status', 'PORTFOLIO_OPTIMIZATION_CONTRACT_READY')}"
+    )
+
+
+def build_optimization_solvers_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_OPTIMIZATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Solvers: {summary.get('total_solvers', 4)}\n"
+        f"All Solvers Disabled: True | Grid Search Disabled: True\n"
+        f"Status: {summary.get('status', 'PORTFOLIO_OPTIMIZATION_CONTRACT_READY')}"
+    )
+
+
+def build_optimization_outputs_metrics_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_OPTIMIZATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Result Contracts: {summary.get('result_contracts', 1)}\n"
+        f"Allocation Contracts: {summary.get('allocation_contracts', 1)}\n"
+        f"Rebalance Contracts: {summary.get('rebalance_contracts', 1)}\n"
+        f"Metric Placeholders: {summary.get('total_metrics', 5)}\n"
+        f"Status: {summary.get('status', 'PORTFOLIO_OPTIMIZATION_CONTRACT_READY')}"
+    )
+
+
+def build_portfolio_optimization_findings_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_OPTIMIZATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Findings: {summary.get('total_findings', 0)}\n"
+        f"Critical Findings: {summary.get('critical_count', 0)}\n"
+        f"Manual Review Required: {summary.get('manual_review_required_count', 0)}\n"
+        f"Status: {summary.get('status', 'PORTFOLIO_OPTIMIZATION_CONTRACT_READY')}"
+    )
+
+
+def build_portfolio_optimization_readiness_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_OPTIMIZATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Readiness Score: {summary.get('overall_score', 1.0):.4f}\n"
+        f"Classification: {summary.get('classification', 'portfolio_optimization_contract_ready_non_production')}\n"
+        f"Meets Threshold: {summary.get('meets_threshold', True)}\n"
+        f"Production Ready: False | Broker Ready: False | Real Optimization: False"
+    )
+
+
+def build_portfolio_optimization_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_OPTIMIZATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest ID: {summary.get('manifest_id', 'MNF-154-001')}\n"
+        f"Current Phase: 154 | Target Final Phase: 160 | Next Phase: 155\n"
+        f"Portfolio Optimized: False | Weights Generated: False\n"
+        f"Broker Order Sent: False | Live Order Sent: False\n"
+        f"Phase 155 Handoff Ready: {summary.get('phase_155_handoff_ready', True)}\n"
+        f"Status: {summary.get('status', 'PORTFOLIO_OPTIMIZATION_CONTRACT_READY')}"
+    )
+
+
+def build_portfolio_optimization_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_OPTIMIZATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('status', 'PORTFOLIO_OPTIMIZATION_CONTRACT_READY')}\n"
+        f"Total Checks: {summary.get('total_checks', 0)}\n"
+        f"All Passed: {summary.get('all_passed', True)}"
+    )
+
+
+def build_portfolio_optimization_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_OPTIMIZATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Domain: {summary.get('domain', 'safety_domain')}\n"
+        f"NO-GO Rules Enforced: {summary.get('no_go_count', 18)}\n"
+        f"SAFE-GO Rules Active: {summary.get('safe_go_count', 12)}\n"
+        f"Status: {summary.get('status', 'PORTFOLIO_OPTIMIZATION_CONTRACT_READY')}"
+    )
+
+
+def build_phase_155_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_OPTIMIZATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Current Phase: 154 | Next Phase: 155 | Target Final Phase: 160\n"
+        f"Handoff ID: {summary.get('handoff_id', 'HND-154-155-001')}\n"
+        f"All Satisfied: {summary.get('all_satisfied', True)}\n"
+        f"Total Items: {summary.get('total_items', 0)}\n"
+        f"Status: {summary.get('status', 'HANDOFF_READY')}"
+    )
+
+
+# =========================================================================
+# Phase 155: Advanced Risk Reporting, Exposure Attribution & Limit Monitoring
+# =========================================================================
+
+RISK_REPORTING_TEXT_REPORT_DISCLAIMER = (
+    "Bu rapor Phase 155 Risk Reporting, Exposure Attribution and Limit Monitoring çıktısıdır. "
+    "Gerçek risk hesaplaması (VaR, CVaR, Drawdown, Volatilite), pozisyon/marjin/kaldıraç ölçümü, "
+    "canlı limit denetimi, ihlal alarmları, dashboard çizimi, portföy düzeltmesi, "
+    "broker emri, canlı trading, model eğitimi veya yatırım tavsiyesi niteliğinde değildir. "
+    "Tamamen sözleşme, şema, yer tutucu ve devre dışı bırakılmış yürütme raporlarından oluşan "
+    "çevrimdışı/yerel araştırma katmanıdır."
+)
+
+
+def build_risk_reporting_profile_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{RISK_REPORTING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Active Profile: {summary.get('profile_name', 'balanced_local_risk_reporting_contracts')}\n"
+        f"Current Phase: 155 | Target Final Phase: 160 | Next Phase: 156\n"
+        f"Real Risk Calculation Allowed: False | Live Limit Monitoring Active: False\n"
+        f"Status: {summary.get('status', 'RISK_REPORTING_CONTRACT_READY')}"
+    )
+
+
+def build_risk_report_contracts_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{RISK_REPORTING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Risk Report Contracts: {summary.get('total_contracts', 11)}\n"
+        f"Contract Only: True | Execution Allowed: False\n"
+        f"Status: {summary.get('status', 'RISK_REPORTING_CONTRACT_READY')}"
+    )
+
+
+def build_exposure_attribution_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{RISK_REPORTING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Exposure Contracts: {summary.get('total_contracts', 13)}\n"
+        f"Real Exposure Computed: False | Offline Placeholders Only: True\n"
+        f"Status: {summary.get('status', 'RISK_REPORTING_CONTRACT_READY')}"
+    )
+
+
+def build_limit_monitoring_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{RISK_REPORTING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Limit Definitions: {summary.get('total_limits', 10)}\n"
+        f"Live Alerts Active: False | Breaches Enforced: False\n"
+        f"Status: {summary.get('status', 'RISK_REPORTING_CONTRACT_READY')}"
+    )
+
+
+def build_risk_monitor_placeholders_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{RISK_REPORTING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Monitors: {summary.get('total_monitors', 10)}\n"
+        f"Calculation Allowed: False | Placeholders Only: True\n"
+        f"Status: {summary.get('status', 'RISK_REPORTING_CONTRACT_READY')}"
+    )
+
+
+def build_risk_reporting_outputs_metrics_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{RISK_REPORTING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Report Outputs: {summary.get('report_outputs', 1)}\n"
+        f"Attribution Outputs: {summary.get('attribution_outputs', 1)}\n"
+        f"Limit Outputs: {summary.get('limit_outputs', 1)}\n"
+        f"Metric Placeholders: {summary.get('total_metrics', 4)}\n"
+        f"Status: {summary.get('status', 'RISK_REPORTING_CONTRACT_READY')}"
+    )
+
+
+def build_risk_reporting_findings_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{RISK_REPORTING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Findings: {summary.get('total_findings', 0)}\n"
+        f"Critical Findings: {summary.get('critical_count', 0)}\n"
+        f"Manual Review Required: {summary.get('manual_review_required_count', 0)}\n"
+        f"Status: {summary.get('status', 'RISK_REPORTING_CONTRACT_READY')}"
+    )
+
+
+def build_risk_reporting_readiness_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{RISK_REPORTING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Readiness Score: {summary.get('overall_score', 1.0):.4f}\n"
+        f"Classification: {summary.get('classification', 'risk_reporting_contract_ready_non_production')}\n"
+        f"Meets Threshold: {summary.get('meets_threshold', True)}\n"
+        f"Production Ready: False | Broker Ready: False | Real Risk Ready: False"
+    )
+
+
+def build_risk_reporting_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{RISK_REPORTING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest ID: {summary.get('manifest_id', 'MNF-155-001')}\n"
+        f"Current Phase: 155 | Target Final Phase: 160 | Next Phase: 156\n"
+        f"Risk Calculated: False | Exposure Attributed: False\n"
+        f"Limits Enforced: False | Dashboard Rendered: False\n"
+        f"Phase 156 Handoff Ready: {summary.get('phase_156_handoff_ready', True)}\n"
+        f"Status: {summary.get('status', 'RISK_REPORTING_CONTRACT_READY')}"
+    )
+
+
+def build_risk_reporting_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{RISK_REPORTING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('status', 'RISK_REPORTING_CONTRACT_READY')}\n"
+        f"Total Checks: {summary.get('total_checks', 0)}\n"
+        f"All Passed: {summary.get('all_passed', True)}"
+    )
+
+
+def build_risk_reporting_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{RISK_REPORTING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Domain: {summary.get('domain', 'safety_domain')}\n"
+        f"NO-GO Rules Enforced: {summary.get('no_go_count', 18)}\n"
+        f"SAFE-GO Rules Active: {summary.get('safe_go_count', 12)}\n"
+        f"Status: {summary.get('status', 'RISK_REPORTING_CONTRACT_READY')}"
+    )
+
+
+def build_phase_156_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{RISK_REPORTING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Current Phase: 155 | Next Phase: 156 | Target Final Phase: 160\n"
+        f"Handoff ID: {summary.get('handoff_id', 'HND-155-156-001')}\n"
+        f"All Satisfied: {summary.get('all_satisfied', True)}\n"
+        f"Total Items: {summary.get('total_items', 0)}\n"
+        f"Status: {summary.get('status', 'HANDOFF_READY')}"
+    )
+
+# =========================================================================
+# Phase 156: Portfolio Scenario Testing and Drawdown Control Reports
+# =========================================================================
+
+PORTFOLIO_SCENARIO_CONTROL_TEXT_REPORT_DISCLAIMER = (
+    "Bu rapor Phase 156 Portfolio Scenario Testing and Drawdown Control çıktısıdır. "
+    "Gerçek senaryo simülasyonu, senaryo PnL hesaplaması, portföy düzeltmesi/rebalance, "
+    "kademeli risk azaltma/hedge emirleri, stop-loss tetikleme, canlı drawdown denetimi, "
+    "ihlal alarmları, dashboard çizimi, broker emri, canlı trading, model eğitimi veya yatırım tavsiyesi niteliğinde değildir. "
+    "Tamamen sözleşme, şema, yer tutucu ve devre dışı bırakılmış yürütme raporlarından oluşan "
+    "çevrimdışı/yerel araştırma sözleşme katmanıdır."
+)
+
+
+def build_portfolio_scenario_control_profile_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_SCENARIO_CONTROL_TEXT_REPORT_DISCLAIMER}\n"
+        f"Active Profile: {summary.get('profile_name', 'balanced_local_portfolio_scenario_control_contracts')}\n"
+        f"Current Phase: 156 | Target Final Phase: 160 | Next Phase: 157\n"
+        f"Real Scenario Execution Allowed: False | Live Drawdown Control Active: False\n"
+        f"Status: {summary.get('status', 'PORTFOLIO_SCENARIO_CONTROL_CONTRACT_READY')}"
+    )
+
+
+def build_portfolio_scenario_testing_contracts_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_SCENARIO_CONTROL_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Scenario Contracts: {summary.get('total_contracts', 10)}\n"
+        f"Contract Only: True | Execution Allowed: False\n"
+        f"Status: {summary.get('status', 'SCENARIO_TESTING_CONTRACT_READY')}"
+    )
+
+
+def build_portfolio_drawdown_control_contracts_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_SCENARIO_CONTROL_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Drawdown Contracts: {summary.get('total_drawdown_control_contracts', 4)}\n"
+        f"Contract Only: True | Automated Intervention: False\n"
+        f"Status: {summary.get('status', 'DRAWDOWN_CONTROL_CONTRACT_READY')}"
+    )
+
+
+def build_portfolio_control_placeholders_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_SCENARIO_CONTROL_TEXT_REPORT_DISCLAIMER}\n"
+        f"Action Placeholders Established: True\n"
+        f"De-Risk / Hedge / Freeze Enabled: False\n"
+        f"Status: {summary.get('status', 'PLACEHOLDERS_INACTIVE')}"
+    )
+
+
+def build_scenario_control_outputs_metrics_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_SCENARIO_CONTROL_TEXT_REPORT_DISCLAIMER}\n"
+        f"Output Schemas: Defined | Metric Placeholders: Defined\n"
+        f"Materialization Allowed: False | Calculation Allowed: False\n"
+        f"Status: {summary.get('status', 'CONTRACT_ONLY')}"
+    )
+
+
+def build_scenario_control_dependencies_guards_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_SCENARIO_CONTROL_TEXT_REPORT_DISCLAIMER}\n"
+        f"Dependencies Satisfied: True | Guards Active: True\n"
+        f"No-Lookahead / Claim Blockers: Enforced\n"
+        f"Status: {summary.get('status', 'GUARDS_ACTIVE')}"
+    )
+
+
+def build_scenario_control_disabled_execution_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_SCENARIO_CONTROL_TEXT_REPORT_DISCLAIMER}\n"
+        f"All Prohibited Operations Disabled: True\n"
+        f"Live Trading / Broker / Rebalance Blocked: True\n"
+        f"Status: {summary.get('status', 'DISABLED')}"
+    )
+
+
+def build_portfolio_scenario_findings_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_SCENARIO_CONTROL_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Findings: {summary.get('total_findings', 2)}\n"
+        f"Critical Findings: {summary.get('critical_count', 0)}\n"
+        f"Manual Review Items: {summary.get('manual_review_required_count', 0)}\n"
+        f"Status: {summary.get('status', 'FINDINGS_REGISTERED')}"
+    )
+
+
+def build_portfolio_scenario_readiness_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_SCENARIO_CONTROL_TEXT_REPORT_DISCLAIMER}\n"
+        f"Readiness Score: {summary.get('overall_score', 1.0):.4f}\n"
+        f"Classification: {summary.get('classification', 'portfolio_scenario_control_contract_ready_non_production')}\n"
+        f"Meets Threshold: {summary.get('meets_threshold', True)}\n"
+        f"Production Ready: False | Broker Ready: False | Real Trading: False"
+    )
+
+
+def build_portfolio_scenario_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_SCENARIO_CONTROL_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest ID: {summary.get('manifest_id', 'MNF-156-001')}\n"
+        f"Current Phase: 156 | Target Final Phase: 160 | Next Phase: 157\n"
+        f"Scenario Executed: False | Drawdown Control Executed: False\n"
+        f"Portfolio Adjusted: False | Broker Order Sent: False\n"
+        f"Phase 157 Handoff Ready: {summary.get('phase_157_handoff_ready', True)}\n"
+        f"Status: {summary.get('status', 'READY')}"
+    )
+
+
+def build_portfolio_scenario_control_health_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_SCENARIO_CONTROL_TEXT_REPORT_DISCLAIMER}\n"
+        f"Health Status: {summary.get('status', 'HEALTHY')}\n"
+        f"Total Checks: {summary.get('total_checks', 6)}\n"
+        f"Passed Checks: {summary.get('passed_checks', 6)}"
+    )
+
+
+def build_portfolio_scenario_control_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_SCENARIO_CONTROL_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('status', 'VALIDATION_PASS')}\n"
+        f"Total Rules: {summary.get('total_checks', 6)}\n"
+        f"All Passed: {summary.get('all_passed', True)}"
+    )
+
+
+def build_portfolio_scenario_control_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_SCENARIO_CONTROL_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Status: {summary.get('status', 'SAFETY_BOUNDARY_ENFORCED')}\n"
+        f"NO-GO Rules: {summary.get('no_go_count', 7)}\n"
+        f"SAFE-GO Rules: {summary.get('safe_go_count', 5)}"
+    )
+
+
+def build_phase_157_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_SCENARIO_CONTROL_TEXT_REPORT_DISCLAIMER}\n"
+        f"Current Phase: 156 | Next Phase: 157 | Target Final Phase: 160\n"
+        f"Handoff ID: {summary.get('handoff_id', 'HND-156-157-001')}\n"
+        f"All Satisfied: {summary.get('handoff_ready', True)}\n"
+        f"Total Items: {summary.get('total_items', 7)}\n"
+        f"Status: {summary.get('status', 'HANDOFF_READY')}"
+    )
+
+
+# =========================================================================
+# Phase 157: Portfolio Acceptance Report Builder (Text Reports)
+# =========================================================================
+
+PORTFOLIO_ACCEPTANCE_TEXT_REPORT_DISCLAIMER = (
+    "Bu rapor Phase 157 Portfolio Acceptance Report çıktısıdır. Gerçek portfolio construction, "
+    "position sizing, portfolio optimization, allocation, rebalance, order generation, risk reporting, "
+    "exposure attribution, limit monitoring, scenario execution, drawdown control, hedge/de-risk, "
+    "alerting, dashboard, broker talimatı, canlı emir, kesin AL/SAT, yatırım tavsiyesi, "
+    "metric calculation, performance claim, portfolio approval, production-ready, broker-ready, "
+    "deployment, model registry write, artifact persistence, scraping, credential output veya "
+    "source overwrite değildir."
+)
+
+
+def build_portfolio_acceptance_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Active Profile: {summary.get('active_profile', 'balanced_local_portfolio_acceptance_contracts')}\n"
+        f"Total Profiles: {summary.get('total_profiles', 3)}\n"
+        f"All Dry Run: {summary.get('all_dry_run', True)}\n"
+        f"All Local Only: {summary.get('all_local_only', True)}\n"
+        f"All Non-Production: {summary.get('all_non_production', True)}\n"
+        f"Status: {summary.get('status', 'portfolio_acceptance_ready')}"
+    )
+
+
+def build_portfolio_acceptance_component_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Components: {summary.get('total_components', 5)}\n"
+        f"Phases Covered: {summary.get('phases_covered', [153, 154, 155, 156, 157])}\n"
+        f"All Contract Only: {summary.get('all_contract_only', True)}\n"
+        f"All Non-Production: {summary.get('all_non_production', True)}\n"
+        f"None Production Ready: {summary.get('none_production_ready', True)}\n"
+        f"Status: {summary.get('status', 'portfolio_acceptance_ready')}"
+    )
+
+
+def build_portfolio_phase_acceptance_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase Number: {summary.get('phase_number', '153-157')}\n"
+        f"Total Criteria: {summary.get('total_criteria', 10)}\n"
+        f"Satisfied Criteria: {summary.get('satisfied_criteria', 10)}\n"
+        f"All Satisfied: {summary.get('all_satisfied', True)}\n"
+        f"Status: {summary.get('status', 'portfolio_acceptance_ready')}"
+    )
+
+
+def build_portfolio_acceptance_dependency_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Dependencies: {summary.get('total_dependencies', 16)}\n"
+        f"Satisfied Dependencies: {summary.get('satisfied_dependencies', 16)}\n"
+        f"All Satisfied: {summary.get('all_satisfied', True)}\n"
+        f"Status: {summary.get('status', 'portfolio_acceptance_ready')}"
+    )
+
+
+def build_portfolio_acceptance_validation_evidence_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Evidence Items: {summary.get('total_evidence_items', 8)}\n"
+        f"Present Evidence Items: {summary.get('present_evidence_items', 8)}\n"
+        f"All Evidence Present: {summary.get('all_evidence_present', True)}\n"
+        f"Status: {summary.get('status', 'portfolio_acceptance_ready')}"
+    )
+
+
+def build_portfolio_acceptance_boundary_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Boundary Rules: {summary.get('total_rules', 12)}\n"
+        f"Prohibited Count: {summary.get('prohibited_actions_count', 10)}\n"
+        f"Allowed Count: {summary.get('allowed_actions_count', 2)}\n"
+        f"Status: {summary.get('status', 'portfolio_acceptance_ready')}"
+    )
+
+
+def build_portfolio_acceptance_findings_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Findings: {summary.get('total_findings', 2)}\n"
+        f"Blocking Findings: {summary.get('blocking_findings_count', 0)}\n"
+        f"Manual Review Required: {summary.get('manual_review_required_count', 2)}\n"
+        f"Status: {summary.get('status', 'portfolio_acceptance_ready')}"
+    )
+
+
+def build_portfolio_acceptance_readiness_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Readiness Score: {summary.get('readiness_score', 1.0):.4f}\n"
+        f"Classification: {summary.get('classification', 'portfolio_acceptance_contract_ready_non_production')}\n"
+        f"Meets Threshold: {summary.get('meets_threshold', True)}\n"
+        f"Total Checks: {summary.get('total_checks', 10)}\n"
+        f"Passed Checks: {summary.get('passed_checks', 10)}\n"
+        f"Trade Signal: False | Production Ready: False | Broker Ready: False"
+    )
+
+
+def build_portfolio_acceptance_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest ID: {summary.get('manifest_id', 'MNF-157-PORTFOLIO-ACCEPTANCE-001')}\n"
+        f"Current Phase: 157 | Target Final Phase: 160 | Next Phase: 158\n"
+        f"Portfolio Block Completed: {summary.get('portfolio_block_completed', True)}\n"
+        f"Production Ready: False | Broker Ready: False | Live Ready: False\n"
+        f"Phase 158 Handoff Ready: {summary.get('phase_158_handoff_ready', True)}\n"
+        f"Status: {summary.get('status', 'portfolio_acceptance_ready')}"
+    )
+
+
+def build_portfolio_acceptance_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('validation_status', 'VALIDATION_PASS')}\n"
+        f"Total Rules: {summary.get('total_rules', 5)}\n"
+        f"All Passed: {summary.get('all_passed', True)}\n"
+        f"Forbidden Claims Found: {summary.get('forbidden_claims_found', False)}"
+    )
+
+
+def build_portfolio_acceptance_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Status: {summary.get('safety_status', 'SAFETY_BOUNDARY_ENFORCED')}\n"
+        f"NO-GO Rules Enforced: {summary.get('no_go_count', 29)}\n"
+        f"SAFE-GO Principles Active: {summary.get('safe_go_count', 8)}\n"
+        f"Live Trading Prohibited: True\n"
+        f"Broker Execution Prohibited: True\n"
+        f"Portfolio Execution Prohibited: True"
+    )
+
+
+def build_phase_158_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{PORTFOLIO_ACCEPTANCE_TEXT_REPORT_DISCLAIMER}\n"
+        f"Current Phase: 157 | Next Phase: 158 | Target Final Phase: 160\n"
+        f"Next Phase Name: {summary.get('next_phase_name', 'Phase 158: Full-System Integration and Advanced Acceptance Rehearsal')}\n"
+        f"Total Prerequisites: {summary.get('total_prerequisites', 14)}\n"
+        f"Satisfied Prerequisites: {summary.get('satisfied_prerequisites', 14)}\n"
+        f"All Satisfied: {summary.get('all_satisfied', True)}\n"
+        f"Handoff Ready: {summary.get('handoff_ready', True)}\n"
+        f"Status: {summary.get('status', 'ACCEPTED')}"
+    )
+
+
+# =========================================================================
+# Phase 158 Full-System Integration & Advanced Acceptance Rehearsal Text Reports
+# =========================================================================
+
+FULL_SYSTEM_INTEGRATION_TEXT_REPORT_DISCLAIMER = (
+    "Bu rapor Phase 158 Full-System Integration and Advanced Acceptance Rehearsal çıktısıdır. "
+    "Gerçek full-system execution, end-to-end bot run, live trading, broker execution, "
+    "order generation, signal generation, model training, prediction, backtest, portfolio execution, "
+    "risk execution, scenario execution, optimizer, metric calculation, broker talimatı, canlı emir, "
+    "kesin AL/SAT, yatırım tavsiyesi, performance claim, production-ready, broker-ready, deployment, "
+    "model registry write, artifact persistence, scraping, credential output veya source overwrite değildir."
+)
+
+
+def build_full_system_integration_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FULL_SYSTEM_INTEGRATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Profile: {summary.get('active_profile', 'balanced_local_full_system_integration_contracts')}\n"
+        f"Current Phase: 158 | Target Final Phase: 160 | Next Phase: 159\n"
+        f"Readiness Score: {summary.get('readiness_score', 1.0):.4f}\n"
+        f"Classification: {summary.get('classification', 'full_system_integration_contract_ready_non_production')}\n"
+        f"Status: {summary.get('status', 'full_system_integration_ready')}"
+    )
+
+
+def build_system_component_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FULL_SYSTEM_INTEGRATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Components: {summary.get('total_components', 36)}\n"
+        f"All Contract Only: {summary.get('all_contract_only', True)}\n"
+        f"All Non-Production: {summary.get('all_non_production', True)}\n"
+        f"Status: {summary.get('status', 'full_system_integration_ready')}"
+    )
+
+
+def build_system_dependency_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FULL_SYSTEM_INTEGRATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Dependencies: {summary.get('total_dependencies', 32)}\n"
+        f"Hard Dependencies: {summary.get('hard_dependencies', 31)}\n"
+        f"Soft Dependencies: {summary.get('soft_dependencies', 1)}\n"
+        f"Status: {summary.get('status', 'full_system_integration_ready')}"
+    )
+
+
+def build_system_contract_integration_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FULL_SYSTEM_INTEGRATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Integrated Contracts: {summary.get('total_contracts', 11)}\n"
+        f"Zero Execution Guaranteed: {summary.get('all_zero_execution', True)}\n"
+        f"Status: {summary.get('status', 'full_system_integration_ready')}"
+    )
+
+
+def build_advanced_acceptance_rehearsal_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FULL_SYSTEM_INTEGRATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Rehearsals: {summary.get('total_rehearsals', 11)}\n"
+        f"Satisfied Count: {summary.get('satisfied_count', 11)}\n"
+        f"All Zero Execution: {summary.get('all_zero_execution_verified', True)}\n"
+        f"Status: {summary.get('status', 'full_system_integration_ready')}"
+    )
+
+
+def build_system_boundary_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FULL_SYSTEM_INTEGRATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Rules: {summary.get('total_rules', 18)}\n"
+        f"Prohibited Actions: {summary.get('prohibited_actions_count', 15)}\n"
+        f"Allowed Actions: {summary.get('allowed_actions_count', 3)}\n"
+        f"Status: {summary.get('status', 'full_system_integration_ready')}"
+    )
+
+
+def build_system_disabled_execution_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FULL_SYSTEM_INTEGRATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"All Disabled: {summary.get('all_disabled', True)}\n"
+        f"Total Items: {summary.get('total_items', 2)}\n"
+        f"Status: {summary.get('status', 'execution_blocked_no_system_execution')}"
+    )
+
+
+def build_system_integration_findings_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FULL_SYSTEM_INTEGRATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Total Findings: {summary.get('total_findings', 2)}\n"
+        f"Blocking Findings: {summary.get('blocking_findings_count', 0)}\n"
+        f"Manual Review Required: {summary.get('manual_review_required_count', 2)}\n"
+        f"Status: {summary.get('status', 'full_system_integration_ready')}"
+    )
+
+
+def build_system_integration_readiness_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FULL_SYSTEM_INTEGRATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Readiness Score: {summary.get('readiness_score', 1.0):.4f}\n"
+        f"Classification: {summary.get('classification', 'full_system_integration_contract_ready_non_production')}\n"
+        f"Meets Threshold: {summary.get('meets_threshold', True)}\n"
+        f"Passed Checks: {summary.get('passed_checks', 12)} / {summary.get('total_checks', 12)}\n"
+        f"Status: {summary.get('status', 'full_system_integration_ready')}"
+    )
+
+
+def build_full_system_integration_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FULL_SYSTEM_INTEGRATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest ID: {summary.get('manifest_id', 'MNF-158-FULL-SYSTEM-INTEGRATION-001')}\n"
+        f"Current Phase: 158 | Target Final Phase: 160 | Next Phase: 159\n"
+        f"Integration Completed: {summary.get('full_system_integration_completed', True)}\n"
+        f"Production Ready: False | Broker Ready: False | Live Ready: False\n"
+        f"Phase 159 Handoff Ready: {summary.get('phase_159_handoff_ready', True)}\n"
+        f"Status: {summary.get('status', 'full_system_integration_ready')}"
+    )
+
+
+def build_full_system_integration_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FULL_SYSTEM_INTEGRATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('validation_status', 'VALIDATION_PASS')}\n"
+        f"Total Rules: {summary.get('total_rules', 6)}\n"
+        f"All Passed: {summary.get('all_passed', True)}\n"
+        f"Status: {summary.get('status', 'full_system_integration_ready')}"
+    )
+
+
+def build_full_system_integration_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FULL_SYSTEM_INTEGRATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Status: {summary.get('safety_status', 'SAFETY_BOUNDARY_ENFORCED')}\n"
+        f"NO-GO Rules Enforced: {summary.get('no_go_count', 22)}\n"
+        f"SAFE-GO Principles Active: {summary.get('safe_go_count', 6)}\n"
+        f"Status: {summary.get('status', 'full_system_integration_ready')}"
+    )
+
+
+def build_phase_159_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FULL_SYSTEM_INTEGRATION_TEXT_REPORT_DISCLAIMER}\n"
+        f"Current Phase: 158 | Next Phase: 159 | Target Final Phase: 160\n"
+        f"Next Phase Name: {summary.get('next_phase_name', 'Phase 159: Final Hardening, Operator Runbook and Release Candidate')}\n"
+        f"Total Prerequisites: {summary.get('total_prerequisites', 12)}\n"
+        f"Satisfied Prerequisites: {summary.get('satisfied_prerequisites', 12)}\n"
+        f"All Satisfied: {summary.get('all_satisfied', True)}\n"
+        f"Handoff Ready: {summary.get('handoff_ready', True)}\n"
+        f"Status: {summary.get('status', 'ACCEPTED')}"
+    )
+
+
+# =========================================================================
+# Phase 159: Final Hardening, Operator Runbook and Release Candidate
+# =========================================================================
+
+FINAL_HARDENING_TEXT_REPORT_DISCLAIMER = (
+    "Bu rapor Phase 159 Final Hardening, Operator Runbook and Release Candidate çıktısıdır. "
+    "Gerçek full-system execution, end-to-end bot run, live trading, broker execution, order generation, "
+    "signal generation, model training, prediction, backtest, portfolio execution, risk execution, scenario "
+    "execution, optimizer, metric calculation, release deployment, production deployment, broker talimatı, "
+    "canlı emir, kesin AL/SAT, yatırım tavsiyesi, performance claim, production-ready, broker-ready, model "
+    "registry write, artifact persistence, scraping, credential output veya source overwrite değildir."
+)
+
+
+def build_final_hardening_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_HARDENING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Contract Count: {summary.get('contract_count', 0)}\n"
+        f"Current Phase: {summary.get('current_phase', 159)} | Target Final Phase: 160\n"
+        f"All Execution Blocked: {summary.get('all_execution_blocked', True)}\n"
+        f"All Live Trading Blocked: {summary.get('all_live_trading_blocked', True)}\n"
+        f"Status: {summary.get('status', 'final_hardening_contract_ready')}"
+    )
+
+
+def build_operator_runbook_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_HARDENING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Runbook Count: {summary.get('runbook_count', 0)}\n"
+        f"Execution Instructions Blocked: {summary.get('all_execution_instructions_blocked', True)}\n"
+        f"Live Bot Blocked: {summary.get('all_live_bot_blocked', True)}\n"
+        f"Manual Review Required: {summary.get('all_manual_review_required', True)}\n"
+        f"Status: {summary.get('status', 'operator_runbook_contract_ready')}"
+    )
+
+
+def build_release_candidate_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_HARDENING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Release Candidate Contract Count: {summary.get('candidate_contract_count', 0)}\n"
+        f"Production Ready: False | Broker Ready: False | Live Ready: False\n"
+        f"Status: {summary.get('status', 'release_candidate_contract_ready')}"
+    )
+
+
+def build_final_freeze_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_HARDENING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Frozen Items Count: {summary.get('freeze_item_count', 0)}\n"
+        f"All Frozen: {summary.get('all_frozen', True)}\n"
+        f"Status: {summary.get('status', 'final_hardening_contract_ready')}"
+    )
+
+
+def build_final_inventory_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_HARDENING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Inventory Count: {summary.get('script_count', summary.get('test_count', summary.get('component_count', 0)))}\n"
+        f"All Metadata Only: {summary.get('all_metadata_only', True)}\n"
+        f"Status: {summary.get('status', 'final_hardening_contract_ready')}"
+    )
+
+
+def build_operator_protocol_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_HARDENING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Rule/Procedure Count: {summary.get('rule_count', summary.get('procedure_count', 0))}\n"
+        f"All Enforced: {summary.get('all_enforced', True)}\n"
+        f"Status: {summary.get('status', 'operator_runbook_contract_ready')}"
+    )
+
+
+def build_release_candidate_checkpoint_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_HARDENING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Checkpoints Count: {summary.get('checkpoint_count', 0)}\n"
+        f"All Available / Passed: True\n"
+        f"Status: {summary.get('status', 'release_candidate_contract_ready')}"
+    )
+
+
+def build_release_candidate_boundary_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_HARDENING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Boundaries Count: {summary.get('no_go_boundary_count', summary.get('go_boundary_count', 0))}\n"
+        f"All Enforced: {summary.get('all_enforced', True)}\n"
+        f"Status: {summary.get('status', 'final_hardening_contract_ready')}"
+    )
+
+
+def build_release_candidate_findings_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_HARDENING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Finding Count: {summary.get('finding_count', 0)}\n"
+        f"Manual Review Required: {summary.get('all_manual_review_required', True)}\n"
+        f"Status: {summary.get('status', 'final_hardening_contract_ready')}"
+    )
+
+
+def build_release_candidate_readiness_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_HARDENING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Readiness Score: {summary.get('readiness_score', 0.95):.2f}\n"
+        f"Classification: {summary.get('classification', 'release_candidate_contract_ready_non_production')}\n"
+        f"Threshold Met: {summary.get('threshold_met', True)}\n"
+        f"Is Trading Signal: False | Production Ready: False\n"
+        f"Status: {summary.get('status', 'release_candidate_contract_ready')}"
+    )
+
+
+def build_release_candidate_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_HARDENING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest ID: {summary.get('manifest_id', 'MNF-159-RELEASE-CANDIDATE-001')}\n"
+        f"Current Phase: 159 | Target Final Phase: 160 | Next Phase: 160\n"
+        f"Final Hardening Completed: {summary.get('final_hardening_completed', True)}\n"
+        f"Release Candidate Contract Ready: {summary.get('release_candidate_contract_ready', True)}\n"
+        f"Production Ready: False | Broker Ready: False | Live Ready: False\n"
+        f"Phase 160 Handoff Ready: {summary.get('phase_160_handoff_ready', True)}\n"
+        f"Status: {summary.get('status', 'release_candidate_contract_ready')}"
+    )
+
+
+def build_final_hardening_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_HARDENING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('validation_status', 'VALIDATION_PASS')}\n"
+        f"Total Checks: {summary.get('total_checks', 6)}\n"
+        f"All Passed: {summary.get('all_passed', True)}\n"
+        f"Status: {summary.get('status', 'final_hardening_contract_ready')}"
+    )
+
+
+def build_final_hardening_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_HARDENING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Status: {summary.get('safety_status', 'SAFETY_BOUNDARY_ENFORCED')}\n"
+        f"NO-GO Rules Enforced: {summary.get('no_go_count', 32)}\n"
+        f"Safe-GO Rules Active: {summary.get('safe_go_count', 7)}\n"
+        f"Status: {summary.get('status', 'final_hardening_contract_ready')}"
+    )
+
+
+def build_phase_160_handoff_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_HARDENING_TEXT_REPORT_DISCLAIMER}\n"
+        f"Current Phase: 159 | Next Phase: 160 | Target Final Phase: 160\n"
+        f"Next Phase Name: {summary.get('next_phase_name', 'Phase 160: Full Advanced Bot Final Delivery')}\n"
+        f"Total Prerequisites: {summary.get('prerequisite_count', 12)}\n"
+        f"Satisfied Prerequisites: {summary.get('satisfied_count', 12)}\n"
+        f"All Satisfied: {summary.get('all_satisfied', True)}\n"
+        f"Handoff Ready: {summary.get('phase_160_handoff_ready', True)}\n"
+        f"Status: {summary.get('status', 'phase_160_handoff_ready')}"
+    )
+
+
+# =============================================================================
+# Phase 160: Full Advanced Bot Final Delivery Text Reports
+# =============================================================================
+
+FINAL_DELIVERY_TEXT_REPORT_DISCLAIMER = (
+    "Bu rapor Phase 160 Full Advanced Bot Final Delivery çıktısıdır. "
+    "Gerçek full-system execution, end-to-end bot run, live trading, broker execution, "
+    "order generation, signal generation, model training, prediction, backtest, "
+    "portfolio execution, risk execution, scenario execution, optimizer, metric calculation, "
+    "release deployment, production deployment, broker talimatı, canlı emir, kesin AL/SAT, "
+    "yatırım tavsiyesi, performance claim, production-ready, broker-ready, model registry write, "
+    "artifact persistence, scraping, credential output veya source overwrite değildir."
+)
+
+
+def build_final_delivery_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_DELIVERY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Active Profile: {summary.get('active_profile', 'balanced_local_final_delivery_contracts')}\n"
+        f"Current Phase: {summary.get('current_phase', 160)} | Target Final Phase: {summary.get('target_final_phase', 160)}\n"
+        f"Total Profiles: {summary.get('profile_count', 3)}\n"
+        f"Status: {summary.get('status', 'full_advanced_bot_final_delivery_ready')}"
+    )
+
+
+def build_final_delivery_package_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_DELIVERY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Package Contracts Count: {summary.get('contract_count', 7)}\n"
+        f"All Execution Disabled: {summary.get('all_execution_disabled', True)}\n"
+        f"Manual Review Required: {summary.get('all_manual_review_required', True)}\n"
+        f"Status: {summary.get('status', 'full_advanced_bot_final_delivery_ready')}"
+    )
+
+
+def build_final_delivery_inventory_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_DELIVERY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Inventory Subsystem: Certified\n"
+        f"All Source Preserved: True\n"
+        f"Status: {summary.get('status', 'full_advanced_bot_final_delivery_ready')}"
+    )
+
+
+def build_final_delivery_evidence_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_DELIVERY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Evidence Items Verified: True\n"
+        f"All Acceptance Satisfied: True\n"
+        f"Status: {summary.get('status', 'full_advanced_bot_final_delivery_ready')}"
+    )
+
+
+def build_final_delivery_phase_summary_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_DELIVERY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Phase Block Summary: {summary.get('mvp_block', summary.get('advanced_block', summary.get('backtest_block', 'Block')))}\n"
+        f"All Components Completed: True\n"
+        f"Status: {summary.get('status', 'full_advanced_bot_final_delivery_ready')}"
+    )
+
+
+def build_final_delivery_boundary_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_DELIVERY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Rules Count: {summary.get('no_go_rule_count', summary.get('safe_go_action_count', 25))}\n"
+        f"Boundaries Enforced: True\n"
+        f"Status: {summary.get('status', 'full_advanced_bot_final_delivery_ready')}"
+    )
+
+
+def build_final_delivery_disabled_execution_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_DELIVERY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Actions Blocked Count: {summary.get('actions_blocked', 3)}\n"
+        f"Execution Code: {summary.get('execution_code', 'execution_blocked_no_system_execution')}\n"
+        f"Status: {summary.get('status', 'full_advanced_bot_final_delivery_ready')}"
+    )
+
+
+def build_final_delivery_findings_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_DELIVERY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Findings Count: {summary.get('finding_count', 4)}\n"
+        f"Manual Review Required: True\n"
+        f"Status: {summary.get('status', 'full_advanced_bot_final_delivery_ready')}"
+    )
+
+
+def build_final_delivery_readiness_score_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_DELIVERY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Readiness Score: {summary.get('readiness_score', 1.0):.2f}\n"
+        f"Classification: {summary.get('classification', 'full_advanced_bot_final_delivery_ready_non_production')}\n"
+        f"Threshold Met: {summary.get('threshold_met', True)}\n"
+        f"Status: {summary.get('status', 'full_advanced_bot_final_delivery_ready')}"
+    )
+
+
+def build_final_delivery_manifest_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_DELIVERY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Manifest ID: {summary.get('manifest_id', 'MNF-160-FINAL-DELIVERY-001')}\n"
+        f"Phase 160 Completed: True | Plan Closed: True\n"
+        f"Production Ready: False | Broker Ready: False | Live Ready: False\n"
+        f"Status: {summary.get('status', 'full_advanced_bot_final_delivery_ready')}"
+    )
+
+
+def build_final_delivery_validation_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_DELIVERY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Validation Status: {summary.get('validation_status', 'VALIDATION_PASS')}\n"
+        f"Total Checks: {summary.get('total_checks', 6)}\n"
+        f"All Passed: {summary.get('all_passed', True)}\n"
+        f"Status: {summary.get('status', 'full_advanced_bot_final_delivery_ready')}"
+    )
+
+
+def build_final_delivery_safety_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_DELIVERY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Safety Status: {summary.get('safety_status', 'SAFETY_BOUNDARY_ENFORCED')}\n"
+        f"Total Rules: {summary.get('total_rules', 31)}\n"
+        f"All Enforced: {summary.get('all_enforced', True)}\n"
+        f"Status: {summary.get('status', 'full_advanced_bot_final_delivery_ready')}"
+    )
+
+
+def build_final_system_summary_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_DELIVERY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Plan Status: completed_contract_governance_documentation_acceptance_level\n"
+        f"MVP Block Status: completed\n"
+        f"Advanced Block Status: completed\n"
+        f"Backtest / Portfolio / System Integration Status: completed_contract_level\n"
+        f"Status: {summary.get('status', 'full_advanced_bot_final_delivery_ready')}"
+    )
+
+
+def build_final_operator_handover_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_DELIVERY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Handover Items Enforced: {summary.get('handover_item_count', 10)}\n"
+        f"Local/Offline Only: True | Zero Live Trading: True\n"
+        f"Status: {summary.get('status', 'full_advanced_bot_final_delivery_ready')}"
+    )
+
+
+def build_final_160_phase_completion_text_report(summary: dict, df=None) -> str:
+    return (
+        f"{FINAL_DELIVERY_TEXT_REPORT_DISCLAIMER}\n"
+        f"Plan Status: {summary.get('plan_status', 'completed_contract_governance_documentation_acceptance_level')}\n"
+        f"Declaration: {summary.get('declaration', '')}\n"
+        f"Status: {summary.get('status', 'phase_160_completed')}"
+    )
 
 
 

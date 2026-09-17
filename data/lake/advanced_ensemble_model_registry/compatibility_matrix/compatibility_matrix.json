@@ -1,0 +1,11 @@
+{
+  "total_compatibility_records": 10,
+  "all_scores_non_signal": true,
+  "all_scores_non_performance": true,
+  "all_manual_review_required": true,
+  "non_signal": true,
+  "all_non_signal": true,
+  "production_ready": false,
+  "broker_ready": false,
+  "active_profile": "balanced_local_ensemble_model_contracts"
+}

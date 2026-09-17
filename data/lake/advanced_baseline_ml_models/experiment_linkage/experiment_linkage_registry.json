@@ -1,0 +1,9 @@
+{
+  "total_linkages": 4,
+  "zero_runs_executed": true,
+  "zero_training_jobs": true,
+  "zero_predictions": true,
+  "non_signal": true,
+  "production_ready": false,
+  "broker_ready": false
+}

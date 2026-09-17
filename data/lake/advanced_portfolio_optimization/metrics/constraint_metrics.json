@@ -1,0 +1,5 @@
+{
+  "metric_name": "constraint_violation_placeholder",
+  "is_placeholder": true,
+  "is_calculated": false
+}

@@ -1,0 +1,2 @@
+action_id,action_type,target_scope,rebalance_threshold_pct,activation_trigger,execution_enabled,status
+ACT-REB-001,REBALANCE_CONTROL,RISK_PARITY_RESET,5.0,WEIGHT_DRIFT_EXCEEDANCE,False,PLACEHOLDER_ONLY

@@ -1,0 +1,9 @@
+{
+  "domain": "component_registry_domain",
+  "active_profile": "balanced_local_backtest_acceptance_contracts",
+  "total_components": 7,
+  "all_contract_only": true,
+  "all_non_production": true,
+  "non_signal": true,
+  "status": "ACCEPTED"
+}

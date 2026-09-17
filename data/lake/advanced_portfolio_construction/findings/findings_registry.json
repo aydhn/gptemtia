@@ -1,0 +1,8 @@
+{
+  "domain": "finding_domain",
+  "active_profile": "balanced_local_portfolio_construction_contracts",
+  "total_findings": 3,
+  "critical_count": 0,
+  "manual_review_required_count": 2,
+  "status": "portfolio_contract_ready"
+}

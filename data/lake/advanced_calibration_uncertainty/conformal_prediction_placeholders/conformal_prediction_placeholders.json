@@ -1,0 +1,10 @@
+{
+  "total_placeholders": 3,
+  "placeholders": [
+    "split_conformal_regression_placeholder",
+    "conformalized_quantile_regression_placeholder",
+    "adaptive_prediction_sets_placeholder"
+  ],
+  "all_unexecuted": true,
+  "all_non_signal": true
+}

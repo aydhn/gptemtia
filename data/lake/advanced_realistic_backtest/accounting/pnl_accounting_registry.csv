@@ -1,0 +1,3 @@
+accounting_rule,description,formula_spec,real_pnl_calculated,is_active,non_signal
+unrealized_pnl_contract,Acik pozisyonlar icin anlik piyasa degerine (Mark-to-Market) gore gerceklesmemis kar/zarar.,(current_market_price - avg_entry_price) * position_size,False,True,True
+realized_pnl_contract,Kapanan pozisyonlar icin maliyetler cikarildiktan sonraki gerceklesmis net kar/zarar.,(exit_price - entry_price) * closed_size - (entry_costs + exit_costs),False,True,True

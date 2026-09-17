@@ -1,0 +1,20 @@
+component,description,status,is_healthy,checked_path
+advanced_portfolio_construction,Portfolio Construction Phase 153 Module,HEALTHY,True,C:\Projelerim\gptemtia\advanced_portfolio_construction
+advanced_backtest_acceptance,Backtest Acceptance Phase 152 Module,HEALTHY,True,C:\Projelerim\gptemtia\advanced_backtest_acceptance
+advanced_benchmark_evaluation,Benchmark Evaluation Phase 151 Module,HEALTHY,True,C:\Projelerim\gptemtia\advanced_benchmark_evaluation
+advanced_backtest_governance,Backtest Governance Phase 150 Module,HEALTHY,True,C:\Projelerim\gptemtia\advanced_backtest_governance
+advanced_monte_carlo_robustness,Monte Carlo Robustness Phase 149 Module,HEALTHY,True,C:\Projelerim\gptemtia\advanced_monte_carlo_robustness
+advanced_stress_testing,Stress Testing Phase 148 Module,HEALTHY,True,C:\Projelerim\gptemtia\advanced_stress_testing
+advanced_walk_forward_validation,Walk-Forward Validation Phase 147 Module,HEALTHY,True,C:\Projelerim\gptemtia\advanced_walk_forward_validation
+advanced_realistic_backtest,Realistic Backtest Phase 146 Module,HEALTHY,True,C:\Projelerim\gptemtia\advanced_realistic_backtest
+advanced_ml_acceptance,ML Acceptance Phase 145 Module,HEALTHY,True,C:\Projelerim\gptemtia\advanced_ml_acceptance
+advanced_model_governance,Model Governance Phase 144 Module,HEALTHY,True,C:\Projelerim\gptemtia\advanced_model_governance
+advanced_ml_dataset_registry,ML Dataset Registry Module,HEALTHY,True,C:\Projelerim\gptemtia\advanced_ml_dataset_registry
+advanced_regime_acceptance,Regime Acceptance Phase 135 Module,HEALTHY,True,C:\Projelerim\gptemtia\advanced_regime_acceptance
+advanced_regime_featurestore_integration,Regime FeatureStore Integration Module,HEALTHY,True,C:\Projelerim\gptemtia\advanced_regime_featurestore_integration
+FeatureStore,FeatureStore Subsystem,HEALTHY_VIRTUAL_PASS,True,C:\Projelerim\gptemtia\FeatureStore
+DataLake,DataLake Subsystem,HEALTHY_VIRTUAL_PASS,True,C:\Projelerim\gptemtia\DataLake
+advanced_portfolio_optimization,Portfolio Optimization Phase 154 Core Module,HEALTHY,True,C:\Projelerim\gptemtia\advanced_portfolio_optimization
+scripts,Phase 154 CLI Scripts,HEALTHY,True,C:\Projelerim\gptemtia\scripts
+tests,Phase 154 Test Suites,HEALTHY,True,C:\Projelerim\gptemtia\tests
+docs,Phase 154 Architecture & Operational Documentation,HEALTHY,True,C:\Projelerim\gptemtia\docs

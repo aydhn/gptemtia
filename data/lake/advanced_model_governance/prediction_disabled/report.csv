@@ -1,0 +1,3 @@
+action,is_disabled,reason,status,phase
+model_predict,True,Model prediction execution is disabled in governance phase.,BLOCKED_BY_POLICY,144
+model_inference,True,Model inference execution is disabled in governance phase.,BLOCKED_BY_POLICY,144

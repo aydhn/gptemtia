@@ -1,0 +1,9 @@
+{
+  "total_findings": 6,
+  "critical_findings": 0,
+  "warning_findings": 0,
+  "info_findings": 6,
+  "manual_review_required": true,
+  "non_signal": true,
+  "auto_fix_allowed": false
+}

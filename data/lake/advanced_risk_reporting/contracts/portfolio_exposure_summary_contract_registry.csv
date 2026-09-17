@@ -1,0 +1,4 @@
+contract_name,description,is_placeholder,is_calculated,allows_execution,current_phase,target_final_phase,next_phase
+portfolio_gross_net_summary,Portfoy brut ve net exposure duzeylerini ozetleyen sozlesme,True,False,False,155,160,156
+portfolio_asset_class_breakdown_summary,Emtia ve doviz siniflari bazinda maruziyet dökümü ozet sozlesmesi,True,False,False,155,160,156
+portfolio_concentration_profile_summary,HHI ve ilk-K varlik yogunluk profili ozet sozlesmesi,True,False,False,155,160,156

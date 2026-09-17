@@ -1,0 +1,5 @@
+policy_name,window_type,window_size_description,min_observations_placeholder,alignment_method,data_materialization_allowed,real_window_extraction_executed,non_signal,status,policy_id,window_size,stride,min_observations,lookback_days,execution_enabled,parameters
+rolling_short_term_current_window_policy,current,Most recent 30 trading bars for prompt drift detection,30,asof_backward,False,False,True,drift_contract_ready,rolling_short_term_current_window_policy,,,,,False,
+rolling_medium_term_current_window_policy,current,Most recent 60 trading bars for stable drift metric evaluation,60,asof_backward,False,False,True,drift_contract_ready,rolling_medium_term_current_window_policy,,,,,False,
+daily_session_current_window_policy,current,Single trading day intraday bars for daily batch monitoring,24,asof_backward,False,False,True,drift_contract_ready,daily_session_current_window_policy,,,,,False,
+regime_transition_current_window_policy,current,Bars elapsed since the most recent regime transition event,15,asof_backward,False,False,True,drift_contract_ready,regime_transition_current_window_policy,,,,,False,

@@ -1,0 +1,3 @@
+guard_name,methodology,description,status,profile_name,current_phase,domain
+bonferroni_familywise_error_guard,FWER adjustment alpha_adj = alpha / K_tests,Conservative p-value threshold adjustment when testing multiple parameter variations.,ACTIVE,balanced_local_monte_carlo_robustness_contracts,149,bias_guard_domain
+benjamini_hochberg_fdr_guard,Benjamini-Hochberg (1995) False Discovery Rate control,Adaptive p-value sorting controlling expected proportion of false positive strategy anomalies.,ACTIVE,balanced_local_monte_carlo_robustness_contracts,149,bias_guard_domain

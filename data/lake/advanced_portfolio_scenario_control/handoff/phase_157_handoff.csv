@@ -1,0 +1,8 @@
+item_id,category,requirement,status,target_phase,current_phase,target_final_phase,next_phase
+HND-156-001,scenario_testing_prerequisites,"Verify 10 scenario testing contracts, libraries, and resilience contracts are registered",SATISFIED,157,156,160,157
+HND-156-002,drawdown_control_prerequisites,"Verify drawdown control contracts, threshold tiers, warnings, and breach placeholders are ready",SATISFIED,157,156,160,157
+HND-156-003,control_action_placeholders,"Verify exposure reduction, de-risking, hedge, rebalance, stop, freeze/resume placeholders are inactive",SATISFIED,157,156,160,157
+HND-156-004,outputs_and_metrics_prerequisites,"Verify scenario, drawdown, resilience output contracts and metric placeholders are defined",SATISFIED,157,156,160,157
+HND-156-005,guards_and_disabled_execution,Verify 14 guards and 14 disabled execution reports guarantee negative invariants,SATISFIED,157,156,160,157
+HND-156-006,upstream_phase_continuity,"Verify Phase 153 Construction, Phase 154 Optimization, and Phase 155 Risk Reporting linkages are intact",SATISFIED,157,156,160,157
+HND-156-007,safety_boundary_continuity,"Maintain strict dry-run, offline, non-production, no-live-trading boundary into Phase 157",SATISFIED,157,156,160,157

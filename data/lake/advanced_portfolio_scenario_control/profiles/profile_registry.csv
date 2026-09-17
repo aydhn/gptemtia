@@ -1,0 +1,5 @@
+profile_name,description,current_phase,target_final_phase,next_phase,dry_run_default,local_only,non_production,allow_live_trading,allow_broker_integration,allow_scenario_execution,allow_drawdown_control_execution,allow_portfolio_control_action,min_readiness_score,enabled
+balanced_local_portfolio_scenario_control_contracts,Dengeli yerel Portfolio Scenario Testing ve Drawdown Control sozlesme profili.,156,160,157,True,True,True,False,False,False,False,False,0.5,True
+strict_non_production_scenario_control_safety,Siki guvenlikli non-production senaryo testi ve drawdown kontrol sozlesme profili.,156,160,157,True,True,True,False,False,False,False,False,0.65,True
+dry_run_phase_156_scenario_control_focus,Dry-run odakli portfoy senaryo test sozlesme profili.,156,160,157,True,True,True,False,False,False,False,False,0.5,True
+dry_run_phase_156_drawdown_control_focus,Dry-run odakli portfoy drawdown kontrol ve aksiyon yer tutucu profili.,156,160,157,True,True,True,False,False,False,False,False,0.5,True

@@ -1,0 +1,14 @@
+{
+  "manifest_name": "ensemble_model_manifest_v140",
+  "current_phase": 140,
+  "target_final_phase": 160,
+  "next_phase": 141,
+  "candidate_contract_count": 10,
+  "ensemble_contract_count": 7,
+  "readiness_score": 1.0,
+  "is_valid": true,
+  "non_signal": true,
+  "dry_run": true,
+  "production_ready": false,
+  "broker_ready": false
+}

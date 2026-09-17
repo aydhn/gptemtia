@@ -1,0 +1,8 @@
+item_id,backtest_layer,status,execution_allowed,verified
+BAI-001,realistic_backtest,INTEGRATED,False,True
+BAI-002,walk_forward_validation,INTEGRATED,False,True
+BAI-003,stress_testing,INTEGRATED,False,True
+BAI-004,monte_carlo_robustness,INTEGRATED,False,True
+BAI-005,backtest_governance,INTEGRATED,False,True
+BAI-006,benchmark_evaluation,INTEGRATED,False,True
+BAI-007,backtest_acceptance_report,INTEGRATED,False,True

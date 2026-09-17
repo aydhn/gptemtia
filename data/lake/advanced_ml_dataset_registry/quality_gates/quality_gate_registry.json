@@ -1,0 +1,8 @@
+{
+  "total_quality_gates": 10,
+  "total_gates": 10,
+  "current_phase": 137,
+  "all_mandatory": true,
+  "non_signal": true,
+  "status": "READY"
+}

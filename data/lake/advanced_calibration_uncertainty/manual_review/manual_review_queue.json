@@ -1,0 +1,14 @@
+{
+  "total_review_items": 7,
+  "review_ids": [
+    "REV_CALIB_001",
+    "REV_UNCERT_002",
+    "REV_METH_003",
+    "REV_UMETH_004",
+    "REV_DIS_005",
+    "REV_GATE_006",
+    "REV_DRIFT_007"
+  ],
+  "all_auto_prohibited": true,
+  "all_non_signal": true
+}

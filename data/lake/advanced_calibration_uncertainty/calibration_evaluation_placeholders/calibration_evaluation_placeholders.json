@@ -1,0 +1,12 @@
+{
+  "total_evaluations": 4,
+  "evaluations": [
+    "in_domain_calibration_evaluation_placeholder",
+    "multi_horizon_calibration_evaluation_placeholder",
+    "regime_conditional_calibration_evaluation_placeholder",
+    "tail_event_calibration_evaluation_placeholder"
+  ],
+  "all_unexecuted": true,
+  "all_zero_performance_claim": true,
+  "all_non_signal": true
+}

@@ -1,0 +1,3 @@
+contract_name,interface_spec,description,real_signal_generated,prediction_included,target_included,is_active,non_signal
+target_weight_signal_contract,"get_target_weights(timestamp, features) -> Dict[symbol, weight]",Portfoy hedef agirlik arayuzu sozlesmesi (-1.0 ile +1.0 arasi hedef agirliklar).,False,False,False,True,True
+discrete_order_signal_contract,"generate_sim_orders(timestamp, portfolio_state) -> List[OrderRequest]",Ayrık emir uretim arayuzu sozlesmesi (yalniz simulasyon icin).,False,False,False,True,True

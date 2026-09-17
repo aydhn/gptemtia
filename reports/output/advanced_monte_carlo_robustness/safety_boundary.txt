@@ -1,0 +1,6 @@
+Bu çıktı Phase 149 Monte Carlo Robustness and Parameter Stability raporudur. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, Monte Carlo/readiness/robustness/parameter-stability değerini trade sinyali veya onay olarak kullanma, simülasyon/optimizasyon yürütme, backtest çalıştırma veya gerçek metrik hesaplama içermez. Yalnızca yerel araştırma sözleşmesidir.
+Safety Status: SECURE
+NO-GO Rules Enforced: 14
+SAFE-GO Rules Active: 8
+Live Trading Prohibited: True
+Broker Execution Prohibited: True

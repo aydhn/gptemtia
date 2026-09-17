@@ -1,0 +1,50 @@
+# Phase 158: System Component Registry
+
+> **UYARI VE KAPSAM SINIRI**:
+> Bu çıktı Phase 158 Full-System Integration and Advanced Acceptance Rehearsal çıktısıdır. Canlı emir, broker talimatı, kesin AL/SAT, yatırım tavsiyesi, full-system/readiness/integration/rehearsal değerini trade sinyali veya production-ready/broker-ready/onay olarak kullanma, gerçek full-system execution, end-to-end bot run, live trading, broker execution, order generation, signal generation, model training, model fit/predict/inference, target/label/prediction üretimi, backtest, benchmark, optimizer, portfolio construction, risk reporting, scenario execution, metric calculation, model deployment, model registry write, model artifact persistence, scraping, haber tam metni/article body/raw content/scraped HTML/embedding/vector kullanımı veya gerçek provider API çağrısı değildir.
+
+- **Total Components**: `36`
+- **All Contract Only**: `True`
+- **All Non-Production**: `True`
+
+### Registered Components
+
+| component_id | component_name | layer_name | module_name | status | contract_only | non_production | dry_run | local_only | production_ready | broker_ready | live_ready | signal_ready | system_executed |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| CMP-001 | core_runtime | runtime | main | ready | True | True | True | True | False | False | False | False | False |
+| CMP-002 | config_paths_settings | foundation | config | ready | True | True | True | True | False | False | False | False | False |
+| CMP-003 | data_lake | storage | data.storage.data_lake | ready | True | True | True | True | False | False | False | False | False |
+| CMP-004 | feature_store | storage | ml.feature_store | ready | True | True | True | True | False | False | False | False | False |
+| CMP-005 | data_provider_contracts | data | advanced_data_providers | ready | True | True | True | True | False | False | False | False | False |
+| CMP-006 | macro_calendar_contracts | data | advanced_economic_calendar | ready | True | True | True | True | False | False | False | False | False |
+| CMP-007 | news_metadata_contracts | data | advanced_news_sentiment_metadata | ready | True | True | True | True | False | False | False | False | False |
+| CMP-008 | indicator_engine | features | indicators | ready | True | True | True | True | False | False | False | False | False |
+| CMP-009 | feature_factor_engine | features | advanced_feature_factor_acceptance | ready | True | True | True | True | False | False | False | False | False |
+| CMP-010 | regime_engine | regime | advanced_regime_acceptance | ready | True | True | True | True | False | False | False | False | False |
+| CMP-011 | ml_dataset_registry | ml | advanced_ml_dataset_registry | ready | True | True | True | True | False | False | False | False | False |
+| CMP-012 | gpu_runtime_governance | ml | advanced_gpu_ml_runtime | ready | True | True | True | True | False | False | False | False | False |
+| CMP-013 | baseline_ml_models | ml | advanced_baseline_ml_models | ready | True | True | True | True | False | False | False | False | False |
+| CMP-014 | ensemble_model_registry | ml | advanced_ensemble_model_registry | ready | True | True | True | True | False | False | False | False | False |
+| CMP-015 | calibration_uncertainty | ml | advanced_calibration_uncertainty | ready | True | True | True | True | False | False | False | False | False |
+| CMP-016 | model_drift_monitoring | ml | advanced_model_drift_monitoring | ready | True | True | True | True | False | False | False | False | False |
+| CMP-017 | explainability_attribution | ml | advanced_explainability_attribution | ready | True | True | True | True | False | False | False | False | False |
+| CMP-018 | model_governance | ml | advanced_model_governance | ready | True | True | True | True | False | False | False | False | False |
+| CMP-019 | ml_acceptance | ml | advanced_ml_acceptance | ready | True | True | True | True | False | False | False | False | False |
+| CMP-020 | realistic_backtest | backtest | advanced_realistic_backtest | ready | True | True | True | True | False | False | False | False | False |
+| CMP-021 | walk_forward_oos | backtest | advanced_walk_forward_validation | ready | True | True | True | True | False | False | False | False | False |
+| CMP-022 | stress_testing | backtest | advanced_stress_testing | ready | True | True | True | True | False | False | False | False | False |
+| CMP-023 | monte_carlo_robustness | backtest | advanced_monte_carlo_robustness | ready | True | True | True | True | False | False | False | False | False |
+| CMP-024 | backtest_governance | backtest | advanced_backtest_governance | ready | True | True | True | True | False | False | False | False | False |
+| CMP-025 | benchmark_evaluation | backtest | advanced_benchmark_evaluation | ready | True | True | True | True | False | False | False | False | False |
+| CMP-026 | backtest_acceptance | backtest | advanced_backtest_acceptance | ready | True | True | True | True | False | False | False | False | False |
+| CMP-027 | portfolio_construction | portfolio | advanced_portfolio_construction | ready | True | True | True | True | False | False | False | False | False |
+| CMP-028 | portfolio_optimization | portfolio | advanced_portfolio_optimization | ready | True | True | True | True | False | False | False | False | False |
+| CMP-029 | risk_reporting | portfolio | advanced_risk_reporting | ready | True | True | True | True | False | False | False | False | False |
+| CMP-030 | portfolio_scenario_control | portfolio | advanced_portfolio_scenario_control | ready | True | True | True | True | False | False | False | False | False |
+| CMP-031 | portfolio_acceptance | portfolio | advanced_portfolio_acceptance | ready | True | True | True | True | False | False | False | False | False |
+| CMP-032 | reporting_layer | reporting | reports | ready | True | True | True | True | False | False | False | False | False |
+| CMP-033 | telegram_interface_placeholder | interface | interfaces.telegram_placeholder | ready | True | True | True | True | False | False | False | False | False |
+| CMP-034 | local_paper_trading_placeholder | interface | interfaces.paper_placeholder | ready | True | True | True | True | False | False | False | False | False |
+| CMP-035 | operator_docs | documentation | docs | ready | True | True | True | True | False | False | False | False | False |
+| CMP-036 | safety_boundaries | governance | safety | ready | True | True | True | True | False | False | False | False | False |
+

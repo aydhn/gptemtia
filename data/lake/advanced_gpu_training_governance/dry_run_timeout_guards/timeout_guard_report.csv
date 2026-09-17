@@ -1,0 +1,6 @@
+test_case,requested_timeout,is_valid,blocked,guard_status,dry_run,non_signal
+short_timeout_request,60,True,False,PASS_GUARD,True,True
+standard_timeout_request,1800,True,False,PASS_GUARD,True,True
+ceiling_timeout_request,3600,True,False,PASS_GUARD,True,True
+excessive_timeout_request,8000,False,True,BLOCKED_BY_GUARD,True,True
+negative_timeout_request,-10,False,True,BLOCKED_BY_GUARD,True,True

@@ -1,0 +1,4 @@
+split_name,window_type,train_period_bars,val_period_bars,test_period_bars,step_size_bars,anchored,description,execution_allowed,data_split_executed,non_signal
+standard_rolling_window_3m,ROLLING,252,63,63,21,False,"252 gun egitim, 63 gun OOS test ve 21 gunluk adimla kayan pencere.",False,False,True
+short_horizon_rolling_window_1m,ROLLING,126,21,21,10,False,"Kisa vadeli piyasa degisimlerine duyarli 126 gun egitim, 21 gun OOS kayan pencere.",False,False,True
+long_horizon_rolling_window_6m,ROLLING,504,126,126,63,False,2 yillik (504 bar) genis egitim ve 126 gunluk OOS adimla kayan makro pencere.,False,False,True
