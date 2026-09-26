@@ -5,7 +5,7 @@ import logging
 from pathlib import Path
 
 # Fix python path
-sys.path.append(str(Path(__file__).parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config.settings import settings
 from config.paths import DATA_DIR
