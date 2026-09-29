@@ -1,0 +1,11 @@
+🧹 Refactor validate_macro_event_news_regime_profiles to reduce complexity
+
+🎯 What: Extracted validation checks from `validate_macro_event_news_regime_profiles` into smaller, focused helper functions:
+  - `_validate_phases`
+  - `_validate_environment`
+  - `_validate_trading_and_signals`
+  - `_validate_modeling`
+  - `_validate_data_usage`
+💡 Why: The original function had a very high cyclomatic complexity and was long due to many consecutive if-statements. This refactor makes it easier to read, maintain, and potentially extend in the future.
+✅ Verification: Tested visually and ran `pytest tests/test_macro_event_news_regime_config.py` successfully.
+✨ Result: `validate_macro_event_news_regime_profiles` is now much simpler, delegating chunks of validation logic to well-named helper functions while preserving all strict invariants.
