@@ -177,6 +177,21 @@ class MacroEventNewsContextScore:
 
 
 @dataclass
+class MacroEventNewsRegimeManifestInput:
+    """Input parameters for creating a MacroEventNewsRegimeManifest."""
+
+    manifest_name: str
+    macro_entity_count: int
+    event_entity_count: int
+    news_metadata_entity_count: int
+    context_report_count: int
+    finding_count: int
+    manual_review_count: int
+    context_score: float
+    manual_review_required: bool = True
+
+
+@dataclass
 class MacroEventNewsRegimeManifest:
     """Comprehensive manifest asserting Phase 132 state, counts, and safety guarantees."""
 

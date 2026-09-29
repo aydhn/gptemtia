@@ -9,34 +9,27 @@ from advanced_macro_event_news_regime.macro_event_news_regime_config import (
 )
 from advanced_macro_event_news_regime.macro_event_news_regime_models import (
     MacroEventNewsRegimeManifest,
+    MacroEventNewsRegimeManifestInput,
 )
 
 
 def create_macro_event_news_regime_context_manifest(
-    manifest_name: str,
-    macro_entity_count: int,
-    event_entity_count: int,
-    news_metadata_entity_count: int,
-    context_report_count: int,
-    finding_count: int,
-    manual_review_count: int,
-    context_score: float,
-    manual_review_required: bool = True,
+    input_data: MacroEventNewsRegimeManifestInput,
 ) -> MacroEventNewsRegimeManifest:
     """Instantiate a MacroEventNewsRegimeManifest asserting strict safety invariants."""
     return MacroEventNewsRegimeManifest(
-        manifest_name=manifest_name,
+        manifest_name=input_data.manifest_name,
         current_phase=132,
         target_final_phase=160,
         next_phase=133,
-        macro_entity_count=macro_entity_count,
-        event_entity_count=event_entity_count,
-        news_metadata_entity_count=news_metadata_entity_count,
-        context_report_count=context_report_count,
-        finding_count=finding_count,
-        manual_review_count=manual_review_count,
-        context_score=context_score,
-        manual_review_required=manual_review_required,
+        macro_entity_count=input_data.macro_entity_count,
+        event_entity_count=input_data.event_entity_count,
+        news_metadata_entity_count=input_data.news_metadata_entity_count,
+        context_report_count=input_data.context_report_count,
+        finding_count=input_data.finding_count,
+        manual_review_count=input_data.manual_review_count,
+        context_score=input_data.context_score,
+        manual_review_required=input_data.manual_review_required,
         non_signal=True,
         source_preserved=True,
         official_approval=False,
@@ -67,7 +60,7 @@ def build_macro_event_news_regime_context_manifest(
 ) -> Tuple[pd.DataFrame, Dict[str, Any]]:
     """Build manifest DataFrame and summary dictionary for Phase 132."""
     p = profile or get_macro_event_news_regime_profile()
-    manifest_obj = create_macro_event_news_regime_context_manifest(
+    input_data = MacroEventNewsRegimeManifestInput(
         manifest_name="macro_event_news_regime_context_manifest",
         macro_entity_count=10,
         event_entity_count=10,
@@ -78,6 +71,7 @@ def build_macro_event_news_regime_context_manifest(
         context_score=1.0,
         manual_review_required=False,
     )
+    manifest_obj = create_macro_event_news_regime_context_manifest(input_data)
 
     row = {
         "manifest_name": manifest_obj.manifest_name,
