@@ -1,6 +1,8 @@
 """Phase 132: Macro/Event/News Context Findings Registry."""
 
-from typing import Any, Dict, List, Optional, Tuple
+from dataclasses import dataclass
+from typing import Any
+
 import pandas as pd
 
 from advanced_macro_event_news_regime.macro_event_news_regime_config import (
@@ -42,24 +44,29 @@ SAMPLE_FINDINGS = [
 ]
 
 
+@dataclass
+class FindingParams:
+    finding_type: str
+    context_type: str
+    severity_label: str
+    message: str
+    recommendation: str
+    manual_review_required: bool = True
+
+
 def create_macro_event_news_context_finding(
-    finding_type: str,
-    context_type: str,
-    severity_label: str,
-    message: str,
-    recommendation: str,
-    manual_review_required: bool = True,
+    params: FindingParams,
 ) -> MacroEventNewsContextFinding:
     """Create a structured finding instance for Phase 132."""
-    finding_id = f"find_{finding_type}_{len(message)}"
+    finding_id = f"find_{params.finding_type}_{len(params.message)}"
     return MacroEventNewsContextFinding(
         finding_id=finding_id,
-        finding_type=finding_type,
-        context_type=context_type,
-        severity_label=severity_label,
-        message=message,
-        recommendation=recommendation,
-        manual_review_required=manual_review_required,
+        finding_type=params.finding_type,
+        context_type=params.context_type,
+        severity_label=params.severity_label,
+        message=params.message,
+        recommendation=params.recommendation,
+        manual_review_required=params.manual_review_required,
         destructive_action_allowed=False,
         auto_fix_allowed=False,
         auto_drop_allowed=False,
@@ -67,28 +74,40 @@ def create_macro_event_news_context_finding(
 
 
 def build_macro_event_news_context_findings_registry(
-    profile: Optional[MacroEventNewsRegimeProfile] = None,
-) -> Tuple[pd.DataFrame, Dict[str, Any]]:
+    profile: MacroEventNewsRegimeProfile | None = None,
+) -> tuple[pd.DataFrame, dict[str, Any]]:
     """Build registry DataFrame of diagnostic context findings."""
     p = profile or get_macro_event_news_regime_profile()
     rows = []
     for item in SAMPLE_FINDINGS:
-        row = dict(item)
+        # Pass through create function for proper schema adherence
+        params = FindingParams(
+            finding_type=item["finding_type"],
+            context_type=item["context_type"],
+            severity_label=item["severity_label"],
+            message=item["message"],
+            recommendation=item["recommendation"],
+            manual_review_required=item["manual_review_required"],
+        )
+        finding = create_macro_event_news_context_finding(params)
+        row = finding.__dict__.copy()
         row["profile_name"] = p.profile_name
-        row["destructive_action_allowed"] = False
-        row["auto_fix_allowed"] = False
-        row["auto_drop_allowed"] = False
         row["non_signal"] = True
         row["source_preserved"] = True
         row["official_approval"] = False
         row["production_ready"] = False
         row["broker_ready"] = False
         rows.append(row)
+
     df = pd.DataFrame(rows)
     summary = {
         "total_findings": len(df),
-        "severity_distribution": df["severity_label"].value_counts().to_dict() if not df.empty else {},
-        "manual_review_count": int(df["manual_review_required"].sum()) if not df.empty else 0,
+        "severity_distribution": df["severity_label"].value_counts().to_dict()
+        if not df.empty
+        else {},
+        "manual_review_count": int(df["manual_review_required"].sum())
+        if not df.empty
+        else 0,
         "destructive_action_allowed": False,
         "all_non_signal": True,
         "all_source_preserved": True,
@@ -96,12 +115,20 @@ def build_macro_event_news_context_findings_registry(
     return df, summary
 
 
-def summarize_macro_event_news_context_findings(df: pd.DataFrame) -> Dict[str, Any]:
+def summarize_macro_event_news_context_findings(df: pd.DataFrame) -> dict[str, Any]:
     """Return summary dictionary for findings registry."""
     return {
         "total_findings": len(df),
-        "blockers": int((df["severity_label"] == "blocker").sum()) if "severity_label" in df.columns else 0,
-        "warnings": int((df["severity_label"] == "warning").sum()) if "severity_label" in df.columns else 0,
-        "manual_review_count": int(df["manual_review_required"].sum()) if "manual_review_required" in df.columns else 0,
-        "all_non_signal": bool(df["non_signal"].all()) if "non_signal" in df.columns else True,
+        "blockers": int((df["severity_label"] == "blocker").sum())
+        if "severity_label" in df.columns
+        else 0,
+        "warnings": int((df["severity_label"] == "warning").sum())
+        if "severity_label" in df.columns
+        else 0,
+        "manual_review_count": int(df["manual_review_required"].sum())
+        if "manual_review_required" in df.columns
+        else 0,
+        "all_non_signal": bool(df["non_signal"].all())
+        if "non_signal" in df.columns
+        else True,
     }
