@@ -164,6 +164,27 @@ def validate_macro_event_news_regime_context_manifest(
     return {"valid": all_passed, "checks": checks, "status": "PASS" if all_passed else "FAIL"}
 
 
+
+def _check_text_claims(text: str, violations: list) -> None:
+    text_lower = text.lower()
+    for phrase in FORBIDDEN_CLAIM_PHRASES:
+        if phrase in text_lower:
+            violations.append(phrase)
+
+
+def _check_df_claims(df: pd.DataFrame, violations: list) -> None:
+    for c in df.columns:
+        for forbidden_col in FORBIDDEN_COLUMNS:
+            if c.lower() == forbidden_col:
+                violations.append(f"column:{c}")
+
+
+def _check_summary_claims(summary: dict, violations: list) -> None:
+    for k, v in summary.items():
+        if k in ["official_approval", "production_ready", "broker_ready"] and v is True:
+            violations.append(f"summary:{k}")
+
+
 def validate_no_forbidden_macro_event_news_claims(
     text: Optional[str] = None,
     df: Optional[pd.DataFrame] = None,
@@ -172,21 +193,11 @@ def validate_no_forbidden_macro_event_news_claims(
     """Validate that text, DataFrame, or summary dictionary contains zero prohibited claims."""
     violations = []
     if text:
-        text_lower = text.lower()
-        for phrase in FORBIDDEN_CLAIM_PHRASES:
-            if phrase in text_lower:
-                violations.append(phrase)
-
+        _check_text_claims(text, violations)
     if df is not None and not df.empty:
-        for c in df.columns:
-            for forbidden_col in FORBIDDEN_COLUMNS:
-                if c.lower() == forbidden_col:
-                    violations.append(f"column:{c}")
-
+        _check_df_claims(df, violations)
     if summary:
-        for k, v in summary.items():
-            if k in ["official_approval", "production_ready", "broker_ready"] and v is True:
-                violations.append(f"summary:{k}")
+        _check_summary_claims(summary, violations)
 
     is_clean = len(violations) == 0
     return {
