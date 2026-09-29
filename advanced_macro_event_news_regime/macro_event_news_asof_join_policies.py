@@ -1,6 +1,7 @@
 """Phase 132: Macro/Event/News Asof Join Policies (Guaranteed Backward-Only)."""
 
 from typing import Any, Dict, Optional, Tuple
+from dataclasses import dataclass
 import pandas as pd
 
 from advanced_macro_event_news_regime.macro_event_news_regime_config import (
@@ -19,6 +20,13 @@ DEFAULT_ASOF_POLICIES = [
     }
 ]
 
+@dataclass
+class AsofJoinConfig:
+    """Configuration for asof join parameters."""
+    left_on: str
+    right_on: str
+    by: Optional[str] = None
+    tolerance: Optional[str] = None
 
 def build_macro_event_news_asof_join_policy_registry(
     profile: Optional[MacroEventNewsRegimeProfile] = None,
@@ -48,10 +56,7 @@ def build_macro_event_news_asof_join_policy_registry(
 def safe_macro_event_news_asof_join_backward(
     left_df: pd.DataFrame,
     right_df: pd.DataFrame,
-    left_on: str,
-    right_on: str,
-    by: Optional[str] = None,
-    tolerance: Optional[str] = None,
+    config: AsofJoinConfig,
 ) -> pd.DataFrame:
     """Perform a strictly backward-only asof join without mutating inputs."""
     if left_df.empty:
@@ -64,22 +69,22 @@ def safe_macro_event_news_asof_join_backward(
     r_copy = right_df.copy()
 
     # Ensure datetime sorting for pd.merge_asof
-    l_copy[left_on] = pd.to_datetime(l_copy[left_on])
-    r_copy[right_on] = pd.to_datetime(r_copy[right_on])
+    l_copy[config.left_on] = pd.to_datetime(l_copy[config.left_on])
+    r_copy[config.right_on] = pd.to_datetime(r_copy[config.right_on])
 
-    l_sorted = l_copy.sort_values(left_on)
-    r_sorted = r_copy.sort_values(right_on)
+    l_sorted = l_copy.sort_values(config.left_on)
+    r_sorted = r_copy.sort_values(config.right_on)
 
     kwargs: Dict[str, Any] = {
-        "left_on": left_on,
-        "right_on": right_on,
+        "left_on": config.left_on,
+        "right_on": config.right_on,
         "direction": "backward",
         "allow_exact_matches": True,
     }
-    if by and by in l_sorted.columns and by in r_sorted.columns:
-        kwargs["by"] = by
-    if tolerance:
-        kwargs["tolerance"] = pd.Timedelta(tolerance)
+    if config.by and config.by in l_sorted.columns and config.by in r_sorted.columns:
+        kwargs["by"] = config.by
+    if config.tolerance:
+        kwargs["tolerance"] = pd.Timedelta(config.tolerance)
 
     result = pd.merge_asof(l_sorted, r_sorted, **kwargs)
     return result
