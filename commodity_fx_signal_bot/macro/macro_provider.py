@@ -88,15 +88,28 @@ class MacroProvider:
         start_date: Optional[str] = None,
         end_date: Optional[str] = None,
     ) -> dict[str, pd.DataFrame]:
+        import concurrent.futures
         results = {}
-        for spec in specs:
-            if not spec.enabled:
-                continue
 
-            df = self.fetch_macro_series(spec, start_date=start_date, end_date=end_date)
-            if not df.empty:
-                results[spec.code] = df
-            else:
-                logger.warning("Failed to fetch or no data returned for %s", spec.code)
+        with concurrent.futures.ThreadPoolExecutor(
+            max_workers=min(32, len(specs) or 1)
+        ) as executor:
+            future_to_spec = {
+                executor.submit(
+                    self.fetch_macro_series, spec, start_date=start_date, end_date=end_date
+                ): spec
+                for spec in specs if spec.enabled
+            }
+
+            for future in concurrent.futures.as_completed(future_to_spec):
+                spec = future_to_spec[future]
+                try:
+                    df = future.result()
+                    if not df.empty:
+                        results[spec.code] = df
+                    else:
+                        logger.warning("Failed to fetch or no data returned for %s", spec.code)
+                except Exception as exc:
+                    logger.error("Error fetching macro series %s: %s", spec.code, exc)
 
         return results
