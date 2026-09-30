@@ -5,14 +5,14 @@ import pandas as pd
 from pathlib import Path
 
 # Fix python path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
-from config.settings import settings
-from config.paths import DATA_DIR
-from data.storage.data_lake import DataLake
-from config.symbols import DEFAULT_SYMBOL_UNIVERSE
-from factor_research.factor_pipeline import FactorResearchPipeline
-from factor_research.factor_config import get_factor_research_profile
+from commodity_fx_signal_bot.config.settings import settings
+from commodity_fx_signal_bot.config.paths import DATA_DIR
+from commodity_fx_signal_bot.data.storage.data_lake import DataLake
+from commodity_fx_signal_bot.config.symbols import DEFAULT_SYMBOL_UNIVERSE
+from commodity_fx_signal_bot.factor_research.factor_pipeline import FactorResearchPipeline
+from commodity_fx_signal_bot.factor_research.factor_config import get_factor_research_profile
 
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -72,7 +72,7 @@ def main():
              if not rank_df.empty: tables["composite_ranking"] = rank_df
              if not backtest_df.empty: tables["backtest_results"] = backtest_df
 
-             from reports import report_builder
+             from commodity_fx_signal_bot.reports import report_builder
              txt = report_builder.build_factor_research_text_report(summary, tables)
 
              txt_path = settings.paths.factor_research_reports_txt / f"factor_research_{args.timeframe}_{profile.name}.txt"
