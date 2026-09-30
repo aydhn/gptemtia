@@ -131,6 +131,7 @@ def calculate_parkinson_volatility(
     Formula: sqrt( (1 / (4 * window * ln(2))) * sum(ln(High/Low)^2) ) * sqrt(annualization)
     """
     high_low_ratio = df["high"] / df["low"].replace(0, np.nan)
+    high_low_ratio = high_low_ratio.clip(lower=1e-9)
     hl_log_sq = np.log(high_low_ratio) ** 2
 
     constant = 1.0 / (4.0 * np.log(2.0))
@@ -151,6 +152,9 @@ def calculate_garman_klass_volatility(
     # Fix for log of 0 or negative
     close_open_ratio = df["close"] / df["open"].replace(0, np.nan)
     high_low_ratio = df["high"] / df["low"].replace(0, np.nan)
+
+    close_open_ratio = close_open_ratio.clip(lower=1e-9)
+    high_low_ratio = high_low_ratio.clip(lower=1e-9)
 
     hl_log_sq = np.log(high_low_ratio) ** 2
     co_log_sq = np.log(close_open_ratio) ** 2
