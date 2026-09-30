@@ -17,3 +17,16 @@ def test_stale_data_rules():
     findings = check_stale_timestamp(test_df, "timestamp", max_age_days=30, dataset_type="test_ds", provider_name="test_p")
     assert len(findings) == 1
     assert findings[0].finding_type == "finding_stale_data"
+
+from unittest import mock
+
+def test_stale_data_rules_error_path():
+    # Test that exception handling in check_stale_timestamp returns a finding of type finding_timestamp_issue
+    test_df = pd.DataFrame([{"timestamp": "invalid_date"}])
+    with mock.patch("advanced_data_quality.stale_data_rules.pd.to_datetime", side_effect=Exception("Mocked parsing error")):
+        findings = check_stale_timestamp(test_df, "timestamp", max_age_days=30, dataset_type="test_ds", provider_name="test_p")
+
+    assert len(findings) == 1
+    assert findings[0].finding_type == "finding_timestamp_issue"
+    assert "rule_stale_data_parse_err" in findings[0].finding_id
+    assert "Mocked parsing error" in findings[0].message
