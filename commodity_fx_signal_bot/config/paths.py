@@ -1,4 +1,5 @@
 import os
+
 """
 Path definitions and directory management for the project.
 """
@@ -125,13 +126,10 @@ LAKE_FEATURES_STRATEGY_CANDIDATES_DIR = LAKE_FEATURES_DIR / "strategy_candidates
 LAKE_FEATURES_STRATEGY_POOL_DIR = LAKE_FEATURES_DIR / "strategy_pool"
 STRATEGY_REPORTS_DIR = REPORTS_DIR / "strategy_reports"
 
-LAKE_FEATURES_STRATEGY_RULE_CANDIDATES_DIR = (
-    LAKE_FEATURES_DIR / "strategy_rule_candidates"
-)
+LAKE_FEATURES_STRATEGY_RULE_CANDIDATES_DIR = LAKE_FEATURES_DIR / "strategy_rule_candidates"
 LAKE_FEATURES_ENTRY_EXIT_CANDIDATES_DIR = LAKE_FEATURES_DIR / "entry_exit_candidates"
 LAKE_FEATURES_STRATEGY_RULE_POOL_DIR = LAKE_FEATURES_DIR / "strategy_rule_pool"
 STRATEGY_RULE_REPORTS_DIR = REPORTS_DIR / "strategy_rule_reports"
-
 
 
 # Phase 29: ML Dataset Preparation
@@ -163,7 +161,6 @@ LAKE_ML_INTEGRATION_QUALITY_DIR = LAKE_ML_INTEGRATION_DIR / "quality"
 REPORTS_ML_INTEGRATION_REPORTS_DIR = REPORTS_DIR / "ml_integration_reports"
 
 
-
 # Phase 33: Paper Trading Simulation
 LAKE_PAPER_DIR = LAKE_DIR / "paper"
 LAKE_PAPER_RUNS_DIR = LAKE_PAPER_DIR / "runs"
@@ -185,8 +182,6 @@ LAKE_NOTIFICATIONS_QUALITY_DIR = LAKE_NOTIFICATIONS_DIR / "quality"
 NOTIFICATION_REPORT_OUTPUT_DIR = REPORTS_DIR / "notification_reports"
 
 
-
-
 # Orchestration Output Directories
 LAKE_ORCHESTRATION_DIR = DATA_DIR / "orchestration"
 LAKE_ORCHESTRATION_RUNS_DIR = LAKE_ORCHESTRATION_DIR / "runs"
@@ -196,7 +191,6 @@ LAKE_ORCHESTRATION_EXECUTION_PLANS_DIR = LAKE_ORCHESTRATION_DIR / "execution_pla
 LAKE_ORCHESTRATION_JOB_LOGS_DIR = LAKE_ORCHESTRATION_DIR / "job_logs"
 LAKE_ORCHESTRATION_QUALITY_DIR = LAKE_ORCHESTRATION_DIR / "quality"
 ORCHESTRATION_REPORT_OUTPUT_DIR = REPORTS_DIR / "orchestration_reports"
-
 
 
 # Phase 37: Security
@@ -358,7 +352,6 @@ REPORTS_SCENARIOS_JSON_DIR = REPORTS_SCENARIOS_DIR / "json"
 DOCS_GENERATED_SCENARIOS_DIR = DOCS_DIR / "generated" / "scenarios"
 
 
-
 # Report Summarization Paths
 LAKE_REPORT_SUMMARIZATION_DIR = LAKE_DIR / "report_summarization"
 LAKE_REPORT_SUMMARIZATION_INVENTORY_DIR = LAKE_REPORT_SUMMARIZATION_DIR / "inventory"
@@ -439,7 +432,6 @@ BACKUP_RECOVERY_BUNDLE_RUNBOOKS_DIR = BACKUP_RECOVERY_BUNDLE_DIR / "runbooks"
 DOCS_GENERATED_BACKUP_RECOVERY_DIR = DOCS_DIR / "generated" / "backup_recovery"
 
 
-
 # Local Consistency Engine
 LAKE_LOCAL_CONSISTENCY_DIR = LAKE_DIR / "local_consistency"
 LAKE_LOCAL_CONSISTENCY_CHECK_REGISTRY_DIR = LAKE_LOCAL_CONSISTENCY_DIR / "check_registry"
@@ -454,7 +446,9 @@ LAKE_LOCAL_CONSISTENCY_EVIDENCE_CONTROL_DIR = LAKE_LOCAL_CONSISTENCY_DIR / "evid
 LAKE_LOCAL_CONSISTENCY_METADATA_ARTIFACT_DIR = LAKE_LOCAL_CONSISTENCY_DIR / "metadata_artifact"
 LAKE_LOCAL_CONSISTENCY_GRAPH_METADATA_DIR = LAKE_LOCAL_CONSISTENCY_DIR / "graph_metadata"
 LAKE_LOCAL_CONSISTENCY_TIMELINE_ARTIFACT_DIR = LAKE_LOCAL_CONSISTENCY_DIR / "timeline_artifact"
-LAKE_LOCAL_CONSISTENCY_BACKUP_PACKAGING_SECRETS_DIR = LAKE_LOCAL_CONSISTENCY_DIR / "backup_packaging_secrets"
+LAKE_LOCAL_CONSISTENCY_BACKUP_PACKAGING_SECRETS_DIR = (
+    LAKE_LOCAL_CONSISTENCY_DIR / "backup_packaging_secrets"
+)
 LAKE_LOCAL_CONSISTENCY_NON_USE_POLICY_DIR = LAKE_LOCAL_CONSISTENCY_DIR / "non_use_policy"
 LAKE_LOCAL_CONSISTENCY_DISCLAIMERS_DIR = LAKE_LOCAL_CONSISTENCY_DIR / "disclaimers"
 LAKE_LOCAL_CONSISTENCY_SAFETY_BOUNDARIES_DIR = LAKE_LOCAL_CONSISTENCY_DIR / "safety_boundaries"
@@ -511,54 +505,56 @@ LOCAL_REUSE_REPORTS_JSON_DIR = LOCAL_REUSE_REPORTS_DIR / "json"
 LOCAL_REUSE_DOCS_DIR = DOCS_DIR / "generated" / "local_reuse"
 
 
-LAKE_LOCAL_REDTEAM = LAKE_DIR / 'local_redteam'
-LAKE_LOCAL_REDTEAM_PROFILES = LAKE_LOCAL_REDTEAM / 'profiles'
-LAKE_LOCAL_REDTEAM_DOMAINS = LAKE_LOCAL_REDTEAM / 'domains'
-LAKE_LOCAL_REDTEAM_REHEARSAL_PACKET = LAKE_LOCAL_REDTEAM / 'rehearsal_packet'
-LAKE_LOCAL_REDTEAM_MISUSE_SCENARIOS = LAKE_LOCAL_REDTEAM / 'misuse_scenarios'
-LAKE_LOCAL_REDTEAM_ABUSE_CASES = LAKE_LOCAL_REDTEAM / 'abuse_cases'
-LAKE_LOCAL_REDTEAM_ADVERSARIAL_CHECKLIST = LAKE_LOCAL_REDTEAM / 'adversarial_checklist'
-LAKE_LOCAL_REDTEAM_PROMPT_INJECTION = LAKE_LOCAL_REDTEAM / 'prompt_injection'
-LAKE_LOCAL_REDTEAM_UNSAFE_OUTPUTS = LAKE_LOCAL_REDTEAM / 'unsafe_outputs'
-LAKE_LOCAL_REDTEAM_FORBIDDEN_CAPABILITIES = LAKE_LOCAL_REDTEAM / 'forbidden_capabilities'
-LAKE_LOCAL_REDTEAM_BOUNDARY_VIOLATIONS = LAKE_LOCAL_REDTEAM / 'boundary_violations'
-LAKE_LOCAL_REDTEAM_LIVE_TRADING = LAKE_LOCAL_REDTEAM / 'live_trading'
-LAKE_LOCAL_REDTEAM_BROKER_EXECUTION = LAKE_LOCAL_REDTEAM / 'broker_execution'
-LAKE_LOCAL_REDTEAM_INVESTMENT_ADVICE = LAKE_LOCAL_REDTEAM / 'investment_advice'
-LAKE_LOCAL_REDTEAM_MODEL_DEPLOYMENT = LAKE_LOCAL_REDTEAM / 'model_deployment'
-LAKE_LOCAL_REDTEAM_SECRET_EXPOSURE = LAKE_LOCAL_REDTEAM / 'secret_exposure'
-LAKE_LOCAL_REDTEAM_FILE_ACTIONS = LAKE_LOCAL_REDTEAM / 'file_actions'
-LAKE_LOCAL_REDTEAM_CLOUD_PUBLISH = LAKE_LOCAL_REDTEAM / 'cloud_publish'
-LAKE_LOCAL_REDTEAM_EXTERNAL_LLM_API = LAKE_LOCAL_REDTEAM / 'external_llm_api'
-LAKE_LOCAL_REDTEAM_SAFETY_RESPONSES = LAKE_LOCAL_REDTEAM / 'safety_responses'
-LAKE_LOCAL_REDTEAM_MANUAL_ESCALATION = LAKE_LOCAL_REDTEAM / 'manual_escalation'
-LAKE_LOCAL_REDTEAM_HUMAN_REVIEW = LAKE_LOCAL_REDTEAM / 'human_review'
-LAKE_LOCAL_REDTEAM_READING_ORDER = LAKE_LOCAL_REDTEAM / 'reading_order'
-LAKE_LOCAL_REDTEAM_SAFETY_ASSURANCE = LAKE_LOCAL_REDTEAM / 'safety_assurance'
-LAKE_LOCAL_REDTEAM_COVERAGE = LAKE_LOCAL_REDTEAM / 'coverage'
-LAKE_LOCAL_REDTEAM_BLINDSPOTS = LAKE_LOCAL_REDTEAM / 'blindspots'
-LAKE_LOCAL_REDTEAM_NON_GOALS = LAKE_LOCAL_REDTEAM / 'non_goals'
-LAKE_LOCAL_REDTEAM_NO_GO_SAFE_GO = LAKE_LOCAL_REDTEAM / 'no_go_safe_go'
-LAKE_LOCAL_REDTEAM_EXCEPTIONS = LAKE_LOCAL_REDTEAM / 'exceptions'
-LAKE_LOCAL_REDTEAM_GAPS = LAKE_LOCAL_REDTEAM / 'gaps'
-LAKE_LOCAL_REDTEAM_RISKS = LAKE_LOCAL_REDTEAM / 'risks'
-LAKE_LOCAL_REDTEAM_SCORING = LAKE_LOCAL_REDTEAM / 'scoring'
-LAKE_LOCAL_REDTEAM_VALIDATION = LAKE_LOCAL_REDTEAM / 'validation'
-LAKE_LOCAL_REDTEAM_QUALITY = LAKE_LOCAL_REDTEAM / 'quality'
+LAKE_LOCAL_REDTEAM = LAKE_DIR / "local_redteam"
+LAKE_LOCAL_REDTEAM_PROFILES = LAKE_LOCAL_REDTEAM / "profiles"
+LAKE_LOCAL_REDTEAM_DOMAINS = LAKE_LOCAL_REDTEAM / "domains"
+LAKE_LOCAL_REDTEAM_REHEARSAL_PACKET = LAKE_LOCAL_REDTEAM / "rehearsal_packet"
+LAKE_LOCAL_REDTEAM_MISUSE_SCENARIOS = LAKE_LOCAL_REDTEAM / "misuse_scenarios"
+LAKE_LOCAL_REDTEAM_ABUSE_CASES = LAKE_LOCAL_REDTEAM / "abuse_cases"
+LAKE_LOCAL_REDTEAM_ADVERSARIAL_CHECKLIST = LAKE_LOCAL_REDTEAM / "adversarial_checklist"
+LAKE_LOCAL_REDTEAM_PROMPT_INJECTION = LAKE_LOCAL_REDTEAM / "prompt_injection"
+LAKE_LOCAL_REDTEAM_UNSAFE_OUTPUTS = LAKE_LOCAL_REDTEAM / "unsafe_outputs"
+LAKE_LOCAL_REDTEAM_FORBIDDEN_CAPABILITIES = LAKE_LOCAL_REDTEAM / "forbidden_capabilities"
+LAKE_LOCAL_REDTEAM_BOUNDARY_VIOLATIONS = LAKE_LOCAL_REDTEAM / "boundary_violations"
+LAKE_LOCAL_REDTEAM_LIVE_TRADING = LAKE_LOCAL_REDTEAM / "live_trading"
+LAKE_LOCAL_REDTEAM_BROKER_EXECUTION = LAKE_LOCAL_REDTEAM / "broker_execution"
+LAKE_LOCAL_REDTEAM_INVESTMENT_ADVICE = LAKE_LOCAL_REDTEAM / "investment_advice"
+LAKE_LOCAL_REDTEAM_MODEL_DEPLOYMENT = LAKE_LOCAL_REDTEAM / "model_deployment"
+LAKE_LOCAL_REDTEAM_SECRET_EXPOSURE = LAKE_LOCAL_REDTEAM / "secret_exposure"
+LAKE_LOCAL_REDTEAM_FILE_ACTIONS = LAKE_LOCAL_REDTEAM / "file_actions"
+LAKE_LOCAL_REDTEAM_CLOUD_PUBLISH = LAKE_LOCAL_REDTEAM / "cloud_publish"
+LAKE_LOCAL_REDTEAM_EXTERNAL_LLM_API = LAKE_LOCAL_REDTEAM / "external_llm_api"
+LAKE_LOCAL_REDTEAM_SAFETY_RESPONSES = LAKE_LOCAL_REDTEAM / "safety_responses"
+LAKE_LOCAL_REDTEAM_MANUAL_ESCALATION = LAKE_LOCAL_REDTEAM / "manual_escalation"
+LAKE_LOCAL_REDTEAM_HUMAN_REVIEW = LAKE_LOCAL_REDTEAM / "human_review"
+LAKE_LOCAL_REDTEAM_READING_ORDER = LAKE_LOCAL_REDTEAM / "reading_order"
+LAKE_LOCAL_REDTEAM_SAFETY_ASSURANCE = LAKE_LOCAL_REDTEAM / "safety_assurance"
+LAKE_LOCAL_REDTEAM_COVERAGE = LAKE_LOCAL_REDTEAM / "coverage"
+LAKE_LOCAL_REDTEAM_BLINDSPOTS = LAKE_LOCAL_REDTEAM / "blindspots"
+LAKE_LOCAL_REDTEAM_NON_GOALS = LAKE_LOCAL_REDTEAM / "non_goals"
+LAKE_LOCAL_REDTEAM_NO_GO_SAFE_GO = LAKE_LOCAL_REDTEAM / "no_go_safe_go"
+LAKE_LOCAL_REDTEAM_EXCEPTIONS = LAKE_LOCAL_REDTEAM / "exceptions"
+LAKE_LOCAL_REDTEAM_GAPS = LAKE_LOCAL_REDTEAM / "gaps"
+LAKE_LOCAL_REDTEAM_RISKS = LAKE_LOCAL_REDTEAM / "risks"
+LAKE_LOCAL_REDTEAM_SCORING = LAKE_LOCAL_REDTEAM / "scoring"
+LAKE_LOCAL_REDTEAM_VALIDATION = LAKE_LOCAL_REDTEAM / "validation"
+LAKE_LOCAL_REDTEAM_QUALITY = LAKE_LOCAL_REDTEAM / "quality"
 
-REPORT_OUTPUT_LOCAL_REDTEAM = REPORTS_OUTPUT_DIR / 'local_redteam'
-REPORT_OUTPUT_LOCAL_REDTEAM_JSON = REPORT_OUTPUT_LOCAL_REDTEAM / 'json'
-REPORT_OUTPUT_LOCAL_REDTEAM_MARKDOWN = REPORT_OUTPUT_LOCAL_REDTEAM / 'markdown'
+REPORT_OUTPUT_LOCAL_REDTEAM = REPORTS_OUTPUT_DIR / "local_redteam"
+REPORT_OUTPUT_LOCAL_REDTEAM_JSON = REPORT_OUTPUT_LOCAL_REDTEAM / "json"
+REPORT_OUTPUT_LOCAL_REDTEAM_MARKDOWN = REPORT_OUTPUT_LOCAL_REDTEAM / "markdown"
 
 
-ADVANCED_CONTINUATION_DIR = os.path.join(DATA_LAKE_DIR, "advanced_continuation")
+ADVANCED_CONTINUATION_DIR = os.path.join(LAKE_DIR, "advanced_continuation")
 ADVANCED_CONTINUATION_PROFILES_DIR = os.path.join(ADVANCED_CONTINUATION_DIR, "profiles")
 ADVANCED_CONTINUATION_ROADMAP_DIR = os.path.join(ADVANCED_CONTINUATION_DIR, "roadmap")
 ADVANCED_CONTINUATION_MASTER_PLAN_DIR = os.path.join(ADVANCED_CONTINUATION_DIR, "master_plan")
 ADVANCED_CONTINUATION_REOPEN_DIR = os.path.join(ADVANCED_CONTINUATION_DIR, "reopen")
 ADVANCED_CONTINUATION_AUDIT_DIR = os.path.join(ADVANCED_CONTINUATION_DIR, "audit")
 ADVANCED_CONTINUATION_GAPS_DIR = os.path.join(ADVANCED_CONTINUATION_DIR, "gaps")
-ADVANCED_CONTINUATION_FUNCTIONAL_CONTINUATION_DIR = os.path.join(ADVANCED_CONTINUATION_DIR, "functional_continuation")
+ADVANCED_CONTINUATION_FUNCTIONAL_CONTINUATION_DIR = os.path.join(
+    ADVANCED_CONTINUATION_DIR, "functional_continuation"
+)
 ADVANCED_CONTINUATION_DEPENDENCIES_DIR = os.path.join(ADVANCED_CONTINUATION_DIR, "dependencies")
 ADVANCED_CONTINUATION_MILESTONES_DIR = os.path.join(ADVANCED_CONTINUATION_DIR, "milestones")
 ADVANCED_CONTINUATION_RISKS_DIR = os.path.join(ADVANCED_CONTINUATION_DIR, "risks")
@@ -576,9 +572,11 @@ ADVANCED_CONTINUATION_DOCS_ROADMAP_DIR = os.path.join(ADVANCED_CONTINUATION_DOCS
 ADVANCED_CONTINUATION_DOCS_REOPEN_DIR = os.path.join(ADVANCED_CONTINUATION_DOCS_DIR, "reopen")
 ADVANCED_CONTINUATION_DOCS_AUDIT_DIR = os.path.join(ADVANCED_CONTINUATION_DOCS_DIR, "audit")
 ADVANCED_CONTINUATION_DOCS_GAPS_DIR = os.path.join(ADVANCED_CONTINUATION_DOCS_DIR, "gaps")
-ADVANCED_CONTINUATION_DOCS_FUNCTIONAL_DIR = os.path.join(ADVANCED_CONTINUATION_DOCS_DIR, "functional_continuation")
+ADVANCED_CONTINUATION_DOCS_FUNCTIONAL_DIR = os.path.join(
+    ADVANCED_CONTINUATION_DOCS_DIR, "functional_continuation"
+)
 
-ADVANCED_RUNTIME_DIR = os.path.join(DATA_LAKE_DIR, "advanced_runtime")
+ADVANCED_RUNTIME_DIR = os.path.join(LAKE_DIR, "advanced_runtime")
 ADVANCED_RUNTIME_PROFILES_DIR = os.path.join(ADVANCED_RUNTIME_DIR, "profiles")
 ADVANCED_RUNTIME_CONTEXT_DIR = os.path.join(ADVANCED_RUNTIME_DIR, "context")
 ADVANCED_RUNTIME_CAPABILITIES_DIR = os.path.join(ADVANCED_RUNTIME_DIR, "capabilities")
@@ -588,7 +586,9 @@ ADVANCED_RUNTIME_CONTRACTS_DIR = os.path.join(ADVANCED_RUNTIME_DIR, "contracts")
 ADVANCED_RUNTIME_COMMANDS_DIR = os.path.join(ADVANCED_RUNTIME_DIR, "commands")
 ADVANCED_RUNTIME_OUTPUTS_DIR = os.path.join(ADVANCED_RUNTIME_DIR, "outputs")
 ADVANCED_RUNTIME_DATALAKE_CONTRACTS_DIR = os.path.join(ADVANCED_RUNTIME_DIR, "datalake_contracts")
-ADVANCED_RUNTIME_FEATURESTORE_CONTRACTS_DIR = os.path.join(ADVANCED_RUNTIME_DIR, "featurestore_contracts")
+ADVANCED_RUNTIME_FEATURESTORE_CONTRACTS_DIR = os.path.join(
+    ADVANCED_RUNTIME_DIR, "featurestore_contracts"
+)
 ADVANCED_RUNTIME_REPORT_CONTRACTS_DIR = os.path.join(ADVANCED_RUNTIME_DIR, "report_contracts")
 ADVANCED_RUNTIME_SAFETY_DIR = os.path.join(ADVANCED_RUNTIME_DIR, "safety")
 ADVANCED_RUNTIME_HEALTH_DIR = os.path.join(ADVANCED_RUNTIME_DIR, "health")
@@ -605,7 +605,6 @@ ADVANCED_RUNTIME_DOCS_CONTEXT_DIR = os.path.join(ADVANCED_RUNTIME_DOCS_DIR, "con
 ADVANCED_RUNTIME_DOCS_CONTRACTS_DIR = os.path.join(ADVANCED_RUNTIME_DOCS_DIR, "contracts")
 ADVANCED_RUNTIME_DOCS_HEALTH_DIR = os.path.join(ADVANCED_RUNTIME_DOCS_DIR, "health")
 ADVANCED_RUNTIME_DOCS_QUALITY_DIR = os.path.join(ADVANCED_RUNTIME_DOCS_DIR, "quality")
-
 
 
 def ensure_project_directories() -> None:
@@ -642,7 +641,6 @@ def ensure_project_directories() -> None:
     LOCAL_REUSE_REPORTS_JSON_DIR.mkdir(parents=True, exist_ok=True)
     LOCAL_REUSE_DOCS_DIR.mkdir(parents=True, exist_ok=True)
 
-
     (LAKE_DIR / "local_delivery").mkdir(parents=True, exist_ok=True)
     (LAKE_DIR / "local_delivery" / "profiles").mkdir(parents=True, exist_ok=True)
     (LAKE_DIR / "local_delivery" / "domains").mkdir(parents=True, exist_ok=True)
@@ -670,16 +668,14 @@ def ensure_project_directories() -> None:
     (LAKE_DIR / "local_delivery" / "scoring").mkdir(parents=True, exist_ok=True)
     (LAKE_DIR / "local_delivery" / "validation").mkdir(parents=True, exist_ok=True)
     (LAKE_DIR / "local_delivery" / "quality").mkdir(parents=True, exist_ok=True)
-    
+
     (REPORTS_OUTPUT_DIR / "local_delivery").mkdir(parents=True, exist_ok=True)
     (REPORTS_OUTPUT_DIR / "local_delivery" / "csv").mkdir(parents=True, exist_ok=True)
     (REPORTS_OUTPUT_DIR / "local_delivery" / "markdown").mkdir(parents=True, exist_ok=True)
     (REPORTS_OUTPUT_DIR / "local_delivery" / "txt").mkdir(parents=True, exist_ok=True)
     (REPORTS_OUTPUT_DIR / "local_delivery" / "json").mkdir(parents=True, exist_ok=True)
 
-    ((DOCS_DIR / 'generated') / "local_delivery").mkdir(parents=True, exist_ok=True)
-
-
+    ((DOCS_DIR / "generated") / "local_delivery").mkdir(parents=True, exist_ok=True)
 
     """
     Ensure that all required project directories exist.
@@ -719,8 +715,6 @@ def ensure_project_directories() -> None:
         REPORTS_RESEARCH_PLANNING_MARKDOWN_DIR,
         REPORTS_RESEARCH_PLANNING_TXT_DIR,
         REPORTS_RESEARCH_PLANNING_JSON_DIR,
-
-
         LAKE_KNOWLEDGE_BASE_DIR,
         LAKE_KNOWLEDGE_BASE_DOCUMENTS_DIR,
         LAKE_KNOWLEDGE_BASE_CHUNKS_DIR,
@@ -778,7 +772,6 @@ def ensure_project_directories() -> None:
         LAKE_SYNTHETIC_DIR,
         LAKE_MANIFESTS_DIR,
         LAKE_JOURNALS_DIR,
-
         LAKE_OBSERVABILITY_DIR,
         LAKE_OBSERVABILITY_LOGS_DIR,
         LAKE_OBSERVABILITY_JSON_LOGS_DIR,
@@ -903,11 +896,10 @@ def ensure_project_directories() -> None:
         LAKE_ORCHESTRATION_RUNS_DIR,
         LAKE_ORCHESTRATION_MANIFESTS_DIR,
         LAKE_ORCHESTRATION_DEPENDENCY_GRAPHS_DIR,
-
         LAKE_ORCHESTRATION_EXECUTION_PLANS_DIR,
         LAKE_ORCHESTRATION_JOB_LOGS_DIR,
         LAKE_ORCHESTRATION_QUALITY_DIR,
-    ORCHESTRATION_REPORT_OUTPUT_DIR,
+        ORCHESTRATION_REPORT_OUTPUT_DIR,
         LAKE_SECURITY_DIR,
         LAKE_SECURITY_AUDITS_DIR,
         LAKE_SECURITY_SECRET_HYGIENE_DIR,
@@ -956,37 +948,39 @@ def ensure_project_directories() -> None:
     ]
 
     # Phase 75: Local Synthesis
-    ls_lake = LAKE_DIR / 'local_synthesis'
-    ls_reps = REPORTS_DIR / 'output' / 'local_synthesis'
-    ls_docs = DOCS_DIR / 'generated' / 'local_synthesis'
-    
-    directories.extend([
-        ls_lake,
-        ls_lake / 'profiles',
-        ls_lake / 'phase_families',
-        ls_lake / 'master_indexes',
-        ls_lake / 'final_maps',
-        ls_lake / 'capabilities',
-        ls_lake / 'boundaries',
-        ls_lake / 'dependencies',
-        ls_lake / 'catalogs',
-        ls_lake / 'dossiers',
-        ls_lake / 'binders',
-        ls_lake / 'statements',
-        ls_lake / 'limitations',
-        ls_lake / 'manual_review',
-        ls_lake / 'no_go_safe_go',
-        ls_lake / 'navigation',
-        ls_lake / 'checklists',
-        ls_lake / 'validation',
-        ls_lake / 'quality',
-        ls_reps,
-        ls_reps / 'csv',
-        ls_reps / 'markdown',
-        ls_reps / 'txt',
-        ls_reps / 'json',
-        ls_docs
-    ])
+    ls_lake = LAKE_DIR / "local_synthesis"
+    ls_reps = REPORTS_DIR / "output" / "local_synthesis"
+    ls_docs = DOCS_DIR / "generated" / "local_synthesis"
+
+    directories.extend(
+        [
+            ls_lake,
+            ls_lake / "profiles",
+            ls_lake / "phase_families",
+            ls_lake / "master_indexes",
+            ls_lake / "final_maps",
+            ls_lake / "capabilities",
+            ls_lake / "boundaries",
+            ls_lake / "dependencies",
+            ls_lake / "catalogs",
+            ls_lake / "dossiers",
+            ls_lake / "binders",
+            ls_lake / "statements",
+            ls_lake / "limitations",
+            ls_lake / "manual_review",
+            ls_lake / "no_go_safe_go",
+            ls_lake / "navigation",
+            ls_lake / "checklists",
+            ls_lake / "validation",
+            ls_lake / "quality",
+            ls_reps,
+            ls_reps / "csv",
+            ls_reps / "markdown",
+            ls_reps / "txt",
+            ls_reps / "json",
+            ls_docs,
+        ]
+    )
 
     for directory in directories:
         directory.mkdir(parents=True, exist_ok=True)
@@ -1010,7 +1004,6 @@ LAKE_FEATURES_LEVEL_CANDIDATES_DIR = LAKE_FEATURES_DIR / "level_candidates"
 LAKE_FEATURES_LEVEL_POOL_DIR = LAKE_FEATURES_DIR / "level_pool"
 
 REPORTS_LEVEL_REPORTS_DIR = REPORTS_DIR / "level_reports"
-
 
 
 # Phase 43: Synthetic Indices
@@ -1136,23 +1129,25 @@ LAKE_LOCAL_PERFORMANCE_RISKS_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "risks"
 LAKE_LOCAL_PERFORMANCE_SCORING_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "scoring"
 LAKE_LOCAL_PERFORMANCE_VALIDATION_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "validation"
 LAKE_LOCAL_PERFORMANCE_QUALITY_DIR = LAKE_LOCAL_PERFORMANCE_DIR / "quality"
-    
+
 OUTPUT_LOCAL_PERFORMANCE_DIR = REPORTS_OUTPUT_DIR / "local_performance"
 OUTPUT_LOCAL_PERFORMANCE_CSV_DIR = OUTPUT_LOCAL_PERFORMANCE_DIR / "csv"
 OUTPUT_LOCAL_PERFORMANCE_MARKDOWN_DIR = OUTPUT_LOCAL_PERFORMANCE_DIR / "markdown"
 OUTPUT_LOCAL_PERFORMANCE_TXT_DIR = OUTPUT_LOCAL_PERFORMANCE_DIR / "txt"
 OUTPUT_LOCAL_PERFORMANCE_JSON_DIR = OUTPUT_LOCAL_PERFORMANCE_DIR / "json"
-    
+
 DOCS_GENERATED_LOCAL_PERFORMANCE_DIR = DOCS_DIR / "generated" / "local_performance"
 
-class ProjectPaths:
 
+class ProjectPaths:
     LAKE_LOCAL_PERFORMANCE_DIR: Path = LAKE_LOCAL_PERFORMANCE_DIR
     LAKE_LOCAL_PERFORMANCE_PROFILES_DIR: Path = LAKE_LOCAL_PERFORMANCE_PROFILES_DIR
     LAKE_LOCAL_PERFORMANCE_DOMAINS_DIR: Path = LAKE_LOCAL_PERFORMANCE_DOMAINS_DIR
     LAKE_LOCAL_PERFORMANCE_BUDGET_DIR: Path = LAKE_LOCAL_PERFORMANCE_BUDGET_DIR
     LAKE_LOCAL_PERFORMANCE_RUNTIME_PROFILE_DIR: Path = LAKE_LOCAL_PERFORMANCE_RUNTIME_PROFILE_DIR
-    LAKE_LOCAL_PERFORMANCE_RESOURCE_FOOTPRINT_DIR: Path = LAKE_LOCAL_PERFORMANCE_RESOURCE_FOOTPRINT_DIR
+    LAKE_LOCAL_PERFORMANCE_RESOURCE_FOOTPRINT_DIR: Path = (
+        LAKE_LOCAL_PERFORMANCE_RESOURCE_FOOTPRINT_DIR
+    )
     LAKE_LOCAL_PERFORMANCE_CPU_DIR: Path = LAKE_LOCAL_PERFORMANCE_CPU_DIR
     LAKE_LOCAL_PERFORMANCE_MEMORY_DIR: Path = LAKE_LOCAL_PERFORMANCE_MEMORY_DIR
     LAKE_LOCAL_PERFORMANCE_DISK_DIR: Path = LAKE_LOCAL_PERFORMANCE_DISK_DIR
@@ -1161,9 +1156,13 @@ class ProjectPaths:
     LAKE_LOCAL_PERFORMANCE_TEST_RUNTIME_DIR: Path = LAKE_LOCAL_PERFORMANCE_TEST_RUNTIME_DIR
     LAKE_LOCAL_PERFORMANCE_PIPELINE_RUNTIME_DIR: Path = LAKE_LOCAL_PERFORMANCE_PIPELINE_RUNTIME_DIR
     LAKE_LOCAL_PERFORMANCE_MAINTENANCE_COST_DIR: Path = LAKE_LOCAL_PERFORMANCE_MAINTENANCE_COST_DIR
-    LAKE_LOCAL_PERFORMANCE_MAINTENANCE_EFFORT_DIR: Path = LAKE_LOCAL_PERFORMANCE_MAINTENANCE_EFFORT_DIR
+    LAKE_LOCAL_PERFORMANCE_MAINTENANCE_EFFORT_DIR: Path = (
+        LAKE_LOCAL_PERFORMANCE_MAINTENANCE_EFFORT_DIR
+    )
     LAKE_LOCAL_PERFORMANCE_OPERATOR_TIME_DIR: Path = LAKE_LOCAL_PERFORMANCE_OPERATOR_TIME_DIR
-    LAKE_LOCAL_PERFORMANCE_MACHINE_SUITABILITY_DIR: Path = LAKE_LOCAL_PERFORMANCE_MACHINE_SUITABILITY_DIR
+    LAKE_LOCAL_PERFORMANCE_MACHINE_SUITABILITY_DIR: Path = (
+        LAKE_LOCAL_PERFORMANCE_MACHINE_SUITABILITY_DIR
+    )
     LAKE_LOCAL_PERFORMANCE_EFFICIENCY_DIR: Path = LAKE_LOCAL_PERFORMANCE_EFFICIENCY_DIR
     LAKE_LOCAL_PERFORMANCE_LIGHTWEIGHT_MODE_DIR: Path = LAKE_LOCAL_PERFORMANCE_LIGHTWEIGHT_MODE_DIR
     LAKE_LOCAL_PERFORMANCE_WARNINGS_DIR: Path = LAKE_LOCAL_PERFORMANCE_WARNINGS_DIR
@@ -1179,35 +1178,52 @@ class ProjectPaths:
     DOCS_GENERATED_LOCAL_PERFORMANCE_DIR: Path = DOCS_GENERATED_LOCAL_PERFORMANCE_DIR
 
     @property
-    def lake_local_performance_dir(self): return LAKE_LOCAL_PERFORMANCE_DIR
-    @property
-    def output_local_performance_dir(self): return OUTPUT_LOCAL_PERFORMANCE_DIR
-    @property
-    def docs_generated_local_performance_dir(self): return DOCS_GENERATED_LOCAL_PERFORMANCE_DIR
-
-
+    def lake_local_performance_dir(self):
+        return LAKE_LOCAL_PERFORMANCE_DIR
 
     @property
-    def local_synthesis_dir(self): return self.data_lake_dir / "local_synthesis"
-    @property
-    def local_synthesis_reports_dir(self): return self.reports_dir / "output" / "local_synthesis"
-    @property
-    def local_synthesis_docs_dir(self): return self.docs_dir / "generated" / "local_synthesis"
-    @property
-    def local_briefing_dir(self): return self.data_lake_dir / "local_briefing"
-    @property
-    def local_briefing_reports_dir(self): return self.reports_dir / "output" / "local_briefing"
-    @property
-    def local_briefing_docs_dir(self): return self.docs_dir / "generated" / "local_briefing"
+    def output_local_performance_dir(self):
+        return OUTPUT_LOCAL_PERFORMANCE_DIR
 
+    @property
+    def docs_generated_local_performance_dir(self):
+        return DOCS_GENERATED_LOCAL_PERFORMANCE_DIR
+
+    @property
+    def local_synthesis_dir(self):
+        return self.data_lake_dir / "local_synthesis"
+
+    @property
+    def local_synthesis_reports_dir(self):
+        return self.reports_dir / "output" / "local_synthesis"
+
+    @property
+    def local_synthesis_docs_dir(self):
+        return self.docs_dir / "generated" / "local_synthesis"
+
+    @property
+    def local_briefing_dir(self):
+        return self.data_lake_dir / "local_briefing"
+
+    @property
+    def local_briefing_reports_dir(self):
+        return self.reports_dir / "output" / "local_briefing"
+
+    @property
+    def local_briefing_docs_dir(self):
+        return self.docs_dir / "generated" / "local_briefing"
 
     # Secrets Hygiene Lake Paths
     lake_secrets_hygiene_dir: Path = LAKE_DIR / "secrets_hygiene"
     lake_secrets_hygiene_sensitive_files_dir: Path = lake_secrets_hygiene_dir / "sensitive_files"
     lake_secrets_hygiene_pattern_findings_dir: Path = lake_secrets_hygiene_dir / "pattern_findings"
     lake_secrets_hygiene_entropy_findings_dir: Path = lake_secrets_hygiene_dir / "entropy_findings"
-    lake_secrets_hygiene_env_template_audit_dir: Path = lake_secrets_hygiene_dir / "env_template_audit"
-    lake_secrets_hygiene_credential_boundary_dir: Path = lake_secrets_hygiene_dir / "credential_boundary"
+    lake_secrets_hygiene_env_template_audit_dir: Path = (
+        lake_secrets_hygiene_dir / "env_template_audit"
+    )
+    lake_secrets_hygiene_credential_boundary_dir: Path = (
+        lake_secrets_hygiene_dir / "credential_boundary"
+    )
     lake_secrets_hygiene_private_data_dir: Path = lake_secrets_hygiene_dir / "private_data"
     lake_secrets_hygiene_gitignore_dir: Path = lake_secrets_hygiene_dir / "gitignore"
     lake_secrets_hygiene_config_boundary_dir: Path = lake_secrets_hygiene_dir / "config_boundary"
@@ -1334,7 +1350,6 @@ class ProjectPaths:
         self.paper_quality = LAKE_PAPER_QUALITY_DIR
         self.paper_reports = PAPER_REPORTS_DIR
 
-
         # Phase 34: Notifications
         self.LAKE_NOTIFICATIONS_DIR = LAKE_NOTIFICATIONS_DIR
         self.LAKE_NOTIFICATIONS_MESSAGES_DIR = LAKE_NOTIFICATIONS_MESSAGES_DIR
@@ -1355,7 +1370,6 @@ class ProjectPaths:
         self.security_readiness = LAKE_SECURITY_READINESS_DIR
         self.security_quality = LAKE_SECURITY_QUALITY_DIR
         self.security_reports = REPORTS_SECURITY_REPORTS_DIR
-
 
         # Phase 42: Portfolio Regime Research
         self.portfolio_regime_dir = LAKE_PORTFOLIO_REGIME_DIR
@@ -1415,7 +1429,9 @@ class ProjectPaths:
         self.DATA_LAKE_GOVERNANCE_LINEAGE_DIR = DATA_LAKE_GOVERNANCE_LINEAGE_DIR
         self.DATA_LAKE_GOVERNANCE_DEPENDENCIES_DIR = DATA_LAKE_GOVERNANCE_DEPENDENCIES_DIR
         self.DATA_LAKE_GOVERNANCE_AUDIT_DIR = DATA_LAKE_GOVERNANCE_AUDIT_DIR
-        self.DATA_LAKE_GOVERNANCE_SOURCE_ATTRIBUTION_DIR = DATA_LAKE_GOVERNANCE_SOURCE_ATTRIBUTION_DIR
+        self.DATA_LAKE_GOVERNANCE_SOURCE_ATTRIBUTION_DIR = (
+            DATA_LAKE_GOVERNANCE_SOURCE_ATTRIBUTION_DIR
+        )
         self.DATA_LAKE_GOVERNANCE_CHECKLISTS_DIR = DATA_LAKE_GOVERNANCE_CHECKLISTS_DIR
         self.DATA_LAKE_GOVERNANCE_QUALITY_DIR = DATA_LAKE_GOVERNANCE_QUALITY_DIR
 
@@ -1472,10 +1488,16 @@ class ProjectPaths:
         self.scenario_regression_snapshots_dir = LAKE_SCENARIO_REGRESSION_SNAPSHOTS_DIR
         self.scenario_regression_snapshot_diffs_dir = LAKE_SCENARIO_REGRESSION_SNAPSHOT_DIFFS_DIR
         self.scenario_regression_replay_dir = LAKE_SCENARIO_REGRESSION_REPLAY_DIR
-        self.scenario_regression_fixture_reproducibility_dir = LAKE_SCENARIO_REGRESSION_FIXTURE_REPRODUCIBILITY_DIR
-        self.scenario_regression_output_contracts_dir = LAKE_SCENARIO_REGRESSION_OUTPUT_CONTRACTS_DIR
+        self.scenario_regression_fixture_reproducibility_dir = (
+            LAKE_SCENARIO_REGRESSION_FIXTURE_REPRODUCIBILITY_DIR
+        )
+        self.scenario_regression_output_contracts_dir = (
+            LAKE_SCENARIO_REGRESSION_OUTPUT_CONTRACTS_DIR
+        )
         self.scenario_regression_demo_workflows_dir = LAKE_SCENARIO_REGRESSION_DEMO_WORKFLOWS_DIR
-        self.scenario_regression_end_to_end_acceptance_dir = LAKE_SCENARIO_REGRESSION_END_TO_END_ACCEPTANCE_DIR
+        self.scenario_regression_end_to_end_acceptance_dir = (
+            LAKE_SCENARIO_REGRESSION_END_TO_END_ACCEPTANCE_DIR
+        )
         self.scenario_regression_drift_dir = LAKE_SCENARIO_REGRESSION_DRIFT_DIR
         self.scenario_regression_failures_dir = LAKE_SCENARIO_REGRESSION_FAILURES_DIR
         self.scenario_regression_checklists_dir = LAKE_SCENARIO_REGRESSION_CHECKLISTS_DIR
@@ -1489,23 +1511,29 @@ class ProjectPaths:
 
         self.docs_scenario_regression_dir = DOCS_SCENARIO_REGRESSION_DIR
 
-
-
-
-
-
-
         # Phase 61: Portable Packaging
         self.LAKE_PORTABLE_PACKAGING_DIR = LAKE_PORTABLE_PACKAGING_DIR
         self.LAKE_PORTABLE_PACKAGING_ENVIRONMENT_DIR = LAKE_PORTABLE_PACKAGING_ENVIRONMENT_DIR
         self.LAKE_PORTABLE_PACKAGING_DEPENDENCIES_DIR = LAKE_PORTABLE_PACKAGING_DEPENDENCIES_DIR
         self.LAKE_PORTABLE_PACKAGING_REQUIREMENTS_DIR = LAKE_PORTABLE_PACKAGING_REQUIREMENTS_DIR
-        self.LAKE_PORTABLE_PACKAGING_INSTALL_VERIFICATION_DIR = LAKE_PORTABLE_PACKAGING_INSTALL_VERIFICATION_DIR
-        self.LAKE_PORTABLE_PACKAGING_IMPORT_VERIFICATION_DIR = LAKE_PORTABLE_PACKAGING_IMPORT_VERIFICATION_DIR
-        self.LAKE_PORTABLE_PACKAGING_SCRIPT_VERIFICATION_DIR = LAKE_PORTABLE_PACKAGING_SCRIPT_VERIFICATION_DIR
-        self.LAKE_PORTABLE_PACKAGING_CONFIG_VERIFICATION_DIR = LAKE_PORTABLE_PACKAGING_CONFIG_VERIFICATION_DIR
-        self.LAKE_PORTABLE_PACKAGING_BUNDLE_MANIFEST_DIR = LAKE_PORTABLE_PACKAGING_BUNDLE_MANIFEST_DIR
-        self.LAKE_PORTABLE_PACKAGING_ARCHIVE_MANIFEST_DIR = LAKE_PORTABLE_PACKAGING_ARCHIVE_MANIFEST_DIR
+        self.LAKE_PORTABLE_PACKAGING_INSTALL_VERIFICATION_DIR = (
+            LAKE_PORTABLE_PACKAGING_INSTALL_VERIFICATION_DIR
+        )
+        self.LAKE_PORTABLE_PACKAGING_IMPORT_VERIFICATION_DIR = (
+            LAKE_PORTABLE_PACKAGING_IMPORT_VERIFICATION_DIR
+        )
+        self.LAKE_PORTABLE_PACKAGING_SCRIPT_VERIFICATION_DIR = (
+            LAKE_PORTABLE_PACKAGING_SCRIPT_VERIFICATION_DIR
+        )
+        self.LAKE_PORTABLE_PACKAGING_CONFIG_VERIFICATION_DIR = (
+            LAKE_PORTABLE_PACKAGING_CONFIG_VERIFICATION_DIR
+        )
+        self.LAKE_PORTABLE_PACKAGING_BUNDLE_MANIFEST_DIR = (
+            LAKE_PORTABLE_PACKAGING_BUNDLE_MANIFEST_DIR
+        )
+        self.LAKE_PORTABLE_PACKAGING_ARCHIVE_MANIFEST_DIR = (
+            LAKE_PORTABLE_PACKAGING_ARCHIVE_MANIFEST_DIR
+        )
         self.LAKE_PORTABLE_PACKAGING_SOURCE_POLICY_DIR = LAKE_PORTABLE_PACKAGING_SOURCE_POLICY_DIR
         self.LAKE_PORTABLE_PACKAGING_SETUP_GUIDES_DIR = LAKE_PORTABLE_PACKAGING_SETUP_GUIDES_DIR
         self.LAKE_PORTABLE_PACKAGING_DRIFT_DIR = LAKE_PORTABLE_PACKAGING_DRIFT_DIR
@@ -1525,22 +1553,35 @@ class ProjectPaths:
 
         self.DOCS_PORTABLE_PACKAGING_DIR = DOCS_PORTABLE_PACKAGING_DIR
 
-
         # Phase 66: Local Knowledge Graph
         self.LAKE_LOCAL_KNOWLEDGE_GRAPH_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_DIR
         self.LAKE_LOCAL_KNOWLEDGE_GRAPH_NODES_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_NODES_DIR
         self.LAKE_LOCAL_KNOWLEDGE_GRAPH_EDGES_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_EDGES_DIR
         self.LAKE_LOCAL_KNOWLEDGE_GRAPH_GRAPHS_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_GRAPHS_DIR
-        self.LAKE_LOCAL_KNOWLEDGE_GRAPH_MODULE_GRAPHS_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_MODULE_GRAPHS_DIR
-        self.LAKE_LOCAL_KNOWLEDGE_GRAPH_REPORT_GRAPHS_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_REPORT_GRAPHS_DIR
-        self.LAKE_LOCAL_KNOWLEDGE_GRAPH_EVIDENCE_GRAPHS_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_EVIDENCE_GRAPHS_DIR
+        self.LAKE_LOCAL_KNOWLEDGE_GRAPH_MODULE_GRAPHS_DIR = (
+            LAKE_LOCAL_KNOWLEDGE_GRAPH_MODULE_GRAPHS_DIR
+        )
+        self.LAKE_LOCAL_KNOWLEDGE_GRAPH_REPORT_GRAPHS_DIR = (
+            LAKE_LOCAL_KNOWLEDGE_GRAPH_REPORT_GRAPHS_DIR
+        )
+        self.LAKE_LOCAL_KNOWLEDGE_GRAPH_EVIDENCE_GRAPHS_DIR = (
+            LAKE_LOCAL_KNOWLEDGE_GRAPH_EVIDENCE_GRAPHS_DIR
+        )
         self.LAKE_LOCAL_KNOWLEDGE_GRAPH_CARD_GRAPHS_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_CARD_GRAPHS_DIR
-        self.LAKE_LOCAL_KNOWLEDGE_GRAPH_SCENARIO_REGRESSION_GRAPHS_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_SCENARIO_REGRESSION_GRAPHS_DIR
-        self.LAKE_LOCAL_KNOWLEDGE_GRAPH_COMMAND_REPORT_GRAPHS_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_COMMAND_REPORT_GRAPHS_DIR
-        self.LAKE_LOCAL_KNOWLEDGE_GRAPH_SEMANTIC_INDEX_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_SEMANTIC_INDEX_DIR
+        self.LAKE_LOCAL_KNOWLEDGE_GRAPH_SCENARIO_REGRESSION_GRAPHS_DIR = (
+            LAKE_LOCAL_KNOWLEDGE_GRAPH_SCENARIO_REGRESSION_GRAPHS_DIR
+        )
+        self.LAKE_LOCAL_KNOWLEDGE_GRAPH_COMMAND_REPORT_GRAPHS_DIR = (
+            LAKE_LOCAL_KNOWLEDGE_GRAPH_COMMAND_REPORT_GRAPHS_DIR
+        )
+        self.LAKE_LOCAL_KNOWLEDGE_GRAPH_SEMANTIC_INDEX_DIR = (
+            LAKE_LOCAL_KNOWLEDGE_GRAPH_SEMANTIC_INDEX_DIR
+        )
         self.LAKE_LOCAL_KNOWLEDGE_GRAPH_TFIDF_INDEX_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_TFIDF_INDEX_DIR
         self.LAKE_LOCAL_KNOWLEDGE_GRAPH_QUERIES_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_QUERIES_DIR
-        self.LAKE_LOCAL_KNOWLEDGE_GRAPH_NEIGHBORHOODS_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_NEIGHBORHOODS_DIR
+        self.LAKE_LOCAL_KNOWLEDGE_GRAPH_NEIGHBORHOODS_DIR = (
+            LAKE_LOCAL_KNOWLEDGE_GRAPH_NEIGHBORHOODS_DIR
+        )
         self.LAKE_LOCAL_KNOWLEDGE_GRAPH_ANALYSIS_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_ANALYSIS_DIR
         self.LAKE_LOCAL_KNOWLEDGE_GRAPH_GAPS_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_GAPS_DIR
         self.LAKE_LOCAL_KNOWLEDGE_GRAPH_EXPORTS_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_EXPORTS_DIR
@@ -1556,6 +1597,7 @@ class ProjectPaths:
 
         self.DOCS_LOCAL_KNOWLEDGE_GRAPH_DIR = DOCS_LOCAL_KNOWLEDGE_GRAPH_DIR
 
+
 # Phase 39: Research Reports
 
 # Phase 57: Scenario Regression
@@ -1565,10 +1607,14 @@ LAKE_SCENARIO_REGRESSION_GOLDEN_OUTPUTS_DIR = LAKE_SCENARIO_REGRESSION_DIR / "go
 LAKE_SCENARIO_REGRESSION_SNAPSHOTS_DIR = LAKE_SCENARIO_REGRESSION_DIR / "snapshots"
 LAKE_SCENARIO_REGRESSION_SNAPSHOT_DIFFS_DIR = LAKE_SCENARIO_REGRESSION_DIR / "snapshot_diffs"
 LAKE_SCENARIO_REGRESSION_REPLAY_DIR = LAKE_SCENARIO_REGRESSION_DIR / "replay"
-LAKE_SCENARIO_REGRESSION_FIXTURE_REPRODUCIBILITY_DIR = LAKE_SCENARIO_REGRESSION_DIR / "fixture_reproducibility"
+LAKE_SCENARIO_REGRESSION_FIXTURE_REPRODUCIBILITY_DIR = (
+    LAKE_SCENARIO_REGRESSION_DIR / "fixture_reproducibility"
+)
 LAKE_SCENARIO_REGRESSION_OUTPUT_CONTRACTS_DIR = LAKE_SCENARIO_REGRESSION_DIR / "output_contracts"
 LAKE_SCENARIO_REGRESSION_DEMO_WORKFLOWS_DIR = LAKE_SCENARIO_REGRESSION_DIR / "demo_workflows"
-LAKE_SCENARIO_REGRESSION_END_TO_END_ACCEPTANCE_DIR = LAKE_SCENARIO_REGRESSION_DIR / "end_to_end_acceptance"
+LAKE_SCENARIO_REGRESSION_END_TO_END_ACCEPTANCE_DIR = (
+    LAKE_SCENARIO_REGRESSION_DIR / "end_to_end_acceptance"
+)
 LAKE_SCENARIO_REGRESSION_DRIFT_DIR = LAKE_SCENARIO_REGRESSION_DIR / "drift"
 LAKE_SCENARIO_REGRESSION_FAILURES_DIR = LAKE_SCENARIO_REGRESSION_DIR / "failures"
 LAKE_SCENARIO_REGRESSION_CHECKLISTS_DIR = LAKE_SCENARIO_REGRESSION_DIR / "checklists"
@@ -1622,10 +1668,18 @@ LAKE_PORTABLE_PACKAGING_DIR = LAKE_DIR / "portable_packaging"
 LAKE_PORTABLE_PACKAGING_ENVIRONMENT_DIR = LAKE_PORTABLE_PACKAGING_DIR / "environment"
 LAKE_PORTABLE_PACKAGING_DEPENDENCIES_DIR = LAKE_PORTABLE_PACKAGING_DIR / "dependencies"
 LAKE_PORTABLE_PACKAGING_REQUIREMENTS_DIR = LAKE_PORTABLE_PACKAGING_DIR / "requirements"
-LAKE_PORTABLE_PACKAGING_INSTALL_VERIFICATION_DIR = LAKE_PORTABLE_PACKAGING_DIR / "install_verification"
-LAKE_PORTABLE_PACKAGING_IMPORT_VERIFICATION_DIR = LAKE_PORTABLE_PACKAGING_DIR / "import_verification"
-LAKE_PORTABLE_PACKAGING_SCRIPT_VERIFICATION_DIR = LAKE_PORTABLE_PACKAGING_DIR / "script_verification"
-LAKE_PORTABLE_PACKAGING_CONFIG_VERIFICATION_DIR = LAKE_PORTABLE_PACKAGING_DIR / "config_verification"
+LAKE_PORTABLE_PACKAGING_INSTALL_VERIFICATION_DIR = (
+    LAKE_PORTABLE_PACKAGING_DIR / "install_verification"
+)
+LAKE_PORTABLE_PACKAGING_IMPORT_VERIFICATION_DIR = (
+    LAKE_PORTABLE_PACKAGING_DIR / "import_verification"
+)
+LAKE_PORTABLE_PACKAGING_SCRIPT_VERIFICATION_DIR = (
+    LAKE_PORTABLE_PACKAGING_DIR / "script_verification"
+)
+LAKE_PORTABLE_PACKAGING_CONFIG_VERIFICATION_DIR = (
+    LAKE_PORTABLE_PACKAGING_DIR / "config_verification"
+)
 LAKE_PORTABLE_PACKAGING_BUNDLE_MANIFEST_DIR = LAKE_PORTABLE_PACKAGING_DIR / "bundle_manifest"
 LAKE_PORTABLE_PACKAGING_ARCHIVE_MANIFEST_DIR = LAKE_PORTABLE_PACKAGING_DIR / "archive_manifest"
 LAKE_PORTABLE_PACKAGING_SOURCE_POLICY_DIR = LAKE_PORTABLE_PACKAGING_DIR / "source_policy"
@@ -1656,8 +1710,12 @@ LAKE_LOCAL_KNOWLEDGE_GRAPH_MODULE_GRAPHS_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_DIR / 
 LAKE_LOCAL_KNOWLEDGE_GRAPH_REPORT_GRAPHS_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_DIR / "report_graphs"
 LAKE_LOCAL_KNOWLEDGE_GRAPH_EVIDENCE_GRAPHS_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_DIR / "evidence_graphs"
 LAKE_LOCAL_KNOWLEDGE_GRAPH_CARD_GRAPHS_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_DIR / "card_graphs"
-LAKE_LOCAL_KNOWLEDGE_GRAPH_SCENARIO_REGRESSION_GRAPHS_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_DIR / "scenario_regression_graphs"
-LAKE_LOCAL_KNOWLEDGE_GRAPH_COMMAND_REPORT_GRAPHS_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_DIR / "command_report_graphs"
+LAKE_LOCAL_KNOWLEDGE_GRAPH_SCENARIO_REGRESSION_GRAPHS_DIR = (
+    LAKE_LOCAL_KNOWLEDGE_GRAPH_DIR / "scenario_regression_graphs"
+)
+LAKE_LOCAL_KNOWLEDGE_GRAPH_COMMAND_REPORT_GRAPHS_DIR = (
+    LAKE_LOCAL_KNOWLEDGE_GRAPH_DIR / "command_report_graphs"
+)
 LAKE_LOCAL_KNOWLEDGE_GRAPH_SEMANTIC_INDEX_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_DIR / "semantic_index"
 LAKE_LOCAL_KNOWLEDGE_GRAPH_TFIDF_INDEX_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_DIR / "tfidf_index"
 LAKE_LOCAL_KNOWLEDGE_GRAPH_QUERIES_DIR = LAKE_LOCAL_KNOWLEDGE_GRAPH_DIR / "queries"
@@ -1778,7 +1836,6 @@ REPORTS_LOCAL_TRAINING_JSON_DIR = REPORTS_LOCAL_TRAINING_DIR / "json"
 DOCS_GENERATED_LOCAL_TRAINING_DIR = DOCS_DIR / "generated" / "local_training"
 
 PROJECT_DIRS = [
-
     LAKE_LOCAL_TRAINING_DIR,
     LAKE_LOCAL_TRAINING_DOMAINS_DIR,
     LAKE_LOCAL_TRAINING_ONBOARDING_DIR,
@@ -1808,9 +1865,6 @@ PROJECT_DIRS = [
     REPORTS_LOCAL_TRAINING_TXT_DIR,
     REPORTS_LOCAL_TRAINING_JSON_DIR,
     DOCS_GENERATED_LOCAL_TRAINING_DIR,
-
-
-
     LAKE_LOCAL_MAINTENANCE_DIR,
     LAKE_LOCAL_MAINTENANCE_DOMAINS_DIR,
     LAKE_LOCAL_MAINTENANCE_TASKS_DIR,
@@ -1868,11 +1922,10 @@ PROJECT_DIRS = [
     REPORTS_LOCAL_READINESS_MD_DIR,
     REPORTS_LOCAL_READINESS_TXT_DIR,
     REPORTS_LOCAL_READINESS_JSON_DIR,
-    DOCS_GENERATED_LOCAL_READINESS_DIR
+    DOCS_GENERATED_LOCAL_READINESS_DIR,
 ]
 
 __all__ = [
-
     "LAKE_LOCAL_TRAINING_DIR",
     "LAKE_LOCAL_TRAINING_DOMAINS_DIR",
     "LAKE_LOCAL_TRAINING_ONBOARDING_DIR",
@@ -1902,9 +1955,6 @@ __all__ = [
     "REPORTS_LOCAL_TRAINING_TXT_DIR",
     "REPORTS_LOCAL_TRAINING_JSON_DIR",
     "DOCS_GENERATED_LOCAL_TRAINING_DIR",
-
-
-
     "LAKE_LOCAL_MAINTENANCE_DIR",
     "LAKE_LOCAL_MAINTENANCE_DOMAINS_DIR",
     "LAKE_LOCAL_MAINTENANCE_TASKS_DIR",
@@ -1962,11 +2012,11 @@ __all__ = [
     "REPORTS_LOCAL_READINESS_MD_DIR",
     "REPORTS_LOCAL_READINESS_TXT_DIR",
     "REPORTS_LOCAL_READINESS_JSON_DIR",
-    "DOCS_GENERATED_LOCAL_READINESS_DIR"
+    "DOCS_GENERATED_LOCAL_READINESS_DIR",
 ]
 
 EXTRA_PATHS = {
-"local_usability": ["data", "lake", "local_usability"],
+    "local_usability": ["data", "lake", "local_usability"],
     "local_usability_profiles": ["data", "lake", "local_usability", "profiles"],
     "local_usability_domains": ["data", "lake", "local_usability", "domains"],
     "local_usability_review": ["data", "lake", "local_usability", "review"],
@@ -1998,4 +2048,3 @@ EXTRA_PATHS = {
     "reports_output_local_usability_json": ["reports", "output", "local_usability", "json"],
     "docs_generated_local_usability": ["docs", "generated", "local_usability"],
 }
-
