@@ -151,9 +151,9 @@ class SignalScorer:
                 ["candidate_type", "directional_bias"]
             ].drop_duplicates()
 
-            for _, row in types_biases.iterrows():
-                cand_type = row["candidate_type"]
-                bias = row["directional_bias"]
+            for row in types_biases.itertuples(index=False):
+                cand_type = row.candidate_type
+                bias = row.directional_bias
 
                 # Filter events for this specific type/bias context to score
                 sub_events = ts_events[
