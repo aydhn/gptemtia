@@ -1,17 +1,18 @@
 """Phase 132: Macro/Event/News Regime Validation Report and Checks."""
 
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
+
 import pandas as pd
 
+from advanced_macro_event_news_regime.macro_event_news_no_lookahead_guard import (
+    FORBIDDEN_COLUMNS,
+)
 from advanced_macro_event_news_regime.macro_event_news_regime_config import (
     MacroEventNewsRegimeProfile,
     get_macro_event_news_regime_profile,
 )
 from advanced_macro_event_news_regime.metadata_only_news_boundary import (
     FORBIDDEN_NEWS_FIELDS,
-)
-from advanced_macro_event_news_regime.macro_event_news_no_lookahead_guard import (
-    FORBIDDEN_COLUMNS,
 )
 
 FORBIDDEN_CLAIM_PHRASES = [
@@ -32,7 +33,7 @@ FORBIDDEN_CLAIM_PHRASES = [
 def validate_macro_event_news_regime_profile_registry(
     df: pd.DataFrame,
     profile: MacroEventNewsRegimeProfile,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """Validate profile registry rows against safety constraints."""
     if df.empty:
         return {"valid": False, "error": "Profile registry is empty"}
@@ -61,9 +62,9 @@ def validate_macro_event_news_regime_profile_registry(
 
 
 def validate_macro_event_news_entity_registries(
-    df_map: Dict[str, pd.DataFrame],
+    df_map: dict[str, pd.DataFrame],
     profile: MacroEventNewsRegimeProfile,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """Validate all entity DataFrames (macro, event, news metadata)."""
     results = {}
     overall_valid = True
@@ -73,8 +74,14 @@ def validate_macro_event_news_entity_registries(
             overall_valid = False
             continue
 
-        non_signal_ok = bool(df["non_signal"].all()) if "non_signal" in df.columns else False
-        source_preserved_ok = bool(df["source_preserved"].all()) if "source_preserved" in df.columns else False
+        non_signal_ok = (
+            bool(df["non_signal"].all()) if "non_signal" in df.columns else False
+        )
+        source_preserved_ok = (
+            bool(df["source_preserved"].all())
+            if "source_preserved" in df.columns
+            else False
+        )
 
         # If news metadata, check forbidden fields
         has_news_violation = False
@@ -94,18 +101,26 @@ def validate_macro_event_news_entity_registries(
         if not item_valid:
             overall_valid = False
 
-    return {"valid": overall_valid, "entity_checks": results, "status": "PASS" if overall_valid else "FAIL"}
+    return {
+        "valid": overall_valid,
+        "entity_checks": results,
+        "status": "PASS" if overall_valid else "FAIL",
+    }
 
 
 def validate_metadata_only_news_boundary(
     df: pd.DataFrame,
     profile: MacroEventNewsRegimeProfile,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """Validate that news boundary table strictly enforces metadata-only rules."""
     if df.empty:
         return {"valid": False, "error": "Boundary DataFrame empty"}
 
-    enforced = bool(df["strictly_enforced"].all()) if "strictly_enforced" in df.columns else False
+    enforced = (
+        bool(df["strictly_enforced"].all())
+        if "strictly_enforced" in df.columns
+        else False
+    )
     non_signal = bool(df["non_signal"].all()) if "non_signal" in df.columns else False
     passed = enforced and non_signal
     return {"valid": passed, "status": "PASS" if passed else "FAIL"}
@@ -114,14 +129,26 @@ def validate_metadata_only_news_boundary(
 def validate_macro_event_news_context_contracts(
     df: pd.DataFrame,
     profile: MacroEventNewsRegimeProfile,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """Validate context contract table requirements."""
     if df.empty:
         return {"valid": False, "error": "Contracts DataFrame empty"}
 
-    lookahead_ok = bool(df["no_lookahead_required"].all()) if "no_lookahead_required" in df.columns else False
-    meta_ok = bool(df["metadata_only_news_required"].all()) if "metadata_only_news_required" in df.columns else False
-    non_signal_ok = bool(df["non_signal_required"].all()) if "non_signal_required" in df.columns else False
+    lookahead_ok = (
+        bool(df["no_lookahead_required"].all())
+        if "no_lookahead_required" in df.columns
+        else False
+    )
+    meta_ok = (
+        bool(df["metadata_only_news_required"].all())
+        if "metadata_only_news_required" in df.columns
+        else False
+    )
+    non_signal_ok = (
+        bool(df["non_signal_required"].all())
+        if "non_signal_required" in df.columns
+        else False
+    )
     passed = lookahead_ok and meta_ok and non_signal_ok
     return {"valid": passed, "status": "PASS" if passed else "FAIL"}
 
@@ -129,7 +156,7 @@ def validate_macro_event_news_context_contracts(
 def validate_macro_event_news_regime_context_manifest(
     df: pd.DataFrame,
     profile: MacroEventNewsRegimeProfile,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """Validate manifest invariants."""
     if df.empty:
         return {"valid": False, "error": "Manifest DataFrame empty"}
@@ -161,14 +188,18 @@ def validate_macro_event_news_regime_context_manifest(
         "no_autodrop": not bool(row.get("auto_drop_allowed", True)),
     }
     all_passed = all(checks.values())
-    return {"valid": all_passed, "checks": checks, "status": "PASS" if all_passed else "FAIL"}
+    return {
+        "valid": all_passed,
+        "checks": checks,
+        "status": "PASS" if all_passed else "FAIL",
+    }
 
 
 def validate_no_forbidden_macro_event_news_claims(
-    text: Optional[str] = None,
-    df: Optional[pd.DataFrame] = None,
-    summary: Optional[Dict[str, Any]] = None,
-) -> Dict[str, Any]:
+    text: str | None = None,
+    df: pd.DataFrame | None = None,
+    summary: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     """Validate that text, DataFrame, or summary dictionary contains zero prohibited claims."""
     violations = []
     if text:
@@ -185,7 +216,10 @@ def validate_no_forbidden_macro_event_news_claims(
 
     if summary:
         for k, v in summary.items():
-            if k in ["official_approval", "production_ready", "broker_ready"] and v is True:
+            if (
+                k in ["official_approval", "production_ready", "broker_ready"]
+                and v is True
+            ):
                 violations.append(f"summary:{k}")
 
     is_clean = len(violations) == 0
@@ -197,9 +231,9 @@ def validate_no_forbidden_macro_event_news_claims(
 
 
 def build_macro_event_news_regime_validation_report(
-    tables: Dict[str, pd.DataFrame],
-    profile: Optional[MacroEventNewsRegimeProfile] = None,
-) -> Tuple[pd.DataFrame, Dict[str, Any]]:
+    tables: dict[str, pd.DataFrame],
+    profile: MacroEventNewsRegimeProfile | None = None,
+) -> tuple[pd.DataFrame, dict[str, Any]]:
     """Build validation report covering all Phase 132 requirements."""
     p = profile or get_macro_event_news_regime_profile()
 
@@ -208,7 +242,9 @@ def build_macro_event_news_regime_validation_report(
     # 1. Profile registry validation
     if "profiles" in tables:
         res = validate_macro_event_news_regime_profile_registry(tables["profiles"], p)
-        checks.append(("profile_registry_validation", res["valid"], res.get("status", "PASS")))
+        checks.append(
+            ("profile_registry_validation", res["valid"], res.get("status", "PASS"))
+        )
 
     # 2. Entities validation
     entity_keys = {k: v for k, v in tables.items() if "entity" in k or "entities" in k}
@@ -219,21 +255,33 @@ def build_macro_event_news_regime_validation_report(
     # 3. Metadata boundary validation
     if "boundary" in tables:
         res = validate_metadata_only_news_boundary(tables["boundary"], p)
-        checks.append(("metadata_only_boundary_validation", res["valid"], res.get("status", "PASS")))
+        checks.append(
+            (
+                "metadata_only_boundary_validation",
+                res["valid"],
+                res.get("status", "PASS"),
+            )
+        )
 
     # 4. Contracts validation
     if "contracts" in tables:
         res = validate_macro_event_news_context_contracts(tables["contracts"], p)
-        checks.append(("context_contracts_validation", res["valid"], res.get("status", "PASS")))
+        checks.append(
+            ("context_contracts_validation", res["valid"], res.get("status", "PASS"))
+        )
 
     # 5. Manifest validation
     if "manifest" in tables:
         res = validate_macro_event_news_regime_context_manifest(tables["manifest"], p)
-        checks.append(("manifest_invariants_validation", res["valid"], res.get("status", "PASS")))
+        checks.append(
+            ("manifest_invariants_validation", res["valid"], res.get("status", "PASS"))
+        )
 
     # 6. Forbidden claims check
     res = validate_no_forbidden_macro_event_news_claims()
-    checks.append(("forbidden_claims_validation", res["valid"], res.get("status", "PASS")))
+    checks.append(
+        ("forbidden_claims_validation", res["valid"], res.get("status", "PASS"))
+    )
 
     rows = []
     for check_name, is_valid, status in checks:
