@@ -1,21 +1,45 @@
-from typing import Tuple, Dict, Any, List
+import logging
+from typing import Any
+
 import pandas as pd
+
 from advanced_data_quality.data_quality_config import DataQualityProfile
-from advanced_data_quality.data_quality_models import QualityFinding, build_quality_finding_id
+from advanced_data_quality.data_quality_models import (
+    QualityFinding,
+    build_quality_finding_id,
+)
+
+logger = logging.getLogger(__name__)
 
 
-def build_event_release_consistency_rule_contract(profile: DataQualityProfile) -> Tuple[pd.DataFrame, Dict[str, Any]]:
+def build_event_release_consistency_rule_contract(
+    profile: DataQualityProfile,
+) -> tuple[pd.DataFrame, dict[str, Any]]:
     rules = [
-        {"rule_name": "release_timing_consistency", "rule_domain": "event_release_consistency", "severity_label": "quality_medium"},
-        {"rule_name": "revision_status_presence", "rule_domain": "event_release_consistency", "severity_label": "quality_medium"},
-        {"rule_name": "surprise_calculation_notice", "rule_domain": "event_release_consistency", "severity_label": "quality_info"},
+        {
+            "rule_name": "release_timing_consistency",
+            "rule_domain": "event_release_consistency",
+            "severity_label": "quality_medium",
+        },
+        {
+            "rule_name": "revision_status_presence",
+            "rule_domain": "event_release_consistency",
+            "severity_label": "quality_medium",
+        },
+        {
+            "rule_name": "surprise_calculation_notice",
+            "rule_domain": "event_release_consistency",
+            "severity_label": "quality_info",
+        },
     ]
     df = pd.DataFrame.from_records(rules)
     return df, summarize_event_release_consistency_rules(df)
 
 
-def check_event_release_consistency(df: pd.DataFrame, provider_name: str = "") -> List[QualityFinding]:
-    findings: List[QualityFinding] = []
+def check_event_release_consistency(
+    df: pd.DataFrame, provider_name: str = ""
+) -> list[QualityFinding]:
+    findings: list[QualityFinding] = []
     if df is None or len(df) == 0:
         return findings
 
@@ -31,7 +55,11 @@ def check_event_release_consistency(df: pd.DataFrame, provider_name: str = "") -
             if len(early_releases) > 0:
                 findings.append(
                     QualityFinding(
-                        finding_id=build_quality_finding_id("rule_event_early_release", dataset_type, "actual_release_time"),
+                        finding_id=build_quality_finding_id(
+                            "rule_event_early_release",
+                            dataset_type,
+                            "actual_release_time",
+                        ),
                         rule_id="rule_event_release_consistency_event_release_timing",
                         finding_type="finding_event_release_inconsistency",
                         dataset_type=dataset_type,
@@ -45,14 +73,16 @@ def check_event_release_consistency(df: pd.DataFrame, provider_name: str = "") -
                         manual_review_required=True,
                     )
                 )
-        except Exception:
-            pass
+        except Exception as e:  # noqa: BLE001
+            logger.error(f"Error checking event release consistency timing: {e}")
 
     # 2. Revised previous requires revision_status
     if "revised_previous" in df.columns and "revision_status" not in df.columns:
         findings.append(
             QualityFinding(
-                finding_id=build_quality_finding_id("rule_event_rev_missing_status", dataset_type, "revised_previous"),
+                finding_id=build_quality_finding_id(
+                    "rule_event_rev_missing_status", dataset_type, "revised_previous"
+                ),
                 rule_id="rule_event_release_consistency_event_release_timing",
                 finding_type="finding_event_release_inconsistency",
                 dataset_type=dataset_type,
@@ -71,7 +101,9 @@ def check_event_release_consistency(df: pd.DataFrame, provider_name: str = "") -
     if "surprise_value" in df.columns:
         findings.append(
             QualityFinding(
-                finding_id=build_quality_finding_id("rule_event_surprise_contract", dataset_type, "surprise_value"),
+                finding_id=build_quality_finding_id(
+                    "rule_event_surprise_contract", dataset_type, "surprise_value"
+                ),
                 rule_id="rule_event_release_consistency_event_release_timing",
                 finding_type="finding_manual_review_required",
                 dataset_type=dataset_type,
@@ -89,7 +121,7 @@ def check_event_release_consistency(df: pd.DataFrame, provider_name: str = "") -
     return findings
 
 
-def summarize_event_release_consistency_rules(df: pd.DataFrame) -> Dict[str, Any]:
+def summarize_event_release_consistency_rules(df: pd.DataFrame) -> dict[str, Any]:
     return {
         "rule_count": len(df),
         "rules": df["rule_name"].tolist() if "rule_name" in df.columns else [],
