@@ -2,10 +2,11 @@
 Defines retry logic for failed jobs in the pipeline.
 """
 
+import asyncio
+import logging
 from dataclasses import dataclass
 from typing import List, Tuple
-import time
-import logging
+
 from orchestration.orchestration_config import OrchestrationProfile
 from orchestration.orchestration_models import JobExecutionResult
 
@@ -34,10 +35,12 @@ def should_retry_job(result: JobExecutionResult, policy: RetryPolicy) -> bool:
         return False
     return True
 
-def apply_retry_delay(policy: RetryPolicy) -> None:
+
+
+async def apply_retry_delay(policy: RetryPolicy) -> None:
     if policy.delay_seconds > 0:
         logger.info(f"Applying retry delay of {policy.delay_seconds} seconds")
-        time.sleep(policy.delay_seconds)
+        await asyncio.sleep(policy.delay_seconds)
 
 def summarize_retry_plan(results: List[JobExecutionResult], policy: RetryPolicy) -> dict:
     retry_candidates = [r for r in results if should_retry_job(r, policy)]
