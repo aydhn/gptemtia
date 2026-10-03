@@ -1,23 +1,11 @@
 import pytest
 import pandas as pd
 from experiments.leaderboard import (
-    calculate_leaderboard_score,
     assign_leaderboard_rank_labels,
     build_experiment_leaderboard,
     summarize_leaderboard
 )
 from experiments.experiment_config import get_default_experiment_profile
-
-def test_calculate_leaderboard_score():
-    row = pd.Series({
-        "quality_adjusted_score": 0.8,
-        "validation_score": 0.9,
-        "reproducibility_score": 1.0,
-        "consensus_score": 0.7
-    })
-    score = calculate_leaderboard_score(row)
-    assert 0.0 <= score <= 1.0
-    assert score > 0.8 # It's a weighted average
 
 def test_assign_leaderboard_rank_labels():
     df = pd.DataFrame([{"leaderboard_score": 0.9}, {"leaderboard_score": 0.5}])
@@ -43,3 +31,21 @@ def test_summarize_leaderboard():
     summary = summarize_leaderboard(df)
     assert summary["total_runs"] == 1
     assert "leading_research_run" in summary["by_rank_label"]
+
+def test_build_experiment_leaderboard_vectorized():
+    df = pd.DataFrame([
+        {"run_id": "r1", "quality_adjusted_score": 0.8, "validation_score": 0.9, "reproducibility_score": 1.0, "consensus_score": 0.7},
+        {"run_id": "r2", "quality_adjusted_score": 0.5, "validation_score": 0.6, "reproducibility_score": 0.7, "consensus_score": 0.8}
+    ])
+    profile = get_default_experiment_profile()
+    # profile is frozen, but min_quality_score is default 0.0 usually, wait, min_quality_score is 0.4. Let's just adjust the second run's score to be > 0.4
+
+    leaderboard = build_experiment_leaderboard(df, profile)
+
+    # 0.8*0.4 + 0.9*0.3 + 1.0*0.2 + 0.7*0.1 = 0.32 + 0.27 + 0.20 + 0.07 = 0.86
+    # 0.1*0.4 + 0.2*0.3 + 0.3*0.2 + 0.4*0.1 = 0.04 + 0.06 + 0.06 + 0.04 = 0.20
+
+    assert len(leaderboard) == 2
+    assert abs(leaderboard[leaderboard["run_id"] == "r1"]["leaderboard_score"].iloc[0] - 0.86) < 1e-6
+    # 0.5*0.4 + 0.6*0.3 + 0.7*0.2 + 0.8*0.1 = 0.2 + 0.18 + 0.14 + 0.08 = 0.60
+    assert abs(leaderboard[leaderboard["run_id"] == "r2"]["leaderboard_score"].iloc[0] - 0.60) < 1e-6
