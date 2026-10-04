@@ -1,19 +1,35 @@
 from typing import Tuple, Dict, Any
 import numpy as np
+from numpy.lib.stride_tricks import sliding_window_view
+
 import pandas as pd
 
-from advanced_technical_indicators.technical_indicator_config import TechnicalIndicatorProfile
+from advanced_technical_indicators.technical_indicator_config import (
+    TechnicalIndicatorProfile,
+)
 
 FORBIDDEN_COLUMNS = {
-    "signal", "buy", "sell", "long", "short", "position",
-    "target", "label", "prediction", "recommendation",
-    "future_return", "forward_return", "next_return"
+    "signal",
+    "buy",
+    "sell",
+    "long",
+    "short",
+    "position",
+    "target",
+    "label",
+    "prediction",
+    "recommendation",
+    "future_return",
+    "forward_return",
+    "next_return",
 }
 
 
 def _validate_output_field(col: str) -> None:
     if col.lower() in FORBIDDEN_COLUMNS:
-        raise ValueError(f"Forbidden column name '{col}' detected. Non-signal indicator only.")
+        raise ValueError(
+            f"Forbidden column name '{col}' detected. Non-signal indicator only."
+        )
 
 
 def _validate_required(df: pd.DataFrame, fields: list[str]) -> None:
@@ -119,14 +135,33 @@ def add_aroon(
 
     out = df.copy()
 
-    def _days_since_max(s):
-        return window - 1 - np.argmax(s)
+    high_vals = out[high_field].to_numpy()
+    low_vals = out[low_field].to_numpy()
 
-    def _days_since_min(s):
-        return window - 1 - np.argmin(s)
+    N = len(out)
+    high_dist = np.full(N, np.nan)
+    low_dist = np.full(N, np.nan)
 
-    high_dist = out[high_field].rolling(window=window).apply(_days_since_max, raw=True)
-    low_dist = out[low_field].rolling(window=window).apply(_days_since_min, raw=True)
+    if N >= window:
+        swv_high = sliding_window_view(high_vals, window_shape=window)
+        swv_low = sliding_window_view(low_vals, window_shape=window)
+
+        valid_high = ~np.isnan(swv_high).any(axis=1)
+        valid_low = ~np.isnan(swv_low).any(axis=1)
+
+        idx_max = np.argmax(swv_high[valid_high], axis=1)
+        idx_min = np.argmin(swv_low[valid_low], axis=1)
+
+        high_dist_valid = window - 1 - idx_max
+        low_dist_valid = window - 1 - idx_min
+
+        high_dist_slice = np.full(N - window + 1, np.nan)
+        high_dist_slice[valid_high] = high_dist_valid
+        high_dist[window - 1 :] = high_dist_slice
+
+        low_dist_slice = np.full(N - window + 1, np.nan)
+        low_dist_slice[valid_low] = low_dist_valid
+        low_dist[window - 1 :] = low_dist_slice
 
     aroon_up = ((window - high_dist) / float(window)) * 100.0
     aroon_down = ((window - low_dist) / float(window)) * 100.0
@@ -161,7 +196,9 @@ def add_adx_dmi_placeholder(
     prev_high = high.shift(1)
     prev_low = low.shift(1)
 
-    tr = np.maximum(high - low, np.maximum(np.abs(high - prev_close), np.abs(low - prev_close)))
+    tr = np.maximum(
+        high - low, np.maximum(np.abs(high - prev_close), np.abs(low - prev_close))
+    )
     atr_val = pd.Series(tr).rolling(window=window).mean().replace(0, np.nan)
 
     up_move = high - prev_high
@@ -170,8 +207,12 @@ def add_adx_dmi_placeholder(
     plus_dm = np.where((up_move > down_move) & (up_move > 0), up_move, 0.0)
     minus_dm = np.where((down_move > up_move) & (down_move > 0), down_move, 0.0)
 
-    plus_di = 100.0 * (pd.Series(plus_dm, index=out.index).rolling(window=window).mean() / atr_val)
-    minus_di = 100.0 * (pd.Series(minus_dm, index=out.index).rolling(window=window).mean() / atr_val)
+    plus_di = 100.0 * (
+        pd.Series(plus_dm, index=out.index).rolling(window=window).mean() / atr_val
+    )
+    minus_di = 100.0 * (
+        pd.Series(minus_dm, index=out.index).rolling(window=window).mean() / atr_val
+    )
     dx_denom = (plus_di + minus_di).replace(0, np.nan)
     dx = 100.0 * np.abs(plus_di - minus_di) / dx_denom
     adx_series = dx.rolling(window=window).mean()
@@ -221,12 +262,36 @@ def build_trend_indicator_expansion_registry(
     profile: TechnicalIndicatorProfile,
 ) -> Tuple[pd.DataFrame, Dict[str, Any]]:
     rows = [
-        {"indicator_name": "macd", "output_pattern": "macd_line, macd_smooth, macd_hist", "parameters": {"fast": 12, "slow": 26, "signal": 9}},
-        {"indicator_name": "ppo", "output_pattern": "ppo_line, ppo_smooth, ppo_hist", "parameters": {"fast": 12, "slow": 26, "signal": 9}},
-        {"indicator_name": "donchian_channel", "output_pattern": "donchian_upper, donchian_lower, donchian_mid", "parameters": {"window": 20}},
-        {"indicator_name": "aroon", "output_pattern": "aroon_up, aroon_down, aroon_osc", "parameters": {"window": 25}},
-        {"indicator_name": "adx_dmi", "output_pattern": "adx_plus_di, adx_minus_di, adx_val", "parameters": {"window": 14}},
-        {"indicator_name": "ichimoku", "output_pattern": "ichimoku_tenkan, kijun, senkou_a, senkou_b", "parameters": {}},
+        {
+            "indicator_name": "macd",
+            "output_pattern": "macd_line, macd_smooth, macd_hist",
+            "parameters": {"fast": 12, "slow": 26, "signal": 9},
+        },
+        {
+            "indicator_name": "ppo",
+            "output_pattern": "ppo_line, ppo_smooth, ppo_hist",
+            "parameters": {"fast": 12, "slow": 26, "signal": 9},
+        },
+        {
+            "indicator_name": "donchian_channel",
+            "output_pattern": "donchian_upper, donchian_lower, donchian_mid",
+            "parameters": {"window": 20},
+        },
+        {
+            "indicator_name": "aroon",
+            "output_pattern": "aroon_up, aroon_down, aroon_osc",
+            "parameters": {"window": 25},
+        },
+        {
+            "indicator_name": "adx_dmi",
+            "output_pattern": "adx_plus_di, adx_minus_di, adx_val",
+            "parameters": {"window": 14},
+        },
+        {
+            "indicator_name": "ichimoku",
+            "output_pattern": "ichimoku_tenkan, kijun, senkou_a, senkou_b",
+            "parameters": {},
+        },
     ]
     df = pd.DataFrame(rows)
     df["family"] = "family_trend"
