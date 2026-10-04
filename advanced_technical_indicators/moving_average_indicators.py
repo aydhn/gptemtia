@@ -2,18 +2,32 @@ from typing import Tuple, Dict, Any, Optional
 import numpy as np
 import pandas as pd
 
-from advanced_technical_indicators.technical_indicator_config import TechnicalIndicatorProfile
+from advanced_technical_indicators.technical_indicator_config import (
+    TechnicalIndicatorProfile,
+)
 
 FORBIDDEN_COLUMNS = {
-    "signal", "buy", "sell", "long", "short", "position",
-    "target", "label", "prediction", "recommendation",
-    "future_return", "forward_return", "next_return"
+    "signal",
+    "buy",
+    "sell",
+    "long",
+    "short",
+    "position",
+    "target",
+    "label",
+    "prediction",
+    "recommendation",
+    "future_return",
+    "forward_return",
+    "next_return",
 }
 
 
 def _validate_output_field(col: str) -> None:
     if col.lower() in FORBIDDEN_COLUMNS:
-        raise ValueError(f"Forbidden column name '{col}' detected. Non-signal indicator only.")
+        raise ValueError(
+            f"Forbidden column name '{col}' detected. Non-signal indicator only."
+        )
 
 
 def _validate_required(df: pd.DataFrame, fields: list[str]) -> None:
@@ -60,13 +74,23 @@ def add_wma(
     col = output_field or f"wma_{window}"
     _validate_output_field(col)
     out = df.copy()
+
+    if len(out) < window:
+        out[col] = np.nan
+        return out
+
     weights = np.arange(1, window + 1)
     sum_weights = weights.sum()
+    w = weights / sum_weights
 
-    def _calc_wma(s):
-        return np.dot(s, weights) / sum_weights
+    s = out[field].values
+    conv = np.convolve(s, w[::-1], mode="valid")
 
-    out[col] = out[field].rolling(window=window).apply(_calc_wma, raw=True).astype(float)
+    pad = np.empty(window - 1)
+    pad[:] = np.nan
+    res = np.concatenate((pad, conv))
+
+    out[col] = res.astype(float)
     return out
 
 
@@ -131,12 +155,36 @@ def build_moving_average_indicator_registry(
     profile: TechnicalIndicatorProfile,
 ) -> Tuple[pd.DataFrame, Dict[str, Any]]:
     rows = [
-        {"indicator_name": "sma", "output_pattern": "sma_{window}", "default_window": 20},
-        {"indicator_name": "ema", "output_pattern": "ema_{window}", "default_window": 20},
-        {"indicator_name": "wma", "output_pattern": "wma_{window}", "default_window": 20},
-        {"indicator_name": "dema", "output_pattern": "dema_{window}", "default_window": 20},
-        {"indicator_name": "tema", "output_pattern": "tema_{window}", "default_window": 20},
-        {"indicator_name": "ma_distance", "output_pattern": "ma_distance_{window}", "default_window": 20},
+        {
+            "indicator_name": "sma",
+            "output_pattern": "sma_{window}",
+            "default_window": 20,
+        },
+        {
+            "indicator_name": "ema",
+            "output_pattern": "ema_{window}",
+            "default_window": 20,
+        },
+        {
+            "indicator_name": "wma",
+            "output_pattern": "wma_{window}",
+            "default_window": 20,
+        },
+        {
+            "indicator_name": "dema",
+            "output_pattern": "dema_{window}",
+            "default_window": 20,
+        },
+        {
+            "indicator_name": "tema",
+            "output_pattern": "tema_{window}",
+            "default_window": 20,
+        },
+        {
+            "indicator_name": "ma_distance",
+            "output_pattern": "ma_distance_{window}",
+            "default_window": 20,
+        },
     ]
     df = pd.DataFrame(rows)
     df["family"] = "family_moving_average"
