@@ -15,7 +15,8 @@ def classify_runtime_mode(row: pd.Series, profile: LocalPerformanceProfile) -> s
 
 def build_lightweight_runtime_profile(project_root: Path, profile: LocalPerformanceProfile) -> tuple[pd.DataFrame, dict]:
     df = build_runtime_profile_items(profile)
-    df["classified_mode"] = df.apply(lambda r: classify_runtime_mode(r, profile), axis=1)
+    mode_mapping = {m: classify_runtime_mode(pd.Series({"mode_name": m}), profile) for m in df["mode_name"].unique()}
+    df["classified_mode"] = df["mode_name"].map(mode_mapping)
     return df, summarize_lightweight_runtime_profile(df)
 
 def summarize_lightweight_runtime_profile(profile_df: pd.DataFrame) -> dict:
