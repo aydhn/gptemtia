@@ -48,3 +48,22 @@ def test_clean_does_not_mutate():
     assert len(df) == original_len  # Original should still have 3 rows
     assert len(cleaned) == 2  # Cleaned should have 2
     assert summary["duplicate_rows_removed"] == 1
+
+
+def test_repair_high_low_inconsistencies():
+    cleaner = OHLCVCleaner()
+    df = pd.DataFrame(
+        {
+            "open": [100.0, 100.0, 100.0],
+            "high": [105.0, 95.0, 105.0],  # Middle row high is wrong
+            "low": [90.0, 105.0, 115.0],  # Middle and last row low are wrong
+            "close": [95.0, 110.0, 110.0],
+        },
+        index=pd.DatetimeIndex(["2024-01-01", "2024-01-02", "2024-01-03"]),
+    )
+
+    cleaned, repaired_count = cleaner.repair_high_low_inconsistencies(df)
+
+    assert repaired_count == 2
+    assert list(cleaned["high"]) == [105.0, 110.0, 115.0]
+    assert list(cleaned["low"]) == [90.0, 95.0, 100.0]
