@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 
 # Fix python path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 from config.settings import Settings
 from config.paths import ProjectPaths, ensure_project_directories, LAKE_DIR, ensure_project_directories
