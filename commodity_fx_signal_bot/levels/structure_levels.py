@@ -1,5 +1,5 @@
-import pandas as pd
 import numpy as np
+import pandas as pd
 
 
 def calculate_recent_swing_low(df: pd.DataFrame, window: int = 20) -> pd.Series:
@@ -20,16 +20,13 @@ def calculate_structure_stop_level(
     # A simplified structure stop: for long, use recent low. for short, use recent high.
     # Note: df doesn't have a single directional bias typically, we might need a column.
     # We will assume df has a 'directional_bias' column or we apply it row by row.
-    pass  # Wait, the signature says directional_bias: str. Let's return a series based on a fixed bias? No, let's look at the requirements.
+    pass  # Wait, the signature says directional_bias: str.
+    # Let's return a series based on a fixed bias? No, let's look at the requirements.
 
 
-def calculate_breakout_reference_levels(
-    df: pd.DataFrame, window: int = 20
-) -> pd.DataFrame:
+def calculate_breakout_reference_levels(df: pd.DataFrame, window: int = 20) -> pd.DataFrame:
     df_out = pd.DataFrame(index=df.index)
-    df_out[f"breakout_reference_high_{window}"] = calculate_recent_swing_high(
-        df, window
-    )
+    df_out[f"breakout_reference_high_{window}"] = calculate_recent_swing_high(df, window)
     df_out[f"breakout_reference_low_{window}"] = calculate_recent_swing_low(df, window)
     return df_out
 
@@ -47,31 +44,27 @@ def build_structure_level_frame(
     window = 20
     df_out[f"recent_swing_low_{window}"] = calculate_recent_swing_low(df, window)
     df_out[f"recent_swing_high_{window}"] = calculate_recent_swing_high(df, window)
-    df_out[f"breakout_reference_high_{window}"] = calculate_recent_swing_high(
-        df, window
-    )
+    df_out[f"breakout_reference_high_{window}"] = calculate_recent_swing_high(df, window)
     df_out[f"breakout_reference_low_{window}"] = calculate_recent_swing_low(df, window)
 
     if directional_bias_col not in df.columns:
         df_out[directional_bias_col] = "neutral"
         warnings.append("Missing directional_bias, using neutral")
 
-    def _get_stop(row):
-        if row[directional_bias_col] in ["long_bias_candidate", "bullish"]:
-            return row[f"recent_swing_low_{window}"]
-        elif row[directional_bias_col] in ["short_bias_candidate", "bearish"]:
-            return row[f"recent_swing_high_{window}"]
-        return np.nan
+    cond_long = df_out[directional_bias_col].isin(["long_bias_candidate", "bullish"])
+    cond_short = df_out[directional_bias_col].isin(["short_bias_candidate", "bearish"])
 
-    def _get_target(row):
-        if row[directional_bias_col] in ["long_bias_candidate", "bullish"]:
-            return row[f"recent_swing_high_{window}"]
-        elif row[directional_bias_col] in ["short_bias_candidate", "bearish"]:
-            return row[f"recent_swing_low_{window}"]
-        return np.nan
+    df_out[f"structure_stop_{window}_candidate"] = np.select(
+        [cond_long, cond_short],
+        [df_out[f"recent_swing_low_{window}"], df_out[f"recent_swing_high_{window}"]],
+        default=np.nan,
+    )
 
-    df_out[f"structure_stop_{window}_candidate"] = df_out.apply(_get_stop, axis=1)
-    df_out[f"structure_target_{window}_candidate"] = df_out.apply(_get_target, axis=1)
+    df_out[f"structure_target_{window}_candidate"] = np.select(
+        [cond_long, cond_short],
+        [df_out[f"recent_swing_high_{window}"], df_out[f"recent_swing_low_{window}"]],
+        default=np.nan,
+    )
     df_out[f"structure_invalidation_level_{window}_candidate"] = df_out[
         f"structure_stop_{window}_candidate"
     ]
