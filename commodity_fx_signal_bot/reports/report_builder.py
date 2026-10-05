@@ -2,25 +2,17 @@
 Report generation utilities.
 """
 
+import ast
 from pathlib import Path
 from typing import List
 
-
-from local_maintenance.maintenance_report_builder import (
-    build_maintenance_domain_registry_markdown_report,
-    build_periodic_review_calendar_markdown_report,
-    build_refresh_cadence_markdown_report,
-    build_dependency_aging_markdown_report,
-    build_sustainability_markdown_report,
-    build_maintenance_quality_markdown_report,
-    build_maintenance_status_markdown_report,
-    build_maintenance_disclaimer
-)
 import pandas as pd
 
 from config.symbols import SymbolSpec
 from data.universe_analyzer import SymbolReliabilityResult, UniverseAnalyzer
-
+from local_maintenance.maintenance_report_builder import (
+    build_maintenance_disclaimer,
+)
 
 
 def _get_regression_disclaimer_rb() -> str:
@@ -32,13 +24,17 @@ def _get_regression_disclaimer_rb() -> str:
         "***\n\n"
     )
 
-def build_scenario_regression_registry_text_report(summary: dict, regression_df: pd.DataFrame | None = None) -> str:
+
+def build_scenario_regression_registry_text_report(
+    summary: dict, regression_df: pd.DataFrame | None = None
+) -> str:
     txt = _get_regression_disclaimer_rb()
     txt += "Scenario Regression Registry Report\n\n"
     txt += f"Total definitions: {summary.get('total_definitions', 0)}\n\n"
     if regression_df is not None and not regression_df.empty:
         txt += regression_df.head(10).to_string() + "\n"
     return txt
+
 
 def build_golden_output_text_report(summary: dict, golden_df: pd.DataFrame | None = None) -> str:
     txt = _get_regression_disclaimer_rb()
@@ -48,7 +44,10 @@ def build_golden_output_text_report(summary: dict, golden_df: pd.DataFrame | Non
         txt += golden_df.head(10).to_string() + "\n"
     return txt
 
-def build_snapshot_comparison_text_report(summary: dict, diff_df: pd.DataFrame | None = None) -> str:
+
+def build_snapshot_comparison_text_report(
+    summary: dict, diff_df: pd.DataFrame | None = None
+) -> str:
     txt = _get_regression_disclaimer_rb()
     txt += "Snapshot Comparison Report\n\n"
     txt += f"Total diffs: {summary.get('total_diffs', 0)}\n\n"
@@ -56,7 +55,10 @@ def build_snapshot_comparison_text_report(summary: dict, diff_df: pd.DataFrame |
         txt += diff_df.head(10).to_string() + "\n"
     return txt
 
-def build_deterministic_replay_text_report(summary: dict, replay_df: pd.DataFrame | None = None) -> str:
+
+def build_deterministic_replay_text_report(
+    summary: dict, replay_df: pd.DataFrame | None = None
+) -> str:
     txt = _get_regression_disclaimer_rb()
     txt += "Deterministic Replay Report\n\n"
     txt += f"Total replays: {summary.get('total_replays', 0)}\n\n"
@@ -64,7 +66,10 @@ def build_deterministic_replay_text_report(summary: dict, replay_df: pd.DataFram
         txt += replay_df.head(10).to_string() + "\n"
     return txt
 
-def build_demo_acceptance_text_report(summary: dict, acceptance_df: pd.DataFrame | None = None) -> str:
+
+def build_demo_acceptance_text_report(
+    summary: dict, acceptance_df: pd.DataFrame | None = None
+) -> str:
     txt = _get_regression_disclaimer_rb()
     txt += "Demo Acceptance Report\n\n"
     txt += f"Score: {summary.get('score', 0)}\n"
@@ -73,12 +78,14 @@ def build_demo_acceptance_text_report(summary: dict, acceptance_df: pd.DataFrame
         txt += acceptance_df.to_string() + "\n"
     return txt
 
+
 def build_scenario_regression_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     txt = _get_regression_disclaimer_rb()
     txt += "Scenario Regression Status\n\n"
     if status_df is not None and not status_df.empty:
         txt += status_df.to_string() + "\n"
     return txt
+
 
 def build_universe_report(symbols: List[SymbolSpec]) -> str:
     """
@@ -141,14 +148,12 @@ def build_reliability_report(results: List[SymbolReliabilityResult]) -> str:
     lines.append("")
     lines.append("Asset Class Success Rate:")
     for ac, rate in sorted(summary["asset_class_success_rate"].items()):
-        lines.append(f"  - {ac}: {rate*100:.1f}%")
+        lines.append(f"  - {ac}: {rate * 100:.1f}%")
 
     lines.append("")
     lines.append("Top 10 Most Reliable:")
     for b in summary["best_10"]:
-        lines.append(
-            f"  - {b['symbol']}: {b['reliability_score']:.1f} ({b['reliability_grade']})"
-        )
+        lines.append(f"  - {b['symbol']}: {b['reliability_score']:.1f} ({b['reliability_grade']})")
 
     lines.append("")
     lines.append("Bottom 10 Least Reliable:")
@@ -184,7 +189,7 @@ def build_asset_class_summary(results: List[SymbolReliabilityResult]) -> str:
 
     lines = ["Asset Class Success Rates:"]
     for ac, rate in sorted(summary["asset_class_success_rate"].items()):
-        lines.append(f"{ac}: {rate*100:.1f}%")
+        lines.append(f"{ac}: {rate * 100:.1f}%")
     return "\n".join(lines)
 
 
@@ -201,9 +206,7 @@ def save_dataframe_report(df: pd.DataFrame, path: Path) -> None:
     df.to_csv(path, index=False)
 
 
-def build_timeframe_compatibility_report(
-    symbols: List[SymbolSpec], scan_plan: dict
-) -> str:
+def build_timeframe_compatibility_report(symbols: List[SymbolSpec], scan_plan: dict) -> str:
     pass
 
     lines = [
@@ -282,9 +285,7 @@ def build_data_lake_update_report(summary: dict) -> str:
     return "\n".join(lines)
 
 
-def build_data_lake_status_report(
-    manifest_summary: dict, manifest_df: pd.DataFrame
-) -> str:
+def build_data_lake_status_report(manifest_summary: dict, manifest_df: pd.DataFrame) -> str:
     """Build a text report for Data Lake status."""
     lines = [
         "=== Veri Gölü Durum Raporu ===",
@@ -310,9 +311,7 @@ def build_data_lake_status_report(
         lines.append("")
         lines.append(f"Zayıf Kaliteli Dosyalar ({len(weak_df)}):")
         for _, row in weak_df.head(10).iterrows():
-            lines.append(
-                f"  - {row['symbol']} ({row['timeframe']}): {row['quality_grade']}"
-            )
+            lines.append(f"  - {row['symbol']} ({row['timeframe']}): {row['quality_grade']}")
         if len(weak_df) > 10:
             lines.append(f"  ... ve {len(weak_df) - 10} dosya daha.")
 
@@ -373,7 +372,7 @@ def build_data_quality_audit_report(audit_df: pd.DataFrame, summary: dict) -> st
     if problematic.empty:
         lines.append("Harika! D veya F notu alan sorunlu dosya bulunamadı.")
     else:
-        for idx, row in problematic.head(20).iterrows():
+        for _idx, row in problematic.head(20).iterrows():
             lines.append(
                 f"{row['Symbol']} ({row['Timeframe']}): Grade {row['Grade']} (Score: {row['Score']:.1f}) - Hatalar: {row['Errors']}, Boşluk: {row['Gaps']}, Duplicate: {row['Duplicates']}"
             )
@@ -385,7 +384,7 @@ def build_data_quality_audit_report(audit_df: pd.DataFrame, summary: dict) -> st
     if gappy.empty:
         lines.append("Önemli bir boşluk (gap) bulunamadı.")
     else:
-        for idx, row in gappy.head(10).iterrows():
+        for _idx, row in gappy.head(10).iterrows():
             lines.append(f"{row['Symbol']} ({row['Timeframe']}): {row['Gaps']} Gap")
 
     return "\n".join(lines)
@@ -418,7 +417,7 @@ def build_data_cleaning_report(summary_df: pd.DataFrame, summary: dict) -> str:
     if improved_df.empty:
         lines.append("Skorunda artış olan dosya yok.")
     else:
-        for idx, row in improved_df.head(15).iterrows():
+        for _idx, row in improved_df.head(15).iterrows():
             lines.append(
                 f"{row['Symbol']} ({row['Timeframe']}): {row['Grade Before']} -> {row['Grade After']} (+{row['Score Change']:.1f})"
             )
@@ -439,9 +438,7 @@ def build_processed_data_status_report(status_df: pd.DataFrame, summary: dict) -
 
     lines.append("1. DURUM ÖZETİ")
     lines.append("-" * 30)
-    lines.append(
-        f"Toplam Kombinasyon (Symbol+TF): {summary.get('total_combinations', 0)}"
-    )
+    lines.append(f"Toplam Kombinasyon (Symbol+TF): {summary.get('total_combinations', 0)}")
     lines.append(f"İşlenmiş (Processed) Hazır: {summary.get('fully_processed', 0)}")
     lines.append(
         f"İşlenmeyi Bekleyen (Ham var, Processed Yok): {summary.get('missing_processed', 0)}"
@@ -455,16 +452,12 @@ def build_processed_data_status_report(status_df: pd.DataFrame, summary: dict) -
         lines.append(f"Grade {grade}: {count} dosya")
     lines.append("")
 
-    missing_df = status_df[
-        (status_df["Has Raw"] == True) & (status_df["Has Processed"] == False)
-    ]
+    missing_df = status_df[(status_df["Has Raw"]) & (not status_df["Has Processed"])]
     if not missing_df.empty:
         lines.append("3. TEMİZLENMEYİ BEKLEYENLER")
         lines.append("-" * 30)
-        for idx, row in missing_df.head(20).iterrows():
-            lines.append(
-                f"{row['Symbol']} ({row['Timeframe']}): Raw Rows: {row['Raw Rows']}"
-            )
+        for _idx, row in missing_df.head(20).iterrows():
+            lines.append(f"{row['Symbol']} ({row['Timeframe']}): Raw Rows: {row['Raw Rows']}")
 
     return "\n".join(lines)
 
@@ -553,7 +546,7 @@ def build_momentum_status_report(status_df: pd.DataFrame, summary: dict) -> str:
         missing = status_df[~status_df["Has Momentum"]]
         if not missing.empty:
             lines.append("Eksik Momentum Feature'ları Olanlar (Örnek 10):")
-            for idx, row in missing.head(10).iterrows():
+            for _idx, row in missing.head(10).iterrows():
                 lines.append(f"  - {row['Symbol']} ({row['Timeframe']})")
     else:
         lines.append("Mevcut data yok.")
@@ -651,7 +644,7 @@ def build_trend_status_report(status_df: pd.DataFrame, summary: dict) -> str:
         missing = status_df[~status_df["Has Trend"]]
         if not missing.empty:
             lines.append("Eksik Trend Feature'ları Olanlar (Örnek 10):")
-            for idx, row in missing.head(10).iterrows():
+            for _idx, row in missing.head(10).iterrows():
                 lines.append(f"  - {row['Symbol']} ({row['Timeframe']})")
     else:
         lines.append("Mevcut data yok.")
@@ -717,11 +710,7 @@ def build_volatility_event_preview_report(
         lines.append("No event data.")
 
     lines.append("\n=== NOTES ===")
-    lines.append(
-        summary.get(
-            "notes", "These events are candidates, not direct buy/sell signals."
-        )
-    )
+    lines.append(summary.get("notes", "These events are candidates, not direct buy/sell signals."))
 
     return "\n".join(lines)
 
@@ -738,9 +727,7 @@ def build_volatility_batch_report(summary: dict) -> str:
         lines.append("\n=== FAILURES ===")
         for d in summary.get("details", []):
             if not d.get("success") and not d.get("skipped"):
-                lines.append(
-                    f"{d.get('symbol')} ({d.get('timeframe')}): {d.get('error')}"
-                )
+                lines.append(f"{d.get('symbol')} ({d.get('timeframe')}): {d.get('error')}")
 
     return "\n".join(lines)
 
@@ -749,16 +736,10 @@ def build_volatility_status_report(status_df: pd.DataFrame, summary: dict) -> st
     lines = []
     lines.append("=== VOLATILITY STATUS REPORT ===")
     lines.append(f"Total Symbols: {summary.get('total_symbols', 0)}")
-    lines.append(
-        f"With Volatility Features: {summary.get('with_volatility_features', 0)}"
-    )
+    lines.append(f"With Volatility Features: {summary.get('with_volatility_features', 0)}")
     lines.append(f"With Volatility Events: {summary.get('with_volatility_events', 0)}")
-    lines.append(
-        f"Missing (have processed): {summary.get('missing_but_have_processed', 0)}"
-    )
-    lines.append(
-        f"Missing (have technical): {summary.get('missing_but_have_technical', 0)}"
-    )
+    lines.append(f"Missing (have processed): {summary.get('missing_but_have_processed', 0)}")
+    lines.append(f"Missing (have technical): {summary.get('missing_but_have_technical', 0)}")
 
     if not status_df.empty:
         missing = status_df[
@@ -850,9 +831,7 @@ def build_volume_batch_report(summary: dict) -> str:
         lines.append("\nFAILURES:")
         for d in summary.get("details", []):
             if not d.get("success") and not d.get("skipped"):
-                lines.append(
-                    f"{d.get('symbol')} ({d.get('timeframe')}): {d.get('error')}"
-                )
+                lines.append(f"{d.get('symbol')} ({d.get('timeframe')}): {d.get('error')}")
 
     return "\n".join(lines)
 
@@ -863,17 +842,12 @@ def build_volume_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     lines.append(f"Total Symbols: {summary.get('total_symbols', 0)}")
     lines.append(f"With Volume Features: {summary.get('with_volume', 0)}")
     lines.append(f"With Volume Events: {summary.get('with_volume_events', 0)}")
-    lines.append(
-        f"Missing (have processed): {summary.get('missing_but_have_processed', 0)}"
-    )
-    lines.append(
-        f"Missing (have technical): {summary.get('missing_but_have_technical', 0)}"
-    )
+    lines.append(f"Missing (have processed): {summary.get('missing_but_have_processed', 0)}")
+    lines.append(f"Missing (have technical): {summary.get('missing_but_have_technical', 0)}")
 
     if not status_df.empty:
         missing = status_df[
-            (~status_df["has_volume"])
-            & (status_df["has_processed"] | status_df["has_technical"])
+            (~status_df["has_volume"]) & (status_df["has_processed"] | status_df["has_technical"])
         ]
         if not missing.empty:
             lines.append("\n=== MISSING VOLUME FEATURES (Sample) ===")
@@ -942,11 +916,7 @@ def build_mean_reversion_event_preview_report(
         lines.append("No event data.")
 
     lines.append("\n=== NOTES ===")
-    lines.append(
-        summary.get(
-            "notes", "These events are candidates, not direct buy/sell signals."
-        )
-    )
+    lines.append(summary.get("notes", "These events are candidates, not direct buy/sell signals."))
 
     return "\n".join(lines)
 
@@ -963,9 +933,7 @@ def build_mean_reversion_batch_report(summary: dict) -> str:
         lines.append("\n=== FAILURES ===")
         for d in summary.get("details", []):
             if not d.get("success") and not d.get("skipped"):
-                lines.append(
-                    f"{d.get('symbol')} ({d.get('timeframe')}): {d.get('error')}"
-                )
+                lines.append(f"{d.get('symbol')} ({d.get('timeframe')}): {d.get('error')}")
 
     return "\n".join(lines)
 
@@ -974,18 +942,10 @@ def build_mean_reversion_status_report(status_df: pd.DataFrame, summary: dict) -
     lines = []
     lines.append("=== MEAN REVERSION STATUS REPORT ===")
     lines.append(f"Total Symbols: {summary.get('total_symbols', 0)}")
-    lines.append(
-        f"With Mean Reversion Features: {summary.get('with_mean_reversion_features', 0)}"
-    )
-    lines.append(
-        f"With Mean Reversion Events: {summary.get('with_mean_reversion_events', 0)}"
-    )
-    lines.append(
-        f"Missing (have processed): {summary.get('missing_but_have_processed', 0)}"
-    )
-    lines.append(
-        f"Missing (have technical): {summary.get('missing_but_have_technical', 0)}"
-    )
+    lines.append(f"With Mean Reversion Features: {summary.get('with_mean_reversion_features', 0)}")
+    lines.append(f"With Mean Reversion Events: {summary.get('with_mean_reversion_events', 0)}")
+    lines.append(f"Missing (have processed): {summary.get('missing_but_have_processed', 0)}")
+    lines.append(f"Missing (have technical): {summary.get('missing_but_have_technical', 0)}")
 
     if not status_df.empty:
         missing = status_df[
@@ -1007,7 +967,7 @@ def build_price_action_feature_preview_report(
     symbol: str, timeframe: str, summary: dict, tail_df: pd.DataFrame
 ) -> str:
     lines = [
-        f"=== PRICE ACTION FEATURE PREVIEW ===",
+        "=== PRICE ACTION FEATURE PREVIEW ===",
         f"Symbol: {symbol}",
         f"Timeframe: {timeframe}",
         f"Input Rows: {summary.get('input_rows', 0)}",
@@ -1045,7 +1005,7 @@ def build_price_action_event_preview_report(
     symbol: str, timeframe: str, summary: dict, event_tail_df: pd.DataFrame
 ) -> str:
     lines = [
-        f"=== PRICE ACTION EVENT PREVIEW ===",
+        "=== PRICE ACTION EVENT PREVIEW ===",
         f"Symbol: {symbol}",
         f"Timeframe: {timeframe}",
         f"Total Events Generated: {summary.get('total_event_count', 0)}",
@@ -1140,7 +1100,7 @@ def build_divergence_feature_preview_report(
     symbol: str, timeframe: str, summary: dict, tail_df: pd.DataFrame
 ) -> str:
     lines = [
-        f"=== DIVERGENCE FEATURE PREVIEW ===",
+        "=== DIVERGENCE FEATURE PREVIEW ===",
         f"Symbol: {symbol}",
         f"Timeframe: {timeframe}",
         f"Input Rows: {summary.get('input_rows', 0)}",
@@ -1184,7 +1144,7 @@ def build_divergence_event_preview_report(
     symbol: str, timeframe: str, summary: dict, event_tail_df: pd.DataFrame
 ) -> str:
     lines = [
-        f"=== DIVERGENCE EVENT PREVIEW ===",
+        "=== DIVERGENCE EVENT PREVIEW ===",
         f"Symbol: {symbol}",
         f"Timeframe: {timeframe}",
         f"Total Events Generated: {summary.get('total_event_count', 0)}",
@@ -1317,9 +1277,7 @@ def build_mtf_event_preview_report(
     lines.append(f"=== MTF Event Preview: {symbol} ===")
     lines.append(f"Profil: {profile_name}")
     lines.append(f"Toplam Olay Sayısı: {summary.get('total_event_count', 0)}")
-    lines.append(
-        f"Aktif Son Satır Olayları: {summary.get('active_last_row_events', [])}"
-    )
+    lines.append(f"Aktif Son Satır Olayları: {summary.get('active_last_row_events', [])}")
     lines.append(f"Not: {summary.get('notes', '')}")
     lines.append("\nUyarılar:")
     for w in summary.get("warnings", []):
@@ -1404,9 +1362,7 @@ def build_regime_event_preview_report(
         lines.append(f"  - {k}: {v}")
 
     lines.append("")
-    lines.append(
-        f"Aktif Son Satır Olayları: {summary.get('active_last_row_events', [])}"
-    )
+    lines.append(f"Aktif Son Satır Olayları: {summary.get('active_last_row_events', [])}")
 
     lines.append("\nUyarılar:")
     for w in summary.get("warnings", []):
@@ -1493,9 +1449,7 @@ def build_regime_status_report(status_df: pd.DataFrame, summary: dict) -> str:
 
     return "\n".join(lines)
 
-    def build_macro_feature_preview_report(
-        self, summary: dict, tail_df: pd.DataFrame
-    ) -> str:
+    def build_macro_feature_preview_report(self, summary: dict, tail_df: pd.DataFrame) -> str:
         """Build report for macro feature preview."""
         lines = [
             "===========================================================",
@@ -1514,9 +1468,7 @@ def build_regime_status_report(status_df: pd.DataFrame, summary: dict) -> str:
 
     return "\n".join(lines)
 
-    def build_macro_benchmark_report(
-        self, summary: dict, benchmark_tail_df: pd.DataFrame
-    ) -> str:
+    def build_macro_benchmark_report(self, summary: dict, benchmark_tail_df: pd.DataFrame) -> str:
         """Build report for macro benchmark."""
         lines = [
             "===========================================================",
@@ -1572,27 +1524,27 @@ def build_asset_profile_preview_report(
     symbol: str, timeframe: str, summary: dict, tail_df: pd.DataFrame
 ) -> str:
     lines = [
-        f"=== ASSET PROFILE PREVIEW ===",
+        "=== ASSET PROFILE PREVIEW ===",
         f"Symbol: {symbol}",
         f"Timeframe: {timeframe}",
         f"Asset Class: {summary.get('asset_class', 'Unknown')}",
         f"Asset Profile: {summary.get('asset_profile', 'Unknown')}",
-        f"",
-        f"--- DATA STATUS ---",
+        "",
+        "--- DATA STATUS ---",
         f"Rows: {summary.get('rows', 0)}",
         f"Columns: {len(summary.get('columns', []))}",
         f"Missing Feature Sets: {', '.join(summary.get('missing_feature_sets', [])) or 'None'}",
-        f"",
-        f"--- GROUP CONTEXT ---",
+        "",
+        "--- GROUP CONTEXT ---",
         f"Group Members Expected: {summary.get('group_member_count', 0)}",
         f"Group Members Available: {summary.get('available_group_members', 0)}",
-        f"",
-        f"--- CURRENT REGIMES ---",
+        "",
+        "--- CURRENT REGIMES ---",
         f"Asset Behavior Regime: {summary.get('latest_asset_regime', 'Unknown')}",
         f"Group Regime: {summary.get('latest_group_regime', 'Unknown')}",
         f"Relative Strength Regime: {summary.get('latest_relative_strength_label', 'Unknown')}",
-        f"",
-        f"--- QUALITY REPORT ---",
+        "",
+        "--- QUALITY REPORT ---",
     ]
 
     qr = summary.get("quality_report", {})
@@ -1609,9 +1561,7 @@ def build_asset_profile_preview_report(
         lines.append("")
         lines.append("--- LATEST FEATURES ---")
         # Select some key features
-        cols = [
-            c for c in tail_df.columns if "score" in c or "label" in c or "regime" in c
-        ]
+        cols = [c for c in tail_df.columns if "score" in c or "label" in c or "regime" in c]
         lines.append(tail_df[cols].to_string())
 
     return "\n".join(lines)
@@ -1621,14 +1571,14 @@ def build_asset_group_event_preview_report(
     asset_class: str, timeframe: str, summary: dict, tail_df: pd.DataFrame
 ) -> str:
     lines = [
-        f"=== ASSET GROUP EVENT PREVIEW ===",
+        "=== ASSET GROUP EVENT PREVIEW ===",
         f"Asset Class: {asset_class}",
         f"Timeframe: {timeframe}",
-        f"",
-        f"--- DATA STATUS ---",
+        "",
+        "--- DATA STATUS ---",
         f"Rows: {summary.get('rows', 0)}",
         f"Available Members: {len(summary.get('members', []))}",
-        f"",
+        "",
     ]
 
     if summary.get("warnings"):
@@ -1662,9 +1612,7 @@ def build_asset_profile_batch_report(summary: dict) -> str:
 
     for ac, ac_sum in summary.get("asset_classes", {}).items():
         lines.append(f"--- {ac.upper()} ---")
-        success = sum(
-            1 for s in ac_sum.get("symbols", {}).values() if not s.get("warnings")
-        )
+        success = sum(1 for s in ac_sum.get("symbols", {}).values() if not s.get("warnings"))
         lines.append(f"Success: {success} / {len(ac_sum.get('symbols', {}))}")
         if ac_sum.get("warnings"):
             lines.append("Warnings:")
@@ -1701,20 +1649,20 @@ def build_signal_candidate_preview_report(
     symbol: str, timeframe: str, profile_name: str, summary: dict, tail_df: pd.DataFrame
 ) -> str:
     lines = [
-        f"=== SİNYAL ADAYI ÖNİZLEME RAPORU ===",
+        "=== SİNYAL ADAYI ÖNİZLEME RAPORU ===",
         f"Sembol: {symbol}",
         f"Zaman Dilimi: {timeframe}",
         f"Profil: {profile_name}",
-        f"",
-        f"--- DURUM ---",
+        "",
+        "--- DURUM ---",
         f"Yüklenen Event Grupları: {', '.join(summary.get('loaded_event_groups', [])) or 'Yok'}",
         f"Eksik Event Grupları: {', '.join(summary.get('missing_event_groups', [])) or 'Yok'}",
         f"Toplam Aday Sayısı: {summary.get('candidate_count', 0)}",
         f"Filtreyi Geçen Aday Sayısı: {summary.get('passed_candidate_count', 0)}",
-        f"",
-        f"--- UYARILAR ---",
-        f"Bu çıktılar nihai işlem sinyali değildir. Aday setup ve bağlam skorlarıdır. Canlı emir üretilmez.",
-        f"",
+        "",
+        "--- UYARILAR ---",
+        "Bu çıktılar nihai işlem sinyali değildir. Aday setup ve bağlam skorlarıdır. Canlı emir üretilmez.",
+        "",
     ]
     if summary.get("warnings"):
         for w in summary["warnings"]:
@@ -1739,14 +1687,14 @@ def build_signal_candidate_preview_report(
 
 def build_signal_batch_report(summary: dict) -> str:
     lines = [
-        f"=== SİNYAL TOPLU İŞLEM RAPORU ===",
+        "=== SİNYAL TOPLU İŞLEM RAPORU ===",
         f"İşlenen: {summary.get('processed', 0)}",
         f"Atlanan: {summary.get('skipped', 0)}",
         f"Hatalı: {summary.get('errors', 0)}",
         f"Toplam Aday: {summary.get('total_candidates', 0)}",
         f"Adayı Olan Sembol Sayısı: {summary.get('symbols_with_candidates', 0)}",
-        f"",
-        f"Bu çıktılar nihai işlem sinyali değildir. Aday setup ve bağlam skorlarıdır. Canlı emir üretilmez.",
+        "",
+        "Bu çıktılar nihai işlem sinyali değildir. Aday setup ve bağlam skorlarıdır. Canlı emir üretilmez.",
     ]
     return "\n".join(lines)
 
@@ -1755,22 +1703,22 @@ def build_signal_pool_preview_report(
     timeframe: str, profile_name: str, summary: dict, top_df: pd.DataFrame
 ) -> str:
     lines = [
-        f"=== SİNYAL ADAY HAVUZU ÖNİZLEME ===",
+        "=== SİNYAL ADAY HAVUZU ÖNİZLEME ===",
         f"Zaman Dilimi: {timeframe}",
         f"Profil: {profile_name}",
-        f"",
-        f"--- ÖZET ---",
+        "",
+        "--- ÖZET ---",
         f"Toplam Aday: {summary.get('total_candidates', 0)}",
         f"Filtreyi Geçen: {summary.get('passed_candidates', 0)}",
         f"Ortalama Aday Skoru: {summary.get('average_candidate_score', 0):.2f}",
         f"Ortalama Güven Skoru: {summary.get('average_confidence_score', 0):.2f}",
-        f"",
-        f"--- DAĞILIM ---",
+        "",
+        "--- DAĞILIM ---",
         f"Sembollere Göre: {summary.get('by_symbol', {})}",
         f"Aday Tiplerine Göre: {summary.get('by_candidate_type', {})}",
         f"Yönsel Biase Göre: {summary.get('by_directional_bias', {})}",
-        f"",
-        f"--- EN İYİ ADAYLAR ---",
+        "",
+        "--- EN İYİ ADAYLAR ---",
     ]
 
     if not top_df.empty:
@@ -1795,11 +1743,11 @@ def build_signal_pool_preview_report(
 
 def build_signal_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     lines = [
-        f"=== SİNYAL SİSTEMİ DURUM RAPORU ===",
+        "=== SİNYAL SİSTEMİ DURUM RAPORU ===",
         f"Sinyal Aday Dosyası Olanlar: {summary.get('total_with_candidates', 0)}",
         f"Toplam Aday Sayısı (Havuz): {summary.get('total_pool_candidates', 0)}",
         f"Ortalama Skor: {summary.get('average_pool_score', 0):.2f}",
-        f"",
+        "",
     ]
 
     if not status_df.empty:
@@ -1835,9 +1783,7 @@ def build_decision_candidate_preview_report(
     ]
 
     if summary.get("missing_context_frames"):
-        lines.append(
-            f"Missing Context Frames: {', '.join(summary['missing_context_frames'])}"
-        )
+        lines.append(f"Missing Context Frames: {', '.join(summary['missing_context_frames'])}")
         lines.append("")
 
     if summary.get("warnings"):
@@ -1944,7 +1890,7 @@ def build_strategy_candidate_preview_report(
     symbol: str, timeframe: str, profile_name: str, summary: dict, tail_df
 ) -> str:
     lines = [
-        f"=== STRATEGY CANDIDATE PREVIEW ===",
+        "=== STRATEGY CANDIDATE PREVIEW ===",
         f"Symbol: {symbol} | Timeframe: {timeframe} | Profile: {profile_name}",
         f"Generated Candidates: {summary.get('strategy_candidate_count', 0)}",
         f"Passed Candidates: {summary.get('passed_strategy_candidate_count', 0)}",
@@ -1991,7 +1937,7 @@ def build_strategy_pool_preview_report(
     ]
 
     if not top_df.empty:
-        for idx, row in top_df.iterrows():
+        for _idx, row in top_df.iterrows():
             lines.append(
                 f"Symbol: {row.get('symbol', 'N/A')} | Family: {row.get('strategy_family', 'N/A')} | Status: {row.get('strategy_status', 'N/A')} | Score: {row.get('strategy_selection_score', 0.0):.2f}"
             )
@@ -2044,7 +1990,7 @@ def build_risk_precheck_preview_report(
             lines.append(f"  Risk Readiness: {row['risk_readiness_score']:.2f}")
             bl_reasons = row.get("blocking_reasons", [])
             if isinstance(bl_reasons, str):
-                bl_reasons = eval(bl_reasons) if bl_reasons.startswith("[") else []
+                bl_reasons = ast.literal_eval(bl_reasons) if bl_reasons.startswith("[") else []
             if bl_reasons:
                 lines.append("  Engelleme Nedenleri:")
                 for r in bl_reasons:
@@ -2097,9 +2043,7 @@ def build_risk_pool_preview_report(
             lines.append(
                 f"Sembol: {row['symbol']} | Tarih: {row['timestamp']} | Yön: {row['directional_bias']}"
             )
-            lines.append(
-                f"  Strateji: {row['strategy_family']} | Label: {row['risk_label']}"
-            )
+            lines.append(f"  Strateji: {row['strategy_family']} | Label: {row['risk_label']}")
             lines.append(
                 f"  Readiness: {row['risk_readiness_score']:.2f} | Risk: {row['total_pretrade_risk_score']:.2f}"
             )
@@ -2126,7 +2070,7 @@ def build_sizing_candidate_preview_report(
     symbol: str, timeframe: str, profile_name: str, summary: dict, tail_df: pd.DataFrame
 ) -> str:
     lines = [
-        f"--- TEORİK SIZING CANDIDATE PREVIEW ---",
+        "--- TEORİK SIZING CANDIDATE PREVIEW ---",
         f"Symbol: {symbol}",
         f"Timeframe: {timeframe}",
         f"Profile: {profile_name}",
@@ -2176,9 +2120,7 @@ def build_sizing_batch_report(summary: dict) -> str:
         lines.append(f"Passed: {pool_summary.get('passed_sizing_candidates', 0)}")
         lines.append(f"Rejected: {pool_summary.get('rejected_sizing_candidates', 0)}")
         lines.append(f"Watchlist: {pool_summary.get('watchlist_sizing_candidates', 0)}")
-        lines.append(
-            f"Avg Readiness: {pool_summary.get('average_sizing_readiness', 0.0):.2f}"
-        )
+        lines.append(f"Avg Readiness: {pool_summary.get('average_sizing_readiness', 0.0):.2f}")
 
     lines.append("")
     lines.append(
@@ -2236,9 +2178,7 @@ def build_level_candidate_preview_report(
     symbol: str, timeframe: str, profile_name: str, summary: dict, tail_df: pd.DataFrame
 ) -> str:
     report = []
-    report.append(
-        f"Level Candidate Preview: {symbol} - {timeframe} (Profile: {profile_name})"
-    )
+    report.append(f"Level Candidate Preview: {symbol} - {timeframe} (Profile: {profile_name})")
     report.append("=" * 80)
     report.append(
         "UYARI: Bu çıktılar teorik stop/target seviye simülasyon adaylarıdır. Stop/target/invalidation ifadeleri gerçek stop-loss, take-profit, emir, pozisyon kapatma/açma veya canlı işlem kararı değildir. Canlı emir üretilmez."
@@ -2265,9 +2205,7 @@ def build_reward_risk_preview_report(
     symbol: str, timeframe: str, profile_name: str, summary: dict, tail_df: pd.DataFrame
 ) -> str:
     report = []
-    report.append(
-        f"Reward/Risk Preview: {symbol} - {timeframe} (Profile: {profile_name})"
-    )
+    report.append(f"Reward/Risk Preview: {symbol} - {timeframe} (Profile: {profile_name})")
     report.append("=" * 80)
     report.append(
         "UYARI: Bu çıktılar teorik stop/target seviye simülasyon adaylarıdır. Stop/target/invalidation ifadeleri gerçek stop-loss, take-profit, emir, pozisyon kapatma/açma veya canlı işlem kararı değildir. Canlı emir üretilmez."
@@ -2434,9 +2372,7 @@ def build_backtest_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     else:
         lines.append(f"Total Runs Found: {len(status_df)}")
         lines.append(
-            status_df[
-                ["symbol", "timeframe", "profile", "trade_count", "win_rate"]
-            ].to_string()
+            status_df[["symbol", "timeframe", "profile", "trade_count", "win_rate"]].to_string()
         )
 
     return "\n".join(lines)
@@ -2444,10 +2380,17 @@ def build_backtest_status_report(status_df: pd.DataFrame, summary: dict) -> str:
 
 # --- Validation Reports ---
 
-def build_walk_forward_preview_report(symbol: str, timeframe: str, profile_name: str, summary: dict, split_df: pd.DataFrame | None = None) -> str:
+
+def build_walk_forward_preview_report(
+    symbol: str,
+    timeframe: str,
+    profile_name: str,
+    summary: dict,
+    split_df: pd.DataFrame | None = None,
+) -> str:
     """Builds a human-readable walk-forward validation report."""
     lines = [
-        f"=== WALK-FORWARD VALIDATION PREVIEW ===",
+        "=== WALK-FORWARD VALIDATION PREVIEW ===",
         f"Sembol: {symbol} | Timeframe: {timeframe}",
         f"Profil: {profile_name}",
         "",
@@ -2463,55 +2406,71 @@ def build_walk_forward_preview_report(symbol: str, timeframe: str, profile_name:
         f"Ortalama Test Sharpe: {summary.get('avg_test_sharpe', 0.0):.2f}",
         f"Pozitif Test Split Oranı: {summary.get('test_positive_ratio', 0.0):.2%}",
         f"Eğitim->Test Bozulma Oranı: {summary.get('train_test_degradation', 0.0):.2%}",
-        ""
+        "",
     ]
 
-    robustness = summary.get('robustness', {})
+    robustness = summary.get("robustness", {})
     if robustness:
-        lines.extend([
-            "--- Robustness (Dayanıklılık) Özeti ---",
-            f"Dayanıklılık Skoru: {robustness.get('robustness_score', 0.0):.2f}",
-            f"Metric Tutarlılığı: {robustness.get('split_consistency', 0.0):.2f}",
-            ""
-        ])
+        lines.extend(
+            [
+                "--- Robustness (Dayanıklılık) Özeti ---",
+                f"Dayanıklılık Skoru: {robustness.get('robustness_score', 0.0):.2f}",
+                f"Metric Tutarlılığı: {robustness.get('split_consistency', 0.0):.2f}",
+                "",
+            ]
+        )
 
-    overfitting = summary.get('overfitting', {})
+    overfitting = summary.get("overfitting", {})
     if overfitting:
-        lines.extend([
-            "--- Overfitting (Aşırı Uyum) Risk Özeti ---",
-            f"Risk Etiketi: {overfitting.get('overfitting_risk_label', 'unknown').upper()}",
-            f"Toplam Risk Skoru: {overfitting.get('aggregate_overfitting_risk_score', 0.0):.2f}",
-            ""
-        ])
+        lines.extend(
+            [
+                "--- Overfitting (Aşırı Uyum) Risk Özeti ---",
+                f"Risk Etiketi: {overfitting.get('overfitting_risk_label', 'unknown').upper()}",
+                f"Toplam Risk Skoru: {overfitting.get('aggregate_overfitting_risk_score', 0.0):.2f}",
+                "",
+            ]
+        )
 
     if split_df is not None and not split_df.empty:
         lines.append("--- Split Detayları ---")
         for _, row in split_df.iterrows():
             idx = row.get("split_index", "?")
             lines.append(f"Split {idx}:")
-            lines.append(f"  Eğitim: {row.get('train_start', '?')[:10]} -> {row.get('train_end', '?')[:10]} | İşlem: {row.get('train_trade_count', 0)} | Sharpe: {row.get('train_sharpe_ratio', 0.0):.2f}")
-            lines.append(f"  Test:   {row.get('test_start', '?')[:10]} -> {row.get('test_end', '?')[:10]} | İşlem: {row.get('test_trade_count', 0)} | Sharpe: {row.get('test_sharpe_ratio', 0.0):.2f}")
+            lines.append(
+                f"  Eğitim: {row.get('train_start', '?')[:10]} -> {row.get('train_end', '?')[:10]} | İşlem: {row.get('train_trade_count', 0)} | Sharpe: {row.get('train_sharpe_ratio', 0.0):.2f}"
+            )
+            lines.append(
+                f"  Test:   {row.get('test_start', '?')[:10]} -> {row.get('test_end', '?')[:10]} | İşlem: {row.get('test_trade_count', 0)} | Sharpe: {row.get('test_sharpe_ratio', 0.0):.2f}"
+            )
         lines.append("")
 
-    quality = summary.get('quality_report', {})
+    quality = summary.get("quality_report", {})
     if quality:
-         lines.extend([
-            "--- Kalite Kontrolü ---",
-            f"Geçti mi: {'EVET' if quality.get('passed', False) else 'HAYIR'}",
-         ])
-         warnings = quality.get('warnings', [])
-         if warnings:
-              lines.append("Uyarılar:")
-              for w in warnings:
-                  lines.append(f"  - {w}")
+        lines.extend(
+            [
+                "--- Kalite Kontrolü ---",
+                f"Geçti mi: {'EVET' if quality.get('passed', False) else 'HAYIR'}",
+            ]
+        )
+        warnings = quality.get("warnings", [])
+        if warnings:
+            lines.append("Uyarılar:")
+            for w in warnings:
+                lines.append(f"  - {w}")
 
     return "\n".join(lines)
 
 
-def build_parameter_sensitivity_preview_report(symbol: str, timeframe: str, profile_name: str, summary: dict, sensitivity_df: pd.DataFrame | None = None) -> str:
+def build_parameter_sensitivity_preview_report(
+    symbol: str,
+    timeframe: str,
+    profile_name: str,
+    summary: dict,
+    sensitivity_df: pd.DataFrame | None = None,
+) -> str:
     """Builds a human-readable parameter sensitivity report."""
     lines = [
-        f"=== PARAMETER SENSITIVITY PREVIEW ===",
+        "=== PARAMETER SENSITIVITY PREVIEW ===",
         f"Sembol: {symbol} | Timeframe: {timeframe}",
         f"Profil: {profile_name}",
         "",
@@ -2522,28 +2481,38 @@ def build_parameter_sensitivity_preview_report(symbol: str, timeframe: str, prof
         f"Test Edilen Kombinasyon: {summary.get('combinations_tested', 0)}",
         f"Genel Stabilite Skoru: {summary.get('overall_stability_score', 0.0):.2f}",
         f"Kırılgan Parametre Değeri Sayısı: {summary.get('fragile_parameter_count', 0)}",
-        ""
+        "",
     ]
 
     if sensitivity_df is not None and not sensitivity_df.empty:
-        fragile_df = sensitivity_df[sensitivity_df.get('fragility_warning', '') != '']
+        fragile_df = sensitivity_df[sensitivity_df.get("fragility_warning", "") != ""]
         if not fragile_df.empty:
             lines.append("--- Kırılgan Parametre Uyarıları ---")
             for _, row in fragile_df.iterrows():
-                lines.append(f"Parametre: {row.get('parameter_name')} = {row.get('parameter_value')} -> {row.get('fragility_warning')}")
+                lines.append(
+                    f"Parametre: {row.get('parameter_name')} = {row.get('parameter_value')} -> {row.get('fragility_warning')}"
+                )
             lines.append("")
 
         lines.append("--- Parametre Etki Tablosu (Özet) ---")
         for _, row in sensitivity_df.head(15).iterrows():
-            lines.append(f"{row.get('parameter_name')} = {row.get('parameter_value')}: Ortalama Metrik={row.get('metric_mean', 0.0):.2f}, Skor={row.get('sensitivity_score', 0.0):.2f}")
+            lines.append(
+                f"{row.get('parameter_name')} = {row.get('parameter_value')}: Ortalama Metrik={row.get('metric_mean', 0.0):.2f}, Skor={row.get('sensitivity_score', 0.0):.2f}"
+            )
 
     return "\n".join(lines)
 
 
-def build_optimizer_candidate_preview_report(symbol: str, timeframe: str, profile_name: str, summary: dict, optimizer_df: pd.DataFrame | None = None) -> str:
+def build_optimizer_candidate_preview_report(
+    symbol: str,
+    timeframe: str,
+    profile_name: str,
+    summary: dict,
+    optimizer_df: pd.DataFrame | None = None,
+) -> str:
     """Builds a human-readable optimizer candidate report."""
     lines = [
-        f"=== OPTIMIZER CANDIDATE PREVIEW ===",
+        "=== OPTIMIZER CANDIDATE PREVIEW ===",
         f"Sembol: {symbol} | Timeframe: {timeframe}",
         f"Profil: {profile_name}",
         "",
@@ -2557,16 +2526,22 @@ def build_optimizer_candidate_preview_report(symbol: str, timeframe: str, profil
         f"İzleme (Watchlist): {summary.get('watchlist_candidates', 0)}",
         f"Aşırı Uyum Riski (Overfit): {summary.get('overfit_warning_candidates', 0)}",
         f"Reddedilen (Rejected): {summary.get('rejected_candidates', 0)}",
-        ""
+        "",
     ]
 
     if optimizer_df is not None and not optimizer_df.empty:
         lines.append("--- En İyi 10 Aday ---")
         for i, row in optimizer_df.head(10).iterrows():
-            params = {k.replace('param_', ''): v for k, v in row.items() if str(k).startswith('param_')}
-            lines.append(f"Aday #{i+1} [{row.get('candidate_label')}]")
-            lines.append(f"  Skor: {row.get('optimizer_candidate_score', 0.0):.2f} | Metrik: {row.get('primary_metric_value', 0.0):.2f}")
-            lines.append(f"  Robustness: {row.get('robustness_score', 0.0):.2f} | Overfit Risk: {row.get('overfitting_risk_score', 0.0):.2f}")
+            params = {
+                k.replace("param_", ""): v for k, v in row.items() if str(k).startswith("param_")
+            }
+            lines.append(f"Aday #{i + 1} [{row.get('candidate_label')}]")
+            lines.append(
+                f"  Skor: {row.get('optimizer_candidate_score', 0.0):.2f} | Metrik: {row.get('primary_metric_value', 0.0):.2f}"
+            )
+            lines.append(
+                f"  Robustness: {row.get('robustness_score', 0.0):.2f} | Overfit Risk: {row.get('overfitting_risk_score', 0.0):.2f}"
+            )
             lines.append(f"  Parametreler: {params}")
             lines.append("")
 
@@ -2576,21 +2551,23 @@ def build_optimizer_candidate_preview_report(symbol: str, timeframe: str, profil
 def build_validation_batch_report(summary: dict, ranking_df: pd.DataFrame | None = None) -> str:
     """Builds a human-readable batch validation summary."""
     lines = [
-        f"=== BATCH VALIDATION SUMMARY ===",
+        "=== BATCH VALIDATION SUMMARY ===",
         "",
         "DİKKAT: Bu rapor tarihsel validasyon ve optimizer aday analizidir.",
         "Canlı strateji seçimi, gerçek emir veya yatırım tavsiyesi değildir.",
         "",
         f"İşlenen Sembol: {summary.get('processed_count', 0)}",
         f"Geçen (Passed) Sembol: {summary.get('passed_count', 0)}",
-        ""
+        "",
     ]
 
     if ranking_df is not None and not ranking_df.empty:
         lines.append("--- Sembol Sıralaması (Dayanıklılığa Göre) ---")
         for _, row in ranking_df.iterrows():
             lines.append(f"{row.get('symbol')} [{row.get('validation_status')}]:")
-            lines.append(f"  Robustness: {row.get('robustness_score', 0.0):.2f} | Overfit Risk: {row.get('overfitting_risk_score', 0.0):.2f} | Splits: {row.get('split_count', 0)}")
+            lines.append(
+                f"  Robustness: {row.get('robustness_score', 0.0):.2f} | Overfit Risk: {row.get('overfitting_risk_score', 0.0):.2f} | Splits: {row.get('split_count', 0)}"
+            )
 
     return "\n".join(lines)
 
@@ -2598,14 +2575,14 @@ def build_validation_batch_report(summary: dict, ranking_df: pd.DataFrame | None
 def build_validation_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     """Builds a human-readable validation status report."""
     lines = [
-        f"=== VALIDATION STATUS REPORT ===",
+        "=== VALIDATION STATUS REPORT ===",
         "",
         "DİKKAT: Bu rapor tarihsel validasyon analiz durumunu gösterir.",
         "Canlı işlem onayı değildir.",
         "",
         f"Toplam Kayıtlı Rapor: {summary.get('total_reports', 0)}",
         f"Benzersiz Sembol: {summary.get('unique_symbols', 0)}",
-        ""
+        "",
     ]
 
     if status_df is not None and not status_df.empty:
@@ -2622,7 +2599,7 @@ def build_validation_status_report(status_df: pd.DataFrame, summary: dict) -> st
         timeframe: str,
         profile_name: str,
         summary: dict,
-        tail_df: pd.DataFrame | None = None
+        tail_df: pd.DataFrame | None = None,
     ) -> str:
         lines = [
             f"=== ML DATASET PREVIEW: {symbol} ({timeframe}) ===",
@@ -2642,20 +2619,22 @@ def build_validation_status_report(status_df: pd.DataFrame, summary: dict) -> st
             f"Risk Score: {summary.get('leakage_audit', {}).get('leakage_risk_score', 0)}",
             "",
             "--- Missing Feature Sets ---",
-            str(summary.get('missing_feature_sets', [])),
+            str(summary.get("missing_feature_sets", [])),
             "",
-            "--- Warnings ---"
+            "--- Warnings ---",
         ]
 
         warnings = summary.get("warnings", [])
         if warnings:
-             for w in warnings:
-                  lines.append(f"- {w}")
+            for w in warnings:
+                lines.append(f"- {w}")
         else:
-             lines.append("- Yok")
+            lines.append("- Yok")
 
         lines.append("")
-        lines.append("Uyarı: Bu çıktı ML dataset hazırlık raporudur. Model eğitimi, tahmin, canlı sinyal, gerçek emir veya yatırım tavsiyesi değildir.")
+        lines.append(
+            "Uyarı: Bu çıktı ML dataset hazırlık raporudur. Model eğitimi, tahmin, canlı sinyal, gerçek emir veya yatırım tavsiyesi değildir."
+        )
 
         if tail_df is not None and not tail_df.empty:
             lines.append("")
@@ -2670,22 +2649,24 @@ def build_validation_status_report(status_df: pd.DataFrame, summary: dict) -> st
         timeframe: str,
         profile_name: str,
         summary: dict,
-        target_tail_df: pd.DataFrame | None = None
+        target_tail_df: pd.DataFrame | None = None,
     ) -> str:
         lines = [
             f"=== ML TARGET PREVIEW: {symbol} ({timeframe}) ===",
             f"Profile: {profile_name}",
-            ""
+            "",
         ]
 
         warnings = summary.get("warnings", [])
         if warnings:
-             lines.append("--- Warnings ---")
-             for w in warnings:
-                  lines.append(f"- {w}")
-             lines.append("")
+            lines.append("--- Warnings ---")
+            for w in warnings:
+                lines.append(f"- {w}")
+            lines.append("")
 
-        lines.append("Uyarı: Bu çıktı ML dataset hazırlık raporudur. Model eğitimi, tahmin, canlı sinyal, gerçek emir veya yatırım tavsiyesi değildir.")
+        lines.append(
+            "Uyarı: Bu çıktı ML dataset hazırlık raporudur. Model eğitimi, tahmin, canlı sinyal, gerçek emir veya yatırım tavsiyesi değildir."
+        )
         lines.append("")
 
         if target_tail_df is not None and not target_tail_df.empty:
@@ -2694,18 +2675,20 @@ def build_validation_status_report(status_df: pd.DataFrame, summary: dict) -> st
 
     return "\n".join(lines)
 
-    def build_ml_dataset_batch_report(self, summary: dict, ranking_df: pd.DataFrame | None = None) -> str:
+    def build_ml_dataset_batch_report(
+        self, summary: dict, ranking_df: pd.DataFrame | None = None
+    ) -> str:
         lines = [
             "=== ML DATASET BATCH BUILD SUMMARY ===",
             f"Total Processed: {summary.get('processed', 0)}",
             "",
             "Uyarı: Bu çıktı ML dataset hazırlık raporudur. Model eğitimi, tahmin, canlı sinyal, gerçek emir veya yatırım tavsiyesi değildir.",
-            ""
+            "",
         ]
 
         if ranking_df is not None and not ranking_df.empty:
-             lines.append("--- Dataset Ranking ---")
-             lines.append(ranking_df.to_string(index=False))
+            lines.append("--- Dataset Ranking ---")
+            lines.append(ranking_df.to_string(index=False))
 
     return "\n".join(lines)
 
@@ -2715,21 +2698,33 @@ def build_validation_status_report(status_df: pd.DataFrame, summary: dict) -> st
             f"Total Datasets: {len(status_df) if not status_df.empty else 0}",
             "",
             "Uyarı: Bu çıktı ML dataset hazırlık raporudur. Model eğitimi, tahmin, canlı sinyal, gerçek emir veya yatırım tavsiyesi değildir.",
-            ""
+            "",
         ]
 
         if not status_df.empty:
             lines.append("--- Current Datasets ---")
-            display_cols = ["symbol", "timeframe", "profile", "row_count", "feature_count", "target_count", "quality_passed", "leakage_audit_passed"]
+            display_cols = [
+                "symbol",
+                "timeframe",
+                "profile",
+                "row_count",
+                "feature_count",
+                "target_count",
+                "quality_passed",
+                "leakage_audit_passed",
+            ]
             avail_cols = [c for c in display_cols if c in status_df.columns]
             if avail_cols:
-                 lines.append(status_df[avail_cols].to_string(index=False))
+                lines.append(status_df[avail_cols].to_string(index=False))
             else:
-                 lines.append(status_df.to_string(index=False))
+                lines.append(status_df.to_string(index=False))
 
     return "\n".join(lines)
 
-def build_ml_training_preview_report(symbol: str, timeframe: str, profile_name: str, summary: dict) -> str:
+
+def build_ml_training_preview_report(
+    symbol: str, timeframe: str, profile_name: str, summary: dict
+) -> str:
     lines = [
         "=== ML TRAINING PREVIEW ===",
         f"Sembol: {symbol}",
@@ -2750,7 +2745,7 @@ def build_ml_training_preview_report(symbol: str, timeframe: str, profile_name: 
         "Metrics:",
     ]
 
-    metrics = summary.get('metrics', {})
+    metrics = summary.get("metrics", {})
     for k, v in metrics.items():
         if isinstance(v, float):
             lines.append(f"  {k}: {v:.4f}")
@@ -2759,20 +2754,25 @@ def build_ml_training_preview_report(symbol: str, timeframe: str, profile_name: 
 
     lines.append("")
     lines.append("Quality Status:")
-    quality = summary.get('quality_report', {})
+    quality = summary.get("quality_report", {})
     lines.append(f"  Passed: {quality.get('passed', False)}")
 
-    if quality.get('warnings'):
+    if quality.get("warnings"):
         lines.append("  Warnings:")
-        for w in quality['warnings']:
+        for w in quality["warnings"]:
             lines.append(f"    - {w}")
 
     lines.append("")
-    lines.append(f"Registry Status: {summary.get('registry_entry', {}).get('registry_status', 'unknown')}")
+    lines.append(
+        f"Registry Status: {summary.get('registry_entry', {}).get('registry_status', 'unknown')}"
+    )
 
     return "\n".join(lines)
 
-def build_ml_model_evaluation_preview_report(symbol: str, timeframe: str, profile_name: str, summary: dict) -> str:
+
+def build_ml_model_evaluation_preview_report(
+    symbol: str, timeframe: str, profile_name: str, summary: dict
+) -> str:
     lines = [
         "=== ML MODEL EVALUATION PREVIEW ===",
         f"Sembol: {symbol}",
@@ -2799,6 +2799,7 @@ def build_ml_model_evaluation_preview_report(symbol: str, timeframe: str, profil
 
     return "\n".join(lines)
 
+
 def build_ml_training_batch_report(summary: dict, ranking_df=None) -> str:
     lines = [
         "=== ML BATCH TRAINING SUMMARY ===",
@@ -2814,6 +2815,7 @@ def build_ml_training_batch_report(summary: dict, ranking_df=None) -> str:
 
     return "\n".join(lines)
 
+
 def build_ml_model_registry_status_report(status_df, summary: dict) -> str:
     lines = [
         "=== ML MODEL REGISTRY STATUS ===",
@@ -2824,12 +2826,13 @@ def build_ml_model_registry_status_report(status_df, summary: dict) -> str:
     ]
 
     if not status_df.empty:
-        cols = ['model_id', 'symbol', 'timeframe', 'model_family', 'registry_status']
+        cols = ["model_id", "symbol", "timeframe", "model_family", "registry_status"]
         exist_cols = [c for c in cols if c in status_df.columns]
         if exist_cols:
             lines.append(status_df[exist_cols].to_string())
 
     return "\n".join(lines)
+
 
 def build_ml_model_artifact_status_report(status_df, summary: dict) -> str:
     lines = [
@@ -2846,16 +2849,20 @@ def build_ml_model_artifact_status_report(status_df, summary: dict) -> str:
     return "\n".join(lines)
 
 
-
 # --- PHASE 32: ML CONTEXT INTEGRATION REPORTS ---
 
-def build_ml_context_integration_preview_report(symbol: str, timeframe: str, profile_name: str, summary: dict) -> str:
+
+def build_ml_context_integration_preview_report(
+    symbol: str, timeframe: str, profile_name: str, summary: dict
+) -> str:
     lines = []
     lines.append("=" * 60)
     lines.append(f"ML CONTEXT INTEGRATION PREVIEW [{symbol} - {timeframe}]")
     lines.append("=" * 60)
     lines.append("DIKKAT: Bu cikti offline ML context entegrasyon raporudur.")
-    lines.append("Model alignment, support/conflict veya model-aware score canli sinyal, gercek emir, broker talimati veya yatirim tavsiyesi degildir.")
+    lines.append(
+        "Model alignment, support/conflict veya model-aware score canli sinyal, gercek emir, broker talimati veya yatirim tavsiyesi degildir."
+    )
     lines.append("-" * 60)
 
     lines.append(f"Profile: {profile_name}")
@@ -2875,32 +2882,38 @@ def build_ml_context_integration_preview_report(symbol: str, timeframe: str, pro
     lines.append(f"Coverage Ratio: {q.get('ml_context_coverage_ratio', 0.0):.2%}")
     lines.append(f"Invalid Scores: {q.get('invalid_score_count', 0)}")
 
-    if q.get('warnings'):
+    if q.get("warnings"):
         lines.append("\nWARNINGS:")
-        for w in q['warnings']:
+        for w in q["warnings"]:
             lines.append(f"- {w}")
 
-    if summary.get('warnings'):
+    if summary.get("warnings"):
         lines.append("\nPIPELINE WARNINGS:")
-        for w in summary['warnings']:
+        for w in summary["warnings"]:
             lines.append(f"- {w}")
 
     lines.append("=" * 60)
     return "\n".join(lines)
 
 
-def build_model_alignment_preview_report(symbol: str, timeframe: str, profile_name: str, layer: str, summary: dict, tail_df=None) -> str:
+def build_model_alignment_preview_report(
+    symbol: str, timeframe: str, profile_name: str, layer: str, summary: dict, tail_df=None
+) -> str:
     lines = []
     lines.append("=" * 60)
     lines.append(f"MODEL ALIGNMENT PREVIEW [{symbol} - {timeframe} - {layer.upper()}]")
     lines.append("=" * 60)
     lines.append("DIKKAT: Bu cikti offline ML context entegrasyon raporudur.")
-    lines.append("Model alignment canli sinyal, gercek emir, broker talimati veya yatirim tavsiyesi degildir.")
+    lines.append(
+        "Model alignment canli sinyal, gercek emir, broker talimati veya yatirim tavsiyesi degildir."
+    )
     lines.append("-" * 60)
 
     lines.append(f"Profile: {profile_name}")
     if tail_df is not None and not tail_df.empty:
-        lines.append(f"Total alignment rows evaluated: {summary.get(f'{layer}_alignment_rows', len(tail_df))}")
+        lines.append(
+            f"Total alignment rows evaluated: {summary.get(f'{layer}_alignment_rows', len(tail_df))}"
+        )
 
         # Distributions
         if "alignment_label" in tail_df.columns:
@@ -2910,7 +2923,13 @@ def build_model_alignment_preview_report(symbol: str, timeframe: str, profile_na
                 lines.append(f"  {k}: {v}")
 
         lines.append("\nRecent Alignments:")
-        cols = ["alignment_label", f"model_{layer}_alignment_score", "ml_support_score", "ml_conflict_score", "ml_uncertainty_penalty"]
+        cols = [
+            "alignment_label",
+            f"model_{layer}_alignment_score",
+            "ml_support_score",
+            "ml_conflict_score",
+            "ml_uncertainty_penalty",
+        ]
         exist_cols = [c for c in cols if c in tail_df.columns]
         lines.append(tail_df[exist_cols].to_string())
     else:
@@ -2920,13 +2939,17 @@ def build_model_alignment_preview_report(symbol: str, timeframe: str, profile_na
     return "\n".join(lines)
 
 
-def build_ml_conflict_filter_preview_report(symbol: str, timeframe: str, profile_name: str, layer: str, summary: dict, tail_df=None) -> str:
+def build_ml_conflict_filter_preview_report(
+    symbol: str, timeframe: str, profile_name: str, layer: str, summary: dict, tail_df=None
+) -> str:
     lines = []
     lines.append("=" * 60)
     lines.append(f"ML CONFLICT FILTER PREVIEW [{symbol} - {timeframe} - {layer.upper()}]")
     lines.append("=" * 60)
     lines.append("DIKKAT: Bu cikti offline ML context entegrasyon raporudur.")
-    lines.append("Model conflict filter canli sinyal veya gercek emir yasagi degildir. Sadece bir arastirma uyarisi uretir.")
+    lines.append(
+        "Model conflict filter canli sinyal veya gercek emir yasagi degildir. Sadece bir arastirma uyarisi uretir."
+    )
     lines.append("-" * 60)
 
     lines.append(f"Profile: {profile_name}")
@@ -2936,7 +2959,13 @@ def build_ml_conflict_filter_preview_report(symbol: str, timeframe: str, profile
 
         if not conflicts.empty:
             lines.append("\nRecent Conflicts:")
-            cols = ["candidate_directional_bias", "ml_predicted_direction", "conflict_score", "conflict_label", "blocking_candidate"]
+            cols = [
+                "candidate_directional_bias",
+                "ml_predicted_direction",
+                "conflict_score",
+                "conflict_label",
+                "blocking_candidate",
+            ]
             exist_cols = [c for c in cols if c in conflicts.columns]
             lines.append(conflicts[exist_cols].to_string())
         else:
@@ -2951,7 +2980,7 @@ def build_ml_conflict_filter_preview_report(symbol: str, timeframe: str, profile
 def build_ml_integration_batch_report(summary: dict, ranking_df=None) -> str:
     lines = []
     lines.append("=" * 80)
-    lines.append(f"ML INTEGRATION BATCH REPORT")
+    lines.append("ML INTEGRATION BATCH REPORT")
     lines.append("=" * 80)
     lines.append("DIKKAT: Bu cikti offline ML context entegrasyon raporudur.")
     lines.append("-" * 80)
@@ -2962,7 +2991,13 @@ def build_ml_integration_batch_report(summary: dict, ranking_df=None) -> str:
 
     if ranking_df is not None and not ranking_df.empty:
         lines.append("\nSummary Table:")
-        cols = ["symbol", "ml_context_available", "signal_alignment_rows", "high_conflict_count", "quality_passed"]
+        cols = [
+            "symbol",
+            "ml_context_available",
+            "signal_alignment_rows",
+            "high_conflict_count",
+            "quality_passed",
+        ]
         exist_cols = [c for c in cols if c in ranking_df.columns]
         lines.append(ranking_df[exist_cols].to_string(index=False))
 
@@ -2970,12 +3005,12 @@ def build_ml_integration_batch_report(summary: dict, ranking_df=None) -> str:
     return "\n".join(lines)
 
 
-def build_ml_integration_status_report(status_df=None, summary: dict=None) -> str:
+def build_ml_integration_status_report(status_df=None, summary: dict = None) -> str:
     if summary is None:
         summary = {}
     lines = []
     lines.append("=" * 80)
-    lines.append(f"ML INTEGRATION STATUS REPORT")
+    lines.append("ML INTEGRATION STATUS REPORT")
     lines.append("=" * 80)
     lines.append(f"Total files found: {summary.get('total_files', 0)}")
 
@@ -2989,85 +3024,97 @@ def build_ml_integration_status_report(status_df=None, summary: dict=None) -> st
     lines.append("=" * 80)
     return "\n".join(lines)
 
-
     # --- Notifications Specific ---
+
+
 def _add_notification_disclaimer(lines: list[str]):
-        lines.append("\n--- UYARI ---")
-        lines.append("Bu çıktı bildirim/raporlama sistemine aittir. Gerçek emir, canlı sinyal, broker talimatı veya yatırım tavsiyesi değildir.")
-        lines.append("="*80)
+    lines.append("\n--- UYARI ---")
+    lines.append(
+        "Bu çıktı bildirim/raporlama sistemine aittir. Gerçek emir, canlı sinyal, broker talimatı veya yatırım tavsiyesi değildir."
+    )
+    lines.append("=" * 80)
+
 
 def build_telegram_test_message_report(summary: dict) -> str:
-        report_lines = ["="*80, "TELEGRAM TEST MESSAGE REPORT", "="*80]
-        report_lines.append(f"Status: {summary.get('status', 'Unknown')}")
-        report_lines.append(f"Details: {summary}")
-        _add_notification_disclaimer(report_lines)
-        return "\n".join(report_lines)
+    report_lines = ["=" * 80, "TELEGRAM TEST MESSAGE REPORT", "=" * 80]
+    report_lines.append(f"Status: {summary.get('status', 'Unknown')}")
+    report_lines.append(f"Details: {summary}")
+    _add_notification_disclaimer(report_lines)
+    return "\n".join(report_lines)
+
 
 def build_telegram_paper_summary_report(summary: dict, message_text: str | None = None) -> str:
-        report_lines = ["="*80, "TELEGRAM PAPER SUMMARY REPORT", "="*80]
-        if message_text:
-            report_lines.append("\n--- Generated Message ---")
-            report_lines.append(message_text)
-        report_lines.append("\n--- Summary Data ---")
-        for k, v in summary.items():
-            report_lines.append(f"{k}: {v}")
-        _add_notification_disclaimer(report_lines)
-        return "\n".join(report_lines)
+    report_lines = ["=" * 80, "TELEGRAM PAPER SUMMARY REPORT", "=" * 80]
+    if message_text:
+        report_lines.append("\n--- Generated Message ---")
+        report_lines.append(message_text)
+    report_lines.append("\n--- Summary Data ---")
+    for k, v in summary.items():
+        report_lines.append(f"{k}: {v}")
+    _add_notification_disclaimer(report_lines)
+    return "\n".join(report_lines)
+
 
 def build_telegram_system_status_report(summary: dict, message_text: str | None = None) -> str:
-        report_lines = ["="*80, "TELEGRAM SYSTEM STATUS REPORT", "="*80]
-        if message_text:
-            report_lines.append("\n--- Generated Message ---")
-            report_lines.append(message_text)
-        report_lines.append("\n--- Summary Data ---")
-        for k, v in summary.items():
-            report_lines.append(f"{k}: {v}")
-        _add_notification_disclaimer(report_lines)
-        return "\n".join(report_lines)
+    report_lines = ["=" * 80, "TELEGRAM SYSTEM STATUS REPORT", "=" * 80]
+    if message_text:
+        report_lines.append("\n--- Generated Message ---")
+        report_lines.append(message_text)
+    report_lines.append("\n--- Summary Data ---")
+    for k, v in summary.items():
+        report_lines.append(f"{k}: {v}")
+    _add_notification_disclaimer(report_lines)
+    return "\n".join(report_lines)
+
 
 def build_telegram_daily_digest_report(summary: dict, message_text: str | None = None) -> str:
-        report_lines = ["="*80, "TELEGRAM DAILY DIGEST REPORT", "="*80]
-        if message_text:
-            report_lines.append("\n--- Generated Message ---")
-            report_lines.append(message_text)
-        report_lines.append("\n--- Summary Data ---")
-        for k, v in summary.items():
-            report_lines.append(f"{k}: {v}")
-        _add_notification_disclaimer(report_lines)
-        return "\n".join(report_lines)
+    report_lines = ["=" * 80, "TELEGRAM DAILY DIGEST REPORT", "=" * 80]
+    if message_text:
+        report_lines.append("\n--- Generated Message ---")
+        report_lines.append(message_text)
+    report_lines.append("\n--- Summary Data ---")
+    for k, v in summary.items():
+        report_lines.append(f"{k}: {v}")
+    _add_notification_disclaimer(report_lines)
+    return "\n".join(report_lines)
+
 
 def build_telegram_quality_alerts_report(summary: dict, message_text: str | None = None) -> str:
-        report_lines = ["="*80, "TELEGRAM QUALITY ALERTS REPORT", "="*80]
-        if message_text:
-            report_lines.append("\n--- Generated Message ---")
-            report_lines.append(message_text)
-        report_lines.append("\n--- Summary Data ---")
-        for k, v in summary.items():
-            report_lines.append(f"{k}: {v}")
-        _add_notification_disclaimer(report_lines)
-        return "\n".join(report_lines)
+    report_lines = ["=" * 80, "TELEGRAM QUALITY ALERTS REPORT", "=" * 80]
+    if message_text:
+        report_lines.append("\n--- Generated Message ---")
+        report_lines.append(message_text)
+    report_lines.append("\n--- Summary Data ---")
+    for k, v in summary.items():
+        report_lines.append(f"{k}: {v}")
+    _add_notification_disclaimer(report_lines)
+    return "\n".join(report_lines)
+
 
 def build_notification_status_report(status_df, summary: dict) -> str:
-        report_lines = ["="*80, "NOTIFICATION SYSTEM STATUS REPORT", "="*80]
-        report_lines.append("\n--- System Summary ---")
-        for k, v in summary.items():
-            report_lines.append(f"{k}: {v}")
+    report_lines = ["=" * 80, "NOTIFICATION SYSTEM STATUS REPORT", "=" * 80]
+    report_lines.append("\n--- System Summary ---")
+    for k, v in summary.items():
+        report_lines.append(f"{k}: {v}")
 
-        if status_df is not None and not status_df.empty:
-            report_lines.append("\n--- Recent Logs ---")
-            report_lines.append(status_df.to_string())
+    if status_df is not None and not status_df.empty:
+        report_lines.append("\n--- Recent Logs ---")
+        report_lines.append(status_df.to_string())
 
-        _add_notification_disclaimer(report_lines)
-        return "\n".join(report_lines)
+    _add_notification_disclaimer(report_lines)
+    return "\n".join(report_lines)
+
 
 # -------------------------------------------------------------------------
 # Orchestration Reports
 # -------------------------------------------------------------------------
 
+
 def _get_orchestration_disclaimer() -> str:
     return "WARNING: Bu çıktı offline pipeline orchestration raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir."
 
-def build_workflow_status_report(status_df: 'pd.DataFrame', summary: dict) -> str:
+
+def build_workflow_status_report(status_df: "pd.DataFrame", summary: dict) -> str:
     """Build workflow status report."""
     lines = [
         "==================================================",
@@ -3080,14 +3127,15 @@ def build_workflow_status_report(status_df: 'pd.DataFrame', summary: dict) -> st
         f"Workflow Templates: {summary.get('templates_count', 0)}",
         f"Template Registry Valid: {summary.get('template_registry_valid', False)}",
         f"Total Orchestration Runs: {summary.get('total_runs', 0)}",
-        ""
+        "",
     ]
     if status_df is not None and not status_df.empty:
         lines.append("Recent Runs:")
         lines.append(status_df.head(10).to_string(index=False))
     return "\n".join(lines)
 
-def build_dependency_check_report(summary: dict, dependency_df: 'pd.DataFrame' = None) -> str:
+
+def build_dependency_check_report(summary: dict, dependency_df: "pd.DataFrame" = None) -> str:
     """Build dependency check report."""
     lines = [
         "==================================================",
@@ -3099,14 +3147,15 @@ def build_dependency_check_report(summary: dict, dependency_df: 'pd.DataFrame' =
         f"Available: {summary.get('available_count', 0)}",
         f"Missing Required: {summary.get('missing_count', 0)}",
         f"Missing Optional: {summary.get('optional_missing_count', 0)}",
-        ""
+        "",
     ]
     if dependency_df is not None and not dependency_df.empty:
         lines.append("Dependency Details:")
         lines.append(dependency_df.to_string(index=False))
     return "\n".join(lines)
 
-def build_pipeline_workflow_report(summary: dict, job_df: 'pd.DataFrame' = None) -> str:
+
+def build_pipeline_workflow_report(summary: dict, job_df: "pd.DataFrame" = None) -> str:
     """Build pipeline workflow report."""
     lines = [
         "==================================================",
@@ -3121,26 +3170,36 @@ def build_pipeline_workflow_report(summary: dict, job_df: 'pd.DataFrame' = None)
         f"Success: {summary.get('success', 0)}",
         f"Failed: {summary.get('failed', 0)}",
         f"Skipped: {summary.get('skipped', 0)}",
-        ""
+        "",
     ]
     if job_df is not None and not job_df.empty:
         lines.append("Job Execution Results:")
         lines.append(job_df.to_string(index=False))
     return "\n".join(lines)
 
-def build_full_research_workflow_report(summary: dict, job_df: 'pd.DataFrame' = None) -> str:
+
+def build_full_research_workflow_report(summary: dict, job_df: "pd.DataFrame" = None) -> str:
     """Build full research workflow report."""
-    return build_pipeline_workflow_report(summary, job_df).replace("PIPELINE WORKFLOW", "FULL RESEARCH WORKFLOW")
+    return build_pipeline_workflow_report(summary, job_df).replace(
+        "PIPELINE WORKFLOW", "FULL RESEARCH WORKFLOW"
+    )
 
-def build_daily_research_workflow_report(summary: dict, job_df: 'pd.DataFrame' = None) -> str:
+
+def build_daily_research_workflow_report(summary: dict, job_df: "pd.DataFrame" = None) -> str:
     """Build daily research workflow report."""
-    return build_pipeline_workflow_report(summary, job_df).replace("PIPELINE WORKFLOW", "DAILY RESEARCH WORKFLOW")
+    return build_pipeline_workflow_report(summary, job_df).replace(
+        "PIPELINE WORKFLOW", "DAILY RESEARCH WORKFLOW"
+    )
 
-def build_paper_reporting_workflow_report(summary: dict, job_df: 'pd.DataFrame' = None) -> str:
+
+def build_paper_reporting_workflow_report(summary: dict, job_df: "pd.DataFrame" = None) -> str:
     """Build paper reporting workflow report."""
-    return build_pipeline_workflow_report(summary, job_df).replace("PIPELINE WORKFLOW", "PAPER REPORTING WORKFLOW")
+    return build_pipeline_workflow_report(summary, job_df).replace(
+        "PIPELINE WORKFLOW", "PAPER REPORTING WORKFLOW"
+    )
 
-def build_failed_jobs_report(summary: dict, failed_df: 'pd.DataFrame' = None) -> str:
+
+def build_failed_jobs_report(summary: dict, failed_df: "pd.DataFrame" = None) -> str:
     """Build failed jobs report."""
     lines = [
         "==================================================",
@@ -3150,10 +3209,10 @@ def build_failed_jobs_report(summary: dict, failed_df: 'pd.DataFrame' = None) ->
         "",
         f"Failed Jobs Found: {summary.get('failed_count', 0)}",
         f"Blocked Jobs Found: {summary.get('blocked_count', 0)}",
-        ""
+        "",
     ]
 
-    retry_plan = summary.get('retry_plan', {})
+    retry_plan = summary.get("retry_plan", {})
     if retry_plan:
         lines.append(f"Retry Policy Enabled: {retry_plan.get('policy_enabled', False)}")
         lines.append(f"Retry Candidates: {retry_plan.get('candidate_count', 0)}")
@@ -3163,6 +3222,7 @@ def build_failed_jobs_report(summary: dict, failed_df: 'pd.DataFrame' = None) ->
         lines.append("Failed Job Details:")
         lines.append(failed_df.to_string(index=False))
     return "\n".join(lines)
+
 
 # --- Phase 36: Observability Reports ---
 def build_system_healthcheck_report(health_df: pd.DataFrame, summary: dict) -> str:
@@ -3176,20 +3236,23 @@ def build_system_healthcheck_report(health_df: pd.DataFrame, summary: dict) -> s
         f"Genel Skor: {summary.get('overall_score', 0.0):.2f}",
         f"Geçen Kontrol Sayısı: {summary.get('total_checks_passed', 0)}",
         f"Başarısız Kontrol Sayısı: {summary.get('total_checks_failed', 0)}",
-        ""
+        "",
     ]
 
     if not health_df.empty:
         lines.append("Bileşen Detayları:")
         lines.append("-" * 30)
         for _, row in health_df.iterrows():
-            lines.append(f"{row['component'].upper()}: {row['status']} (Skor: {row['health_score']:.2f})")
-            if row.get('errors_count', 0) > 0:
+            lines.append(
+                f"{row['component'].upper()}: {row['status']} (Skor: {row['health_score']:.2f})"
+            )
+            if row.get("errors_count", 0) > 0:
                 lines.append(f"  Hatalar: {row['errors_count']}")
-            if row.get('warnings_count', 0) > 0:
+            if row.get("warnings_count", 0) > 0:
                 lines.append(f"  Uyarılar: {row['warnings_count']}")
 
     return "\n".join(lines)
+
 
 def build_component_healthcheck_report(health_df: pd.DataFrame, summary: dict) -> str:
     """Build a text summary report of component health."""
@@ -3202,7 +3265,7 @@ def build_component_healthcheck_report(health_df: pd.DataFrame, summary: dict) -
         f"Genel Skor: {summary.get('overall_score', 0.0):.2f}",
         f"Kontrol Edilen Bileşen Sayısı: {summary.get('components_checked', 0)}",
         f"Kritik Bileşen Sayısı: {summary.get('critical_components', 0)}",
-        ""
+        "",
     ]
 
     if not health_df.empty:
@@ -3210,6 +3273,7 @@ def build_component_healthcheck_report(health_df: pd.DataFrame, summary: dict) -
             lines.append(f"{row['component']}: {row['status']} ({row['health_score']:.2f})")
 
     return "\n".join(lines)
+
 
 def build_data_freshness_report(freshness_df: pd.DataFrame, summary: dict) -> str:
     """Build a text summary report of data freshness."""
@@ -3224,18 +3288,21 @@ def build_data_freshness_report(freshness_df: pd.DataFrame, summary: dict) -> st
         f"Stale (Eski) Artifact Sayısı: {summary.get('stale_count', 0)}",
         f"Taze Artifact Sayısı: {summary.get('fresh_count', 0)}",
         f"Ortalama Yaş (Saat): {summary.get('avg_age_hours', 0.0):.1f}",
-        ""
+        "",
     ]
 
-    if not freshness_df.empty and 'stale' in freshness_df.columns:
-        stale_df = freshness_df[freshness_df['stale'] == True]
+    if not freshness_df.empty and "stale" in freshness_df.columns:
+        stale_df = freshness_df[freshness_df["stale"]]
         if not stale_df.empty:
             lines.append("Stale (Eski) Artifact Detayları:")
             lines.append("-" * 30)
             for _, row in stale_df.iterrows():
-                lines.append(f"{row.get('symbol', 'unknown')} - {row.get('artifact_type', 'unknown')}: {row.get('age_hours', 'N/A')} saat")
+                lines.append(
+                    f"{row.get('symbol', 'unknown')} - {row.get('artifact_type', 'unknown')}: {row.get('age_hours', 'N/A')} saat"
+                )
 
     return "\n".join(lines)
+
 
 def build_artifact_integrity_report(integrity_df: pd.DataFrame, summary: dict) -> str:
     """Build a text summary report of artifact integrity."""
@@ -3249,11 +3316,11 @@ def build_artifact_integrity_report(integrity_df: pd.DataFrame, summary: dict) -
         f"Geçerli (Valid) Dosya Sayısı: {summary.get('valid_count', 0)}",
         f"Geçersiz/Bozuk (Invalid) Dosya Sayısı: {summary.get('invalid_count', 0)}",
         f"Boş Dosya Sayısı: {summary.get('empty_count', 0)}",
-        ""
+        "",
     ]
 
-    if not integrity_df.empty and 'valid' in integrity_df.columns:
-        invalid_df = integrity_df[integrity_df['valid'] == False]
+    if not integrity_df.empty and "valid" in integrity_df.columns:
+        invalid_df = integrity_df[not integrity_df["valid"]]
         if not invalid_df.empty:
             lines.append("Geçersiz/Bozuk Dosya Detayları:")
             lines.append("-" * 30)
@@ -3261,6 +3328,7 @@ def build_artifact_integrity_report(integrity_df: pd.DataFrame, summary: dict) -
                 lines.append(f"{row['filename']}: {row.get('error', 'Bilinmeyen Hata')}")
 
     return "\n".join(lines)
+
 
 def build_runtime_metrics_report(metrics_df: pd.DataFrame, summary: dict) -> str:
     """Build a text summary report of runtime metrics."""
@@ -3273,23 +3341,26 @@ def build_runtime_metrics_report(metrics_df: pd.DataFrame, summary: dict) -> str
         f"Toplam Süre (Sn): {summary.get('total_duration_seconds', 0.0):.2f}",
         f"Ortalama Süre (Sn): {summary.get('avg_duration_seconds', 0.0):.2f}",
         f"En Uzun Süre (Sn): {summary.get('max_duration_seconds', 0.0):.2f}",
-        ""
+        "",
     ]
 
-    if 'by_component' in summary and summary['by_component']:
+    if "by_component" in summary and summary["by_component"]:
         lines.append("Bileşen Bazlı Ortalama Süreler:")
         lines.append("-" * 30)
-        for comp, stats in summary['by_component'].items():
+        for comp, stats in summary["by_component"].items():
             lines.append(f"{comp}: {stats.get('mean', 0.0):.2f} sn (Adet: {stats.get('count', 0)})")
         lines.append("")
 
-    if 'slowest_operations' in summary and summary['slowest_operations']:
+    if "slowest_operations" in summary and summary["slowest_operations"]:
         lines.append("En Yavaş 5 Operasyon:")
         lines.append("-" * 30)
-        for op in summary['slowest_operations']:
-            lines.append(f"{op.get('component')} - {op.get('operation')} ({op.get('symbol')}): {op.get('duration_seconds', 0.0):.2f} sn")
+        for op in summary["slowest_operations"]:
+            lines.append(
+                f"{op.get('component')} - {op.get('operation')} ({op.get('symbol')}): {op.get('duration_seconds', 0.0):.2f} sn"
+            )
 
     return "\n".join(lines)
+
 
 def build_error_taxonomy_report(error_df: pd.DataFrame, summary: dict) -> str:
     """Build a text summary of the error taxonomy."""
@@ -3299,21 +3370,22 @@ def build_error_taxonomy_report(error_df: pd.DataFrame, summary: dict) -> str:
         "Bu çıktı sistem sağlık/observability raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.",
         "",
         f"Tanımlı Hata Kodu Sayısı: {summary.get('total_errors_defined', 0)}",
-        ""
+        "",
     ]
 
-    if 'by_category' in summary and summary['by_category']:
+    if "by_category" in summary and summary["by_category"]:
         lines.append("Kategori Dağılımı:")
-        for cat, count in summary['by_category'].items():
+        for cat, count in summary["by_category"].items():
             lines.append(f"  {cat}: {count}")
         lines.append("")
 
-    if 'by_severity' in summary and summary['by_severity']:
+    if "by_severity" in summary and summary["by_severity"]:
         lines.append("Önem Derecesi (Severity) Dağılımı:")
-        for sev, count in summary['by_severity'].items():
+        for sev, count in summary["by_severity"].items():
             lines.append(f"  {sev}: {count}")
 
     return "\n".join(lines)
+
 
 def build_self_diagnostics_report(summary: dict) -> str:
     """Build a text summary of the self-diagnostics results."""
@@ -3327,27 +3399,28 @@ def build_self_diagnostics_report(summary: dict) -> str:
         f"Kritik Sorun Sayısı: {summary.get('critical_count', 0)}",
         f"Hata Sayısı: {summary.get('error_count', 0)}",
         f"Uyarı Sayısı: {summary.get('warning_count', 0)}",
-        ""
+        "",
     ]
 
-    if summary.get('unhealthy_components'):
+    if summary.get("unhealthy_components"):
         lines.append("Sağlıksız Bileşenler:")
-        for comp in summary['unhealthy_components']:
+        for comp in summary["unhealthy_components"]:
             lines.append(f"- {comp}")
         lines.append("")
 
-    if summary.get('degraded_components'):
+    if summary.get("degraded_components"):
         lines.append("Performansı Düşük (Degraded) Bileşenler:")
-        for comp in summary['degraded_components']:
+        for comp in summary["degraded_components"]:
             lines.append(f"- {comp}")
         lines.append("")
 
-    if summary.get('recommended_system_actions'):
+    if summary.get("recommended_system_actions"):
         lines.append("Önerilen Sistem Aksiyonları:")
-        for action in summary['recommended_system_actions']:
+        for action in summary["recommended_system_actions"]:
             lines.append(f"- {action}")
 
     return "\n".join(lines)
+
 
 def build_observability_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     """Build a text summary of the observability data lake status."""
@@ -3358,12 +3431,12 @@ def build_observability_status_report(status_df: pd.DataFrame, summary: dict) ->
         "",
         f"Zaman: {summary.get('timestamp', 'unknown')}",
         f"Bulunan Rapor Sayısı: {summary.get('reports_found', 0)}",
-        ""
+        "",
     ]
 
-    if summary.get('report_types'):
+    if summary.get("report_types"):
         lines.append("Mevcut Rapor Türleri:")
-        for rtype in summary['report_types']:
+        for rtype in summary["report_types"]:
             lines.append(f"- {rtype}")
 
     return "\n".join(lines)
@@ -3374,26 +3447,35 @@ def build_observability_status_report(status_df: pd.DataFrame, summary: dict) ->
         report += "Bu çıktı güvenlik/readiness denetim raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal, production deploy onayı veya yatırım tavsiyesi değildir.\n\n"
         report += f"Total Findings: {summary.get('total_findings', 0)}\n"
         return report
+
     def build_secret_hygiene_report(self, findings_df: pd.DataFrame, summary: dict) -> str:
         report = "SECRET HYGIENE REPORT\nBu çıktı güvenlik/readiness denetim raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal, production deploy onayı veya yatırım tavsiyesi değildir.\n\n"
         return report
+
     def build_config_hardening_report(self, findings_df: pd.DataFrame, summary: dict) -> str:
         report = "CONFIG HARDENING REPORT\nBu çıktı güvenlik/readiness denetim raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal, production deploy onayı veya yatırım tavsiyesi değildir.\n\n"
         return report
+
     def build_safe_defaults_report(self, findings_df: pd.DataFrame, summary: dict) -> str:
         report = "SAFE DEFAULTS REPORT\nBu çıktı güvenlik/readiness denetim raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal, production deploy onayı veya yatırım tavsiyesi değildir.\n\n"
         return report
+
     def build_permission_boundary_report(self, findings_df: pd.DataFrame, summary: dict) -> str:
         report = "PERMISSION BOUNDARY REPORT\nBu çıktı güvenlik/readiness denetim raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal, production deploy onayı veya yatırım tavsiyesi değildir.\n\n"
         return report
-    def build_production_readiness_audit_report(self, readiness_df: pd.DataFrame, summary: dict) -> str:
+
+    def build_production_readiness_audit_report(
+        self, readiness_df: pd.DataFrame, summary: dict
+    ) -> str:
         report = "PRODUCTION READINESS AUDIT REPORT\nBu çıktı güvenlik/readiness denetim raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal, production deploy onayı veya yatırım tavsiyesi değildir.\n\n"
         report += f"Readiness Score: {summary.get('readiness_score', 0.0)}\n"
         report += f"Readiness Label: {summary.get('readiness_label', 'unknown')}\n"
         return report
+
     def build_security_status_report(self, status_df: pd.DataFrame, summary: dict) -> str:
         report = "SECURITY STATUS REPORT\nBu çıktı güvenlik/readiness denetim raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal, production deploy onayı veya yatırım tavsiyesi değildir.\n\n"
         return report
+
 
 def build_cli_catalog_report(catalog_df: pd.DataFrame, summary: dict) -> str:
     msg = "Bu çıktı developer experience / repo bakım raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.\n\n"
@@ -3402,12 +3484,14 @@ def build_cli_catalog_report(catalog_df: pd.DataFrame, summary: dict) -> str:
         msg += catalog_df.to_string()
     return msg
 
+
 def build_cli_help_audit_report(help_df: pd.DataFrame, summary: dict) -> str:
     msg = "Bu çıktı developer experience / repo bakım raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.\n\n"
     msg += f"Summary: {summary}\n\n"
     if not help_df.empty:
         msg += help_df.to_string()
     return msg
+
 
 def build_import_smoke_test_report(import_df: pd.DataFrame, summary: dict) -> str:
     msg = "Bu çıktı developer experience / repo bakım raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.\n\n"
@@ -3416,12 +3500,14 @@ def build_import_smoke_test_report(import_df: pd.DataFrame, summary: dict) -> st
         msg += import_df.to_string()
     return msg
 
+
 def build_test_matrix_report(test_df: pd.DataFrame, summary: dict) -> str:
     msg = "Bu çıktı developer experience / repo bakım raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.\n\n"
     msg += f"Summary: {summary}\n\n"
     if not test_df.empty:
         msg += test_df.to_string()
     return msg
+
 
 def build_package_audit_report(findings_df: pd.DataFrame, summary: dict) -> str:
     msg = "Bu çıktı developer experience / repo bakım raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.\n\n"
@@ -3430,12 +3516,14 @@ def build_package_audit_report(findings_df: pd.DataFrame, summary: dict) -> str:
         msg += findings_df.to_string()
     return msg
 
+
 def build_repo_hygiene_report(findings_df: pd.DataFrame, summary: dict) -> str:
     msg = "Bu çıktı developer experience / repo bakım raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.\n\n"
     msg += f"Summary: {summary}\n\n"
     if not findings_df.empty:
         msg += findings_df.to_string()
     return msg
+
 
 def build_docs_audit_report(findings_df: pd.DataFrame, summary: dict) -> str:
     msg = "Bu çıktı developer experience / repo bakım raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.\n\n"
@@ -3444,12 +3532,14 @@ def build_docs_audit_report(findings_df: pd.DataFrame, summary: dict) -> str:
         msg += findings_df.to_string()
     return msg
 
+
 def build_dx_quality_report(findings_df: pd.DataFrame, summary: dict) -> str:
     msg = "Bu çıktı developer experience / repo bakım raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.\n\n"
     msg += f"DX Summary: {summary}\n\n"
     if not findings_df.empty:
         msg += findings_df.to_string()
     return msg
+
 
 def build_local_dev_check_report(summary: dict, findings_df: pd.DataFrame | None = None) -> str:
     msg = "Bu çıktı developer experience / repo bakım raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.\n\n"
@@ -3467,9 +3557,10 @@ def build_symbol_research_text_report(report, snapshot=None) -> str:
         "--------------------------------------------------",
         report.markdown,
         "--------------------------------------------------",
-        "Bu çıktı offline araştırma/simülasyon raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir."
+        "Bu çıktı offline araştırma/simülasyon raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.",
     ]
     return "\n".join(lines)
+
 
 def build_universe_research_text_report(report, ranking_df=None) -> str:
     lines = [
@@ -3478,9 +3569,10 @@ def build_universe_research_text_report(report, ranking_df=None) -> str:
         "--------------------------------------------------",
         report.markdown,
         "--------------------------------------------------",
-        "Bu çıktı offline araştırma/simülasyon raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir."
+        "Bu çıktı offline araştırma/simülasyon raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.",
     ]
     return "\n".join(lines)
+
 
 def build_daily_research_digest_text_report(report, ranking_df=None) -> str:
     lines = [
@@ -3489,9 +3581,10 @@ def build_daily_research_digest_text_report(report, ranking_df=None) -> str:
         "--------------------------------------------------",
         report.markdown,
         "--------------------------------------------------",
-        "Bu çıktı offline araştırma/simülasyon raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir."
+        "Bu çıktı offline araştırma/simülasyon raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.",
     ]
     return "\n".join(lines)
+
 
 def build_research_ranking_text_report(ranking_df, summary: dict) -> str:
     lines = [
@@ -3501,10 +3594,13 @@ def build_research_ranking_text_report(ranking_df, summary: dict) -> str:
     if not ranking_df.empty:
         lines.append(ranking_df.to_string(index=False))
     else:
-         lines.append("No rankings available.")
+        lines.append("No rankings available.")
     lines.append("--------------------------------------------------")
-    lines.append("Bu çıktı offline araştırma/simülasyon raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.")
+    lines.append(
+        "Bu çıktı offline araştırma/simülasyon raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir."
+    )
     return "\n".join(lines)
+
 
 def build_research_report_status_report(status_df, summary: dict) -> str:
     lines = [
@@ -3512,15 +3608,19 @@ def build_research_report_status_report(status_df, summary: dict) -> str:
         "--------------------------------------------------",
     ]
     if not status_df.empty:
-         lines.append(status_df.to_string(index=False))
+        lines.append(status_df.to_string(index=False))
     else:
-         lines.append("No status available.")
+        lines.append("No status available.")
     lines.append("--------------------------------------------------")
-    lines.append("Bu çıktı offline araştırma/simülasyon raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir.")
+    lines.append(
+        "Bu çıktı offline araştırma/simülasyon raporudur. Canlı emir, broker talimatı, gerçek pozisyon, canlı sinyal veya yatırım tavsiyesi değildir."
+    )
     return "\n".join(lines)
 
 
-def build_regime_portfolio_text_report(summary: dict, tables: dict[str, pd.DataFrame] | None = None) -> str:
+def build_regime_portfolio_text_report(
+    summary: dict, tables: dict[str, pd.DataFrame] | None = None
+) -> str:
     """Builds regime portfolio text report."""
     report = "REGIME-AWARE PORTFOLIO RESEARCH REPORT\n"
     report += "=" * 50 + "\n"
@@ -3528,33 +3628,46 @@ def build_regime_portfolio_text_report(summary: dict, tables: dict[str, pd.DataF
     report += f"Profile: {summary.get('profile', 'Unknown')}\n\n"
     return report
 
-def build_macro_scenario_sensitivity_text_report(summary: dict, sensitivity_df: pd.DataFrame | None = None) -> str:
+
+def build_macro_scenario_sensitivity_text_report(
+    summary: dict, sensitivity_df: pd.DataFrame | None = None
+) -> str:
     """Builds macro scenario sensitivity text report."""
     report = "MACRO SCENARIO SENSITIVITY REPORT\n"
     report += "=" * 50 + "\n"
     report += "UYARI: Bu çıktı offline rejim bazlı portföy araştırması/sanal stres testi raporudur. Gerçek allocation, canlı emir, broker talimatı, gerçek pozisyon veya yatırım tavsiyesi değildir.\n\n"
     return report
 
-def build_basket_stress_test_text_report(summary: dict, stress_df: pd.DataFrame | None = None) -> str:
+
+def build_basket_stress_test_text_report(
+    summary: dict, stress_df: pd.DataFrame | None = None
+) -> str:
     """Builds basket stress test text report."""
     report = "BASKET STRESS TEST REPORT\n"
     report += "=" * 50 + "\n"
     report += "UYARI: Bu çıktı offline rejim bazlı portföy araştırması/sanal stres testi raporudur. Gerçek allocation, canlı emir, broker talimatı, gerçek pozisyon veya yatırım tavsiyesi değildir.\n\n"
     return report
 
-def build_drawdown_cluster_text_report(summary: dict, cluster_df: pd.DataFrame | None = None, recovery_df: pd.DataFrame | None = None) -> str:
+
+def build_drawdown_cluster_text_report(
+    summary: dict, cluster_df: pd.DataFrame | None = None, recovery_df: pd.DataFrame | None = None
+) -> str:
     """Builds drawdown cluster text report."""
     report = "DRAWDOWN CLUSTER REPORT\n"
     report += "=" * 50 + "\n"
     report += "UYARI: Bu çıktı offline rejim bazlı portföy araştırması/sanal stres testi raporudur. Gerçek allocation, canlı emir, broker talimatı, gerçek pozisyon veya yatırım tavsiyesi değildir.\n\n"
     return report
 
-def build_risk_regime_exposure_text_report(summary: dict, exposure_df: pd.DataFrame | None = None) -> str:
+
+def build_risk_regime_exposure_text_report(
+    summary: dict, exposure_df: pd.DataFrame | None = None
+) -> str:
     """Builds risk regime exposure text report."""
     report = "RISK REGIME EXPOSURE REPORT\n"
     report += "=" * 50 + "\n"
     report += "UYARI: Bu çıktı offline rejim bazlı portföy araştırması/sanal stres testi raporudur. Gerçek allocation, canlı emir, broker talimatı, gerçek pozisyon veya yatırım tavsiyesi değildir.\n\n"
     return report
+
 
 def build_portfolio_regime_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     """Builds portfolio regime status text report."""
@@ -3564,8 +3677,11 @@ def build_portfolio_regime_status_report(status_df: pd.DataFrame, summary: dict)
     return report
 
 
-def build_synthetic_benchmark_text_report(summary: dict, definitions_df: pd.DataFrame | None = None) -> str:
+def build_synthetic_benchmark_text_report(
+    summary: dict, definitions_df: pd.DataFrame | None = None
+) -> str:
     from synthetic_indices.index_report_builder import build_synthetic_index_disclaimer
+
     lines = ["SYNTHETIC BENCHMARK REPORT", "=" * 30, ""]
     lines.append(build_synthetic_index_disclaimer())
     lines.append("")
@@ -3577,8 +3693,12 @@ def build_synthetic_benchmark_text_report(summary: dict, definitions_df: pd.Data
         lines.append(definitions_df.to_string())
     return "\n".join(lines)
 
-def build_composite_index_text_report(summary: dict, performance_df: pd.DataFrame | None = None) -> str:
+
+def build_composite_index_text_report(
+    summary: dict, performance_df: pd.DataFrame | None = None
+) -> str:
     from synthetic_indices.index_report_builder import build_synthetic_index_disclaimer
+
     lines = ["COMPOSITE INDEX PERFORMANCE REPORT", "=" * 40, ""]
     lines.append(build_synthetic_index_disclaimer())
     lines.append("")
@@ -3590,8 +3710,10 @@ def build_composite_index_text_report(summary: dict, performance_df: pd.DataFram
         lines.append(performance_df.to_string())
     return "\n".join(lines)
 
+
 def build_relative_strength_text_report(summary: dict, rs_df: pd.DataFrame | None = None) -> str:
     from synthetic_indices.index_report_builder import build_synthetic_index_disclaimer
+
     lines = ["RELATIVE STRENGTH REPORT", "=" * 30, ""]
     lines.append(build_synthetic_index_disclaimer())
     lines.append("")
@@ -3599,8 +3721,12 @@ def build_relative_strength_text_report(summary: dict, rs_df: pd.DataFrame | Non
         lines.append(rs_df.to_string())
     return "\n".join(lines)
 
-def build_universe_rotation_text_report(summary: dict, rotation_df: pd.DataFrame | None = None) -> str:
+
+def build_universe_rotation_text_report(
+    summary: dict, rotation_df: pd.DataFrame | None = None
+) -> str:
     from synthetic_indices.index_report_builder import build_synthetic_index_disclaimer
+
     lines = ["UNIVERSE ROTATION REPORT", "=" * 30, ""]
     lines.append(build_synthetic_index_disclaimer())
     lines.append("")
@@ -3612,8 +3738,12 @@ def build_universe_rotation_text_report(summary: dict, rotation_df: pd.DataFrame
         lines.append(rotation_df.to_string())
     return "\n".join(lines)
 
-def build_leadership_laggard_text_report(summary: dict, leader_laggard_df: pd.DataFrame | None = None) -> str:
+
+def build_leadership_laggard_text_report(
+    summary: dict, leader_laggard_df: pd.DataFrame | None = None
+) -> str:
     from synthetic_indices.index_report_builder import build_synthetic_index_disclaimer
+
     lines = ["LEADERSHIP AND LAGGARD REPORT", "=" * 30, ""]
     lines.append(build_synthetic_index_disclaimer())
     lines.append("")
@@ -3625,8 +3755,10 @@ def build_leadership_laggard_text_report(summary: dict, leader_laggard_df: pd.Da
         lines.append(leader_laggard_df.to_string())
     return "\n".join(lines)
 
+
 def build_synthetic_index_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     from synthetic_indices.index_report_builder import build_synthetic_index_disclaimer
+
     lines = ["SYNTHETIC INDEX STATUS REPORT", "=" * 30, ""]
     lines.append(build_synthetic_index_disclaimer())
     lines.append("")
@@ -3635,7 +3767,6 @@ def build_synthetic_index_status_report(status_df: pd.DataFrame, summary: dict) 
     if not status_df.empty:
         lines.append("")
         lines.append(status_df.to_string())
-
 
     # Phase 47 Governance Text Reports
 
@@ -3650,6 +3781,7 @@ def build_artifact_inventory_text_report(summary: dict, inventory_df=None) -> st
         rep += f"- {t}: {c}\n"
     return rep
 
+
 def build_lineage_graph_text_report(summary: dict, node_df=None, edge_df=None) -> str:
     rep = "=== LINEAGE GRAPH REPORT ===\n"
     rep += "Uyari: Bu cikti offline research governance/data lineage raporudur. Canli emir, broker talimati, gercek pozisyon, production compliance onayi veya yatirim tavsiyesi degildir.\n\n"
@@ -3658,6 +3790,7 @@ def build_lineage_graph_text_report(summary: dict, node_df=None, edge_df=None) -
     cycles = summary.get("cycles", {})
     rep += f"Has Cycles: {cycles.get('has_cycles', False)}\n"
     return rep
+
 
 def build_provenance_text_report(summary: dict, provenance_df=None) -> str:
     rep = "=== PROVENANCE REPORT ===\n"
@@ -3668,6 +3801,7 @@ def build_provenance_text_report(summary: dict, provenance_df=None) -> str:
     for s, c in summary.get("sources", {}).items():
         rep += f"- {s}: {c}\n"
     return rep
+
 
 def build_dependency_trace_text_report(summary: dict, trace_df=None) -> str:
     rep = "=== DEPENDENCY TRACE REPORT ===\n"
@@ -3683,6 +3817,7 @@ def build_dependency_trace_text_report(summary: dict, trace_df=None) -> str:
         rep += "No trace found.\n"
     return rep
 
+
 def build_audit_trail_text_report(summary: dict, audit_df=None) -> str:
     rep = "=== AUDIT TRAIL REPORT ===\n"
     rep += "Uyari: Bu cikti offline research governance/data lineage raporudur. Canli emir, broker talimati, gercek pozisyon, production compliance onayi veya yatirim tavsiyesi degildir.\n\n"
@@ -3692,6 +3827,7 @@ def build_audit_trail_text_report(summary: dict, audit_df=None) -> str:
         rep += f"- {t}: {c}\n"
     return rep
 
+
 def build_research_governance_text_report(summary: dict, checklist_df=None) -> str:
     rep = "=== RESEARCH GOVERNANCE REPORT ===\n"
     rep += "Uyari: Bu cikti offline research governance/data lineage raporudur. Canli emir, broker talimati, gercek pozisyon, production compliance onayi veya yatirim tavsiyesi degildir.\n\n"
@@ -3700,7 +3836,8 @@ def build_research_governance_text_report(summary: dict, checklist_df=None) -> s
     rep += f"Warning Count: {q.get('warning_count', 0)}\n"
     return rep
 
-def build_governance_status_report(status_df=None, summary: dict=None) -> str:
+
+def build_governance_status_report(status_df=None, summary: dict = None) -> str:
     rep = "=== GOVERNANCE STATUS REPORT ===\n"
     rep += "Uyari: Bu cikti offline research governance/data lineage raporudur. Canli emir, broker talimati, gercek pozisyon, production compliance onayi veya yatirim tavsiyesi degildir.\n\n"
     if status_df is not None and not status_df.empty:
@@ -3713,44 +3850,61 @@ def build_governance_status_report(status_df=None, summary: dict=None) -> str:
 
 
 # Phase 48: Research Planning
-def build_research_backlog_text_report(summary: dict, backlog_df: pd.DataFrame | None = None) -> str:
+def build_research_backlog_text_report(
+    summary: dict, backlog_df: pd.DataFrame | None = None
+) -> str:
     from research_planning.planning_report_builder import build_research_planning_disclaimer
+
     text = "=== Research Backlog Report ===\n"
     text += build_research_planning_disclaimer()
     text += f"Total Tasks: {summary.get('total_tasks', 0)}\n"
     return text
 
-def build_priority_scoring_text_report(summary: dict, priority_df: pd.DataFrame | None = None) -> str:
+
+def build_priority_scoring_text_report(
+    summary: dict, priority_df: pd.DataFrame | None = None
+) -> str:
     from research_planning.planning_report_builder import build_research_planning_disclaimer
+
     text = "=== Priority Scoring Report ===\n"
     text += build_research_planning_disclaimer()
     text += f"Average Score: {summary.get('average_score', 0.0):.2f}\n"
     return text
 
-def build_next_best_experiment_text_report(summary: dict, next_best_df: pd.DataFrame | None = None) -> str:
+
+def build_next_best_experiment_text_report(
+    summary: dict, next_best_df: pd.DataFrame | None = None
+) -> str:
     from research_planning.planning_report_builder import build_research_planning_disclaimer
+
     text = "=== Next Best Experiment Report ===\n"
     text += build_research_planning_disclaimer()
     text += f"Total Recommendations: {summary.get('total', 0)}\n"
     return text
 
+
 def build_research_debt_text_report(summary: dict, debt_df: pd.DataFrame | None = None) -> str:
     from research_planning.planning_report_builder import build_research_planning_disclaimer
+
     text = "=== Research Debt Report ===\n"
     text += build_research_planning_disclaimer()
     text += f"Total Debt Items: {summary.get('total_debt_items', 0)}\n"
     return text
 
+
 def build_roadmap_health_text_report(summary: dict, roadmap_snapshot: dict | None = None) -> str:
     from research_planning.planning_report_builder import build_research_planning_disclaimer
+
     text = "=== Roadmap Health Report ===\n"
     text += build_research_planning_disclaimer()
     text += f"Status: {summary.get('roadmap_status', 'Unknown')}\n"
     text += f"Health Score: {summary.get('roadmap_health_score', 0.0):.2f}\n"
     return text
 
+
 def build_research_planning_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     from research_planning.planning_report_builder import build_research_planning_disclaimer
+
     text = "=== Research Planning Status Report ===\n"
     text += build_research_planning_disclaimer()
     text += f"Total Files: {summary.get('total_files', 0)}\n"
@@ -3759,10 +3913,14 @@ def build_research_planning_status_report(status_df: pd.DataFrame, summary: dict
 
 # Phase 49: Knowledge Base & Analyst Workspace Text Reports
 
+
 def _kb_disclaimer() -> str:
     return "\n--- \nBu çıktı offline knowledge base/analyst workspace raporudur. Canlı emir, broker talimatı, gerçek pozisyon, otomatik trade onayı veya yatırım tavsiyesi değildir."
 
-def build_knowledge_index_text_report(summary: dict, documents_df: pd.DataFrame | None = None, chunks_df: pd.DataFrame | None = None) -> str:
+
+def build_knowledge_index_text_report(
+    summary: dict, documents_df: pd.DataFrame | None = None, chunks_df: pd.DataFrame | None = None
+) -> str:
     lines = ["*** KNOWLEDGE INDEX REPORT ***\n"]
     for k, v in summary.items():
         if isinstance(v, dict):
@@ -3774,12 +3932,14 @@ def build_knowledge_index_text_report(summary: dict, documents_df: pd.DataFrame 
     lines.append(_kb_disclaimer())
     return "\n".join(lines)
 
+
 def build_research_query_text_report(summary: dict, results_df: pd.DataFrame | None = None) -> str:
     lines = ["*** RESEARCH QUERY REPORT ***\n"]
     for k, v in summary.items():
         lines.append(f"{k.upper()}: {v}")
     lines.append(_kb_disclaimer())
     return "\n".join(lines)
+
 
 def build_symbol_memory_text_report(summary: dict, memory_card: dict | None = None) -> str:
     lines = ["*** SYMBOL MEMORY REPORT ***\n"]
@@ -3794,19 +3954,26 @@ def build_symbol_memory_text_report(summary: dict, memory_card: dict | None = No
     lines.append(_kb_disclaimer())
     return "\n".join(lines)
 
-def build_decision_journal_text_report(summary: dict, journal_df: pd.DataFrame | None = None) -> str:
+
+def build_decision_journal_text_report(
+    summary: dict, journal_df: pd.DataFrame | None = None
+) -> str:
     lines = ["*** DECISION JOURNAL ***\n"]
     for k, v in summary.items():
         lines.append(f"{k.upper()}: {v}")
     lines.append(_kb_disclaimer())
     return "\n".join(lines)
 
-def build_recent_findings_text_report(summary: dict, findings_df: pd.DataFrame | None = None) -> str:
+
+def build_recent_findings_text_report(
+    summary: dict, findings_df: pd.DataFrame | None = None
+) -> str:
     lines = ["*** RECENT FINDINGS DIGEST ***\n"]
     for k, v in summary.items():
         lines.append(f"{k.upper()}: {v}")
     lines.append(_kb_disclaimer())
     return "\n".join(lines)
+
 
 def build_analyst_workspace_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     lines = ["*** ANALYST WORKSPACE STATUS ***\n"]
@@ -3816,8 +3983,9 @@ def build_analyst_workspace_status_report(status_df: pd.DataFrame, summary: dict
     return "\n".join(lines)
 
 
-
-def build_command_catalog_text_report(summary: dict, commands_df: pd.DataFrame | None = None) -> str:
+def build_command_catalog_text_report(
+    summary: dict, commands_df: pd.DataFrame | None = None
+) -> str:
     txt = "COMMAND CATALOG REPORT\n"
     txt += "=" * 40 + "\n"
     txt += "Bu cikti offline command center/project consolidation raporudur. Canli emir, broker talimati, gercek pozisyon, model deployment, production scheduler, otomatik trade onayi veya yatirim tavsiyesi degildir.\n\n"
@@ -3830,7 +3998,10 @@ def build_command_catalog_text_report(summary: dict, commands_df: pd.DataFrame |
         txt += "No commands found.\n"
     return txt
 
-def build_guided_workflow_text_report(summary: dict, workflows_df: pd.DataFrame | None = None) -> str:
+
+def build_guided_workflow_text_report(
+    summary: dict, workflows_df: pd.DataFrame | None = None
+) -> str:
     txt = "GUIDED WORKFLOW REPORT\n"
     txt += "=" * 40 + "\n"
     txt += "Bu cikti offline command center/project consolidation raporudur. Canli emir, broker talimati, gercek pozisyon, model deployment, production scheduler, otomatik trade onayi veya yatirim tavsiyesi degildir.\n\n"
@@ -3842,6 +4013,7 @@ def build_guided_workflow_text_report(summary: dict, workflows_df: pd.DataFrame 
     else:
         txt += "No workflows found.\n"
     return txt
+
 
 def build_safe_runbook_text_report(summary: dict, runbooks_df: pd.DataFrame | None = None) -> str:
     txt = "SAFE RUNBOOK REPORT\n"
@@ -3856,6 +4028,7 @@ def build_safe_runbook_text_report(summary: dict, runbooks_df: pd.DataFrame | No
         txt += "No runbooks found.\n"
     return txt
 
+
 def build_project_status_text_report(summary: dict, status_df: pd.DataFrame | None = None) -> str:
     txt = "PROJECT STATUS REPORT\n"
     txt += "=" * 40 + "\n"
@@ -3869,7 +4042,10 @@ def build_project_status_text_report(summary: dict, status_df: pd.DataFrame | No
         txt += "No status data found.\n"
     return txt
 
-def build_project_consolidation_text_report(summary: dict, consolidation_df: pd.DataFrame | None = None) -> str:
+
+def build_project_consolidation_text_report(
+    summary: dict, consolidation_df: pd.DataFrame | None = None
+) -> str:
     txt = "PROJECT CONSOLIDATION REPORT\n"
     txt += "=" * 40 + "\n"
     txt += "Bu cikti offline command center/project consolidation raporudur. Canli emir, broker talimati, gercek pozisyon, model deployment, production scheduler, otomatik trade onayi veya yatirim tavsiyesi degildir.\n\n"
@@ -3885,7 +4061,10 @@ def build_project_consolidation_text_report(summary: dict, consolidation_df: pd.
         txt += consolidation_df.to_string(index=False)
     return txt
 
-def build_analyst_command_query_text_report(summary: dict, result_df: pd.DataFrame | None = None) -> str:
+
+def build_analyst_command_query_text_report(
+    summary: dict, result_df: pd.DataFrame | None = None
+) -> str:
     txt = "ANALYST COMMAND QUERY REPORT\n"
     txt += "=" * 40 + "\n"
     txt += "Bu cikti offline command center/project consolidation raporudur. Canli emir, broker talimati, gercek pozisyon, model deployment, production scheduler, otomatik trade onayi veya yatirim tavsiyesi degildir.\n\n"
@@ -3898,6 +4077,7 @@ def build_analyst_command_query_text_report(summary: dict, result_df: pd.DataFra
         txt += "No suggested commands found.\n"
     return txt
 
+
 def build_command_center_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     txt = "COMMAND CENTER STATUS REPORT\n"
     txt += "=" * 40 + "\n"
@@ -3909,28 +4089,55 @@ def build_command_center_status_report(status_df: pd.DataFrame, summary: dict) -
         txt += status_df.to_string(index=False)
     return txt
 
-    def build_performance_profile_text_report(self, summary: dict, runtime_df: pd.DataFrame | None = None, memory_df: pd.DataFrame | None = None) -> str:
+    def build_performance_profile_text_report(
+        self,
+        summary: dict,
+        runtime_df: pd.DataFrame | None = None,
+        memory_df: pd.DataFrame | None = None,
+    ) -> str:
         from performance.performance_report_builder import build_performance_profile_markdown_report
+
         return build_performance_profile_markdown_report(summary, runtime_df, memory_df)
 
-    def build_resource_budget_text_report(self, summary: dict, budget_df: pd.DataFrame | None = None, violation_df: pd.DataFrame | None = None) -> str:
+    def build_resource_budget_text_report(
+        self,
+        summary: dict,
+        budget_df: pd.DataFrame | None = None,
+        violation_df: pd.DataFrame | None = None,
+    ) -> str:
         from performance.performance_report_builder import build_resource_budget_markdown_report
+
         return build_resource_budget_markdown_report(summary, budget_df, violation_df)
 
-    def build_cache_strategy_text_report(self, summary: dict, cache_df: pd.DataFrame | None = None, policy_df: pd.DataFrame | None = None) -> str:
+    def build_cache_strategy_text_report(
+        self,
+        summary: dict,
+        cache_df: pd.DataFrame | None = None,
+        policy_df: pd.DataFrame | None = None,
+    ) -> str:
         from performance.performance_report_builder import build_cache_strategy_markdown_report
+
         return build_cache_strategy_markdown_report(summary, cache_df, policy_df)
 
-    def build_large_run_stability_text_report(self, summary: dict, stability_df: pd.DataFrame | None = None) -> str:
+    def build_large_run_stability_text_report(
+        self, summary: dict, stability_df: pd.DataFrame | None = None
+    ) -> str:
         from performance.performance_report_builder import build_large_run_stability_markdown_report
+
         return build_large_run_stability_markdown_report(summary, stability_df)
 
-    def build_runtime_optimization_text_report(self, summary: dict, recommendation_df: pd.DataFrame | None = None) -> str:
-        from performance.performance_report_builder import build_runtime_optimization_markdown_report
+    def build_runtime_optimization_text_report(
+        self, summary: dict, recommendation_df: pd.DataFrame | None = None
+    ) -> str:
+        from performance.performance_report_builder import (
+            build_runtime_optimization_markdown_report,
+        )
+
         return build_runtime_optimization_markdown_report(summary, recommendation_df)
 
     def build_performance_status_report(self, status_df: pd.DataFrame, summary: dict) -> str:
         from performance.performance_report_builder import build_performance_disclaimer
+
         txt = "Performance Status Report\n"
         txt += build_performance_disclaimer()
         for k, v in summary.items():
@@ -3940,12 +4147,15 @@ def build_command_center_status_report(status_df: pd.DataFrame, summary: dict) -
             txt += status_df.to_string(index=False)
         return txt
 
-
     # --- MAINTENANCE REPORTING ---
-    def build_storage_inventory_text_report(self, summary: dict, inventory_df: pd.DataFrame | None = None) -> str:
+    def build_storage_inventory_text_report(
+        self, summary: dict, inventory_df: pd.DataFrame | None = None
+    ) -> str:
         rep = "*** DISCLAIMER ***\n"
         rep += "Bu çıktı offline data retention/storage lifecycle maintenance raporudur. "
-        rep += "Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, "
+        rep += (
+            "Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, "
+        )
         rep += "otomatik trade onayı veya yatırım tavsiyesi değildir. Varsayılan mod dry-run’dır; "
         rep += "dosyalar otomatik silinmez veya taşınmaz.\n"
         rep += "******************\n\n"
@@ -3956,10 +4166,14 @@ def build_command_center_status_report(status_df: pd.DataFrame, summary: dict) -
         rep += f"Protected Files: {summary.get('protected_files', 0)}\n"
         return rep
 
-    def build_retention_policy_text_report(self, summary: dict, policies_df: pd.DataFrame | None = None) -> str:
+    def build_retention_policy_text_report(
+        self, summary: dict, policies_df: pd.DataFrame | None = None
+    ) -> str:
         rep = "*** DISCLAIMER ***\n"
         rep += "Bu çıktı offline data retention/storage lifecycle maintenance raporudur. "
-        rep += "Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, "
+        rep += (
+            "Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, "
+        )
         rep += "otomatik trade onayı veya yatırım tavsiyesi değildir. Varsayılan mod dry-run’dır; "
         rep += "dosyalar otomatik silinmez veya taşınmaz.\n"
         rep += "******************\n\n"
@@ -3968,10 +4182,14 @@ def build_command_center_status_report(status_df: pd.DataFrame, summary: dict) -
         rep += f"Total Policies: {summary.get('total_policies', 0)}\n"
         return rep
 
-    def build_cleanup_dry_run_text_report(self, summary: dict, cleanup_df: pd.DataFrame | None = None) -> str:
+    def build_cleanup_dry_run_text_report(
+        self, summary: dict, cleanup_df: pd.DataFrame | None = None
+    ) -> str:
         rep = "*** DISCLAIMER ***\n"
         rep += "Bu çıktı offline data retention/storage lifecycle maintenance raporudur. "
-        rep += "Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, "
+        rep += (
+            "Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, "
+        )
         rep += "otomatik trade onayı veya yatırım tavsiyesi değildir. Varsayılan mod dry-run’dır; "
         rep += "dosyalar otomatik silinmez veya taşınmaz.\n"
         rep += "******************\n\n"
@@ -3981,10 +4199,14 @@ def build_command_center_status_report(status_df: pd.DataFrame, summary: dict) -
         rep += f"Reclaimable Storage (Bytes): {summary.get('reclaimable_bytes', 0)}\n"
         return rep
 
-    def build_archive_dry_run_text_report(self, summary: dict, archive_df: pd.DataFrame | None = None) -> str:
+    def build_archive_dry_run_text_report(
+        self, summary: dict, archive_df: pd.DataFrame | None = None
+    ) -> str:
         rep = "*** DISCLAIMER ***\n"
         rep += "Bu çıktı offline data retention/storage lifecycle maintenance raporudur. "
-        rep += "Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, "
+        rep += (
+            "Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, "
+        )
         rep += "otomatik trade onayı veya yatırım tavsiyesi değildir. Varsayılan mod dry-run’dır; "
         rep += "dosyalar otomatik silinmez veya taşınmaz.\n"
         rep += "******************\n\n"
@@ -3994,10 +4216,14 @@ def build_command_center_status_report(status_df: pd.DataFrame, summary: dict) -
         rep += f"Total Archive Size (Bytes): {summary.get('total_size_bytes', 0)}\n"
         return rep
 
-    def build_storage_lifecycle_text_report(self, summary: dict, health_df: pd.DataFrame | None = None) -> str:
+    def build_storage_lifecycle_text_report(
+        self, summary: dict, health_df: pd.DataFrame | None = None
+    ) -> str:
         rep = "*** DISCLAIMER ***\n"
         rep += "Bu çıktı offline data retention/storage lifecycle maintenance raporudur. "
-        rep += "Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, "
+        rep += (
+            "Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, "
+        )
         rep += "otomatik trade onayı veya yatırım tavsiyesi değildir. Varsayılan mod dry-run’dır; "
         rep += "dosyalar otomatik silinmez veya taşınmaz.\n"
         rep += "******************\n\n"
@@ -4014,7 +4240,9 @@ def build_command_center_status_report(status_df: pd.DataFrame, summary: dict) -
     def build_maintenance_status_report(self, status_df: pd.DataFrame, summary: dict) -> str:
         rep = "*** DISCLAIMER ***\n"
         rep += "Bu çıktı offline data retention/storage lifecycle maintenance raporudur. "
-        rep += "Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, "
+        rep += (
+            "Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, "
+        )
         rep += "otomatik trade onayı veya yatırım tavsiyesi değildir. Varsayılan mod dry-run’dır; "
         rep += "dosyalar otomatik silinmez veya taşınmaz.\n"
         rep += "******************\n\n"
@@ -4022,6 +4250,7 @@ def build_command_center_status_report(status_df: pd.DataFrame, summary: dict) -
         rep += "=========================\n\n"
         rep += f"Status: {summary.get('status', 'OK')}\n"
         return rep
+
 
 def build_documentation_pack_text_report(summary: dict, docs_df) -> str:
     lines = [
@@ -4031,16 +4260,17 @@ def build_documentation_pack_text_report(summary: dict, docs_df) -> str:
         "-" * 50,
         f"Profile: {summary.get('profile', 'Unknown')}",
         f"Quality Score: {summary.get('quality_score', 0.0):.2f}",
-        "-" * 50
+        "-" * 50,
     ]
     if docs_df is not None and not docs_df.empty:
         for _, row in docs_df.iterrows():
             lines.append(f"{row['relative_path']}: {row['document_type']} ({row['status']})")
     return "\n".join(lines)
 
+
 def build_documentation_quality_text_report(summary: dict, quality: dict | None = None) -> str:
     if quality is None:
-         quality = {}
+        quality = {}
     lines = [
         "DOCUMENTATION QUALITY REPORT",
         "=" * 50,
@@ -4048,59 +4278,62 @@ def build_documentation_quality_text_report(summary: dict, quality: dict | None 
         "-" * 50,
         f"Status: {'PASSED' if quality.get('passed') else 'FAILED'}",
         f"Warnings: {quality.get('warning_count', 0)}",
-        "-" * 50
+        "-" * 50,
     ]
     warnings = quality.get("warnings", [])
     if warnings:
         lines.append("Warnings Details:")
         for w in warnings:
-             lines.append(f" - {w}")
+            lines.append(f" - {w}")
     return "\n".join(lines)
+
 
 def build_safe_usage_docs_text_report(summary: dict, safety_df) -> str:
     lines = [
         "SAFE USAGE DOCS REPORT",
         "=" * 50,
         "UYARI: Bu çıktı offline/local documentation pack raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.",
-        "-" * 50
+        "-" * 50,
     ]
     if safety_df is not None and not safety_df.empty:
         lines.append(safety_df.to_string())
     return "\n".join(lines)
+
 
 def build_script_reference_text_report(summary: dict, scripts_df) -> str:
     lines = [
         "SCRIPT REFERENCE REPORT",
         "=" * 50,
         "UYARI: Bu çıktı offline/local documentation pack raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.",
-        "-" * 50
+        "-" * 50,
     ]
     if scripts_df is not None and not scripts_df.empty:
         lines.append(scripts_df.to_string())
     return "\n".join(lines)
+
 
 def build_output_reference_text_report(summary: dict, outputs_df) -> str:
     lines = [
         "OUTPUT REFERENCE REPORT",
         "=" * 50,
         "UYARI: Bu çıktı offline/local documentation pack raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.",
-        "-" * 50
+        "-" * 50,
     ]
     if outputs_df is not None and not outputs_df.empty:
         lines.append(outputs_df.to_string())
     return "\n".join(lines)
+
 
 def build_documentation_status_report(status_df, summary: dict) -> str:
     lines = [
         "DOCUMENTATION STATUS REPORT",
         "=" * 50,
         "UYARI: Bu çıktı offline/local documentation pack raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.",
-        "-" * 50
+        "-" * 50,
     ]
     if status_df is not None and not status_df.empty:
         lines.append(status_df.to_string())
     return "\n".join(lines)
-
 
     # --- Analyst UX Text Reports ---
     @staticmethod
@@ -4109,14 +4342,26 @@ def build_documentation_status_report(status_df, summary: dict) -> str:
 
     @staticmethod
     def build_ux_alias_text_report(summary: dict, aliases_df: pd.DataFrame = None) -> str:
-        lines = ["--- Command Alias Registry Report ---", "", ReportBuilder._build_ux_disclaimer(), ""]
+        lines = [
+            "--- Command Alias Registry Report ---",
+            "",
+            ReportBuilder._build_ux_disclaimer(),
+            "",
+        ]
         if aliases_df is not None and not aliases_df.empty:
             lines.append(aliases_df.to_string(index=False))
         return "\n".join(lines)
 
     @staticmethod
-    def build_safe_command_suggestion_text_report(summary: dict, suggestions_df: pd.DataFrame = None) -> str:
-        lines = ["--- Safe Command Suggestions Report ---", "", ReportBuilder._build_ux_disclaimer(), ""]
+    def build_safe_command_suggestion_text_report(
+        summary: dict, suggestions_df: pd.DataFrame = None
+    ) -> str:
+        lines = [
+            "--- Safe Command Suggestions Report ---",
+            "",
+            ReportBuilder._build_ux_disclaimer(),
+            "",
+        ]
         if suggestions_df is not None and not suggestions_df.empty:
             lines.append(suggestions_df.to_string(index=False))
         return "\n".join(lines)
@@ -4129,8 +4374,15 @@ def build_documentation_status_report(status_df, summary: dict) -> str:
         return "\n".join(lines)
 
     @staticmethod
-    def build_productivity_checklist_text_report(summary: dict, checklist_df: pd.DataFrame = None) -> str:
-        lines = ["--- Productivity Checklist Report ---", "", ReportBuilder._build_ux_disclaimer(), ""]
+    def build_productivity_checklist_text_report(
+        summary: dict, checklist_df: pd.DataFrame = None
+    ) -> str:
+        lines = [
+            "--- Productivity Checklist Report ---",
+            "",
+            ReportBuilder._build_ux_disclaimer(),
+            "",
+        ]
         if checklist_df is not None and not checklist_df.empty:
             lines.append(checklist_df.to_string(index=False))
         return "\n".join(lines)
@@ -4144,7 +4396,12 @@ def build_documentation_status_report(status_df, summary: dict) -> str:
 
     @staticmethod
     def build_operator_productivity_status_report(status_df: pd.DataFrame, summary: dict) -> str:
-        lines = ["--- Operator Productivity Status Report ---", "", ReportBuilder._build_ux_disclaimer(), ""]
+        lines = [
+            "--- Operator Productivity Status Report ---",
+            "",
+            ReportBuilder._build_ux_disclaimer(),
+            "",
+        ]
         if status_df is not None and not status_df.empty:
             lines.append(status_df.to_string(index=False))
         return "\n".join(lines)
@@ -4155,8 +4412,15 @@ def build_documentation_status_report(status_df, summary: dict) -> str:
         return "DISCLAIMER: Bu çıktı offline final system review/release readiness dry-run raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production release, otomatik trade onayı veya yatırım tavsiyesi değildir."
 
     @staticmethod
-    def build_final_system_review_text_report(summary: dict, audit_tables: Optional[Dict[str, pd.DataFrame]] = None) -> str:
-        lines = ["--- Final System Review Report ---", "", ReportBuilder._build_final_review_disclaimer(), ""]
+    def build_final_system_review_text_report(
+        summary: dict, audit_tables: Optional[Dict[str, pd.DataFrame]] = None
+    ) -> str:
+        lines = [
+            "--- Final System Review Report ---",
+            "",
+            ReportBuilder._build_final_review_disclaimer(),
+            "",
+        ]
         lines.append(f"Passed: {summary.get('passed', False)}")
         if audit_tables:
             for name, df in audit_tables.items():
@@ -4165,15 +4429,29 @@ def build_documentation_status_report(status_df, summary: dict) -> str:
         return "\n".join(lines)
 
     @staticmethod
-    def build_architecture_audit_text_report(summary: dict, audit_df: Optional[pd.DataFrame] = None) -> str:
-        lines = ["--- Architecture Audit Report ---", "", ReportBuilder._build_final_review_disclaimer(), ""]
+    def build_architecture_audit_text_report(
+        summary: dict, audit_df: Optional[pd.DataFrame] = None
+    ) -> str:
+        lines = [
+            "--- Architecture Audit Report ---",
+            "",
+            ReportBuilder._build_final_review_disclaimer(),
+            "",
+        ]
         if audit_df is not None and not audit_df.empty:
             lines.append(audit_df.to_string(index=False))
         return "\n".join(lines)
 
     @staticmethod
-    def build_safety_audit_text_report(summary: dict, safety_df: Optional[pd.DataFrame] = None) -> str:
-        lines = ["--- Safety Audit Report ---", "", ReportBuilder._build_final_review_disclaimer(), ""]
+    def build_safety_audit_text_report(
+        summary: dict, safety_df: Optional[pd.DataFrame] = None
+    ) -> str:
+        lines = [
+            "--- Safety Audit Report ---",
+            "",
+            ReportBuilder._build_final_review_disclaimer(),
+            "",
+        ]
         lines.append(f"Passed: {summary.get('passed', False)}")
         lines.append(f"Critical Issues: {summary.get('critical_issues', 0)}")
         if safety_df is not None and not safety_df.empty:
@@ -4181,48 +4459,75 @@ def build_documentation_status_report(status_df, summary: dict) -> str:
         return "\n".join(lines)
 
     @staticmethod
-    def build_offline_acceptance_text_report(summary: dict, acceptance_df: Optional[pd.DataFrame] = None) -> str:
-        lines = ["--- Offline Acceptance Audit Report ---", "", ReportBuilder._build_final_review_disclaimer(), ""]
+    def build_offline_acceptance_text_report(
+        summary: dict, acceptance_df: Optional[pd.DataFrame] = None
+    ) -> str:
+        lines = [
+            "--- Offline Acceptance Audit Report ---",
+            "",
+            ReportBuilder._build_final_review_disclaimer(),
+            "",
+        ]
         if acceptance_df is not None and not acceptance_df.empty:
             lines.append(acceptance_df.to_string(index=False))
         return "\n".join(lines)
 
     @staticmethod
-    def build_release_readiness_dry_run_text_report(summary: dict, dry_run_df: Optional[pd.DataFrame] = None) -> str:
-        lines = ["--- Release Readiness Dry-Run Report ---", "", ReportBuilder._build_final_review_disclaimer(), ""]
+    def build_release_readiness_dry_run_text_report(
+        summary: dict, dry_run_df: Optional[pd.DataFrame] = None
+    ) -> str:
+        lines = [
+            "--- Release Readiness Dry-Run Report ---",
+            "",
+            ReportBuilder._build_final_review_disclaimer(),
+            "",
+        ]
         lines.append(f"Ready: {summary.get('is_ready', False)}")
         if dry_run_df is not None and not dry_run_df.empty:
             lines.append("\n" + dry_run_df.to_string(index=False))
         return "\n".join(lines)
 
     @staticmethod
-    def build_final_consolidation_text_report(summary: dict, phase_df: Optional[pd.DataFrame] = None) -> str:
-        lines = ["--- Final Consolidation Audit Report ---", "", ReportBuilder._build_final_review_disclaimer(), ""]
+    def build_final_consolidation_text_report(
+        summary: dict, phase_df: Optional[pd.DataFrame] = None
+    ) -> str:
+        lines = [
+            "--- Final Consolidation Audit Report ---",
+            "",
+            ReportBuilder._build_final_review_disclaimer(),
+            "",
+        ]
         if phase_df is not None and not phase_df.empty:
             lines.append(phase_df.to_string(index=False))
         return "\n".join(lines)
 
     @staticmethod
     def build_final_review_status_report(status_df: pd.DataFrame, summary: dict) -> str:
-        lines = ["--- Final Review Status Report ---", "", ReportBuilder._build_final_review_disclaimer(), ""]
+        lines = [
+            "--- Final Review Status Report ---",
+            "",
+            ReportBuilder._build_final_review_disclaimer(),
+            "",
+        ]
         lines.append(f"Passed: {summary.get('passed', False)}")
         if not status_df.empty:
             lines.append("\n" + status_df.to_string(index=False))
         return "\n".join(lines)
 
-
-
-
     # Report Summarization Support
     @staticmethod
-    def build_report_summary_registry_text_report(summary: dict, inventory_df: "pd.DataFrame | None" = None) -> str:
+    def build_report_summary_registry_text_report(
+        summary: dict, inventory_df: "pd.DataFrame | None" = None
+    ) -> str:
         text = "REPORT SUMMARY REGISTRY\n"
         text += "Bu çıktı offline/local report summarization ve research briefing raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.\n\n"
         text += f"Total Reports: {summary.get('total_reports', 0)}\n"
         return text
 
     @staticmethod
-    def build_executive_summary_text_report(summary: dict, executive_text: "str | None" = None) -> str:
+    def build_executive_summary_text_report(
+        summary: dict, executive_text: "str | None" = None
+    ) -> str:
         text = "EXECUTIVE SUMMARY\n"
         text += "Bu çıktı offline/local report summarization ve research briefing raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.\n\n"
         if executive_text:
@@ -4230,7 +4535,9 @@ def build_documentation_status_report(status_df, summary: dict) -> str:
         return text
 
     @staticmethod
-    def build_analyst_brief_text_report(summary: dict, analyst_brief_text: "str | None" = None) -> str:
+    def build_analyst_brief_text_report(
+        summary: dict, analyst_brief_text: "str | None" = None
+    ) -> str:
         text = "ANALYST BRIEF\n"
         text += "Bu çıktı offline/local report summarization ve research briefing raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.\n\n"
         if analyst_brief_text:
@@ -4238,7 +4545,9 @@ def build_documentation_status_report(status_df, summary: dict) -> str:
         return text
 
     @staticmethod
-    def build_weekly_offline_review_text_report(summary: dict, review_text: "str | None" = None) -> str:
+    def build_weekly_offline_review_text_report(
+        summary: dict, review_text: "str | None" = None
+    ) -> str:
         text = "WEEKLY OFFLINE REVIEW PACK\n"
         text += "Bu çıktı offline/local report summarization ve research briefing raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.\n\n"
         if review_text:
@@ -4246,7 +4555,9 @@ def build_documentation_status_report(status_df, summary: dict) -> str:
         return text
 
     @staticmethod
-    def build_research_digest_text_report(summary: dict, cards_df: "pd.DataFrame | None" = None) -> str:
+    def build_research_digest_text_report(
+        summary: dict, cards_df: "pd.DataFrame | None" = None
+    ) -> str:
         text = "RESEARCH DIGEST\n"
         text += "Bu çıktı offline/local report summarization ve research briefing raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.\n\n"
         text += f"Total Cards: {summary.get('total_cards', 0)}\n"
@@ -4274,7 +4585,7 @@ def build_scenario_registry_text_report(summary: dict, scenarios_df: pd.DataFram
         "SCENARIO REGISTRY REPORT",
         "------------------------",
         "Bu çıktı offline controlled research scenario/demo raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.",
-        f"Total Scenarios: {summary.get('total_scenarios', 0)}"
+        f"Total Scenarios: {summary.get('total_scenarios', 0)}",
     ]
     if scenarios_df is not None and not scenarios_df.empty:
         lines.append("Scenarios:")
@@ -4284,12 +4595,13 @@ def build_scenario_registry_text_report(summary: dict, scenarios_df: pd.DataFram
             lines.append(scenarios_df[cols].to_string())
     return "\n".join(lines)
 
+
 def build_sample_data_text_report(summary: dict, sample_df: pd.DataFrame = None) -> str:
     lines = [
         "SAMPLE DATA REPORT",
         "------------------",
         "Bu çıktı offline controlled research scenario/demo raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.",
-        f"Files Saved: {summary.get('files_saved', 0)}"
+        f"Files Saved: {summary.get('files_saved', 0)}",
     ]
     if sample_df is not None and not sample_df.empty:
         lines.append("Series:")
@@ -4298,49 +4610,54 @@ def build_sample_data_text_report(summary: dict, sample_df: pd.DataFrame = None)
             lines.append(sample_df[cols].to_string())
     return "\n".join(lines)
 
+
 def build_scenario_dry_run_text_report(summary: dict, dry_run_df: pd.DataFrame = None) -> str:
     lines = [
         "SCENARIO DRY RUN REPORT",
         "-----------------------",
         "Bu çıktı offline controlled research scenario/demo raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.",
         f"Total Runs: {summary.get('total_runs', 0)}",
-        f"Passed Runs: {summary.get('passed_runs', summary.get('passed', 0))}"
+        f"Passed Runs: {summary.get('passed_runs', summary.get('passed', 0))}",
     ]
     return "\n".join(lines)
+
 
 def build_case_study_text_report(summary: dict, case_df: pd.DataFrame = None) -> str:
     lines = [
         "CASE STUDIES REPORT",
         "-------------------",
         "Bu çıktı offline controlled research scenario/demo raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.",
-        f"Total Case Studies: {summary.get('total', 0)}"
+        f"Total Case Studies: {summary.get('total', 0)}",
     ]
     return "\n".join(lines)
+
 
 def build_demo_workflow_text_report(summary: dict, workflow_df: pd.DataFrame = None) -> str:
     lines = [
         "DEMO WORKFLOWS REPORT",
         "---------------------",
         "Bu çıktı offline controlled research scenario/demo raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.",
-        f"Total Packs: {summary.get('total_packs', 0)}"
+        f"Total Packs: {summary.get('total_packs', 0)}",
     ]
     return "\n".join(lines)
+
 
 def build_end_to_end_demo_text_report(summary: dict, plan_df: pd.DataFrame = None) -> str:
     lines = [
         "END-TO-END DEMO REPORT",
         "----------------------",
         "Bu çıktı offline controlled research scenario/demo raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.",
-        f"Total Steps: {summary.get('total_steps', 0)}"
+        f"Total Steps: {summary.get('total_steps', 0)}",
     ]
     return "\n".join(lines)
+
 
 def build_scenario_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     lines = [
         "SCENARIO STATUS REPORT",
         "----------------------",
         "Bu çıktı offline controlled research scenario/demo raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir.",
-        f"Total Components: {summary.get('total_components', 0)}"
+        f"Total Components: {summary.get('total_components', 0)}",
     ]
     if status_df is not None and not status_df.empty:
         lines.append("Components:")
@@ -4348,45 +4665,70 @@ def build_scenario_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     return "\n".join(lines)
 
 
-def build_project_state_inventory_text_report(summary: dict, inventory_df: pd.DataFrame | None = None) -> str:
+def build_project_state_inventory_text_report(
+    summary: dict, inventory_df: pd.DataFrame | None = None
+) -> str:
     from backup_recovery.backup_report_builder import build_backup_disclaimer
+
     return build_backup_disclaimer() + "Project State Inventory Report\n\n" + str(summary)
+
 
 def build_backup_manifest_text_report(summary: dict, manifest_json: dict | None = None) -> str:
     from backup_recovery.backup_report_builder import build_backup_disclaimer
+
     return build_backup_disclaimer() + "Backup Manifest Report\n\n" + str(summary)
 
-def build_backup_dry_run_text_report(summary: dict, backup_plan_df: pd.DataFrame | None = None) -> str:
+
+def build_backup_dry_run_text_report(
+    summary: dict, backup_plan_df: pd.DataFrame | None = None
+) -> str:
     from backup_recovery.backup_report_builder import build_backup_disclaimer
+
     return build_backup_disclaimer() + "Backup Dry-Run Plan Report\n\n" + str(summary)
 
-def build_restore_dry_run_text_report(summary: dict, restore_plan_df: pd.DataFrame | None = None) -> str:
+
+def build_restore_dry_run_text_report(
+    summary: dict, restore_plan_df: pd.DataFrame | None = None
+) -> str:
     from backup_recovery.backup_report_builder import build_backup_disclaimer
+
     return build_backup_disclaimer() + "Restore Dry-Run Plan Report\n\n" + str(summary)
+
 
 def build_disaster_recovery_text_report(summary: dict, dr_manifest: dict | None = None) -> str:
     from backup_recovery.backup_report_builder import build_backup_disclaimer
+
     return build_backup_disclaimer() + "Disaster Recovery Manifest Report\n\n" + str(summary)
 
-def build_restore_verification_text_report(summary: dict, verification_df: pd.DataFrame | None = None) -> str:
+
+def build_restore_verification_text_report(
+    summary: dict, verification_df: pd.DataFrame | None = None
+) -> str:
     from backup_recovery.backup_report_builder import build_backup_disclaimer
+
     return build_backup_disclaimer() + "Restore Verification Report\n\n" + str(summary)
+
 
 def build_backup_quality_text_report(summary: dict, quality: dict | None = None) -> str:
     from backup_recovery.backup_report_builder import build_backup_disclaimer
+
     return build_backup_disclaimer() + "Backup Quality Report\n\n" + str(summary)
+
 
 def build_backup_recovery_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     from backup_recovery.backup_report_builder import build_backup_disclaimer
-    return build_backup_disclaimer() + "Backup Recovery Status Report\n\n" + str(summary)
 
+    return build_backup_disclaimer() + "Backup Recovery Status Report\n\n" + str(summary)
 
 
 # Phase 66: Local Knowledge Graph
 def build_graph_disclaimer() -> str:
     return "Bu çıktı offline/local knowledge graph ve artifact relationship raporudur. Canlı emir, broker talimatı, gerçek pozisyon, external vector DB, cloud graph DB, model deployment, production scheduler, otomatik trade onayı veya yatırım tavsiyesi değildir."
 
-def build_graph_node_edge_registry_text_report(summary: dict, node_df: pd.DataFrame | None = None, edge_df: pd.DataFrame | None = None) -> str:
+
+def build_graph_node_edge_registry_text_report(
+    summary: dict, node_df: pd.DataFrame | None = None, edge_df: pd.DataFrame | None = None
+) -> str:
     lines = ["# GRAPH NODE AND EDGE REGISTRY REPORT", build_graph_disclaimer()]
     for k, v in summary.items():
         lines.append(f"{k}: {v}")
@@ -4396,13 +4738,17 @@ def build_graph_node_edge_registry_text_report(summary: dict, node_df: pd.DataFr
         lines.append("\n## EDGES\n" + edge_df.head(100).to_string())
     return "\n".join(lines)
 
-def build_artifact_relationship_graph_text_report(summary: dict, graph_df: pd.DataFrame | None = None) -> str:
+
+def build_artifact_relationship_graph_text_report(
+    summary: dict, graph_df: pd.DataFrame | None = None
+) -> str:
     lines = ["# ARTIFACT RELATIONSHIP GRAPH REPORT", build_graph_disclaimer()]
     for k, v in summary.items():
         lines.append(f"{k}: {v}")
     if graph_df is not None:
         lines.append("\n## GRAPH\n" + graph_df.head(100).to_string())
     return "\n".join(lines)
+
 
 def build_semantic_index_text_report(summary: dict, keyword_df: pd.DataFrame | None = None) -> str:
     lines = ["# LOCAL SEMANTIC KEYWORD INDEX REPORT", build_graph_disclaimer()]
@@ -4412,7 +4758,10 @@ def build_semantic_index_text_report(summary: dict, keyword_df: pd.DataFrame | N
         lines.append("\n## INDEX\n" + keyword_df.head(100).to_string())
     return "\n".join(lines)
 
-def build_relationship_query_text_report(summary: dict, results_df: pd.DataFrame | None = None) -> str:
+
+def build_relationship_query_text_report(
+    summary: dict, results_df: pd.DataFrame | None = None
+) -> str:
     lines = ["# RELATIONSHIP QUERY REPORT", build_graph_disclaimer()]
     for k, v in summary.items():
         lines.append(f"{k}: {v}")
@@ -4420,7 +4769,10 @@ def build_relationship_query_text_report(summary: dict, results_df: pd.DataFrame
         lines.append("\n## RESULTS\n" + results_df.head(100).to_string())
     return "\n".join(lines)
 
-def build_graph_analysis_text_report(summary: dict, centrality_df: pd.DataFrame | None = None, gap_df: pd.DataFrame | None = None) -> str:
+
+def build_graph_analysis_text_report(
+    summary: dict, centrality_df: pd.DataFrame | None = None, gap_df: pd.DataFrame | None = None
+) -> str:
     lines = ["# GRAPH ANALYSIS REPORT", build_graph_disclaimer()]
     for k, v in summary.items():
         lines.append(f"{k}: {v}")
@@ -4429,6 +4781,7 @@ def build_graph_analysis_text_report(summary: dict, centrality_df: pd.DataFrame 
     if gap_df is not None:
         lines.append("\n## GAPS\n" + gap_df.head(100).to_string())
     return "\n".join(lines)
+
 
 def build_graph_quality_text_report(summary: dict, quality: dict | None = None) -> str:
     lines = ["# GRAPH QUALITY REPORT", build_graph_disclaimer()]
@@ -4440,6 +4793,7 @@ def build_graph_quality_text_report(summary: dict, quality: dict | None = None) 
             lines.append(f"{k}: {v}")
     return "\n".join(lines)
 
+
 def build_graph_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     lines = ["# GRAPH STATUS REPORT", build_graph_disclaimer()]
     for k, v in summary.items():
@@ -4447,14 +4801,18 @@ def build_graph_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     lines.append("\n## STATUS\n" + status_df.to_string())
     return "\n".join(lines)
 
+
 # Phase 67: Local Timeline
-def build_project_event_registry_text_report(summary: dict, event_df: pd.DataFrame | None = None) -> str:
+def build_project_event_registry_text_report(
+    summary: dict, event_df: pd.DataFrame | None = None
+) -> str:
     txt = _get_regression_disclaimer_rb()
     txt += "Project Event Registry Report\n\n"
     txt += f"Total Events: {summary.get('total_events', 0)}\n\n"
     if event_df is not None and not event_df.empty:
         txt += event_df.head(20).to_string() + "\n"
     return txt
+
 
 def build_phase_chronology_text_report(summary: dict, phase_df: pd.DataFrame | None = None) -> str:
     txt = _get_regression_disclaimer_rb()
@@ -4464,7 +4822,10 @@ def build_phase_chronology_text_report(summary: dict, phase_df: pd.DataFrame | N
         txt += phase_df.to_string() + "\n"
     return txt
 
-def build_artifact_evolution_text_report(summary: dict, evolution_df: pd.DataFrame | None = None) -> str:
+
+def build_artifact_evolution_text_report(
+    summary: dict, evolution_df: pd.DataFrame | None = None
+) -> str:
     txt = _get_regression_disclaimer_rb()
     txt += "Artifact Evolution Report\n\n"
     txt += f"Total Artifacts: {summary.get('total_artifacts', 0)}\n\n"
@@ -4472,12 +4833,14 @@ def build_artifact_evolution_text_report(summary: dict, evolution_df: pd.DataFra
         txt += evolution_df.head(20).to_string() + "\n"
     return txt
 
+
 def build_change_history_digest_text_report(summary: dict, digest_text: str | None = None) -> str:
     txt = _get_regression_disclaimer_rb()
     txt += "Change History Digest\n\n"
     if digest_text:
         txt += digest_text + "\n"
     return txt
+
 
 def build_timeline_query_text_report(summary: dict, results_df: pd.DataFrame | None = None) -> str:
     txt = _get_regression_disclaimer_rb()
@@ -4487,6 +4850,7 @@ def build_timeline_query_text_report(summary: dict, results_df: pd.DataFrame | N
         txt += results_df.to_string() + "\n"
     return txt
 
+
 def build_timeline_quality_text_report(summary: dict, quality: dict | None = None) -> str:
     txt = _get_regression_disclaimer_rb()
     txt += "Timeline Quality Report\n\n"
@@ -4494,6 +4858,7 @@ def build_timeline_quality_text_report(summary: dict, quality: dict | None = Non
         for k, v in quality.items():
             txt += f"- **{k}**: {v}\n"
     return txt
+
 
 def build_timeline_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     txt = _get_regression_disclaimer_rb()
@@ -4503,30 +4868,49 @@ def build_timeline_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     return txt
 
     # --- Local Consistency Reports ---
-    def build_consistency_check_registry_text_report(self, summary: dict, check_df: pd.DataFrame | None = None) -> str:
+    def build_consistency_check_registry_text_report(
+        self, summary: dict, check_df: pd.DataFrame | None = None
+    ) -> str:
         return "Bu çıktı offline/local consistency ve system coherence raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik düzeltme, otomatik trade onayı veya yatırım tavsiyesi değildir.\n"
 
-    def build_cross_layer_consistency_matrix_text_report(self, summary: dict, matrix_df: pd.DataFrame | None = None) -> str:
+    def build_cross_layer_consistency_matrix_text_report(
+        self, summary: dict, matrix_df: pd.DataFrame | None = None
+    ) -> str:
         return "Bu çıktı offline/local consistency ve system coherence raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik düzeltme, otomatik trade onayı veya yatırım tavsiyesi değildir.\n"
 
-    def build_contradiction_detection_text_report(self, summary: dict, contradiction_df: pd.DataFrame | None = None) -> str:
+    def build_contradiction_detection_text_report(
+        self, summary: dict, contradiction_df: pd.DataFrame | None = None
+    ) -> str:
         return "Bu çıktı offline/local consistency ve system coherence raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik düzeltme, otomatik trade onayı veya yatırım tavsiyesi değildir.\n"
 
-    def build_stale_reconciliation_text_report(self, summary: dict, plan_df: pd.DataFrame | None = None) -> str:
+    def build_stale_reconciliation_text_report(
+        self, summary: dict, plan_df: pd.DataFrame | None = None
+    ) -> str:
         return "Bu çıktı offline/local consistency ve system coherence raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik düzeltme, otomatik trade onayı veya yatırım tavsiyesi değildir.\n"
 
-    def build_system_coherence_text_report(self, summary: dict, score_df: pd.DataFrame | None = None, findings_df: pd.DataFrame | None = None) -> str:
+    def build_system_coherence_text_report(
+        self,
+        summary: dict,
+        score_df: pd.DataFrame | None = None,
+        findings_df: pd.DataFrame | None = None,
+    ) -> str:
         return "Bu çıktı offline/local consistency ve system coherence raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik düzeltme, otomatik trade onayı veya yatırım tavsiyesi değildir.\n"
 
-    def build_consistency_quality_text_report(self, summary: dict, quality: dict | None = None) -> str:
+    def build_consistency_quality_text_report(
+        self, summary: dict, quality: dict | None = None
+    ) -> str:
         return "Bu çıktı offline/local consistency ve system coherence raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik düzeltme, otomatik trade onayı veya yatırım tavsiyesi değildir.\n"
 
     def build_consistency_status_report(self, status_df: pd.DataFrame, summary: dict) -> str:
         return "Bu çıktı offline/local consistency ve system coherence raporudur. Canlı emir, broker talimatı, gerçek pozisyon, model deployment, production scheduler, otomatik düzeltme, otomatik trade onayı veya yatırım tavsiyesi değildir.\n"
 
+
 # Phase 69: Local Readiness
-def build_readiness_gate_registry_text_report(summary: dict, gate_df: pd.DataFrame | None = None) -> str:
+def build_readiness_gate_registry_text_report(
+    summary: dict, gate_df: pd.DataFrame | None = None
+) -> str:
     from local_readiness.readiness_report_builder import build_readiness_disclaimer
+
     txt = build_readiness_disclaimer()
     txt += "Readiness Gate Registry Report\n\n"
     txt += f"Total Gates: {summary.get('total_gates', 0)}\n"
@@ -4536,59 +4920,80 @@ def build_readiness_gate_registry_text_report(summary: dict, gate_df: pd.DataFra
         txt += gate_df.to_string() + "\n"
     return txt
 
-def build_final_operator_checklist_text_report(summary: dict, checklist_df: pd.DataFrame | None = None) -> str:
+
+def build_final_operator_checklist_text_report(
+    summary: dict, checklist_df: pd.DataFrame | None = None
+) -> str:
     from local_readiness.readiness_report_builder import build_readiness_disclaimer
+
     txt = build_readiness_disclaimer()
     txt += "Final Operator Checklist Report\n\n"
     if checklist_df is not None and not checklist_df.empty:
         txt += checklist_df.to_string() + "\n"
     return txt
 
-def build_readiness_reports_text_report(summary: dict, readiness_df: pd.DataFrame | None = None) -> str:
+
+def build_readiness_reports_text_report(
+    summary: dict, readiness_df: pd.DataFrame | None = None
+) -> str:
     from local_readiness.readiness_report_builder import build_readiness_disclaimer
+
     txt = build_readiness_disclaimer()
     txt += "Readiness Reports Summary\n\n"
     if readiness_df is not None and not readiness_df.empty:
         txt += readiness_df.to_string() + "\n"
     return txt
 
+
 def build_handoff_package_manifest_text_report(summary: dict, manifest: dict | None = None) -> str:
-    from local_readiness.readiness_report_builder import build_readiness_disclaimer
     import json
+
+    from local_readiness.readiness_report_builder import build_readiness_disclaimer
+
     txt = build_readiness_disclaimer()
     txt += "Handoff Package Manifest Report\n\n"
     if manifest:
         txt += json.dumps(manifest, indent=2) + "\n"
     return txt
 
-def build_final_local_readiness_binder_text_report(summary: dict, binder_text: str | None = None) -> str:
+
+def build_final_local_readiness_binder_text_report(
+    summary: dict, binder_text: str | None = None
+) -> str:
     from local_readiness.readiness_report_builder import build_readiness_disclaimer
+
     txt = build_readiness_disclaimer()
     txt += "Final Local Readiness Binder Report\n\n"
     if binder_text:
         txt += binder_text + "\n"
     return txt
 
+
 def build_readiness_quality_text_report(summary: dict, quality: dict | None = None) -> str:
-    from local_readiness.readiness_report_builder import build_readiness_disclaimer
     import json
+
+    from local_readiness.readiness_report_builder import build_readiness_disclaimer
+
     txt = build_readiness_disclaimer()
     txt += "Readiness Quality Report\n\n"
     if quality:
         txt += json.dumps(quality, indent=2) + "\n"
     return txt
 
+
 def build_readiness_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     from local_readiness.readiness_report_builder import build_readiness_disclaimer
+
     txt = build_readiness_disclaimer()
     txt += "Readiness Status Report\n\n"
     if status_df is not None and not status_df.empty:
         txt += status_df.to_string() + "\n"
     return txt
 
-
     # --- Local Maintenance Text Reports ---
-    def build_maintenance_domain_registry_text_report(self, summary: Dict[str, Any], domain_df: Optional[pd.DataFrame] = None) -> str:
+    def build_maintenance_domain_registry_text_report(
+        self, summary: Dict[str, Any], domain_df: Optional[pd.DataFrame] = None
+    ) -> str:
         lines = ["MAINTENANCE DOMAIN REGISTRY"]
         lines.append(build_maintenance_disclaimer())
         lines.append(f"Total Domains: {summary.get('total_domains', 0)}")
@@ -4596,7 +5001,9 @@ def build_readiness_status_report(status_df: pd.DataFrame, summary: dict) -> str
             lines.append(domain_df.to_string(index=False))
         return "\n".join(lines)
 
-    def build_periodic_review_calendar_text_report(self, summary: Dict[str, Any], calendar_df: Optional[pd.DataFrame] = None) -> str:
+    def build_periodic_review_calendar_text_report(
+        self, summary: Dict[str, Any], calendar_df: Optional[pd.DataFrame] = None
+    ) -> str:
         lines = ["PERIODIC REVIEW CALENDAR"]
         lines.append(build_maintenance_disclaimer())
         lines.append(f"Total Items: {summary.get('total_items', 0)}")
@@ -4604,7 +5011,9 @@ def build_readiness_status_report(status_df: pd.DataFrame, summary: dict) -> str
             lines.append(calendar_df.to_string(index=False))
         return "\n".join(lines)
 
-    def build_refresh_cadence_text_report(self, summary: Dict[str, Any], cadence_df: Optional[pd.DataFrame] = None) -> str:
+    def build_refresh_cadence_text_report(
+        self, summary: Dict[str, Any], cadence_df: Optional[pd.DataFrame] = None
+    ) -> str:
         lines = ["REFRESH CADENCE REGISTRY"]
         lines.append(build_maintenance_disclaimer())
         lines.append(f"Total Items: {summary.get('total_cadence_items', 0)}")
@@ -4612,7 +5021,9 @@ def build_readiness_status_report(status_df: pd.DataFrame, summary: dict) -> str
             lines.append(cadence_df.to_string(index=False))
         return "\n".join(lines)
 
-    def build_dependency_aging_text_report(self, summary: Dict[str, Any], dep_df: Optional[pd.DataFrame] = None) -> str:
+    def build_dependency_aging_text_report(
+        self, summary: Dict[str, Any], dep_df: Optional[pd.DataFrame] = None
+    ) -> str:
         lines = ["DEPENDENCY AGING WATCH"]
         lines.append(build_maintenance_disclaimer())
         lines.append(f"Total Dependencies: {summary.get('total_dependencies', 0)}")
@@ -4620,7 +5031,12 @@ def build_readiness_status_report(status_df: pd.DataFrame, summary: dict) -> str
             lines.append(dep_df.to_string(index=False))
         return "\n".join(lines)
 
-    def build_maintenance_sustainability_text_report(self, summary: Dict[str, Any], score_df: Optional[pd.DataFrame] = None, risk_df: Optional[pd.DataFrame] = None) -> str:
+    def build_maintenance_sustainability_text_report(
+        self,
+        summary: Dict[str, Any],
+        score_df: Optional[pd.DataFrame] = None,
+        risk_df: Optional[pd.DataFrame] = None,
+    ) -> str:
         lines = ["PROJECT SUSTAINABILITY REPORT"]
         lines.append(build_maintenance_disclaimer())
         if score_df is not None and not score_df.empty:
@@ -4631,16 +5047,20 @@ def build_readiness_status_report(status_df: pd.DataFrame, summary: dict) -> str
             lines.append(risk_df.to_string(index=False))
         return "\n".join(lines)
 
-    def build_maintenance_quality_text_report(self, summary: Dict[str, Any], quality: Optional[Dict[str, Any]] = None) -> str:
+    def build_maintenance_quality_text_report(
+        self, summary: Dict[str, Any], quality: Optional[Dict[str, Any]] = None
+    ) -> str:
         lines = ["MAINTENANCE QUALITY REPORT"]
         lines.append(build_maintenance_disclaimer())
         if quality:
             lines.append(f"Passed: {quality.get('passed', False)}")
-            for k, v in quality.get('checks', {}).items():
+            for k, v in quality.get("checks", {}).items():
                 lines.append(f" - {k}: {v}")
         return "\n".join(lines)
 
-    def build_maintenance_status_report(self, status_df: pd.DataFrame, summary: Dict[str, Any]) -> str:
+    def build_maintenance_status_report(
+        self, status_df: pd.DataFrame, summary: Dict[str, Any]
+    ) -> str:
         lines = ["MAINTENANCE STATUS REPORT"]
         lines.append(build_maintenance_disclaimer())
         lines.append(f"Total Files: {summary.get('total_files', 0)}")
@@ -4649,90 +5069,199 @@ def build_readiness_status_report(status_df: pd.DataFrame, summary: dict) -> str
         return "\n".join(lines)
 
     # Local Reuse Methods
-    def build_reuse_domain_registry_markdown_report(self, summary: dict, domain_df: pd.DataFrame | None = None) -> str: return ""
-    def build_final_audit_memory_pack_markdown_report(self, summary: dict, audit_text: str | None = None) -> str: return ""
-    def build_reusable_template_catalog_markdown_report(self, summary: dict, template_df: pd.DataFrame | None = None) -> str: return ""
-    def build_local_knowledge_reuse_kit_markdown_report(self, summary: dict, kit_text: str | None = None) -> str: return ""
-    def build_v1_1_planning_seed_markdown_report(self, summary: dict, seed_text: str | None = None) -> str: return ""
-    def build_reuse_quality_markdown_report(self, summary: dict, quality: dict | None = None) -> str: return ""
-    def build_reuse_status_markdown_report(self, summary: dict, status_df: pd.DataFrame | None = None) -> str: return ""
-    
-    def build_reuse_domain_registry_text_report(self, summary: dict, domain_df: pd.DataFrame | None = None) -> str: return ""
-    def build_final_audit_memory_pack_text_report(self, summary: dict, audit_text: str | None = None) -> str: return ""
-    def build_reusable_template_catalog_text_report(self, summary: dict, template_df: pd.DataFrame | None = None) -> str: return ""
-    def build_local_knowledge_reuse_kit_text_report(self, summary: dict, kit_text: str | None = None) -> str: return ""
-    def build_v1_1_planning_seed_text_report(self, summary: dict, seed_text: str | None = None) -> str: return ""
-    def build_reuse_quality_text_report(self, summary: dict, quality: dict | None = None) -> str: return ""
-    def build_reuse_status_report(self, status_df: pd.DataFrame, summary: dict) -> str: return ""
-    def build_reuse_disclaimer(self) -> str: return "Bu çıktı offline/local audit-memory ve knowledge reuse raporudur. Gerçek v1.1 implementation, production release, official standard, compliance sertifikası, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+    def build_reuse_domain_registry_markdown_report(
+        self, summary: dict, domain_df: pd.DataFrame | None = None
+    ) -> str:
+        return ""
+
+    def build_final_audit_memory_pack_markdown_report(
+        self, summary: dict, audit_text: str | None = None
+    ) -> str:
+        return ""
+
+    def build_reusable_template_catalog_markdown_report(
+        self, summary: dict, template_df: pd.DataFrame | None = None
+    ) -> str:
+        return ""
+
+    def build_local_knowledge_reuse_kit_markdown_report(
+        self, summary: dict, kit_text: str | None = None
+    ) -> str:
+        return ""
+
+    def build_v1_1_planning_seed_markdown_report(
+        self, summary: dict, seed_text: str | None = None
+    ) -> str:
+        return ""
+
+    def build_reuse_quality_markdown_report(
+        self, summary: dict, quality: dict | None = None
+    ) -> str:
+        return ""
+
+    def build_reuse_status_markdown_report(
+        self, summary: dict, status_df: pd.DataFrame | None = None
+    ) -> str:
+        return ""
+
+    def build_reuse_domain_registry_text_report(
+        self, summary: dict, domain_df: pd.DataFrame | None = None
+    ) -> str:
+        return ""
+
+    def build_final_audit_memory_pack_text_report(
+        self, summary: dict, audit_text: str | None = None
+    ) -> str:
+        return ""
+
+    def build_reusable_template_catalog_text_report(
+        self, summary: dict, template_df: pd.DataFrame | None = None
+    ) -> str:
+        return ""
+
+    def build_local_knowledge_reuse_kit_text_report(
+        self, summary: dict, kit_text: str | None = None
+    ) -> str:
+        return ""
+
+    def build_v1_1_planning_seed_text_report(
+        self, summary: dict, seed_text: str | None = None
+    ) -> str:
+        return ""
+
+    def build_reuse_quality_text_report(self, summary: dict, quality: dict | None = None) -> str:
+        return ""
+
+    def build_reuse_status_report(self, status_df: pd.DataFrame, summary: dict) -> str:
+        return ""
+
+    def build_reuse_disclaimer(self) -> str:
+        return "Bu çıktı offline/local audit-memory ve knowledge reuse raporudur. Gerçek v1.1 implementation, production release, official standard, compliance sertifikası, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
 
     def _build_simplification_disclaimer(self) -> str:
         return "Bu rapor offline/local modular simplification ve maintainability rehearsal ciktisidir. Gercek refactor, dosya silme/tasima, production cleanup, architecture approval, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir.\n\n"
 
-    def build_simplification_domain_registry_text_report(self, summary: dict, domain_df: pd.DataFrame | None = None) -> str:
-        return "Simplification Domain Registry Text Report\n" + self._build_simplification_disclaimer()
+    def build_simplification_domain_registry_text_report(
+        self, summary: dict, domain_df: pd.DataFrame | None = None
+    ) -> str:
+        return (
+            "Simplification Domain Registry Text Report\n" + self._build_simplification_disclaimer()
+        )
 
-    def build_final_modular_complexity_map_text_report(self, summary: dict, complexity_df: pd.DataFrame | None = None) -> str:
-        return "Final Modular Complexity Map Text Report\n" + self._build_simplification_disclaimer()
+    def build_final_modular_complexity_map_text_report(
+        self, summary: dict, complexity_df: pd.DataFrame | None = None
+    ) -> str:
+        return (
+            "Final Modular Complexity Map Text Report\n" + self._build_simplification_disclaimer()
+        )
 
-    def build_optional_slimming_plan_text_report(self, summary: dict, plan_df: pd.DataFrame | None = None) -> str:
+    def build_optional_slimming_plan_text_report(
+        self, summary: dict, plan_df: pd.DataFrame | None = None
+    ) -> str:
         return "Optional Slimming Plan Text Report\n" + self._build_simplification_disclaimer()
 
-    def build_repo_ergonomics_text_report(self, summary: dict, guide_text: str | None = None) -> str:
+    def build_repo_ergonomics_text_report(
+        self, summary: dict, guide_text: str | None = None
+    ) -> str:
         return "Repo Ergonomics Text Report\n" + self._build_simplification_disclaimer()
 
-    def build_maintainability_seed_text_report(self, summary: dict, seed_text: str | None = None) -> str:
+    def build_maintainability_seed_text_report(
+        self, summary: dict, seed_text: str | None = None
+    ) -> str:
         return "Maintainability Seed Text Report\n" + self._build_simplification_disclaimer()
 
-    def build_simplification_quality_text_report(self, summary: dict, quality: dict | None = None) -> str:
+    def build_simplification_quality_text_report(
+        self, summary: dict, quality: dict | None = None
+    ) -> str:
         return "Simplification Quality Text Report\n" + self._build_simplification_disclaimer()
 
     def build_simplification_status_report(self, status_df: pd.DataFrame, summary: dict) -> str:
         return "Simplification Status Text Report\n" + self._build_simplification_disclaimer()
 
-def build_usability_domain_registry_text_report(self, summary: dict, domain_df: pd.DataFrame | None = None) -> str:
+    def build_usability_domain_registry_text_report(
+        self, summary: dict, domain_df: pd.DataFrame | None = None
+    ) -> str:
         return "Bu çıktı offline/local usability review ve operator ergonomics rehearsal raporudur. Gerçek kullanıcı testi, telemetry, production usability approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
-    def build_final_local_usability_review_text_report(self, summary: dict, review_text: str | None = None) -> str:
+
+    def build_final_local_usability_review_text_report(
+        self, summary: dict, review_text: str | None = None
+    ) -> str:
         return "Bu çıktı offline/local usability review ve operator ergonomics rehearsal raporudur. Gerçek kullanıcı testi, telemetry, production usability approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
-    def build_command_discoverability_text_report(self, summary: dict, command_text: str | None = None) -> str:
+
+    def build_command_discoverability_text_report(
+        self, summary: dict, command_text: str | None = None
+    ) -> str:
         return "Bu çıktı offline/local usability review ve operator ergonomics rehearsal raporudur. Gerçek kullanıcı testi, telemetry, production usability approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
-    def build_documentation_navigation_text_report(self, summary: dict, nav_text: str | None = None) -> str:
+
+    def build_documentation_navigation_text_report(
+        self, summary: dict, nav_text: str | None = None
+    ) -> str:
         return "Bu çıktı offline/local usability review ve operator ergonomics rehearsal raporudur. Gerçek kullanıcı testi, telemetry, production usability approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
-    def build_operator_paths_text_report(self, summary: dict, path_df: pd.DataFrame | None = None) -> str:
+
+    def build_operator_paths_text_report(
+        self, summary: dict, path_df: pd.DataFrame | None = None
+    ) -> str:
         return "Bu çıktı offline/local usability review ve operator ergonomics rehearsal raporudur. Gerçek kullanıcı testi, telemetry, production usability approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
-    def build_usability_quality_text_report(self, summary: dict, quality: dict | None = None) -> str:
+
+    def build_usability_quality_text_report(
+        self, summary: dict, quality: dict | None = None
+    ) -> str:
         return "Bu çıktı offline/local usability review ve operator ergonomics rehearsal raporudur. Gerçek kullanıcı testi, telemetry, production usability approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+
     def build_usability_status_report(self, status_df: pd.DataFrame, summary: dict) -> str:
         return "Bu çıktı offline/local usability review ve operator ergonomics rehearsal raporudur. Gerçek kullanıcı testi, telemetry, production usability approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
 
+
 # Phase 85 Additions
-def build_governance_domain_registry_text_report(summary: dict, domain_df: pd.DataFrame | None = None) -> str:
+def build_governance_domain_registry_text_report(
+    summary: dict, domain_df: pd.DataFrame | None = None
+) -> str:
     return "Bu çıktı offline/local governance rehearsal ve operator supervision raporudur. Gerçek yönetim kararı, risk komitesi onayı, compliance sign-off, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+
+
 def build_control_room_packet_text_report(summary: dict, packet_text: str | None = None) -> str:
     return "Bu çıktı offline/local governance rehearsal ve operator supervision raporudur. Gerçek yönetim kararı, risk komitesi onayı, compliance sign-off, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+
+
 def build_executive_oversight_text_report(summary: dict, packet_text: str | None = None) -> str:
     return "Bu çıktı offline/local governance rehearsal ve operator supervision raporudur. Gerçek yönetim kararı, risk komitesi onayı, compliance sign-off, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
-def build_manual_approval_ledger_text_report(summary: dict, approval_df: pd.DataFrame | None = None) -> str:
+
+
+def build_manual_approval_ledger_text_report(
+    summary: dict, approval_df: pd.DataFrame | None = None
+) -> str:
     return "Bu çıktı offline/local governance rehearsal ve operator supervision raporudur. Gerçek yönetim kararı, risk komitesi onayı, compliance sign-off, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
-def build_risk_committee_rehearsal_text_report(summary: dict, packet_text: str | None = None) -> str:
+
+
+def build_risk_committee_rehearsal_text_report(
+    summary: dict, packet_text: str | None = None
+) -> str:
     return "Bu çıktı offline/local governance rehearsal ve operator supervision raporudur. Gerçek yönetim kararı, risk komitesi onayı, compliance sign-off, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+
+
 def build_governance_quality_text_report(summary: dict, quality: dict | None = None) -> str:
     return "Bu çıktı offline/local governance rehearsal ve operator supervision raporudur. Gerçek yönetim kararı, risk komitesi onayı, compliance sign-off, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+
+
 def build_governance_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     return "Bu çıktı offline/local governance rehearsal ve operator supervision raporudur. Gerçek yönetim kararı, risk komitesi onayı, compliance sign-off, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
 
     # Phase 86: Local RedTeam Reports
-    def build_redteam_domain_registry_text_report(self, summary: dict, domain_df: pd.DataFrame | None = None) -> str:
+    def build_redteam_domain_registry_text_report(
+        self, summary: dict, domain_df: pd.DataFrame | None = None
+    ) -> str:
         report = "LOCAL REDTEAM DOMAIN REGISTRY REPORT\n"
-        report += "="*40 + "\n\n"
+        report += "=" * 40 + "\n\n"
         report += "Bu çıktı offline/local red-team rehearsal ve safety assurance raporudur. Gerçek adversarial attack, jailbreak, exploit, credential exfiltration, production safety approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\n\n"
         for k, v in summary.items():
             report += f"{k}: {v}\n"
         return report
 
-    def build_redteam_rehearsal_packet_text_report(self, summary: dict, packet_text: str | None = None) -> str:
+    def build_redteam_rehearsal_packet_text_report(
+        self, summary: dict, packet_text: str | None = None
+    ) -> str:
         report = "FINAL LOCAL REDTEAM REHEARSAL PACKET\n"
-        report += "="*40 + "\n\n"
+        report += "=" * 40 + "\n\n"
         report += "Bu çıktı offline/local red-team rehearsal ve safety assurance raporudur. Gerçek adversarial attack, jailbreak, exploit, credential exfiltration, production safety approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\n\n"
         if packet_text:
             report += packet_text + "\n\n"
@@ -4740,25 +5269,31 @@ def build_governance_status_report(status_df: pd.DataFrame, summary: dict) -> st
             report += f"{k}: {v}\n"
         return report
 
-    def build_misuse_scenario_library_text_report(self, summary: dict, scenario_df: pd.DataFrame | None = None) -> str:
+    def build_misuse_scenario_library_text_report(
+        self, summary: dict, scenario_df: pd.DataFrame | None = None
+    ) -> str:
         report = "MISUSE SCENARIO LIBRARY\n"
-        report += "="*40 + "\n\n"
+        report += "=" * 40 + "\n\n"
         report += "Bu çıktı offline/local red-team rehearsal ve safety assurance raporudur. Gerçek adversarial attack, jailbreak, exploit, credential exfiltration, production safety approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\n\n"
         for k, v in summary.items():
             report += f"{k}: {v}\n"
         return report
 
-    def build_adversarial_prompt_checklist_text_report(self, summary: dict, check_df: pd.DataFrame | None = None) -> str:
+    def build_adversarial_prompt_checklist_text_report(
+        self, summary: dict, check_df: pd.DataFrame | None = None
+    ) -> str:
         report = "ADVERSARIAL PROMPT SAFETY CHECKLIST\n"
-        report += "="*40 + "\n\n"
+        report += "=" * 40 + "\n\n"
         report += "Bu çıktı offline/local red-team rehearsal ve safety assurance raporudur. Gerçek adversarial attack, jailbreak, exploit, credential exfiltration, production safety approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\n\n"
         for k, v in summary.items():
             report += f"{k}: {v}\n"
         return report
 
-    def build_safety_assurance_text_report(self, summary: dict, assurance_text: str | None = None) -> str:
+    def build_safety_assurance_text_report(
+        self, summary: dict, assurance_text: str | None = None
+    ) -> str:
         report = "SAFETY ASSURANCE SUMMARY\n"
-        report += "="*40 + "\n\n"
+        report += "=" * 40 + "\n\n"
         report += "Bu çıktı offline/local red-team rehearsal ve safety assurance raporudur. Gerçek adversarial attack, jailbreak, exploit, credential exfiltration, production safety approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\n\n"
         for k, v in summary.items():
             report += f"{k}: {v}\n"
@@ -4766,7 +5301,7 @@ def build_governance_status_report(status_df: pd.DataFrame, summary: dict) -> st
 
     def build_redteam_quality_text_report(self, summary: dict, quality: dict | None = None) -> str:
         report = "REDTEAM QUALITY REPORT\n"
-        report += "="*40 + "\n\n"
+        report += "=" * 40 + "\n\n"
         report += "Bu çıktı offline/local red-team rehearsal ve safety assurance raporudur. Gerçek adversarial attack, jailbreak, exploit, credential exfiltration, production safety approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\n\n"
         for k, v in summary.items():
             report += f"{k}: {v}\n"
@@ -4774,105 +5309,119 @@ def build_governance_status_report(status_df: pd.DataFrame, summary: dict) -> st
 
     def build_redteam_status_report(self, status_df: pd.DataFrame, summary: dict) -> str:
         report = "REDTEAM STATUS REPORT\n"
-        report += "="*40 + "\n\n"
+        report += "=" * 40 + "\n\n"
         report += "Bu çıktı offline/local red-team rehearsal ve safety assurance raporudur. Gerçek adversarial attack, jailbreak, exploit, credential exfiltration, production safety approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\n\n"
         for k, v in summary.items():
             report += f"{k}: {v}\n"
         return report
 
-
     # Local Long-Term Operations
     def build_longterm_domain_registry_text_report(self, summary: dict, domain_df=None) -> str:
         return f"Long-Term Domain Registry\n{summary}\n\nBu çıktı offline/local long-term operations rehearsal ve lifecycle roadmap governance raporudur. Gerçek production operations plan, official lifecycle policy, release commitment, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
-        
+
     def build_operations_binder_text_report(self, summary: dict, binder_text: str = None) -> str:
         return f"Operations Binder\n{binder_text or summary}\n\nBu çıktı offline/local long-term operations rehearsal ve lifecycle roadmap governance raporudur. Gerçek production operations plan, official lifecycle policy, release commitment, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
-        
+
     def build_review_calendar_text_report(self, summary: dict, calendar_df=None) -> str:
         return f"Review Calendar\n{summary}\n\nBu çıktı offline/local long-term operations rehearsal ve lifecycle roadmap governance raporudur. Gerçek production operations plan, official lifecycle policy, release commitment, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
-        
+
     def build_lifecycle_workbook_text_report(self, summary: dict, workbook_df=None) -> str:
         return f"Lifecycle Workbook\n{summary}\n\nBu çıktı offline/local long-term operations rehearsal ve lifecycle roadmap governance raporudur. Gerçek production operations plan, official lifecycle policy, release commitment, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
-        
+
     def build_deprecation_rehearsal_text_report(self, summary: dict, deprecation_df=None) -> str:
         return f"Deprecation Rehearsal\n{summary}\n\nBu çıktı offline/local long-term operations rehearsal ve lifecycle roadmap governance raporudur. Gerçek production operations plan, official lifecycle policy, release commitment, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
-        
-    def build_v1x_roadmap_governance_text_report(self, summary: dict, roadmap_text: str = None) -> str:
+
+    def build_v1x_roadmap_governance_text_report(
+        self, summary: dict, roadmap_text: str = None
+    ) -> str:
         return f"Roadmap Governance\n{roadmap_text or summary}\n\nBu çıktı offline/local long-term operations rehearsal ve lifecycle roadmap governance raporudur. Gerçek production operations plan, official lifecycle policy, release commitment, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
-        
+
     def build_lifecycle_quality_text_report(self, summary: dict, quality: dict = None) -> str:
         return f"Lifecycle Quality\n{quality or summary}\n\nBu çıktı offline/local long-term operations rehearsal ve lifecycle roadmap governance raporudur. Gerçek production operations plan, official lifecycle policy, release commitment, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
-        
+
     def build_lifecycle_status_report(self, status_df, summary: dict) -> str:
         return f"Lifecycle Status\n{summary}\n\nBu çıktı offline/local long-term operations rehearsal ve lifecycle roadmap governance raporudur. Gerçek production operations plan, official lifecycle policy, release commitment, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
 
     # --- Local Incident Response Phase 87 ---
     def build_incident_domain_registry_text_report(self, summary, domain_df=None):
         return f"{summary}\n\nUyarı: Bu çıktı offline/local incident-response rehearsal ve resilience supervision raporudur. Gerçek incident response, forensic analiz, production rollback, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+
     def build_incident_rehearsal_packet_text_report(self, summary, packet_text=None):
         return f"{summary}\n\nUyarı: Bu çıktı offline/local incident-response rehearsal ve resilience supervision raporudur. Gerçek incident response, forensic analiz, production rollback, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+
     def build_safety_event_register_text_report(self, summary, event_df=None):
         return f"{summary}\n\nUyarı: Bu çıktı offline/local incident-response rehearsal ve resilience supervision raporudur. Gerçek incident response, forensic analiz, production rollback, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+
     def build_rollback_decision_playbook_text_report(self, summary, playbook_text=None):
         return f"{summary}\n\nUyarı: Bu çıktı offline/local incident-response rehearsal ve resilience supervision raporudur. Gerçek incident response, forensic analiz, production rollback, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+
     def build_post_incident_review_template_text_report(self, summary, template_df=None):
         return f"{summary}\n\nUyarı: Bu çıktı offline/local incident-response rehearsal ve resilience supervision raporudur. Gerçek incident response, forensic analiz, production rollback, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+
     def build_incident_quality_text_report(self, summary, quality=None):
         return f"{summary}\n\nUyarı: Bu çıktı offline/local incident-response rehearsal ve resilience supervision raporudur. Gerçek incident response, forensic analiz, production rollback, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+
     def build_incident_status_report(self, status_df, summary):
         return f"{summary}\n\nUyarı: Bu çıktı offline/local incident-response rehearsal ve resilience supervision raporudur. Gerçek incident response, forensic analiz, production rollback, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
 
     # Local Project Completion textual reports
     def build_completion_domain_registry_text_report(self, summary: dict, domain_df=None) -> str:
         return "Bu çıktı offline/local system closure rehearsal ve project completion dossier raporudur. Gerçek project closure, official completion approval, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nDomain Registry Text"
-    
+
     def build_system_closure_dossier_text_report(self, summary: dict, dossier_text=None) -> str:
         return "Bu çıktı offline/local system closure rehearsal ve project completion dossier raporudur. Gerçek project closure, official completion approval, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nDossier Text"
-    
+
     def build_terminal_handoff_pack_text_report(self, summary: dict, handoff_text=None) -> str:
         return "Bu çıktı offline/local system closure rehearsal ve project completion dossier raporudur. Gerçek project closure, official completion approval, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nHandoff Text"
-    
+
     def build_knowledge_freeze_text_report(self, summary: dict, freeze_df=None) -> str:
         return "Bu çıktı offline/local system closure rehearsal ve project completion dossier raporudur. Gerçek project closure, official completion approval, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nFreeze Text"
-    
+
     def build_last_mile_audit_text_report(self, summary: dict, audit_text=None) -> str:
         return "Bu çıktı offline/local system closure rehearsal ve project completion dossier raporudur. Gerçek project closure, official completion approval, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nAudit Text"
-    
-    def build_project_completion_readiness_text_report(self, summary: dict, readiness_text=None) -> str:
+
+    def build_project_completion_readiness_text_report(
+        self, summary: dict, readiness_text=None
+    ) -> str:
         return "Bu çıktı offline/local system closure rehearsal ve project completion dossier raporudur. Gerçek project closure, official completion approval, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nReadiness Text"
-    
+
     def build_completion_quality_text_report(self, summary: dict, quality=None) -> str:
         return "Bu çıktı offline/local system closure rehearsal ve project completion dossier raporudur. Gerçek project closure, official completion approval, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nQuality Text"
-    
+
     def build_completion_status_report(self, status_df, summary: dict) -> str:
         return "Bu çıktı offline/local system closure rehearsal ve project completion dossier raporudur. Gerçek project closure, official completion approval, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nStatus Text"
-
-
 
     # Local Continuity Intelligence Methods
     def build_continuity_domain_registry_text_report(self, summary, domain_df=None):
         return "Bu çıktı offline/local continuity intelligence ve operator memory rehearsal raporudur. Gerçek operator memory sistemi, official decision record, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+
     def build_operator_memory_book_text_report(self, summary, memory_text=None):
         return "Bu çıktı offline/local continuity intelligence ve operator memory rehearsal raporudur. Gerçek operator memory sistemi, official decision record, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+
     def build_lessons_learned_codex_text_report(self, summary, lessons_text=None):
         return "Bu çıktı offline/local continuity intelligence ve operator memory rehearsal raporudur. Gerçek operator memory sistemi, official decision record, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+
     def build_decision_rationale_text_report(self, summary, decision_text=None):
         return "Bu çıktı offline/local continuity intelligence ve operator memory rehearsal raporudur. Gerçek operator memory sistemi, official decision record, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+
     def build_future_reader_guide_text_report(self, summary, reader_text=None):
         return "Bu çıktı offline/local continuity intelligence ve operator memory rehearsal raporudur. Gerçek operator memory sistemi, official decision record, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+
     def build_continuity_binder_text_report(self, summary, binder_text=None):
         return "Bu çıktı offline/local continuity intelligence ve operator memory rehearsal raporudur. Gerçek operator memory sistemi, official decision record, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+
     def build_continuity_quality_text_report(self, summary, quality=None):
         return "Bu çıktı offline/local continuity intelligence ve operator memory rehearsal raporudur. Gerçek operator memory sistemi, official decision record, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
+
     def build_continuity_status_report(self, status_df, summary):
         return "Bu çıktı offline/local continuity intelligence ve operator memory rehearsal raporudur. Gerçek operator memory sistemi, official decision record, production approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
-
-
 
     # Phase 93
     def _build_atlas_text(self, title: str, summary: dict, df: pd.DataFrame | None = None) -> str:
         lines = [f"{title.upper()}", "=" * len(title), ""]
-        lines.append("Uyari: Bu cikti offline/local project atlas ve meta-index raporudur. Gercek enterprise search, cloud index, vector DB, official knowledge index, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir.")
+        lines.append(
+            "Uyari: Bu cikti offline/local project atlas ve meta-index raporudur. Gercek enterprise search, cloud index, vector DB, official knowledge index, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+        )
         lines.append("")
         for k, v in summary.items():
             lines.append(f"{k}: {v}")
@@ -4881,93 +5430,177 @@ def build_governance_status_report(status_df: pd.DataFrame, summary: dict) -> st
             lines.append(df.to_string(index=False))
         return "\n".join(lines)
 
-    def build_atlas_domain_registry_text_report(self, summary: dict, domain_df: pd.DataFrame | None = None) -> str: return self._build_atlas_text("Atlas Domain Registry", summary, domain_df)
-    def build_meta_index_text_report(self, summary: dict, meta_df: pd.DataFrame | None = None) -> str: return self._build_atlas_text("Final Local Meta-Index", summary, meta_df)
-    def build_universal_navigation_text_report(self, summary: dict, nav_df: pd.DataFrame | None = None) -> str: return self._build_atlas_text("Universal Navigation Map", summary, nav_df)
-    def build_cross_phase_lookup_text_report(self, summary: dict, lookup_df: pd.DataFrame | None = None) -> str: return self._build_atlas_text("Cross-Phase Lookup", summary, lookup_df)
-    def build_semantic_toc_text_report(self, summary: dict, toc_text: str | None = None) -> str: return self._build_atlas_text("Semantic TOC", summary) + f"\n\n{toc_text or ''}"
-    def build_terminal_project_atlas_text_report(self, summary: dict, atlas_text: str | None = None) -> str: return self._build_atlas_text("Terminal Project Atlas", summary) + f"\n\n{atlas_text or ''}"
-    def build_meta_index_quality_text_report(self, summary: dict, quality: dict | None = None) -> str: return self._build_atlas_text("Quality Report", summary)
-    def build_meta_index_status_report(self, status_df: pd.DataFrame, summary: dict) -> str: return self._build_atlas_text("Status Report", summary, status_df)
+    def build_atlas_domain_registry_text_report(
+        self, summary: dict, domain_df: pd.DataFrame | None = None
+    ) -> str:
+        return self._build_atlas_text("Atlas Domain Registry", summary, domain_df)
+
+    def build_meta_index_text_report(
+        self, summary: dict, meta_df: pd.DataFrame | None = None
+    ) -> str:
+        return self._build_atlas_text("Final Local Meta-Index", summary, meta_df)
+
+    def build_universal_navigation_text_report(
+        self, summary: dict, nav_df: pd.DataFrame | None = None
+    ) -> str:
+        return self._build_atlas_text("Universal Navigation Map", summary, nav_df)
+
+    def build_cross_phase_lookup_text_report(
+        self, summary: dict, lookup_df: pd.DataFrame | None = None
+    ) -> str:
+        return self._build_atlas_text("Cross-Phase Lookup", summary, lookup_df)
+
+    def build_semantic_toc_text_report(self, summary: dict, toc_text: str | None = None) -> str:
+        return self._build_atlas_text("Semantic TOC", summary) + f"\n\n{toc_text or ''}"
+
+    def build_terminal_project_atlas_text_report(
+        self, summary: dict, atlas_text: str | None = None
+    ) -> str:
+        return self._build_atlas_text("Terminal Project Atlas", summary) + f"\n\n{atlas_text or ''}"
+
+    def build_meta_index_quality_text_report(
+        self, summary: dict, quality: dict | None = None
+    ) -> str:
+        return self._build_atlas_text("Quality Report", summary)
+
+    def build_meta_index_status_report(self, status_df: pd.DataFrame, summary: dict) -> str:
+        return self._build_atlas_text("Status Report", summary, status_df)
+
 
 import pandas as pd
 
-def build_review_domain_registry_text_report(summary: dict, domain_df: pd.DataFrame | None = None) -> str:
+
+def build_review_domain_registry_text_report(
+    summary: dict, domain_df: pd.DataFrame | None = None
+) -> str:
     return "Review Governance Domain Registry\nOffline/local human-review rehearsal and terminal review governance raporudur. Gercek approval workflow, expert sign-off, legal/compliance approval, production approval, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+
+
 def build_human_review_cockpit_text_report(summary: dict, cockpit_text: str | None = None) -> str:
     return "Final Local Human-Review Cockpit\nOffline/local human-review rehearsal and terminal review governance raporudur. Gercek approval workflow, expert sign-off, legal/compliance approval, production approval, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+
+
 def build_manual_approval_ledger_text_report(summary: dict, ledger_text: str | None = None) -> str:
     return "Manual Approval Ledger Rehearsal\nOffline/local human-review rehearsal and terminal review governance raporudur. Gercek approval workflow, expert sign-off, legal/compliance approval, production approval, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
-def build_expert_review_workbook_text_report(summary: dict, expert_df: pd.DataFrame | None = None) -> str:
+
+
+def build_expert_review_workbook_text_report(
+    summary: dict, expert_df: pd.DataFrame | None = None
+) -> str:
     return "Expert Review Workbook\nOffline/local human-review rehearsal and terminal review governance raporudur. Gercek approval workflow, expert sign-off, legal/compliance approval, production approval, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+
+
 def build_reviewer_console_text_report(summary: dict, console_text: str | None = None) -> str:
     return "Offline Reviewer Console\nOffline/local human-review rehearsal and terminal review governance raporudur. Gercek approval workflow, expert sign-off, legal/compliance approval, production approval, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
-def build_review_governance_binder_text_report(summary: dict, binder_text: str | None = None) -> str:
+
+
+def build_review_governance_binder_text_report(
+    summary: dict, binder_text: str | None = None
+) -> str:
     return "Terminal Review Governance Binder\nOffline/local human-review rehearsal and terminal review governance raporudur. Gercek approval workflow, expert sign-off, legal/compliance approval, production approval, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+
+
 def build_review_quality_text_report(summary: dict, quality: dict | None = None) -> str:
     return "Review Quality Report\nOffline/local human-review rehearsal and terminal review governance raporudur. Gercek approval workflow, expert sign-off, legal/compliance approval, production approval, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+
+
 def build_review_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     return "Review Status Report\nOffline/local human-review rehearsal and terminal review governance raporudur. Gercek approval workflow, expert sign-off, legal/compliance approval, production approval, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
-\n
-    def build_documentation_export_domain_registry_text_report(self, summary: dict, domain_df=None) -> str:
+
+    def build_documentation_export_domain_registry_text_report(
+        self, summary: dict, domain_df=None
+    ) -> str:
         return "Bu çıktı offline/local documentation export rehearsal ve printable documentation pack raporudur. Gerçek static site deployment, web dashboard, PDF export, presentation deck, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nDomain Registry"
+
     def build_static_site_export_text_report(self, summary: dict, static_text=None) -> str:
         return "Bu çıktı offline/local documentation export rehearsal ve printable documentation pack raporudur. Gerçek static site deployment, web dashboard, PDF export, presentation deck, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nStatic Site Export"
+
     def build_offline_html_pack_text_report(self, summary: dict, html_text=None) -> str:
         return "Bu çıktı offline/local documentation export rehearsal ve printable documentation pack raporudur. Gerçek static site deployment, web dashboard, PDF export, presentation deck, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nOffline HTML Pack"
+
     def build_printable_binder_text_report(self, summary: dict, binder_text=None) -> str:
         return "Bu çıktı offline/local documentation export rehearsal ve printable documentation pack raporudur. Gerçek static site deployment, web dashboard, PDF export, presentation deck, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nPrintable Binder"
+
     def build_pdf_ready_docs_text_report(self, summary: dict, pdf_ready_text=None) -> str:
         return "Bu çıktı offline/local documentation export rehearsal ve printable documentation pack raporudur. Gerçek static site deployment, web dashboard, PDF export, presentation deck, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nPDF-Ready Docs"
+
     def build_presentation_freeze_text_report(self, summary: dict, freeze_text=None) -> str:
         return "Bu çıktı offline/local documentation export rehearsal ve printable documentation pack raporudur. Gerçek static site deployment, web dashboard, PDF export, presentation deck, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nPresentation Freeze"
+
     def build_documentation_export_quality_text_report(self, summary: dict, quality=None) -> str:
         return "Bu çıktı offline/local documentation export rehearsal ve printable documentation pack raporudur. Gerçek static site deployment, web dashboard, PDF export, presentation deck, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nQuality Report"
+
     def build_documentation_export_status_report(self, status_df, summary: dict) -> str:
         return "Bu çıktı offline/local documentation export rehearsal ve printable documentation pack raporudur. Gerçek static site deployment, web dashboard, PDF export, presentation deck, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nStatus Report"
 
     # Phase 96: Local Distribution Packaging Text Reports
-    def build_packaging_domain_registry_text_report(self, summary: dict, domain_df: pd.DataFrame | None = None) -> str:
+    def build_packaging_domain_registry_text_report(
+        self, summary: dict, domain_df: pd.DataFrame | None = None
+    ) -> str:
         return f"Packaging Domain Registry\n{self._get_packaging_disclaimer()}"
 
-    def build_distribution_bundle_text_report(self, summary: dict, bundle_text: str | None = None) -> str:
+    def build_distribution_bundle_text_report(
+        self, summary: dict, bundle_text: str | None = None
+    ) -> str:
         return f"Distribution Bundle\n{self._get_packaging_disclaimer()}\n\n{bundle_text or ''}"
 
-    def build_portable_docs_bundle_text_report(self, summary: dict, portable_text: str | None = None) -> str:
+    def build_portable_docs_bundle_text_report(
+        self, summary: dict, portable_text: str | None = None
+    ) -> str:
         return f"Portable Docs Bundle\n{self._get_packaging_disclaimer()}\n\n{portable_text or ''}"
 
-    def build_release_folder_manifest_text_report(self, summary: dict, folder_text: str | None = None) -> str:
+    def build_release_folder_manifest_text_report(
+        self, summary: dict, folder_text: str | None = None
+    ) -> str:
         return f"Release Folder Manifest\n{self._get_packaging_disclaimer()}\n\n{folder_text or ''}"
 
     def build_handover_zip_map_text_report(self, summary: dict, zip_text: str | None = None) -> str:
         return f"Handover ZIP-Map\n{self._get_packaging_disclaimer()}\n\n{zip_text or ''}"
 
-    def build_packaging_governance_text_report(self, summary: dict, governance_text: str | None = None) -> str:
-        return f"Packaging Governance\n{self._get_packaging_disclaimer()}\n\n{governance_text or ''}"
+    def build_packaging_governance_text_report(
+        self, summary: dict, governance_text: str | None = None
+    ) -> str:
+        return (
+            f"Packaging Governance\n{self._get_packaging_disclaimer()}\n\n{governance_text or ''}"
+        )
 
-    def build_packaging_quality_text_report(self, summary: dict, quality: dict | None = None) -> str:
+    def build_packaging_quality_text_report(
+        self, summary: dict, quality: dict | None = None
+    ) -> str:
         return f"Packaging Quality Report\n{self._get_packaging_disclaimer()}"
 
     def build_packaging_status_report(self, status_df: pd.DataFrame, summary: dict) -> str:
         return f"Packaging Status\n{self._get_packaging_disclaimer()}"
-        
+
     def _get_packaging_disclaimer(self) -> str:
         return "Bu cikti offline/local distribution bundle rehearsal ve packaging governance raporudur. Gercek ZIP/archive, package publish, deployment, official handover, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
-\n
-    def build_reproducibility_domain_registry_text_report(self, summary: dict, domain_df=None) -> str:
+
+    def build_reproducibility_domain_registry_text_report(
+        self, summary: dict, domain_df=None
+    ) -> str:
         return "Bu cikti offline/local reproducibility dossier ve build-free reproduction governance raporudur. Gercek build, CI/CD, Docker image, dependency install, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+
     def build_reproducibility_dossier_text_report(self, summary: dict, dossier_text=None) -> str:
         return "Bu cikti offline/local reproducibility dossier ve build-free reproduction governance raporudur. Gercek build, CI/CD, Docker image, dependency install, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+
     def build_environment_replay_text_report(self, summary: dict, replay_text=None) -> str:
         return "Bu cikti offline/local reproducibility dossier ve build-free reproduction governance raporudur. Gercek build, CI/CD, Docker image, dependency install, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+
     def build_deterministic_runbook_text_report(self, summary: dict, runbook_text=None) -> str:
         return "Bu cikti offline/local reproducibility dossier ve build-free reproduction governance raporudur. Gercek build, CI/CD, Docker image, dependency install, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
-    def build_build_free_reproduction_text_report(self, summary: dict, reproduction_text=None) -> str:
+
+    def build_build_free_reproduction_text_report(
+        self, summary: dict, reproduction_text=None
+    ) -> str:
         return "Bu cikti offline/local reproducibility dossier ve build-free reproduction governance raporudur. Gercek build, CI/CD, Docker image, dependency install, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
-    def build_reproducibility_governance_text_report(self, summary: dict, governance_text=None) -> str:
+
+    def build_reproducibility_governance_text_report(
+        self, summary: dict, governance_text=None
+    ) -> str:
         return "Bu cikti offline/local reproducibility dossier ve build-free reproduction governance raporudur. Gercek build, CI/CD, Docker image, dependency install, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+
     def build_reproducibility_quality_text_report(self, summary: dict, quality=None) -> str:
         return "Bu cikti offline/local reproducibility dossier ve build-free reproduction governance raporudur. Gercek build, CI/CD, Docker image, dependency install, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
+
     def build_reproducibility_status_report(self, status_df, summary: dict) -> str:
         return "Bu cikti offline/local reproducibility dossier ve build-free reproduction governance raporudur. Gercek build, CI/CD, Docker image, dependency install, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
-\n
