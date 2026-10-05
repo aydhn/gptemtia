@@ -1,4 +1,6 @@
-from typing import Tuple, Dict, Any, List
+from typing import Any
+
+import numpy as np
 import pandas as pd
 
 from advanced_feature_fusion.fusion_feature_config import (
@@ -6,8 +8,7 @@ from advanced_feature_fusion.fusion_feature_config import (
     get_default_fusion_feature_profile,
 )
 
-
-NEWS_TAG_FEATURES: List[Dict[str, Any]] = [
+NEWS_TAG_FEATURES: list[dict[str, Any]] = [
     {
         "feature_name": "news_asset_tag_count_placeholder",
         "fusion_family": "fusion_family_news_metadata",
@@ -29,7 +30,7 @@ NEWS_TAG_FEATURES: List[Dict[str, Any]] = [
 
 def build_news_asset_tag_feature_fusion_registry(
     profile: FusionFeatureProfile | None = None,
-) -> Tuple[pd.DataFrame, Dict[str, Any]]:
+) -> tuple[pd.DataFrame, dict[str, Any]]:
     active_profile = profile or get_default_fusion_feature_profile()
     df = pd.DataFrame(NEWS_TAG_FEATURES)
     summary = summarize_news_asset_tag_feature_fusion(df)
@@ -45,9 +46,9 @@ def add_news_asset_tag_count_placeholder(
 ) -> pd.DataFrame:
     result = df.copy()
     if tag_field in result.columns:
-        result[output_field] = result[tag_field].apply(
-            lambda x: len(str(x).split(",")) if pd.notna(x) and str(x).strip() != "" else 0
-        )
+        s_str = result[tag_field].fillna("").astype(str)
+        counts = s_str.str.count(",") + 1
+        result[output_field] = np.where(s_str.str.strip() == "", 0, counts).astype(int)
     else:
         result[output_field] = 0
     return result
@@ -60,15 +61,15 @@ def add_news_macro_tag_count_placeholder(
 ) -> pd.DataFrame:
     result = df.copy()
     if tag_field in result.columns:
-        result[output_field] = result[tag_field].apply(
-            lambda x: len(str(x).split(",")) if pd.notna(x) and str(x).strip() != "" else 0
-        )
+        s_str = result[tag_field].fillna("").astype(str)
+        counts = s_str.str.count(",") + 1
+        result[output_field] = np.where(s_str.str.strip() == "", 0, counts).astype(int)
     else:
         result[output_field] = 0
     return result
 
 
-def summarize_news_asset_tag_feature_fusion(df: pd.DataFrame) -> Dict[str, Any]:
+def summarize_news_asset_tag_feature_fusion(df: pd.DataFrame) -> dict[str, Any]:
     if df.empty:
         return {"total_features": 0, "status": "EMPTY"}
     return {
