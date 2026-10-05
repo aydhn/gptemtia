@@ -5,11 +5,18 @@ from config.settings import Settings
 from local_briefing.briefing_config import get_local_briefing_profile
 from local_briefing.briefing_pipeline import LocalBriefingPipeline
 
-def main():
+def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--profile", type=str, default="balanced_local_briefing")
     parser.add_argument("--save", type=bool, default=True)
     args, _ = parser.parse_known_args()
+    return args
+
+def main():
+    args = parse_args()
+
+
+
     
     settings = Settings()
     data_lake = DataLake("data/lake")

@@ -1,6 +1,6 @@
 
 import pytest
-from commodity_fx_signal_bot.local_hardening.hardening_config import validate_local_hardening_profiles, get_default_local_hardening_profile, LocalHardeningProfile, ConfigError
+from local_hardening.hardening_config import validate_local_hardening_profiles, get_default_local_hardening_profile, LocalHardeningProfile, ConfigError
 
 def test_config():
     validate_local_hardening_profiles()

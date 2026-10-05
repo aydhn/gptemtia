@@ -1,6 +1,6 @@
 
 import pytest
-from commodity_fx_signal_bot.local_hardening.hardening_labels import list_hardening_domain_labels, list_dead_code_labels, list_contract_labels, list_freeze_status_labels, list_hardening_risk_labels, validate_hardening_domain_label, validate_freeze_status
+from local_hardening.hardening_labels import list_hardening_domain_labels, list_dead_code_labels, list_contract_labels, list_freeze_status_labels, list_hardening_risk_labels, validate_hardening_domain_label, validate_freeze_status
 
 def test_labels():
     assert len(list_hardening_domain_labels()) > 0

@@ -4690,7 +4690,7 @@ def build_readiness_status_report(status_df: pd.DataFrame, summary: dict) -> str
     def build_simplification_status_report(self, status_df: pd.DataFrame, summary: dict) -> str:
         return "Simplification Status Text Report\n" + self._build_simplification_disclaimer()
 
-def build_usability_domain_registry_text_report(self, summary: dict, domain_df: pd.DataFrame | None = None) -> str:
+    def build_usability_domain_registry_text_report(self, summary: dict, domain_df: pd.DataFrame | None = None) -> str:
         return "Bu çıktı offline/local usability review ve operator ergonomics rehearsal raporudur. Gerçek kullanıcı testi, telemetry, production usability approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
     def build_final_local_usability_review_text_report(self, summary: dict, review_text: str | None = None) -> str:
         return "Bu çıktı offline/local usability review ve operator ergonomics rehearsal raporudur. Gerçek kullanıcı testi, telemetry, production usability approval, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir."
@@ -4908,7 +4908,6 @@ def build_review_quality_text_report(summary: dict, quality: dict | None = None)
     return "Review Quality Report\nOffline/local human-review rehearsal and terminal review governance raporudur. Gercek approval workflow, expert sign-off, legal/compliance approval, production approval, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
 def build_review_status_report(status_df: pd.DataFrame, summary: dict) -> str:
     return "Review Status Report\nOffline/local human-review rehearsal and terminal review governance raporudur. Gercek approval workflow, expert sign-off, legal/compliance approval, production approval, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
-\n
     def build_documentation_export_domain_registry_text_report(self, summary: dict, domain_df=None) -> str:
         return "Bu çıktı offline/local documentation export rehearsal ve printable documentation pack raporudur. Gerçek static site deployment, web dashboard, PDF export, presentation deck, canlı emir, broker talimatı, model deployment veya yatırım tavsiyesi değildir.\nDomain Registry"
     def build_static_site_export_text_report(self, summary: dict, static_text=None) -> str:
@@ -4953,7 +4952,6 @@ def build_review_status_report(status_df: pd.DataFrame, summary: dict) -> str:
         
     def _get_packaging_disclaimer(self) -> str:
         return "Bu cikti offline/local distribution bundle rehearsal ve packaging governance raporudur. Gercek ZIP/archive, package publish, deployment, official handover, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
-\n
     def build_reproducibility_domain_registry_text_report(self, summary: dict, domain_df=None) -> str:
         return "Bu cikti offline/local reproducibility dossier ve build-free reproduction governance raporudur. Gercek build, CI/CD, Docker image, dependency install, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
     def build_reproducibility_dossier_text_report(self, summary: dict, dossier_text=None) -> str:
@@ -4970,4 +4968,3 @@ def build_review_status_report(status_df: pd.DataFrame, summary: dict) -> str:
         return "Bu cikti offline/local reproducibility dossier ve build-free reproduction governance raporudur. Gercek build, CI/CD, Docker image, dependency install, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
     def build_reproducibility_status_report(self, status_df, summary: dict) -> str:
         return "Bu cikti offline/local reproducibility dossier ve build-free reproduction governance raporudur. Gercek build, CI/CD, Docker image, dependency install, canli emir, broker talimati, model deployment veya yatirim tavsiyesi degildir."
-\n

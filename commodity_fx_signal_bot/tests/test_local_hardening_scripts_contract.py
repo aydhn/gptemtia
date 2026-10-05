@@ -5,13 +5,13 @@ from importlib import import_module
 
 def test_local_hardening_scripts_contract():
     scripts = [
-        "commodity_fx_signal_bot.scripts.run_hardening_domain_registry",
-        "commodity_fx_signal_bot.scripts.run_dead_code_review",
-        "commodity_fx_signal_bot.scripts.run_contract_freeze_catalog",
-        "commodity_fx_signal_bot.scripts.run_documentation_freeze",
-        "commodity_fx_signal_bot.scripts.run_rc_dry_run_freeze",
-        "commodity_fx_signal_bot.scripts.run_freeze_quality_report",
-        "commodity_fx_signal_bot.scripts.run_freeze_status"
+        "scripts.run_hardening_domain_registry",
+        "scripts.run_dead_code_review",
+        "scripts.run_contract_freeze_catalog",
+        "scripts.run_documentation_freeze",
+        "scripts.run_rc_dry_run_freeze",
+        "scripts.run_freeze_quality_report",
+        "scripts.run_freeze_status"
     ]
     for s in scripts:
         mod = import_module(s)

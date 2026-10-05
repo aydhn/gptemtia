@@ -1,6 +1,6 @@
 
 import pytest
-from commodity_fx_signal_bot.local_hardening.hardening_models import build_hardening_domain_id, build_dead_code_candidate_id, build_contract_surface_id, build_freeze_manifest_item_id, HardeningDomain, hardening_domain_to_dict
+from local_hardening.hardening_models import build_hardening_domain_id, build_dead_code_candidate_id, build_contract_surface_id, build_freeze_manifest_item_id, HardeningDomain, hardening_domain_to_dict
 
 def test_models():
     assert build_hardening_domain_id("test") == "dom_test"

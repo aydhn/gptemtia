@@ -2,8 +2,8 @@
 import pytest
 import pandas as pd
 from pathlib import Path
-from commodity_fx_signal_bot.local_hardening.documentation_freeze import build_documentation_freeze_snapshot, build_readme_docs_freeze_checklist
-from commodity_fx_signal_bot.local_hardening.hardening_config import get_default_local_hardening_profile
+from local_hardening.documentation_freeze import build_documentation_freeze_snapshot, build_readme_docs_freeze_checklist
+from local_hardening.hardening_config import get_default_local_hardening_profile
 
 def test_documentation_freeze():
     prof = get_default_local_hardening_profile()
