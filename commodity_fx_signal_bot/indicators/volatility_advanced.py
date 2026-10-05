@@ -70,9 +70,7 @@ def calculate_multi_keltner_channels(
     """Calculate Keltner Channels for multiple windows."""
     results = []
     for w in windows:
-        res = calculate_keltner_channels(
-            df, window=w, atr_window=atr_window, multiplier=multiplier
-        )
+        res = calculate_keltner_channels(df, window=w, atr_window=atr_window, multiplier=multiplier)
 
         # Manually add the keltner_width calculation that isn't in the base implementation
         ema = res[f"keltner_mid_{w}"]
@@ -151,6 +149,10 @@ def calculate_garman_klass_volatility(
     # Fix for log of 0 or negative
     close_open_ratio = df["close"] / df["open"].replace(0, np.nan)
     high_low_ratio = df["high"] / df["low"].replace(0, np.nan)
+
+    # Fill NaNs from the zero replacement and protect against negative values before applying np.log
+    close_open_ratio = close_open_ratio.fillna(1e-9).clip(lower=1e-9)
+    high_low_ratio = high_low_ratio.fillna(1e-9).clip(lower=1e-9)
 
     hl_log_sq = np.log(high_low_ratio) ** 2
     co_log_sq = np.log(close_open_ratio) ** 2

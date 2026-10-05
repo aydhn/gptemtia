@@ -145,3 +145,23 @@ def test_calculate_channel_position(sample_ohlcv):
     res = calculate_channel_position(df, "upper", "lower", "test")
     assert "channel_pos_test" in res.columns
     assert len(res) == len(df)
+
+
+def test_calculate_garman_klass_volatility_negative_zero_values():
+    # Test that zero or negative values in the ratio don't cause errors due to np.log
+    df = pd.DataFrame(
+        {
+            "open": [100.0] * 50,
+            "high": [120.0] * 50,
+            "low": [90.0, 0.0, -10.0, 90.0, 90.0] * 10,
+            "close": [110.0] * 50,
+        }
+    )
+    res = calculate_garman_klass_volatility(df, window=20)
+
+    assert "garman_klass_vol_20" in res.columns
+    assert len(res) == len(df)
+
+    # Check that after window size is reached, we don't have NaNs caused by the negative/zero values
+    # The first 19 will be NaN due to the rolling window of 20
+    assert not res["garman_klass_vol_20"].iloc[19:].isna().any()
