@@ -1,11 +1,6 @@
 import argparse
-import sys
 import logging
 import pandas as pd
-from pathlib import Path
-
-# Fix python path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config.settings import settings
 from data.storage.data_lake import DataLake
