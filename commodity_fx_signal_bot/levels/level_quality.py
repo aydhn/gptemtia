@@ -1,5 +1,4 @@
 import pandas as pd
-from levels.level_models import is_valid_level_for_direction
 
 _FORBIDDEN_TRADE_TERMS = [
     "BUY",
@@ -58,24 +57,26 @@ def check_invalid_level_geometry(df: pd.DataFrame) -> dict:
     if df.empty:
         return {"invalid_geometry_count": 0}
 
-    invalid_count = 0
-    for _, row in df.iterrows():
-        bias = row.get("directional_bias", "neutral")
-        price = row.get("latest_close")
-        stop = row.get("theoretical_stop_level")
-        tgt = row.get("theoretical_target_level")
+    is_long = df["directional_bias"].isin(["long_bias_candidate", "bullish"])
+    is_short = df["directional_bias"].isin(["short_bias_candidate", "bearish"])
 
-        if bias in ["neutral", "no_trade_candidate"]:
-            continue
+    price = df["latest_close"]
+    stop = df["theoretical_stop_level"]
+    tgt = df["theoretical_target_level"]
 
-        if pd.notna(stop) and not is_valid_level_for_direction(
-            price, stop, bias, "stop"
-        ):
-            invalid_count += 1
-        elif pd.notna(tgt) and not is_valid_level_for_direction(
-            price, tgt, bias, "target"
-        ):
-            invalid_count += 1
+    valid_price = price.notna() & (price > 0)
+    valid_stop = stop.notna() & (stop > 0)
+    valid_tgt = tgt.notna() & (tgt > 0)
+
+    long_invalid_stop = is_long & valid_price & valid_stop & (stop >= price)
+    long_invalid_tgt = is_long & valid_price & valid_tgt & (tgt <= price)
+    long_invalid = long_invalid_stop | (~long_invalid_stop & long_invalid_tgt)
+
+    short_invalid_stop = is_short & valid_price & valid_stop & (stop <= price)
+    short_invalid_tgt = is_short & valid_price & valid_tgt & (tgt >= price)
+    short_invalid = short_invalid_stop | (~short_invalid_stop & short_invalid_tgt)
+
+    invalid_count = int(long_invalid.sum() + short_invalid.sum())
 
     return {"invalid_geometry_count": invalid_count}
 
@@ -111,9 +112,7 @@ def build_level_quality_report(df: pd.DataFrame, summary: dict) -> dict:
         report["passed"] = False
         return report
 
-    passed_count = len(
-        df[df.get("passed_level_filters", pd.Series(False, index=df.index)) == True]
-    )
+    passed_count = len(df[df.get("passed_level_filters", pd.Series(False, index=df.index))])
     report["passed_level_ratio"] = passed_count / len(df) if len(df) > 0 else 0.0
 
     scores = check_level_score_ranges(df)
