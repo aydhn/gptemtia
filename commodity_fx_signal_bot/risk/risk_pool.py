@@ -1,5 +1,8 @@
+import ast
+from typing import Dict, List, Optional
+
 import pandas as pd
-from typing import List, Dict, Optional
+
 from risk.risk_candidate import RiskPrecheckCandidate, risk_candidate_to_dict
 
 
@@ -27,7 +30,7 @@ class RiskCandidatePool:
             d = row.to_dict()
             for k in ["blocking_reasons", "watchlist_reasons", "warnings"]:
                 if isinstance(d.get(k), str):
-                    d[k] = eval(d[k]) if d[k].startswith("[") else []
+                    d[k] = ast.literal_eval(d[k]) if d[k].startswith("[") else []
             pool.add(RiskPrecheckCandidate(**d))
         return pool
 
@@ -49,35 +52,21 @@ class RiskCandidatePool:
         return {
             "total_risk_candidates": len(df),
             "passed_risk_candidates": int(df["passed_risk_precheck"].sum()),
-            "rejected_risk_candidates": len(
-                df[df["risk_label"] == "risk_rejection_candidate"]
-            ),
-            "watchlist_risk_candidates": len(
-                df[df["risk_label"] == "risk_watchlist_candidate"]
-            ),
-            "by_symbol": (
-                df["symbol"].value_counts().to_dict() if "symbol" in df else {}
-            ),
-            "by_timeframe": (
-                df["timeframe"].value_counts().to_dict() if "timeframe" in df else {}
-            ),
+            "rejected_risk_candidates": len(df[df["risk_label"] == "risk_rejection_candidate"]),
+            "watchlist_risk_candidates": len(df[df["risk_label"] == "risk_watchlist_candidate"]),
+            "by_symbol": (df["symbol"].value_counts().to_dict() if "symbol" in df else {}),
+            "by_timeframe": (df["timeframe"].value_counts().to_dict() if "timeframe" in df else {}),
             "by_strategy_family": (
-                df["strategy_family"].value_counts().to_dict()
-                if "strategy_family" in df
-                else {}
+                df["strategy_family"].value_counts().to_dict() if "strategy_family" in df else {}
             ),
             "by_condition_label": (
-                df["condition_label"].value_counts().to_dict()
-                if "condition_label" in df
-                else {}
+                df["condition_label"].value_counts().to_dict() if "condition_label" in df else {}
             ),
             "by_risk_label": (
                 df["risk_label"].value_counts().to_dict() if "risk_label" in df else {}
             ),
             "by_risk_severity": (
-                df["risk_severity"].value_counts().to_dict()
-                if "risk_severity" in df
-                else {}
+                df["risk_severity"].value_counts().to_dict() if "risk_severity" in df else {}
             ),
             "average_total_pretrade_risk": (
                 float(df["total_pretrade_risk_score"].mean())
@@ -85,8 +74,6 @@ class RiskCandidatePool:
                 else 0.0
             ),
             "average_risk_readiness": (
-                float(df["risk_readiness_score"].mean())
-                if "risk_readiness_score" in df
-                else 0.0
+                float(df["risk_readiness_score"].mean()) if "risk_readiness_score" in df else 0.0
             ),
         }
