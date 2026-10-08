@@ -50,6 +50,7 @@ class OHLCVCleaner:
             "columns_standardized": False,
             "missing_volume_filled": False,
             "sorted_index": False,
+            "high_low_inconsistencies_repaired": 0,
             "warnings": [],
             "errors": [],
         }
@@ -77,8 +78,8 @@ class OHLCVCleaner:
                 pass
 
             if self.options.repair_high_low_inconsistency:
-                # We won't automatically fix high/low by default as instructed
-                pass
+                cleaned_df, repaired_count = self.repair_high_low_inconsistencies(cleaned_df)
+                summary["high_low_inconsistencies_repaired"] = repaired_count
 
         except Exception as e:
             logger.error(f"Error during OHLCV cleaning: {e}")
@@ -117,3 +118,21 @@ class OHLCVCleaner:
         if "volume" in df.columns:
             df["volume"] = df["volume"].fillna(0.0)
         return df
+
+    def repair_high_low_inconsistencies(self, df: pd.DataFrame) -> Tuple[pd.DataFrame, int]:
+        """Ensure high is the maximum and low is the minimum of open, high, low, close."""
+        repaired_count = 0
+        required_cols = {"open", "high", "low", "close"}
+        if required_cols.issubset(df.columns):
+            cols = ["open", "high", "low", "close"]
+            actual_high = df[cols].max(axis=1)
+            actual_low = df[cols].min(axis=1)
+
+            inconsistent = (df["high"] != actual_high) | (df["low"] != actual_low)
+            repaired_count = int(inconsistent.sum())
+
+            if repaired_count > 0:
+                df["high"] = actual_high
+                df["low"] = actual_low
+
+        return df, repaired_count
