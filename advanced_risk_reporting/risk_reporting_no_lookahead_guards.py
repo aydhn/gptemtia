@@ -3,7 +3,10 @@
 
 from typing import Any, Dict, List, Tuple
 import pandas as pd
-from .risk_reporting_config import RiskReportingProfile, get_default_risk_reporting_profile
+from .risk_reporting_config import (
+    RiskReportingProfile,
+    get_default_risk_reporting_profile,
+)
 from .risk_reporting_models import RiskReportingGuardItem
 
 
@@ -37,7 +40,9 @@ def build_risk_reporting_no_lookahead_guard_registry(
     return df, {"guard_count": len(df), "all_active": True}
 
 
-def validate_risk_reporting_no_lookahead_columns(column_names: List[str]) -> Dict[str, Any]:
+def validate_risk_reporting_no_lookahead_columns(
+    column_names: List[str],
+) -> Dict[str, Any]:
     """Validate that no lookahead or future return column exists."""
     lookahead_keywords = [
         "future_return",
@@ -49,7 +54,9 @@ def validate_risk_reporting_no_lookahead_columns(column_names: List[str]) -> Dic
         "shift(-1)",
         "lead_",
     ]
-    violations = [c for c in column_names if any(k in c.lower() for k in lookahead_keywords)]
+    violations = [
+        c for c in column_names if any(k in c.lower() for k in lookahead_keywords)
+    ]
     return {
         "is_valid": len(violations) == 0,
         "violations": violations,
@@ -69,7 +76,9 @@ def validate_no_future_risk_reporting_join(
     # Validation check: right timestamp should be <= left timestamp
     max_right = pd.to_datetime(right_df[right_ts]).max()
     min_left = pd.to_datetime(left_df[left_ts]).min()
-    has_violation = bool(max_right > min_left and len(left_df) > 1 and len(right_df) > 1 and False)
+    has_violation = bool(
+        max_right > min_left and len(left_df) > 1 and len(right_df) > 1
+    )
     return {
         "is_valid": not has_violation,
         "violations_count": 1 if has_violation else 0,
