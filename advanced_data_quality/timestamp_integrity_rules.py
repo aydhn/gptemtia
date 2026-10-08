@@ -1,10 +1,17 @@
-from typing import Tuple, Dict, Any, List
+from typing import Any
+
 import pandas as pd
+
 from advanced_data_quality.data_quality_config import DataQualityProfile
-from advanced_data_quality.data_quality_models import QualityFinding, build_quality_finding_id
+from advanced_data_quality.data_quality_models import (
+    QualityFinding,
+    build_quality_finding_id,
+)
 
 
-def build_timestamp_integrity_rule_set(profile: DataQualityProfile) -> Tuple[pd.DataFrame, Dict[str, Any]]:
+def build_timestamp_integrity_rule_set(
+    profile: DataQualityProfile,
+) -> tuple[pd.DataFrame, dict[str, Any]]:
     rules = [
         {
             "rule_name": "timestamp_parseability",
@@ -24,19 +31,18 @@ def build_timestamp_integrity_rule_set(profile: DataQualityProfile) -> Tuple[pd.
 
 
 def check_timestamp_parseability(
-    df: pd.DataFrame,
-    timestamp_field: str,
-    dataset_type: str,
-    provider_name: str = ""
-) -> List[QualityFinding]:
-    findings: List[QualityFinding] = []
+    df: pd.DataFrame, timestamp_field: str, dataset_type: str, provider_name: str = ""
+) -> list[QualityFinding]:
+    findings: list[QualityFinding] = []
     if df is None or len(df) == 0:
         return findings
 
     if timestamp_field not in df.columns:
         findings.append(
             QualityFinding(
-                finding_id=build_quality_finding_id("rule_ts_missing", dataset_type, timestamp_field),
+                finding_id=build_quality_finding_id(
+                    "rule_ts_missing", dataset_type, timestamp_field
+                ),
                 rule_id="rule_timestamp_integrity_timestamp_parseability",
                 finding_type="finding_timestamp_issue",
                 dataset_type=dataset_type,
@@ -57,7 +63,9 @@ def check_timestamp_parseability(
     if unparseable_count > 0:
         findings.append(
             QualityFinding(
-                finding_id=build_quality_finding_id("rule_ts_unparseable", dataset_type, timestamp_field),
+                finding_id=build_quality_finding_id(
+                    "rule_ts_unparseable", dataset_type, timestamp_field
+                ),
                 rule_id="rule_timestamp_integrity_timestamp_parseability",
                 finding_type="finding_timestamp_issue",
                 dataset_type=dataset_type,
@@ -66,7 +74,7 @@ def check_timestamp_parseability(
                 severity_label="quality_high",
                 status_label="quality_fail",
                 message=f"Timestamp field '{timestamp_field}' has {unparseable_count} invalid/unparseable values.",
-                recommendation=f"Standardize date formats in Phase 113 Normalization Layer.",
+                recommendation="Standardize date formats in Phase 113 Normalization Layer.",
                 future_phase_owner="Phase 113",
                 manual_review_required=True,
             )
@@ -77,11 +85,11 @@ def check_timestamp_parseability(
 def check_timestamp_ordering(
     df: pd.DataFrame,
     timestamp_field: str,
-    key_fields: List[str],
+    key_fields: list[str],
     dataset_type: str,
-    provider_name: str = ""
-) -> List[QualityFinding]:
-    findings: List[QualityFinding] = []
+    provider_name: str = "",
+) -> list[QualityFinding]:
+    findings: list[QualityFinding] = []
     if df is None or len(df) <= 1 or timestamp_field not in df.columns:
         return findings
 
@@ -95,7 +103,11 @@ def check_timestamp_ordering(
                 if not ts.is_monotonic_increasing:
                     findings.append(
                         QualityFinding(
-                            finding_id=build_quality_finding_id("rule_ts_not_monotonic", dataset_type, f"{name}_{timestamp_field}"),
+                            finding_id=build_quality_finding_id(
+                                "rule_ts_not_monotonic",
+                                dataset_type,
+                                f"{name}_{timestamp_field}",
+                            ),
                             rule_id="rule_timestamp_integrity_timestamp_ordering",
                             finding_type="finding_timestamp_issue",
                             dataset_type=dataset_type,
@@ -115,7 +127,11 @@ def check_timestamp_ordering(
             if not ts.is_monotonic_increasing:
                 findings.append(
                     QualityFinding(
-                        finding_id=build_quality_finding_id("rule_ts_global_not_monotonic", dataset_type, timestamp_field),
+                        finding_id=build_quality_finding_id(
+                            "rule_ts_global_not_monotonic",
+                            dataset_type,
+                            timestamp_field,
+                        ),
                         rule_id="rule_timestamp_integrity_timestamp_ordering",
                         finding_type="finding_timestamp_issue",
                         dataset_type=dataset_type,
@@ -129,12 +145,29 @@ def check_timestamp_ordering(
                         manual_review_required=True,
                     )
                 )
-    except Exception:
-        pass
+    except Exception as exc:
+        findings.append(
+            QualityFinding(
+                finding_id=build_quality_finding_id(
+                    "rule_ts_ordering_err", dataset_type, timestamp_field
+                ),
+                rule_id="rule_timestamp_integrity_timestamp_ordering",
+                finding_type="finding_timestamp_issue",
+                dataset_type=dataset_type,
+                provider_name=provider_name or "unknown_provider",
+                field_name=timestamp_field,
+                severity_label="quality_medium",
+                status_label="quality_pass_with_warnings",
+                message=f"Could not compute timestamp ordering: {exc}",
+                recommendation="Normalize timestamp format in Phase 113.",
+                future_phase_owner="Phase 113",
+                manual_review_required=True,
+            )
+        )
     return findings
 
 
-def summarize_timestamp_integrity_rules(df: pd.DataFrame) -> Dict[str, Any]:
+def summarize_timestamp_integrity_rules(df: pd.DataFrame) -> dict[str, Any]:
     return {
         "rule_count": len(df),
         "rules": df["rule_name"].tolist() if "rule_name" in df.columns else [],

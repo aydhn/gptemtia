@@ -1,4 +1,5 @@
-from typing import Dict, Any, Optional
+from typing import Any
+
 import pandas as pd
 
 
@@ -13,12 +14,13 @@ def build_data_quality_disclaimer() -> str:
     )
 
 
-def _df_to_markdown(df: Optional[pd.DataFrame]) -> str:
+def _df_to_markdown(df: pd.DataFrame | None) -> str:
     if df is None or df.empty:
         return ""
     try:
         return df.to_markdown(index=False)
     except Exception:
+        # Fallback to manual markdown generation if tabulate is missing or fails
         cols = list(df.columns)
         header = "| " + " | ".join(str(c) for c in cols) + " |"
         sep = "| " + " | ".join("---" for _ in cols) + " |"
@@ -29,8 +31,7 @@ def _df_to_markdown(df: Optional[pd.DataFrame]) -> str:
 
 
 def build_data_quality_profile_markdown_report(
-    summary: Dict[str, Any],
-    profile_df: Optional[pd.DataFrame] = None
+    summary: dict[str, Any], profile_df: pd.DataFrame | None = None
 ) -> str:
     lines = [
         "# Data Quality Profile Registry Report",
@@ -53,8 +54,7 @@ def build_data_quality_profile_markdown_report(
 
 
 def build_quality_rule_registry_markdown_report(
-    summary: Dict[str, Any],
-    rules_df: Optional[pd.DataFrame] = None
+    summary: dict[str, Any], rules_df: pd.DataFrame | None = None
 ) -> str:
     lines = [
         "# Quality Rule Registry Report",
@@ -74,8 +74,7 @@ def build_quality_rule_registry_markdown_report(
 
 
 def build_quality_findings_markdown_report(
-    summary: Dict[str, Any],
-    findings_df: Optional[pd.DataFrame] = None
+    summary: dict[str, Any], findings_df: pd.DataFrame | None = None
 ) -> str:
     lines = [
         "# Quality Findings Registry Report",
@@ -99,8 +98,7 @@ def build_quality_findings_markdown_report(
 
 
 def build_manual_review_queue_markdown_report(
-    summary: Dict[str, Any],
-    review_df: Optional[pd.DataFrame] = None
+    summary: dict[str, Any], review_df: pd.DataFrame | None = None
 ) -> str:
     lines = [
         "# Manual Review Queue Report",
@@ -122,8 +120,7 @@ def build_manual_review_queue_markdown_report(
 
 
 def build_provider_quality_score_markdown_report(
-    summary: Dict[str, Any],
-    score_df: Optional[pd.DataFrame] = None
+    summary: dict[str, Any], score_df: pd.DataFrame | None = None
 ) -> str:
     lines = [
         "# Provider Quality Score Report",
@@ -145,8 +142,7 @@ def build_provider_quality_score_markdown_report(
 
 
 def build_dataset_quality_score_markdown_report(
-    summary: Dict[str, Any],
-    score_df: Optional[pd.DataFrame] = None
+    summary: dict[str, Any], score_df: pd.DataFrame | None = None
 ) -> str:
     lines = [
         "# Dataset Quality Score Report",
@@ -166,8 +162,7 @@ def build_dataset_quality_score_markdown_report(
 
 
 def build_data_quality_health_markdown_report(
-    summary: Dict[str, Any],
-    health_df: Optional[pd.DataFrame] = None
+    summary: dict[str, Any], health_df: pd.DataFrame | None = None
 ) -> str:
     lines = [
         "# Data Quality Health Check Report",
@@ -189,8 +184,7 @@ def build_data_quality_health_markdown_report(
 
 
 def build_data_quality_validation_markdown_report(
-    summary: Dict[str, Any],
-    val_df: Optional[pd.DataFrame] = None
+    summary: dict[str, Any], val_df: pd.DataFrame | None = None
 ) -> str:
     lines = [
         "# Data Quality Validation Report",
@@ -212,8 +206,7 @@ def build_data_quality_validation_markdown_report(
 
 
 def build_data_quality_safety_markdown_report(
-    summary: Dict[str, Any],
-    safety_df: Optional[pd.DataFrame] = None
+    summary: dict[str, Any], safety_df: pd.DataFrame | None = None
 ) -> str:
     lines = [
         "# Data Quality Safety Boundary Report",
@@ -234,8 +227,7 @@ def build_data_quality_safety_markdown_report(
 
 
 def build_phase_113_handoff_markdown_report(
-    summary: Dict[str, Any],
-    handoff_df: Optional[pd.DataFrame] = None
+    summary: dict[str, Any], handoff_df: pd.DataFrame | None = None
 ) -> str:
     lines = [
         "# Phase 113 Normalization Handoff Report",
