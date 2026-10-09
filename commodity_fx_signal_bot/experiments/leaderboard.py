@@ -1,25 +1,7 @@
 import pandas as pd
+
 from experiments.experiment_config import ExperimentProfile
 
-def calculate_leaderboard_score(row: pd.Series) -> float:
-    score = 0.0
-    weight = 0.0
-
-    # Priority metrics
-    if "quality_adjusted_score" in row and pd.notna(row["quality_adjusted_score"]):
-        score += row["quality_adjusted_score"] * 0.4
-        weight += 0.4
-    if "validation_score" in row and pd.notna(row["validation_score"]):
-        score += row["validation_score"] * 0.3
-        weight += 0.3
-    if "reproducibility_score" in row and pd.notna(row["reproducibility_score"]):
-        score += row["reproducibility_score"] * 0.2
-        weight += 0.2
-    if "consensus_score" in row and pd.notna(row["consensus_score"]):
-        score += row["consensus_score"] * 0.1
-        weight += 0.1
-
-    return score / weight if weight > 0 else 0.0
 
 def assign_leaderboard_rank_labels(leaderboard_df: pd.DataFrame) -> pd.DataFrame:
     df = leaderboard_df.copy()
@@ -42,12 +24,35 @@ def assign_leaderboard_rank_labels(leaderboard_df: pd.DataFrame) -> pd.DataFrame
     df["rank_label"] = df["leaderboard_score"].apply(get_label)
     return df
 
-def build_experiment_leaderboard(metric_df: pd.DataFrame, profile: ExperimentProfile) -> pd.DataFrame:
+def build_experiment_leaderboard(
+    metric_df: pd.DataFrame, profile: ExperimentProfile
+) -> pd.DataFrame:
     if metric_df.empty:
         return pd.DataFrame()
 
     df = metric_df.copy()
-    df["leaderboard_score"] = df.apply(calculate_leaderboard_score, axis=1)
+
+    score = pd.Series(0.0, index=df.index)
+    weight = pd.Series(0.0, index=df.index)
+
+    if "quality_adjusted_score" in df.columns:
+        mask = df["quality_adjusted_score"].notna()
+        score += df["quality_adjusted_score"].fillna(0.0) * mask * 0.4
+        weight += mask * 0.4
+    if "validation_score" in df.columns:
+        mask = df["validation_score"].notna()
+        score += df["validation_score"].fillna(0.0) * mask * 0.3
+        weight += mask * 0.3
+    if "reproducibility_score" in df.columns:
+        mask = df["reproducibility_score"].notna()
+        score += df["reproducibility_score"].fillna(0.0) * mask * 0.2
+        weight += mask * 0.2
+    if "consensus_score" in df.columns:
+        mask = df["consensus_score"].notna()
+        score += df["consensus_score"].fillna(0.0) * mask * 0.1
+        weight += mask * 0.1
+
+    df["leaderboard_score"] = (score / weight).fillna(0.0)
 
     # Sort
     df = df.sort_values(by="leaderboard_score", ascending=False).reset_index(drop=True)
@@ -73,5 +78,7 @@ def summarize_leaderboard(leaderboard_df: pd.DataFrame) -> dict:
         "total_runs": len(leaderboard_df),
         "top_score": leaderboard_df["leaderboard_score"].max(),
         "median_score": leaderboard_df["leaderboard_score"].median(),
-        "by_rank_label": leaderboard_df["rank_label"].value_counts().to_dict() if "rank_label" in leaderboard_df.columns else {}
+        "by_rank_label": leaderboard_df["rank_label"].value_counts().to_dict()
+        if "rank_label" in leaderboard_df.columns
+        else {}
     }
