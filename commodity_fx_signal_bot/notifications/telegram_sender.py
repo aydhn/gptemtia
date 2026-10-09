@@ -24,10 +24,8 @@ class TelegramSender:
         parts = self.formatter.split_message(formatted_text)
 
         results = []
+        messages_sent = 0
         for i, part in enumerate(parts):
-            if i > 0 and self.profile.rate_limit_seconds > 0:
-                time.sleep(self.profile.rate_limit_seconds)
-
             if self.profile.dry_run:
                 logger.info(f"Dry run enabled. Skipping Telegram delivery for {message.message_id} part {i+1}")
                 results.append(DeliveryResult(
@@ -49,7 +47,10 @@ class TelegramSender:
                     error_message="Telegram bot token or chat ID is missing."
                 ))
             else:
+                if messages_sent > 0 and self.profile.rate_limit_seconds > 0:
+                    time.sleep(self.profile.rate_limit_seconds)
                 resp = self.client.send_message(part)
+                messages_sent += 1
                 results.append(DeliveryResult(
                     message_id=message.message_id,
                     delivery_status=resp["status"],
