@@ -19,8 +19,9 @@ def list_provider_domain_labels():
         "provider_safety_domain",
         "provider_health_domain",
         "provider_quality_domain",
-        "unknown_provider_domain"
+        "unknown_provider_domain",
     ]
+
 
 def list_provider_type_labels():
     return [
@@ -31,8 +32,9 @@ def list_provider_type_labels():
         "provider_licensed_placeholder",
         "provider_public_package_placeholder",
         "provider_user_supplied_dataset",
-        "provider_unknown"
+        "provider_unknown",
     ]
+
 
 def list_provider_asset_coverage_labels():
     return [
@@ -46,8 +48,9 @@ def list_provider_asset_coverage_labels():
         "coverage_economic_calendar",
         "coverage_news_metadata",
         "coverage_cross_asset",
-        "coverage_unknown"
+        "coverage_unknown",
     ]
+
 
 def list_provider_data_type_labels():
     return [
@@ -58,8 +61,9 @@ def list_provider_data_type_labels():
         "data_news_metadata",
         "data_symbol_metadata",
         "data_provider_metadata",
-        "data_unknown"
+        "data_unknown",
     ]
+
 
 def list_provider_status_labels():
     return [
@@ -69,8 +73,9 @@ def list_provider_status_labels():
         "provider_missing",
         "provider_blocked_by_no_scraping_boundary",
         "provider_needs_manual_review",
-        "provider_unknown"
+        "provider_unknown",
     ]
+
 
 def list_provider_risk_labels():
     return [
@@ -79,12 +84,59 @@ def list_provider_risk_labels():
         "provider_medium_risk",
         "provider_low_risk",
         "provider_info",
-        "provider_unknown_risk"
+        "provider_unknown_risk",
     ]
 
-def validate_provider_domain_label(label: str): pass
-def validate_provider_type_label(label: str): pass
-def validate_provider_asset_coverage_label(label: str): pass
-def validate_provider_data_type_label(label: str): pass
-def validate_provider_status(label: str): pass
-def validate_provider_risk_label(label: str): pass
+
+def validate_provider_domain_label(label: str) -> bool:
+    valid_labels = list_provider_domain_labels()
+    if label not in valid_labels:
+        raise ValueError(
+            f"Invalid provider domain label: '{label}'. Must be one of {valid_labels}"
+        )
+    return True
+
+
+def validate_provider_type_label(label: str) -> bool:
+    valid_labels = list_provider_type_labels()
+    if label not in valid_labels:
+        raise ValueError(
+            f"Invalid provider type label: '{label}'. Must be one of {valid_labels}"
+        )
+    return True
+
+
+def validate_provider_asset_coverage_label(label: str) -> bool:
+    valid_labels = list_provider_asset_coverage_labels()
+    if label not in valid_labels:
+        raise ValueError(
+            f"Invalid provider asset coverage label: '{label}'. Must be one of {valid_labels}"
+        )
+    return True
+
+
+def validate_provider_data_type_label(label: str) -> bool:
+    valid_labels = list_provider_data_type_labels()
+    if label not in valid_labels:
+        raise ValueError(
+            f"Invalid provider data type label: '{label}'. Must be one of {valid_labels}"
+        )
+    return True
+
+
+def validate_provider_status(label: str) -> bool:
+    valid_labels = list_provider_status_labels()
+    if label not in valid_labels:
+        raise ValueError(
+            f"Invalid provider status label: '{label}'. Must be one of {valid_labels}"
+        )
+    return True
+
+
+def validate_provider_risk_label(label: str) -> bool:
+    valid_labels = list_provider_risk_labels()
+    if label not in valid_labels:
+        raise ValueError(
+            f"Invalid provider risk label: '{label}'. Must be one of {valid_labels}"
+        )
+    return True
