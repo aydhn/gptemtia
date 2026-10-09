@@ -1,19 +1,22 @@
 """Tests for Phase 132 Macro/Event/News Context Findings."""
 
 from advanced_macro_event_news_regime.macro_event_news_context_findings import (
-    create_macro_event_news_context_finding,
+    FindingParams,
     build_macro_event_news_context_findings_registry,
+    create_macro_event_news_context_finding,
     summarize_macro_event_news_context_findings,
 )
 
 
 def test_create_macro_event_news_context_finding():
     finding = create_macro_event_news_context_finding(
-        finding_type="test_finding",
-        context_type="macro_indicator_context",
-        severity_label="info",
-        message="Test message",
-        recommendation="Test recommendation",
+        params=FindingParams(
+            finding_type="test_finding",
+            context_type="macro_indicator_context",
+            severity_label="info",
+            message="Test message",
+            recommendation="Test recommendation",
+        )
     )
     assert finding.finding_id.startswith("find_")
     assert finding.destructive_action_allowed is False
