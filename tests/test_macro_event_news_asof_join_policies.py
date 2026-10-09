@@ -4,6 +4,7 @@ import pandas as pd
 from advanced_macro_event_news_regime.macro_event_news_asof_join_policies import (
     build_macro_event_news_asof_join_policy_registry,
     safe_macro_event_news_asof_join_backward,
+    AsofJoinConfig,
     summarize_macro_event_news_asof_join_policies,
 )
 
@@ -30,8 +31,10 @@ def test_safe_macro_event_news_asof_join_backward():
     merged = safe_macro_event_news_asof_join_backward(
         left_df=left,
         right_df=right,
-        left_on="time",
-        right_on="pub_time",
+        config=AsofJoinConfig(
+            left_on="time",
+            right_on="pub_time"
+        )
     )
     assert len(merged) == 3
     assert merged.loc[merged["time"] == "2026-01-01 10:00:00", "macro_val"].values[0] == 50.0
