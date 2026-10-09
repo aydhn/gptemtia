@@ -1,4 +1,6 @@
-from typing import Tuple, Dict, Any, List
+from typing import Any
+
+import numpy as np
 import pandas as pd
 
 from advanced_feature_fusion.fusion_feature_config import (
@@ -6,8 +8,7 @@ from advanced_feature_fusion.fusion_feature_config import (
     get_default_fusion_feature_profile,
 )
 
-
-NEWS_TOPIC_FEATURES: List[Dict[str, Any]] = [
+NEWS_TOPIC_FEATURES: list[dict[str, Any]] = [
     {
         "feature_name": "news_topic_flag_placeholder",
         "fusion_family": "fusion_family_news_metadata",
@@ -27,7 +28,7 @@ NEWS_TOPIC_FEATURES: List[Dict[str, Any]] = [
 
 def build_news_topic_feature_fusion_registry(
     profile: FusionFeatureProfile | None = None,
-) -> Tuple[pd.DataFrame, Dict[str, Any]]:
+) -> tuple[pd.DataFrame, dict[str, Any]]:
     active_profile = profile or get_default_fusion_feature_profile()
     df = pd.DataFrame(NEWS_TOPIC_FEATURES)
     summary = summarize_news_topic_feature_fusion(df)
@@ -46,7 +47,12 @@ def add_news_topic_flag_placeholder(
     target_topic = topic_value or "rates"
     col = output_field or f"has_topic_{target_topic}"
     if topic_field in result.columns:
-        result[col] = result[topic_field].astype(str).str.lower().str.contains(target_topic.lower())
+        result[col] = (
+            result[topic_field]
+            .astype(str)
+            .str.lower()
+            .str.contains(target_topic.lower())
+        )
     else:
         result[col] = False
     return result
@@ -59,15 +65,15 @@ def add_news_topic_count_placeholder(
 ) -> pd.DataFrame:
     result = df.copy()
     if topic_field in result.columns:
-        result[output_field] = result[topic_field].apply(
-            lambda x: len(str(x).split(",")) if pd.notna(x) and str(x).strip() != "" else 0
-        )
+        s_str = result[topic_field].fillna("").astype(str)
+        counts = s_str.str.count(",") + 1
+        result[output_field] = np.where(s_str.str.strip() == "", 0, counts)
     else:
         result[output_field] = 0
     return result
 
 
-def summarize_news_topic_feature_fusion(df: pd.DataFrame) -> Dict[str, Any]:
+def summarize_news_topic_feature_fusion(df: pd.DataFrame) -> dict[str, Any]:
     if df.empty:
         return {"total_features": 0, "status": "EMPTY"}
     return {
