@@ -1,12 +1,14 @@
 from dataclasses import dataclass
-import pandas as pd
+
 import numpy as np
+import pandas as pd
+
 from signals.signal_taxonomy import (
-    infer_event_group,
-    infer_directional_bias,
     infer_candidate_type,
-    is_warning_event,
+    infer_directional_bias,
+    infer_event_group,
     is_context_event,
+    is_warning_event,
 )
 
 
@@ -41,16 +43,24 @@ def normalize_event_frame(
 
     normalized_rows = []
 
-    # Process row by row for the timeframe
-    for idx, row in event_df.iterrows():
-        timestamp_str = str(idx)
+    columns = event_df.columns
+    # Pre-calculate mapping dictionaries for functions since the set of columns is small
+    bias_map = {col: infer_directional_bias(col) for col in columns}
+    type_map = {col: infer_candidate_type(col) for col in columns}
+    group_map = {col: event_group if event_group else infer_event_group(col) for col in columns}
+    warning_map = {col: is_warning_event(col) for col in columns}
+    context_map = {col: is_context_event(col) for col in columns}
 
-        for col in event_df.columns:
-            val = row[col]
+    # Process row by row for the timeframe using itertuples
+    for row in event_df.itertuples():
+        timestamp_str = str(row[0])
 
+        # Iterate over values (skipping index at row[0])
+        for idx, val in enumerate(row[1:]):
             if pd.isna(val) or val == 0 or val is False:
                 continue
 
+            col = columns[idx]
             raw_value = float(val)
             normalized_strength = (
                 1.0
@@ -58,24 +68,20 @@ def normalize_event_frame(
                 else min(max(abs(raw_value), 0.0), 1.0)
             )
 
-            bias = infer_directional_bias(col)
-            cand_type = infer_candidate_type(col)
-            group = event_group if event_group else infer_event_group(col)
-
             normalized_rows.append(
                 {
                     "symbol": symbol,
                     "timeframe": timeframe,
                     "timestamp": timestamp_str,
                     "event_name": col,
-                    "event_group": group,
-                    "directional_bias": bias,
-                    "candidate_type": cand_type,
-                    "is_warning": is_warning_event(col),
-                    "is_context": is_context_event(col),
+                    "event_group": group_map[col],
+                    "directional_bias": bias_map[col],
+                    "candidate_type": type_map[col],
+                    "is_warning": warning_map[col],
+                    "is_context": context_map[col],
                     "raw_value": raw_value,
                     "normalized_strength": normalized_strength,
-                    "source_feature_set": f"{group}_events",
+                    "source_feature_set": f"{group_map[col]}_events",
                 }
             )
 
