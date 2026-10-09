@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Unit tests for Phase 153 Pipeline, Integrations, and Handoff."""
 
+from unittest.mock import MagicMock
 from advanced_portfolio_construction.portfolio_construction_config import (
     get_default_portfolio_construction_profile,
 )
@@ -132,3 +133,12 @@ def test_data_lake_and_feature_store_integration():
     assert hasattr(fs, "load_position_sizing_contract_registry")
     assert hasattr(fs, "load_risk_budget_contract_registry")
     assert hasattr(fs, "load_phase_154_handoff")
+
+
+def test_pipeline_run_all_with_save_error():
+    lake = DataLake()
+    lake.save_portfolio_construction_table = MagicMock(side_effect=Exception("Mocked save error"))
+    results = run_portfolio_construction_pipeline(save_artifacts=True, data_lake=lake)
+    assert len(results) >= 70
+    assert "profiles" in results
+    lake.save_portfolio_construction_table.assert_called()
