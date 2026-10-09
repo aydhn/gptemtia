@@ -120,48 +120,68 @@ def list_macro_event_news_regime_profiles(enabled_only: bool = True) -> List[str
     return list(MACRO_EVENT_NEWS_REGIME_PROFILES.keys())
 
 
+def _validate_phases(name: str, profile: MacroEventNewsRegimeProfile) -> None:
+    if profile.current_phase != 132:
+        raise ValueError(f"Profile {name} current_phase must be 132, got {profile.current_phase}")
+    if profile.target_final_phase != 160:
+        raise ValueError(f"Profile {name} target_final_phase must be 160, got {profile.target_final_phase}")
+    if profile.next_phase != 133:
+        raise ValueError(f"Profile {name} next_phase must be 133, got {profile.next_phase}")
+
+
+def _validate_environment(name: str, profile: MacroEventNewsRegimeProfile) -> None:
+    if not profile.local_only or not profile.non_production or not profile.research_only:
+        raise ValueError(f"Profile {name} must enforce local_only, non_production, and research_only")
+
+
+def _validate_trading_and_signals(name: str, profile: MacroEventNewsRegimeProfile) -> None:
+    if profile.allow_live_trading or profile.allow_broker_integration or profile.allow_real_order:
+        raise ValueError(f"Profile {name} cannot allow trading or broker integration")
+    if (
+        profile.allow_macro_context_as_signal
+        or profile.allow_event_context_as_signal
+        or profile.allow_news_context_as_signal
+    ):
+        raise ValueError(f"Profile {name} cannot allow macro, event, or news context as signals")
+    if profile.allow_directional_claim:
+        raise ValueError(f"Profile {name} cannot allow directional claims")
+
+
+def _validate_modeling(name: str, profile: MacroEventNewsRegimeProfile) -> None:
+    if profile.allow_model_training or profile.allow_model_fit or profile.allow_model_predict:
+        raise ValueError(f"Profile {name} cannot allow model training, fit, or predict")
+    if profile.allow_clustering_execution or profile.allow_unsupervised_execution:
+        raise ValueError(f"Profile {name} cannot allow clustering or unsupervised execution")
+    if profile.allow_target_label_generation or profile.allow_prediction_generation:
+        raise ValueError(f"Profile {name} cannot allow target label or prediction generation")
+    if profile.allow_sentiment_model_output:
+        raise ValueError(f"Profile {name} cannot allow sentiment model output")
+
+
+def _validate_data_usage(name: str, profile: MacroEventNewsRegimeProfile) -> None:
+    if (
+        profile.allow_full_article_usage
+        or profile.allow_article_body_usage
+        or profile.allow_raw_content_usage
+        or profile.allow_scraped_html_usage
+    ):
+        raise ValueError(f"Profile {name} cannot allow full article, article body, raw content, or scraped html")
+    if profile.allow_embedding_generation or profile.allow_vector_db:
+        raise ValueError(f"Profile {name} cannot allow embedding or vector database")
+    if profile.allow_source_overwrite or profile.allow_auto_destructive_cleaning:
+        raise ValueError(f"Profile {name} cannot allow source overwrite or destructive cleaning")
+    if profile.allow_auto_imputation or profile.allow_auto_feature_drop:
+        raise ValueError(f"Profile {name} cannot allow auto imputation or feature dropping")
+
+
 def validate_macro_event_news_regime_profiles() -> bool:
     """Validate all operational profiles satisfy strict non-signal Phase 132 invariants."""
     for name, profile in MACRO_EVENT_NEWS_REGIME_PROFILES.items():
-        if profile.current_phase != 132:
-            raise ValueError(f"Profile {name} current_phase must be 132, got {profile.current_phase}")
-        if profile.target_final_phase != 160:
-            raise ValueError(f"Profile {name} target_final_phase must be 160, got {profile.target_final_phase}")
-        if profile.next_phase != 133:
-            raise ValueError(f"Profile {name} next_phase must be 133, got {profile.next_phase}")
-        if not profile.local_only or not profile.non_production or not profile.research_only:
-            raise ValueError(f"Profile {name} must enforce local_only, non_production, and research_only")
-        if profile.allow_live_trading or profile.allow_broker_integration or profile.allow_real_order:
-            raise ValueError(f"Profile {name} cannot allow trading or broker integration")
-        if (
-            profile.allow_macro_context_as_signal
-            or profile.allow_event_context_as_signal
-            or profile.allow_news_context_as_signal
-        ):
-            raise ValueError(f"Profile {name} cannot allow macro, event, or news context as signals")
-        if profile.allow_directional_claim:
-            raise ValueError(f"Profile {name} cannot allow directional claims")
-        if profile.allow_model_training or profile.allow_model_fit or profile.allow_model_predict:
-            raise ValueError(f"Profile {name} cannot allow model training, fit, or predict")
-        if profile.allow_clustering_execution or profile.allow_unsupervised_execution:
-            raise ValueError(f"Profile {name} cannot allow clustering or unsupervised execution")
-        if profile.allow_target_label_generation or profile.allow_prediction_generation:
-            raise ValueError(f"Profile {name} cannot allow target label or prediction generation")
-        if profile.allow_sentiment_model_output:
-            raise ValueError(f"Profile {name} cannot allow sentiment model output")
-        if (
-            profile.allow_full_article_usage
-            or profile.allow_article_body_usage
-            or profile.allow_raw_content_usage
-            or profile.allow_scraped_html_usage
-        ):
-            raise ValueError(f"Profile {name} cannot allow full article, article body, raw content, or scraped html")
-        if profile.allow_embedding_generation or profile.allow_vector_db:
-            raise ValueError(f"Profile {name} cannot allow embedding or vector database")
-        if profile.allow_source_overwrite or profile.allow_auto_destructive_cleaning:
-            raise ValueError(f"Profile {name} cannot allow source overwrite or destructive cleaning")
-        if profile.allow_auto_imputation or profile.allow_auto_feature_drop:
-            raise ValueError(f"Profile {name} cannot allow auto imputation or feature dropping")
+        _validate_phases(name, profile)
+        _validate_environment(name, profile)
+        _validate_trading_and_signals(name, profile)
+        _validate_modeling(name, profile)
+        _validate_data_usage(name, profile)
     return True
 
 
